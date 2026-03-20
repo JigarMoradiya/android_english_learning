@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.min
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.StrokeSegment
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.distance
+import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.drawArrow
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.scale
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterTracingUiState
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterTracingViewModel
@@ -34,7 +35,6 @@ import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
-
 @Composable
 fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
 
@@ -46,22 +46,16 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
     ) {
 
         val sizePx = min(constraints.maxWidth, constraints.maxHeight).toFloat()
-
         val frame = Rect(0f, 0f, sizePx, sizePx)
-
         val guides = viewModel.getGuides(frame)
-
         val strokeWidth = sizePx * 0.085f
 
         Canvas(
             modifier = Modifier
                 .size(min(maxWidth, maxHeight))
                 .pointerInput(Unit) {
-
                     detectDragGestures(
-                        onDragStart = {
-                            viewModel.startStroke(it)
-                        },
+                        onDragStart = { viewModel.startStroke(it) },
                         onDrag = { change, _ ->
                             viewModel.updateStroke(change.position)
                         }
@@ -70,15 +64,13 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
         ) {
 
             // -------------------------------
-            // 1️⃣ BLACK base letter (UNCHANGED)
+            // 1️⃣ BASE LETTER
             // -------------------------------
             guides.forEach { stroke ->
 
                 val path = Path().apply {
                     moveTo(stroke.first().x, stroke.first().y)
-                    stroke.drop(1).forEach {
-                        lineTo(it.x, it.y)
-                    }
+                    stroke.drop(1).forEach { lineTo(it.x, it.y) }
                 }
 
                 drawPath(
@@ -92,16 +84,14 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                 )
             }
 
-            // ---------------------------------------
-            // 2️⃣ WHITE DASH (ONLY CURRENT STROKE) ✅
-            // ---------------------------------------
+            // -------------------------------
+            // 2️⃣ DASH GUIDE
+            // -------------------------------
             guides.getOrNull(uiState.strokeIndex)?.let { stroke ->
 
                 val path = Path().apply {
                     moveTo(stroke.first().x, stroke.first().y)
-                    stroke.drop(1).forEach {
-                        lineTo(it.x, it.y)
-                    }
+                    stroke.drop(1).forEach { lineTo(it.x, it.y) }
                 }
 
                 drawPath(
@@ -109,27 +99,37 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                     color = Color.White.copy(alpha = 0.9f),
                     style = Stroke(
                         width = strokeWidth * 0.12f,
-                        cap = StrokeCap.Round, // 👈 IMPORTANT (makes dots)
+                        cap = StrokeCap.Round,
                         join = StrokeJoin.Round,
                         pathEffect = PathEffect.dashPathEffect(
-                            floatArrayOf(6f, 10f) // 👈 small = dot effect
+                            floatArrayOf(6f, 10f)
                         )
                     )
                 )
             }
 
             // -------------------------------
-            // 3️⃣ RED finished strokes
+            // 3️⃣ FINISHED STROKES (GLOW)
             // -------------------------------
             uiState.finishedStrokes.forEach { stroke ->
 
                 val path = Path().apply {
                     moveTo(stroke.first().x, stroke.first().y)
-                    stroke.drop(1).forEach {
-                        lineTo(it.x, it.y)
-                    }
+                    stroke.drop(1).forEach { lineTo(it.x, it.y) }
                 }
 
+                // glow
+                drawPath(
+                    path = path,
+                    color = Color.Red.copy(alpha = 0.25f),
+                    style = Stroke(
+                        width = strokeWidth * 1.4f,
+                        cap = StrokeCap.Round,
+                        join = StrokeJoin.Round
+                    )
+                )
+
+                // main
                 drawPath(
                     path = path,
                     color = Color.Red,
@@ -142,19 +142,48 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
             }
 
             // -------------------------------
-            // 4️⃣ CURRENT stroke
+            // 4️⃣ CURRENT STROKE (SMOOTH + GLOW)
             // -------------------------------
-            if (uiState.drawnPoints.isNotEmpty()) {
+            if (uiState.drawnPoints.size > 1) {
 
-                val path = Path().apply {
-                    moveTo(uiState.drawnPoints.first().x, uiState.drawnPoints.first().y)
-                    uiState.drawnPoints.drop(1).forEach {
-                        lineTo(it.x, it.y)
+                val points = uiState.drawnPoints
+
+                val smoothPath = Path().apply {
+
+                    moveTo(points.first().x, points.first().y)
+
+                    for (i in 1 until points.size) {
+                        val prev = points[i - 1]
+                        val curr = points[i]
+
+                        val mid = Offset(
+                            (prev.x + curr.x) / 2,
+                            (prev.y + curr.y) / 2
+                        )
+
+                        quadraticBezierTo(
+                            prev.x,
+                            prev.y,
+                            mid.x,
+                            mid.y
+                        )
                     }
                 }
 
+                // glow
                 drawPath(
-                    path = path,
+                    path = smoothPath,
+                    color = Color.Red.copy(alpha = 0.25f),
+                    style = Stroke(
+                        width = strokeWidth * 1.6f,
+                        cap = StrokeCap.Round,
+                        join = StrokeJoin.Round
+                    )
+                )
+
+                // main
+                drawPath(
+                    path = smoothPath,
                     color = Color.Red,
                     style = Stroke(
                         width = strokeWidth,
@@ -162,11 +191,17 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                         join = StrokeJoin.Round
                     )
                 )
+
+                // 👉 finger follower dot
+                drawCircle(
+                    color = Color.Red,
+                    radius = strokeWidth * 0.2f,
+                    center = points.last()
+                )
             }
 
-
             // -------------------------------
-            // 5️⃣ START DOT + ARROW (FIXED) ✅
+            // 5️⃣ START DOT + ARROW + PROGRESS DOT
             // -------------------------------
             val isCompleted = uiState.strokeIndex >= guides.size
 
@@ -174,12 +209,12 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
 
                 val currentStroke = guides.getOrNull(uiState.strokeIndex)
 
+                // progress dot
                 if (
                     currentStroke != null &&
                     uiState.progressIndex > 0 &&
                     uiState.progressIndex < currentStroke.size
                 ) {
-
                     val point = currentStroke[uiState.progressIndex]
 
                     drawCircle(
@@ -189,12 +224,15 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                     )
                 }
 
+                // start dot + arrow
                 guides.getOrNull(uiState.strokeIndex)?.firstOrNull()?.let { start ->
 
-                    // 🟢 START DOT
-                    drawCircle(Color.Green, strokeWidth * 0.4f, start)
+                    drawCircle(
+                        color = Color.Green,
+                        radius = strokeWidth * 0.4f,
+                        center = start
+                    )
 
-                    // 🔵 ARROW
                     val guide = guides[uiState.strokeIndex]
 
                     if (guide.size > 5) {
@@ -211,40 +249,4 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
             }
         }
     }
-}
-
-fun DrawScope.drawArrow(
-    start: Offset,
-    end: Offset,
-    size: Float
-) {
-
-    val angle = atan2(end.y - start.y, end.x - start.x)
-
-    val length = size
-    val width = size * 0.6f
-
-    val tip = start
-
-    val left = Offset(
-        tip.x - length * cos(angle) + width * sin(angle),
-        tip.y - length * sin(angle) - width * cos(angle)
-    )
-
-    val right = Offset(
-        tip.x - length * cos(angle) - width * sin(angle),
-        tip.y - length * sin(angle) + width * cos(angle)
-    )
-
-    val path = Path().apply {
-        moveTo(tip.x, tip.y)
-        lineTo(left.x, left.y)
-        lineTo(right.x, right.y)
-        close()
-    }
-
-    drawPath(
-        path = path,
-        color = Color(0xFF2196F3)
-    )
 }
