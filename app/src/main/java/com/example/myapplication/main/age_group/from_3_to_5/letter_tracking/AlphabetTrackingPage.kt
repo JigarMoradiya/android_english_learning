@@ -4,10 +4,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,23 +32,25 @@ fun AlphabetTrackingPage(
     navController: NavController,
     viewModel: LetterTracingViewModel = hiltViewModel()
 ) {
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ) {
+    Box{
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
 
-        // ✅ HEADER (fixed)
-        AppToolbar(
-            title = "Trace Alphabet",
-            onBackClick = {
-                navController.popBackStack()
-            }
-        )
+            // ✅ HEADER (fixed)
+            AppToolbar(
+                title = "Trace Alphabet",
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+
+            Spacer(modifier = Modifier.weight(1f))
+        }
 
         // ✅ CENTER AREA (THIS IS IMPORTANT)
         Box(
-            modifier = Modifier
-                .weight(1f) // 👈 takes remaining space
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxSize().padding(vertical = 16.dp),
             contentAlignment = Alignment.Center
         ) {
 
@@ -52,18 +58,28 @@ fun AlphabetTrackingPage(
 
                 val size = min(maxWidth, maxHeight)
 
-                // ✅ PERFECT SQUARE
                 Box(
-                    modifier = Modifier.size(size)
+                    modifier = Modifier.size(size),
+                    contentAlignment = Alignment.Center
                 ) {
 
-                    // 👇 guideline
-                    GuidelineCanvas()
+                    // ✅ CARD BACKGROUND WITH ELEVATION
+                    Card(
+                        modifier = Modifier.fillMaxSize(),
+                        shape = RoundedCornerShape(16.dp),
+                        elevation = CardDefaults.cardElevation(4.dp),
+                        colors = CardDefaults.cardColors(containerColor = Color.White)
+                    ) {
 
-                    // 👇 your tracing canvas on top
+                        // 👇 ONLY LINES (no background now)
+                        GuidelineCanvas()
+                    }
+
+                    // 👇 TRACING ON TOP
                     TracingCanvas(viewModel)
                 }
             }
         }
     }
+
 }

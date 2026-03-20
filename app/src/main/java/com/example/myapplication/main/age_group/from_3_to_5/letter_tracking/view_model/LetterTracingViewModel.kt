@@ -1,18 +1,11 @@
 package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model
 
-import android.util.Log
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.lifecycle.ViewModel
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.LetterSkeleton
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.StrokeSegment
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.distance
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.sampleGuide
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlin.math.hypot
@@ -29,11 +22,11 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
     private var cachedGuides: List<List<Offset>> = emptyList()
     private var cachedFrame: Rect? = null
 
-    // ✅ FIXED A SKELETON (IMPORTANT)
+    // ✅ A letter strokes
     private val strokes = listOf(
         listOf(Offset(0.5f, 0.1f), Offset(0.25f, 0.9f)),
         listOf(Offset(0.5f, 0.1f), Offset(0.75f, 0.9f)),
-        listOf(Offset(0.40f, 0.5f), Offset(0.60f, 0.5f)) // fixed
+        listOf(Offset(0.40f, 0.5f), Offset(0.60f, 0.5f))
     )
 
     fun getGuides(frame: Rect): List<List<Offset>> {
@@ -51,51 +44,69 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
         return cachedGuides
     }
 
+    // ✅ START ONLY FROM FIRST POINT
     fun startStroke(touch: Offset) {
 
         val guide = cachedGuides.getOrNull(uiState.strokeIndex) ?: return
 
-        val isNear = guide.any { distance(touch, it) <= tolerance }
+        val startPoint = guide.first()
 
-        if (isNear) {
+        if (distance(touch, startPoint) <= tolerance) {
+
             uiState = uiState.copy(
                 isOnStroke = true,
-                drawnPoints = listOf(guide.first()),
+                drawnPoints = listOf(startPoint),
                 progressIndex = 0
             )
         }
     }
 
+    // ✅ STRICT CONTINUOUS TRACING (MAIN FIX)
     fun updateStroke(touch: Offset) {
 
         if (!uiState.isOnStroke) return
 
         val guide = cachedGuides.getOrNull(uiState.strokeIndex) ?: return
 
-        val closestIndex = guide.indexOfFirst {
-            distance(touch, it) <= tolerance
+        val currentIndex = uiState.progressIndex
+
+        // 🔥 allow small forward window (smooth tracing)
+        val searchRange = (currentIndex + 1)..(currentIndex + 8).coerceAtMost(guide.lastIndex)
+
+        var foundIndex = -1
+
+        for (i in searchRange) {
+            if (distance(touch, guide[i]) <= tolerance) {
+                foundIndex = i
+                break
+            }
         }
 
-        if (closestIndex != -1 && closestIndex >= uiState.progressIndex) {
+        // ❌ nothing found → ignore
+        if (foundIndex == -1) return
 
-            val newPoints = guide.subList(0, closestIndex + 1)
+        // ❌ prevent backward
+        if (foundIndex < currentIndex) return
 
-            if (closestIndex == guide.lastIndex) {
+        val newPoints = guide.subList(0, foundIndex + 1)
 
-                uiState = uiState.copy(
-                    finishedStrokes = uiState.finishedStrokes + listOf(newPoints),
-                    drawnPoints = emptyList(),
-                    strokeIndex = uiState.strokeIndex + 1,
-                    progressIndex = 0,
-                    isOnStroke = false
-                )
+        // ✅ COMPLETE STROKE
+        if (foundIndex == guide.lastIndex) {
 
-            } else {
-                uiState = uiState.copy(
-                    drawnPoints = newPoints,
-                    progressIndex = closestIndex
-                )
-            }
+            uiState = uiState.copy(
+                finishedStrokes = uiState.finishedStrokes + listOf(newPoints),
+                drawnPoints = emptyList(),
+                strokeIndex = uiState.strokeIndex + 1,
+                progressIndex = 0,
+                isOnStroke = false
+            )
+
+        } else {
+
+            uiState = uiState.copy(
+                drawnPoints = newPoints,
+                progressIndex = foundIndex
+            )
         }
     }
 

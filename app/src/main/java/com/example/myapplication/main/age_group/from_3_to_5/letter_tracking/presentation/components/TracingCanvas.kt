@@ -51,7 +51,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
 
         val guides = viewModel.getGuides(frame)
 
-        val strokeWidth = sizePx * 0.06f
+        val strokeWidth = sizePx * 0.085f
 
         Canvas(
             modifier = Modifier
@@ -108,7 +108,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                     path = path,
                     color = Color.White.copy(alpha = 0.9f),
                     style = Stroke(
-                        width = strokeWidth * 0.16f,
+                        width = strokeWidth * 0.12f,
                         cap = StrokeCap.Round, // 👈 IMPORTANT (makes dots)
                         join = StrokeJoin.Round,
                         pathEffect = PathEffect.dashPathEffect(
@@ -172,10 +172,27 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
 
             if (!isCompleted) {
 
+                val currentStroke = guides.getOrNull(uiState.strokeIndex)
+
+                if (
+                    currentStroke != null &&
+                    uiState.progressIndex > 0 &&
+                    uiState.progressIndex < currentStroke.size
+                ) {
+
+                    val point = currentStroke[uiState.progressIndex]
+
+                    drawCircle(
+                        color = Color.Black,
+                        radius = strokeWidth * 0.28f,
+                        center = point
+                    )
+                }
+
                 guides.getOrNull(uiState.strokeIndex)?.firstOrNull()?.let { start ->
 
                     // 🟢 START DOT
-                    drawCircle(Color.Green, strokeWidth * 0.8f, start)
+                    drawCircle(Color.Green, strokeWidth * 0.4f, start)
 
                     // 🔵 ARROW
                     val guide = guides[uiState.strokeIndex]
@@ -187,7 +204,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                         drawArrow(
                             start = start,
                             end = next,
-                            size = strokeWidth * 0.8f
+                            size = strokeWidth * 0.6f
                         )
                     }
                 }
