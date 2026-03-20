@@ -43,14 +43,14 @@ fun AgeGroup3to5Page(navController: NavController) {
         // Grid of activities
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
-            verticalArrangement = Arrangement.spacedBy(AppDimens.Padding8),   // 👈 8dp vertical spacing
-            horizontalArrangement = Arrangement.spacedBy(AppDimens.Padding8), // 👈 8dp horizontal spacing
+            verticalArrangement = Arrangement.spacedBy(AppDimens.Dimens8),   // 👈 8dp vertical spacing
+            horizontalArrangement = Arrangement.spacedBy(AppDimens.Dimens8), // 👈 8dp horizontal spacing
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f, fill = true)
                 .padding(
-                    start = AppDimens.Padding16,
-                    end = AppDimens.Padding16,
+                    start = AppDimens.Dimens16,
+                    end = AppDimens.Dimens16,
                 )
         ) {
             items(activities_age_3_5) { activity ->
@@ -58,7 +58,7 @@ fun AgeGroup3to5Page(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .shadow(
-                            elevation = AppDimens.Elevation8,
+                            elevation = AppDimens.Dimens8,
                             shape = RoundedCornerShape(12.dp),
                             clip = false
                         ),

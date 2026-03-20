@@ -15,7 +15,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
@@ -36,7 +35,7 @@ fun MainLearningAgesCategoriesScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(AppDimens.Padding16)
+            .padding(AppDimens.Dimens16)
     ) {
         // Title
         Text(
@@ -46,12 +45,12 @@ fun MainLearningAgesCategoriesScreen(
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
 
-        Spacer(modifier = Modifier.height(AppDimens.Padding16))
+        Spacer(modifier = Modifier.height(AppDimens.Dimens16))
 
         // Scrollable list of Category Buttons
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(AppDimens.Padding16)
+            verticalArrangement = Arrangement.spacedBy(AppDimens.Dimens16)
         ) {
             items(categories) { category ->
                 CategoryCard(
@@ -76,7 +75,7 @@ fun CategoryCard(category: LearningCategory, onClick: () -> Unit) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = AppDimens.Padding12),
+                .padding(vertical = AppDimens.Dimens12),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(

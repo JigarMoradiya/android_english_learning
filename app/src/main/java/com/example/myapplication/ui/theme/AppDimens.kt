@@ -4,15 +4,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 object AppDimens {
-    // Elevation
-    val Elevation4 = 4.dp
-    val Elevation8 = 8.dp
-
     // Spacing
-    val Padding4 = 4.dp
-    val Padding8 = 8.dp
-    val Padding12 = 12.dp
-    val Padding16 = 16.dp
+    val Dimens2 = 2.dp
+    val Dimens4 = 4.dp
+    val Dimens8 = 8.dp
+    val Dimens12 = 12.dp
+    val Dimens16 = 16.dp
     val Padding24 = 24.dp
 
     val CardCornerRadius = 12.dp

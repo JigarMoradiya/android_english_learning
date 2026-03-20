@@ -6,6 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.distance
+import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.sampleGuide
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlin.math.hypot
@@ -70,27 +72,28 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
 
         val currentIndex = uiState.progressIndex
 
-        // 🔥 allow small forward window (smooth tracing)
-        val searchRange = (currentIndex + 1)..(currentIndex + 8).coerceAtMost(guide.lastIndex)
+        val searchEnd = (currentIndex + 15).coerceAtMost(guide.lastIndex)
+        val searchRange = (currentIndex + 1)..searchEnd
 
         var foundIndex = -1
+        var minDistance = Float.MAX_VALUE
 
         for (i in searchRange) {
-            if (distance(touch, guide[i]) <= tolerance) {
+            val d = distance(touch, guide[i])
+            if (d < tolerance && d < minDistance) {
+                minDistance = d
                 foundIndex = i
-                break
             }
         }
 
-        // ❌ nothing found → ignore
         if (foundIndex == -1) return
+        if (foundIndex < currentIndex) return // no backward
 
-        // ❌ prevent backward
-        if (foundIndex < currentIndex) return
+        val newPoints = uiState.drawnPoints + guide.subList(
+            currentIndex + 1,
+            foundIndex + 1
+        )
 
-        val newPoints = guide.subList(0, foundIndex + 1)
-
-        // ✅ COMPLETE STROKE
         if (foundIndex == guide.lastIndex) {
 
             uiState = uiState.copy(
@@ -110,62 +113,31 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
         }
     }
 
+    fun changeMode(mode: LetterMode) {
+        uiState = uiState.copy(
+            mode = mode,
+            strokeIndex = 0,
+            progressIndex = 0,
+            drawnPoints = emptyList(),
+            finishedStrokes = emptyList(),
+            isOnStroke = false
+        )
+
+        // 🔥 reset cache (IMPORTANT)
+        cachedGuides = emptyList()
+        cachedFrame = null
+    }
+
     fun reset() {
         uiState = LetterTracingUiState()
         cachedGuides = emptyList()
         cachedFrame = null
     }
 
-    // ---------------- utils ----------------
+    fun previous() {
 
-    private fun scale(p: Offset, rect: Rect): Offset {
-        return Offset(
-            rect.left + p.x * rect.width,
-            rect.top + p.y * rect.height
-        )
     }
+    fun next() {
 
-    private fun sampleGuide(
-        stroke: List<Offset>,
-        rect: Rect,
-        step: Float
-    ): List<Offset> {
-
-        val result = mutableListOf<Offset>()
-        var last: Offset? = null
-
-        stroke.forEach { pt ->
-            val scaled = scale(pt, rect)
-
-            if (last != null) {
-                result += interpolate(last!!, scaled, step)
-            }
-
-            last = scaled
-        }
-
-        return result
-    }
-
-    private fun interpolate(a: Offset, b: Offset, step: Float): List<Offset> {
-
-        val res = mutableListOf<Offset>()
-
-        val dx = b.x - a.x
-        val dy = b.y - a.y
-
-        val dist = hypot(dx, dy)
-        val steps = maxOf(1, (dist / step).toInt())
-
-        for (i in 0..steps) {
-            val t = i / steps.toFloat()
-            res.add(Offset(a.x + dx * t, a.y + dy * t))
-        }
-
-        return res
-    }
-
-    private fun distance(a: Offset, b: Offset): Float {
-        return hypot(a.x - b.x, a.y - b.y)
     }
 }
