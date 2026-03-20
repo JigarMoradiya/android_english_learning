@@ -1,40 +1,28 @@
 package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.components
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
-import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.min
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.StrokeSegment
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.distance
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.drawArrow
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.scale
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterTracingUiState
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterTracingViewModel
-import kotlin.math.atan2
-import kotlin.math.cos
 import kotlin.math.min
-import kotlin.math.sin
+
 @Composable
 fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
 
@@ -44,7 +32,6 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-
         val sizePx = min(constraints.maxWidth, constraints.maxHeight).toFloat()
         val frame = Rect(0f, 0f, sizePx, sizePx)
         val guides = viewModel.getGuides(frame)
@@ -121,7 +108,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                 // glow
                 drawPath(
                     path = path,
-                    color = Color.Red.copy(alpha = 0.25f),
+                    color = Color.Red.copy(alpha = 0.25F),
                     style = Stroke(
                         width = strokeWidth * 1.4f,
                         cap = StrokeCap.Round,
@@ -161,7 +148,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                             (prev.y + curr.y) / 2
                         )
 
-                        quadraticBezierTo(
+                        quadraticTo(
                             prev.x,
                             prev.y,
                             mid.x,
@@ -192,7 +179,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                     )
                 )
 
-                // 👉 finger follower dot
+                // finger follower dot
                 drawCircle(
                     color = Color.Red,
                     radius = strokeWidth * 0.2f,
