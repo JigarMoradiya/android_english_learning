@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.MyApplication" parent="android:Theme.Material.Light.NoActionBar" >
+        <!-- Make status bar background white -->
+        <item name="android:statusBarColor">@android:color/white</item>
+
+        <!-- Dark icons/text for light status bar -->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

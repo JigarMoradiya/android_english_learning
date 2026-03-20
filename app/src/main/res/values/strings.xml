@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <!-- Screen title -->
+    <string name="learn_english">Learn English</string>
+
+    <!-- Categories -->
+    <string name="beginner_level">Beginner Level</string>
+    <string name="early_words">Early Words</string>
+    <string name="advanced_learning">Advanced Learning</string>
+
+    <!-- Age ranges -->
+    <string name="ages_3_5">Ages 3–5</string>
+    <string name="ages_5_7">Ages 5–7</string>
+    <string name="ages_6_9">Ages 6–9</string>
+
+    <string name="beginner_level_age_3_5">Beginner Level (Ages 3–5)</string>
+
+    <!-- Beginner Level category Ages 3–5 -->
+    <string name="alphabet_tracking">Alphabet Tracking</string>
+    <string name="letter_recognition">Letter Recognition</string>
+    <string name="abcd_images">ABCD with Images</string>
+    <string name="match_letters">Match Letters</string>
+    <string name="match_letter_image">Match Letter with Image</string>
+    <string name="coloring_alphabet">Coloring Alphabet</string>
+    <string name="menu_missing_letter">Missing Letter</string>
+    <string name="drag_drop_words">Drag &amp; Drop Words</string>
+
+    <string name="back">Back</string>
+</resources>
