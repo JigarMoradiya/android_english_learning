@@ -54,7 +54,8 @@ fun AppNavGraph(navController: NavHostController) {
     ) {
         // Home
         composable("age_categories") {
-            MainLearningAgesCategoriesScreen(navController)
+//            MainLearningAgesCategoriesScreen(navController)
+            AlphabetTrackingPage(navController)
         }
         // Age Category
         composable("age_group_3_5") {
