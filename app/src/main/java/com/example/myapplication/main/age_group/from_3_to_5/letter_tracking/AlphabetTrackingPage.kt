@@ -35,6 +35,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.pres
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.components.TracingCanvas
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterMode
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterTracingViewModel
+import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
@@ -46,6 +47,7 @@ fun AlphabetTrackingPage(
     viewModel: LetterTracingViewModel = hiltViewModel()
 ) {
     Box{
+        BackgroundUI(isGreenGrassShow = false)
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -89,7 +91,7 @@ fun AlphabetTrackingPage(
                     )
                 }
                 Spacer(modifier = Modifier.weight(1f))
-                
+
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Button(
                         onClick = { viewModel.clear() },
@@ -127,8 +129,8 @@ fun AlphabetTrackingPage(
                         ),
                         contentPadding = PaddingValues(horizontal = Dimens16, vertical = Dimens8)
                     ) {
-                        
-                        
+
+
                         Text(
                             text = stringResource(id = R.string.next),
                             color = Color.Black

@@ -144,7 +144,11 @@ fun AppToolbarDropDownOnRight(
         }
 
         Spacer(modifier = Modifier.width(Dimens16))
-    }, colors = TopAppBarDefaults.topAppBarColors(
-        titleContentColor = Color.Black, navigationIconContentColor = Color.Black
+    },colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = Color.Transparent,   // ⭐ IMPORTANT
+            scrolledContainerColor = Color.Transparent, // ⭐ IMPORTANT (scroll case)
+            titleContentColor = Color.Black,
+            navigationIconContentColor = Color.Black,
+            actionIconContentColor = Color.Black
     ))
 }

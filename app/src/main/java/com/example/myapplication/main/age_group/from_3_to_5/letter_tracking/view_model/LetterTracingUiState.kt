@@ -3,8 +3,8 @@ package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.vie
 import androidx.compose.ui.geometry.Offset
 
 data class LetterTracingUiState(
-    val mode: LetterMode = LetterMode.LOWERCASE,
-    val currentIndex: Int = 20,
+    val mode: LetterMode = LetterMode.UPPERCASE,
+    val currentIndex: Int = 0,
     val strokeIndex: Int = 0,
     val progressIndex: Int = 0,
     val isOnStroke: Boolean = false,

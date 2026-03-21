@@ -8,6 +8,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,6 +21,7 @@ import com.example.myapplication.main.age_group.AgeGroup5to7Page
 import com.example.myapplication.main.age_group.AgeGroup6to9Page
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.AlphabetTrackingPage
 import com.example.myapplication.main.base.BaseActivity
+import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,8 +29,22 @@ import dagger.hilt.android.AndroidEntryPoint
 class AgeCategoryActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Hide Status Bar
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            hide(WindowInsetsCompat.Type.systemBars())
+            systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
         setContent {
             LearnEnglishApp()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            hide(WindowInsetsCompat.Type.systemBars())
         }
     }
 }
@@ -54,8 +72,7 @@ fun AppNavGraph(navController: NavHostController) {
     ) {
         // Home
         composable("age_categories") {
-//            MainLearningAgesCategoriesScreen(navController)
-            AlphabetTrackingPage(navController)
+            MainLearningAgesCategoriesScreen(navController)
         }
         // Age Category
         composable("age_group_3_5") {
