@@ -9,7 +9,8 @@ data class LetterTracingUiState(
     val progressIndex: Int = 0,
     val isOnStroke: Boolean = false,
     val drawnPoints: List<Offset> = emptyList(),
-    val finishedStrokes: List<List<Offset>> = emptyList()
+    val finishedStrokes: List<List<Offset>> = emptyList(),
+    val isWaitingForNextStroke: Boolean = false,
 )
 
 enum class LetterMode(val title: String) {

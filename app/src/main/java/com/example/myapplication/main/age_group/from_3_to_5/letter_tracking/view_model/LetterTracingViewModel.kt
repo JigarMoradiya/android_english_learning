@@ -110,9 +110,35 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
     // ✅ STRICT CONTINUOUS TRACING (MAIN FIX)
     fun updateStroke(touch: Offset) {
 
+        val guides = cachedGuides
+
+        // -------------------------------
+        // 🔥 WAITING FOR NEXT STROKE
+        // -------------------------------
+        if (uiState.isWaitingForNextStroke) {
+
+            val nextGuide = guides.getOrNull(uiState.strokeIndex) ?: return
+            val startPoint = nextGuide.first()
+
+            if (distance(touch, startPoint) <= tolerance) {
+
+                uiState = uiState.copy(
+                    isOnStroke = true,
+                    isWaitingForNextStroke = false,
+                    drawnPoints = listOf(startPoint),
+                    progressIndex = 0
+                )
+            }
+
+            return
+        }
+
+        // -------------------------------
+        // NORMAL DRAWING
+        // -------------------------------
         if (!uiState.isOnStroke) return
 
-        val guide = cachedGuides.getOrNull(uiState.strokeIndex) ?: return
+        val guide = guides.getOrNull(uiState.strokeIndex) ?: return
 
         val currentIndex = uiState.progressIndex
 
@@ -138,39 +164,20 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
             foundIndex + 1
         )
 
+        // -------------------------------
         // ✅ STROKE COMPLETED
+        // -------------------------------
         if (foundIndex == guide.lastIndex) {
 
             val nextStrokeIndex = uiState.strokeIndex + 1
-            val nextGuide = cachedGuides.getOrNull(nextStrokeIndex)
 
-            // 🔥 CHECK CONTINUATION
-            if (nextGuide != null) {
-
-                val nextStart = nextGuide.first()
-
-                if (distance(touch, nextStart) <= tolerance) {
-
-                    // 👉 CONTINUE SAME TOUCH
-                    uiState = uiState.copy(
-                        finishedStrokes = uiState.finishedStrokes + listOf(newPoints),
-                        drawnPoints = listOf(nextStart),
-                        strokeIndex = nextStrokeIndex,
-                        progressIndex = 0,
-                        isOnStroke = true // 🔥 KEEP TOUCH ACTIVE
-                    )
-
-                    return
-                }
-            }
-
-            // ❌ NORMAL END
             uiState = uiState.copy(
                 finishedStrokes = uiState.finishedStrokes + listOf(newPoints),
                 drawnPoints = emptyList(),
                 strokeIndex = nextStrokeIndex,
                 progressIndex = 0,
-                isOnStroke = false
+                isOnStroke = false,
+                isWaitingForNextStroke = true // 🔥 KEY
             )
 
         } else {
@@ -185,7 +192,6 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
     fun changeMode(mode: LetterMode) {
         uiState = uiState.copy(
             mode = mode,
-//            currentIndex = 0,
             strokeIndex = 0,
             progressIndex = 0,
             drawnPoints = emptyList(),

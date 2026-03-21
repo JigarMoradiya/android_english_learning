@@ -218,17 +218,19 @@ fun getStrokesForLetter(
         )
         'I' -> listOf(
 
-            // 1️⃣ top horizontal
+
+            // 1️⃣ vertical line
+            listOf(
+                StrokeSegment.Line(Offset(0.5f, line1)),
+                StrokeSegment.Line(Offset(0.5f, line3))
+            ),
+
+            // 2️⃣ top horizontal
             listOf(
                 StrokeSegment.Line(Offset(0.3f, line1)),
                 StrokeSegment.Line(Offset(0.7f, line1))
             ),
 
-            // 2️⃣ vertical line
-            listOf(
-                StrokeSegment.Line(Offset(0.5f, line1)),
-                StrokeSegment.Line(Offset(0.5f, line3))
-            ),
 
             // 3️⃣ bottom horizontal
             listOf(
