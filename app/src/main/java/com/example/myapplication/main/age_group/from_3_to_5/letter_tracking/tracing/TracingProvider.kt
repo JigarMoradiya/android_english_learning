@@ -2,6 +2,8 @@ package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tra
 
 import androidx.compose.ui.geometry.Offset
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterMode
+import kotlin.math.cos
+import kotlin.math.sin
 
 fun getStrokesForLetter(
     letter: Char,
@@ -270,7 +272,372 @@ fun getStrokesForLetter(
                 )
             )
         }
+        'K' -> listOf(
 
+            // vertical
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line1)),
+                StrokeSegment.Line(Offset(0.3f, line3))
+            ),
+
+            // upper diagonal
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line2)),
+                StrokeSegment.Line(Offset(0.7f, line1))
+            ),
+
+            // lower diagonal
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line2)),
+                StrokeSegment.Line(Offset(0.7f, line3))
+            )
+        )
+        'L' -> listOf(
+
+            // vertical
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line1)),
+                StrokeSegment.Line(Offset(0.3f, line3))
+            ),
+
+            // bottom
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line3)),
+                StrokeSegment.Line(Offset(0.7f, line3))
+            )
+        )
+        'M' -> listOf(
+
+            // left vertical
+            listOf(
+                StrokeSegment.Line(Offset(0.25f, line1)),
+                StrokeSegment.Line(Offset(0.25f, line3))
+            ),
+
+            // left diagonal up
+            listOf(
+                StrokeSegment.Line(Offset(0.25f, line1)),
+                StrokeSegment.Line(Offset(0.5f, line2))
+            ),
+
+            // right diagonal up
+            listOf(
+                StrokeSegment.Line(Offset(0.5f, line2)),
+                StrokeSegment.Line(Offset(0.75f, line1))
+            ),
+
+            // right vertical
+            listOf(
+                StrokeSegment.Line(Offset(0.75f, line1)),
+                StrokeSegment.Line(Offset(0.75f, line3))
+            )
+        )
+        'N' -> listOf(
+
+            // left vertical
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line1)),
+                StrokeSegment.Line(Offset(0.3f, line3))
+            ),
+
+            // diagonal
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line1)),
+                StrokeSegment.Line(Offset(0.7f, line3))
+            ),
+
+            // right vertical
+            listOf(
+                StrokeSegment.Line(Offset(0.7f, line3)),
+                StrokeSegment.Line(Offset(0.7f, line1))
+            )
+        )
+        'O' -> listOf(
+
+            listOf(
+                StrokeSegment.Arc(
+                    center = Offset(0.5f, (line1 + line3) / 2f),
+                    radius = (line3 - line1) / 2f,
+
+                    endAngle = (-Math.PI / 2f).toFloat(), // start top
+                    startAngle = (3f * Math.PI / 2f).toFloat(), // full circle
+
+                    clockwise = true
+                )
+            )
+        )
+        'P' -> listOf(
+
+            // vertical
+            listOf(
+                StrokeSegment.Line(Offset(0.35f, line1)),
+                StrokeSegment.Line(Offset(0.35f, line3))
+            ),
+
+            // top curve
+            listOf(
+                StrokeSegment.Line(Offset(0.35f, line1)),
+
+                StrokeSegment.QuadCurve(
+                    to = Offset(0.7f, (line1 + line2) / 2f),
+                    control = Offset(0.7f, line1)
+                ),
+
+                StrokeSegment.QuadCurve(
+                    to = Offset(0.35f, line2),
+                    control = Offset(0.7f, line2)
+                )
+            )
+        )
+        'Q' -> listOf(
+
+            // 1️⃣ circle
+            listOf(
+                StrokeSegment.Arc(
+                    center = Offset(0.5f, (line1 + line3) / 2f),
+                    radius = (line3 - line1) / 2f,
+
+                    endAngle = (-Math.PI / 2f).toFloat(),
+                    startAngle = (3f * Math.PI / 2f).toFloat(),
+
+                    clockwise = true
+                )
+            ),
+
+            // 2️⃣ tail
+            listOf(
+                StrokeSegment.Line(Offset(0.6f, line2 + 0.05f)),
+                StrokeSegment.Line(Offset(0.8f, line3 - 0.05f))
+            )
+        )
+        'R' -> listOf(
+
+            // 1️⃣ vertical
+            listOf(
+                StrokeSegment.Line(Offset(0.35f, line1)),
+                StrokeSegment.Line(Offset(0.35f, line3))
+            ),
+
+            // 2️⃣ top curve (same as P)
+            listOf(
+                StrokeSegment.Line(Offset(0.35f, line1)),
+
+                StrokeSegment.QuadCurve(
+                    to = Offset(0.7f, (line1 + line2) / 2f),
+                    control = Offset(0.7f, line1)
+                ),
+
+                StrokeSegment.QuadCurve(
+                    to = Offset(0.35f, line2),
+                    control = Offset(0.7f, line2)
+                )
+            ),
+
+            // 3️⃣ diagonal leg
+            listOf(
+                StrokeSegment.Line(Offset(0.35f, line2)),
+                StrokeSegment.Line(Offset(0.7f, line3))
+            )
+        )
+        'S' -> run {
+
+            val topY = line1 - 0.01f
+            val middleY = line2
+            val bottomY = line3
+
+            val sweep = (0.57f * 2f * Math.PI).toFloat()
+            val steps = 30
+
+            val segments = mutableListOf<List<StrokeSegment>>()
+
+            // -------------------------------
+            // 1️⃣ TOP ARC (sampled like iOS)
+            // -------------------------------
+            val radiusTop = (middleY - topY) / 2f
+            val centerTop = Offset(0.5f, topY + radiusTop)
+
+            val topPoints = mutableListOf<StrokeSegment>()
+
+            val startTop = Math.PI.toFloat() - sweep / 2f
+            val endTop = Math.PI.toFloat() + sweep / 2f
+
+            for (i in 0..steps) {
+                val t = i.toFloat() / steps
+                val angle = endTop + (startTop - endTop) * t
+
+                val x = centerTop.x + radiusTop * kotlin.math.cos(angle)
+                val y = centerTop.y + radiusTop * kotlin.math.sin(angle)
+
+                topPoints.add(StrokeSegment.Line(Offset(x, y)))
+            }
+
+            // -------------------------------
+            // 2️⃣ BOTTOM ARC
+            // -------------------------------
+            val radiusBottom = (bottomY - middleY) / 2f
+            val centerBottom = Offset(0.5f, middleY + radiusBottom)
+
+            val bottomPoints = mutableListOf<StrokeSegment>()
+
+            val startBottom = -sweep / 2f
+            val endBottom = sweep / 2f
+
+            var firstBottom: Offset? = null
+
+            for (i in 0..steps) {
+                val t = i.toFloat() / steps
+                val angle = startBottom + (endBottom - startBottom) * t
+
+                val x = centerBottom.x + radiusBottom * kotlin.math.cos(angle)
+                val y = centerBottom.y + radiusBottom * kotlin.math.sin(angle)
+
+                val pt = Offset(x, y)
+
+                if (i == 0) firstBottom = pt
+
+                bottomPoints.add(StrokeSegment.Line(pt))
+            }
+
+            // -------------------------------
+            // 3️⃣ SNAP bottom to top
+            // -------------------------------
+            val topEnd = (topPoints.last() as StrokeSegment.Line).point
+            val bottomStart = firstBottom!!
+
+            val dx = topEnd.x - bottomStart.x
+            val dy = topEnd.y - bottomStart.y
+
+            val snappedBottom = bottomPoints.map {
+                val p = (it as StrokeSegment.Line).point
+                StrokeSegment.Line(Offset(p.x + dx, p.y + dy))
+            }
+
+            // -------------------------------
+            // 4️⃣ ROTATE (make S straight)
+            // -------------------------------
+            val rotationCenter = Offset(0.5f, (line1 + line3) / 2f)
+            val rotationAngle = 0.40f   // 🔥 tweak if needed
+
+            fun rotateStroke(stroke: List<StrokeSegment>): List<StrokeSegment> {
+                val cosA = cos(rotationAngle)
+                val sinA = sin(rotationAngle)
+
+                return stroke.map { seg ->
+                    val p = (seg as StrokeSegment.Line).point
+
+                    val dx = p.x - rotationCenter.x
+                    val dy = p.y - rotationCenter.y
+
+                    val x = dx * cosA - dy * sinA + rotationCenter.x
+                    val y = dx * sinA + dy * cosA + rotationCenter.y
+
+                    StrokeSegment.Line(Offset(x, y))
+                }
+            }
+
+            val finalTop = rotateStroke(topPoints)
+            val finalBottom = rotateStroke(snappedBottom)
+
+            segments.add(finalTop)
+            segments.add(finalBottom)
+
+            segments
+        }
+        'T' -> listOf(
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line1)),
+                StrokeSegment.Line(Offset(0.7f, line1))
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.5f, line1)),
+                StrokeSegment.Line(Offset(0.5f, line3))
+            )
+        )
+        'U' -> listOf(
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line1)),
+                StrokeSegment.Line(Offset(0.3f, line3 - 0.1f))
+            ),
+            listOf(
+                StrokeSegment.Arc(
+                    center = Offset(0.5f, line3 - 0.1f),
+                    radius = 0.2f,
+                    startAngle = Math.PI.toFloat(),
+                    endAngle = 0f,
+                    clockwise = true
+                )
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.7f, line3 - 0.1f)),
+                StrokeSegment.Line(Offset(0.7f, line1))
+            )
+        )
+        'V' -> listOf(
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line1)),
+                StrokeSegment.Line(Offset(0.5f, line3))
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.5f, line3)),
+                StrokeSegment.Line(Offset(0.7f, line1))
+            )
+        )
+        'W' -> listOf(
+            listOf(
+                StrokeSegment.Line(Offset(0.2f, line1)),
+                StrokeSegment.Line(Offset(0.35f, line3))
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.35f, line3)),
+                StrokeSegment.Line(Offset(0.5f, line1))
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.5f, line1)),
+                StrokeSegment.Line(Offset(0.65f, line3))
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.65f, line3)),
+                StrokeSegment.Line(Offset(0.8f, line1))
+            )
+        )
+        'X' -> listOf(
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line1)),
+                StrokeSegment.Line(Offset(0.7f, line3))
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.7f, line1)),
+                StrokeSegment.Line(Offset(0.3f, line3))
+            )
+        )
+        'Y' -> listOf(
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line1)),
+                StrokeSegment.Line(Offset(0.5f, line2))
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.7f, line1)),
+                StrokeSegment.Line(Offset(0.5f, line2))
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.5f, line2)),
+                StrokeSegment.Line(Offset(0.5f, line3))
+            )
+        )
+        'Z' -> listOf(
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line1)),
+                StrokeSegment.Line(Offset(0.7f, line1))
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.7f, line1)),
+                StrokeSegment.Line(Offset(0.3f, line3))
+            ),
+            listOf(
+                StrokeSegment.Line(Offset(0.3f, line3)),
+                StrokeSegment.Line(Offset(0.7f, line3))
+            )
+        )
         else -> emptyList()
     }
 }

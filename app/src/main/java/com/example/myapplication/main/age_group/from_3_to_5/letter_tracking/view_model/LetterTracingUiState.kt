@@ -4,7 +4,7 @@ import androidx.compose.ui.geometry.Offset
 
 data class LetterTracingUiState(
     val mode: LetterMode = LetterMode.UPPERCASE, // 👈 ADD THIS
-    val currentIndex: Int = 8,
+    val currentIndex: Int = 18,
     val strokeIndex: Int = 0,
     val progressIndex: Int = 0,
     val isOnStroke: Boolean = false,
