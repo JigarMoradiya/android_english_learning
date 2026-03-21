@@ -92,7 +92,7 @@ fun AlphabetTrackingPage(
                 
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Button(
-                        onClick = { viewModel.reset() },
+                        onClick = { viewModel.clear() },
                         shape = RoundedCornerShape(50),
                         elevation = ButtonDefaults.buttonElevation(
                             defaultElevation = Dimens4,

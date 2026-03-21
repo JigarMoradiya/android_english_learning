@@ -10,6 +10,61 @@ import kotlin.math.cos
 import kotlin.math.hypot
 import kotlin.math.sin
 
+fun sampleStroke(
+    stroke: List<StrokeSegment>,
+    frame: Rect,
+    spacing: Float
+): List<Offset> {
+
+    val result = mutableListOf<Offset>()
+    var last: Offset? = null
+
+    stroke.forEach { seg ->
+
+        when (seg) {
+
+            is StrokeSegment.Line -> {
+                val p = scale(seg.point, frame)
+                if (last != null) result += interpolate(last!!, p, spacing)
+                last = p
+            }
+
+            is StrokeSegment.QuadCurve -> {
+                if (last != null) {
+                    result += interpolateQuadCurve(
+                        start = last!!,
+                        control = scale(seg.control, frame),
+                        end = scale(seg.to, frame),
+                        step = spacing
+                    )
+                }
+                last = scale(seg.to, frame)
+            }
+
+            is StrokeSegment.Arc -> {
+                val steps = maxOf(
+                    2,
+                    ((kotlin.math.abs(seg.endAngle - seg.startAngle)) / 0.05f).toInt()
+                )
+
+                for (i in 0..steps) {
+                    val t = i.toFloat() / steps
+                    val angle = seg.startAngle + t * (seg.endAngle - seg.startAngle)
+
+                    val pt = Offset(
+                        seg.center.x + seg.radius * kotlin.math.cos(angle),
+                        seg.center.y + seg.radius * kotlin.math.sin(angle)
+                    )
+
+                    result.add(scale(pt, frame))
+                }
+            }
+        }
+    }
+
+    return result
+}
+
 fun scale(p: Offset, rect: Rect): Offset {
     return Offset(
         rect.left + p.x * rect.width,
@@ -17,44 +72,48 @@ fun scale(p: Offset, rect: Rect): Offset {
     )
 }
 
-fun sampleGuide(
-    stroke: List<Offset>,
-    rect: Rect,
-    step: Float
-): List<Offset> {
-
+fun interpolate(a: Offset, b: Offset, step: Float): List<Offset> {
     val result = mutableListOf<Offset>()
-    var last: Offset? = null
-
-    stroke.forEach { pt ->
-        val scaled = scale(pt, rect)
-
-        if (last != null) {
-            result += interpolate(last!!, scaled, step)
-        }
-
-        last = scaled
-    }
-
-    return result
-}
-
-private fun interpolate(a: Offset, b: Offset, step: Float): List<Offset> {
-
-    val res = mutableListOf<Offset>()
-
     val dx = b.x - a.x
     val dy = b.y - a.y
-
     val dist = hypot(dx, dy)
     val steps = maxOf(1, (dist / step).toInt())
 
     for (i in 0..steps) {
-        val t = i / steps.toFloat()
-        res.add(Offset(a.x + dx * t, a.y + dy * t))
+        val t = i.toFloat() / steps
+        result.add(Offset(a.x + dx * t, a.y + dy * t))
+    }
+    return result
+}
+
+fun interpolateQuadCurve(
+    start: Offset,
+    control: Offset,
+    end: Offset,
+    step: Float
+): List<Offset> {
+
+    val points = mutableListOf<Offset>()
+    val dist = hypot(end.x - start.x, end.y - start.y)
+    val steps = maxOf(1, (dist / step).toInt())
+
+    for (i in 0..steps) {
+        val t = i.toFloat() / steps
+
+        val x =
+            (1 - t) * (1 - t) * start.x +
+                    2 * (1 - t) * t * control.x +
+                    t * t * end.x
+
+        val y =
+            (1 - t) * (1 - t) * start.y +
+                    2 * (1 - t) * t * control.y +
+                    t * t * end.y
+
+        points.add(Offset(x, y))
     }
 
-    return res
+    return points
 }
 
 fun distance(a: Offset, b: Offset): Float {

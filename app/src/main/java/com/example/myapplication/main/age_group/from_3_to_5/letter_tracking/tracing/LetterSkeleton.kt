@@ -1,29 +1,43 @@
 package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing
 
 import androidx.compose.ui.geometry.Offset
+import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterMode
 
 object LetterSkeleton {
 
-    fun getStrokes(letter: Char): List<List<StrokeSegment>> {
+    const val startY = 0.1f
+    const val endY = 0.9f
 
-        return when (letter) {
+    private const val topWeight = 1f
+    private const val middleWeight = 1f
+    private const val bottomWeight = 1f
 
-            'A' -> listOf(
-                listOf(
-                    StrokeSegment.Line(Offset(0.5f, 0.1f)),
-                    StrokeSegment.Line(Offset(0.25f, 0.9f))
-                ),
-                listOf(
-                    StrokeSegment.Line(Offset(0.5f, 0.1f)),
-                    StrokeSegment.Line(Offset(0.75f, 0.9f))
-                ),
-                listOf(
-                    StrokeSegment.Line(Offset(0.36f, 0.5f)),
-                    StrokeSegment.Line(Offset(0.64f, 0.5f))
-                )
-            )
-
-            else -> emptyList()
+    private fun totalWeight(mode: LetterMode): Float {
+        return if (mode == LetterMode.UPPERCASE) {
+            topWeight + middleWeight
+        } else {
+            topWeight + middleWeight + bottomWeight
         }
     }
+
+    fun line1(mode: LetterMode) = startY
+
+    fun line2(mode: LetterMode): Float {
+        return if (mode == LetterMode.UPPERCASE) {
+            (startY + endY) / 2f
+        } else {
+            startY + (topWeight / totalWeight(mode)) * (endY - startY)
+        }
+    }
+
+    fun line3(mode: LetterMode): Float {
+        return if (mode == LetterMode.UPPERCASE) {
+            endY
+        } else {
+            line2(mode) + (middleWeight / totalWeight(mode)) * (endY - startY)
+        }
+    }
+
+    fun center12(mode: LetterMode) = (line1(mode) + line2(mode)) / 2f
+    fun center23(mode: LetterMode) = (line2(mode) + line3(mode)) / 2f
 }

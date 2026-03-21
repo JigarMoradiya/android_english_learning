@@ -27,6 +27,7 @@ import kotlin.math.min
 fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
 
     val uiState = viewModel.uiState
+    val strokeColor = viewModel.getLetterColor()
 
     BoxWithConstraints(
         modifier = Modifier.fillMaxSize(),
@@ -108,7 +109,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                 // glow
                 drawPath(
                     path = path,
-                    color = Color.Red.copy(alpha = 0.25F),
+                    color = strokeColor.copy(alpha = 0.25F),
                     style = Stroke(
                         width = strokeWidth * 1.4f,
                         cap = StrokeCap.Round,
@@ -119,7 +120,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                 // main
                 drawPath(
                     path = path,
-                    color = Color.Red,
+                    color = strokeColor,
                     style = Stroke(
                         width = strokeWidth,
                         cap = StrokeCap.Round,
@@ -160,7 +161,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                 // glow
                 drawPath(
                     path = smoothPath,
-                    color = Color.Red.copy(alpha = 0.25f),
+                    color = strokeColor.copy(alpha = 0.25f),
                     style = Stroke(
                         width = strokeWidth * 1.6f,
                         cap = StrokeCap.Round,
@@ -171,7 +172,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                 // main
                 drawPath(
                     path = smoothPath,
-                    color = Color.Red,
+                    color = strokeColor,
                     style = Stroke(
                         width = strokeWidth,
                         cap = StrokeCap.Round,
@@ -181,7 +182,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
 
                 // finger follower dot
                 drawCircle(
-                    color = Color.Red,
+                    color = strokeColor,
                     radius = strokeWidth * 0.2f,
                     center = points.last()
                 )
@@ -215,7 +216,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                 guides.getOrNull(uiState.strokeIndex)?.firstOrNull()?.let { start ->
 
                     drawCircle(
-                        color = Color.Green,
+                        color = Color.Black,
                         radius = strokeWidth * 0.4f,
                         center = start
                     )
