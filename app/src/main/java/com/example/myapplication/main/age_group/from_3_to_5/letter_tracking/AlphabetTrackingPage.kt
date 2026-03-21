@@ -171,7 +171,7 @@ fun AlphabetTrackingPage(
                     ) {
 
                         // 👇 ONLY LINES (no background now)
-                        GuidelineCanvas()
+                        GuidelineCanvas(viewModel)
                     }
 
                     // 👇 TRACING ON TOP

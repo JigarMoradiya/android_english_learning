@@ -20,6 +20,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.min
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.drawArrow
+import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterMode
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterTracingViewModel
 import kotlin.math.min
 
@@ -33,10 +34,11 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
+        val isLowercase = uiState.mode == LetterMode.LOWERCASE
         val sizePx = min(constraints.maxWidth, constraints.maxHeight).toFloat()
         val frame = Rect(0f, 0f, sizePx, sizePx)
         val guides = viewModel.getGuides(frame)
-        val strokeWidth = sizePx * 0.085f
+        val strokeWidth = sizePx * if (isLowercase) 0.055f else 0.085f
 
         Canvas(
             modifier = Modifier
@@ -111,7 +113,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                     path = path,
                     color = strokeColor.copy(alpha = 0.25F),
                     style = Stroke(
-                        width = strokeWidth * 1.4f,
+                        width = strokeWidth * if (isLowercase) 1.35f else 1.4f,
                         cap = StrokeCap.Round,
                         join = StrokeJoin.Round
                     )
@@ -163,7 +165,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                     path = smoothPath,
                     color = strokeColor.copy(alpha = 0.25f),
                     style = Stroke(
-                        width = strokeWidth * 1.6f,
+                        width = strokeWidth * if (isLowercase) 1.5f else 1.6f,
                         cap = StrokeCap.Round,
                         join = StrokeJoin.Round
                     )
@@ -183,7 +185,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                 // finger follower dot
                 drawCircle(
                     color = strokeColor,
-                    radius = strokeWidth * 0.2f,
+                    radius = strokeWidth * if (isLowercase) 0.16f else 0.2f,
                     center = points.last()
                 )
             }
@@ -207,7 +209,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
 
                     drawCircle(
                         color = Color.Black,
-                        radius = strokeWidth * 0.28f,
+                        radius = strokeWidth * if (isLowercase) 0.22f else 0.28f,
                         center = point
                     )
                 }
@@ -217,7 +219,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
 
                     drawCircle(
                         color = Color.Black,
-                        radius = strokeWidth * 0.4f,
+                        radius = strokeWidth * if (isLowercase) 0.32f else 0.4f,
                         center = start
                     )
 
@@ -230,7 +232,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                         drawArrow(
                             start = start,
                             end = next,
-                            size = strokeWidth * 0.6f
+                            size = strokeWidth * if (isLowercase) 0.5f else 0.6f,
                         )
                     }
                 }

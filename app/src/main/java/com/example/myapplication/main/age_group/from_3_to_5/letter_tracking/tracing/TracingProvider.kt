@@ -16,7 +16,7 @@ fun getStrokesForLetter(
 
     val center12 = LetterSkeleton.center12(mode)
     val center23 = LetterSkeleton.center23(mode)
-    return when (letter.uppercaseChar()) {
+    return when (letter) {
 
         'A' -> listOf(
             listOf(
@@ -638,6 +638,48 @@ fun getStrokesForLetter(
                 StrokeSegment.Line(Offset(0.7f, line3))
             )
         )
+
+        'a' -> run {
+
+            val centerY = (line2 + line3) / 2f
+
+            val radiusY = (line3 - line2) / 2f
+            val radiusX = radiusY * 0.9f
+
+            val center = Offset(0.45f, centerY)
+
+            val steps = 30
+            val circle = mutableListOf<StrokeSegment>()
+
+            // 🔥 start slightly right from top (like iOS)
+            val startAngle = (-Math.PI / 2f + Math.PI / 4f).toFloat()
+            val sweep = (2 * Math.PI).toFloat()
+
+            for (i in 0..steps) {
+                val t = i.toFloat() / steps
+                val angle = startAngle - sweep * t   // anticlockwise
+
+                val x = center.x + radiusX * cos(angle)
+                val y = center.y + radiusY * sin(angle)
+
+                circle.add(StrokeSegment.Line(Offset(x, y)))
+            }
+
+            // -------------------------------
+            // vertical line (touch circle)
+            // -------------------------------
+            val rightX = center.x + radiusX
+
+            val vertical = listOf(
+                StrokeSegment.Line(Offset(rightX, line2)),
+                StrokeSegment.Line(Offset(rightX, line3))
+            )
+
+            listOf(
+                circle,
+                vertical
+            )
+        }
         else -> emptyList()
     }
 }
