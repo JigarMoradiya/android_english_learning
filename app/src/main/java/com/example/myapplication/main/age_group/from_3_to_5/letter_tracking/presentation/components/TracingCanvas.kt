@@ -2,6 +2,7 @@ package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.pre
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -43,6 +44,13 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
         Canvas(
             modifier = Modifier
                 .size(min(maxWidth, maxHeight))
+                .pointerInput(Unit) {
+                    detectTapGestures(
+                        onTap = { offset ->
+                            viewModel.onTap(offset)   // 👈 NEW
+                        }
+                    )
+                }
                 .pointerInput(Unit) {
                     detectDragGestures(
                         onDragStart = { viewModel.startStroke(it) },

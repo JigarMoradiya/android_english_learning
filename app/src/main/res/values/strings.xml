@@ -17,7 +17,7 @@
     <string name="beginner_level_age_3_5">Beginner Level (Ages 3–5)</string>
 
     <!-- Beginner Level category Ages 3–5 -->
-    <string name="alphabet_tracking">Alphabet Tracking</string>
+    <string name="alphabet_tracing">Alphabet Tracing</string>
     <string name="letter_recognition">Letter Recognition</string>
     <string name="abcd_images">ABCD with Images</string>
     <string name="match_letters">Match Letters</string>

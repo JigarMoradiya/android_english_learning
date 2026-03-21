@@ -52,8 +52,8 @@ fun sampleStroke(
                     val angle = seg.startAngle + t * (seg.endAngle - seg.startAngle)
 
                     val pt = Offset(
-                        seg.center.x + seg.radius * kotlin.math.cos(angle),
-                        seg.center.y + seg.radius * kotlin.math.sin(angle)
+                        seg.center.x + seg.radius * cos(angle),
+                        seg.center.y + seg.radius * sin(angle)
                     )
 
                     result.add(scale(pt, frame))
@@ -156,4 +156,58 @@ fun DrawScope.drawArrow(
         path = path,
         color = Color(0xFF2196F3)
     )
+}
+
+
+fun lowercaseStemArcLetter(
+    topY: Float,
+    midY: Float,
+    bottomY: Float,
+    line4: Float? = null, // only for p/q
+    flipHorizontally: Boolean
+): List<List<StrokeSegment>> {
+
+    val centerX = 0.5f
+    val centerY = (midY + bottomY) / 2f
+
+    val radiusY = (bottomY - midY) / 2f
+    val radiusX = radiusY * 0.9f
+
+    val sweep = (0.7f * 2f * Math.PI).toFloat()
+    val midAngle = Math.PI.toFloat()
+
+    val startAngle = midAngle - sweep / 2f
+    val endAngle = midAngle + sweep / 2f
+
+    val steps = 25
+
+    val arc = mutableListOf<StrokeSegment>()
+
+    for (i in 0..steps) {
+        val t = i.toFloat() / steps
+        val angle = endAngle + (startAngle - endAngle) * t
+
+        val x = centerX + radiusX * cos(angle)
+        val y = centerY + radiusY * sin(angle)
+
+        val finalX = if (flipHorizontally) 1f - x else x
+
+        arc.add(StrokeSegment.Line(Offset(finalX, y)))
+    }
+
+    // stem X = last point of arc
+    val stemX = (arc.last() as StrokeSegment.Line).point.x
+
+    val stemBottom = line4 ?: bottomY
+
+    val vertical = listOf(
+        StrokeSegment.Line(Offset(stemX, topY)),
+        StrokeSegment.Line(Offset(stemX, stemBottom))
+    )
+
+    return if (flipHorizontally) {
+        listOf(vertical, arc)
+    } else {
+        listOf(arc, vertical)
+    }
 }

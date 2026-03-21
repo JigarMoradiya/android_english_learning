@@ -38,6 +38,8 @@ object LetterSkeleton {
         }
     }
 
+    fun line4(mode: LetterMode) = endY
+
     fun center12(mode: LetterMode) = (line1(mode) + line2(mode)) / 2f
     fun center23(mode: LetterMode) = (line2(mode) + line3(mode)) / 2f
 }

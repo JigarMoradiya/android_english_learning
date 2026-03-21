@@ -84,6 +84,29 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
         }
     }
 
+    fun onTap(position: Offset) {
+
+        val guides = cachedGuides
+        val currentStroke = guides.getOrNull(uiState.strokeIndex) ?: return
+
+        // 👉 detect dot (single point)
+        if (currentStroke.size <= 2) {
+            val target = currentStroke.first()
+            val distance = (position - target).getDistance()
+            if (distance < 40f) { // tolerance
+                completeCurrentStroke()
+            }
+        }
+    }
+    fun completeCurrentStroke() {
+        uiState = uiState.copy(
+            finishedStrokes = uiState.finishedStrokes + listOf(cachedGuides[uiState.strokeIndex]),
+            strokeIndex = uiState.strokeIndex + 1,
+            drawnPoints = emptyList(),
+            progressIndex = 0
+        )
+    }
+
     // ✅ STRICT CONTINUOUS TRACING (MAIN FIX)
     fun updateStroke(touch: Offset) {
 
