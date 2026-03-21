@@ -268,7 +268,7 @@ fun getStrokesForLetter(
                         radius = hookRadius,
 
                         startAngle = 0f,                         // right side
-                        endAngle = (Math.PI * 1.1f).toFloat(),   // curve downward-left
+                        endAngle = (Math.PI * 0.8f).toFloat(),   // curve downward-left
 
                         clockwise = false
                     )

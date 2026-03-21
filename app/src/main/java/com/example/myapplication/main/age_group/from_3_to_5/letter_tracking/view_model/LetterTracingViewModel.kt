@@ -18,6 +18,7 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
 
     var uiState by mutableStateOf(LetterTracingUiState())
         private set
+
     private val letters = ('A'..'Z').toList()
 
     private val tolerance = 70f
@@ -26,6 +27,9 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
     private var cachedGuides: List<List<Offset>> = emptyList()
     private var cachedFrame: Rect? = null
 
+    // -------------------------------
+    // 🎨 COLORS
+    // -------------------------------
     private val shuffledColors: List<Color> = listOf(
         Color(0xFFE53935),
         Color(0xFFECC720),
@@ -49,6 +53,9 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
             return if (uiState.mode == LetterMode.UPPERCASE) base else base.lowercaseChar()
         }
 
+    // -------------------------------
+    // 📐 GUIDES
+    // -------------------------------
     fun getGuides(frame: Rect): List<List<Offset>> {
 
         if (cachedFrame == frame && cachedGuides.isNotEmpty()) {
@@ -56,7 +63,6 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
         }
 
         cachedFrame = frame
-
 
         val strokes = getStrokesForLetter(currentLetter, uiState.mode)
 
@@ -67,11 +73,12 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
         return cachedGuides
     }
 
-    // ✅ START ONLY FROM FIRST POINT
+    // -------------------------------
+    // ✋ START STROKE
+    // -------------------------------
     fun startStroke(touch: Offset) {
 
         val guide = cachedGuides.getOrNull(uiState.strokeIndex) ?: return
-
         val startPoint = guide.first()
 
         if (distance(touch, startPoint) <= tolerance) {
@@ -84,41 +91,70 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
         }
     }
 
+    // -------------------------------
+    // 👉 TAP (DOT SUPPORT)
+    // -------------------------------
     fun onTap(position: Offset) {
 
-        val guides = cachedGuides
-        val currentStroke = guides.getOrNull(uiState.strokeIndex) ?: return
+        val guide = cachedGuides.getOrNull(uiState.strokeIndex) ?: return
 
-        // 👉 detect dot (single point)
-        if (currentStroke.size <= 2) {
-            val target = currentStroke.first()
-            val distance = (position - target).getDistance()
-            if (distance < 40f) { // tolerance
+        if (guide.size <= 2) {
+            val target = guide.first()
+            if (distance(position, target) <= tolerance) {
                 completeCurrentStroke()
             }
         }
     }
-    fun completeCurrentStroke() {
+
+    private fun completeCurrentStroke() {
         uiState = uiState.copy(
             finishedStrokes = uiState.finishedStrokes + listOf(cachedGuides[uiState.strokeIndex]),
             strokeIndex = uiState.strokeIndex + 1,
             drawnPoints = emptyList(),
-            progressIndex = 0
+            progressIndex = 0,
+            isOnStroke = false,
+            isWaitingForNextStroke = true
         )
     }
 
-    // ✅ STRICT CONTINUOUS TRACING (MAIN FIX)
+    // -------------------------------
+    // 🧲 FIND NEAREST POINT
+    // -------------------------------
+    private fun findNearestIndex(
+        touch: Offset,
+        guide: List<Offset>,
+        start: Int,
+        end: Int
+    ): Int {
+
+        var bestIndex = -1
+        var minDist = Float.MAX_VALUE
+
+        for (i in start..end) {
+            val d = distance(touch, guide[i])
+            if (d < minDist) {
+                minDist = d
+                bestIndex = i
+            }
+        }
+
+        return if (bestIndex != -1 && minDist <= tolerance) bestIndex else -1
+    }
+
+    // -------------------------------
+    // ✍️ UPDATE STROKE
+    // -------------------------------
     fun updateStroke(touch: Offset) {
 
         val guides = cachedGuides
 
         // -------------------------------
-        // 🔥 WAITING FOR NEXT STROKE
+        // 🔥 WAIT FOR NEXT STROKE
         // -------------------------------
         if (uiState.isWaitingForNextStroke) {
 
-            val nextGuide = guides.getOrNull(uiState.strokeIndex) ?: return
-            val startPoint = nextGuide.first()
+            val guide = guides.getOrNull(uiState.strokeIndex) ?: return
+            val startPoint = guide.first()
 
             if (distance(touch, startPoint) <= tolerance) {
 
@@ -141,31 +177,28 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
         val guide = guides.getOrNull(uiState.strokeIndex) ?: return
 
         val currentIndex = uiState.progressIndex
+        val searchEnd = (currentIndex + 20).coerceAtMost(guide.lastIndex)
 
-        val searchEnd = (currentIndex + 15).coerceAtMost(guide.lastIndex)
-        val searchRange = (currentIndex + 1)..searchEnd
-
-        var foundIndex = -1
-        var minDistance = Float.MAX_VALUE
-
-        for (i in searchRange) {
-            val d = distance(touch, guide[i])
-            if (d < tolerance && d < minDistance) {
-                minDistance = d
-                foundIndex = i
-            }
-        }
+        val foundIndex = findNearestIndex(
+            touch,
+            guide,
+            currentIndex + 1,
+            searchEnd
+        )
 
         if (foundIndex == -1) return
         if (foundIndex < currentIndex) return
 
+        // -------------------------------
+        // SNAP TO GUIDE (REAL SNAPPING)
+        // -------------------------------
         val newPoints = uiState.drawnPoints + guide.subList(
             currentIndex + 1,
             foundIndex + 1
         )
 
         // -------------------------------
-        // ✅ STROKE COMPLETED
+        // ✅ COMPLETE STROKE
         // -------------------------------
         if (foundIndex == guide.lastIndex) {
 
@@ -177,7 +210,7 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
                 strokeIndex = nextStrokeIndex,
                 progressIndex = 0,
                 isOnStroke = false,
-                isWaitingForNextStroke = true // 🔥 KEY
+                isWaitingForNextStroke = true
             )
 
         } else {
@@ -189,62 +222,43 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun changeMode(mode: LetterMode) {
-        uiState = uiState.copy(
-            mode = mode,
-            strokeIndex = 0,
-            progressIndex = 0,
-            drawnPoints = emptyList(),
-            finishedStrokes = emptyList(),
-            isOnStroke = false
-        )
-
-        cachedGuides = emptyList()
-        cachedFrame = null
-    }
-
-    fun clear() {
-        uiState = uiState.copy(
-            strokeIndex = 0,
-            progressIndex = 0,
-            drawnPoints = emptyList(),
-            finishedStrokes = emptyList(),
-            isOnStroke = false
-        )
-
-        cachedGuides = emptyList()
-        cachedFrame = null
-    }
-
+    // -------------------------------
+    // 🔁 NAVIGATION
+    // -------------------------------
     fun next() {
         val nextIndex = (uiState.currentIndex + 1) % letters.size
-
-        uiState = uiState.copy(
-            currentIndex = nextIndex,
-            strokeIndex = 0,
-            progressIndex = 0,
-            drawnPoints = emptyList(),
-            finishedStrokes = emptyList(),
-            isOnStroke = false
-        )
-
-        cachedGuides = emptyList()
-        cachedFrame = null
+        resetForIndex(nextIndex)
     }
 
     fun previous() {
-        val prevIndex = if (uiState.currentIndex == 0)
-            letters.lastIndex
-        else
-            uiState.currentIndex - 1
+        val prevIndex =
+            if (uiState.currentIndex == 0) letters.lastIndex
+            else uiState.currentIndex - 1
+        resetForIndex(prevIndex)
+    }
 
+    fun changeMode(mode: LetterMode) {
+        uiState = uiState.copy(mode = mode)
+        resetState()
+    }
+
+    fun clear() {
+        resetState()
+    }
+
+    private fun resetForIndex(index: Int) {
+        uiState = uiState.copy(currentIndex = index)
+        resetState()
+    }
+
+    private fun resetState() {
         uiState = uiState.copy(
-            currentIndex = prevIndex,
             strokeIndex = 0,
             progressIndex = 0,
             drawnPoints = emptyList(),
             finishedStrokes = emptyList(),
-            isOnStroke = false
+            isOnStroke = false,
+            isWaitingForNextStroke = false
         )
 
         cachedGuides = emptyList()
