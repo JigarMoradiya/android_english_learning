@@ -92,6 +92,9 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                     stroke.drop(1).forEach { lineTo(it.x, it.y) }
                 }
 
+                val dashLength = strokeWidth * 0.2f
+                val gapLength = strokeWidth * 0.2f
+
                 drawPath(
                     path = path,
                     color = Color.White.copy(alpha = 0.9f),
@@ -99,9 +102,7 @@ fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
                         width = strokeWidth * 0.12f,
                         cap = StrokeCap.Round,
                         join = StrokeJoin.Round,
-                        pathEffect = PathEffect.dashPathEffect(
-                            floatArrayOf(6f, 10f)
-                        )
+                        pathEffect = PathEffect.dashPathEffect(floatArrayOf(dashLength, gapLength))
                     )
                 )
             }
