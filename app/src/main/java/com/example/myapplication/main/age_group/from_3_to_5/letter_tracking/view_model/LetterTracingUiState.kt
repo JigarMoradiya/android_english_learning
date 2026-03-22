@@ -15,5 +15,18 @@ data class LetterTracingUiState(
 
 enum class LetterMode(val title: String) {
     UPPERCASE("Uppercase"),
-    LOWERCASE("Lowercase")
+    LOWERCASE("Lowercase");
+
+    fun displayString(index: Int): String {
+        return when (this) {
+            UPPERCASE -> {
+                ('A' + index).toString()
+            }
+            LOWERCASE -> {
+                val upper = ('A' + index)
+                val lower = ('a' + index)
+                "$upper$lower"
+            }
+        }
+    }
 }

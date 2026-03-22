@@ -7,6 +7,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.distance
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.getStrokesForLetter
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.sampleStroke
@@ -20,12 +21,17 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
         private set
 
     private val letters = ('A'..'Z').toList()
+    val lettersData: List<Pair<String, String>> =
+        LetterRepository.all.map { data ->
+            data.letter to data.mainWord
+        }
 
     private val tolerance = 70f
     private val spacing = 6f
 
     private var cachedGuides: List<List<Offset>> = emptyList()
     private var cachedFrame: Rect? = null
+
 
     // -------------------------------
     // 🎨 COLORS

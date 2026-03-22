@@ -5,7 +5,12 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -33,7 +38,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.PopupProperties
 import com.example.myapplication.R
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -79,68 +86,58 @@ fun AppToolbarDropDownOnRight(
     }, actions = {
 
         // MODE DROPDOWN (Capsule style)
-        Box {
-            Row(
-                modifier = Modifier
-                    .shadow(
-                        elevation = 4.dp, shape = RoundedCornerShape(50), clip = false
+            Box {
+                Row(
+                    modifier = Modifier
+                        .shadow(
+                            elevation = 4.dp, shape = RoundedCornerShape(50), clip = false
+                        )
+                        .clip(RoundedCornerShape(50))
+                        .background(Color.White)
+                        .clickable { expanded = true }
+                        .padding(horizontal = Dimens16, vertical = Dimens8), verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = currentSelected, color = Color.Black
                     )
-                    .clip(RoundedCornerShape(50))
-                    .background(Color.White)
-                    .clickable { expanded = true }
-                    .padding(horizontal = Dimens16, vertical = Dimens8), verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = currentSelected, color = Color.Black
-                )
 
-                Icon(
-                    imageVector = Icons.Default.KeyboardArrowDown, contentDescription = null, tint = Color.Black
-                )
-            }
+                    Icon(
+                        imageVector = Icons.Default.KeyboardArrowDown, contentDescription = null, tint = Color.Black
+                    )
+                }
 
-            DropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false },
-                containerColor = Color.White,
-                tonalElevation = 0.dp,
-                shadowElevation = 10.dp,
-                shape = RoundedCornerShape(Dimens16)
-            ) {
-                modes.forEachIndexed { index, item ->
+                DropdownMenu(
+                    expanded = expanded, onDismissRequest = { expanded = false }, offset = DpOffset(x = 0.dp, y = 8.dp), // ⭐ stabilizes position
+                    properties = PopupProperties(
+                        clippingEnabled = false // ⭐ IMPORTANT
+                    ), containerColor = Color.White, tonalElevation = 0.dp, shadowElevation = 10.dp, shape = RoundedCornerShape(Dimens16)
+                ) {
+                    modes.forEachIndexed { index, item ->
 
-                    DropdownMenuItem(
-                        text = {
+                        DropdownMenuItem(text = {
                             Row(verticalAlignment = Alignment.CenterVertically) {
 
                                 Text(
-                                    text = item,
-                                    modifier = Modifier.weight(1f),
-                                    color = Color.Black
+                                    text = item, modifier = Modifier.weight(1f), color = Color.Black
                                 )
 
                                 if (item == currentSelected) {
                                     Spacer(modifier = Modifier.width(Dimens8))
                                     Icon(
-                                        imageVector = Icons.Default.Check,
-                                        contentDescription = null,
-                                        tint = Color.Black
+                                        imageVector = Icons.Default.Check, contentDescription = null, tint = Color.Black
                                     )
                                 }
                             }
-                        },
-                        onClick = {
+                        }, onClick = {
                             expanded = false
                             onItemChange(item)
+                        })
+                        if (index != modes.lastIndex) {
+                            HorizontalDivider(
+                                thickness = 0.6.dp, color = Color.LightGray.copy(alpha = 0.6f)
+                            )
                         }
-                    )
-                    if (index != modes.lastIndex) {
-                        HorizontalDivider(
-                            thickness = 0.6.dp,
-                            color = Color.LightGray.copy(alpha = 0.6f)
-                        )
                     }
                 }
-            }
         }
 
         Spacer(modifier = Modifier.width(Dimens16))
