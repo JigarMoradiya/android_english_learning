@@ -11,6 +11,7 @@ import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.distance
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.getStrokesForLetter
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.sampleStroke
+import com.example.myapplication.utils.extensions.OtherEx.safeAction
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -232,15 +233,19 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
     // 🔁 NAVIGATION
     // -------------------------------
     fun next() {
-        val nextIndex = (uiState.currentIndex + 1) % letters.size
-        resetForIndex(nextIndex)
+        safeAction {
+            val nextIndex = (uiState.currentIndex + 1) % letters.size
+            resetForIndex(nextIndex)
+        }
     }
 
     fun previous() {
-        val prevIndex =
-            if (uiState.currentIndex == 0) letters.lastIndex
-            else uiState.currentIndex - 1
-        resetForIndex(prevIndex)
+        safeAction {
+            val prevIndex =
+                if (uiState.currentIndex == 0) letters.lastIndex
+                else uiState.currentIndex - 1
+            resetForIndex(prevIndex)
+        }
     }
 
     fun changeMode(mode: LetterMode) {
