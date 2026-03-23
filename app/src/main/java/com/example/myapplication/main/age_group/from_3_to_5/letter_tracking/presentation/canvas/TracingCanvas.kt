@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.components.canvas
+package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.canvas
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectDragGestures

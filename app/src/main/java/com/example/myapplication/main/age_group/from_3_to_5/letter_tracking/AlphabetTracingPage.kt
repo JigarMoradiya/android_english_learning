@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.common.AppToolbarDropDownOnRight
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.components.BottomTracingControls
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.components.CenterLearningLayout
+import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.BottomTracingControls
+import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.CenterLearningLayout
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterMode
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterTracingViewModel
 import com.example.myapplication.main.common.BackgroundUI

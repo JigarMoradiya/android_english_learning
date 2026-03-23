@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.components
+package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -25,11 +24,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.components.canvas.GuidelineCanvas
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.components.canvas.TracingCanvas
+import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.canvas.GuidelineCanvas
+import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.canvas.TracingCanvas
 import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterTracingViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
