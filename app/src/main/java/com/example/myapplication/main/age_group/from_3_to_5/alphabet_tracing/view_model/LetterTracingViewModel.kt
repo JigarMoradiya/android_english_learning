@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model
+package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -8,9 +8,9 @@ import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.letter.LetterRepository
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.distance
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.getStrokesForLetter
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing.sampleStroke
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.tracing.distance
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.tracing.getStrokesForLetter
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.tracing.sampleStroke
 import com.example.myapplication.utils.extensions.OtherEx.safeAction
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

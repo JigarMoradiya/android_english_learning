@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation
+package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -26,9 +26,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.canvas.GuidelineCanvas
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.canvas.TracingCanvas
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterTracingViewModel
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.canvas.GuidelineCanvas
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.canvas.TracingCanvas
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterTracingViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens8

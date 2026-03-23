@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.presentation.canvas
+package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.canvas
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,8 +8,8 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterMode
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterTracingViewModel
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterTracingViewModel
 
 
 @Composable

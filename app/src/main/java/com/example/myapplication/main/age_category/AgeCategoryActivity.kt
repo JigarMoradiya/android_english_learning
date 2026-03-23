@@ -19,9 +19,8 @@ import com.example.myapplication.main.age_category.presentation.components.MainL
 import com.example.myapplication.main.age_group.AgeGroup3to5Page
 import com.example.myapplication.main.age_group.AgeGroup5to7Page
 import com.example.myapplication.main.age_group.AgeGroup6to9Page
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.AlphabetTrackingPage
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.AlphabetTrackingPage
 import com.example.myapplication.main.base.BaseActivity
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 

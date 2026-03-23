@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model
+package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model
 
 import androidx.compose.ui.geometry.Offset
 

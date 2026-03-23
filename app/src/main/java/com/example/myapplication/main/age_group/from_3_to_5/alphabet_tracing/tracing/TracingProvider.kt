@@ -1,7 +1,7 @@
-package com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.tracing
+package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.tracing
 
 import androidx.compose.ui.geometry.Offset
-import com.example.myapplication.main.age_group.from_3_to_5.letter_tracking.view_model.LetterMode
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
 import kotlin.math.cos
 import kotlin.math.sin
 
