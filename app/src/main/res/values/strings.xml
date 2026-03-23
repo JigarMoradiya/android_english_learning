@@ -27,7 +27,7 @@
     <string name="drag_drop_words">Drag &amp; Drop Words</string>
 
     <string name="back">Back</string>
-    <string name="clear">Clear</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="clear">CLEAR</string>
+    <string name="next">NEXT</string>
+    <string name="previous">PREVIOUS</string>
 </resources>

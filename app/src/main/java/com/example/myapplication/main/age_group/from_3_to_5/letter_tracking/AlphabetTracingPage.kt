@@ -22,33 +22,34 @@ fun AlphabetTrackingPage(
     viewModel: LetterTracingViewModel = hiltViewModel()
 ) {
 
-    val filteredItem = viewModel.lettersData
+    val currentItem = viewModel.lettersData
         .getOrNull(viewModel.uiState.currentIndex)
-    val word = filteredItem?.second
-    val imageName = word
+
+    val word = currentItem?.second
+    val imageRes = word
         ?.lowercase()
         ?.replace(" ", "")
+        ?.let { safeImageRes(it) }
 
-    val imageRes = imageName?.let { safeImageRes(it) }
-    Box{
+    Box(modifier = Modifier.fillMaxSize()) {
+
         BackgroundUI(isGreenGrassShow = false)
+
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
 
-            // ✅ HEADER (fixed)
             AppToolbarDropDownOnRight(
                 title = "Alphabet Tracking",
                 currentSelected = viewModel.uiState.mode.title,
                 modes = LetterMode.entries.map { it.title },
-                onItemChange = { selected ->
-                    val mode = LetterMode.entries.first { it.title == selected }
+                onItemChange = {
+                    val mode = LetterMode.entries.first { m -> m.title == it }
                     viewModel.changeMode(mode)
                 },
-                onBackClick = { navController.popBackStack() },
+                onBackClick = { navController.popBackStack() }
             )
 
-            // ✅ CENTER (fixed)
             CenterLearningLayout(
                 modifier = Modifier.weight(1f),
                 viewModel = viewModel,
@@ -56,13 +57,11 @@ fun AlphabetTrackingPage(
                 word = word
             )
 
-            // ✅ FOOTER (fixed)
             BottomTracingControls(
                 onClear = { viewModel.clear() },
                 onPrevious = { viewModel.previous() },
                 onNext = { viewModel.next() }
             )
         }
-
     }
 }

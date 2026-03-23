@@ -1,16 +1,10 @@
 package com.example.myapplication.common
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.consumeWindowInsets
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBars
-import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -34,14 +28,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.example.myapplication.R
+import com.example.myapplication.main.common.ActionButton
+import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.ButtonType
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
@@ -66,44 +61,47 @@ fun AppToolbar(title: String, onBackClick: () -> Unit) {
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun AppToolbarDropDownOnRight(
-    title: String, currentSelected: String, modes: List<String>, onItemChange: (String) -> Unit, onBackClick: () -> Unit
+    title: String,
+    currentSelected: String,
+    modes: List<String>,
+    onItemChange: (String) -> Unit,
+    onBackClick: () -> Unit
 ) {
+
     var expanded by remember { mutableStateOf(false) }
-    TopAppBar(
-        title = {
-        Text(
-            text = title, style = MaterialTheme.typography.titleLarge, fontSize = AppDimens.FontMedium16
-        )
-    }, navigationIcon = {
-        IconButton(onClick = onBackClick) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back)
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+
+        // LEFT
+        Box(modifier = Modifier.weight(1f)) {
+            BackButtonWithText(
+                title = title,
+                onBackClick = onBackClick
             )
         }
-    }, actions = {
 
-        // MODE DROPDOWN (Capsule style)
+        // RIGHT (FORCE SPACE)
+        Box(
+            modifier = Modifier
+                .weight(1f).padding(horizontal = Dimens16, vertical = Dimens8),
+            contentAlignment = Alignment.CenterEnd
+        ) {
+
             Box {
-                Row(
-                    modifier = Modifier
-                        .shadow(
-                            elevation = 4.dp, shape = RoundedCornerShape(50), clip = false
-                        )
-                        .clip(RoundedCornerShape(50))
-                        .background(Color.White)
-                        .clickable { expanded = true }
-                        .padding(horizontal = Dimens16, vertical = Dimens8), verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = currentSelected, color = Color.Black
-                    )
-
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowDown, contentDescription = null, tint = Color.Black
-                    )
-                }
+                ActionButton(
+                    text = currentSelected,
+                    icon = Icons.Default.KeyboardArrowDown,
+                    type = ButtonType.BLUE,
+                    onClick = { expanded = true },
+                    isIconStart = false
+                )
 
                 DropdownMenu(
                     expanded = expanded, onDismissRequest = { expanded = false }, offset = DpOffset(x = 0.dp, y = 8.dp), // ⭐ stabilizes position
@@ -112,25 +110,25 @@ fun AppToolbarDropDownOnRight(
                     ), containerColor = Color.White, tonalElevation = 0.dp, shadowElevation = 10.dp, shape = RoundedCornerShape(Dimens16)
                 ) {
                     modes.forEachIndexed { index, item ->
+                        DropdownMenuItem(
+                            text = {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
 
-                        DropdownMenuItem(text = {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Text(text = item, modifier = Modifier.weight(1f), color = Color.Black)
 
-                                Text(
-                                    text = item, modifier = Modifier.weight(1f), color = Color.Black
-                                )
-
-                                if (item == currentSelected) {
-                                    Spacer(modifier = Modifier.width(Dimens8))
-                                    Icon(
-                                        imageVector = Icons.Default.Check, contentDescription = null, tint = Color.Black
-                                    )
+                                    if (item == currentSelected) {
+                                        Spacer(modifier = Modifier.width(Dimens8))
+                                        Icon(
+                                            imageVector = Icons.Default.Check, contentDescription = null, tint = Color.Black
+                                        )
+                                    }
                                 }
+                            },
+                            onClick = {
+                                expanded = false
+                                onItemChange(item)
                             }
-                        }, onClick = {
-                            expanded = false
-                            onItemChange(item)
-                        })
+                        )
                         if (index != modes.lastIndex) {
                             HorizontalDivider(
                                 thickness = 0.6.dp, color = Color.LightGray.copy(alpha = 0.6f)
@@ -138,14 +136,7 @@ fun AppToolbarDropDownOnRight(
                         }
                     }
                 }
+            }
         }
-
-        Spacer(modifier = Modifier.width(Dimens16))
-    },colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color.Transparent,   // ⭐ IMPORTANT
-            scrolledContainerColor = Color.Transparent, // ⭐ IMPORTANT (scroll case)
-            titleContentColor = Color.Black,
-            navigationIconContentColor = Color.Black,
-            actionIconContentColor = Color.Black
-    ))
+    }
 }

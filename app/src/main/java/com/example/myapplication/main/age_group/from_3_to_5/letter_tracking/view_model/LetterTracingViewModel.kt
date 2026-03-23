@@ -270,4 +270,8 @@ class LetterTracingViewModel @Inject constructor() : ViewModel() {
         cachedGuides = emptyList()
         cachedFrame = null
     }
+
+    fun playBackSound() {
+
+    }
 }

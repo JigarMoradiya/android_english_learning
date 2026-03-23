@@ -7,6 +7,7 @@ object AppDimens {
     // Spacing
     val Dimens2 = 2.dp
     val Dimens4 = 4.dp
+    val Dimens6 = 6.dp
     val Dimens8 = 8.dp
     val Dimens12 = 12.dp
     val Dimens16 = 16.dp
