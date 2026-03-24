@@ -9,12 +9,12 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterTracingViewModel
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
 
 
 @Composable
 fun GuidelineCanvas(
-    viewModel: LetterTracingViewModel
+    viewModel: AlphabetTracingViewModel
 ) {
 
     val uiState = viewModel.uiState

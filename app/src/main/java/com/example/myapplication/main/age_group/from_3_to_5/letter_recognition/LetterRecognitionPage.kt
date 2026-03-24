@@ -11,7 +11,7 @@ import com.example.myapplication.common.AppToolbarDropDownOnRight
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.BottomTracingControls
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.CenterLearningLayout
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterTracingViewModel
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.safeImageRes
 
@@ -19,7 +19,7 @@ import com.example.myapplication.main.common.safeImageRes
 @Composable
 fun LetterRecognitionPage(
     navController: NavController,
-    viewModel: LetterTracingViewModel = hiltViewModel()
+    viewModel: AlphabetTracingViewModel = hiltViewModel()
 ) {
 
     val currentItem = viewModel.lettersData

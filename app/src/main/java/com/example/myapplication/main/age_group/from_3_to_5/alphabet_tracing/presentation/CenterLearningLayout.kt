@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.canvas.GuidelineCanvas
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.canvas.TracingCanvas
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterTracingViewModel
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
@@ -36,7 +36,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens8
 @Composable
 fun CenterLearningLayout(
     modifier : Modifier,
-    viewModel: LetterTracingViewModel,
+    viewModel: AlphabetTracingViewModel,
     imageRes: Int?,
     word: String?
 ) {
@@ -75,7 +75,7 @@ fun CenterLearningLayout(
 }
 
 @Composable
-fun LeftLetterView(modifier: Modifier = Modifier,viewModel: LetterTracingViewModel) {
+fun LeftLetterView(modifier: Modifier = Modifier,viewModel: AlphabetTracingViewModel) {
     Box(
         modifier = modifier
             .fillMaxHeight(),
@@ -94,7 +94,7 @@ fun LeftLetterView(modifier: Modifier = Modifier,viewModel: LetterTracingViewMod
 @Composable
 fun CenterTracingView(
     size: Dp,
-    viewModel: LetterTracingViewModel
+    viewModel: AlphabetTracingViewModel
 ) {
     Box(
         modifier = Modifier.size(size),

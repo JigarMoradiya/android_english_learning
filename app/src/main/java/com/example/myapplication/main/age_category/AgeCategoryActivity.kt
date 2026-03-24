@@ -19,7 +19,7 @@ import com.example.myapplication.main.age_category.presentation.components.MainL
 import com.example.myapplication.main.age_group.AgeGroup3to5Page
 import com.example.myapplication.main.age_group.AgeGroup5to7Page
 import com.example.myapplication.main.age_group.AgeGroup6to9Page
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.AlphabetTrackingPage
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.AlphabetTracingPage
 import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.LetterRecognitionPage
 import com.example.myapplication.main.base.BaseActivity
 import com.example.myapplication.ui.theme.MyApplicationTheme
@@ -86,7 +86,7 @@ fun AppNavGraph(navController: NavHostController) {
         }
         // Age Category 3 to 5
         composable("alphabet_tracing") {
-            AlphabetTrackingPage(navController)
+            AlphabetTracingPage(navController)
         }
         composable("letter_recognition") {
             LetterRecognitionPage(navController)

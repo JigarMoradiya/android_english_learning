@@ -22,11 +22,11 @@ import androidx.compose.ui.unit.min
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.helper.drawArrow
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterTracingViewModel
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
 import kotlin.math.min
 
 @Composable
-fun TracingCanvas(viewModel: LetterTracingViewModel = hiltViewModel()) {
+fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
 
     val uiState = viewModel.uiState
     val strokeColor = viewModel.getLetterColor()
