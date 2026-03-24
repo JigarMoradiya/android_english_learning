@@ -2,6 +2,7 @@ package com.example.myapplication.main.age_group.presentation.model
 
 import androidx.annotation.StringRes
 import com.example.myapplication.R
+import com.example.myapplication.main.age_category.view_model.RouteNavigation
 
 data class LearningActivityModel(
     @StringRes val titleRes: Int,
@@ -10,8 +11,8 @@ data class LearningActivityModel(
 
 // List of activities
 val activities_age_3_5 = listOf(
-    LearningActivityModel(R.string.alphabet_tracing, "alphabet_tracing"),
-    LearningActivityModel(R.string.letter_recognition, "letter_recognition"),
+    LearningActivityModel(R.string.alphabet_tracing, RouteNavigation.AlphabetTracing.name),
+    LearningActivityModel(R.string.letter_recognition, RouteNavigation.LetterRecognition.name),
     LearningActivityModel(R.string.abcd_images, "abcd_images"),
     LearningActivityModel(R.string.match_letters, "match_letters"),
     LearningActivityModel(R.string.match_letter_image, "match_letter_image"),

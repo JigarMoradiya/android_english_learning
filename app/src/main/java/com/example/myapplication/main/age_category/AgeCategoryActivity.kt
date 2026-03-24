@@ -16,6 +16,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.main.age_category.presentation.components.MainLearningAgesCategoriesScreen
+import com.example.myapplication.main.age_category.view_model.RouteNavigation
 import com.example.myapplication.main.age_group.AgeGroup3to5Page
 import com.example.myapplication.main.age_group.AgeGroup5to7Page
 import com.example.myapplication.main.age_group.AgeGroup6to9Page
@@ -85,10 +86,10 @@ fun AppNavGraph(navController: NavHostController) {
             AgeGroup6to9Page()
         }
         // Age Category 3 to 5
-        composable("alphabet_tracing") {
+        composable(RouteNavigation.AlphabetTracing.name) {
             AlphabetTracingPage(navController)
         }
-        composable("letter_recognition") {
+        composable(RouteNavigation.LetterRecognition.name) {
             LetterRecognitionPage(navController)
         }
     }

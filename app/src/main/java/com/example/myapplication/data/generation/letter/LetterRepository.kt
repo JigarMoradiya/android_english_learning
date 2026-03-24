@@ -17,7 +17,7 @@ object LetterRepository {
         LetterData("K", "Kiwi", listOf("King", "Kite", "Key", "Knife", "Kangaroo"), "k_sound.mp3"),
         LetterData("L", "Lion", listOf("Lamp", "Leaf", "Leg", "Ladder", "Lock"), "l_sound.mp3"),
         LetterData("M", "Monkey", listOf("Moon", "Mango", "Mushroom", "Mouse", "Mitten"), "m_sound.mp3"),
-        LetterData("N", "Nest", listOf("Nurse", "Net", "Nose", "Neck"), "n_sound.mp3"),
+        LetterData("N", "Nose", listOf("Nurse", "Net", "Nest", "Neck"), "n_sound.mp3"),
         LetterData("O", "Owl", listOf("Orange", "Ox", "Octopus", "Onion", "Ostrich"), "o_sound.mp3"),
         LetterData("P", "Parrot", listOf("Pig", "Pen", "Penguin", "Pot", "Pumpkin"), "p_sound.mp3"),
         LetterData("Q", "Queen", listOf("Quill", "Quilt", "Question Mark", "Quiet"), "q_sound.mp3"),

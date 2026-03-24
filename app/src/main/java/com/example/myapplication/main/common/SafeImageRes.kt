@@ -5,6 +5,17 @@ import androidx.compose.runtime.remember
 import com.example.myapplication.R
 
 @Composable
+fun getImageResFromWord(word: String?): Int? {
+    if (word.isNullOrBlank()) return null
+
+    val imageName = word
+        .lowercase()
+        .replace(" ", "")
+
+    return safeImageRes(imageName) // uses LocalContext
+}
+
+@Composable
 fun safeImageRes(name: String?): Int? {
     name?.let {
         return remember(name) {

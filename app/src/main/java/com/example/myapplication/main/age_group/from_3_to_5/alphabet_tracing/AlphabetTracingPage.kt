@@ -5,14 +5,18 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.R
 import com.example.myapplication.common.AppToolbarDropDownOnRight
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.BottomTracingControls
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.CenterLearningLayout
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.main.common.safeImageRes
 
 
@@ -22,14 +26,8 @@ fun AlphabetTracingPage(
     viewModel: AlphabetTracingViewModel = hiltViewModel()
 ) {
 
-    val currentItem = viewModel.lettersData
-        .getOrNull(viewModel.uiState.currentIndex)
-
+    val currentItem = viewModel.lettersData.getOrNull(viewModel.uiState.currentIndex)
     val word = currentItem?.second
-    val imageRes = word
-        ?.lowercase()
-        ?.replace(" ", "")
-        ?.let { safeImageRes(it) }
 
     Box(modifier = Modifier.fillMaxSize()) {
 
@@ -40,7 +38,7 @@ fun AlphabetTracingPage(
         ) {
 
             AppToolbarDropDownOnRight(
-                title = "Alphabet Tracking",
+                title = stringResource(R.string.alphabet_tracing),
                 currentSelected = viewModel.uiState.mode.title,
                 modes = LetterMode.entries.map { it.title },
                 onItemChange = {
@@ -53,7 +51,7 @@ fun AlphabetTracingPage(
             CenterLearningLayout(
                 modifier = Modifier.weight(1f),
                 viewModel = viewModel,
-                imageRes = imageRes,
+                imageRes = getImageResFromWord(word),
                 word = word
             )
 
