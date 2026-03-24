@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.tracing
+package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.helper
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect

@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.min
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.tracing.drawArrow
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.helper.drawArrow
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterTracingViewModel
 import kotlin.math.min
