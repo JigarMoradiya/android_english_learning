@@ -20,6 +20,7 @@ import com.example.myapplication.main.age_group.AgeGroup3to5Page
 import com.example.myapplication.main.age_group.AgeGroup5to7Page
 import com.example.myapplication.main.age_group.AgeGroup6to9Page
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.AlphabetTrackingPage
+import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.LetterRecognitionPage
 import com.example.myapplication.main.base.BaseActivity
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -84,8 +85,11 @@ fun AppNavGraph(navController: NavHostController) {
             AgeGroup6to9Page()
         }
         // Age Category 3 to 5
-        composable("alphabet_tracking") {
+        composable("alphabet_tracing") {
             AlphabetTrackingPage(navController)
+        }
+        composable("letter_recognition") {
+            LetterRecognitionPage(navController)
         }
     }
 }

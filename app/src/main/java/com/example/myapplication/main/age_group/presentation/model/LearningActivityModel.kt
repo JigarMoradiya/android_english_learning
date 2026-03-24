@@ -10,7 +10,7 @@ data class LearningActivityModel(
 
 // List of activities
 val activities_age_3_5 = listOf(
-    LearningActivityModel(R.string.alphabet_tracing, "alphabet_tracking"),
+    LearningActivityModel(R.string.alphabet_tracing, "alphabet_tracing"),
     LearningActivityModel(R.string.letter_recognition, "letter_recognition"),
     LearningActivityModel(R.string.abcd_images, "abcd_images"),
     LearningActivityModel(R.string.match_letters, "match_letters"),
