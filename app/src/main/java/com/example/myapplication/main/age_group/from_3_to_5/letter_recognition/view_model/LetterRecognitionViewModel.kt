@@ -5,11 +5,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.letter.LetterRepository
+import com.example.myapplication.main.age_category.view_model.RouteNavigation
+import com.example.myapplication.utilities.TextToSpeechManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class LetterRecognitionViewModel @Inject constructor() : ViewModel() {
+class LetterRecognitionViewModel @Inject constructor(
+    private val ttsManager: TextToSpeechManager,
+) : ViewModel() {
 
     var uiState by mutableStateOf(LetterRecognitionUiState())
         private set
@@ -21,7 +25,7 @@ class LetterRecognitionViewModel @Inject constructor() : ViewModel() {
 
     fun onLetterClick(letter: String, word: String) {
         uiState = uiState.copy(selectedLetter = letter)
-//        speak(letter = letter, word = word)
+        ttsManager.speak("$letter, $word", RouteNavigation.LetterRecognition.name)
     }
 
 }

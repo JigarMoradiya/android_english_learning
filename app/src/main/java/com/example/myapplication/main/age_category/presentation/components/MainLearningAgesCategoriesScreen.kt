@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.main.age_category.LearningAgesCategoriesViewModel
+import com.example.myapplication.main.age_category.view_model.LearningAgesCategoriesViewModel
 import com.example.myapplication.main.age_category.presentation.model.LearningCategory
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppTypography

@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_category
+package com.example.myapplication.main.age_category.view_model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
-
 
 @HiltViewModel
 class LearningAgesCategoriesViewModel @Inject constructor(
@@ -39,4 +38,3 @@ class LearningAgesCategoriesViewModel @Inject constructor(
     )
     val categories: StateFlow<List<LearningCategory>> = _categories.asStateFlow()
 }
-
