@@ -16,7 +16,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".main.age_category.AgeCategoryActivity"
+            android:name=".main.AgeCategoryActivity"
             android:exported="true"
             android:resizeableActivity="false"
             android:supportsPictureInPicture="false"

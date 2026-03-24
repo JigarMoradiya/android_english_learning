@@ -10,7 +10,7 @@ import androidx.compose.ui.res.stringResource
 import com.example.myapplication.R
 
 @Composable
-fun AgeGroup6to9Page() {
+fun AgeGroup6to8Page() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Text(text = stringResource(R.string.advanced_learning))
     }

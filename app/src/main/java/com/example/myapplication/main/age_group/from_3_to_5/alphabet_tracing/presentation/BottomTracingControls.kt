@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.myapplication.R
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.common.ActionButton
 import com.example.myapplication.main.common.ButtonType
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -24,7 +25,7 @@ fun BottomTracingControls(
     onNext: () -> Unit
 ) {
     Row(
-        modifier = Modifier.padding(horizontal = Dimens16).padding(bottom = Dimens16).padding(top = Dimens8)
+        modifier = Modifier.padding(start = DeviceInfo.screenPadding(), end = Dimens16).padding(bottom = Dimens16,top = Dimens8)
     ) {
         ActionButton(
             text = stringResource(R.string.previous),

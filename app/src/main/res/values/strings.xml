@@ -5,16 +5,7 @@
     <string name="learn_english">Learn English</string>
 
     <!-- Categories -->
-    <string name="beginner_level">Beginner Level</string>
-    <string name="early_words">Early Words</string>
-    <string name="advanced_learning">Advanced Learning</string>
-
-    <!-- Age ranges -->
-    <string name="ages_3_5">Ages 3–5</string>
-    <string name="ages_5_7">Ages 5–7</string>
-    <string name="ages_6_9">Ages 6–9</string>
-
-    <string name="beginner_level_age_3_5">Beginner Level (Ages 3–5)</string>
+    <string name="level1_title">Little Explorers</string>
 
     <!-- Beginner Level category Ages 3–5 -->
     <string name="alphabet_tracing">Alphabet Tracing</string>

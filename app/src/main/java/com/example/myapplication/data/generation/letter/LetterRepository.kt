@@ -4,10 +4,10 @@ object LetterRepository {
 
     val all: List<LetterData> = listOf(
 
-        LetterData("A", "Apple", listOf("Ant", "Airplane", "Axe", "Alligator", "Arrow"), "a_sound.mp3"),
+        LetterData("A", "Ant", listOf("Apple", "Airplane", "Axe", "Alligator", "Arrow"), "a_sound.mp3"),
         LetterData("B", "Bat", listOf("Bee", "Ball", "Butterfly", "Boy", "Banana", "Balloon"), "b_sound.mp3"),
         LetterData("C", "Cat", listOf("Car", "Cake", "Candle", "Cow", "Carrot"), "c_sound.mp3"),
-        LetterData("D", "Dog", listOf("Duck", "Door", "Drum", "Deer", "Doll"), "d_sound.mp3"),
+        LetterData("D", "Drum", listOf( "Dog", "Duck", "Door", "Deer", "Doll"), "d_sound.mp3"),
         LetterData("E", "Elephant", listOf("Egg", "Eagle", "Ear", "Envelope", "Eye"), "e_sound.mp3"),
         LetterData("F", "Fish", listOf("Fan", "Frog", "Fox", "Flower"), "f_sound.mp3"),
         LetterData("G", "Grapes", listOf("Goat", "Giraffe", "Gift", "Girl", "Guitar"), "g_sound.mp3"),
@@ -21,7 +21,7 @@ object LetterRepository {
         LetterData("O", "Owl", listOf("Orange", "Ox", "Octopus", "Onion", "Ostrich"), "o_sound.mp3"),
         LetterData("P", "Parrot", listOf("Pig", "Pen", "Penguin", "Pot", "Pumpkin"), "p_sound.mp3"),
         LetterData("Q", "Queen", listOf("Quill", "Quilt", "Question Mark", "Quiet"), "q_sound.mp3"),
-        LetterData("R", "Rabbit", listOf("Rose", "Road", "Rope", "Rocket"), "r_sound.mp3"),
+        LetterData("R", "Rose", listOf("Rabbit", "Road", "Rope", "Rocket"), "r_sound.mp3"),
         LetterData("S", "Sun", listOf("Star", "Ship", "Snake", "Spoon", "Soap"), "s_sound.mp3"),
         LetterData("T", "Tiger", listOf("Tree", "Train", "Table", "Teeth", "Tomato"), "t_sound.mp3"),
         LetterData("U", "Umbrella", listOf("Unicorn", "Uniform", "Utensil", "UFO"), "u_sound.mp3"),

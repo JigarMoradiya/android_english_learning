@@ -27,10 +27,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
@@ -40,13 +42,13 @@ import com.example.myapplication.ui.theme.PrimaryBlue
 @Composable
 fun BackButtonWithText(
     title: String,
-    color: Color = PrimaryBlue,
     size: Dp = 42.dp,
     onBackClick: () -> Unit
 ) {
+    val headerColors = getButtonColors(ButtonType.BLUE)
 
     Row(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = Dimens16, vertical = Dimens8),
+        modifier = Modifier.fillMaxWidth().padding(vertical = Dimens8).padding(start = DeviceInfo.screenPadding(), end = Dimens16),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
@@ -70,7 +72,7 @@ fun BackButtonWithText(
                         clip = false
                     )
                     .background(
-                        color = Color.White,
+                        brush = headerColors.gradient,
                         shape = RoundedCornerShape(
                             topStart = 0.dp,
                             bottomStart = 0.dp,
@@ -89,7 +91,7 @@ fun BackButtonWithText(
                 ) {
                     Text(
                         text = title,
-                        color = color,
+                        color = Color.White,
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Black,
                     )
@@ -102,7 +104,7 @@ fun BackButtonWithText(
                 modifier = Modifier
                     .size(size)
                     .shadow(8.dp, CircleShape, clip = false)
-                    .background(color, CircleShape)
+                    .background(headerColors.base, CircleShape)
                     .clip(CircleShape)
                     .clickable(
                         interactionSource = interactionSource,

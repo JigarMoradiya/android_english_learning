@@ -1,7 +1,5 @@
 package com.example.myapplication.main.age_group.from_3_to_5.letter_recognition
 
-import android.util.Log
-import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,12 +11,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
@@ -30,7 +31,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
@@ -42,16 +42,11 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.common.AppToolbarDropDownOnRight
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.BottomTracingControls
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.CenterLearningLayout
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.view_model.LetterRecognitionViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.getImageResFromWord
-import com.example.myapplication.main.common.safeImageRes
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Padding24
 import com.example.myapplication.ui.theme.PrimaryBlue
@@ -74,6 +69,7 @@ fun LetterRecognitionPage(
         BackgroundUI(isGreenGrassShow = false)
         Row(
             modifier = Modifier
+                .windowInsetsPadding(WindowInsets.safeDrawing)
                 .fillMaxSize()
         ) {
 
@@ -94,7 +90,7 @@ fun LetterRecognitionPage(
                         .fillMaxWidth(),
                     contentAlignment = Alignment.Center
                 ) {
-                    BoxWithConstraints(modifier = Modifier.padding(start = Dimens16)) {
+                    BoxWithConstraints(modifier = Modifier.padding(start = DeviceInfo.screenPadding())) {
                         val isTablet = maxWidth > 600.dp
 
                         val totalCols = if (isTablet) 5 else 7

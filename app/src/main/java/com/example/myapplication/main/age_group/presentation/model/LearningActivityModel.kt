@@ -2,7 +2,7 @@ package com.example.myapplication.main.age_group.presentation.model
 
 import androidx.annotation.StringRes
 import com.example.myapplication.R
-import com.example.myapplication.main.age_category.view_model.RouteNavigation
+import com.example.myapplication.main.base.nav.RouteNavigation
 
 data class LearningActivityModel(
     @StringRes val titleRes: Int,

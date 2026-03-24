@@ -8,19 +8,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -29,37 +23,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
-import com.example.myapplication.R
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.common.ActionButton
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.ButtonType
-import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun AppToolbar(title: String, onBackClick: () -> Unit) {
-    TopAppBar(
-        title = {
-        Text(
-            text = title, style = MaterialTheme.typography.titleLarge, fontSize = AppDimens.FontMedium16
-        )
-    }, navigationIcon = {
-        IconButton(onClick = onBackClick) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back)
-            )
-        }
-    }, colors = TopAppBarDefaults.topAppBarColors(
-        titleContentColor = Color.Black, navigationIconContentColor = Color.Black
-    )
-    )
-}
 
 
 @Composable
@@ -90,7 +62,7 @@ fun AppToolbarDropDownOnRight(
         // RIGHT (FORCE SPACE)
         Box(
             modifier = Modifier
-                .weight(1f).padding(horizontal = Dimens16, vertical = Dimens8),
+                .weight(1f).padding(vertical = Dimens8).padding(start = DeviceInfo.screenPadding(), end = Dimens16),
             contentAlignment = Alignment.CenterEnd
         ) {
 
