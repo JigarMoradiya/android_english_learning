@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
@@ -34,6 +35,7 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
 
@@ -114,11 +116,21 @@ fun BackButtonWithText(
                     .align(Alignment.CenterStart),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
-                    contentDescription = null,
-                    tint = Color.White
-                )
+                Box {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+                        contentDescription = null,
+                        tint = Color.Black.copy(alpha = 0.35f),
+                        modifier = Modifier
+                            .offset(ShadowOffset, ShadowOffset), // shadow layer
+                    )
+
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+                        contentDescription = null,
+                        tint = Color.White,
+                    )
+                }
             }
         }
 

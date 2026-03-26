@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -32,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
 
@@ -84,11 +87,21 @@ fun KidsActionButton(
         ) {
 
             if (isIconStart) {
-                Icon(
-                    icon,
-                    contentDescription = null,
-                    tint = Color.White,
-                )
+                Box {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null,
+                        tint = Color.Black.copy(alpha = 0.35f),
+                        modifier = Modifier
+                            .offset(ShadowOffset, ShadowOffset), // shadow layer
+                    )
+
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null,
+                        tint = Color.White,
+                    )
+                }
                 Spacer(Modifier.width(Dimens6))
             }
 
@@ -101,11 +114,22 @@ fun KidsActionButton(
 
             if (!isIconStart) {
                 Spacer(Modifier.width(Dimens6))
-                Icon(
-                    icon,
-                    contentDescription = null,
-                    tint = Color.White,
-                )
+
+                Box {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null,
+                        tint = Color.Black.copy(alpha = 0.35f),
+                        modifier = Modifier
+                            .offset(ShadowOffset, ShadowOffset), // shadow layer
+                    )
+
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null,
+                        tint = Color.White,
+                    )
+                }
             }
         }
     }

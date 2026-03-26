@@ -9,6 +9,7 @@ object AppDimens {
     val isTablet = DeviceInfo.isTablet
     // Spacing
     val Dimens2 = if (isTablet) 3.dp else 2.dp
+    val ShadowOffset = if (isTablet) 2.5.dp else 1.5.dp
     val Dimens4 = if (isTablet) 6.dp else 4.dp
     val Dimens6 = if (isTablet) 8.dp else 6.dp
     val Dimens8 = if (isTablet) 12.dp else 8.dp
