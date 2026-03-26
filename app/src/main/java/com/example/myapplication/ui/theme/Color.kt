@@ -9,3 +9,4 @@ val PrimaryGreen = Color(0xFF4CAF50)
 
 val White = Color.White
 val Black = Color.Black
+val Gray = Color(0xFF5E5B5C)

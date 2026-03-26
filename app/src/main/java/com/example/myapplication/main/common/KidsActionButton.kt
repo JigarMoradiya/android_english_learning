@@ -24,7 +24,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -33,77 +32,11 @@ import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
-import com.example.myapplication.ui.theme.PrimaryBlue
-
-enum class ButtonType {
-    BLUE,
-    PINK,
-    ORANGE,
-    PURPLE,
-    GREEN,
-}
-
-data class ButtonColors(
-    val base: Color,
-    val gradient: Brush
-)
-
-fun getButtonColors(type: ButtonType): ButtonColors {
-    return when (type) {
-
-        ButtonType.BLUE -> ButtonColors(
-            base = Color(0xFF005EA9),
-            gradient = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF42A5F5),
-                    PrimaryBlue
-                )
-            )
-        )
-
-        ButtonType.PINK -> ButtonColors(
-            base = Color(0xFFD5084E),
-            gradient = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFFF5538A),
-                    Color(0xFFE91E63)
-                )
-            )
-        )
-
-        ButtonType.ORANGE -> ButtonColors(
-            base = Color(0xFFC77601),
-            gradient = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFFEEAA47),
-                    Color(0xFFFB8C00)
-                )
-            )
-        )
-        ButtonType.PURPLE -> ButtonColors(
-            base = Color(0xFF5532D2),
-            gradient = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF9374EF),
-                    Color(0xFF6446CC)
-                )
-            )
-        )
-
-        ButtonType.GREEN -> ButtonColors(
-            base = Color(0xFF108156),
-            gradient = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF4CD09C),
-                    Color(0xFF129864)
-                )
-            )
-        )
-    }
-}
+import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.ui.theme.getButtonColors
 
 @Composable
-fun ActionButton(
+fun KidsActionButton(
     text: String,
     icon: ImageVector,
     type: ButtonType,

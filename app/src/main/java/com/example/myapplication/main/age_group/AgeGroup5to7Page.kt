@@ -12,6 +12,6 @@ import com.example.myapplication.R
 @Composable
 fun AgeGroup5to7Page() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = stringResource(R.string.early_words))
+        Text(text = stringResource(R.string.level1_title))
     }
 }

@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.rounded.Check
+import androidx.compose.material.icons.rounded.KeyboardArrowDown
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
@@ -27,9 +27,9 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.example.myapplication.data.model.DeviceInfo
-import com.example.myapplication.main.common.ActionButton
+import com.example.myapplication.main.common.KidsActionButton
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.ButtonType
+import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 
@@ -67,9 +67,9 @@ fun AppToolbarDropDownOnRight(
         ) {
 
             Box {
-                ActionButton(
+                KidsActionButton(
                     text = currentSelected,
-                    icon = Icons.Default.KeyboardArrowDown,
+                    icon = Icons.Rounded.KeyboardArrowDown,
                     type = ButtonType.BLUE,
                     onClick = { expanded = true },
                     isIconStart = false
@@ -91,7 +91,7 @@ fun AppToolbarDropDownOnRight(
                                     if (item == currentSelected) {
                                         Spacer(modifier = Modifier.width(Dimens8))
                                         Icon(
-                                            imageVector = Icons.Default.Check, contentDescription = null, tint = Color.Black
+                                            imageVector = Icons.Rounded.Check, contentDescription = null, tint = Color.Black
                                         )
                                     }
                                 }

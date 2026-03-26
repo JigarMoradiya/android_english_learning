@@ -4,16 +4,16 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
-import com.example.myapplication.main.common.ActionButton
-import com.example.myapplication.main.common.ButtonType
+import com.example.myapplication.main.common.KidsActionButton
+import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 
@@ -27,27 +27,27 @@ fun BottomTracingControls(
     Row(
         modifier = Modifier.padding(start = DeviceInfo.screenPadding(), end = Dimens16).padding(bottom = Dimens16,top = Dimens8)
     ) {
-        ActionButton(
+        KidsActionButton(
             text = stringResource(R.string.previous),
-            icon = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
+            icon = Icons.AutoMirrored.Rounded.KeyboardArrowLeft,
             type = ButtonType.ORANGE,
             onClick = onPrevious
         )
 
         Spacer(modifier = Modifier.weight(1f))
 
-        ActionButton(
+        KidsActionButton(
             text = stringResource(R.string.clear),
-            icon = Icons.Default.Refresh,
+            icon = Icons.Rounded.Refresh,
             type = ButtonType.PINK,
             onClick = onClear,
         )
 
         Spacer(modifier = Modifier.weight(1f))
 
-        ActionButton(
+        KidsActionButton(
             text = stringResource(R.string.next),
-            icon = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+            icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
             type = ButtonType.ORANGE,
             onClick = onNext,
             isIconStart = false

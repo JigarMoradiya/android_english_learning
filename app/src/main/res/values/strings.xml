@@ -10,7 +10,7 @@
     <!-- Beginner Level category Ages 3–5 -->
     <string name="alphabet_tracing">Alphabet Tracing</string>
     <string name="letter_recognition">Letter Recognition</string>
-    <string name="abcd_images">ABCD with Images</string>
+    <string name="abcd_with_images">ABCD with Images</string>
     <string name="match_letters">Match Letters</string>
     <string name="match_letter_image">Match Letter with Image</string>
     <string name="coloring_alphabet">Coloring Alphabet</string>

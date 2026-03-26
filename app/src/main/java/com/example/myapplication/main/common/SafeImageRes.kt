@@ -11,6 +11,7 @@ fun getImageResFromWord(word: String?): Int? {
     val imageName = word
         .lowercase()
         .replace(" ", "")
+        .replace("-", "")
 
     return safeImageRes(imageName) // uses LocalContext
 }

@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.animation)
+    implementation(libs.compose.material.icons.extended)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -81,4 +82,6 @@ dependencies {
     implementation(libs.retrofit)   // Retrofit
     implementation(libs.retrofit.gson)  // Retrofit
     implementation(libs.okhttp.logging.interceptor)  // OkHttp logging
+
+
 }

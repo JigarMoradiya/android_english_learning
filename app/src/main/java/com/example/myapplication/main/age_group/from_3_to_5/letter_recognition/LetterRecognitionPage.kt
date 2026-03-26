@@ -48,7 +48,7 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Padding24
+import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.ui.theme.PrimaryOrange
 
@@ -107,7 +107,7 @@ fun LetterRecognitionPage(
                             columns = GridCells.Fixed(totalCols),
                             verticalArrangement = Arrangement.spacedBy(spacing),
                             horizontalArrangement = Arrangement.spacedBy(spacing),
-                            contentPadding = PaddingValues(vertical = Padding24),
+                            contentPadding = PaddingValues(vertical = Dimens24),
                             modifier = Modifier.fillMaxWidth()
                         ) {
 
