@@ -43,13 +43,14 @@ import com.example.myapplication.ui.theme.getButtonColors
 @Composable
 fun BackButtonWithText(
     title: String,
+    modifier: Modifier = Modifier,
     size: Dp = 42.dp,
     onBackClick: () -> Unit
 ) {
     val headerColors = getButtonColors(ButtonType.BLUE)
 
     Row(
-        modifier = Modifier.fillMaxWidth().padding(vertical = Dimens8).padding(start = DeviceInfo.screenPadding(), end = Dimens16),
+        modifier = modifier.fillMaxWidth().padding(vertical = Dimens8).padding(start = DeviceInfo.screenPadding(), end = Dimens16),
         verticalAlignment = Alignment.CenterVertically
     ) {
 

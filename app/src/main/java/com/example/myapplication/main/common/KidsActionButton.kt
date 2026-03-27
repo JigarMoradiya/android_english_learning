@@ -41,7 +41,7 @@ import com.example.myapplication.ui.theme.getButtonColors
 @Composable
 fun KidsActionButton(
     text: String,
-    icon: ImageVector,
+    icon: ImageVector? = null,
     type: ButtonType,
     onClick: () -> Unit,
     isIconStart: Boolean = true,
@@ -86,7 +86,7 @@ fun KidsActionButton(
             horizontalArrangement = Arrangement.Center
         ) {
 
-            if (isIconStart) {
+            if (isIconStart && icon != null) {
                 Box {
                     Icon(
                         imageVector = icon,
@@ -112,7 +112,7 @@ fun KidsActionButton(
                 fontWeight = FontWeight.Bold
             )
 
-            if (!isIconStart) {
+            if (!isIconStart && icon != null) {
                 Spacer(Modifier.width(Dimens6))
 
                 Box {

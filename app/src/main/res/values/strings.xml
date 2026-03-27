@@ -22,4 +22,6 @@
     <string name="next">NEXT</string>
     <string name="previous">PREVIOUS</string>
     <string name="tap_a_letter">👈 Tap a Letter</string>
+    <string name="continue_to_play">Continue to Play</string>
+    <string name="no_i_want_to_close">I want to Close</string>
 </resources>

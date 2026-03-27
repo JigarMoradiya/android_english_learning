@@ -1,7 +1,6 @@
 package com.example.myapplication.main.age_category.view_model
 
 import android.app.Application
-import androidx.compose.ui.res.dimensionResource
 import androidx.lifecycle.AndroidViewModel
 import com.example.myapplication.R
 import com.example.myapplication.main.base.nav.RouteNavigation
