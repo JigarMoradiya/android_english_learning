@@ -83,10 +83,10 @@ fun LetterRecognitionPage(
                 )
 
                 Spacer(modifier = Modifier)
-                // ⭐ THIS BOX WILL CENTER CONTENT
+                // THIS BOX WILL CENTER CONTENT
                 Box(
                     modifier = Modifier
-                        .weight(1f) // ⭐ IMPORTANT
+                        .weight(1f) // IMPORTANT
                         .fillMaxWidth(),
                     contentAlignment = Alignment.Center
                 ) {
@@ -122,7 +122,7 @@ fun LetterRecognitionPage(
 
                                 Box(
                                     modifier = Modifier
-                                        .size(boxSize) // ⭐ FIXED SIZE (VERY IMPORTANT)
+                                        .size(boxSize) // FIXED SIZE (VERY IMPORTANT)
                                         .graphicsLayer {
                                             scaleX = scale
                                             scaleY = scale

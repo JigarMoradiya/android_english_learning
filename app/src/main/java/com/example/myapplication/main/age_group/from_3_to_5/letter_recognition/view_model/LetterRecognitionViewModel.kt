@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.utilities.TextToSpeechManager
+import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -24,6 +25,7 @@ class LetterRecognitionViewModel @Inject constructor(
         }
 
     fun onLetterClick(letter: String, word: String) {
+        AudioPlayerManager.playSoundMenuClick()
         uiState = uiState.copy(selectedLetter = letter)
         ttsManager.speak("$letter, $word", RouteNavigation.LetterRecognition.name)
     }

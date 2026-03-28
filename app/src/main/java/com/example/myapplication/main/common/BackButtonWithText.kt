@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -38,6 +39,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
+import com.example.myapplication.utils.AudioPlayerManager
 
 
 @Composable
@@ -48,7 +50,6 @@ fun BackButtonWithText(
     onBackClick: () -> Unit
 ) {
     val headerColors = getButtonColors(ButtonType.BLUE)
-
     Row(
         modifier = modifier.fillMaxWidth().padding(vertical = Dimens8).padding(start = DeviceInfo.screenPadding(), end = Dimens16),
         verticalAlignment = Alignment.CenterVertically
@@ -112,6 +113,7 @@ fun BackButtonWithText(
                         interactionSource = interactionSource,
                         indication = LocalIndication.current
                     ) {
+                        AudioPlayerManager.playSoundBtnBack()
                         onBackClick()
                     }
                     .align(Alignment.CenterStart),

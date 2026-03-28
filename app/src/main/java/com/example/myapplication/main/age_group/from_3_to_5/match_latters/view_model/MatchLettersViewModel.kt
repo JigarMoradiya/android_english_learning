@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.utilities.TextToSpeechManager
+import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -72,6 +73,7 @@ class MatchLettersViewModel @Inject constructor(
 
                 uiState = if (newMatched.size == uiState.currentBatch.size) {
                     // COMPLETE
+                    AudioPlayerManager.playSoundClap()
                     uiState.copy(
                         matchedPairs = newMatched,
                         showPopup = true,
@@ -79,10 +81,13 @@ class MatchLettersViewModel @Inject constructor(
                         feedbackSubText = "You matched all letters!"
                     )
                 } else {
+                    AudioPlayerManager.playSoundCorrectAnswer()
                     uiState.copy(matchedPairs = newMatched)
+
                 }
 
             } else {
+                AudioPlayerManager.playSoundWrongAnswer()
                 // WRONG (you can play sound here)
             }
 

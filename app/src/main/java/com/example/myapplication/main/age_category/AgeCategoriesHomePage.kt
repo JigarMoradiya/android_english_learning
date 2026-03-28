@@ -1,5 +1,6 @@
 package com.example.myapplication.main.age_category
 
+import android.content.Context
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,6 +18,7 @@ import com.example.myapplication.main.age_category.view_model.AgeCategoriesViewM
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.utils.AudioPlayerManager
 
 // --- UI Screen ---
 @Composable
@@ -45,6 +47,7 @@ fun MainLearningAgesCategoriesScreen(
             Spacer(modifier = Modifier.height(Dimens16))
 
             CategoriesHorizontalList(categories,{
+                AudioPlayerManager.playSoundMenuClick()
                 navController.navigate(it.destination)
             })
         }

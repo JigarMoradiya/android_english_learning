@@ -1,6 +1,7 @@
 package com.example.myapplication.main.base.nav
 
 enum class RouteNavigation {
+    AgeCategories,
     AgeGroup3to5,
     AlphabetTracing,
     LetterRecognition,

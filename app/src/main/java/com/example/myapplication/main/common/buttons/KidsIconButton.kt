@@ -24,11 +24,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
+import com.example.myapplication.utils.AudioPlayerManager
 
 @Composable
 fun KidsIconButton(
@@ -87,6 +89,7 @@ fun KidsIconButton(
                 interactionSource = interactionSource,
                 indication = null
             ) {
+                AudioPlayerManager.playSoundMenuClick()
                 onClick()
             },
         contentAlignment = Alignment.Center

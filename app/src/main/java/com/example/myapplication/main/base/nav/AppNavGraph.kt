@@ -18,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -35,14 +36,11 @@ import com.example.myapplication.main.age_group.from_3_to_5.match_latters.MatchL
 fun AppNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = "age_categories"
+        startDestination = RouteNavigation.AgeCategories.name
     ) {
         // Home
-        composable("age_categories") {
+        composable(RouteNavigation.AgeCategories.name) {
             MainLearningAgesCategoriesScreen(navController)
-//            Surface(modifier = Modifier.fillMaxSize()) {
-//                ComplexList(items = List(100) { "Item #$it" })
-//            }
         }
         // Age Category
         composable(RouteNavigation.AgeGroup3to5.name) {

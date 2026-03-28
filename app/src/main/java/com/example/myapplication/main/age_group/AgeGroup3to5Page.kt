@@ -1,5 +1,6 @@
 package com.example.myapplication.main.age_group
 
+import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,6 +34,7 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.utils.AudioPlayerManager
 
 @Composable
 fun AgeGroup3to5Page(navController: NavController) {
@@ -71,7 +73,10 @@ fun AgeGroup3to5Page(navController: NavController) {
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
                     ) {
                         Button(
-                            onClick = { navController.navigate(activity.destination) },
+                            onClick = {
+                                AudioPlayerManager.playSoundMenuClick()
+                                navController.navigate(activity.destination)
+                            },
                             modifier = Modifier.fillMaxWidth(),
                             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent), // make button use card color
                             elevation = null // remove default button elevation

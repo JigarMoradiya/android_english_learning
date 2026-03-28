@@ -30,6 +30,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.data.model.DeviceInfo
@@ -40,6 +41,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
+import com.example.myapplication.utils.AudioPlayerManager
 
 @Composable
 fun KidsActionButton(
@@ -57,7 +59,6 @@ fun KidsActionButton(
         targetValue = if (pressed) 0.9f else 1f,
         label = ""
     )
-
 
     Box(
         modifier = Modifier
@@ -79,6 +80,7 @@ fun KidsActionButton(
                 interactionSource = interactionSource,
                 indication = null
             ) {
+                AudioPlayerManager.playSoundMenuClick()
                 onClick()
             }
             .padding(horizontal = Dimens12, vertical = Dimens8)

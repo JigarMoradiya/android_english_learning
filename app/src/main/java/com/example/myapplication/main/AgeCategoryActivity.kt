@@ -17,6 +17,7 @@ import com.example.myapplication.main.base.nav.AppNavGraph
 import com.example.myapplication.main.base.BaseActivity
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.utilities.TextToSpeechManager
+import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -43,6 +44,10 @@ class AgeCategoryActivity : BaseActivity() {
             }
             // Detect tablet
             DeviceInfo.isTablet = resources.configuration.smallestScreenWidthDp >= 600 && resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+            // initialize audio player
+            AudioPlayerManager.init(this)
+
             setContent {
                 val navController = rememberNavController()
                 MyApplicationTheme {
