@@ -11,6 +11,8 @@ enum class ButtonType {
     GREEN,
     RED,
     TEAL,
+    NEGATIVE,
+    POSITIVE,
 }
 
 data class ButtonColors(
@@ -85,6 +87,24 @@ fun getButtonColors(type: ButtonType): ButtonColors {
                 listOf(
                     Color(0xFFD55E5E),
                     Color(0xFFAF0909)
+                )
+            )
+        )
+        ButtonType.NEGATIVE -> ButtonColors(
+            base = Color(0xFF3D3C3C),
+            gradient = Brush.horizontalGradient(
+                listOf(
+                    Color(0xFF8F8E8E),
+                    Color(0xFF5D5D5D)
+                )
+            )
+        )
+        ButtonType.POSITIVE -> ButtonColors(
+            base = Color(0xFF1E5E22),
+            gradient = Brush.horizontalGradient(
+                listOf(
+                    Color(0xFF4EA953),
+                    Color(0xFF2E7D32)
                 )
             )
         )

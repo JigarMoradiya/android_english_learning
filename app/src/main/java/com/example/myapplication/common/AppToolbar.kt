@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.example.myapplication.data.model.DeviceInfo
-import com.example.myapplication.main.common.KidsActionButton
+import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.AppDimens.Dimens16

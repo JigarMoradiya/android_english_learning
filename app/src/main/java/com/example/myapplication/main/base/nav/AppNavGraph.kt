@@ -1,6 +1,24 @@
 package com.example.myapplication.main.base.nav
 
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.layout.LazyLayoutCacheWindow
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -22,6 +40,9 @@ fun AppNavGraph(navController: NavHostController) {
         // Home
         composable("age_categories") {
             MainLearningAgesCategoriesScreen(navController)
+//            Surface(modifier = Modifier.fillMaxSize()) {
+//                ComplexList(items = List(100) { "Item #$it" })
+//            }
         }
         // Age Category
         composable(RouteNavigation.AgeGroup3to5.name) {
@@ -45,6 +66,39 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.MatchLetters.name) {
             MatchLettersPage(navController)
+        }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun ComplexList(items: List<String>) {
+    val cacheWindow = remember { LazyLayoutCacheWindow(ahead = 150.dp, behind = 100.dp) }
+    val listState = rememberLazyListState(cacheWindow = cacheWindow)
+    LazyColumn(modifier = Modifier.fillMaxSize(),state = listState) {
+        items(items) { item ->
+            // With PausableComposition enabled, the runtime can pre-compose
+            // these items across multiple frames before they enter the screen.
+            ComplexListItem(text = item)
+        }
+    }
+}
+
+@Composable
+fun ComplexListItem(text: String) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(text = text, style = MaterialTheme.typography.headlineSmall)
+            Spacer(modifier = Modifier.height(8.dp))
+            // Nested layouts and multiple elements typically benefit most
+            // from incremental preparation.
+            repeat(3) {
+                Text("Detailed sub-information line $it", style = MaterialTheme.typography.bodyMedium)
+            }
         }
     }
 }

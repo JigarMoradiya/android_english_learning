@@ -14,14 +14,11 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,7 +35,9 @@ import com.example.myapplication.main.age_group.from_3_to_5.match_latters.view_m
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.CustomPopupView
+import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.MatchLetterBoxSize
+import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.ui.theme.PrimaryGreen
 
@@ -75,11 +74,7 @@ fun MatchLettersPage(
 
                 Spacer(Modifier.weight(1f))
 
-                Text(
-                    text = "Round ${uiState.round}",
-                    fontSize = 22.sp,
-                    modifier = Modifier.padding(end = 16.dp)
-                )
+                KidsLabel("🎯  Round ${uiState.round}")
             }
 
             Spacer(Modifier.weight(1f))
@@ -196,4 +191,3 @@ fun MatchLettersPage(
         }
     }
 }
-

@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
-import com.example.myapplication.main.common.KidsActionButton
+import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
