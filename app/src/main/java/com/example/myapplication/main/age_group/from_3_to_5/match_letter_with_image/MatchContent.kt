@@ -3,7 +3,6 @@ package com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_i
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.ui.input.pointer.positionChange
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,11 +14,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,10 +27,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.layout.boundsInParent
-import androidx.compose.ui.layout.boundsInRoot
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.layout.positionInParent
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -41,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.view_model.MatchLetterWithImageViewModel
 import com.example.myapplication.main.common.getImageResFromWord
+import com.example.myapplication.ui.theme.AppDimens.MatchLetterBoxSize
 
 @Composable
 fun MatchContent(
@@ -107,18 +102,17 @@ fun MatchContent(
 
                     Box(
                         modifier = Modifier
-                            .size(80.dp)
+                            .size(MatchLetterBoxSize)
                             .clip(RoundedCornerShape(16.dp))
                             .background(Color.Blue)
 
                             // ✅ EXACT BOTTOM CENTER
                             .onGloballyPositioned { coords ->
-
-                                val rect = coords.boundsInRoot()
-
+                                val pos = coords.positionInRoot()
+                                val size = coords.size
                                 val bottomCenter = Offset(
-                                    rect.center.x,
-                                    rect.top
+                                    pos.x + size.width / 2f,
+                                    pos.y  + (MatchLetterBoxSize.value / 2) // ✅ REAL BOTTOM EDGE
                                 )
 
                                 viewModel.updateLetterPosition(letter, bottomCenter)
@@ -190,7 +184,7 @@ fun MatchContent(
 
                                 val topCenter = Offset(
                                     pos.x + size.width / 2f,
-                                    pos.y
+                                    pos.y - size.height / 2f // ✅ REAL TOP EDGE
                                 )
 
                                 viewModel.updateImagePosition(letter, topCenter)

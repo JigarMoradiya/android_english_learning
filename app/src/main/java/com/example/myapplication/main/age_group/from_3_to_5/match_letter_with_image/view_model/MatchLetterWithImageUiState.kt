@@ -1,6 +1,7 @@
 package com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.view_model
 
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 
 
 data class MatchLetterWithImageUiState(

@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.utilities.TextToSpeechManager
@@ -47,7 +48,9 @@ class MatchLetterWithImageViewModel @Inject constructor(
             dragStart = null,
             dragEnd = null,
             letterPositions = emptyMap(),
-            imagePositions = emptyMap()
+            imagePositions = emptyMap(),
+
+
         )
     }
 
@@ -136,6 +139,7 @@ class MatchLetterWithImageViewModel @Inject constructor(
         uiState = uiState.copy(imagePositions = updated)
         recomputeFramesReady()
     }
+
     fun recomputeFramesReady() {
         val validLetters = uiState.batchLetters.map { it.first }.toSet()
 
