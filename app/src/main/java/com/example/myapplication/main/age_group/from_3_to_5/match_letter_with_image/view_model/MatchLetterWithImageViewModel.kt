@@ -49,6 +49,7 @@ class MatchLetterWithImageViewModel @Inject constructor(
             dragEnd = null,
             letterPositions = emptyMap(),
             imagePositions = emptyMap(),
+            imageRects = emptyMap(),
 
 
         )
@@ -88,9 +89,12 @@ class MatchLetterWithImageViewModel @Inject constructor(
         val letter = uiState.draggingLetter ?: return
         val end = uiState.dragEnd ?: return
 
-        val target = uiState.imagePositions.entries.firstOrNull {
-            (it.value - end).getDistance() < 120f
+        val target = uiState.imageRects.entries.firstOrNull { entry ->
+            entry.value.inflate(60f).contains(end)
         }?.key
+            ?: uiState.imageRects.minByOrNull { entry ->
+                (entry.value.center - end).getDistance()
+            }?.key
 
         if (target == letter) {
             markLetterAsMatched(letter)
@@ -139,7 +143,10 @@ class MatchLetterWithImageViewModel @Inject constructor(
         uiState = uiState.copy(imagePositions = updated)
         recomputeFramesReady()
     }
-
+    fun updateImageRect(letter: String, rect: Rect) {
+        val updated = uiState.imageRects + (letter to rect)
+        uiState = uiState.copy(imageRects = updated)
+    }
     fun recomputeFramesReady() {
         val validLetters = uiState.batchLetters.map { it.first }.toSet()
 

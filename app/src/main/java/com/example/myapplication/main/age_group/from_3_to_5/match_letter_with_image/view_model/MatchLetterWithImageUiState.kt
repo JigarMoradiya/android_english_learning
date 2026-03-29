@@ -17,6 +17,7 @@ data class MatchLetterWithImageUiState(
 
     val letterPositions: Map<String, Offset> = emptyMap(),
     val imagePositions: Map<String, Offset> = emptyMap(),
+    val imageRects: Map<String, Rect> = emptyMap(),
     val framesReady: Boolean = false,
 
     val round: Int = 1,
