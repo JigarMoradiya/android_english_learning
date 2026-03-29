@@ -31,6 +31,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.abcd_with_images.ABC
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.AlphabetTracingPage
 import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.LetterRecognitionPage
 import com.example.myapplication.main.age_group.from_3_to_5.match_latters.MatchLettersPage
+import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.MatchLetterWithImagePage
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
@@ -64,6 +65,9 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.MatchLetters.name) {
             MatchLettersPage(navController)
+        }
+        composable(RouteNavigation.MatchLetterWithImage.name) {
+            MatchLetterWithImagePage(navController)
         }
     }
 }

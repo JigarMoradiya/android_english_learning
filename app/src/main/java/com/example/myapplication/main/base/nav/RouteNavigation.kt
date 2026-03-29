@@ -7,6 +7,7 @@ enum class RouteNavigation {
     LetterRecognition,
     ABCDWithImages,
     MatchLetters,
+    MatchLetterWithImage,
 
     AgeGroup5to7,
     AgeGroup6to8,
