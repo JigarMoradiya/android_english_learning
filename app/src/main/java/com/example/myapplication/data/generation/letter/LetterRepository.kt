@@ -28,7 +28,7 @@ object LetterRepository {
         LetterData("V", "Van", listOf("Vase", "Volcano", "Violin", "Vegetable", "Vulture"), "v_sound.mp3"),
         LetterData("W", "Watermelon", listOf("Wall", "Wolf", "Wheel", "Watch", "Window"), "w_sound.mp3"),
         LetterData("X", "Xylophone", listOf("X-ray", "Xmas-tree", "Xenops"), "x_sound.mp3"),
-        LetterData("Y", "Yoga", listOf("Yak", "Yacht", "Yarn", "Yellow", "Yo-Yo"), "y_sound.mp3"),
+        LetterData("Y", "Yoga", listOf("Yak", "Yacht", "Yarn", "Yo-Yo"), "y_sound.mp3"),
         LetterData("Z", "Zebra", listOf("Zoo", "Zero", "Zip", "Zigzag", "Zucchini"), "z_sound.mp3")
     )
 }

@@ -36,6 +36,9 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.CustomPopupView
 import com.example.myapplication.main.common.buttons.KidsLabel
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.MatchLetterBoxSize
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryBlue
@@ -88,7 +91,7 @@ fun MatchLettersPage(
                 // -------------------------
                 // UPPERCASE
                 // -------------------------
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(Dimens12)) {
 
                     uiState.currentBatch.forEach { letter ->
 
@@ -98,7 +101,7 @@ fun MatchLettersPage(
                         Box(
                             modifier = Modifier
                                 .size(MatchLetterBoxSize)
-                                .clip(RoundedCornerShape(12.dp))
+                                .clip(RoundedCornerShape(Dimens12))
                                 .background(
                                     when {
                                         isMatched -> PrimaryGreen.copy(alpha = 0.3f)
@@ -124,12 +127,12 @@ fun MatchLettersPage(
                     }
                 }
 
-                Spacer(Modifier.height(24.dp))
+                Spacer(Modifier.height(Dimens24))
 
                 // -------------------------
                 // LOWERCASE
                 // -------------------------
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(Dimens12)) {
 
                     uiState.shuffledLowercase.forEach { letter ->
 
@@ -139,7 +142,7 @@ fun MatchLettersPage(
                         Box(
                             modifier = Modifier
                                 .size(MatchLetterBoxSize)
-                                .clip(RoundedCornerShape(12.dp))
+                                .clip(RoundedCornerShape(Dimens12))
                                 .background(
                                     when {
                                         isMatched -> PrimaryGreen.copy(alpha = 0.3f)

@@ -16,6 +16,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -26,6 +30,8 @@ import androidx.compose.material.icons.automirrored.rounded.VolumeUp
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -84,7 +90,10 @@ fun ABCDWithImagesPage(
                     title = stringResource(R.string.abcd_with_images),
                     onBackClick = { navController.popBackStack() }
                 )
-
+                val listState = rememberLazyListState()
+                LaunchedEffect(uiState.currentWord) {
+                    listState.scrollToItem(0)
+                }
                 if (isTablet){
                     Spacer(Modifier.weight(1f))
 
@@ -98,15 +107,13 @@ fun ABCDWithImagesPage(
 
                     Spacer(Modifier.height(16.dp))
 
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(Dimens12)
+                    LazyRow(
+                        state = listState,
+                        horizontalArrangement = Arrangement.spacedBy(Dimens12),
+                        modifier = Modifier.padding(horizontal = Dimens12)
                     ) {
-
-                        uiState.currentMatches.forEach { match ->
-
-                            val res = getImageResFromWord(match)
-
-                            res?.let {
+                        items(uiState.currentMatches) { match ->
+                            getImageResFromWord(uiState.currentWord)?.let {
                                 Image(
                                     painter = painterResource(it),
                                     contentDescription = match,
@@ -123,13 +130,16 @@ fun ABCDWithImagesPage(
 
                     Spacer(Modifier.weight(1f))
                 }else{
-                    Row(modifier = Modifier.padding(start = DeviceInfo.screenPadding()), verticalAlignment = Alignment.CenterVertically) {
-                        Column(
-                            modifier = Modifier.verticalScroll(rememberScrollState()).padding(bottom = Dimens16, top = Dimens8),
+                    Row(
+                        modifier = Modifier.padding(start = DeviceInfo.screenPadding()),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        LazyColumn(
+                            state = listState,
+                            modifier = Modifier.padding(bottom = Dimens16, top = Dimens8),
                             verticalArrangement = Arrangement.spacedBy(Dimens12)
                         ) {
-
-                            uiState.currentMatches.forEach { match ->
+                            items(uiState.currentMatches) { match ->
 
                                 val res = getImageResFromWord(match)
 
@@ -153,7 +163,9 @@ fun ABCDWithImagesPage(
                             Image(
                                 painter = painterResource(it),
                                 contentDescription = null,
-                                modifier = Modifier.weight(1f).fillMaxHeight(0.8f),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .fillMaxHeight(0.8f)
                             )
                         }
                     }

@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
+import com.example.myapplication.utils.AppUtils.colorList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
@@ -75,24 +76,7 @@ fun ConfettiRainEffect() {
                             x = Random.nextFloat(),
                             drift = Random.nextFloat() * 40f - 20f,
                             size = Random.nextFloat() * 10f + 6f,
-                            color = listOf(
-                                Color(0xFFF44336),
-                                Color(0xFFE91E63),
-                                Color(0xFF9C27B0),
-                                Color(0xFF673AB7),
-                                Color(0xFF3F51B5),
-                                Color(0xFF2196F3),
-                                Color(0xFF03A9F4),
-                                Color(0xFF00BCD4),
-                                Color(0xFF009688),
-                                Color(0xFF4CAF50),
-                                Color(0xFF8BC34A),
-                                Color(0xFFCDDC39),
-                                Color(0xFFFFEB3B),
-                                Color(0xFFFFC107),
-                                Color(0xFFFF9800),
-                                Color(0xFFFF5722),
-                            ).random(),
+                            color = colorList.random(),
                             anim = anim
                         )
 

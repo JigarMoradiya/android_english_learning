@@ -5,12 +5,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.utilities.TextToSpeechManager
+import com.example.myapplication.utils.AppUtils.colorList
 import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlin.math.abs
 
 @HiltViewModel
 class MatchLetterWithImageViewModel @Inject constructor(
@@ -24,6 +27,14 @@ class MatchLetterWithImageViewModel @Inject constructor(
 
     init {
         loadNewBatch()
+    }
+
+    fun getLetterColor(letter: String): Color {
+        return colorList[abs(letter.hashCode()) % colorList.size]
+    }
+
+    fun getLineColor(index: Int): Color {
+        return colorList[index % colorList.size]
     }
 
     // -----------------------------
@@ -50,8 +61,6 @@ class MatchLetterWithImageViewModel @Inject constructor(
             letterPositions = emptyMap(),
             imagePositions = emptyMap(),
             imageRects = emptyMap(),
-
-
         )
     }
 
@@ -121,11 +130,16 @@ class MatchLetterWithImageViewModel @Inject constructor(
 
         // ✅ OPTIONAL: show popup when all matched
         if (updatedSet.size == uiState.batchLetters.size) {
+            // COMPLETE
+            AudioPlayerManager.playSoundClap()
             uiState = uiState.copy(
                 showPopup = true,
                 feedbackText = "Great!",
                 feedbackSubText = "All matched!"
             )
+        }else{
+            // MATCH
+            AudioPlayerManager.playSoundDragItem()
         }
     }
 
