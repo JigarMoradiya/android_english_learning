@@ -7,11 +7,14 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AppUtils.colorList
 import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.math.abs
 
@@ -131,12 +134,15 @@ class MatchLetterWithImageViewModel @Inject constructor(
         // ✅ OPTIONAL: show popup when all matched
         if (updatedSet.size == uiState.batchLetters.size) {
             // COMPLETE
-            AudioPlayerManager.playSoundClap()
-            uiState = uiState.copy(
-                showPopup = true,
-                feedbackText = "Great!",
-                feedbackSubText = "All matched!"
-            )
+            viewModelScope.launch {
+                delay(200)
+                AudioPlayerManager.playSoundClap()
+                uiState = uiState.copy(
+                    showPopup = true,
+                    feedbackText = "Great!",
+                    feedbackSubText = "All matched!"
+                )
+            }
         }else{
             // MATCH
             AudioPlayerManager.playSoundDragItem()

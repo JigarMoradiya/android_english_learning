@@ -33,12 +33,14 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.boundsInRoot
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -48,6 +50,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.MatchLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryGreen
 
@@ -59,7 +62,7 @@ fun MatchContent(
 
     val uiState = viewModel.uiState
 
-    Box(modifier = modifier.fillMaxSize()) {
+    Box(modifier = modifier.fillMaxSize().padding(bottom = Dimens8),contentAlignment = Alignment.Center) {
 
         // -------------------------
         // CANVAS (LINES)
@@ -102,11 +105,9 @@ fun MatchContent(
         // -------------------------
         Column(
             modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
-
-            Spacer(Modifier.weight(1f))
-
             // -------------------------
             // LETTERS
             // -------------------------
@@ -160,7 +161,14 @@ fun MatchContent(
                                 text = letter,
                                 color = Color.White,
                                 fontSize = (MatchLetterBoxSize.value * 0.7).sp,
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold,
+                                style = TextStyle(
+                                    shadow = Shadow(
+                                        color = if (isMatched) Color.Transparent else Color.Black.copy(alpha = 0.4f),
+                                        offset = Offset(2f, 2f),
+                                        blurRadius = 4f
+                                    )
+                                )
                             )
                         }
 
@@ -176,16 +184,14 @@ fun MatchContent(
                 }
             }
 
-            Spacer(modifier = Modifier.height(60.dp))
+            Spacer(modifier = Modifier.weight(1f))
 
             // -------------------------
             // IMAGES
             // -------------------------
             LazyVerticalGrid(
                 columns = GridCells.Fixed(5),
-                modifier = Modifier
-                    .fillMaxWidth(0.8f)
-                    .height(220.dp),
+                modifier = Modifier.fillMaxWidth(0.8f),
                 horizontalArrangement = Arrangement.spacedBy(Dimens16),
                 verticalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
@@ -215,7 +221,7 @@ fun MatchContent(
                                     .background(Color.White)
                                     .border(
                                         width = Dimens2,
-                                        color = if (isMatched) PrimaryGreen else Color.LightGray,
+                                        color = if (isMatched) PrimaryGreen else Color.White,
                                         shape = RoundedCornerShape(Dimens16)
                                     )
                                     .onGloballyPositioned { coords ->
@@ -258,7 +264,7 @@ fun MatchContent(
                         Text(
                             text = word,
                             style = MaterialTheme.typography.titleSmall,
-                            fontWeight = FontWeight.SemiBold,
+                            fontWeight = FontWeight.ExtraBold,
                             color = Color.Black,
                             maxLines = 1,
                             modifier = Modifier.alpha(if (isMatched) 1f else 0f)
@@ -268,7 +274,7 @@ fun MatchContent(
                 }
             }
 
-            Spacer(Modifier.weight(1f))
+
         }
     }
 }
