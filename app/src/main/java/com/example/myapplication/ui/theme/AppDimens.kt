@@ -21,6 +21,7 @@ object AppDimens {
     val ABCDWithImagesBigTextSize = if (isTablet) 150.sp else 120.sp
     val ABCDWithImagesSmallImageSize = if (isTablet) 100.dp else 80.dp
     val MatchLetterBoxSize = if (isTablet) 100.dp else 80.dp
+    val DragLetterBoxSize = if (isTablet) 80.dp else 60.dp
 
     val FontExtraLarge36 = if (isTablet) 54.sp else 36.sp
 }

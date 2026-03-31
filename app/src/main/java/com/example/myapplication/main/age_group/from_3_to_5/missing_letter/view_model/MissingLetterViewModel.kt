@@ -21,13 +21,9 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
 
     private var level: DifficultyLevel = DifficultyLevel.EASY
 
-    private val allWordsEasy =
-        LetterRepository.missingLetterEasyWords + LetterRepository.missingLetterEasyWords4Basic
+    private val allWordsEasy = LetterRepository.missingLetterEasyWords + LetterRepository.missingLetterEasyWords4Basic
 
     var uiState by mutableStateOf(MissingLetterUiState())
-        private set
-
-    var currentWordIndex by mutableIntStateOf(0)
         private set
 
     var targetWord by mutableStateOf("")
@@ -64,35 +60,83 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
     // -------------------------
     fun setupWord(word: String) {
 
-        val upper = word.uppercase()
+        val upper = word.uppercase().replace("-", "")
         targetWord = upper
 
         val length = upper.length
 
-        val blankIndex = (0 until length).random()
-
-        dropped = upper.mapIndexed { i, c ->
-            if (i == blankIndex) null else LetterItem(c.toString())
+        // ----------------------------
+        // 1. DECIDE HOW MANY BLANKS
+        // ----------------------------
+        val blankCount = when (length) {
+            3 -> 1
+            4 -> if (Random.nextBoolean()) 1 else 2
+            5 -> 2
+            6 -> if (Random.nextBoolean()) 2 else 3
+            else -> min(3, length / 2)
         }
 
-        fixedIndices = dropped.mapIndexedNotNull { i, v ->
-            if (v != null) i else null
-        }.toSet()
+        val blanks = mutableSetOf<Int>()
+        while (blanks.size < blankCount) {
+            blanks.add(Random.nextInt(length))
+        }
+
+        // ----------------------------
+        // 2. BUILD DROPPED + FIXED
+        // ----------------------------
+        val tempDropped = MutableList<LetterItem?>(length) { null }
+        val tempFixed = mutableSetOf<Int>()
+
+        upper.forEachIndexed { i, ch ->
+            if (blanks.contains(i)) {
+                tempDropped[i] = null
+            } else {
+                tempDropped[i] = LetterItem(ch.toString())
+                tempFixed.add(i)
+            }
+        }
+
+        dropped = tempDropped
+        fixedIndices = tempFixed
+
+        // ----------------------------
+        // 3. BUILD LETTER POOL
+        // ----------------------------
 
         val pool = mutableListOf<LetterItem>()
 
-        pool.add(LetterItem(upper[blankIndex].toString()))
+        // ⭐ ADD EXACT MISSING LETTERS (INCLUDING DUPLICATES)
+        val missingLetters = blanks.map { upper[it].toString() }
 
-        while (pool.size < 5) {
+        missingLetters.forEach {
+            pool.add(LetterItem(it))
+        }
+
+        // ⭐ ADD RANDOM UNIQUE LETTERS
+        while (pool.size < (missingLetters.size + 3)) {
+
             val r = ('A'..'Z').random().toString()
-            if (!upper.contains(r)) {
+
+            if (
+                !upper.contains(r) && // not part of word
+                pool.none { it.letter == r } // no duplicate random
+            ) {
                 pool.add(LetterItem(r))
             }
         }
 
         letters = pool.shuffled()
 
+        // ----------------------------
+        // 4. RESET STATE
+        // ----------------------------
         clearDrag()
+
+        uiState = uiState.copy(
+            showError = false,
+            errorText = "",
+            showPopup = false
+        )
     }
 
     fun clearDrag() {

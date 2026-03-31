@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 
 val PrimaryBlue = Color(0xFF0074D5)
 val PrimaryOrange = Color(0xFFFF8400)
+val PrimaryOrangeLight = Color(0xFFE6A15A)
 val PrimaryGreen = Color(0xFF008000)
 
 val White = Color.White
