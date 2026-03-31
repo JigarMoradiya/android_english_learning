@@ -113,7 +113,18 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
             set(index, item)
         }
     }
+    fun returnToPool(item: LetterItem, index: Int) {
 
+        // remove from slot
+        dropped = dropped.toMutableList().apply {
+            set(index, null)
+        }
+
+        // add back to pool
+        if (!letters.contains(item)) {
+            letters = letters + item
+        }
+    }
     fun fallbackReturn(item: LetterItem) {
         if (!letters.contains(item)) {
             letters = letters + item
