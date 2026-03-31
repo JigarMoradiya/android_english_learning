@@ -1,7 +1,6 @@
 package com.example.myapplication.data.generation.letter
 
 object LetterRepository {
-
     val all: List<LetterData> = listOf(
 
         LetterData("A", "Ant", listOf("Apple", "Airplane", "Axe", "Alligator", "Arrow"), "a_sound.mp3"),
@@ -30,5 +29,31 @@ object LetterRepository {
         LetterData("X", "Xylophone", listOf("X-ray", "Xmas-tree", "Xenops"), "x_sound.mp3"),
         LetterData("Y", "Yoga", listOf("Yak", "Yacht", "Yarn", "Yo-Yo"), "y_sound.mp3"),
         LetterData("Z", "Zebra", listOf("Zoo", "Zero", "Zip", "Zigzag", "Zucchini"), "z_sound.mp3")
+    )
+
+    val missingLetterEasyWords4Basic = listOf(
+        "Book","Ball","Cake","Doll","Fish","Frog","Girl","Home","Hand",
+        "King","Neck","Kite","Leaf","Lock","Moon","Nest","Rose","Star",
+        "Tree","Wall","Zero"
+    )
+
+    val missingLetterEasyWords = listOf(
+        "Ant","Axe","Bee","Boy","Bus","Bat","Cow","Car","Cat","Dog",
+        "Egg","Ear","Eye","Fan","Fox","Hen","Ice","Jet","Jug","Jar",
+        "Jam","Key","Map","Pen","Pot","Leg","Net","Pig","Pen","Sun",
+        "UFO","Van","Yak","Zoo","Zip"
+    )
+
+    val missingLetterMediumWords = listOf(
+        "Boat","Goat","Gift","Lamp","Rope","Road","Ship","Vase","Wolf","Yarn",
+        "Apple","Arrow","Eagle","Igloo","Horse","House","Knife","Mango","Mouse",
+        "Nurse","Onion","Queen","Quill","Quilt","Snake","Spoon","Tiger","Train",
+        "Table","Teeth","Wheel","Watch","Yacht","Zebra",
+        "Office","Garden","School","Teacher","Banana","Balloon","Candle",
+        "Guitar","Hammer","Rabbit","Window"
+    )
+
+    val missingLetterHardWords = listOf(
+        "Soap","Mitten","Elephant","Dinosaur","Computer","Banana","Jupiter","Astonaut"
     )
 }

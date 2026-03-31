@@ -14,7 +14,7 @@
     <string name="match_letters">Match Letters</string>
     <string name="match_letter_image">Match Letter with Image</string>
     <string name="coloring_alphabet">Coloring Alphabet</string>
-    <string name="menu_missing_letter">Missing Letter</string>
+    <string name="missing_letter">Missing Letter</string>
     <string name="drag_drop_words">Drag &amp; Drop Words</string>
 
     <string name="back">Back</string>
