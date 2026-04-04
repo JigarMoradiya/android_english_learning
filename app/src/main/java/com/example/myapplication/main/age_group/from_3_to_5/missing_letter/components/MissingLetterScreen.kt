@@ -27,6 +27,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.PrimaryGreen
 
 @Composable
 fun MissingLetterScreen(
@@ -73,8 +74,8 @@ fun MissingLetterScreen(
             ) {
 
                 Text(
-                    text = stringResource(uiState.feedbackWrongTextRes),
-                    color = Color.Red,
+                    text = stringResource(uiState.feedbackTextRes),
+                    color =  Color.Red,
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.ExtraBold,
                     modifier = Modifier.alpha(if (uiState.showError) 1f else 0f)
@@ -83,7 +84,7 @@ fun MissingLetterScreen(
                 Spacer(modifier = Modifier.height(Dimens4))
 
                 Text(
-                    text = stringResource(uiState.feedbackWrongSubTextRes),
+                    text = stringResource(uiState.feedbackSubTextRes),
                     color = Color.Black,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Medium,

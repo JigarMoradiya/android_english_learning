@@ -54,11 +54,11 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
 
     private val _difficulty = MutableStateFlow(DifficultyLevel.EASY)
     val difficulty = _difficulty.asStateFlow()
-
     fun setDifficulty(level: DifficultyLevel) {
         _difficulty.value = level
         loadData()
     }
+
 
     private fun loadData() {
         val list = if (difficulty.value == DifficultyLevel.EASY){
@@ -66,7 +66,8 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         }else{
             allWordsMedium
         }
-        val first = list.randomOrNull() ?: "CAT"
+//        val first = list.randomOrNull() ?: "CAT"
+        val first = "ELEPHANT"
         setupWord(first)
     }
 
@@ -93,7 +94,7 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         // 1. DECIDE HOW MANY BLANKS
         // ----------------------------
         val blankCount = if (difficulty.value == DifficultyLevel.EASY){
-            1
+            4
         }else{
             when (length) {
                 4 -> if (Random.nextBoolean()) 1 else 2
@@ -246,8 +247,8 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
                 val randomSub = feedbackMissingLetterSubTitleForWrong.random()
                 uiState = uiState.copy(
                     showError = true,
-                    feedbackWrongTextRes = randomTitle,
-                    feedbackWrongSubTextRes = randomSub,
+                    feedbackTextRes = randomTitle,
+                    feedbackSubTextRes = randomSub,
                 )
             }
         }

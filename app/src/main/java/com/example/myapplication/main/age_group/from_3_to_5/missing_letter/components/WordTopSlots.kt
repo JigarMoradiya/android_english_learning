@@ -104,11 +104,12 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                                         val end = viewModel.dragPosition ?: Offset.Zero
 
                                         val targetIndex =
-                                            viewModel.slotRects.entries.firstOrNull {
-                                                it.value.contains(end)
+                                            viewModel.slotRects.entries.firstOrNull { entry ->
+                                                val rect = entry.value.inflate(60f)   // 👈 increase touch area
+                                                rect.contains(end)
                                             }?.key
 
-                                        if (targetIndex != null && targetIndex != index) {
+                                        if (targetIndex != null && targetIndex != index && viewModel.dropped[targetIndex] == null ) {
 
                                             // ✅ REMOVE from old slot FIRST
                                             viewModel.clearSlot(index)

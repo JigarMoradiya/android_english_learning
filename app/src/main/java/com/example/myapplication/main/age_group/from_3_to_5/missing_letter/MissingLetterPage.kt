@@ -53,6 +53,8 @@ fun MissingLetterPage(
             enter = fadeIn(),
             exit = fadeOut()
         ) {
+//            ConfettiRainEffect()
+
             CustomPopupView(
                 title = stringResource(uiState.feedbackTextRes),
                 description = stringResource(uiState.feedbackSubTextRes),

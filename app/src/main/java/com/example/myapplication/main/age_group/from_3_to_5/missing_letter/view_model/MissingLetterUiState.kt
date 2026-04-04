@@ -10,8 +10,6 @@ data class MissingLetterUiState(
     val feedbackSubTextRes: Int = R.string.feedbackMissingLetter_1,
 
     val showError: Boolean = false,
-    val feedbackWrongTextRes: Int = R.string.feedbackMissingLetterTitleForWrong_1,
-    val feedbackWrongSubTextRes: Int = R.string.feedbackMissingLetterSubTitleForWrong_1,
 )
 
 data class LetterItem(

@@ -17,6 +17,6 @@ val activities_age_3_5 = listOf(
     LearningActivityModel(R.string.match_letters, RouteNavigation.MatchLetters.name),
     LearningActivityModel(R.string.match_letter_image, RouteNavigation.MatchLetterWithImage.name),
     LearningActivityModel(R.string.missing_letter, RouteNavigation.MissingLetterEasy.name),
-    LearningActivityModel(R.string.coloring_alphabet, "coloring_alphabet"),
-    LearningActivityModel(R.string.drag_drop_words, "drag_drop_words"),
+    LearningActivityModel(R.string.drag_drop_words, RouteNavigation.DragDropWord.name),
+    LearningActivityModel(R.string.coloring_alphabet, RouteNavigation.ColoringAlphabets.name),
 )

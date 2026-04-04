@@ -9,6 +9,9 @@ enum class RouteNavigation {
     MatchLetters,
     MatchLetterWithImage,
     MissingLetterEasy,
+    DragDropWord,
+    ColoringAlphabets,
+
     MissingLetterMedium,
 
     AgeGroup5to7,
