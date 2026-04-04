@@ -91,12 +91,12 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                                     onDragStart = { touch ->
                                         viewModel.dragging = item
                                         viewModel.dragPosition = boxPos + touch
+                                        viewModel.removeError()
                                     },
 
                                     onDrag = { change, dragAmount ->
                                         change.consume()
-                                        viewModel.dragPosition =
-                                            (viewModel.dragPosition ?: Offset.Zero) + dragAmount
+                                        viewModel.dragPosition = (viewModel.dragPosition ?: Offset.Zero) + dragAmount
                                     },
 
                                     onDragEnd = {
@@ -108,13 +108,18 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                                                 it.value.contains(end)
                                             }?.key
 
-                                        if (targetIndex != null &&
-                                            viewModel.dropped[targetIndex] == null
-                                        ) {
+                                        if (targetIndex != null && targetIndex != index) {
+
+                                            // ✅ REMOVE from old slot FIRST
+                                            viewModel.clearSlot(index)
+
+                                            // ✅ PLACE in new slot
                                             viewModel.place(item, targetIndex)
+
                                             viewModel.validate()
+
                                         } else {
-                                            // ⭐ RETURN TO POOL
+                                            // return back if same place or invalid
                                             viewModel.returnToPool(item, index)
                                         }
 
@@ -137,7 +142,7 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
 
                 }
 
-                Spacer(modifier = Modifier.height(Dimens4))
+                Spacer(modifier = Modifier.height(Dimens2))
 
                 // ➖ UNDERLINE (MAIN UI CHANGE)
                 Box(

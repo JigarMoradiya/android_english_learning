@@ -13,12 +13,10 @@ import androidx.compose.foundation.lazy.layout.LazyLayoutCacheWindow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -33,6 +31,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.L
 import com.example.myapplication.main.age_group.from_3_to_5.match_latters.MatchLettersPage
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.MatchLetterWithImagePage
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.MissingLetterPage
+import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
@@ -70,8 +69,8 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.MatchLetterWithImage.name) {
             MatchLetterWithImagePage(navController)
         }
-        composable(RouteNavigation.MissingLetter.name) {
-            MissingLetterPage(navController)
+        composable(RouteNavigation.MissingLetterEasy.name) {
+            MissingLetterPage(navController,DifficultyLevel.EASY)
         }
     }
 }

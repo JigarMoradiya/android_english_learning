@@ -24,4 +24,38 @@
     <string name="tap_a_letter">👈 Tap a Letter</string>
     <string name="continue_to_play">Continue to Play</string>
     <string name="no_i_want_to_close">I want to Close</string>
+
+    <!-- success and fail feedback messages -->
+    <!-- Feedback Titles Common -->
+    <string name="feedbackPhrases_1">You’re doing great!</string>
+    <string name="feedbackPhrases_2">That’s awesome!</string>
+    <string name="feedbackPhrases_3">Well Done!</string>
+    <string name="feedbackPhrases_4">Super job!</string>
+    <string name="feedbackPhrases_5">Excellent work!</string>
+    <string name="feedbackPhrases_6">Fantastic matching!</string>
+    <string name="feedbackPhrases_7">Awesome work! 👏</string>
+    <string name="feedbackPhrases_8">You nailed it! 🚀</string>
+    <string name="feedbackPhrases_9">Great job! 🌟</string>
+
+    <!-- Feedback MissingLetter Subtitles Success -->
+    <string name="feedbackMissingLetter_1">You built the word just right.</string>
+    <string name="feedbackMissingLetter_2">That’s exactly how it’s spelled!</string>
+    <string name="feedbackMissingLetter_3">Excellent spelling, keep it up.</string>
+    <string name="feedbackMissingLetter_4">You’re getting better every day.</string>
+    <string name="feedbackMissingLetter_5">Words are fun when you master them!</string>
+
+    <!-- Feedback MissingLetter Title Wrong -->
+    <string name="feedbackMissingLetterTitleForWrong_1">Try Again ❌</string>
+    <string name="feedbackMissingLetterTitleForWrong_2">Not quite… 🤔</string>
+    <string name="feedbackMissingLetterTitleForWrong_3">Almost there! ⏳</string>
+    <string name="feedbackMissingLetterTitleForWrong_4">Hmm, check again 🧐</string>
+    <string name="feedbackMissingLetterTitleForWrong_5">Keep trying! 💪</string>
+
+    <!-- Feedback MissingLetter SubTitle Wrong -->
+    <string name="feedbackMissingLetterSubTitleForWrong_1">Look carefully at the word again.</string>
+    <string name="feedbackMissingLetterSubTitleForWrong_2">One of the letters is in the wrong place.</string>
+    <string name="feedbackMissingLetterSubTitleForWrong_3">Don’t worry, mistakes help you learn.</string>
+    <string name="feedbackMissingLetterSubTitleForWrong_4">You can fix this! Give it another go.</string>
+    <string name="feedbackMissingLetterSubTitleForWrong_5">Take a closer look at the letters.</string>
+
 </resources>

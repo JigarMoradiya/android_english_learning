@@ -1,7 +1,6 @@
 package com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model
 
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
@@ -10,18 +9,25 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetter
+import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterSubTitleForWrong
+import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterTitleForWrong
+import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.math.min
 import kotlin.random.Random
+
 @HiltViewModel
 class MissingLetterViewModel @Inject constructor() : ViewModel() {
 
-    private var level: DifficultyLevel = DifficultyLevel.EASY
 
     private val allWordsEasy = LetterRepository.missingLetterEasyWords + LetterRepository.missingLetterEasyWords4Basic
+    private val allWordsMedium = LetterRepository.missingLetterMediumWords + LetterRepository.missingLetterEasyWords4Basic
 
     var uiState by mutableStateOf(MissingLetterUiState())
         private set
@@ -46,14 +52,32 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
     var slotRects by mutableStateOf<Map<Int, Rect>>(emptyMap())
         private set
 
+    private val _difficulty = MutableStateFlow(DifficultyLevel.EASY)
+    val difficulty = _difficulty.asStateFlow()
+
+    fun setDifficulty(level: DifficultyLevel) {
+        _difficulty.value = level
+        loadData()
+    }
+
+    private fun loadData() {
+        val list = if (difficulty.value == DifficultyLevel.EASY){
+            allWordsEasy
+        }else{
+            allWordsMedium
+        }
+        val first = list.randomOrNull() ?: "CAT"
+        setupWord(first)
+    }
+
+    fun loadNextWord() {
+        loadData()
+    }
+
     fun updateSlotRect(index: Int, rect: Rect) {
         slotRects = slotRects + (index to rect)
     }
 
-    init {
-        val first = allWordsEasy.randomOrNull() ?: "CAT"
-        setupWord(first)
-    }
 
     // -------------------------
     // WORD SETUP
@@ -68,12 +92,15 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         // ----------------------------
         // 1. DECIDE HOW MANY BLANKS
         // ----------------------------
-        val blankCount = when (length) {
-            3 -> 1
-            4 -> if (Random.nextBoolean()) 1 else 2
-            5 -> 2
-            6 -> if (Random.nextBoolean()) 2 else 3
-            else -> min(3, length / 2)
+        val blankCount = if (difficulty.value == DifficultyLevel.EASY){
+            1
+        }else{
+            when (length) {
+                4 -> if (Random.nextBoolean()) 1 else 2
+                5 -> 2
+                6 -> if (Random.nextBoolean()) 2 else 3
+                else -> min(3, length / 2)
+            }
         }
 
         val blanks = mutableSetOf<Int>()
@@ -113,7 +140,12 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         }
 
         // ⭐ ADD RANDOM UNIQUE LETTERS
-        while (pool.size < (missingLetters.size + 3)) {
+        val extraLetter = if (difficulty.value == DifficultyLevel.EASY){
+            2
+        }else{
+            3
+        }
+        while (pool.size < (missingLetters.size + extraLetter)) {
 
             val r = ('A'..'Z').random().toString()
 
@@ -134,7 +166,6 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
 
         uiState = uiState.copy(
             showError = false,
-            errorText = "",
             showPopup = false
         )
     }
@@ -143,7 +174,12 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         dragging = null
         dragPosition = null
     }
-
+    fun clearSlot(index: Int) {
+        dropped = dropped.toMutableList().apply {
+            AudioPlayerManager.playSoundDragItem()
+            set(index, null)
+        }
+    }
     // -------------------------
     // PLACE
     // -------------------------
@@ -154,6 +190,7 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         letters = letters.toMutableList().apply { remove(item) }
 
         dropped = dropped.toMutableList().apply {
+            AudioPlayerManager.playSoundDragItem()
             set(index, item)
         }
     }
@@ -161,7 +198,9 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
 
         // remove from slot
         dropped = dropped.toMutableList().apply {
+            AudioPlayerManager.playSoundDragItem()
             set(index, null)
+
         }
 
         // add back to pool
@@ -186,29 +225,32 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
 
             if (word == targetWord) {
                 viewModelScope.launch {
-                    delay(300)
+                    delay(100)
+                    AudioPlayerManager.playSoundClap()
+
+                    val randomTitle = feedbackTitles.random()
+                    val randomSub = feedbackMissingLetter.random()
 
                     uiState = uiState.copy(
                         showPopup = true,
-                        feedbackText = "Great!",
-                        feedbackSubText = "Well Done!",
-                        showError = false // reset
+                        feedbackTextRes = randomTitle,
+                        feedbackSubTextRes = randomSub,
+                        showError = false
                     )
                 }
 
             } else {
                 // ❌ WRONG ANSWER
+                AudioPlayerManager.playSoundWrongAnswer()
+                val randomTitle = feedbackMissingLetterTitleForWrong.random()
+                val randomSub = feedbackMissingLetterSubTitleForWrong.random()
                 uiState = uiState.copy(
                     showError = true,
-                    errorText = "Try Again!"
+                    feedbackWrongTextRes = randomTitle,
+                    feedbackWrongSubTextRes = randomSub,
                 )
             }
         }
-    }
-
-    fun loadNextWord() {
-        val next = allWordsEasy.randomOrNull() ?: "DOG"
-        setupWord(next)
     }
 
     fun closePopup() {
