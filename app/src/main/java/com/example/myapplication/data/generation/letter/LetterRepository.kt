@@ -1,5 +1,7 @@
 package com.example.myapplication.data.generation.letter
 
+import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.view_model.ColoringAlphabetModel
+
 object LetterRepository {
     val all: List<LetterData> = listOf(
 
@@ -56,4 +58,20 @@ object LetterRepository {
     val missingLetterHardWords = listOf(
         "Soap","Mitten","Elephant","Dinosaur","Computer","Banana","Jupiter","Astonaut"
     )
+
+    val colorAlphabets: List<ColoringAlphabetModel>
+        get() = all.map { data ->
+
+            // SAME AS iOS
+            val chosenWord = listOf(data.mainWord).randomOrNull() ?: data.mainWord
+            // if you want altWords also:
+            // val chosenWord = (listOf(data.mainWord) + data.altWords).random()
+
+            ColoringAlphabetModel(
+                letter = data.letter,
+                word = chosenWord,
+                outlineImageName = "${data.letter.lowercase()}_outline_c",
+                audioName = data.soundFile
+            )
+        }
 }
