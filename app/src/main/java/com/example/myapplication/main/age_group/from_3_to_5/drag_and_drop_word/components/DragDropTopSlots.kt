@@ -1,6 +1,7 @@
 package com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.components
 
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectDragGestures
@@ -41,6 +42,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.ui.theme.PrimaryOrange
+import com.example.myapplication.utils.AudioPlayerManager
 
 
 @Composable
@@ -111,6 +113,7 @@ fun DragDropTopSlots(viewModel: DragDropWordViewModel) {
                                         onDragStart = { touch ->
                                             viewModel.dragging = item
                                             viewModel.dragPosition = boxPos + touch
+                                            viewModel.dragFromIndex = index
                                             viewModel.removeError()
                                         },
 
@@ -120,27 +123,38 @@ fun DragDropTopSlots(viewModel: DragDropWordViewModel) {
                                         },
 
                                         onDragEnd = {
-
+                                            AudioPlayerManager.playSoundDragItem()
                                             val end = viewModel.dragPosition ?: Offset.Zero
 
                                             val targetIndex =
                                                 viewModel.slotRects.entries.firstOrNull { entry ->
-                                                    val rect = entry.value.inflate(60f)   // 👈 increase touch area
+                                                    val rect = entry.value.inflate(20f)   // 👈 increase touch area
                                                     rect.contains(end)
                                                 }?.key
 
-                                            if (targetIndex != null && targetIndex != index && viewModel.dropped[targetIndex] == null ) {
+                                            if (targetIndex != null && targetIndex != index) {
+                                                // ❌ TARGET FILLED → RETURN BACK
+                                                Log.e("jigarDragNDrop","viewModel.dropped[targetIndex] = "+viewModel.dropped[targetIndex])
+                                                if (viewModel.dropped[targetIndex] != null) {
 
-                                                // ✅ REMOVE from old slot FIRST
-                                                viewModel.clearSlot(index)
+                                                    val fromIndex = viewModel.dragFromIndex
 
-                                                // ✅ PLACE in new slot
-                                                viewModel.place(item, targetIndex)
+                                                    if (fromIndex != null) {
+                                                        // just restore (no place)
+                                                        viewModel.restoreToSlot(item, fromIndex)
+                                                    } else {
+                                                        viewModel.returnToPool(item, index)
+                                                    }
+                                                }
 
-                                                viewModel.validate()
+                                                // ✅ TARGET EMPTY → MOVE
+                                                else {
+                                                    viewModel.clearSlot(index)
+                                                    viewModel.place(item, targetIndex)
+                                                    viewModel.validate()
+                                                }
 
                                             } else {
-                                                // return back if same place or invalid
                                                 viewModel.returnToPool(item, index)
                                             }
 

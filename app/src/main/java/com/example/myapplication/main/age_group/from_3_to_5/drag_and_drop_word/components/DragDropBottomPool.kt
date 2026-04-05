@@ -31,6 +31,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryOrangeLight
+import com.example.myapplication.utils.AudioPlayerManager
 
 @Composable
 fun DragDropBottomPool(viewModel: DragDropWordViewModel) {
@@ -88,12 +89,12 @@ fun DragDropBottomPool(viewModel: DragDropWordViewModel) {
                             },
 
                             onDragEnd = {
-
+                                AudioPlayerManager.playSoundDragItem()
                                 val end = viewModel.dragPosition ?: Offset.Zero
 
                                 val targetIndex =
                                     viewModel.slotRects.entries.firstOrNull { entry ->
-                                        val rect = entry.value.inflate(60f)   // 👈 increase touch area
+                                        val rect = entry.value.inflate(20f)   // 👈 increase touch area
                                         rect.contains(end)
                                     }?.key
 

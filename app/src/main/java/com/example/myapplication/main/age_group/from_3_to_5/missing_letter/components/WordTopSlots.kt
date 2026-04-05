@@ -1,6 +1,7 @@
 package com.example.myapplication.main.age_group.from_3_to_5.missing_letter.components
 
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -37,6 +38,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryBlue
+import com.example.myapplication.utils.AudioPlayerManager
 
 
 @Composable
@@ -91,6 +93,7 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                                     onDragStart = { touch ->
                                         viewModel.dragging = item
                                         viewModel.dragPosition = boxPos + touch
+                                        viewModel.dragFromIndex = index
                                         viewModel.removeError()
                                     },
 
@@ -100,27 +103,47 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                                     },
 
                                     onDragEnd = {
-
+                                        AudioPlayerManager.playSoundDragItem()
                                         val end = viewModel.dragPosition ?: Offset.Zero
 
                                         val targetIndex =
                                             viewModel.slotRects.entries.firstOrNull { entry ->
-                                                val rect = entry.value.inflate(60f)   // 👈 increase touch area
+                                                val rect = entry.value.inflate(20f)   // 👈 increase touch area
                                                 rect.contains(end)
                                             }?.key
 
-                                        if (targetIndex != null && targetIndex != index && viewModel.dropped[targetIndex] == null ) {
+//                                        val targetIndex =
+//                                            viewModel.slotRects.entries.firstOrNull {
+//                                                it.value.contains(end)
+//                                            }?.key
 
-                                            // ✅ REMOVE from old slot FIRST
-                                            viewModel.clearSlot(index)
+                                            Log.e("jigarDragNDrop","targetIndex = "+targetIndex)
+                                            Log.e("jigarDragNDrop","item index = "+index)
+                                            Log.e("jigarDragNDrop","item item = "+item)
+                                            Log.e("jigarDragNDrop","viewModel.dragFromIndex = "+viewModel.dragFromIndex)
+                                        if (targetIndex != null && targetIndex != index) {
+                                            // ❌ TARGET FILLED → RETURN BACK
+                                            Log.e("jigarDragNDrop","viewModel.dropped[targetIndex] = "+viewModel.dropped[targetIndex])
+                                            if (viewModel.dropped[targetIndex] != null) {
 
-                                            // ✅ PLACE in new slot
-                                            viewModel.place(item, targetIndex)
+                                                val fromIndex = viewModel.dragFromIndex
 
-                                            viewModel.validate()
+                                                if (fromIndex != null) {
+                                                    // just restore (no place)
+                                                    viewModel.restoreToSlot(item, fromIndex)
+                                                } else {
+                                                    viewModel.returnToPool(item, index)
+                                                }
+                                            }
+
+                                            // ✅ TARGET EMPTY → MOVE
+                                            else {
+                                                viewModel.clearSlot(index)
+                                                viewModel.place(item, targetIndex)
+                                                viewModel.validate()
+                                            }
 
                                         } else {
-                                            // return back if same place or invalid
                                             viewModel.returnToPool(item, index)
                                         }
 

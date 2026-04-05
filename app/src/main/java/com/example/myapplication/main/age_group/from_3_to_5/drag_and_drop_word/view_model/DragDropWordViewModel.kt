@@ -53,7 +53,7 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
     // ✅ SLOT RECTS
     var slotRects by mutableStateOf<Map<Int, Rect>>(emptyMap())
         private set
-
+    var dragFromIndex by mutableStateOf<Int?>(null)
     private val _difficulty = MutableStateFlow(DifficultyLevel.EASY)
     val difficulty = _difficulty.asStateFlow()
 
@@ -123,7 +123,6 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
     }
     fun clearSlot(index: Int) {
         dropped = dropped.toMutableList().apply {
-            AudioPlayerManager.playSoundDragItem()
             set(index, null)
         }
     }
@@ -137,7 +136,11 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
         letters = letters.toMutableList().apply { remove(item) }
 
         dropped = dropped.toMutableList().apply {
-            AudioPlayerManager.playSoundDragItem()
+            set(index, item)
+        }
+    }
+    fun restoreToSlot(item: LetterItem, index: Int) {
+        dropped = dropped.toMutableList().apply {
             set(index, item)
         }
     }
@@ -145,7 +148,6 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
 
         // remove from slot
         dropped = dropped.toMutableList().apply {
-            AudioPlayerManager.playSoundDragItem()
             set(index, null)
 
         }

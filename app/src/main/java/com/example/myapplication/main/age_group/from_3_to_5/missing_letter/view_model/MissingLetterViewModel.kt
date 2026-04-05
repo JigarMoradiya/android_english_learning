@@ -52,6 +52,7 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
     var slotRects by mutableStateOf<Map<Int, Rect>>(emptyMap())
         private set
 
+    var dragFromIndex by mutableStateOf<Int?>(null)
     private val _difficulty = MutableStateFlow(DifficultyLevel.EASY)
     val difficulty = _difficulty.asStateFlow()
     fun setDifficulty(level: DifficultyLevel) {
@@ -66,8 +67,7 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         }else{
             allWordsMedium
         }
-//        val first = list.randomOrNull() ?: "CAT"
-        val first = "ELEPHANT"
+        val first = list.randomOrNull() ?: "CAT"
         setupWord(first)
     }
 
@@ -174,10 +174,11 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
     fun clearDrag() {
         dragging = null
         dragPosition = null
+        dragFromIndex = null
+
     }
     fun clearSlot(index: Int) {
         dropped = dropped.toMutableList().apply {
-            AudioPlayerManager.playSoundDragItem()
             set(index, null)
         }
     }
@@ -191,7 +192,11 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         letters = letters.toMutableList().apply { remove(item) }
 
         dropped = dropped.toMutableList().apply {
-            AudioPlayerManager.playSoundDragItem()
+            set(index, item)
+        }
+    }
+    fun restoreToSlot(item: LetterItem, index: Int) {
+        dropped = dropped.toMutableList().apply {
             set(index, item)
         }
     }
@@ -199,9 +204,7 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
 
         // remove from slot
         dropped = dropped.toMutableList().apply {
-            AudioPlayerManager.playSoundDragItem()
             set(index, null)
-
         }
 
         // add back to pool
