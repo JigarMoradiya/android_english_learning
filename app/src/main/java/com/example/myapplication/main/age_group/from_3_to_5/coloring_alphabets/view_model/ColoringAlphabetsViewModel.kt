@@ -47,7 +47,8 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
             uiState = uiState.copy(
                 strokes = uiState.strokes + StrokeData(
                     points = currentPoints.toList(),
-                    strokeWidth = 30f
+                    strokeWidth = uiState.strokeSize,
+                    color = uiState.selectedColor
                 )
             )
         }
@@ -70,5 +71,9 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
             else uiState.currentIndex - 1
 
         uiState = uiState.copy(currentIndex = prev, strokes = emptyList())
+    }
+
+    fun selectColor(color: Color) {
+        uiState = uiState.copy(selectedColor = color)
     }
 }

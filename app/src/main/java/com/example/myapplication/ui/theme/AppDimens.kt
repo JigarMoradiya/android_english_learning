@@ -18,6 +18,8 @@ object AppDimens {
     val Dimens16 = if (isTablet) 24.dp else 16.dp
     val Dimens20 = if (isTablet) 30.dp else 20.dp
     val Dimens24 = if (isTablet) 36.dp else 24.dp
+    val Dimens28 = if (isTablet) 36.dp else 28.dp
+    val Dimens40 = if (isTablet) 48.dp else 40.dp
     val CommonPopupImageSize = if (isTablet) 96.dp else 72.dp
     val ABCDWithImagesBigTextSize = if (isTablet) 150.sp else 120.sp
     val ABCDWithImagesSmallImageSize = if (isTablet) 100.dp else 80.dp

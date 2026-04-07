@@ -63,7 +63,7 @@ fun ColoringCanvas(
             strokes.forEach {
                 drawPath(
                     path = createPath(it.points),
-                    color = Color.Red,
+                    color = it.color,
                     style = Stroke(
                         width = it.strokeWidth,
                         cap = StrokeCap.Round,
@@ -76,9 +76,9 @@ fun ColoringCanvas(
             if (viewModel.currentStroke.isNotEmpty()) {
                 drawPath(
                     path = createPath(viewModel.currentStroke),
-                    color = Color.Red,
+                    color = viewModel.uiState.selectedColor,
                     style = Stroke(
-                        width = 30f,
+                        width = viewModel.uiState.strokeSize,
                         cap = StrokeCap.Round,
                         join = StrokeJoin.Round
                     )

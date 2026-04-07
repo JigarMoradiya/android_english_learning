@@ -1,5 +1,6 @@
 package com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets
 
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -31,6 +32,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -55,6 +57,11 @@ import com.example.myapplication.main.common.buttons.KidsIconButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
+import com.example.myapplication.ui.theme.AppDimens.Dimens28
+import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.AppDimens.Dimens40
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
 
@@ -167,29 +174,44 @@ fun ColoringAlphabetsPage(
                     }
                 )
 
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                val colors = state.colors
+                val selectedColor = state.selectedColor
 
-                    // 👉 simple colors (no picker for now)
-                    listOf(
-                        Color.Red,
-                        Color.Green,
-                        Color.Blue,
-                        Color.Yellow,
-                        Color.Magenta
-                    ).forEach { color ->
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(Dimens2),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+
+                    colors.forEach { color ->
+
+                        val isSelected = color == selectedColor
+
+                        val innerSize by animateDpAsState(
+                            targetValue = if (isSelected) Dimens40 else Dimens28,
+                            label = ""
+                        )
 
                         Box(
-                            modifier = Modifier
-                                .size(40.dp)
-                                .background(color, CircleShape)
-                                .border(2.dp, Color.Black, CircleShape)
-                                .clickable {
-                                    // later hook color
-                                }
-                        )
+                            modifier = Modifier.size(Dimens40), // 🔥 FIXED SLOT
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(innerSize)
+                                    .clip(CircleShape)
+                                    .background(color, CircleShape)
+                                    .then(
+                                        if (isSelected) {
+                                            Modifier.border(Dimens2, Color.Black, CircleShape)
+                                        } else Modifier
+                                    )
+                                    .clickable {
+                                        viewModel.selectColor(color)
+                                    }
+                            )
+                        }
                     }
                 }
-
                 KidsActionButton(
                     text = stringResource(R.string.next),
                     icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
