@@ -19,17 +19,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.ArrowBack
-import androidx.compose.material.icons.automirrored.rounded.ArrowForward
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
-import androidx.compose.material.icons.automirrored.rounded.VolumeUp
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.Refresh
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -38,7 +30,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -53,15 +44,11 @@ import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.v
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
-import com.example.myapplication.main.common.buttons.KidsIconButton
-import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens28
-import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens40
-import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
 
@@ -122,7 +109,9 @@ fun ColoringAlphabetsPage(
                         .background(Color(0xFFEFEFEF), RoundedCornerShape(24.dp))
                         .padding(16.dp)
                 ) {
+                    val res = getImageResFromWord(item.outlineImageName)
                     ColoringCanvas(
+                        res = res?:R.drawable.a_outline_circle,
                         outlineName = item.outlineImageName,
                         strokes = state.strokes,
                         viewModel = viewModel

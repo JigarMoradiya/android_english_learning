@@ -1,7 +1,6 @@
 package com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.components
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
@@ -20,6 +19,7 @@ import kotlin.math.min
 
 @Composable
 fun ColoringCanvas(
+    res: Int,
     outlineName: String,
     strokes: List<StrokeData>,
     viewModel: ColoringAlphabetsViewModel
@@ -42,13 +42,13 @@ fun ColoringCanvas(
             }
     ) {
 
-        val rawPath = VectorPathParser.getPath(context, outlineName)
+        val vector = VectorPathParser.getPath(context, res, outlineName)
 
         // 🔥 scale
         val scale = min(size.width / 960f, size.height / 960f)
         val matrix = Matrix().apply { scale(scale, scale) }
 
-        val path = rawPath.copy().apply { transform(matrix) }
+        val path = vector.path.copy().apply { transform(matrix) }
 
         // 🔥 center
         val bounds = path.getBounds()
@@ -56,10 +56,16 @@ fun ColoringCanvas(
         val dy = (size.height - bounds.height) / 2 - bounds.top
         path.translate(Offset(dx, dy))
 
-        // 🔥 CLIP
+        // ✅ STEP 1: DRAW ORIGINAL IMAGE COLOR (IMPORTANT 🔥)
+        drawPath(
+            path = path,
+            color = vector.color
+        )
+
+        // ✅ STEP 2: CLIP FOR PAINTING
         clipPath(path) {
 
-            // ✅ OLD strokes
+            // old strokes
             strokes.forEach {
                 drawPath(
                     path = createPath(it.points),
@@ -72,7 +78,7 @@ fun ColoringCanvas(
                 )
             }
 
-            // 🔥 NEW: LIVE stroke (this was missing)
+            // live stroke
             if (viewModel.currentStroke.isNotEmpty()) {
                 drawPath(
                     path = createPath(viewModel.currentStroke),
@@ -85,11 +91,12 @@ fun ColoringCanvas(
                 )
             }
         }
-        // outline
+
+//         ✅ STEP 3: OUTLINE (TOP LAYER)
         drawPath(
             path = path,
-            color = Color.Gray,
-            style = Stroke(width = 2f)
+            color = Color.DarkGray,
+            style = Stroke(width = 1f)
         )
     }
 }
