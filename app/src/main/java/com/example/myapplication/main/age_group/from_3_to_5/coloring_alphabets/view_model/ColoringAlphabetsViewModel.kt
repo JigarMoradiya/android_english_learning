@@ -14,144 +14,61 @@ import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.letter.LetterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-
-// ----------------------------
-// Color Option
-// ----------------------------
-sealed class ColorOption(val id: String) {
-
-    data class Solid(val color: Color, val colorId: String) : ColorOption(colorId)
-
-    data class Gradient(
-        val colors: List<Color>,
-        val colorId: String
-    ) : ColorOption(colorId)
-
-    fun toBrush(): Brush {
-        return when (this) {
-            is Solid -> Brush.linearGradient(listOf(color, color))
-            is Gradient -> Brush.linearGradient(colors)
-        }
-    }
-}
-
-// ----------------------------
-// Stroke
-// ----------------------------
-data class Stroke(
-    val points: List<Offset>,
-    val color: ColorOption,
-    val strokeWidth: Float
-)
-
-// ----------------------------
-// ViewModel
-// ----------------------------
 @HiltViewModel
 class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
 
-    // 🔤 Items (same as iOS)
-    var items = LetterRepository.colorAlphabets
+    // ✅ use your repository
+    private val items = LetterRepository.colorAlphabets
 
-    var currentIndex by mutableIntStateOf(0)
-        private set
-
-    val currentItem
-        get() = items.getOrNull(currentIndex)
-
-    // 🎨 Drawing
-    var strokes by mutableStateOf<List<Stroke>>(emptyList())
-        private set
-
-    var currentColor by mutableStateOf<ColorOption>(
-        ColorOption.Solid(Color.Red, "red")
+    var uiState by mutableStateOf(
+        ColoringAlphabetsUiState(
+            items = items,
+            currentIndex = 0,
+            strokes = emptyList()
+        )
     )
+        private set
 
-    var brushWidth by mutableFloatStateOf(20f)
-
-    var isEraser by mutableStateOf(false)
-
-    private var mediaPlayer: MediaPlayer? = null
-
+    private var currentPoints = mutableListOf<Offset>()
     var currentStroke by mutableStateOf<List<Offset>>(emptyList())
-
+        private set
     fun startStroke(point: Offset) {
+        currentPoints = mutableListOf(point)
         currentStroke = listOf(point)
     }
 
     fun addPoint(point: Offset) {
-        currentStroke = currentStroke + point
+        currentPoints.add(point)
+        currentStroke = currentPoints.toList()
     }
 
-    fun breakStroke() {
-        if (currentStroke.isNotEmpty()) {
-            strokes = strokes + Stroke(
-                points = currentStroke,
-                color = currentColor,
-                strokeWidth = brushWidth
-            )
-            currentStroke = emptyList()
-        }
-    }
     fun endStroke() {
-        if (currentStroke.isNotEmpty()) {
-            strokes = strokes + Stroke(
-                points = currentStroke,
-                color = currentColor,
-                strokeWidth = brushWidth
+        if (currentPoints.isNotEmpty()) {
+            uiState = uiState.copy(
+                strokes = uiState.strokes + StrokeData(
+                    points = currentPoints.toList(),
+                    strokeWidth = 30f
+                )
             )
         }
+        currentPoints.clear()
         currentStroke = emptyList()
     }
 
-    // ----------------------------
-    // Navigation
-    // ----------------------------
-    fun nextItem(context: Context) {
-        clearCanvas()
-
-        currentIndex =
-            if (currentIndex < items.lastIndex) currentIndex + 1 else 0
-
-        playAudio(context)
+    fun clear() {
+        uiState = uiState.copy(strokes = emptyList())
     }
 
-    fun previousItem(context: Context) {
-        clearCanvas()
-
-        currentIndex =
-            if (currentIndex > 0) currentIndex - 1 else items.lastIndex
-
-        playAudio(context)
+    fun next() {
+        val next = (uiState.currentIndex + 1) % items.size
+        uiState = uiState.copy(currentIndex = next, strokes = emptyList())
     }
 
-    // ----------------------------
-    // Drawing
-    // ----------------------------
-    fun addStroke(stroke: Stroke) {
-        strokes = strokes + stroke
-    }
+    fun previous() {
+        val prev =
+            if (uiState.currentIndex == 0) items.lastIndex
+            else uiState.currentIndex - 1
 
-    fun clearCanvas() {
-        strokes = emptyList()
-    }
-
-    // ----------------------------
-    // Audio
-    // ----------------------------
-    fun playAudio(context: Context) {
-        val name = currentItem?.audioName ?: return
-
-        val resId = context.resources.getIdentifier(
-            name,
-            "raw",
-            context.packageName
-        )
-
-        if (resId == 0) return
-
-        mediaPlayer?.release()
-        mediaPlayer = MediaPlayer.create(context, resId)
-        mediaPlayer?.start()
+        uiState = uiState.copy(currentIndex = prev, strokes = emptyList())
     }
 }
