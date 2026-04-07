@@ -26,8 +26,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.material.icons.automirrored.rounded.Redo
+import androidx.compose.material.icons.automirrored.rounded.Undo
 import androidx.compose.material.icons.filled.AutoFixHigh
+import androidx.compose.material.icons.rounded.Redo
 import androidx.compose.material.icons.rounded.Refresh
+import androidx.compose.material.icons.rounded.Undo
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -51,6 +55,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.v
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.main.common.buttons.KidsIconButton
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -59,6 +64,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens28
 import com.example.myapplication.ui.theme.AppDimens.DimensColorCircles
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.ToolbarIconSize
 import com.example.myapplication.ui.theme.ButtonType
 
 
@@ -75,7 +81,9 @@ fun ColoringAlphabetsPage(
 
         BackgroundUI(isGreenGrassShow = false)
 
-        Column(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)) {
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .windowInsetsPadding(WindowInsets.safeDrawing)) {
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -90,15 +98,54 @@ fun ColoringAlphabetsPage(
 
                 Spacer(Modifier.weight(1f))
 
-                KidsActionButton(
-                    text = stringResource(R.string.clear),
-                    icon = Icons.Rounded.Refresh,
-                    type = ButtonType.PINK,
-                    onClick = {
-                        viewModel.clear()
-                    },
-                    modifier = Modifier.padding(vertical = Dimens8).padding(start = DeviceInfo.screenPadding(), end = Dimens16)
-                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(end = Dimens16)
+                ) {
+
+                    // 🔥 UNDO
+//                    KidsIconButton(
+//                        icon = Icons.AutoMirrored.Rounded.Undo,
+//                        onClick = { viewModel.undo() },
+//                        type = ButtonType.PINK,
+//                        size = ToolbarIconSize
+//                    )
+                    KidsActionButton(
+                        text = stringResource(R.string.undo),
+                        icon = Icons.AutoMirrored.Rounded.Undo,
+                        type = ButtonType.PINK,
+                        onClick = { viewModel.undo() },
+                        isSmall = true
+                    )
+
+                    Spacer(modifier = Modifier.width(8.dp))
+
+                    // 🔥 REDO
+//                    KidsIconButton(
+//                        icon = Icons.AutoMirrored.Rounded.Redo,
+//                        onClick = { viewModel.redo() },
+//                        type = ButtonType.PINK,
+//                        size = ToolbarIconSize
+//                    )
+                    KidsActionButton(
+                        text = stringResource(R.string.redo),
+                        icon = Icons.AutoMirrored.Rounded.Redo,
+                        type = ButtonType.PINK,
+                        onClick = { viewModel.redo() },
+                        isSmall = true
+                    )
+
+                    Spacer(modifier = Modifier.width(8.dp))
+
+                    // 🔥 CLEAR (existing)
+                    KidsActionButton(
+                        text = stringResource(R.string.clear),
+                        icon = Icons.Rounded.Refresh,
+                        type = ButtonType.PINK,
+                        onClick = { viewModel.clear() },
+                        isSmall = true
+                    )
+                }
             }
 
             // 🔥 MAIN CONTENT
@@ -157,7 +204,8 @@ fun ColoringAlphabetsPage(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = DeviceInfo.screenPadding(), end = Dimens16).padding(bottom = Dimens16,top = Dimens8),
+                    .padding(start = DeviceInfo.screenPadding(), end = Dimens16)
+                    .padding(bottom = Dimens16, top = Dimens8),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -178,7 +226,8 @@ fun ColoringAlphabetsPage(
 
                 Row(
                     modifier = Modifier
-                        .weight(1f).padding(horizontal = Dimens12)
+                        .weight(1f)
+                        .padding(horizontal = Dimens12)
                         .horizontalScroll(rememberScrollState()),
                     verticalAlignment = Alignment.CenterVertically
                 ) {

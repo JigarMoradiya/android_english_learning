@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.myapplication.ui.theme.AppDimens.KidsIconSize
 import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
@@ -37,7 +38,7 @@ fun KidsIconButton(
     icon: ImageVector,
     onClick: () -> Unit,
     type: ButtonType,
-    size: Dp = 56.dp
+    size: Dp = KidsIconSize
 ) {
     val colors = getButtonColors(type)
     val interactionSource = remember { MutableInteractionSource() }
@@ -103,7 +104,7 @@ fun KidsIconButton(
                 contentDescription = null,
                 tint = Color.Black.copy(alpha = 0.35f),
                 modifier = Modifier
-                    .size(34.dp)
+                    .size(size/1.6f)
                     .offset(ShadowOffset, ShadowOffset)
             )
 
@@ -112,7 +113,7 @@ fun KidsIconButton(
                 imageVector = icon,
                 contentDescription = null,
                 tint = Color.White,
-                modifier = Modifier.size(34.dp)
+                modifier = Modifier.size(size/1.5f)
             )
         }
     }

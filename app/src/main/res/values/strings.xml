@@ -57,5 +57,7 @@
     <string name="feedbackMissingLetterSubTitleForWrong_3">Don’t worry, mistakes help you learn.</string>
     <string name="feedbackMissingLetterSubTitleForWrong_4">You can fix this! Give it another go.</string>
     <string name="feedbackMissingLetterSubTitleForWrong_5">Take a closer look at the letters.</string>
+    <string name="redo">REDO</string>
+    <string name="undo">UNDO</string>
 
 </resources>

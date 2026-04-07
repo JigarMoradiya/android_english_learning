@@ -7,6 +7,8 @@ import com.example.myapplication.data.model.DeviceInfo
 object AppDimens {
     val isTablet = DeviceInfo.isTablet
     // Spacing
+    val ToolbarIconSize = if (isTablet) 56.dp else 42.dp
+    val KidsIconSize = if (isTablet) 72.dp else 56.dp
     val Dimens2 = if (isTablet) 3.dp else 2.dp
     val ShadowOffset = if (isTablet) 2.5.dp else 1.5.dp
     val ShadowOffsetText = if (isTablet) 2.dp else 1.dp

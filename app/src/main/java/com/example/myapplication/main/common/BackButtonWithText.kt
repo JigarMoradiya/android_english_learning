@@ -37,6 +37,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
+import com.example.myapplication.ui.theme.AppDimens.ToolbarIconSize
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
 import com.example.myapplication.utils.AudioPlayerManager
@@ -46,7 +47,7 @@ import com.example.myapplication.utils.AudioPlayerManager
 fun BackButtonWithText(
     title: String,
     modifier: Modifier = Modifier,
-    size: Dp = 42.dp,
+    size: Dp = ToolbarIconSize,
     onBackClick: () -> Unit
 ) {
     val headerColors = getButtonColors(ButtonType.BLUE)

@@ -32,6 +32,9 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
     private var currentPoints = mutableListOf<Offset>()
     var currentStroke by mutableStateOf<List<Offset>>(emptyList())
         private set
+
+    private val undoStack = mutableListOf<List<StrokeData>>()
+    private val redoStack = mutableListOf<List<StrokeData>>()
     fun startStroke(point: Offset) {
         currentPoints = mutableListOf(point)
         currentStroke = listOf(point)
@@ -44,12 +47,19 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
 
     fun endStroke() {
         if (currentPoints.isNotEmpty()) {
+
+            // ✅ save current state for undo
+            undoStack.add(uiState.strokes)
+
+            // ❗ clear redo when new action happens
+            redoStack.clear()
+
             uiState = uiState.copy(
                 strokes = uiState.strokes + StrokeData(
                     points = currentPoints.toList(),
                     strokeWidth = uiState.strokeSize,
                     color = uiState.selectedColor,
-                    isEraser = uiState.isEraser   // 🔥 KEY
+                    isEraser = uiState.isEraser
                 )
             )
         }
@@ -57,12 +67,41 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
         currentStroke = emptyList()
     }
 
+
+    fun undo() {
+        if (undoStack.isNotEmpty()) {
+
+            // move current → redo
+            redoStack.add(uiState.strokes)
+
+            // restore last
+            val previous = undoStack.removeAt(undoStack.lastIndex)
+
+            uiState = uiState.copy(strokes = previous)
+        }
+    }
+    fun redo() {
+        if (redoStack.isNotEmpty()) {
+
+            // move current → undo
+            undoStack.add(uiState.strokes)
+
+            val next = redoStack.removeAt(redoStack.lastIndex)
+
+            uiState = uiState.copy(strokes = next)
+        }
+    }
     fun clear() {
+        undoStack.add(uiState.strokes)
+        redoStack.clear()
+
         uiState = uiState.copy(strokes = emptyList())
     }
-
     fun next() {
         val next = (uiState.currentIndex + 1) % items.size
+        undoStack.clear()
+        redoStack.clear()
+
         uiState = uiState.copy(currentIndex = next, strokes = emptyList())
     }
 
@@ -71,9 +110,11 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
             if (uiState.currentIndex == 0) items.lastIndex
             else uiState.currentIndex - 1
 
+        undoStack.clear()
+        redoStack.clear()
+
         uiState = uiState.copy(currentIndex = prev, strokes = emptyList())
     }
-
     fun selectColor(color: Color) {
         uiState = uiState.copy(selectedColor = color, isEraser = false)
     }

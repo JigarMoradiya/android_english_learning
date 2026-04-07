@@ -36,6 +36,9 @@ import androidx.compose.ui.unit.dp
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens20
+import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
@@ -51,6 +54,7 @@ fun KidsActionButton(
     type: ButtonType,
     onClick: () -> Unit,
     isIconStart: Boolean = true,
+    isSmall: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     val colors = getButtonColors(type)
@@ -85,7 +89,7 @@ fun KidsActionButton(
                 AudioPlayerManager.playSoundMenuClick()
                 onClick()
             }
-            .padding(horizontal = Dimens12, vertical = Dimens8)
+            .padding(horizontal = if (isSmall) Dimens8 else Dimens12, vertical = if (isSmall) Dimens6 else Dimens8)
     ) {
 
         Row(
@@ -99,7 +103,7 @@ fun KidsActionButton(
                         imageVector = icon,
                         contentDescription = null,
                         tint = Color.Black.copy(alpha = 0.35f),
-                        modifier = Modifier
+                        modifier = Modifier.size(if (isSmall) Dimens20 else Dimens24)
                             .offset(ShadowOffset, ShadowOffset), // shadow layer
                     )
 
@@ -107,6 +111,7 @@ fun KidsActionButton(
                         imageVector = icon,
                         contentDescription = null,
                         tint = Color.White,
+                        modifier = Modifier.size(if (isSmall) Dimens20 else Dimens24)
                     )
                 }
                 Spacer(Modifier.width(Dimens6))
@@ -117,17 +122,18 @@ fun KidsActionButton(
                 Text(
                     text = text,
                     color = Color.Black.copy(alpha = 0.35f),
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold,
+                    style = if (isSmall) MaterialTheme.typography.labelMedium else MaterialTheme.typography.bodyLarge,
+                    fontWeight = if (isSmall) FontWeight.SemiBold else FontWeight.Bold,
                     modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
                 )
+
 
                 // Main text
                 Text(
                     text = text,
                     color = Color.White,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold
+                    style = if (isSmall) MaterialTheme.typography.labelMedium else MaterialTheme.typography.bodyLarge,
+                    fontWeight = if (isSmall) FontWeight.SemiBold else FontWeight.Bold
                 )
             }
 
@@ -140,6 +146,7 @@ fun KidsActionButton(
                         contentDescription = null,
                         tint = Color.Black.copy(alpha = 0.35f),
                         modifier = Modifier
+                            .size(if (isSmall) Dimens20 else Dimens24)
                             .offset(ShadowOffset, ShadowOffset), // shadow layer
                     )
 
@@ -147,6 +154,7 @@ fun KidsActionButton(
                         imageVector = icon,
                         contentDescription = null,
                         tint = Color.White,
+                        modifier = Modifier.size(if (isSmall) Dimens20 else Dimens24)
                     )
                 }
             }
