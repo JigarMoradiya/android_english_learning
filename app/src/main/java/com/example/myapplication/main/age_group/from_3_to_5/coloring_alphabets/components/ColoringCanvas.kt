@@ -8,79 +8,88 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.*
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalContext
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.helper.ColoringHelper.createPath
-import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.view_model.ColorOption
+import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.helper.VectorPathParser
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.view_model.ColoringAlphabetsViewModel
-import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.view_model.Stroke
-
+import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.view_model.StrokeData
+import kotlin.math.min
 
 @Composable
-fun ColoringCanvas(viewModel: ColoringAlphabetsViewModel) {
+fun ColoringCanvas(
+    outlineName: String,
+    strokes: List<StrokeData>,
+    viewModel: ColoringAlphabetsViewModel
+) {
 
-    val strokes = viewModel.strokes
-    val currentColor = viewModel.currentColor
-    val strokeWidth = viewModel.brushWidth
-    val isEraser = viewModel.isEraser
-
-    var currentPoints by remember { mutableStateOf<List<Offset>>(emptyList()) }
+    val context = LocalContext.current
 
     Canvas(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
-
-            // ✋ DRAW GESTURE
             .pointerInput(Unit) {
                 detectDragGestures(
-
-                    onDragStart = { offset ->
-                        currentPoints = listOf(offset)
-                    },
-
+                    onDragStart = viewModel::startStroke,
                     onDrag = { change, _ ->
                         change.consume()
-                        currentPoints = currentPoints + change.position
+                        viewModel.addPoint(change.position)
                     },
-
-                    onDragEnd = {
-
-                        if (currentPoints.isNotEmpty()) {
-
-                            val stroke = Stroke(
-                                points = currentPoints,
-                                color = if (isEraser)
-                                    ColorOption.Solid(Color.White, "eraser")
-                                else currentColor,
-                                strokeWidth = strokeWidth
-                            )
-
-                            viewModel.addStroke(stroke)
-                        }
-
-                        currentPoints = emptyList()
-                    }
+                    onDragEnd = viewModel::endStroke
                 )
             }
     ) {
 
-        // 🎨 Draw previous strokes
-        strokes.forEach { stroke ->
+        val rawPath = VectorPathParser.getPath(context, outlineName)
 
-            drawPath(
-                path = createPath(stroke.points),
-                brush = stroke.color.toBrush(),
-                style = androidx.compose.ui.graphics.drawscope.Stroke(width = stroke.strokeWidth)
-            )
-        }
+        // 🔥 scale
+        val scale = min(size.width / 960f, size.height / 960f)
+        val matrix = Matrix().apply { scale(scale, scale) }
 
-        // ✨ Draw current stroke (live)
-        if (currentPoints.isNotEmpty()) {
-            drawPath(
-                path = createPath(currentPoints),
-                brush = currentColor.toBrush(),
-                style = androidx.compose.ui.graphics.drawscope.Stroke(width = strokeWidth)
-            )
+        val path = rawPath.copy().apply { transform(matrix) }
+
+        // 🔥 center
+        val bounds = path.getBounds()
+        val dx = (size.width - bounds.width) / 2 - bounds.left
+        val dy = (size.height - bounds.height) / 2 - bounds.top
+        path.translate(Offset(dx, dy))
+
+        // 🔥 CLIP
+        clipPath(path) {
+
+            // ✅ OLD strokes
+            strokes.forEach {
+                drawPath(
+                    path = createPath(it.points),
+                    color = Color.Red,
+                    style = Stroke(
+                        width = it.strokeWidth,
+                        cap = StrokeCap.Round,
+                        join = StrokeJoin.Round
+                    )
+                )
+            }
+
+            // 🔥 NEW: LIVE stroke (this was missing)
+            if (viewModel.currentStroke.isNotEmpty()) {
+                drawPath(
+                    path = createPath(viewModel.currentStroke),
+                    color = Color.Red,
+                    style = Stroke(
+                        width = 30f,
+                        cap = StrokeCap.Round,
+                        join = StrokeJoin.Round
+                    )
+                )
+            }
         }
+        // outline
+        drawPath(
+            path = path,
+            color = Color.Gray,
+            style = Stroke(width = 2f)
+        )
     }
 }

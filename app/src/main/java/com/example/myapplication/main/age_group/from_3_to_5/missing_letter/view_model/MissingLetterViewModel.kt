@@ -94,7 +94,7 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         // 1. DECIDE HOW MANY BLANKS
         // ----------------------------
         val blankCount = if (difficulty.value == DifficultyLevel.EASY){
-            4
+            1
         }else{
             when (length) {
                 4 -> if (Random.nextBoolean()) 1 else 2

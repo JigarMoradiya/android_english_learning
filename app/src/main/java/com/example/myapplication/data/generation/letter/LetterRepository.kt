@@ -70,7 +70,8 @@ object LetterRepository {
             ColoringAlphabetModel(
                 letter = data.letter,
                 word = chosenWord,
-                outlineImageName = "${data.letter.lowercase()}_outline_c",
+//                outlineImageName = "${data.letter.lowercase()}_outline_c",
+                outlineImageName = "a_outline_circle",
                 audioName = data.soundFile
             )
         }
