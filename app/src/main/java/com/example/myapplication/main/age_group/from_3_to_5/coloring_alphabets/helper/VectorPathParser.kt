@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.vector.PathParser
+import androidx.compose.ui.res.colorResource
 import org.xmlpull.v1.XmlPullParser
 import androidx.core.graphics.toColorInt
+import com.example.myapplication.R
 
 object VectorPathParser {
 
@@ -56,12 +58,13 @@ object VectorPathParser {
         }
 
         if (pathData.isNullOrEmpty()) {
-            return VectorData(Path(), Color.Black)
+            return VectorData(Path(), Color.Gray)
         }
 
         val path = PathParser().parsePathString(pathData).toPath()
 
-        val color = parseColor(context, fillColorStr, strokeColorStr)
+//        val color = parseColor(context, fillColorStr, strokeColorStr)
+        val color = Color.Gray
 
         val result = VectorData(path, color)
 
@@ -103,6 +106,6 @@ object VectorPathParser {
         // priority: fill → stroke → fallback
         return resolve(fill)
             ?: resolve(stroke)
-            ?: Color.Black
+            ?: Color.Gray
     }
 }

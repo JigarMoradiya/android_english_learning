@@ -6,9 +6,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.clipPath
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.helper.ColoringHelper.createPath
@@ -30,6 +32,7 @@ fun ColoringCanvas(
     Canvas(
         modifier = Modifier
             .fillMaxSize()
+            .graphicsLayer(alpha = 0.99f)
             .pointerInput(Unit) {
                 detectDragGestures(
                     onDragStart = viewModel::startStroke,
@@ -44,59 +47,106 @@ fun ColoringCanvas(
 
         val vector = VectorPathParser.getPath(context, res, outlineName)
 
-        // 🔥 scale
         val scale = min(size.width / 960f, size.height / 960f)
         val matrix = Matrix().apply { scale(scale, scale) }
 
-        val path = vector.path.copy().apply { transform(matrix) }
+        val scaledPath = vector.path.copy().apply { transform(matrix) }
 
-        // 🔥 center
-        val bounds = path.getBounds()
+        val bounds = scaledPath.getBounds()
         val dx = (size.width - bounds.width) / 2 - bounds.left
         val dy = (size.height - bounds.height) / 2 - bounds.top
-        path.translate(Offset(dx, dy))
 
-        // ✅ STEP 1: DRAW ORIGINAL IMAGE COLOR (IMPORTANT 🔥)
+        val finalPath = scaledPath.apply {
+            translate(Offset(dx, dy))
+        }
+
+        // ============================================================
+        // ✅ STEP 1: ORIGINAL PATH
+        // ============================================================
         drawPath(
-            path = path,
+            path = finalPath,
             color = vector.color
         )
 
-        // ✅ STEP 2: CLIP FOR PAINTING
-        clipPath(path) {
+        // ============================================================
+        // ✅ STEP 2: DRAW PAINT ON LAYER
+        // ============================================================
+        drawIntoCanvas { canvas ->
 
-            // old strokes
-            strokes.forEach {
-                drawPath(
-                    path = createPath(it.points),
-                    color = it.color,
-                    style = Stroke(
-                        width = it.strokeWidth,
-                        cap = StrokeCap.Round,
-                        join = StrokeJoin.Round
-                    )
-                )
+            val paint = Paint().apply {
+                isAntiAlias = true
             }
 
-            // live stroke
-            if (viewModel.currentStroke.isNotEmpty()) {
-                drawPath(
-                    path = createPath(viewModel.currentStroke),
-                    color = viewModel.uiState.selectedColor,
-                    style = Stroke(
-                        width = viewModel.uiState.strokeSize,
-                        cap = StrokeCap.Round,
-                        join = StrokeJoin.Round
-                    )
-                )
+            canvas.saveLayer(Rect(Offset.Zero, size), paint)
+
+            // 🔥 CLIP FIRST
+            clipPath(finalPath) {
+
+                // DRAW OLD STROKES
+                strokes.forEach { stroke ->
+
+                    if (stroke.isEraser) {
+                        drawPath(
+                            path = createPath(stroke.points),
+                            color = Color.Transparent,
+                            style = Stroke(
+                                width = stroke.strokeWidth,
+                                cap = StrokeCap.Round,
+                                join = StrokeJoin.Round
+                            ),
+                            blendMode = BlendMode.Clear
+                        )
+                    } else {
+                        drawPath(
+                            path = createPath(stroke.points),
+                            color = stroke.color,
+                            style = Stroke(
+                                width = stroke.strokeWidth,
+                                cap = StrokeCap.Round,
+                                join = StrokeJoin.Round
+                            )
+                        )
+                    }
+                }
+
+                // LIVE STROKE
+                if (viewModel.currentStroke.isNotEmpty()) {
+
+                    if (viewModel.uiState.isEraser) {
+                        drawPath(
+                            path = createPath(viewModel.currentStroke),
+                            color = Color.Transparent,
+                            style = Stroke(
+                                width = viewModel.uiState.strokeSize,
+                                cap = StrokeCap.Round,
+                                join = StrokeJoin.Round
+                            ),
+                            blendMode = BlendMode.Clear
+                        )
+                    } else {
+                        drawPath(
+                            path = createPath(viewModel.currentStroke),
+                            color = viewModel.uiState.selectedColor,
+                            style = Stroke(
+                                width = viewModel.uiState.strokeSize,
+                                cap = StrokeCap.Round,
+                                join = StrokeJoin.Round
+                            )
+                        )
+                    }
+                }
             }
+
+            canvas.restore()
         }
 
-//         ✅ STEP 3: OUTLINE (TOP LAYER)
-        drawPath(
-            path = path,
-            color = Color.DarkGray,
-            style = Stroke(width = 1f)
-        )
+        // ============================================================
+        // ✅ STEP 3: DRAW OUTLINE ON TOP
+        // ============================================================
+//        drawPath(
+//            path = finalPath,
+//            color = vector.color,
+//            style = Stroke(width = 2f)
+//        )
     }
 }

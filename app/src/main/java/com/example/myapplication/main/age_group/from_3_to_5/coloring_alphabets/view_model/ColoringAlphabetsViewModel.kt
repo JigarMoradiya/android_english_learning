@@ -48,7 +48,8 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
                 strokes = uiState.strokes + StrokeData(
                     points = currentPoints.toList(),
                     strokeWidth = uiState.strokeSize,
-                    color = uiState.selectedColor
+                    color = uiState.selectedColor,
+                    isEraser = uiState.isEraser   // 🔥 KEY
                 )
             )
         }
@@ -74,6 +75,9 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
     }
 
     fun selectColor(color: Color) {
-        uiState = uiState.copy(selectedColor = color)
+        uiState = uiState.copy(selectedColor = color, isEraser = false)
+    }
+    fun selectEraser() {
+        uiState = uiState.copy(isEraser = true)
     }
 }

@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,12 +20,15 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.material.icons.filled.AutoFixHigh
 import androidx.compose.material.icons.rounded.Refresh
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -48,10 +52,12 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.getImageResFromWord
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
+import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens28
-import com.example.myapplication.ui.theme.AppDimens.Dimens40
+import com.example.myapplication.ui.theme.AppDimens.DimensColorCircles
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
 
@@ -168,23 +174,70 @@ fun ColoringAlphabetsPage(
 
                 val colors = state.colors
                 val selectedColor = state.selectedColor
+                val isEraser = state.isEraser
 
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(Dimens2),
+                    modifier = Modifier
+                        .weight(1f).padding(horizontal = Dimens12)
+                        .horizontalScroll(rememberScrollState()),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
 
+                    // 🔥 ERASER FIRST
+                    val isSelectedEraser = isEraser
+
+                    val eraserContainerSize = DimensColorCircles
+                    val eraserInnerSize by animateDpAsState(
+                        targetValue = if (isSelectedEraser) DimensColorCircles else Dimens28,
+                        label = ""
+                    )
+                    val eraserIconSize by animateDpAsState(
+                        targetValue = if (isSelectedEraser) Dimens20 else Dimens16,
+                        label = ""
+                    )
+
+                    Box(
+                        modifier = Modifier
+                            .size(eraserContainerSize),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(eraserInnerSize)
+                                .clip(CircleShape)
+                                .background(Color.White, CircleShape)
+                                .border(
+                                    if (isSelectedEraser) Dimens2 else 1.dp,
+                                    Color.Black,
+                                    CircleShape
+                                )
+                                .clickable {
+                                    viewModel.selectEraser()
+                                },
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.AutoFixHigh,
+                                contentDescription = "Eraser",
+                                tint = Color.Black,
+                                modifier = Modifier.size(eraserIconSize)
+                            )
+                        }
+                    }
+
+                    // 🔥 COLORS
                     colors.forEach { color ->
 
-                        val isSelected = color == selectedColor
+                        val isSelected = !isEraser && color == selectedColor
 
                         val innerSize by animateDpAsState(
-                            targetValue = if (isSelected) Dimens40 else Dimens28,
+                            targetValue = if (isSelected) DimensColorCircles else Dimens28,
                             label = ""
                         )
 
                         Box(
-                            modifier = Modifier.size(Dimens40), // 🔥 FIXED SLOT
+                            modifier = Modifier
+                                .size(DimensColorCircles),
                             contentAlignment = Alignment.Center
                         ) {
                             Box(
@@ -204,6 +257,7 @@ fun ColoringAlphabetsPage(
                         }
                     }
                 }
+
                 KidsActionButton(
                     text = stringResource(R.string.next),
                     icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
