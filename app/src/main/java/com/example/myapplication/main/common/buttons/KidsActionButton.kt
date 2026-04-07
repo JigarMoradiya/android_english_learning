@@ -39,6 +39,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
+import com.example.myapplication.ui.theme.AppDimens.ShadowOffsetText
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
 import com.example.myapplication.utils.AudioPlayerManager
@@ -50,6 +51,7 @@ fun KidsActionButton(
     type: ButtonType,
     onClick: () -> Unit,
     isIconStart: Boolean = true,
+    modifier: Modifier = Modifier
 ) {
     val colors = getButtonColors(type)
     val interactionSource = remember { MutableInteractionSource() }
@@ -61,7 +63,7 @@ fun KidsActionButton(
     )
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .graphicsLayer {
                 scaleX = scale
                 scaleY = scale
@@ -110,12 +112,24 @@ fun KidsActionButton(
                 Spacer(Modifier.width(Dimens6))
             }
 
-            Text(
-                text = text,
-                color = Color.White,
-                style = MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold
-            )
+            Box {
+                // Shadow layer
+                Text(
+                    text = text,
+                    color = Color.Black.copy(alpha = 0.35f),
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
+                )
+
+                // Main text
+                Text(
+                    text = text,
+                    color = Color.White,
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.Bold
+                )
+            }
 
             if (!isIconStart && icon != null) {
                 Spacer(Modifier.width(Dimens6))

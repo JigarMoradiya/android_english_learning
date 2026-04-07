@@ -26,6 +26,7 @@ import androidx.compose.material.icons.automirrored.rounded.VolumeUp
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.rounded.Delete
+import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -44,13 +45,17 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.components.ColoringCanvas
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.view_model.ColoringAlphabetsViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsIconButton
+import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.getImageResFromWord
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
 
 
@@ -65,14 +70,33 @@ fun ColoringAlphabetsPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI()
+        BackgroundUI(isGreenGrassShow = false)
 
         Column(modifier = Modifier.fillMaxSize()) {
 
-            BackButtonWithText(
-                title = stringResource(R.string.coloring_alphabet),
-                onBackClick = { navController.popBackStack() }
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
+                BackButtonWithText(
+                    title = stringResource(R.string.coloring_alphabet),
+                    modifier = Modifier.weight(1f),
+                    onBackClick = { navController.popBackStack() }
+                )
+
+                Spacer(Modifier.weight(1f))
+
+                KidsActionButton(
+                    text = stringResource(R.string.clear),
+                    icon = Icons.Rounded.Refresh,
+                    type = ButtonType.PINK,
+                    onClick = {
+                        viewModel.clear()
+                    },
+                    modifier = Modifier.padding(vertical = Dimens8).padding(start = DeviceInfo.screenPadding(), end = Dimens16)
+                )
+            }
 
             // 🔥 MAIN CONTENT
             Row(
@@ -128,7 +152,7 @@ fun ColoringAlphabetsPage(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(start = DeviceInfo.screenPadding(), end = Dimens16).padding(bottom = Dimens16,top = Dimens8),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -166,21 +190,13 @@ fun ColoringAlphabetsPage(
                     }
                 }
 
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-
-                    IconButton(onClick = { viewModel.clear() }) {
-                        Icon(Icons.Default.Delete, contentDescription = null)
-                    }
-
-
-                    KidsActionButton(
-                        text = stringResource(R.string.next),
-                        icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                        type = ButtonType.ORANGE,
-                        onClick = { viewModel.next() },
-                        isIconStart = false
-                    )
-                }
+                KidsActionButton(
+                    text = stringResource(R.string.next),
+                    icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
+                    type = ButtonType.ORANGE,
+                    onClick = { viewModel.next() },
+                    isIconStart = false
+                )
             }
         }
     }
