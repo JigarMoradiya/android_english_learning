@@ -13,7 +13,7 @@ data class ColoringAlphabetsUiState(
     val strokes: List<StrokeData> = emptyList(),
     val colors: List<Color> = colorList,
     val selectedColor: Color = colorList.first(), // default first
-    val strokeSize: Float = 50f,
+    val strokeSize: Float = 80f,
     val isEraser: Boolean = false
 )
 

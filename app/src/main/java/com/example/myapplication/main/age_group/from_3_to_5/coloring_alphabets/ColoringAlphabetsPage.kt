@@ -103,34 +103,20 @@ fun ColoringAlphabetsPage(
                     modifier = Modifier.padding(end = Dimens16)
                 ) {
 
-                    // 🔥 UNDO
-//                    KidsIconButton(
-//                        icon = Icons.AutoMirrored.Rounded.Undo,
-//                        onClick = { viewModel.undo() },
-//                        type = ButtonType.PINK,
-//                        size = ToolbarIconSize
-//                    )
                     KidsActionButton(
                         text = stringResource(R.string.undo),
                         icon = Icons.AutoMirrored.Rounded.Undo,
-                        type = ButtonType.PINK,
+                        type = ButtonType.BLUE,
                         onClick = { viewModel.undo() },
                         isSmall = true
                     )
 
                     Spacer(modifier = Modifier.width(8.dp))
 
-                    // 🔥 REDO
-//                    KidsIconButton(
-//                        icon = Icons.AutoMirrored.Rounded.Redo,
-//                        onClick = { viewModel.redo() },
-//                        type = ButtonType.PINK,
-//                        size = ToolbarIconSize
-//                    )
                     KidsActionButton(
                         text = stringResource(R.string.redo),
                         icon = Icons.AutoMirrored.Rounded.Redo,
-                        type = ButtonType.PINK,
+                        type = ButtonType.BLUE,
                         onClick = { viewModel.redo() },
                         isSmall = true
                     )
@@ -141,7 +127,7 @@ fun ColoringAlphabetsPage(
                     KidsActionButton(
                         text = stringResource(R.string.clear),
                         icon = Icons.Rounded.Refresh,
-                        type = ButtonType.PINK,
+                        type = ButtonType.BLUE,
                         onClick = { viewModel.clear() },
                         isSmall = true
                     )
@@ -167,7 +153,7 @@ fun ColoringAlphabetsPage(
                 ) {
                     val res = getImageResFromWord(item.outlineImageName)
                     ColoringCanvas(
-                        res = res?:R.drawable.a_outline_circle,
+                        res = res?:R.drawable.a_outline_c,
                         outlineName = item.outlineImageName,
                         strokes = state.strokes,
                         viewModel = viewModel
