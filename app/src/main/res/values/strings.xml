@@ -59,5 +59,6 @@
     <string name="feedbackMissingLetterSubTitleForWrong_5">Take a closer look at the letters.</string>
     <string name="redo">REDO</string>
     <string name="undo">UNDO</string>
+    <string name="eraser">Eraser</string>
 
 </resources>

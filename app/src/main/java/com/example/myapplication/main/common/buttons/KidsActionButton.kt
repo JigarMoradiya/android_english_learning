@@ -1,5 +1,6 @@
 package com.example.myapplication.main.common.buttons
 
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -65,6 +66,10 @@ fun KidsActionButton(
         targetValue = if (pressed) 0.9f else 1f,
         label = ""
     )
+    val iconSize by animateDpAsState(
+        targetValue = if (isSmall) Dimens20 else Dimens24,
+        label = ""
+    )
 
     Box(
         modifier = modifier
@@ -103,7 +108,7 @@ fun KidsActionButton(
                         imageVector = icon,
                         contentDescription = null,
                         tint = Color.Black.copy(alpha = 0.35f),
-                        modifier = Modifier.size(if (isSmall) Dimens20 else Dimens24)
+                        modifier = Modifier.size(iconSize)
                             .offset(ShadowOffset, ShadowOffset), // shadow layer
                     )
 
@@ -111,7 +116,7 @@ fun KidsActionButton(
                         imageVector = icon,
                         contentDescription = null,
                         tint = Color.White,
-                        modifier = Modifier.size(if (isSmall) Dimens20 else Dimens24)
+                        modifier = Modifier.size(iconSize)
                     )
                 }
                 Spacer(Modifier.width(Dimens6))
@@ -146,7 +151,7 @@ fun KidsActionButton(
                         contentDescription = null,
                         tint = Color.Black.copy(alpha = 0.35f),
                         modifier = Modifier
-                            .size(if (isSmall) Dimens20 else Dimens24)
+                            .size(iconSize)
                             .offset(ShadowOffset, ShadowOffset), // shadow layer
                     )
 
@@ -154,7 +159,7 @@ fun KidsActionButton(
                         imageVector = icon,
                         contentDescription = null,
                         tint = Color.White,
-                        modifier = Modifier.size(if (isSmall) Dimens20 else Dimens24)
+                        modifier = Modifier.size(iconSize)
                     )
                 }
             }

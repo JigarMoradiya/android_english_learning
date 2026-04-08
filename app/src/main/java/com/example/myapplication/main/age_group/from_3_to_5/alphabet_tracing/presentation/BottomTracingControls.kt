@@ -8,6 +8,7 @@ import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.myapplication.R
@@ -25,7 +26,8 @@ fun BottomTracingControls(
     onNext: () -> Unit
 ) {
     Row(
-        modifier = Modifier.padding(start = DeviceInfo.screenPadding(), end = Dimens16).padding(bottom = Dimens16,top = Dimens8)
+        modifier = Modifier.padding(start = DeviceInfo.screenPadding(), end = Dimens16).padding(bottom = Dimens16,top = Dimens8),
+        verticalAlignment = Alignment.Bottom
     ) {
         KidsActionButton(
             text = stringResource(R.string.previous),
@@ -41,6 +43,7 @@ fun BottomTracingControls(
             icon = Icons.Rounded.Refresh,
             type = ButtonType.PINK,
             onClick = onClear,
+            isSmall = true
         )
 
         Spacer(modifier = Modifier.weight(1f))

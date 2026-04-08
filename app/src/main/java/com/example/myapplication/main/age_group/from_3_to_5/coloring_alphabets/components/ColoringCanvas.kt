@@ -47,14 +47,50 @@ fun ColoringCanvas(
 
         val vector = VectorPathParser.getPath(context, res, outlineName)
 
-        val scale = min(size.width / 960f, size.height / 960f)
-        val matrix = Matrix().apply { scale(scale, scale) }
+//        val scale = min(size.width / 960f, size.height / 960f)
+//        val matrix = Matrix().apply { scale(scale, scale) }
+//        val scaledPath = vector.path.copy().apply { transform(matrix) }
+//
+//        val bounds = scaledPath.getBounds()
+//        val dx = (size.width - bounds.width) / 2 - bounds.left
+//        val dy = (size.height - bounds.height) / 2 - bounds.top
+//
+//        val finalPath = scaledPath.apply {
+//            translate(Offset(dx, dy))
+//        }
 
-        val scaledPath = vector.path.copy().apply { transform(matrix) }
+        // 🔥 GET ORIGINAL PATH
+        val rawPath = vector.path.copy()
 
-        val bounds = scaledPath.getBounds()
-        val dx = (size.width - bounds.width) / 2 - bounds.left
-        val dy = (size.height - bounds.height) / 2 - bounds.top
+        // 🔥 ORIGINAL BOUNDS
+        val originalBounds = rawPath.getBounds()
+
+        // 🔥 ADD SAFE PADDING (IMPORTANT)
+        val paddingPercent = 0.1f // 10% padding
+
+        val paddedWidth = originalBounds.width * (1f + paddingPercent)
+        val paddedHeight = originalBounds.height * (1f + paddingPercent)
+
+        // 🔥 SCALE BASED ON PADDED SIZE
+        val scaleX = size.width / paddedWidth
+        val scaleY = size.height / paddedHeight
+        val scale = min(scaleX, scaleY)
+
+        // 🔥 APPLY SCALE
+        val matrix = Matrix().apply {
+            scale(scale, scale)
+        }
+
+        val scaledPath = rawPath.apply {
+            transform(matrix)
+        }
+
+        // 🔥 NEW BOUNDS AFTER SCALE
+        val scaledBounds = scaledPath.getBounds()
+
+        // 🔥 CENTER PERFECTLY
+        val dx = (size.width - scaledBounds.width) / 2 - scaledBounds.left
+        val dy = (size.height - scaledBounds.height) / 2 - scaledBounds.top
 
         val finalPath = scaledPath.apply {
             translate(Offset(dx, dy))

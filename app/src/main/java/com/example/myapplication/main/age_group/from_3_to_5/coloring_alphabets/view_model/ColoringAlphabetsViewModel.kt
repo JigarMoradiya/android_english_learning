@@ -119,6 +119,8 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
         uiState = uiState.copy(selectedColor = color, isEraser = false)
     }
     fun selectEraser() {
-        uiState = uiState.copy(isEraser = true)
+        uiState = uiState.copy(
+            isEraser = !uiState.isEraser
+        )
     }
 }
