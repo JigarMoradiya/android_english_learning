@@ -104,7 +104,7 @@ fun KidsIconButton(
                 contentDescription = null,
                 tint = Color.Black.copy(alpha = 0.35f),
                 modifier = Modifier
-                    .size(size/1.6f)
+                    .size(size/1.5f)
                     .offset(ShadowOffset, ShadowOffset)
             )
 

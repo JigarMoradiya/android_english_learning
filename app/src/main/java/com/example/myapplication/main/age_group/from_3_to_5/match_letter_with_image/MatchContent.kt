@@ -25,6 +25,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -36,6 +40,7 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.boundsInRoot
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
@@ -62,7 +67,16 @@ fun MatchContent(
 
     val uiState = viewModel.uiState
 
-    Box(modifier = modifier.fillMaxSize().padding(bottom = Dimens8),contentAlignment = Alignment.Center) {
+    // ✅ ROOT COORDINATE HOLDER
+    var rootCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
+
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(bottom = Dimens8)
+            .onGloballyPositioned { rootCoords = it }, // 🔥 IMPORTANT
+        contentAlignment = Alignment.Center
+    ) {
 
         // -------------------------
         // CANVAS (LINES)
@@ -108,14 +122,17 @@ fun MatchContent(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
+
             // -------------------------
             // LETTERS
             // -------------------------
             Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
 
                 uiState.batchLetters.forEach { (letter, _) ->
+
                     val isMatched = uiState.matchedLetters.contains(letter)
-                    Box( // ⭐ OUTER BOX (no clip)
+
+                    Box(
                         modifier = Modifier.size(MatchLetterBoxSize),
                         contentAlignment = Alignment.Center
                     ) {
@@ -130,12 +147,16 @@ fun MatchContent(
                                     alpha = if (isMatched) 0.4f else 1f
                                 }
                                 .onGloballyPositioned { coords ->
-                                    val pos = coords.positionInRoot()
+
+                                    val root = rootCoords ?: return@onGloballyPositioned
+
+                                    // 🔥 FIX: SAME COORDINATE SYSTEM
+                                    val pos = root.localPositionOf(coords, Offset.Zero)
                                     val size = coords.size
 
                                     val bottomCenter = Offset(
                                         pos.x + size.width / 2f,
-                                        pos.y + (MatchLetterBoxSize.value / 2)
+                                        pos.y + size.height.toFloat()
                                     )
 
                                     viewModel.updateLetterPosition(letter, bottomCenter)
@@ -143,7 +164,8 @@ fun MatchContent(
                                 .pointerInput(letter) {
                                     detectDragGestures(
                                         onDragStart = {
-                                            val start = uiState.letterPositions[letter] ?: return@detectDragGestures
+                                            val start = uiState.letterPositions[letter]
+                                                ?: return@detectDragGestures
                                             viewModel.startDrag(letter, start)
                                         },
                                         onDrag = { change, dragAmount ->
@@ -172,11 +194,11 @@ fun MatchContent(
                             )
                         }
 
-                        // 🔴 DOT (OUTSIDE CLIP → FULL VISIBLE)
+                        // DOT
                         Box(
                             modifier = Modifier
                                 .align(Alignment.BottomCenter)
-                                .offset(y = 3.dp) // half outside
+                                .offset(y = 3.dp)
                                 .size(6.dp)
                                 .background(Color.DarkGray, CircleShape)
                         )
@@ -205,14 +227,14 @@ fun MatchContent(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(Dimens6)
                     ) {
+
                         Box(
                             modifier = Modifier
                                 .aspectRatio(1f)
-                                .padding(top = 3.dp), // ⭐ IMPORTANT
+                                .padding(top = 3.dp),
                             contentAlignment = Alignment.Center
-                        ){
+                        ) {
 
-                            // CARD
                             Box(
                                 modifier = Modifier
                                     .matchParentSize()
@@ -225,12 +247,16 @@ fun MatchContent(
                                         shape = RoundedCornerShape(Dimens16)
                                     )
                                     .onGloballyPositioned { coords ->
-                                        val pos = coords.positionInRoot()
+
+                                        val root = rootCoords ?: return@onGloballyPositioned
+
+                                        // 🔥 FIX: SAME COORDINATE SYSTEM
+                                        val pos = root.localPositionOf(coords, Offset.Zero)
                                         val size = coords.size
 
                                         val topCenter = Offset(
                                             pos.x + size.width / 2f,
-                                            pos.y - size.height / 2f
+                                            pos.y
                                         )
 
                                         viewModel.updateImagePosition(letter, topCenter)
@@ -250,7 +276,7 @@ fun MatchContent(
                                 }
                             }
 
-                            // 🔴 DOT (VISIBLE FULL)
+                            // DOT
                             Box(
                                 modifier = Modifier
                                     .align(Alignment.TopCenter)
@@ -260,7 +286,6 @@ fun MatchContent(
                             )
                         }
 
-                        // ✅ TEXT BELOW (ONLY WHEN MATCHED)
                         Text(
                             text = word,
                             style = MaterialTheme.typography.titleSmall,
@@ -270,11 +295,8 @@ fun MatchContent(
                             modifier = Modifier.alpha(if (isMatched) 1f else 0f)
                         )
                     }
-
                 }
             }
-
-
         }
     }
 }

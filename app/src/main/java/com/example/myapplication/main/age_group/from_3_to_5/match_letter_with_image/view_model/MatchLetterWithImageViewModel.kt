@@ -19,9 +19,7 @@ import javax.inject.Inject
 import kotlin.math.abs
 
 @HiltViewModel
-class MatchLetterWithImageViewModel @Inject constructor(
-    private val ttsManager: TextToSpeechManager
-) : ViewModel() {
+class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
 
     private val batchSize = 5
 

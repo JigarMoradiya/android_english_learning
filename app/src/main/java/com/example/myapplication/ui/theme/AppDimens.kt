@@ -15,6 +15,7 @@ object AppDimens {
     val Dimens4 = if (isTablet) 6.dp else 4.dp
     val Dimens6 = if (isTablet) 8.dp else 6.dp
     val Dimens8 = if (isTablet) 12.dp else 8.dp
+    val Dimens10 = if (isTablet) 14.dp else 10.dp
     val Dimens12 = if (isTablet) 16.dp else 12.dp
     val Dimens16 = if (isTablet) 24.dp else 16.dp
     val Dimens20 = if (isTablet) 30.dp else 20.dp

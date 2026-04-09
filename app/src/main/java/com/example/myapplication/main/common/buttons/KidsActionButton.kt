@@ -35,8 +35,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.data.model.DeviceInfo
+import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
@@ -94,7 +96,7 @@ fun KidsActionButton(
                 AudioPlayerManager.playSoundMenuClick()
                 onClick()
             }
-            .padding(horizontal = if (isSmall) Dimens8 else Dimens12, vertical = if (isSmall) Dimens6 else Dimens8)
+            .padding(horizontal = if (isSmall) Dimens8 else Dimens10, vertical = if (isSmall) Dimens6 else Dimens8)
     ) {
 
         Row(
@@ -119,10 +121,10 @@ fun KidsActionButton(
                         modifier = Modifier.size(iconSize)
                     )
                 }
-                Spacer(Modifier.width(Dimens6))
+                Spacer(Modifier.width(Dimens2))
             }
 
-            Box {
+            Box(Modifier.padding(start = if (!isIconStart) Dimens4 else 0.dp, end = if (isIconStart) Dimens4 else 0.dp)) {
                 // Shadow layer
                 Text(
                     text = text,
@@ -143,7 +145,7 @@ fun KidsActionButton(
             }
 
             if (!isIconStart && icon != null) {
-                Spacer(Modifier.width(Dimens6))
+                Spacer(Modifier.width(Dimens2))
 
                 Box {
                     Icon(

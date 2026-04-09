@@ -1,19 +1,15 @@
 package com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.view_model
 
-import android.content.Context
-import android.media.MediaPlayer
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.letter.LetterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+
 @HiltViewModel
 class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
 
