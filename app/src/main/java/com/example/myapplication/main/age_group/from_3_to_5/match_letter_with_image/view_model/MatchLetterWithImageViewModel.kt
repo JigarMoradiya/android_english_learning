@@ -100,11 +100,8 @@ class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
         val end = uiState.dragEnd ?: return
 
         val target = uiState.imageRects.entries.firstOrNull { entry ->
-            entry.value.inflate(60f).contains(end)
+            entry.value.contains(end)
         }?.key
-            ?: uiState.imageRects.minByOrNull { entry ->
-                (entry.value.center - end).getDistance()
-            }?.key
 
         if (target == letter) {
             markLetterAsMatched(letter)

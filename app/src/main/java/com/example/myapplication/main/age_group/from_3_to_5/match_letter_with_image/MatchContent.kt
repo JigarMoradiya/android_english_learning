@@ -35,6 +35,8 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.Shadow
@@ -261,7 +263,12 @@ fun MatchContent(
 
                                         viewModel.updateImagePosition(letter, topCenter)
 
-                                        val rect = coords.boundsInRoot()
+//                                        val rect = coords.boundsInRoot()
+                                        val topLeft = root.localPositionOf(coords, Offset.Zero)
+                                        val rect = Rect(
+                                            offset = topLeft,
+                                            size = Size(size.width.toFloat(), size.height.toFloat())
+                                        )
                                         viewModel.updateImageRect(letter, rect)
                                     },
                                 contentAlignment = Alignment.Center
