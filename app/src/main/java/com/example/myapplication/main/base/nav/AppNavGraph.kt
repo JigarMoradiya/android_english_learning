@@ -1,23 +1,6 @@
 package com.example.myapplication.main.base.nav
 
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.layout.LazyLayoutCacheWindow
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.Card
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -34,6 +17,15 @@ import com.example.myapplication.main.age_group.from_3_to_5.match_latters.MatchL
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.MatchLetterWithImagePage
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.MissingLetterPage
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
+import com.example.myapplication.main.age_group.from_5_to_7.article_choice.ArticleChoicePage
+import com.example.myapplication.main.age_group.from_5_to_7.articles_a_an.ArticlesAAnPage
+import com.example.myapplication.main.age_group.from_5_to_7.coloring_word.ColoringWordPage
+import com.example.myapplication.main.age_group.from_5_to_7.listen_and_select_answer.ListenAndSelectWordPage
+import com.example.myapplication.main.age_group.from_5_to_7.sight_word_choice.SightWordChoicePage
+import com.example.myapplication.main.age_group.from_5_to_7.sight_words.SightWordsPage
+import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.VocabularyBuildingPage
+import com.example.myapplication.main.age_group.from_5_to_7.word_jigsaw.WordJigsawPage
+import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.WordMatchImagePage
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
@@ -45,12 +37,9 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.AgeCategories.name) {
             MainLearningAgesCategoriesScreen(navController)
         }
-        // Age Category
+        // Age Category 3 to 5
         composable(RouteNavigation.AgeGroup3to5.name) {
             AgeGroup3to5Page(navController)
-        }
-        composable(RouteNavigation.AgeGroup5to7.name) {
-            AgeGroup5to7Page()
         }
         composable(RouteNavigation.AgeGroup6to8.name) {
             AgeGroup6to8Page()
@@ -80,38 +69,41 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.ColoringAlphabets.name) {
             ColoringAlphabetsPage(navController)
         }
-    }
-}
 
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-fun ComplexList(items: List<String>) {
-    val cacheWindow = remember { LazyLayoutCacheWindow(ahead = 150.dp, behind = 100.dp) }
-    val listState = rememberLazyListState(cacheWindow = cacheWindow)
-    LazyColumn(modifier = Modifier.fillMaxSize(),state = listState) {
-        items(items) { item ->
-            // With PausableComposition enabled, the runtime can pre-compose
-            // these items across multiple frames before they enter the screen.
-            ComplexListItem(text = item)
+        // Age Category 5 to 7
+        composable(RouteNavigation.AgeGroup5to7.name) {
+            AgeGroup5to7Page(navController)
         }
-    }
-}
-
-@Composable
-fun ComplexListItem(text: String) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = text, style = MaterialTheme.typography.headlineSmall)
-            Spacer(modifier = Modifier.height(8.dp))
-            // Nested layouts and multiple elements typically benefit most
-            // from incremental preparation.
-            repeat(3) {
-                Text("Detailed sub-information line $it", style = MaterialTheme.typography.bodyMedium)
-            }
+        composable(RouteNavigation.VocabularyBuilding.name) {
+            VocabularyBuildingPage(navController)
+        }
+        composable(RouteNavigation.ColoringWord.name) {
+            ColoringWordPage(navController)
+        }
+        composable(RouteNavigation.WordMatchImage.name) {
+            WordMatchImagePage(navController)
+        }
+        composable(RouteNavigation.ListenAndSelectWord.name) {
+            ListenAndSelectWordPage(navController)
+        }
+        composable(RouteNavigation.MissingLetterMedium.name) {
+            MissingLetterPage(navController,DifficultyLevel.MEDIUM)
+        }
+        composable(RouteNavigation.WordJigsaw.name) {
+//            WordJigsawPage(navController)
+            DragDropWordPage(navController,DifficultyLevel.MEDIUM)
+        }
+        composable(RouteNavigation.ArticlesAAn.name) {
+            ArticlesAAnPage(navController)
+        }
+        composable(RouteNavigation.SightWords.name) {
+            SightWordsPage(navController)
+        }
+        composable(RouteNavigation.ArticleChoice.name) {
+            ArticleChoicePage(navController)
+        }
+        composable(RouteNavigation.SightWordChoice.name) {
+            SightWordChoicePage(navController)
         }
     }
 }

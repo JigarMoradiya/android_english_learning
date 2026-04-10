@@ -33,7 +33,6 @@ fun MainLearningAgesCategoriesScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .windowInsetsPadding(WindowInsets.safeDrawing)
                 .padding(vertical = Dimens16)
         ) {
             // Title
@@ -42,6 +41,7 @@ fun MainLearningAgesCategoriesScreen(
                 fontSize = AppDimens.FontExtraLarge36,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
+//                    .windowInsetsPadding(WindowInsets.safeDrawing)
             )
 
             Spacer(modifier = Modifier.height(Dimens16))

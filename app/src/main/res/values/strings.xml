@@ -6,8 +6,9 @@
 
     <!-- Categories -->
     <string name="level1_title">Little Explorers</string>
+    <string name="level2_title">Word Adventure</string>
 
-    <!-- Beginner Level category Ages 3–5 -->
+    <!-- Category Ages 3–5 -->
     <string name="alphabet_tracing">Alphabet Tracing</string>
     <string name="letter_recognition">Letter Recognition</string>
     <string name="abcd_with_images">ABCD with Images</string>
@@ -16,6 +17,26 @@
     <string name="coloring_alphabet">Coloring Alphabet</string>
     <string name="missing_letter">Missing Letter</string>
     <string name="drag_drop_words">Drag &amp; Drop Words</string>
+
+    <!-- Category Ages 5–7 -->
+    <string name="vocabulary_building">Vocabulary Building</string>
+    <string name="coloring_word">Coloring Word</string>
+    <string name="word_match_picture">Word Match with Picture</string>
+    <string name="listen_and_select_answer">Listen And Select Answer</string>
+    <string name="word_jigsaw">Word Jigsaw</string>
+    <string name="articles_a_an">Articles \"A\" &amp; \"An\"</string>
+    <string name="sight_words">Sight Words (the, is, and, in)</string>
+    <string name="article_choice">Article Choice</string>
+    <string name="sight_word_choice">Sight Word Choice</string>
+
+    <!-- Vocabulary Category -->
+    <string name="animals">Animals</string>
+    <string name="fruits">Fruits</string>
+    <string name="birds">Birds</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="colors">Colors</string>
+    <string name="shapes">Shapes</string>
+    <string name="vehicles">Vehicles</string>
 
     <string name="back">Back</string>
     <string name="clear">CLEAR</string>

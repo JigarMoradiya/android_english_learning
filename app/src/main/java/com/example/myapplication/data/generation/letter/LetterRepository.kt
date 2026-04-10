@@ -59,6 +59,20 @@ object LetterRepository {
         "Soap","Mitten","Elephant","Dinosaur","Computer","Banana","Jupiter","Astonaut"
     )
 
+    val vocabularyCategoryAnimals = listOf("Dog","Cat","Cow","Tiger","Monkey","Elephant","Horse","Sheep","Lion","Kangaroo","Camel","Goat","Giraffe","Donkey","Cheetah","Mouse","Rabbit","Zebra","Frog","Leopard","Turtle","Squirrel","Hippopotamus","Deer","Ox","Bear","Wolf","Fox","Pig","Alligator","Snake","Antelope","Gorila","Rhinoceros","Koala","Panda","Hyena","Hedgehog","Reccoon","Yak")
+
+    val vocabularyCategoryBirds = listOf("Sparrow","Parrot","Peacock","Crow","Eagle","Pigeon","Owl","Duck","Swan","Hen","Rooster","Turkey","Penguin","Woodpecker","Flamingo","Seagull","Kingfisher","Canary","Dove","Vulture","Ostrich")
+
+    val vocabularyCategoryFruits = listOf("Banana","Apple","Orange","Mango","Kiwi","Grapes","Pineapple","Papaya","Strawberry","Blueberry","Raspberry","Watermelon","Muskmelon","Guava","Pomegranate","Peach","Pear","Plum","Lychee","Coconut","Cherry","Apricot","Fig","Dragonfruit")
+
+    val vocabularyCategoryVegetables = listOf("Carrot","Potato","Tomato","Onion","Garlic","Cabbage","Brinjal","Capsicum","Ladyfinger","Cauliflower","Broccoli","Spinach","Lettuce","Peas","Cucumber","Pumpkin","Radish","Beetroot","Corn","Chili","Turnip","Celery","Zucchini")
+
+    val vocabularyCategoryColor = listOf("Red","Blue","Yellow","Green","Purple","Orange","Pink","Brown","Gray","Black","White")
+
+    val vocabularyCategoryShape = listOf("Circle","Square","Triangle","Rectangle","Star","Oval","Heart","Arrow","Cross","Trapezoid","Parallelogram","Crescent","Cube","Sphere","Cone","Cylinder","Diamond","Pentagon","Hexagon","Octagon")
+
+    val vocabularyCategoryVehicle = listOf("Car","Bus","Bike","Train","Airplane","Truck","Van","Bicycle","Scooter","Ship","Boat","Helicopter","Tractor","Ambulance","Firetruck","Police Car","Submarine","Rocket","Taxi","Forklift","Dump Truck","JCB")
+
     val colorAlphabets: List<ColoringAlphabetModel>
         get() = all.map { data ->
 

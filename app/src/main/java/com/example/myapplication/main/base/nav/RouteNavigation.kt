@@ -12,8 +12,17 @@ enum class RouteNavigation {
     DragDropWord,
     ColoringAlphabets,
 
-    MissingLetterMedium,
 
     AgeGroup5to7,
+    VocabularyBuilding,
+    ColoringWord,
+    WordMatchImage,
+    ListenAndSelectWord,
+    MissingLetterMedium,
+    WordJigsaw,
+    ArticlesAAn,
+    SightWords,
+    ArticleChoice,
+    SightWordChoice,
     AgeGroup6to8,
 }
