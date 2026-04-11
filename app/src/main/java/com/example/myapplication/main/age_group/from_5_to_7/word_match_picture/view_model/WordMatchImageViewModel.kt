@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.letter.LetterRepository
+import com.example.myapplication.data.generation.letter.LetterRepository.vocabularyCategoryAllForWordMatchImage
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.view_model.MatchLetterWithImageUiState
 import com.example.myapplication.ui.theme.colorList
 import com.example.myapplication.utils.AudioPlayerManager
@@ -51,9 +52,9 @@ class WordMatchImageViewModel @Inject constructor(
     // -----------------------------
     fun loadNewBatch() {
 
-        val allWords = LetterRepository.all.flatMap {
+        val allWords = (LetterRepository.all.flatMap {
             listOf(it.mainWord) + it.altWords
-        }.shuffled()
+        } + vocabularyCategoryAllForWordMatchImage).shuffled()
 
         val uniqueWords = allWords.distinct().take(batchSize)
 

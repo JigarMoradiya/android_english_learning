@@ -73,6 +73,9 @@ object LetterRepository {
 
     val vocabularyCategoryVehicle = listOf("Car","Bus","Bike","Train","Airplane","Truck","Van","Bicycle","Scooter","Ship","Boat","Helicopter","Tractor","Ambulance","Firetruck","Police Car","Submarine","Rocket","Taxi","Forklift","Dump Truck","JCB")
 
+    val vocabularyCategoryAllForListenAndSelect: List<String> = vocabularyCategoryAnimals + vocabularyCategoryBirds + vocabularyCategoryFruits + vocabularyCategoryVegetables + vocabularyCategoryColor + vocabularyCategoryShape + vocabularyCategoryVehicle
+    val vocabularyCategoryAllForWordMatchImage: List<String> = vocabularyCategoryAnimals + vocabularyCategoryBirds + vocabularyCategoryFruits + vocabularyCategoryVegetables + vocabularyCategoryShape + vocabularyCategoryVehicle
+
     val colorAlphabets: List<ColoringAlphabetModel>
         get() = all.map { data ->
 
