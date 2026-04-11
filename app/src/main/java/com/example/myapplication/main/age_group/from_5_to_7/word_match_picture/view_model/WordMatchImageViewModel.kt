@@ -51,12 +51,14 @@ class WordMatchImageViewModel @Inject constructor(
     // -----------------------------
     fun loadNewBatch() {
 
-        val letters = LetterRepository.all.shuffled().take(batchSize)
+        val allWords = LetterRepository.all.flatMap {
+            listOf(it.mainWord) + it.altWords
+        }.shuffled()
 
-        val batch = letters.map {
-            val allWords = listOf(it.mainWord) + it.altWords
-            val word = allWords.random()
-            it.letter to word
+        val uniqueWords = allWords.distinct().take(batchSize)
+
+        val batch = uniqueWords.map { word ->
+            word to word
         }
         dragStart = null
         dragEnd = null
@@ -111,6 +113,9 @@ class WordMatchImageViewModel @Inject constructor(
 
         if (target == letter) {
             markLetterAsMatched(letter)
+        }else{
+            // WRONG MATCH
+            AudioPlayerManager.playSoundWrongAnswer()
         }
 
         dragStart = null
@@ -147,7 +152,7 @@ class WordMatchImageViewModel @Inject constructor(
             }
         }else{
             // MATCH
-            AudioPlayerManager.playSoundDragItem()
+            AudioPlayerManager.playSoundCorrectAnswer()
         }
     }
 

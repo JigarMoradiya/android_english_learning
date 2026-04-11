@@ -107,6 +107,9 @@ class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
 
         if (target == letter) {
             markLetterAsMatched(letter)
+        }else{
+            // WRONG MATCH
+            AudioPlayerManager.playSoundWrongAnswer()
         }
 
         dragStart = null
@@ -143,7 +146,7 @@ class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
             }
         }else{
             // MATCH
-            AudioPlayerManager.playSoundDragItem()
+            AudioPlayerManager.playSoundCorrectAnswer()
         }
     }
 

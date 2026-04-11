@@ -28,6 +28,9 @@ object AppDimens {
     val ABCDWithImagesBigTextSize = if (isTablet) 150.sp else 120.sp
     val ABCDWithImagesSmallImageSize = if (isTablet) 100.dp else 80.dp
     val MatchLetterBoxSize = if (isTablet) 100.dp else 80.dp
+    val MatchWordBoxWidth = if (isTablet) 156.dp else 124.dp
+    val MatchWordBoxHeight = if (isTablet) 48.dp else 40.dp
+    val MatchWordTextSize = if (isTablet) 20.sp else 16.sp
     val DragLetterBoxSize = if (isTablet) 80.dp else 60.dp
     val ColoringAlphabetsImageWidth = if (isTablet) 200.dp else 170.dp
     val VocabularyImageHeight = if (isTablet) 1000.dp else 80.dp
