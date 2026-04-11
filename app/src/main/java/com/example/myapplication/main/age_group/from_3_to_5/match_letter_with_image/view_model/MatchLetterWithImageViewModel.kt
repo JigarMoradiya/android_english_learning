@@ -24,6 +24,11 @@ class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
 
     var uiState by mutableStateOf(MatchLetterWithImageUiState())
         private set
+    var dragStart by mutableStateOf<Offset?>(null)
+        private set
+
+    var dragEnd by mutableStateOf<Offset?>(null)
+        private set
 
     init {
         loadNewBatch()
@@ -49,15 +54,14 @@ class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
             val word = allWords.random()
             it.letter to word
         }
-
+        dragStart = null
+        dragEnd = null
         uiState = uiState.copy(
             batchLetters = batch,
             shuffledImages = batch.shuffled(),
             matchedLetters = emptySet(),
             matchedOrder = emptyList(),
             draggingLetter = null,
-            dragStart = null,
-            dragEnd = null,
             letterPositions = emptyMap(),
             imagePositions = emptyMap(),
             imageRects = emptyMap(),
@@ -73,22 +77,21 @@ class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
     fun startDrag(letter: String, start: Offset) {
         totalDrag = Offset.Zero
 
+        dragStart = start
+        dragEnd = start
+
         uiState = uiState.copy(
-            draggingLetter = letter,
-            dragStart = start,
-            dragEnd = start
+            draggingLetter = letter
         )
     }
 
     fun updateDrag(delta: Offset) {
 
-        totalDrag += delta // accumulate once here only
+        totalDrag += delta
 
-        val start = uiState.dragStart ?: return
+        val start = dragStart ?: return
 
-        uiState = uiState.copy(
-            dragEnd = start + totalDrag // ✅ CORRECT
-        )
+        dragEnd = start + totalDrag // ✅ NO uiState update
     }
 
     fun endDrag() {
@@ -96,20 +99,21 @@ class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
         totalDrag = Offset.Zero
 
         val letter = uiState.draggingLetter ?: return
-        val end = uiState.dragEnd ?: return
+        val end = dragEnd ?: return
 
-        val target = uiState.imageRects.entries.firstOrNull { entry ->
-            entry.value.contains(end)
+        val target = uiState.imageRects.entries.firstOrNull {
+            it.value.contains(end)
         }?.key
 
         if (target == letter) {
             markLetterAsMatched(letter)
         }
 
+        dragStart = null
+        dragEnd = null
+
         uiState = uiState.copy(
-            draggingLetter = null,
-            dragStart = null,
-            dragEnd = null
+            draggingLetter = null
         )
     }
 
@@ -147,13 +151,17 @@ class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
     // POSITION TRACKING
     // -----------------------------
     fun updateLetterPosition(letter: String, offset: Offset) {
-        val updated = uiState.letterPositions + (letter to offset)
+        if (uiState.letterPositions[letter] == offset) return
+        val updated = uiState.letterPositions.toMutableMap()
+        updated[letter] = offset
         uiState = uiState.copy(letterPositions = updated)
         recomputeFramesReady()
     }
 
     fun updateImagePosition(letter: String, offset: Offset) {
-        val updated = uiState.imagePositions + (letter to offset)
+        if (uiState.imagePositions[letter] == offset) return
+        val updated = uiState.imagePositions.toMutableMap()
+        updated[letter] = offset
         uiState = uiState.copy(imagePositions = updated)
         recomputeFramesReady()
     }
@@ -162,14 +170,17 @@ class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
         uiState = uiState.copy(imageRects = updated)
     }
     fun recomputeFramesReady() {
+
+        if (uiState.framesReady) return // ✅ avoid repeat work
+
         val validLetters = uiState.batchLetters.map { it.first }.toSet()
 
         val letterOK = validLetters.all { uiState.letterPositions[it] != null }
         val imageOK = validLetters.all { uiState.imagePositions[it] != null }
 
-        uiState = uiState.copy(
-            framesReady = letterOK && imageOK
-        )
+        if (letterOK && imageOK) {
+            uiState = uiState.copy(framesReady = true)
+        }
     }
     // -----------------------------
     fun playAgain() {

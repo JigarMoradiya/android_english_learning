@@ -9,8 +9,6 @@ data class MatchLetterWithImageUiState(
     val shuffledImages: List<Pair<String, String>> = emptyList(),
 
     val draggingLetter: String? = null,
-    val dragStart: Offset? = null,
-    val dragEnd: Offset? = null,
 
     val matchedLetters: Set<String> = emptySet(),
     val matchedOrder: List<String> = emptyList(),
