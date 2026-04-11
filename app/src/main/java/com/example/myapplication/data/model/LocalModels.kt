@@ -11,7 +11,7 @@ data class LearningActivityModel(
 )
 
 data class VocabularyCategoryData(
-    val type: VocabularyCategoryType,
+    val type: String,
     @StringRes val titleRes: Int,
     val imageName: Int,
     val words: List<String>

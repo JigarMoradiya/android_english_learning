@@ -59,7 +59,7 @@ fun AgeGroup3to5Page(navController: NavController) {
                 horizontalArrangement = Arrangement.spacedBy(Dimens16),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(screenHeight * 0.6f) // 🔥 75% height
+                    .height(screenHeight * 0.6f)
             ) {
 
                 items(activities_age_3_5) { activity ->

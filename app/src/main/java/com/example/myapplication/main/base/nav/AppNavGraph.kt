@@ -1,9 +1,13 @@
 package com.example.myapplication.main.base.nav
 
+import android.net.Uri
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.example.myapplication.main.age_category.MainLearningAgesCategoriesScreen
 import com.example.myapplication.main.age_group.AgeGroup3to5Page
 import com.example.myapplication.main.age_group.AgeGroup5to7Page
@@ -23,86 +27,107 @@ import com.example.myapplication.main.age_group.from_5_to_7.coloring_word.Colori
 import com.example.myapplication.main.age_group.from_5_to_7.listen_and_select_answer.ListenAndSelectWordPage
 import com.example.myapplication.main.age_group.from_5_to_7.sight_word_choice.SightWordChoicePage
 import com.example.myapplication.main.age_group.from_5_to_7.sight_words.SightWordsPage
-import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.VocabularyBuildingPage
-import com.example.myapplication.main.age_group.from_5_to_7.word_jigsaw.WordJigsawPage
+import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_detail.VocabularyBuildingDetailPage
+import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_list.VocabularyBuildingPage
 import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.WordMatchImagePage
+import com.google.gson.Gson
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = RouteNavigation.AgeCategories.name
+        startDestination = RouteNavigation.AgeCategories.route
     ) {
         // Home
-        composable(RouteNavigation.AgeCategories.name) {
+        composable(RouteNavigation.AgeCategories.route) {
             MainLearningAgesCategoriesScreen(navController)
         }
         // Age Category 3 to 5
-        composable(RouteNavigation.AgeGroup3to5.name) {
+        composable(RouteNavigation.AgeGroup3to5.route) {
             AgeGroup3to5Page(navController)
         }
-        composable(RouteNavigation.AgeGroup6to8.name) {
+        composable(RouteNavigation.AgeGroup6to8.route) {
             AgeGroup6to8Page()
         }
         // Age Category 3 to 5
-        composable(RouteNavigation.AlphabetTracing.name) {
+        composable(RouteNavigation.AlphabetTracing.route) {
             AlphabetTracingPage(navController)
         }
-        composable(RouteNavigation.LetterRecognition.name) {
+        composable(RouteNavigation.LetterRecognition.route) {
             LetterRecognitionPage(navController)
         }
-        composable(RouteNavigation.ABCDWithImages.name) {
+        composable(RouteNavigation.ABCDWithImages.route) {
             ABCDWithImagesPage(navController)
         }
-        composable(RouteNavigation.MatchLetters.name) {
+        composable(RouteNavigation.MatchLetters.route) {
             MatchLettersPage(navController)
         }
-        composable(RouteNavigation.MatchLetterWithImage.name) {
+        composable(RouteNavigation.MatchLetterWithImage.route) {
             MatchLetterWithImagePage(navController)
         }
-        composable(RouteNavigation.MissingLetterEasy.name) {
+        composable(RouteNavigation.MissingLetterEasy.route) {
             MissingLetterPage(navController,DifficultyLevel.EASY)
         }
-        composable(RouteNavigation.DragDropWord.name) {
+        composable(RouteNavigation.DragDropWord.route) {
             DragDropWordPage(navController,DifficultyLevel.EASY)
         }
-        composable(RouteNavigation.ColoringAlphabets.name) {
+        composable(RouteNavigation.ColoringAlphabets.route) {
             ColoringAlphabetsPage(navController)
         }
 
         // Age Category 5 to 7
-        composable(RouteNavigation.AgeGroup5to7.name) {
+        composable(RouteNavigation.AgeGroup5to7.route) {
             AgeGroup5to7Page(navController)
         }
-        composable(RouteNavigation.VocabularyBuilding.name) {
-            VocabularyBuildingPage(navController)
+        composable(RouteNavigation.VocabularyBuilding.route) {
+            VocabularyBuildingPage(navController){ type, title ->
+                navController.navigate(
+                    RouteNavigation.VocabularyDetail.vocabularyDetail(type,title)
+                )
+            }
         }
-        composable(RouteNavigation.ColoringWord.name) {
+        composable(
+            route = RouteNavigation.VocabularyDetail.route,
+            arguments = listOf(
+                navArgument("type") { type = NavType.StringType },
+                navArgument("title") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val type = backStackEntry.arguments?.getString("type")?:"animals" // new or edit
+            val title = backStackEntry.arguments?.getString("title")?:"Animals" // new or edit
+
+            VocabularyBuildingDetailPage(
+                type = type,
+                title = title,
+                navController = navController
+            )
+        }
+        composable(RouteNavigation.ColoringWord.route) {
             ColoringWordPage(navController)
         }
-        composable(RouteNavigation.WordMatchImage.name) {
+        composable(RouteNavigation.WordMatchImage.route) {
             WordMatchImagePage(navController)
         }
-        composable(RouteNavigation.ListenAndSelectWord.name) {
+        composable(RouteNavigation.ListenAndSelectWord.route) {
             ListenAndSelectWordPage(navController)
         }
-        composable(RouteNavigation.MissingLetterMedium.name) {
+        composable(RouteNavigation.MissingLetterMedium.route) {
             MissingLetterPage(navController,DifficultyLevel.MEDIUM)
         }
-        composable(RouteNavigation.WordJigsaw.name) {
+        composable(RouteNavigation.WordJigsaw.route) {
 //            WordJigsawPage(navController)
             DragDropWordPage(navController,DifficultyLevel.MEDIUM)
         }
-        composable(RouteNavigation.ArticlesAAn.name) {
+        composable(RouteNavigation.ArticlesAAn.route) {
             ArticlesAAnPage(navController)
         }
-        composable(RouteNavigation.SightWords.name) {
+        composable(RouteNavigation.SightWords.route) {
             SightWordsPage(navController)
         }
-        composable(RouteNavigation.ArticleChoice.name) {
+        composable(RouteNavigation.ArticleChoice.route) {
             ArticleChoicePage(navController)
         }
-        composable(RouteNavigation.SightWordChoice.name) {
+        composable(RouteNavigation.SightWordChoice.route) {
             SightWordChoicePage(navController)
         }
     }

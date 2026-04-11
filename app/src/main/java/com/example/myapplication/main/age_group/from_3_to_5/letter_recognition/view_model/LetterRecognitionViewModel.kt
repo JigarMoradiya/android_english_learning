@@ -27,7 +27,7 @@ class LetterRecognitionViewModel @Inject constructor(
     fun onLetterClick(letter: String, word: String) {
         AudioPlayerManager.playSoundMenuClick()
         uiState = uiState.copy(selectedLetter = letter)
-        ttsManager.speak("$letter, $word", RouteNavigation.LetterRecognition.name)
+        ttsManager.speak("$letter, $word", RouteNavigation.LetterRecognition.route)
     }
 
 }

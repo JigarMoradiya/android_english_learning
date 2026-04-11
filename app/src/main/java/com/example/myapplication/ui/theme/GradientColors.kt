@@ -3,6 +3,25 @@ package com.example.myapplication.ui.theme
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
+val colorList = listOf(
+    Color(0xFFF44336),
+    Color(0xFFE91E63),
+    Color(0xFF9C27B0),
+    Color(0xFF673AB7),
+    Color(0xFF3F51B5),
+    Color(0xFF2196F3),
+    Color(0xFF03A9F4),
+    Color(0xFF00BCD4),
+    Color(0xFF009688),
+    Color(0xFF4CAF50),
+    Color(0xFF8BC34A),
+    Color(0xFFCDDC39),
+    Color(0xFFFFEB3B),
+    Color(0xFFFFC107),
+    Color(0xFFFF9800),
+    Color(0xFFFF5722),
+)
+
 enum class ButtonType {
     BLUE,
     PINK,
@@ -108,5 +127,23 @@ fun getButtonColors(type: ButtonType): ButtonColors {
                 )
             )
         )
+    }
+}
+
+fun colorFromWord(name: String): Color {
+    return when (name.lowercase()) {
+        "red" -> Color(0xFFFF0000)
+        "blue" -> Color(0xFF3F51B5)
+        "sky blue" -> Color(0xFF03A9F4)
+        "yellow" -> Color(0xFFFFEB3B)
+        "green" -> Color(0xFF4CAF50)
+        "purple" -> Color(0xFF673AB7)
+        "orange" -> Color(0xFFFF5722)
+        "pink" -> Color(0xFFE91E63)
+        "brown" -> Color(0xFF795548)
+        "black" -> Color(0xFF000000)
+        "white" -> Color(0xFFFFFFFF)
+        "gray", "grey" -> Color(0xFF9E9E9E)
+        else -> Color.Gray.copy(alpha = 0.5f)
     }
 }

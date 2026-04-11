@@ -9,8 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.letter.LetterRepository
-import com.example.myapplication.utilities.TextToSpeechManager
-import com.example.myapplication.utils.AppUtils.colorList
+import com.example.myapplication.ui.theme.colorList
 import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay

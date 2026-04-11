@@ -19,15 +19,15 @@ class AgeCategoriesViewModel @Inject constructor(
         listOf(
             AgeCategoryData(
                 img = R.drawable._level_1_icon,
-                destination = RouteNavigation.AgeGroup3to5.name
+                destination = RouteNavigation.AgeGroup3to5.route
             ),
             AgeCategoryData(
                 img = R.drawable._level_2_icon,
-                destination = RouteNavigation.AgeGroup5to7.name
+                destination = RouteNavigation.AgeGroup5to7.route
             ),
             AgeCategoryData(
                 img = R.drawable._level_3_icon,
-                destination = RouteNavigation.AgeGroup6to8.name
+                destination = RouteNavigation.AgeGroup6to8.route
             )
         )
     )
