@@ -45,7 +45,7 @@ fun AgeGroup5to7Page(navController: NavController) {
         BackgroundUI()
         Column(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
             BackButtonWithText(
                 title = stringResource(R.string.level2_title),
@@ -62,7 +62,7 @@ fun AgeGroup5to7Page(navController: NavController) {
             LazyRow(
                 contentPadding = PaddingValues(
                     start = DeviceInfo.screenPadding(),
-                    end = Dimens16, top = Dimens16
+                    end = DeviceInfo.screenPadding(), top = Dimens16
                 ),
                 horizontalArrangement = Arrangement.spacedBy(Dimens16),
                 modifier = Modifier

@@ -34,6 +34,7 @@ fun MainLearningAgesCategoriesScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(vertical = Dimens16)
+                .windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
             // Title
             Text(

@@ -6,9 +6,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
@@ -43,8 +46,9 @@ fun VocabularyBuildingPage(
     Box(modifier = Modifier.fillMaxSize()) {
 
         BackgroundUI()
-        Column(modifier = Modifier) {
+        Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
             BackButtonWithText(
+                modifier = Modifier,
                 title = stringResource(R.string.vocabulary_building),
                 onBackClick = { navController.popBackStack() }
             )
@@ -57,7 +61,7 @@ fun VocabularyBuildingPage(
             LazyRow(
                 contentPadding = PaddingValues(
                     start = DeviceInfo.screenPadding(),
-                    end = Dimens16, top = Dimens16
+                    end = DeviceInfo.screenPadding(), top = Dimens16
                 ),
                 horizontalArrangement = Arrangement.spacedBy(Dimens16),
                 modifier = Modifier
