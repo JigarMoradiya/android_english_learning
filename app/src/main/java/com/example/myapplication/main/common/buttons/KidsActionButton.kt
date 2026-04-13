@@ -24,11 +24,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
@@ -106,18 +108,20 @@ fun KidsActionButton(
 
             if (isIconStart && icon != null) {
                 Box {
-                    Icon(
-                        imageVector = icon,
-                        contentDescription = null,
-                        tint = Color.Black.copy(alpha = 0.35f),
-                        modifier = Modifier.size(iconSize)
-                            .offset(ShadowOffset, ShadowOffset), // shadow layer
-                    )
+                    if (type != ButtonType.DISABLE){
+                        Icon(
+                            imageVector = icon,
+                            contentDescription = null,
+                            tint = Color.Black.copy(alpha = 0.35f),
+                            modifier = Modifier.size(iconSize)
+                                .offset(ShadowOffset, ShadowOffset), // shadow layer
+                        )
+                    }
 
                     Icon(
                         imageVector = icon,
                         contentDescription = null,
-                        tint = Color.White,
+                        tint = if (type == ButtonType.DISABLE) colors.base else Color.White,
                         modifier = Modifier.size(iconSize)
                     )
                 }
@@ -126,19 +130,21 @@ fun KidsActionButton(
 
             Box(Modifier.padding(start = if (!isIconStart) Dimens4 else 0.dp, end = if (isIconStart) Dimens4 else 0.dp)) {
                 // Shadow layer
-                Text(
-                    text = text,
-                    color = Color.Black.copy(alpha = 0.35f),
-                    style = if (isSmall) MaterialTheme.typography.labelMedium else MaterialTheme.typography.bodyLarge,
-                    fontWeight = if (isSmall) FontWeight.SemiBold else FontWeight.Bold,
-                    modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
-                )
+                if (type != ButtonType.DISABLE){
+                    Text(
+                        text = text,
+                        color = Color.Black.copy(alpha = 0.35f),
+                        style = if (isSmall) MaterialTheme.typography.labelMedium else MaterialTheme.typography.bodyLarge,
+                        fontWeight = if (isSmall) FontWeight.SemiBold else FontWeight.Bold,
+                        modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
+                    )
+                }
 
 
                 // Main text
                 Text(
                     text = text,
-                    color = Color.White,
+                    color = if (type == ButtonType.DISABLE) colors.base else Color.White,
                     style = if (isSmall) MaterialTheme.typography.labelMedium else MaterialTheme.typography.bodyLarge,
                     fontWeight = if (isSmall) FontWeight.SemiBold else FontWeight.Bold
                 )
@@ -148,19 +154,21 @@ fun KidsActionButton(
                 Spacer(Modifier.width(Dimens2))
 
                 Box {
-                    Icon(
-                        imageVector = icon,
-                        contentDescription = null,
-                        tint = Color.Black.copy(alpha = 0.35f),
-                        modifier = Modifier
-                            .size(iconSize)
-                            .offset(ShadowOffset, ShadowOffset), // shadow layer
-                    )
+                    if (type != ButtonType.DISABLE){
+                        Icon(
+                            imageVector = icon,
+                            contentDescription = null,
+                            tint = Color.Black.copy(alpha = 0.35f),
+                            modifier = Modifier
+                                .size(iconSize)
+                                .offset(ShadowOffset, ShadowOffset), // shadow layer
+                        )
+                    }
 
                     Icon(
                         imageVector = icon,
                         contentDescription = null,
-                        tint = Color.White,
+                        tint = if (type == ButtonType.DISABLE) colors.base else Color.White,
                         modifier = Modifier.size(iconSize)
                     )
                 }

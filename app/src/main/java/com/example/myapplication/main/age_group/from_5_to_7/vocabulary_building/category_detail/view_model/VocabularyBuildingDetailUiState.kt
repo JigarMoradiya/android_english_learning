@@ -3,10 +3,11 @@ package com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building
 import com.example.myapplication.ui.theme.ButtonColors
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
+import com.example.myapplication.ui.theme.randomButtonType
 
 
 data class VocabularyBuildingDetailUiState(
     var words: List<String> = emptyList(),
-    var buttonType: ButtonType = ButtonType.entries.random(),
+    var buttonType: ButtonType = randomButtonType,
     var cardColors: ButtonColors = getButtonColors(buttonType)
 )

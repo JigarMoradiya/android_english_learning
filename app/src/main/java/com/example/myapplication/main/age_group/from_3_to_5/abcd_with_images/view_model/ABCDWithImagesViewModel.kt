@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.letter.LetterData
 import com.example.myapplication.data.generation.letter.LetterRepository
-import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.ui.theme.randomButtonType
 import com.example.myapplication.utilities.TextToSpeechManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -22,7 +22,7 @@ class ABCDWithImagesViewModel @Inject constructor(
         ABCDWithImagesUiState(
             currentWord = letters.first().mainWord,
             currentMatches = letters.first().altWords,
-            gradientType = ButtonType.entries.random()
+            gradientType = randomButtonType
         )
     )
         private set
@@ -44,7 +44,7 @@ class ABCDWithImagesViewModel @Inject constructor(
             isNext = true,
             currentWord = item.mainWord,
             currentMatches = item.altWords,
-            gradientType = ButtonType.entries.random()
+            gradientType = randomButtonType
         )
 
         speakCurrent()
@@ -59,7 +59,7 @@ class ABCDWithImagesViewModel @Inject constructor(
             isNext = false,
             currentWord = item.mainWord,
             currentMatches = item.altWords,
-            gradientType = ButtonType.entries.random()
+            gradientType = randomButtonType
         )
 
         speakCurrent()

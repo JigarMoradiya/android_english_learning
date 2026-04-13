@@ -21,7 +21,15 @@ val colorList = listOf(
     Color(0xFFFF9800),
     Color(0xFFFF5722),
 )
-
+val randomButtonType = listOf(
+    ButtonType.BLUE,
+    ButtonType.PINK,
+    ButtonType.ORANGE,
+    ButtonType.PURPLE,
+    ButtonType.GREEN,
+    ButtonType.RED,
+    ButtonType.TEAL,
+).random()
 enum class ButtonType {
     BLUE,
     PINK,
@@ -31,6 +39,7 @@ enum class ButtonType {
     RED,
     TEAL,
     NEGATIVE,
+    DISABLE,
     POSITIVE,
     OPTIONS,
 }
@@ -116,6 +125,15 @@ fun getButtonColors(type: ButtonType): ButtonColors {
                 listOf(
                     Color(0xFF8F8E8E),
                     Color(0xFF5D5D5D)
+                )
+            )
+        )
+        ButtonType.DISABLE -> ButtonColors(
+            base = Color(0xFF607D8B),
+            gradient = Brush.horizontalGradient(
+                listOf(
+                    Color(0xFFBDCBD2),
+                    Color(0xFFB0BEC5)
                 )
             )
         )

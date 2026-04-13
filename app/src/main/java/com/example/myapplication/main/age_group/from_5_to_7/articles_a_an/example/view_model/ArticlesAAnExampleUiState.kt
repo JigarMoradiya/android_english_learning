@@ -10,7 +10,7 @@ data class ArticlesAAnExampleUiState(
     val mode: ArticleMode = ArticleMode.A,
     val examplesA: List<ArticleItem> = emptyList(),
     val examplesAn: List<ArticleItem> = emptyList(),
-//    var buttonType: ButtonType = ButtonType.entries.random(),
+//    var buttonType: ButtonType = randomType,
     var buttonType: ButtonType = ButtonType.BLUE,
     var cardColors: ButtonColors = getButtonColors(buttonType)
 )
