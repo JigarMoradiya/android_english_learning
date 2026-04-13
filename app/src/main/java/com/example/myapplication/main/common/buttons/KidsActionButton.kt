@@ -96,7 +96,7 @@ fun KidsActionButton(
                 AudioPlayerManager.playSoundMenuClick()
                 onClick()
             }
-            .padding(horizontal = if (isSmall) Dimens8 else Dimens10, vertical = if (isSmall) Dimens6 else Dimens8)
+            .padding(horizontal = if (isSmall) Dimens8 else Dimens10, vertical = if (isSmall) Dimens4 else Dimens6)
     ) {
 
         Row(

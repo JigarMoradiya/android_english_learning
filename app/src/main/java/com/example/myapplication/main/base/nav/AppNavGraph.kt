@@ -1,8 +1,6 @@
 package com.example.myapplication.main.base.nav
 
-import android.net.Uri
 import androidx.compose.runtime.Composable
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -22,7 +20,8 @@ import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_im
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.MissingLetterPage
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
 import com.example.myapplication.main.age_group.from_5_to_7.article_choice.ArticleChoicePage
-import com.example.myapplication.main.age_group.from_5_to_7.articles_a_an.ArticlesAAnPage
+import com.example.myapplication.main.age_group.from_5_to_7.articles_a_an.example.ArticlesAAnExamplePage
+import com.example.myapplication.main.age_group.from_5_to_7.articles_a_an.info.ArticlesAAnPage
 import com.example.myapplication.main.age_group.from_5_to_7.coloring_word.ColoringWordPage
 import com.example.myapplication.main.age_group.from_5_to_7.listen_and_select_answer.ListenAndSelectWordPage
 import com.example.myapplication.main.age_group.from_5_to_7.sight_word_choice.SightWordChoicePage
@@ -30,7 +29,6 @@ import com.example.myapplication.main.age_group.from_5_to_7.sight_words.SightWor
 import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_detail.VocabularyBuildingDetailPage
 import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_list.VocabularyBuildingPage
 import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.WordMatchImagePage
-import com.google.gson.Gson
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
@@ -97,7 +95,7 @@ fun AppNavGraph(navController: NavHostController) {
             val title = backStackEntry.arguments?.getString("title")?:"Animals" // new or edit
 
             VocabularyBuildingDetailPage(
-                type = type,
+                categoryType = type,
                 title = title,
                 navController = navController
             )
@@ -120,6 +118,9 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.ArticlesAAn.route) {
             ArticlesAAnPage(navController)
+        }
+        composable(RouteNavigation.ArticlesAAnExample.route) {
+            ArticlesAAnExamplePage(navController)
         }
         composable(RouteNavigation.SightWords.route) {
             SightWordsPage(navController)

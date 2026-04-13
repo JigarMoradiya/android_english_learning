@@ -24,7 +24,7 @@
     <string name="word_match_picture">Word Match with Picture</string>
     <string name="listen_and_select_answer">Listen And Select Answer</string>
     <string name="word_jigsaw">Word Jigsaw</string>
-    <string name="articles_a_an">Articles \"A\" &amp; \"An\"</string>
+    <string name="articles_a_an">Articles \"a\" &amp; \"an\"</string>
     <string name="sight_words">Sight Words (the, is, and, in)</string>
     <string name="article_choice">Article Choice</string>
     <string name="sight_word_choice">Sight Word Choice</string>
@@ -105,5 +105,7 @@
     <string name="undo">UNDO</string>
     <string name="eraser">Eraser</string>
     <string name="listen_word">Listen Word</string>
+    <string name="learning_guide">Learning Guide</string>
+    <string name="see_more_examples">See More Examples</string>
 
 </resources>

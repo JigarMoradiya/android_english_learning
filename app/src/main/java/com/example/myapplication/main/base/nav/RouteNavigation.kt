@@ -27,6 +27,7 @@ sealed class RouteNavigation(val route: String) {
     object MissingLetterMedium : RouteNavigation("MissingLetterMedium")
     object WordJigsaw : RouteNavigation("WordJigsaw")
     object ArticlesAAn : RouteNavigation("ArticlesAAn")
+    object ArticlesAAnExample : RouteNavigation("ArticlesAAnExample")
     object SightWords : RouteNavigation("SightWords")
     object ArticleChoice : RouteNavigation("ArticleChoice")
     object SightWordChoice : RouteNavigation("SightWordChoice")

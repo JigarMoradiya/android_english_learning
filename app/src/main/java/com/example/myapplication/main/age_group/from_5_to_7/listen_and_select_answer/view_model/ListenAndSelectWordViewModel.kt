@@ -1,19 +1,17 @@
 package com.example.myapplication.main.age_group.from_5_to_7.listen_and_select_answer.view_model
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.letter.LetterRepository
-import com.example.myapplication.data.generation.letter.LetterRepository.vocabularyCategoryAllForWordMatchImage
+import com.example.myapplication.data.generation.letter.LetterRepository.vocabularyCategoryAllForListenAndSelect
 import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterTitleForWrong
-import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -34,7 +32,7 @@ class ListenAndSelectWordViewModel @Inject constructor(
     private fun loadWords() {
         val allWords = (LetterRepository.all.flatMap {
             listOf(it.mainWord) + it.altWords
-        } + vocabularyCategoryAllForWordMatchImage)
+        } + vocabularyCategoryAllForListenAndSelect)
 
         uiState = uiState.copy(wordList = allWords.distinct())
         generateWord()
