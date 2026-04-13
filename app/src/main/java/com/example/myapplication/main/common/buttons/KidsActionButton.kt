@@ -86,7 +86,7 @@ fun KidsActionButton(
                     color = colors.base, // bottom color
                     size = size,
                     cornerRadius = CornerRadius(50f, 50f),
-                    topLeft = Offset(0f, 2.dp.toPx()) // bottom line width
+                    topLeft = Offset(0f, Dimens2.toPx()) // bottom line width
                 )
             }
             .clip(RoundedCornerShape(50))

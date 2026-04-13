@@ -27,6 +27,11 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
+import com.example.myapplication.ui.theme.AppDimens.ShadowOffsetText
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
 
@@ -43,7 +48,7 @@ fun KidsOptionButton(
     val pressed by interactionSource.collectIsPressedAsState()
 
     val scale by animateFloatAsState(
-        targetValue = if (pressed) 0.92f else 1f,
+        targetValue = if (pressed) 0.9f else 1f,
         animationSpec = spring(
             dampingRatio = 0.5f,
             stiffness = Spring.StiffnessMedium
@@ -62,11 +67,11 @@ fun KidsOptionButton(
                 drawRoundRect(
                     color = colors.base,
                     size = size,
-                    cornerRadius = CornerRadius(40f, 40f),
-                    topLeft = Offset(0f, 4.dp.toPx())
+                    cornerRadius = CornerRadius(50f, 50f),
+                    topLeft = Offset(0f, Dimens2.toPx())
                 )
             }
-            .clip(RoundedCornerShape(40))
+            .clip(RoundedCornerShape(50))
             .background(
                 brush = colors.gradient
             )
@@ -76,7 +81,7 @@ fun KidsOptionButton(
             ) {
                 onClick()
             }
-            .padding(vertical = 8.dp, horizontal = 12.dp),
+            .padding(vertical = Dimens8, horizontal = Dimens12),
         contentAlignment = Alignment.Center
     ) {
 
@@ -89,7 +94,7 @@ fun KidsOptionButton(
                 ),
                 fontWeight = FontWeight.ExtraBold,
                 color = Color.Black.copy(alpha = 0.25f),
-                modifier = Modifier.offset(1.dp, 1.dp)
+                modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
             )
 
             Text(
