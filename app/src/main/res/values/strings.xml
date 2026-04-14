@@ -11,6 +11,8 @@
     <!-- Category Ages 3–5 -->
     <string name="alphabet_tracing">Alphabet Tracing</string>
     <string name="letter_recognition">Letter Recognition</string>
+    <string name="fill_the_blank">Fill the Blank Letter</string>
+    <string name="arrange_letter_in_sequence">Arrange Letter in Sequence</string>
     <string name="abcd_with_images">ABCD with Images</string>
     <string name="match_letters">Match Letters</string>
     <string name="match_letter_image">Match Letter with Image</string>
@@ -49,15 +51,16 @@
 
     <!-- success and fail feedback messages -->
     <!-- Feedback Titles Common -->
-    <string name="feedbackPhrases_1">You’re doing great!</string>
-    <string name="feedbackPhrases_2">That’s awesome!</string>
-    <string name="feedbackPhrases_3">Well Done!</string>
-    <string name="feedbackPhrases_4">Super job!</string>
-    <string name="feedbackPhrases_5">Excellent work!</string>
-    <string name="feedbackPhrases_6">Fantastic matching!</string>
-    <string name="feedbackPhrases_7">Awesome work! 👏</string>
-    <string name="feedbackPhrases_8">You nailed it! 🚀</string>
-    <string name="feedbackPhrases_9">Great job! 🌟</string>
+    <string name="feedbackPhrases_1">Perfect! 🎯</string>
+    <string name="feedbackPhrases_2">Awesome! 😄</string>
+    <string name="feedbackPhrases_3">Well Done! 👏</string>
+    <string name="feedbackPhrases_4">Great Job! 🌟</string>
+    <string name="feedbackPhrases_5">Smart Work! 🧠</string>
+    <string name="feedbackPhrases_6">Fantastic! 🎉</string>
+    <string name="feedbackPhrases_7">Amazing! 🚀</string>
+    <string name="feedbackPhrases_8">Keep It Up! 👍</string>
+    <string name="feedbackPhrases_9">Superb! 😎</string>
+    <string name="feedbackPhrases_10">Excellent! 💯</string>
 
     <string name="feedbackPhrasesSubtitle_1">You got the right answer!</string>
 
@@ -74,6 +77,11 @@
     <string name="feedbackMissingLetterTitleForWrong_3">Almost there! ⏳</string>
     <string name="feedbackMissingLetterTitleForWrong_4">Hmm, check again 🧐</string>
     <string name="feedbackMissingLetterTitleForWrong_5">Keep trying! 💪</string>
+    <string name="feedbackMissingLetterTitleForWrong_6">Oops! Give it another go 🔄</string>
+    <string name="feedbackMissingLetterTitleForWrong_7">So close! 😊</string>
+    <string name="feedbackMissingLetterTitleForWrong_8">Let’s try again! 🔁</string>
+    <string name="feedbackMissingLetterTitleForWrong_9">Not this time! 🙈</string>
+    <string name="feedbackMissingLetterTitleForWrong_10">You can do it! 🚀</string>
 
     <!-- Feedback MissingLetter SubTitle Wrong -->
     <string name="feedbackMissingLetterSubTitleForWrong_1">Look carefully at the word again.</string>
@@ -101,6 +109,30 @@
     <string name="feedbackGiveAnswerSubTitleCorrect_8">Bravo, you answered correctly!</string>
     <string name="feedbackGiveAnswerSubTitleCorrect_9">You nailed it, fantastic job!</string>
     <string name="feedbackGiveAnswerSubTitleCorrect_10">Correct, you’re a star!</string>
+
+    <!-- Feedback FillBlank SubTitle Success -->
+    <string name="feedbackFillBlank_1">You completed the sequence perfectly.</string>
+    <string name="feedbackFillBlank_2">All letters are in the right place.</string>
+    <string name="feedbackFillBlank_3">You got the correct order.</string>
+    <string name="feedbackFillBlank_4">You filled all the blanks correctly.</string>
+    <string name="feedbackFillBlank_5">You know your letters well.</string>
+    <string name="feedbackFillBlank_6">The sequence is just right.</string>
+    <string name="feedbackFillBlank_7">You nailed it.</string>
+    <string name="feedbackFillBlank_8">Keep learning and playing.</string>
+    <string name="feedbackFillBlank_9">You placed every letter correctly.</string>
+    <string name="feedbackFillBlank_10">You’re doing great.</string>
+
+    <!-- Feedback FillBlank SubTitle Wrong -->
+    <string name="feedbackFillBlankSubTitleForWrong_1">Take a closer look at the letter order.</string>
+    <string name="feedbackFillBlankSubTitleForWrong_2">Almost there! Try placing the letters again.</string>
+    <string name="feedbackFillBlankSubTitleForWrong_3">Oops! One letter is not in the right spot.</string>
+    <string name="feedbackFillBlankSubTitleForWrong_4">Don’t worry, try again and you’ll get it.</string>
+    <string name="feedbackFillBlankSubTitleForWrong_5">Check the sequence carefully.</string>
+    <string name="feedbackFillBlankSubTitleForWrong_6">You’re close! Just fix the order.</string>
+    <string name="feedbackFillBlankSubTitleForWrong_7">Give it another try, you can do it!</string>
+    <string name="feedbackFillBlankSubTitleForWrong_8">Look again, something is a little off.</string>
+    <string name="feedbackFillBlankSubTitleForWrong_9">Almost correct! Adjust the letters.</string>
+    <string name="feedbackFillBlankSubTitleForWrong_10">Keep trying, you’re learning fast!</string>
 
     <string name="redo">REDO</string>
     <string name="undo">UNDO</string>

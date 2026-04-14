@@ -276,7 +276,4 @@ class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
         cachedFrame = null
     }
 
-    fun playBackSound() {
-
-    }
 }

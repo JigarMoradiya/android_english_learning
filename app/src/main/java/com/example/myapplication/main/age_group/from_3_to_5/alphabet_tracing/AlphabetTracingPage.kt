@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.runtime.Composable
@@ -42,6 +43,7 @@ fun AlphabetTracingPage(
         ) {
 
             AppToolbarDropDownOnRight(
+                modifier = Modifier.fillMaxWidth(),
                 title = stringResource(R.string.alphabet_tracing),
                 currentSelected = viewModel.uiState.mode.title,
                 modes = LetterMode.entries.map { it.title },

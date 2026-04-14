@@ -99,11 +99,6 @@ fun LetterBottomPool(viewModel: MissingLetterViewModel) {
                                         rect.contains(end)
                                     }?.key
 
-//                                val targetIndex =
-//                                    viewModel.slotRects.entries.firstOrNull {
-//                                        it.value.contains(end)
-//                                    }?.key
-
                                 if (targetIndex != null) {
                                     // ⭐ CHECK IF SLOT IS EMPTY
                                     val isEmpty = viewModel.dropped[targetIndex] == null

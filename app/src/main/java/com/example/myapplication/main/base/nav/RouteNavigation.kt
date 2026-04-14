@@ -8,6 +8,8 @@ sealed class RouteNavigation(val route: String) {
     object LetterRecognition : RouteNavigation("LetterRecognition")
     object ABCDWithImages : RouteNavigation("ABCDWithImages")
     object MatchLetters : RouteNavigation("MatchLetters")
+    object FillTheBlankLetters : RouteNavigation("FillTheBlankLetters")
+    object ArrangeLetterInSequence : RouteNavigation("ArrangeLetterInSequence")
     object MatchLetterWithImage : RouteNavigation("MatchLetterWithImage")
     object MissingLetterEasy : RouteNavigation("MissingLetterEasy")
     object DragDropWord : RouteNavigation("DragDropWord")

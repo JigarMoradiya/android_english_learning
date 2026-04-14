@@ -3,7 +3,6 @@ package com.example.myapplication.common
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -39,6 +38,7 @@ fun AppToolbarDropDownOnRight(
     title: String,
     currentSelected: String,
     modes: List<String>,
+    modifier: Modifier = Modifier,
     onItemChange: (String) -> Unit,
     onBackClick: () -> Unit
 ) {
@@ -46,8 +46,7 @@ fun AppToolbarDropDownOnRight(
     var expanded by remember { mutableStateOf(false) }
 
     Row(
-        modifier = Modifier
-            .fillMaxWidth(),
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically
     ) {
 

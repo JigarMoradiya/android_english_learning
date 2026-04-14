@@ -12,7 +12,8 @@ object FeedbackConstant {
         R.string.feedbackPhrases_6,
         R.string.feedbackPhrases_7,
         R.string.feedbackPhrases_8,
-        R.string.feedbackPhrases_9
+        R.string.feedbackPhrases_9,
+        R.string.feedbackPhrases_10
     )
 
     val feedbackMissingLetter = listOf(
@@ -23,12 +24,42 @@ object FeedbackConstant {
         R.string.feedbackMissingLetter_5
     )
 
+    val feedbackFillBlank = listOf(
+        R.string.feedbackFillBlank_1,
+        R.string.feedbackFillBlank_2,
+        R.string.feedbackFillBlank_3,
+        R.string.feedbackFillBlank_4,
+        R.string.feedbackFillBlank_5,
+        R.string.feedbackFillBlank_6,
+        R.string.feedbackFillBlank_7,
+        R.string.feedbackFillBlank_8,
+        R.string.feedbackFillBlank_9,
+        R.string.feedbackFillBlank_10,
+    )
+    val feedbackFillBlankSubtitleWrong = listOf(
+        R.string.feedbackFillBlankSubTitleForWrong_1,
+        R.string.feedbackFillBlankSubTitleForWrong_2,
+        R.string.feedbackFillBlankSubTitleForWrong_3,
+        R.string.feedbackFillBlankSubTitleForWrong_4,
+        R.string.feedbackFillBlankSubTitleForWrong_5,
+        R.string.feedbackFillBlankSubTitleForWrong_6,
+        R.string.feedbackFillBlankSubTitleForWrong_7,
+        R.string.feedbackFillBlankSubTitleForWrong_8,
+        R.string.feedbackFillBlankSubTitleForWrong_9,
+        R.string.feedbackFillBlankSubTitleForWrong_10,
+    )
+
     val feedbackMissingLetterTitleForWrong = listOf(
         R.string.feedbackMissingLetterTitleForWrong_1,
         R.string.feedbackMissingLetterTitleForWrong_2,
         R.string.feedbackMissingLetterTitleForWrong_3,
         R.string.feedbackMissingLetterTitleForWrong_4,
-        R.string.feedbackMissingLetterTitleForWrong_5
+        R.string.feedbackMissingLetterTitleForWrong_5,
+        R.string.feedbackMissingLetterTitleForWrong_6,
+        R.string.feedbackMissingLetterTitleForWrong_7,
+        R.string.feedbackMissingLetterTitleForWrong_8,
+        R.string.feedbackMissingLetterTitleForWrong_9,
+        R.string.feedbackMissingLetterTitleForWrong_10,
     )
 
     val feedbackMissingLetterSubTitleForWrong = listOf(

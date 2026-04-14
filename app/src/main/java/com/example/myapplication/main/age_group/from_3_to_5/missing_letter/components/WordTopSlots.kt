@@ -111,19 +111,8 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                                                 val rect = entry.value.inflate(20f)   // 👈 increase touch area
                                                 rect.contains(end)
                                             }?.key
-
-//                                        val targetIndex =
-//                                            viewModel.slotRects.entries.firstOrNull {
-//                                                it.value.contains(end)
-//                                            }?.key
-
-                                            Log.e("jigarDragNDrop","targetIndex = "+targetIndex)
-                                            Log.e("jigarDragNDrop","item index = "+index)
-                                            Log.e("jigarDragNDrop","item item = "+item)
-                                            Log.e("jigarDragNDrop","viewModel.dragFromIndex = "+viewModel.dragFromIndex)
                                         if (targetIndex != null && targetIndex != index) {
                                             // ❌ TARGET FILLED → RETURN BACK
-                                            Log.e("jigarDragNDrop","viewModel.dropped[targetIndex] = "+viewModel.dropped[targetIndex])
                                             if (viewModel.dropped[targetIndex] != null) {
 
                                                 val fromIndex = viewModel.dragFromIndex

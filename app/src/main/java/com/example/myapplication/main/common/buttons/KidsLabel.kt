@@ -28,7 +28,7 @@ fun KidsLabel(txt: String,type: ButtonType = ButtonType.BLUE) {
     val colors = getButtonColors(type)
     Box(
         modifier = Modifier
-            .padding(start = DeviceInfo.screenPadding(), end = Dimens16)
+            .padding(end = Dimens16)
     ) {
 
         Box(

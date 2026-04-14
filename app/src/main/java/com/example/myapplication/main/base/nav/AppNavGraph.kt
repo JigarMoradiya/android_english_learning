@@ -12,8 +12,10 @@ import com.example.myapplication.main.age_group.AgeGroup5to7Page
 import com.example.myapplication.main.age_group.AgeGroup6to8Page
 import com.example.myapplication.main.age_group.from_3_to_5.abcd_with_images.ABCDWithImagesPage
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.AlphabetTracingPage
+import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.ArrangeLetterInSequencePage
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.ColoringAlphabetsPage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage
+import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
 import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.LetterRecognitionPage
 import com.example.myapplication.main.age_group.from_3_to_5.match_latters.MatchLettersPage
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.MatchLetterWithImagePage
@@ -59,6 +61,12 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.MatchLetters.route) {
             MatchLettersPage(navController)
+        }
+        composable(RouteNavigation.FillTheBlankLetters.route) {
+            FillBlankLettersPage(navController)
+        }
+        composable(RouteNavigation.ArrangeLetterInSequence.route) {
+            ArrangeLetterInSequencePage(navController)
         }
         composable(RouteNavigation.MatchLetterWithImage.route) {
             MatchLetterWithImagePage(navController)
