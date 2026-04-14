@@ -28,6 +28,7 @@
     <string name="sight_words">Sight Words (the, is, and, in)</string>
     <string name="article_choice">Article Choice</string>
     <string name="sight_word_choice">Sight Word Choice</string>
+    <string name="choose_the_correct_word">Choose the Correct Word</string>
 
     <!-- Vocabulary Category -->
     <string name="animals">Animals</string>

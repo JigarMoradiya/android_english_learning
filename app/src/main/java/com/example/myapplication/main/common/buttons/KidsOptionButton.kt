@@ -81,7 +81,7 @@ fun KidsOptionButton(
             ) {
                 onClick()
             }
-            .padding(vertical = Dimens8, horizontal = Dimens12),
+            .padding(horizontal = Dimens12),
         contentAlignment = Alignment.Center
     ) {
 

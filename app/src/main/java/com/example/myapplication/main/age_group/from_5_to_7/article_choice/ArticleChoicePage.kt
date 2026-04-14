@@ -20,33 +20,28 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.article_choice.view_model.ArticleChoiceViewModel
-import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.view_model.WordMatchImageViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
-import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.articleChoiceHeight
 import com.example.myapplication.ui.theme.AppDimens.articleChoiceImageHeight
 import com.example.myapplication.ui.theme.AppDimens.articleChoiceWidth
-import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsHeight
-import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsWidth
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
 
@@ -58,6 +53,9 @@ fun ArticleChoicePage(
 ) {
 
     val state = viewModel.uiState.collectAsState().value
+    val style = MaterialTheme.typography.titleLarge.copy(
+        fontSize = articleChoiceHeight.value.sp * 0.8
+    )
     Box(modifier = Modifier.fillMaxSize()) {
 
         BackgroundUI(isGreenGrassShow = false)
@@ -112,7 +110,7 @@ fun ArticleChoicePage(
                             // Selected OR Placeholder
                             Text(
                                 text = state.selectedAnswer?.replaceFirstChar { it.lowercase() } ?: "an",
-                                style = MaterialTheme.typography.displayMedium,
+                                style = style,
                                 color = when {
                                     state.selectedAnswer == null -> Color.Transparent
                                     state.isAnswerCorrect -> PrimaryGreen
@@ -125,7 +123,7 @@ fun ArticleChoicePage(
                             Box(
                                 modifier = Modifier
                                     .width(articleChoiceWidth * 0.75f)
-                                    .height(Dimens4)
+                                    .height(Dimens2)
                                     .background(Color.Black)
                             )
                         }
@@ -134,7 +132,7 @@ fun ArticleChoicePage(
 
                         Text(
                             text = state.currentWord.lowercase(),
-                            style = MaterialTheme.typography.displayMedium,
+                            style = style,
                             fontWeight = FontWeight.Bold
                         )
                     }
@@ -147,7 +145,9 @@ fun ArticleChoicePage(
                             type = ButtonType.OPTIONS,
                             fontSize = articleChoiceHeight.value.sp * 0.6,
                             onClick = {
-                                viewModel.checkAnswer("a")
+                                if (state.selectedAnswer == null){
+                                    viewModel.checkAnswer("a")
+                                }
                             },
                             modifier = Modifier
                                 .width(articleChoiceWidth)
@@ -159,7 +159,9 @@ fun ArticleChoicePage(
                             type = ButtonType.OPTIONS,
                             fontSize = articleChoiceHeight.value.sp * 0.6,
                             onClick = {
-                                viewModel.checkAnswer("an")
+                                if (state.selectedAnswer == null){
+                                    viewModel.checkAnswer("an")
+                                }
                             },
                             modifier = Modifier
                                 .width(articleChoiceWidth)

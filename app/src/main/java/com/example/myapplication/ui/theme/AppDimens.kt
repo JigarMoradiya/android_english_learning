@@ -34,7 +34,7 @@ object AppDimens {
     val listenAndAnswerOptionsWidth = if (isTablet) 300.dp else 240.dp
     val listenAndAnswerOptionsHeight = if (isTablet) 50.dp else 42.dp
 
-    val articleChoiceWidth = if (isTablet) 180.dp else 150.dp
+    val articleChoiceWidth = if (isTablet) 170.dp else 140.dp
     val articleChoiceHeight = if (isTablet) 50.dp else 42.dp
     val articleChoiceImageHeight = if (isTablet) 120.dp else 100.dp
     val DragLetterBoxSize = if (isTablet) 80.dp else 60.dp

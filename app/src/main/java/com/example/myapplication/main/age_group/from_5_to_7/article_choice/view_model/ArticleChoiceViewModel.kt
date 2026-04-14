@@ -67,6 +67,7 @@ class ArticleChoiceViewModel : ViewModel() {
         if (allWords.isEmpty()) return
 
         currentIndex = (currentIndex + 1) % allWords.size
+
         loadWord()
     }
 
