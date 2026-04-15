@@ -8,7 +8,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.vie
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlank
 import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlankSubtitleWrong
-import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterTitleForWrong
+import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -144,7 +144,7 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
                 )
             } else {
                 AudioPlayerManager.playSoundWrongAnswer()
-                val randomTitle = feedbackMissingLetterTitleForWrong.random()
+                val randomTitle = feedbackWrong.random()
                 val randomSub = feedbackFillBlankSubtitleWrong.random()
                 uiState.copy(
                     showError = true,

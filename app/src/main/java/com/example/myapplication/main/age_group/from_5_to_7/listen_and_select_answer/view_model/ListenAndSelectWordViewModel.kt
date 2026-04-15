@@ -11,7 +11,7 @@ import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerTitleCorrect
-import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterTitleForWrong
+import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -74,7 +74,7 @@ class ListenAndSelectWordViewModel @Inject constructor(
             uiState = uiState.copy(feedbackTextRes = randomTitle, feedbackSubTextRes = randomSubTitle, showPopup = true, showError = false)
             AudioPlayerManager.playSoundCorrectAnswer()
         } else {
-            val randomTitle = feedbackMissingLetterTitleForWrong.random()
+            val randomTitle = feedbackWrong.random()
             uiState = uiState.copy(feedbackTextRes = randomTitle, feedbackSubTextError = "Oops! The word is not $word", showError = true, showPopup = false)
             AudioPlayerManager.playSoundWrongAnswer()
         }

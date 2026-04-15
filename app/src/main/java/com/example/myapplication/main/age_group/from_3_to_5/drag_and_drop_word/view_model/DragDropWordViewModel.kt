@@ -10,11 +10,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.LetterItem
-import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.MissingLetterUiState
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetter
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterSubTitleForWrong
-import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterTitleForWrong
+import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -22,8 +21,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.math.min
-import kotlin.random.Random
 
 @HiltViewModel
 class DragDropWordViewModel @Inject constructor() : ViewModel() {
@@ -191,7 +188,7 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
             } else {
                 // ❌ WRONG ANSWER
                 AudioPlayerManager.playSoundWrongAnswer()
-                val randomTitle = feedbackMissingLetterTitleForWrong.random()
+                val randomTitle = feedbackWrong.random()
                 val randomSub = feedbackMissingLetterSubTitleForWrong.random()
                 uiState = uiState.copy(
                     showError = true,

@@ -24,6 +24,7 @@ object FeedbackConstant {
         R.string.feedbackMissingLetter_5
     )
 
+    // fill the blank subtitle for success
     val feedbackFillBlank = listOf(
         R.string.feedbackFillBlank_1,
         R.string.feedbackFillBlank_2,
@@ -36,6 +37,7 @@ object FeedbackConstant {
         R.string.feedbackFillBlank_9,
         R.string.feedbackFillBlank_10,
     )
+    // fill the blank subtitle for wrong
     val feedbackFillBlankSubtitleWrong = listOf(
         R.string.feedbackFillBlankSubTitleForWrong_1,
         R.string.feedbackFillBlankSubTitleForWrong_2,
@@ -49,7 +51,7 @@ object FeedbackConstant {
         R.string.feedbackFillBlankSubTitleForWrong_10,
     )
 
-    val feedbackMissingLetterTitleForWrong = listOf(
+    val feedbackWrong = listOf(
         R.string.feedbackMissingLetterTitleForWrong_1,
         R.string.feedbackMissingLetterTitleForWrong_2,
         R.string.feedbackMissingLetterTitleForWrong_3,

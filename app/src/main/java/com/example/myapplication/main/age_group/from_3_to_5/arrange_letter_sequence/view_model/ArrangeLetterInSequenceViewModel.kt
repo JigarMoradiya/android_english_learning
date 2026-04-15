@@ -4,14 +4,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
-import com.example.myapplication.main.base.nav.RouteNavigation
-import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlank
 import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlankSubtitleWrong
-import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterTitleForWrong
+import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -129,7 +126,7 @@ class ArrangeLetterInSequenceViewModel @Inject constructor() : ViewModel() {
 
                 AudioPlayerManager.playSoundWrongAnswer()
 
-                val randomTitle = feedbackMissingLetterTitleForWrong.random()
+                val randomTitle = feedbackWrong.random()
                 val randomSub = feedbackFillBlankSubtitleWrong.random()
 
                 uiState.copy(

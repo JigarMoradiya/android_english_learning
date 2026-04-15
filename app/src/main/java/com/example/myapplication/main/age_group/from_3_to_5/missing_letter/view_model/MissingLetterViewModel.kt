@@ -11,7 +11,7 @@ import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetter
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterSubTitleForWrong
-import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterTitleForWrong
+import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -246,7 +246,7 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
             } else {
                 // ❌ WRONG ANSWER
                 AudioPlayerManager.playSoundWrongAnswer()
-                val randomTitle = feedbackMissingLetterTitleForWrong.random()
+                val randomTitle = feedbackWrong.random()
                 val randomSub = feedbackMissingLetterSubTitleForWrong.random()
                 uiState = uiState.copy(
                     showError = true,
