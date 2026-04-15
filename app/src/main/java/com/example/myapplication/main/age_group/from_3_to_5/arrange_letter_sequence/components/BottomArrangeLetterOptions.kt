@@ -1,0 +1,57 @@
+package com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.components
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.view_model.ArrangeLetterInSequenceViewModel
+import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.view_model.FillBlankLettersViewModel
+import com.example.myapplication.ui.theme.AppDimens.FillBlankLetterBoxSize
+
+@Composable
+fun BottomArrangeLetterOptions(viewModel: ArrangeLetterInSequenceViewModel) {
+
+    val uiState = viewModel.uiState
+
+    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+
+        uiState.bottomOptions.forEach { letter ->
+
+            Box(
+                modifier = Modifier
+                    .size(FillBlankLetterBoxSize)
+                    .background(Color(0xFFFFD59E), RoundedCornerShape(12.dp))
+                    .clickable { viewModel.onBottomLetterClick(letter) },
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = letter,
+                    fontSize = (FillBlankLetterBoxSize.value * 0.75).sp,
+                    color = Color.Black,
+                    style = TextStyle(
+                        shadow = Shadow(
+                            color = Color.Black.copy(alpha = 0.6f),
+                            offset = Offset(1f, 1f),
+                            blurRadius = 1f
+                        )
+                    ),
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
+    }
+}
