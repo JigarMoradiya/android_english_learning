@@ -4,7 +4,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.letter.LetterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -44,17 +46,14 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
     fun endStroke() {
         if (currentPoints.isNotEmpty()) {
 
-            // ✅ save current state for undo
             undoStack.add(uiState.strokes)
-
-            // ❗ clear redo when new action happens
             redoStack.clear()
 
             uiState = uiState.copy(
                 strokes = uiState.strokes + StrokeData(
                     points = currentPoints.toList(),
                     strokeWidth = uiState.strokeSize,
-                    color = uiState.selectedColor,
+                    brush = uiState.selectedBrush,
                     isEraser = uiState.isEraser
                 )
             )
@@ -111,8 +110,11 @@ class ColoringAlphabetsViewModel @Inject constructor() : ViewModel() {
 
         uiState = uiState.copy(currentIndex = prev, strokes = emptyList())
     }
-    fun selectColor(color: Color) {
-        uiState = uiState.copy(selectedColor = color, isEraser = false)
+    fun selectBrush(brush: Brush) {
+        uiState = uiState.copy(
+            selectedBrush = brush,
+            isEraser = false
+        )
     }
     fun selectEraser() {
         uiState = uiState.copy(

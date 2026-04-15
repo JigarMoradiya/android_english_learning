@@ -180,7 +180,7 @@ fun ColoringAlphabetsPage(
                 state = state,
                 onPrevious = { viewModel.previous() },
                 onNext = { viewModel.next() },
-                onColorSelect = { viewModel.selectColor(it) },
+                onBrushSelect = { viewModel.selectBrush(it) }, // ✅ updated
                 onEraserSelect = { viewModel.selectEraser() }
             )
         }

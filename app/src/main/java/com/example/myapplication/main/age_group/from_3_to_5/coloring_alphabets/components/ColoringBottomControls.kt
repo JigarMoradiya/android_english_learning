@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import com.example.myapplication.R
@@ -44,12 +45,12 @@ fun ColoringBottomControls(
     state: ColoringAlphabetsUiState,
     onPrevious: () -> Unit,
     onNext: () -> Unit,
-    onColorSelect: (Color) -> Unit,
+    onBrushSelect: (Brush) -> Unit,
     onEraserSelect: () -> Unit
 ) {
 
-    val colors = state.colors
-    val selectedColor = state.selectedColor
+    val brushes = state.brushes
+    val selectedBrush = state.selectedBrush
     val isSelectedEraser = state.isEraser
 
     Row(
@@ -69,7 +70,7 @@ fun ColoringBottomControls(
             onClick = onPrevious
         )
 
-        // COLORS SCROLL
+        // 🎨 BRUSH SCROLL (GRADIENTS)
         Row(
             modifier = Modifier
                 .weight(1f)
@@ -78,33 +79,35 @@ fun ColoringBottomControls(
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            colors.forEach { color ->
+            brushes.forEach { brush ->
 
-                val isSelected = !isSelectedEraser && color == selectedColor
+                val isSelected = !isSelectedEraser && brush == selectedBrush
 
                 val innerSize by animateDpAsState(
                     targetValue = if (isSelected) DimensColorCircles else Dimens28,
                     label = ""
                 )
-                val alphaValue = if (isSelectedEraser) 0.4f else 1f // fade when eraser active
+
+                val alphaValue = if (isSelectedEraser) 0.4f else 1f
 
                 Box(
                     modifier = Modifier.size(DimensColorCircles),
                     contentAlignment = Alignment.Center
                 ) {
+
                     Box(
                         modifier = Modifier
                             .size(innerSize)
                             .alpha(alphaValue)
                             .clip(CircleShape)
-                            .background(color, CircleShape)
+                            .background(brush) // 🔥 gradient support
                             .then(
                                 if (isSelected) {
                                     Modifier.border(Dimens2, Color.Black, CircleShape)
                                 } else Modifier
                             )
                             .clickable {
-                                onColorSelect(color)
+                                onBrushSelect(brush)
                             }
                     )
                 }

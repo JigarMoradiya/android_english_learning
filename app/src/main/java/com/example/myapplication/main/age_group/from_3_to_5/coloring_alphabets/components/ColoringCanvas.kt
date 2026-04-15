@@ -135,7 +135,7 @@ fun ColoringCanvas(
                     } else {
                         drawPath(
                             path = createPath(stroke.points),
-                            color = stroke.color,
+                            brush = stroke.brush,
                             style = Stroke(
                                 width = stroke.strokeWidth,
                                 cap = StrokeCap.Round,
@@ -162,7 +162,7 @@ fun ColoringCanvas(
                     } else {
                         drawPath(
                             path = createPath(viewModel.currentStroke),
-                            color = viewModel.uiState.selectedColor,
+                            brush = viewModel.uiState.selectedBrush,
                             style = Stroke(
                                 width = viewModel.uiState.strokeSize,
                                 cap = StrokeCap.Round,

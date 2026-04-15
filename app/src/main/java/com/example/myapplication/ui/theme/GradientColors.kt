@@ -3,6 +3,27 @@ package com.example.myapplication.ui.theme
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
+val gradientBrushList = listOf(
+
+    // 🔴 solid (using gradient)
+    Brush.linearGradient(listOf(Color(0xFFF44336),Color(0xFFF44336))),
+    Brush.linearGradient(listOf(Color(0xFF9C27B0),Color(0xFF9C27B0))),
+    Brush.linearGradient(listOf(Color(0xFF673AB7),Color(0xFF673AB7))),
+    Brush.linearGradient(listOf(Color(0xFF3F51B5),Color(0xFF3F51B5))),
+    Brush.linearGradient(listOf(Color(0xFF00BCD4),Color(0xFF00BCD4))),
+    Brush.linearGradient(listOf(Color(0xFF4CAF50),Color(0xFF4CAF50))),
+    Brush.linearGradient(listOf(Color(0xFF8BC34A),Color(0xFF8BC34A))),
+    Brush.linearGradient(listOf(Color(0xFFFFEB3B),Color(0xFFFFEB3B))),
+    Brush.linearGradient(listOf(Color(0xFFFF9800),Color(0xFFFF9800))),
+    Brush.linearGradient(listOf(Color(0xFFFF5722),Color(0xFFFF5722))),
+
+    // 🌈 real gradients
+    Brush.linearGradient(listOf(Color(0xFFF44336), Color(0xFF673AB7), Color(0xFF3F51B5))),
+    Brush.linearGradient(listOf(Color(0xFF673AB7), Color(0xFF1F35B0), Color(0xFF2196F3))),
+    Brush.linearGradient(listOf(Color(0xFF0281BB), Color(0xFF00BCD4), Color(0xFF009688))),
+    Brush.linearGradient(listOf(Color(0xFF009688), Color(0xFF4CAF50), Color(0xFFCDDC39))),
+    Brush.linearGradient(listOf(Color(0xFFFFA726), Color(0xFFF44336), Color(0xFFFF5722)))
+)
 val colorList = listOf(
     Color(0xFFF44336),
     Color(0xFFE91E63),
