@@ -34,8 +34,10 @@ import androidx.compose.ui.unit.dp
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
+import com.example.myapplication.ui.theme.AppDimens.Dimens3
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.PrimaryGreen
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun MatchWithImageItem(
@@ -57,14 +59,14 @@ fun MatchWithImageItem(
         Box(
             modifier = Modifier
                 .aspectRatio(1f)
-                .padding(top = 3.dp),
+                .padding(top = Dimens3),
             contentAlignment = Alignment.Center
         ) {
 
             Box(
                 modifier = Modifier
                     .matchParentSize()
-                    .shadow(6.dp, RoundedCornerShape(Dimens16))
+                    .shadow(Dimens6, RoundedCornerShape(Dimens16))
                     .clip(RoundedCornerShape(Dimens16))
                     .background(Color.White)
                     .border(
@@ -107,15 +109,15 @@ fun MatchWithImageItem(
             Box(
                 modifier = Modifier
                     .align(Alignment.TopCenter)
-                    .offset(y = (-2).dp)
-                    .size(6.dp)
+                    .offset(y = -Dimens3)
+                    .size(Dimens6)
                     .background(Color.DarkGray, CircleShape)
             )
         }
 
         Text(
             text = word.replaceFirstChar { it.uppercase() },
-            style = MaterialTheme.typography.titleSmall,
+            style = MaterialTheme.typography.titleSmall.scaled(),
             fontWeight = FontWeight.ExtraBold,
             color = Color.Black,
             maxLines = 1,

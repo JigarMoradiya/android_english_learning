@@ -72,7 +72,7 @@ fun KidsActionButton(
         label = ""
     )
     val iconSize by animateDpAsState(
-        targetValue = if (isSmall) Dimens20.scaled() else Dimens24.scaled(),
+        targetValue = if (isSmall) Dimens20 else Dimens24,
         label = ""
     )
 
@@ -99,7 +99,7 @@ fun KidsActionButton(
                 AudioPlayerManager.playSoundMenuClick()
                 onClick()
             }
-            .padding(horizontal = if (isSmall) 8.dp else 10.dp, vertical = if (isSmall) 4.dp else 6.dp)
+            .padding(horizontal = if (isSmall) Dimens8 else Dimens10, vertical = if (isSmall) Dimens4 else Dimens6)
     ) {
 
         Row(

@@ -1,8 +1,5 @@
 package com.example.myapplication.main.age_group.from_3_to_5.missing_letter
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
@@ -26,7 +23,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.MissingLetterViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
-import com.example.myapplication.main.common.CustomPopupView
+import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.ButtonType
@@ -59,7 +56,7 @@ fun MissingLetterPage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                if (uiState.showPopup) {
+                if (uiState.showSuccess) {
                     KidsActionButton(
                         modifier = Modifier.padding(end = Dimens16),
                         text = stringResource(R.string.next),
@@ -79,27 +76,12 @@ fun MissingLetterPage(
                 modifier = Modifier.fillMaxSize()
             )
 
-            /*AnimatedVisibility(
-                visible = uiState.showPopup,
-                enter = fadeIn(),
-                exit = fadeOut()
-            ) {
-                CustomPopupView(
-                    title = stringResource(uiState.feedbackTextRes),
-                    description = stringResource(uiState.feedbackSubTextRes),
-                    positiveButtonText = stringResource(R.string.continue_to_play),
-                    negativeButtonText = stringResource(R.string.no_i_want_to_close),
-                    icon = R.drawable.ic_complete,
-                    widthMultiplier = 0.5f,
-                    onPositiveTapped = { viewModel.loadNextWord() },
-                    onNegativeTapped = {
-                        viewModel.closePopup()
-                        navController.popBackStack()
-                    }
-                )
-            }*/
+
         }
 
+        if (viewModel.uiState.showSuccess) {
+            ConfettiRainEffect()
+        }
 
     }
 }

@@ -31,6 +31,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.component
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.components.TopLetterSlots
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.view_model.FillBlankLettersViewModel
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -40,6 +41,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens40
 import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -94,40 +96,18 @@ fun FillBlankLettersPage(
 
             TopLetterSlots(viewModel)
 
-            Spacer(modifier = Modifier.height(Dimens50))
+            Spacer(modifier = Modifier.height(Dimens50.scaled()))
 
             BottomLetterOptions(viewModel)
 
             Spacer(Modifier.weight(1f))
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-
-                Text(
-                    text = stringResource(viewModel.uiState.feedbackTextRes),
-                    color = if (viewModel.uiState.showSuccess) PrimaryGreen else Color.Red,
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.ExtraBold,
-                    modifier = Modifier.alpha(
-                        if (viewModel.uiState.showError || viewModel.uiState.showSuccess) 1f else 0f
-                    )
-                )
-
-                Spacer(modifier = Modifier.height(Dimens4))
-
-                Text(
-                    text = stringResource(viewModel.uiState.feedbackSubTextRes),
-                    color = Color.Black,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Medium,
-                    modifier = Modifier.alpha(
-                        if (viewModel.uiState.showError || viewModel.uiState.showSuccess) 1f else 0f
-                    )
-                )
-            }
-
-            Spacer(modifier = Modifier.height(Dimens16))
+            FeedbackText(
+                title = stringResource(viewModel.uiState.feedbackTextRes),
+                subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
+                isSuccess = viewModel.uiState.showSuccess,
+                isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
+            )
         }
 
         if (viewModel.uiState.showSuccess) {

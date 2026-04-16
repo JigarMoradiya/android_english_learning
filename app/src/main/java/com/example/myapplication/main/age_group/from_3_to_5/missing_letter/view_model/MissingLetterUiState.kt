@@ -5,7 +5,7 @@ import java.util.UUID
 
 
 data class MissingLetterUiState(
-    val showPopup: Boolean = false,
+    val showSuccess: Boolean = false,
     val feedbackTextRes: Int = R.string.feedbackPhrases_1,
     val feedbackSubTextRes: Int = R.string.feedbackMissingLetter_1,
 

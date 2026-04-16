@@ -57,9 +57,12 @@ import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
+import com.example.myapplication.ui.theme.AppDimens.Dimens3
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.MatchLetterBoxSize
+import com.example.myapplication.ui.theme.AppDimens.isLargeTablet
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.PrimaryGreen
 
 @Composable
@@ -105,8 +108,10 @@ fun MatchContent(
         // -------------------------
         // CONTENT
         // -------------------------
+
+        val padding = if(isLargeTablet) 100.dp else if (isTablet) 60.dp else 0.dp
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().padding(vertical = padding),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -187,8 +192,8 @@ fun MatchContent(
                         Box(
                             modifier = Modifier
                                 .align(Alignment.BottomCenter)
-                                .offset(y = 3.dp)
-                                .size(6.dp)
+                                .offset(y = Dimens3)
+                                .size(Dimens6)
                                 .background(Color.DarkGray, CircleShape)
                         )
                     }

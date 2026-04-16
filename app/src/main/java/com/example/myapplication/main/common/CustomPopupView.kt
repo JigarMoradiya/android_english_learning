@@ -60,6 +60,8 @@ import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.utils.extensions.StringEx.htmlToAnnotatedString
 import com.example.myapplication.utils.extensions.animatedNeonBorder
+import com.example.myapplication.utils.extensions.appScale
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun CustomPopupView(
@@ -105,7 +107,7 @@ fun CustomPopupView(
             Box(
                 modifier = Modifier
                     .width(popupWidth.dp)
-                    .offset(y = 6.dp)
+                    .offset(y = Dimens6)
                     .clip(RoundedCornerShape(Dimens24))
                     .background(Color.Black.copy(alpha = 0.1f))
             )
@@ -186,7 +188,7 @@ fun CustomPopupView(
                 if (!title.isNullOrEmpty()) {
                     Text(
                         text = title,
-                        style = MaterialTheme.typography.titleLarge,
+                        style = MaterialTheme.typography.titleLarge.scaled(),
                         fontWeight = FontWeight.ExtraBold,
                         color = PrimaryGreen,
                         textAlign = TextAlign.Center,
@@ -199,7 +201,7 @@ fun CustomPopupView(
                     AndroidView(
                         factory = { context ->
                             TextView(context).apply {
-                                textSize = 15f
+                                textSize = 15f * appScale()
                                 setTextColor("#2E2E2E".toColorInt())
                                 textAlignment = TextView.TEXT_ALIGNMENT_CENTER
                                 typeface = ResourcesCompat.getFont(context, R.font.font_medium)
@@ -216,7 +218,7 @@ fun CustomPopupView(
                 if (!notes.isNullOrEmpty()) {
                     Text(
                         text = notes.htmlToAnnotatedString(),
-                        style = MaterialTheme.typography.bodyMedium.copy(
+                        style = MaterialTheme.typography.bodyMedium.scaled().copy(
                             color = Color(0xFFD32F2F),
                             fontWeight = FontWeight.SemiBold
                         ),

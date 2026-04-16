@@ -9,7 +9,6 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.hel
 import com.example.myapplication.ui.theme.AppDimens.isLargeTablet
 import com.example.myapplication.ui.theme.AppDimens.isTablet
 
-@Composable
 fun appScale(): Float {
     val phoneScale = 1f
     val tabletScale = 1.3f

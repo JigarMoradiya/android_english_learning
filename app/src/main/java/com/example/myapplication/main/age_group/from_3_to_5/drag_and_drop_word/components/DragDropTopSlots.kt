@@ -36,7 +36,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
-import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryOrange
 import com.example.myapplication.utils.AudioPlayerManager
@@ -68,9 +68,9 @@ fun DragDropTopSlots(viewModel: DragDropWordViewModel) {
                     // ✅ background on container (not text)
                     .background(Color.Transparent)
                     .border(
-                        width = 2.dp,
+                        width = Dimens2,
                         color = PrimaryOrange,
-                        shape = RoundedCornerShape(12.dp)
+                        shape = RoundedCornerShape(Dimens12)
                     )
                 ){
 
@@ -102,9 +102,9 @@ fun DragDropTopSlots(viewModel: DragDropWordViewModel) {
                             .zIndex(if (isDragging) 1f else 0f)
 
                             // ⭐ DRAG ENABLE
-                            .pointerInput(item, isFixed, viewModel.uiState.showPopup) {
+                            .pointerInput(item, isFixed, viewModel.uiState.showSuccess) {
 
-                                if (item != null && !isFixed && !viewModel.uiState.showPopup) {
+                                if (item != null && !isFixed && !viewModel.uiState.showSuccess) {
 
                                     detectDragGestures(
 

@@ -17,10 +17,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.data.model.DeviceInfo
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -33,7 +37,7 @@ fun KidsLabel(txt: String,type: ButtonType = ButtonType.BLUE) {
 
         Box(
             modifier = Modifier
-                .clip(RoundedCornerShape(20.dp))
+                .clip(RoundedCornerShape(100.dp))
                 .background(colors.gradient)
                 .padding(horizontal = Dimens16, vertical = Dimens8)
         ) {
@@ -46,9 +50,9 @@ fun KidsLabel(txt: String,type: ButtonType = ButtonType.BLUE) {
                 // top right
                 Box(
                     modifier = Modifier
-                        .size(12.dp)
+                        .size(Dimens12)
                         .align(Alignment.TopEnd)
-                        .offset(x = (6).dp, y = (-2).dp) // small offset only
+                        .offset(x = Dimens6, y = -Dimens2) // small offset only
                         .background(
                             Color.White.copy(alpha = 0.2f),
                             CircleShape
@@ -59,9 +63,9 @@ fun KidsLabel(txt: String,type: ButtonType = ButtonType.BLUE) {
                 // small dot
                 Box(
                     modifier = Modifier
-                        .size(8.dp)
+                        .size(Dimens8)
                         .align(Alignment.CenterEnd)
-                        .offset(x = (8).dp)
+                        .offset(x = Dimens8)
                         .background(
                             Color.White.copy(alpha = 0.25f),
                             CircleShape
@@ -72,8 +76,8 @@ fun KidsLabel(txt: String,type: ButtonType = ButtonType.BLUE) {
             Text(
                 text = txt,
                 color = Color.White,
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.ExtraBold,
+                style = MaterialTheme.typography.bodyLarge.scaled(),
+                fontWeight = FontWeight.Bold,
             )
         }
     }

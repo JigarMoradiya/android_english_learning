@@ -110,7 +110,7 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
 
         uiState = uiState.copy(
             showError = false,
-            showPopup = false
+            showSuccess = false
         )
     }
 
@@ -178,7 +178,7 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
                     val randomSub = feedbackMissingLetter.random()
 
                     uiState = uiState.copy(
-                        showPopup = true,
+                        showSuccess = true,
                         feedbackTextRes = randomTitle,
                         feedbackSubTextRes = randomSub,
                         showError = false
@@ -200,7 +200,7 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
     }
 
     fun closePopup() {
-        uiState = uiState.copy(showPopup = false)
+        uiState = uiState.copy(showSuccess = false)
     }
 
     fun removeError() {

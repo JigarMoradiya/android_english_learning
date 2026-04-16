@@ -19,13 +19,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel
-import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.MissingLetterViewModel
+import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.PrimaryGreen
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun DragDropScreen(
@@ -49,7 +49,7 @@ fun DragDropScreen(
                     modifier = Modifier.fillMaxHeight(0.2f)
                 )
 
-                Spacer(modifier = Modifier.height(Dimens16))
+                Spacer(modifier = Modifier.height(Dimens16.scaled()))
             }
 
             // -------------------------
@@ -66,29 +66,12 @@ fun DragDropScreen(
 
             Spacer(Modifier.weight(1f))
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(bottom = Dimens16)
-            ) {
-
-                Text(
-                    text = stringResource(uiState.feedbackTextRes),
-                    color =  if (uiState.showPopup) PrimaryGreen else Color.Red,
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.ExtraBold,
-                    modifier = Modifier.alpha(if (uiState.showError || uiState.showPopup) 1f else 0f)
-                )
-
-                Spacer(modifier = Modifier.height(Dimens4))
-
-                Text(
-                    text = stringResource(uiState.feedbackSubTextRes),
-                    color = Color.Black,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Medium,
-                    modifier = Modifier.alpha(if (uiState.showError || uiState.showPopup) 1f else 0f)
-                )
-            }
+            FeedbackText(
+                title = stringResource(viewModel.uiState.feedbackTextRes),
+                subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
+                isSuccess = viewModel.uiState.showSuccess,
+                isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
+            )
         }
 
 

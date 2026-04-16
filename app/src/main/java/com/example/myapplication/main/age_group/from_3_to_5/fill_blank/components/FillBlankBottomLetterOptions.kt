@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
@@ -22,19 +23,21 @@ import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.view_mode
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.FillBlankLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryOrangeLight
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun BottomLetterOptions(viewModel: FillBlankLettersViewModel) {
 
     val uiState = viewModel.uiState
 
-    Row(horizontalArrangement = Arrangement.spacedBy(Dimens12)) {
+    Row(horizontalArrangement = Arrangement.spacedBy(Dimens12.scaled())) {
 
         uiState.bottomOptions.forEach { letter ->
 
             Box(
                 modifier = Modifier
                     .size(FillBlankLetterBoxSize)
+                    .clip(RoundedCornerShape(Dimens12))
                     .background(PrimaryOrangeLight, RoundedCornerShape(Dimens12))
                     .clickable { viewModel.onBottomLetterClick(letter) },
                 contentAlignment = Alignment.Center
