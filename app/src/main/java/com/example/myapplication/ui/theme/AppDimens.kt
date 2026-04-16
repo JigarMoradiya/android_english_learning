@@ -33,16 +33,15 @@ object AppDimens {
     val FillBlankLetterBoxSize = if(isLargeTablet) 180.dp else if (isTablet) 144.dp else 72.dp
     val ArrangeLetterInSequenceBoxSize = if(isLargeTablet) 160.dp else if (isTablet) 124.dp else 72.dp
     val DragLetterBoxSize = if(isLargeTablet) 180.dp else if (isTablet) 144.dp else 72.dp
-    val MatchWordBoxWidth = if(isLargeTablet) 180.dp else if (isTablet) 156.dp else 124.dp
-    val MatchWordBoxHeight = if(isLargeTablet) 56.dp else if (isTablet) 48.dp else 40.dp
+    val MatchWordBoxWidth = if(isLargeTablet) 240.dp else if (isTablet) 190.dp else 124.dp
+    val MatchWordBoxHeight = if(isLargeTablet) 72.dp else if (isTablet) 56.dp else 40.dp
 
-    val listenAndAnswerOptionsWidth = if(isLargeTablet) 320.dp else if (isTablet) 280.dp else 240.dp
-    val listenAndAnswerOptionsHeight = if(isLargeTablet) 58.dp else if (isTablet) 50.dp else 42.dp
+    val listenAndAnswerOptionsWidth = if(isLargeTablet) 360.dp else if (isTablet) 330.dp else 240.dp
+    val listenAndAnswerOptionsHeight = if(isLargeTablet) 84.dp else if (isTablet) 60.dp else 42.dp
     val articleChoiceWidth = if(isLargeTablet) 200.dp else if (isTablet) 170.dp else 140.dp
     val articleChoiceHeight = if(isLargeTablet) 58.dp else if (isTablet) 50.dp else 42.dp
     val articleChoiceImageHeight = if(isLargeTablet) 140.dp else if (isTablet) 120.dp else 100.dp
-    val ColoringAlphabetsImageWidth = if(isLargeTablet) 230.dp else if (isTablet) 200.dp else 170.dp
-    val VocabularyImageHeight = if(isLargeTablet) 120.dp else if (isTablet) 100.dp else 80.dp
+    val VocabularyImageHeight = if(isLargeTablet) 150.dp else if (isTablet) 120.dp else 80.dp
 
     val AlphabetTracingLetterSize = if(isLargeTablet) 140.sp else if (isTablet) 120.sp else 90.sp
     val LetterRecognitionLetterSize = if(isLargeTablet) 80.sp else if (isTablet) 60.sp else 40.sp

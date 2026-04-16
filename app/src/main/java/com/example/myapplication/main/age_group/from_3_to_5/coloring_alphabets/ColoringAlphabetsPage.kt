@@ -45,8 +45,6 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.getImageResFromWord
-import com.example.myapplication.ui.theme.AppDimens.ColoringAlphabetsImageWidth
-import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens40

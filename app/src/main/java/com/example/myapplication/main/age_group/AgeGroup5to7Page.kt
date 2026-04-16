@@ -37,7 +37,9 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun AgeGroup5to7Page(navController: NavController) {
@@ -82,9 +84,8 @@ fun AgeGroup5to7Page(navController: NavController) {
                             Image(
                                 painter = painterResource(id = activity.img),
                                 contentDescription = null,
-                                contentScale = ContentScale.Fit,
+                                contentScale = ContentScale.FillHeight,
                                 modifier = Modifier
-                                    .fillMaxWidth()
                                     .height(screenHeight * 0.5f)
                             )
                         }
@@ -94,7 +95,7 @@ fun AgeGroup5to7Page(navController: NavController) {
                         Text(
                             text = stringResource(activity.titleRes),
                             color = activity.txtColor,
-                            style = MaterialTheme.typography.titleMedium.copy(
+                            style = MaterialTheme.typography.titleMedium.scaled().copy(
                                 fontWeight = FontWeight.Black,
                                 shadow = Shadow(
                                     color = Color.Black.copy(alpha = 0.6f),

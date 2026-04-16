@@ -67,7 +67,7 @@ fun KidsOptionButton(
                 drawRoundRect(
                     color = colors.base,
                     size = size,
-                    cornerRadius = CornerRadius(50f, 50f),
+                    cornerRadius = CornerRadius(100f, 100f),
                     topLeft = Offset(0f, Dimens2.toPx())
                 )
             }

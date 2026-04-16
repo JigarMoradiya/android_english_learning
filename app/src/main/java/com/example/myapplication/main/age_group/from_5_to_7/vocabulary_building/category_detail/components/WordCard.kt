@@ -26,11 +26,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.main.common.buttons.KidsIconButton
 import com.example.myapplication.main.common.getImageResFromWord
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens40
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.KidIconSmall
 import com.example.myapplication.ui.theme.AppDimens.VocabularyImageHeight
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -46,7 +48,7 @@ fun WordCard(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
+            .clip(RoundedCornerShape(Dimens16))
             .clickable {
                 onSpeakClick()
             }
@@ -77,7 +79,7 @@ fun WordCard(
 
             Text(
                 text = word,
-                style = if (isColorCategory) MaterialTheme.typography.headlineLarge else MaterialTheme.typography.titleSmall,
+                style = if (isColorCategory) MaterialTheme.typography.headlineLarge.scaled() else MaterialTheme.typography.titleSmall.scaled(),
                 fontWeight = FontWeight.Bold,
                 color = when {
                     isColorCategory && word.lowercase() == "white" -> Color.Black

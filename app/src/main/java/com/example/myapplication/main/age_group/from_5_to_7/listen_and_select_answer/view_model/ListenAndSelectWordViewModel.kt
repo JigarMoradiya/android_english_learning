@@ -58,12 +58,12 @@ class ListenAndSelectWordViewModel @Inject constructor(
     }
 
     fun playAgain() {
-        uiState = uiState.copy(showPopup = false)
+        uiState = uiState.copy(showSuccess = false)
         generateWord()
     }
 
     fun closePopup() {
-        uiState = uiState.copy(showPopup = false)
+        uiState = uiState.copy(showSuccess = false)
     }
 
     fun checkCorrectOrWrong(word: String) {
@@ -71,11 +71,11 @@ class ListenAndSelectWordViewModel @Inject constructor(
         if (isCorrect) {
             val randomTitle = feedbackTitles.random()
             val randomSubTitle = feedbackGiveAnswerSubTitleCorrect.random()
-            uiState = uiState.copy(feedbackTextRes = randomTitle, feedbackSubTextRes = randomSubTitle, showPopup = true, showError = false)
+            uiState = uiState.copy(feedbackTextRes = randomTitle, feedbackSubTextRes = randomSubTitle, showSuccess = true, showError = false)
             AudioPlayerManager.playSoundCorrectAnswer()
         } else {
             val randomTitle = feedbackWrong.random()
-            uiState = uiState.copy(feedbackTextRes = randomTitle, feedbackSubTextError = "Oops! The word is not $word", showError = true, showPopup = false)
+            uiState = uiState.copy(feedbackTextRes = randomTitle, feedbackSubTextError = "Oops! The word is not $word", showError = true, showSuccess = false)
             AudioPlayerManager.playSoundWrongAnswer()
         }
 

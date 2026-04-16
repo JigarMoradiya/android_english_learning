@@ -9,7 +9,7 @@ data class ListenAndSelectWordUiState(
     val optionsWord: List<String> = emptyList(),
 
     val showError: Boolean = false,
-    val showPopup: Boolean = false,
+    val showSuccess: Boolean = false,
     val feedbackTextRes: Int = R.string.feedbackPhrases_1,
     val feedbackSubTextRes: Int = R.string.feedbackPhrasesSubtitle_1,
     val feedbackSubTextError: String = "",

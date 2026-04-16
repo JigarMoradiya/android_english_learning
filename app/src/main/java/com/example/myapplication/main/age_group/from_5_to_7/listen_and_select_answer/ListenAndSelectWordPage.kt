@@ -1,8 +1,5 @@
 package com.example.myapplication.main.age_group.from_5_to_7.listen_and_select_answer
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,18 +15,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.rounded.VolumeUp
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -45,10 +33,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.listen_and_select_answer.view_model.ListenAndSelectWordViewModel
-import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.view_model.WordMatchImageViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
-import com.example.myapplication.main.common.CustomPopupView
+import com.example.myapplication.main.common.FeedbackText
+import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -70,7 +58,8 @@ fun ListenAndSelectWordPage(
     Box(modifier = Modifier.fillMaxSize()) {
 
         BackgroundUI(isGreenGrassShow = false)
-        Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
+        Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing),
+            horizontalAlignment = Alignment.CenterHorizontally) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
@@ -81,7 +70,7 @@ fun ListenAndSelectWordPage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                if (uiState.showPopup) {
+                if (uiState.showSuccess) {
                     KidsActionButton(
                         modifier = Modifier.padding(end = Dimens16),
                         text = stringResource(R.string.next),
@@ -140,7 +129,7 @@ fun ListenAndSelectWordPage(
                                 KidsOptionButton(
                                     text = word.replaceFirstChar { it.uppercase() },
                                     type = ButtonType.OPTIONS,
-                                    fontSize = listenAndAnswerOptionsHeight.value.sp * 0.45,
+                                    fontSize = listenAndAnswerOptionsHeight.value.sp * 0.5,
                                     onClick = {
                                         viewModel.checkCorrectOrWrong(word)
                                     },
@@ -161,50 +150,16 @@ fun ListenAndSelectWordPage(
 
             Spacer(Modifier.weight(1f))
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(bottom = Dimens16).fillMaxWidth()
-            ) {
-
-                Text(
-                    text = stringResource(uiState.feedbackTextRes),
-                    color =  if (uiState.showPopup) PrimaryGreen else Color.Red,
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.ExtraBold,
-                    modifier = Modifier.alpha(if (uiState.showError || uiState.showPopup) 1f else 0f)
-                )
-
-                Spacer(modifier = Modifier.height(Dimens4))
-
-                Text(
-                    text = if (uiState.showPopup) stringResource(uiState.feedbackSubTextRes) else uiState.feedbackSubTextError,
-                    color = Color.Black,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Medium,
-                    modifier = Modifier.alpha(if (uiState.showError || uiState.showPopup) 1f else 0f)
-                )
-
-            }
+            FeedbackText(
+                title = stringResource(viewModel.uiState.feedbackTextRes),
+                subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
+                isSuccess = viewModel.uiState.showSuccess,
+                isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
+            )
         }
 
-        /*AnimatedVisibility(
-            visible = uiState.showPopup,
-            enter = fadeIn(),
-            exit = fadeOut()
-        ) {
-            CustomPopupView(
-                title = stringResource(uiState.feedbackTextRes),
-                description = stringResource(uiState.feedbackSubTextRes),
-                positiveButtonText = stringResource(R.string.continue_to_play),
-                negativeButtonText = stringResource(R.string.no_i_want_to_close),
-                icon = R.drawable.ic_complete,
-                widthMultiplier = 0.5f,
-                onPositiveTapped = { viewModel.playAgain() },
-                onNegativeTapped = {
-                    viewModel.closePopup()
-                    navController.popBackStack()
-                }
-            )
-        }*/
+        if (viewModel.uiState.showSuccess) {
+            ConfettiRainEffect()
+        }
     }
 }
