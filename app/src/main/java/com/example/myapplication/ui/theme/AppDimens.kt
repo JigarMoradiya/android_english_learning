@@ -25,7 +25,7 @@ object AppDimens {
     val Dimens40 = if(isLargeTablet) 80.dp else if (isTablet) 48.dp else 40.dp
     val Dimens50 = if(isLargeTablet) 100.dp else if (isTablet) 60.dp else 50.dp
     val KidIconSmall = if(isLargeTablet) 50.dp else if (isTablet) 40.dp else 30.dp
-    val DimensColorCircles = if(isLargeTablet) 52.dp else if (isTablet) 44.dp else 36.dp
+    val DimensColorCircles = if(isLargeTablet) 56.dp else if (isTablet) 48.dp else 36.dp
     val CommonPopupImageSize = if(isLargeTablet) 120.dp else if (isTablet) 96.dp else 72.dp
     val ABCDWithImagesSmallImageSize = if(isLargeTablet) 120.dp else if (isTablet) 100.dp else 80.dp
     val MatchLetterBoxSize = if(isLargeTablet) 120.dp else if (isTablet) 100.dp else 80.dp
@@ -45,6 +45,6 @@ object AppDimens {
     val AlphabetTracingLetterSize = if(isLargeTablet) 140.sp else if (isTablet) 120.sp else 90.sp
     val LetterRecognitionLetterSize = if(isLargeTablet) 80.sp else if (isTablet) 60.sp else 40.sp
     val MatchWordTextSize = if(isLargeTablet) 24.sp else if (isTablet) 20.sp else 16.sp
-    val ABCDWithImagesBigTextSize = if(isLargeTablet) 170.sp else if (isTablet) 150.sp else 120.sp
+    val ABCDWithImagesBigTextSize = if(isLargeTablet) 210.sp else if (isTablet) 180.sp else 120.sp
     val FontExtraLarge36 = if(isLargeTablet) 72.sp else if (isTablet) 54.sp else 36.sp
 }

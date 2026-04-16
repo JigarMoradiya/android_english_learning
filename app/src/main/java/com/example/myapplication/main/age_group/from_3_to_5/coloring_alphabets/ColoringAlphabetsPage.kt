@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -28,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -46,9 +48,13 @@ import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.ColoringAlphabetsImageWidth
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens40
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.isLargeTablet
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -131,14 +137,15 @@ fun ColoringAlphabetsPage(
                     contentAlignment = Alignment.Center
                 ) {
 
-                    val size = min(maxWidth, maxHeight) // make it square
+                    val minusExtraSpace = if(isLargeTablet) 100.dp else if (isTablet) 60.dp else 0.dp
+                    val size = min(maxWidth - minusExtraSpace, maxHeight - minusExtraSpace)
 
                     Box(
                         modifier = Modifier
                             .height(size).width(size + (size * 0.20f))
-                            .shadow(8.dp, RoundedCornerShape(24.dp))
-                            .background(Color(0xFFEFEFEF), RoundedCornerShape(24.dp))
-                            .padding(16.dp)
+                            .shadow(Dimens8, RoundedCornerShape(Dimens24))
+                            .background(Color(0xFFEFEFEF), RoundedCornerShape(Dimens24))
+                            .padding(Dimens16)
                     ) {
                         val res = getImageResFromWord(item.outlineImageName)
                         ColoringCanvas(
@@ -162,15 +169,16 @@ fun ColoringAlphabetsPage(
                         Image(
                             painter = painterResource(id = res),
                             contentDescription = null,
-                            modifier = Modifier.width(ColoringAlphabetsImageWidth)
+                            contentScale = ContentScale.Fit,
+                            modifier = Modifier.fillMaxHeight(0.4f)
                         )
 
-                        Spacer(modifier = Modifier.height(Dimens12))
+                        Spacer(modifier = Modifier.height(Dimens16))
                     }
 
                     Text(
                         text = item.word,
-                        style = MaterialTheme.typography.headlineMedium,
+                        style = MaterialTheme.typography.headlineLarge.scaled(),
                         fontWeight = FontWeight.Bold,
                     )
                 }

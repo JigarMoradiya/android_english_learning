@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
@@ -54,10 +55,13 @@ import com.example.myapplication.ui.theme.AppDimens.ABCDWithImagesSmallImageSize
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens40
+import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.Gray
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -94,36 +98,39 @@ fun ABCDWithImagesPage(
                 if (isTablet){
                     Spacer(Modifier.weight(1f))
 
-                    getImageResFromWord(uiState.currentWord)?.let {
-                        Image(
-                            painter = painterResource(it),
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxHeight(0.4f)
-                        )
-                    }
+                    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                        getImageResFromWord(uiState.currentWord)?.let {
+                            Image(
+                                painter = painterResource(it),
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxHeight(0.5f)
+                            )
+                        }
 
-                    Spacer(Modifier.height(16.dp))
+                        Spacer(Modifier.height(Dimens40))
 
-                    LazyRow(
-                        state = listState,
-                        horizontalArrangement = Arrangement.spacedBy(Dimens12),
-                        modifier = Modifier.padding(horizontal = Dimens12)
-                    ) {
-                        items(uiState.currentMatches) { match ->
-                            getImageResFromWord(uiState.currentWord)?.let {
-                                Image(
-                                    painter = painterResource(it),
-                                    contentDescription = match,
-                                    modifier = Modifier
-                                        .size(ABCDWithImagesSmallImageSize)
-                                        .clip(RoundedCornerShape(Dimens12))
-                                        .clickable {
-                                            viewModel.swapWithMain(match)
-                                        }
-                                )
+                        LazyRow(
+                            state = listState,
+                            horizontalArrangement = Arrangement.spacedBy(Dimens12),
+                            modifier = Modifier.padding(horizontal = Dimens12)
+                        ) {
+                            items(uiState.currentMatches) { match ->
+                                getImageResFromWord(match)?.let {
+                                    Image(
+                                        painter = painterResource(it),
+                                        contentDescription = match,
+                                        modifier = Modifier
+                                            .size(ABCDWithImagesSmallImageSize)
+                                            .clip(RoundedCornerShape(Dimens12))
+                                            .clickable {
+                                                viewModel.swapWithMain(match)
+                                            }
+                                    )
+                                }
                             }
                         }
                     }
+
 
                     Spacer(Modifier.weight(1f))
                 }else{
@@ -194,7 +201,7 @@ fun ABCDWithImagesPage(
 
                         withStyle(
                             style = SpanStyle(
-                                fontSize = MaterialTheme.typography.headlineLarge.fontSize,
+                                fontSize = MaterialTheme.typography.displayMedium.fontSize.scaled(),
                                 fontWeight = FontWeight.Black,
                                 color = Gray
                             )
@@ -206,7 +213,7 @@ fun ABCDWithImagesPage(
 
                         withStyle(
                             style = SpanStyle(
-                                fontSize = MaterialTheme.typography.headlineSmall.fontSize,
+                                fontSize = MaterialTheme.typography.headlineMedium.fontSize.scaled(),
                                 fontWeight = FontWeight.SemiBold,
                                 color = Gray
                             )
@@ -218,7 +225,7 @@ fun ABCDWithImagesPage(
 
                         withStyle(
                             style = SpanStyle(
-                                fontSize = MaterialTheme.typography.headlineMedium.fontSize,
+                                fontSize = MaterialTheme.typography.headlineLarge.fontSize.scaled(),
                                 fontWeight = FontWeight.Black,
                                 color = Color.Black,
                             )
