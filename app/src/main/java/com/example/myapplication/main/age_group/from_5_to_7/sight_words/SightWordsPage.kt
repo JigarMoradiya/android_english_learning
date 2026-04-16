@@ -52,7 +52,7 @@ fun SightWordsPage(
 
             Row(
                 modifier = Modifier
-                    .padding(start = DeviceInfo.screenPadding(), end = Dimens16)
+                    .padding(start = DeviceInfo.screenHorizontalPadding(), end = Dimens16)
                     .padding(bottom = Dimens16, top = Dimens8),
                 verticalAlignment = Alignment.Bottom
             ) {

@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyRow
@@ -52,8 +51,8 @@ fun AgeGroup3to5Page(navController: NavController) {
 
             LazyRow(
                 contentPadding = PaddingValues(
-                    start = DeviceInfo.screenPadding(),
-                    end = DeviceInfo.screenPadding(), top = Dimens16
+                    start = DeviceInfo.screenHorizontalPadding(),
+                    end = DeviceInfo.screenHorizontalPadding(), top = Dimens16
                 ),
                 horizontalArrangement = Arrangement.spacedBy(Dimens16),
                 modifier = Modifier

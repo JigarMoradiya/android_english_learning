@@ -17,7 +17,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.painterResource
@@ -27,7 +26,6 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_list.view_model.VocabularyBuildingViewModel
-import com.example.myapplication.main.age_group.presentation.model.activities_age_3_5
 import com.example.myapplication.main.age_group.presentation.model.vocabularyCategoryDataList
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
@@ -60,8 +58,8 @@ fun VocabularyBuildingPage(
 
             LazyRow(
                 contentPadding = PaddingValues(
-                    start = DeviceInfo.screenPadding(),
-                    end = DeviceInfo.screenPadding(), top = Dimens16
+                    start = DeviceInfo.screenHorizontalPadding(),
+                    end = DeviceInfo.screenHorizontalPadding(), top = Dimens16
                 ),
                 horizontalArrangement = Arrangement.spacedBy(Dimens16),
                 modifier = Modifier

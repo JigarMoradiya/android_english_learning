@@ -48,7 +48,7 @@ fun KidsArticleToggle(
         horizontalArrangement = Arrangement.spacedBy(Dimens8),
         modifier = Modifier
             .wrapContentWidth()
-            .padding(start = DeviceInfo.screenPadding(), end = Dimens16)
+            .padding(start = DeviceInfo.screenHorizontalPadding(), end = Dimens16)
     ) {
 
         ArticleMode.entries.forEach { mode ->

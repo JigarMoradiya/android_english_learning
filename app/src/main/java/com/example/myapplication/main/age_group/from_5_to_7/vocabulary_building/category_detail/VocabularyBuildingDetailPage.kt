@@ -14,7 +14,6 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.data.model.DeviceInfo
@@ -50,8 +49,8 @@ fun VocabularyBuildingDetailPage(
             LazyVerticalGrid(
                 columns = GridCells.Fixed(3),
                 contentPadding = PaddingValues(
-                    start = DeviceInfo.screenPadding(),
-                    end = DeviceInfo.screenPadding(), top = Dimens16, bottom = Dimens16
+                    start = DeviceInfo.screenHorizontalPadding(),
+                    end = DeviceInfo.screenHorizontalPadding(), top = Dimens16, bottom = Dimens16
                 ),
                 verticalArrangement = Arrangement.spacedBy(Dimens12),
                 horizontalArrangement = Arrangement.spacedBy(Dimens12)

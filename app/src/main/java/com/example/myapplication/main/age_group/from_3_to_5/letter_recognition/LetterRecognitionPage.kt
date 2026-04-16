@@ -90,7 +90,7 @@ fun LetterRecognitionPage(
                         .fillMaxWidth(),
                     contentAlignment = Alignment.Center
                 ) {
-                    BoxWithConstraints(modifier = Modifier.padding(start = DeviceInfo.screenPadding())) {
+                    BoxWithConstraints(modifier = Modifier.padding(start = DeviceInfo.screenHorizontalPadding())) {
                         val isTablet = maxWidth > 600.dp
 
                         val totalCols = if (isTablet) 5 else 7

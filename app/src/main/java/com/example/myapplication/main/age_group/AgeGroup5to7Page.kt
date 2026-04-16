@@ -61,8 +61,8 @@ fun AgeGroup5to7Page(navController: NavController) {
 
             LazyRow(
                 contentPadding = PaddingValues(
-                    start = DeviceInfo.screenPadding(),
-                    end = DeviceInfo.screenPadding(), top = Dimens16
+                    start = DeviceInfo.screenHorizontalPadding(),
+                    end = DeviceInfo.screenHorizontalPadding(), top = Dimens16
                 ),
                 horizontalArrangement = Arrangement.spacedBy(Dimens16),
                 modifier = Modifier

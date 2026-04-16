@@ -61,7 +61,7 @@ fun AppToolbarDropDownOnRight(
         // RIGHT (FORCE SPACE)
         Box(
             modifier = Modifier
-                .weight(1f).padding(vertical = Dimens8).padding(start = DeviceInfo.screenPadding(), end = Dimens16),
+                .weight(1f).padding(vertical = Dimens8).padding(start = DeviceInfo.screenHorizontalPadding(), end = Dimens16),
             contentAlignment = Alignment.CenterEnd
         ) {
 

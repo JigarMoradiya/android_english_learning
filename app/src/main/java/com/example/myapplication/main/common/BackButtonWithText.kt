@@ -28,19 +28,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.data.model.DeviceInfo
+import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.ShadowOffset
 import com.example.myapplication.ui.theme.AppDimens.ToolbarIconSize
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -52,7 +54,7 @@ fun BackButtonWithText(
 ) {
     val headerColors = getButtonColors(ButtonType.BLUE)
     Row(
-        modifier = modifier.fillMaxWidth().padding(vertical = Dimens8).padding(start = DeviceInfo.screenPadding(), end = Dimens16),
+        modifier = modifier.fillMaxWidth().padding(top = DeviceInfo.screenTopPadding(), bottom = Dimens8, start = DeviceInfo.screenHorizontalPadding(), end = Dimens16),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
@@ -66,7 +68,7 @@ fun BackButtonWithText(
                     .padding(start = (size / 2) + Dimens12) // ⭐ push to allow circle overlap
                     .height(size * 0.8f)
                     .shadow(
-                        elevation = 10.dp,
+                        elevation = Dimens10,
                         shape = RoundedCornerShape(
                             topStart = 0.dp,
                             bottomStart = 0.dp,
@@ -96,8 +98,8 @@ fun BackButtonWithText(
                     Text(
                         text = title,
                         color = Color.White,
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Black,
+                        style = MaterialTheme.typography.titleSmall.scaled(),
+                        fontWeight = FontWeight.Black
                     )
                 }
             }
@@ -107,7 +109,7 @@ fun BackButtonWithText(
             Box(
                 modifier = Modifier
                     .size(size)
-                    .shadow(8.dp, CircleShape, clip = false)
+                    .shadow(Dimens8, CircleShape, clip = false)
                     .background(headerColors.base, CircleShape)
                     .clip(CircleShape)
                     .clickable(
@@ -125,7 +127,7 @@ fun BackButtonWithText(
                         imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
                         contentDescription = null,
                         tint = Color.Black.copy(alpha = 0.35f),
-                        modifier = Modifier
+                        modifier = Modifier.size(24.dp.scaled())
                             .offset(ShadowOffset, ShadowOffset), // shadow layer
                     )
 
@@ -133,6 +135,7 @@ fun BackButtonWithText(
                         imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
                         contentDescription = null,
                         tint = Color.White,
+                        modifier = Modifier.size(24.dp.scaled())
                     )
                 }
             }

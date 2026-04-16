@@ -2,12 +2,14 @@ package com.example.myapplication.main.age_category
 
 import android.content.Context
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -19,6 +21,7 @@ import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.extensions.scaled
 
 // --- UI Screen ---
 @Composable
@@ -42,7 +45,6 @@ fun MainLearningAgesCategoriesScreen(
                 fontSize = AppDimens.FontExtraLarge36,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
-//                    .windowInsetsPadding(WindowInsets.safeDrawing)
             )
 
             Spacer(modifier = Modifier.height(Dimens16))

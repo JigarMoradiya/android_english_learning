@@ -26,7 +26,7 @@ fun BottomTracingControls(
     onNext: () -> Unit
 ) {
     Row(
-        modifier = Modifier.padding(start = DeviceInfo.screenPadding(), end = Dimens16).padding(bottom = Dimens16,top = Dimens8),
+        modifier = Modifier.padding(start = DeviceInfo.screenHorizontalPadding(), end = Dimens16).padding(bottom = Dimens16,top = Dimens8),
         verticalAlignment = Alignment.Bottom
     ) {
         KidsActionButton(
