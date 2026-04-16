@@ -30,8 +30,8 @@ fun TextStyle.scaled(): TextStyle {
 @Composable
 fun Dp.scaled(): Dp {
     val phoneScale = 1f
-    val tabletScale = 1.4f
-    val largeTabletScale = 1.6f
+    val tabletScale = 1.3f
+    val largeTabletScale = 1.5f
     val scale = if(isLargeTablet) largeTabletScale else if (isTablet) tabletScale else phoneScale
     return this * scale
 }

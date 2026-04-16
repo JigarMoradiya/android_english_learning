@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -31,6 +32,7 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -61,7 +63,7 @@ fun AppToolbarDropDownOnRight(
         // RIGHT (FORCE SPACE)
         Box(
             modifier = Modifier
-                .weight(1f).padding(vertical = Dimens8).padding(start = DeviceInfo.screenHorizontalPadding(), end = Dimens16),
+                .weight(1f).padding(top = DeviceInfo.screenTopPadding(), bottom = Dimens8, start = DeviceInfo.screenHorizontalPadding(), end = Dimens16),
             contentAlignment = Alignment.CenterEnd
         ) {
 
@@ -75,7 +77,7 @@ fun AppToolbarDropDownOnRight(
                 )
 
                 DropdownMenu(
-                    expanded = expanded, onDismissRequest = { expanded = false }, offset = DpOffset(x = 0.dp, y = 8.dp), // ⭐ stabilizes position
+                    expanded = expanded, onDismissRequest = { expanded = false }, offset = DpOffset(x = 0.dp, y = Dimens8), // ⭐ stabilizes position
                     properties = PopupProperties(
                         clippingEnabled = false // ⭐ IMPORTANT
                     ), containerColor = Color.White, tonalElevation = 0.dp, shadowElevation = 10.dp, shape = RoundedCornerShape(Dimens16)
@@ -90,7 +92,8 @@ fun AppToolbarDropDownOnRight(
                                     if (item == currentSelected) {
                                         Spacer(modifier = Modifier.width(Dimens8))
                                         Icon(
-                                            imageVector = Icons.Rounded.Check, contentDescription = null, tint = Color.Black
+                                            imageVector = Icons.Rounded.Check, contentDescription = null, tint = Color.Black,
+                                            modifier = Modifier.size(24.dp.scaled())
                                         )
                                     }
                                 }

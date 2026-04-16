@@ -24,14 +24,20 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.canvas.GuidelineCanvas
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.canvas.TracingCanvas
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
+import com.example.myapplication.ui.theme.AppDimens.AlphabetTracingLetterSize
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.isLargeTablet
+import com.example.myapplication.ui.theme.AppDimens.isTablet
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun CenterLearningLayout(
@@ -47,7 +53,8 @@ fun CenterLearningLayout(
 
         BoxWithConstraints {
 
-            val size = min(maxWidth, maxHeight)
+            val minusExtraSpace = if(isLargeTablet) 100.dp else if (isTablet) 60.dp else 0.dp
+            val size = min(maxWidth - minusExtraSpace, maxHeight - minusExtraSpace)
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -84,7 +91,7 @@ fun LeftLetterView(modifier: Modifier = Modifier,viewModel: AlphabetTracingViewM
         Text(
             text = viewModel.uiState.mode.displayString(viewModel.uiState.currentIndex),
             color = Color.Black,
-            fontSize = 80.sp,
+            fontSize = AlphabetTracingLetterSize,
             fontWeight = FontWeight.Bold
         )
     }
@@ -138,12 +145,12 @@ fun RightImageWordView(
                     modifier = Modifier.fillMaxHeight(0.4f)
                 )
 
-                Spacer(modifier = Modifier.height(Dimens8))
+                Spacer(modifier = Modifier.height(Dimens16))
 
                 Text(
                     text = word,
                     color = Color.Black,
-                    style = MaterialTheme.typography.headlineLarge,
+                    style = MaterialTheme.typography.headlineLarge.scaled(),
                     fontWeight = FontWeight.Bold
                 )
             }

@@ -51,6 +51,7 @@ import com.example.myapplication.ui.theme.AppDimens.ShadowOffsetText
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun KidsActionButton(
@@ -71,7 +72,7 @@ fun KidsActionButton(
         label = ""
     )
     val iconSize by animateDpAsState(
-        targetValue = if (isSmall) Dimens20 else Dimens24,
+        targetValue = if (isSmall) Dimens20.scaled() else Dimens24.scaled(),
         label = ""
     )
 
@@ -85,11 +86,11 @@ fun KidsActionButton(
                 drawRoundRect(
                     color = colors.base, // bottom color
                     size = size,
-                    cornerRadius = CornerRadius(50f, 50f),
+                    cornerRadius = CornerRadius(100f, 100f),
                     topLeft = Offset(0f, Dimens2.toPx()) // bottom line width
                 )
             }
-            .clip(RoundedCornerShape(50))
+            .clip(RoundedCornerShape(100f))
             .background(colors.gradient)
             .clickable(
                 interactionSource = interactionSource,
@@ -98,7 +99,7 @@ fun KidsActionButton(
                 AudioPlayerManager.playSoundMenuClick()
                 onClick()
             }
-            .padding(horizontal = if (isSmall) Dimens8 else Dimens10, vertical = if (isSmall) Dimens4 else Dimens6)
+            .padding(horizontal = if (isSmall) 8.dp else 10.dp, vertical = if (isSmall) 4.dp else 6.dp)
     ) {
 
         Row(
@@ -134,7 +135,7 @@ fun KidsActionButton(
                     Text(
                         text = text,
                         color = Color.Black.copy(alpha = 0.35f),
-                        style = if (isSmall) MaterialTheme.typography.labelMedium else MaterialTheme.typography.bodyLarge,
+                        style = if (isSmall) MaterialTheme.typography.labelMedium.scaled() else MaterialTheme.typography.bodyLarge.scaled(),
                         fontWeight = if (isSmall) FontWeight.SemiBold else FontWeight.Bold,
                         modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
                     )
@@ -145,7 +146,7 @@ fun KidsActionButton(
                 Text(
                     text = text,
                     color = if (type == ButtonType.DISABLE) colors.base else Color.White,
-                    style = if (isSmall) MaterialTheme.typography.labelMedium else MaterialTheme.typography.bodyLarge,
+                    style = if (isSmall) MaterialTheme.typography.labelMedium.scaled() else MaterialTheme.typography.bodyLarge.scaled(),
                     fontWeight = if (isSmall) FontWeight.SemiBold else FontWeight.Bold
                 )
             }

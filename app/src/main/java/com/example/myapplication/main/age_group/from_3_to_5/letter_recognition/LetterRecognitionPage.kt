@@ -47,10 +47,15 @@ import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.v
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.getImageResFromWord
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.LetterRecognitionLetterSize
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.ui.theme.PrimaryOrange
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -91,12 +96,11 @@ fun LetterRecognitionPage(
                     contentAlignment = Alignment.Center
                 ) {
                     BoxWithConstraints(modifier = Modifier.padding(start = DeviceInfo.screenHorizontalPadding())) {
-                        val isTablet = maxWidth > 600.dp
 
-                        val totalCols = if (isTablet) 5 else 7
-                        val totalRows = if (isTablet) 6 else 4
+                        val totalCols = if (isTablet) 6 else 7
+                        val totalRows = if (isTablet) 5 else 4
 
-                        val spacing = 8.dp
+                        val spacing = Dimens8
 
                         val boxSize = min(
                             (maxWidth - spacing * (totalCols - 1)) / totalCols,
@@ -127,7 +131,7 @@ fun LetterRecognitionPage(
                                             scaleX = scale
                                             scaleY = scale
                                         }
-                                        .clip(RoundedCornerShape(12.dp))
+                                        .clip(RoundedCornerShape(Dimens12))
                                         .background(
                                             if (isSelected) PrimaryOrange
                                             else PrimaryBlue.copy(alpha = 0.2f)
@@ -140,7 +144,7 @@ fun LetterRecognitionPage(
 
                                     Text(
                                         text = item.first,
-                                        fontSize = (boxSize.value * 0.6f).sp,
+                                        fontSize = (boxSize.value * 0.7f).sp,
                                         fontWeight = FontWeight.Bold,
                                         color = if (isSelected) Color.White else Color.Black
                                     )
@@ -179,19 +183,20 @@ fun LetterRecognitionPage(
                         Text(
                             text = letter,
                             style = MaterialTheme.typography.displayLarge,
+                            fontSize = LetterRecognitionLetterSize,
                             fontWeight = FontWeight.Bold,
                             color = PrimaryOrange
                         )
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text(
                                 text = "for",
-                                style = MaterialTheme.typography.headlineSmall,
+                                style = MaterialTheme.typography.headlineSmall.scaled(),
                                 fontWeight = FontWeight.Medium,
                                 color = Color.Black.copy(alpha = 0.8f)
                             )
                             Text(
                                 text = " $word",
-                                style = MaterialTheme.typography.headlineLarge,
+                                style = MaterialTheme.typography.headlineLarge.scaled(),
                                 fontWeight = FontWeight.Medium,
                                 color = Color.Black.copy(alpha = 0.8f)
                             )
@@ -211,9 +216,9 @@ fun LetterRecognitionPage(
 
                     Text(
                         text = stringResource(R.string.tap_a_letter),
-                        style = MaterialTheme.typography.headlineLarge,
+                        style = MaterialTheme.typography.headlineLarge.scaled(),
                         fontWeight = FontWeight.Medium,
-                        color = Color.Black.copy(alpha = 0.8f)
+                        color = Color.DarkGray
                     )
                 }
             }
