@@ -38,9 +38,9 @@ object AppDimens {
 
     val listenAndAnswerOptionsWidth = if(isLargeTablet) 360.dp else if (isTablet) 330.dp else 240.dp
     val listenAndAnswerOptionsHeight = if(isLargeTablet) 84.dp else if (isTablet) 60.dp else 42.dp
-    val articleChoiceWidth = if(isLargeTablet) 200.dp else if (isTablet) 170.dp else 140.dp
-    val articleChoiceHeight = if(isLargeTablet) 58.dp else if (isTablet) 50.dp else 42.dp
-    val articleChoiceImageHeight = if(isLargeTablet) 140.dp else if (isTablet) 120.dp else 100.dp
+    val articleChoiceHeight = if(isLargeTablet) 84.dp else if (isTablet) 60.dp else 42.dp
+    val articleChoiceWidth = if(isLargeTablet) 220.dp else if (isTablet) 180.dp else 140.dp
+    val articleChoiceImageHeight = if(isLargeTablet) 200.dp else if (isTablet) 150.dp else 100.dp
     val VocabularyImageHeight = if(isLargeTablet) 150.dp else if (isTablet) 120.dp else 80.dp
 
     val AlphabetTracingLetterSize = if(isLargeTablet) 140.sp else if (isTablet) 120.sp else 90.sp
@@ -48,4 +48,5 @@ object AppDimens {
     val MatchWordTextSize = if(isLargeTablet) 24.sp else if (isTablet) 20.sp else 16.sp
     val ABCDWithImagesBigTextSize = if(isLargeTablet) 210.sp else if (isTablet) 180.sp else 120.sp
     val FontExtraLarge36 = if(isLargeTablet) 72.sp else if (isTablet) 54.sp else 36.sp
+    val SightWordFont = if(isLargeTablet) 180.sp else if (isTablet) 144.sp else 96.sp
 }

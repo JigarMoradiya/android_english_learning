@@ -42,6 +42,7 @@ import com.example.myapplication.ui.theme.AppDimens.articleChoiceHeight
 import com.example.myapplication.ui.theme.AppDimens.articleChoiceWidth
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -50,14 +51,14 @@ fun SightWordChoicePage(
     viewModel: SightWordChoiceViewModel = hiltViewModel()
 ) {
     val uiState = viewModel.uiState
-    val style = MaterialTheme.typography.titleLarge.copy(
+    val style = MaterialTheme.typography.titleLarge.scaled().copy(
         fontSize = articleChoiceHeight.value.sp * 0.6
     )
     Box(modifier = Modifier.fillMaxSize()) {
 
         BackgroundUI(isGreenGrassShow = false)
 
-        Column {
+        Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
             BackButtonWithText(
                 title = stringResource(R.string.choose_the_correct_word),
                 onBackClick = { navController.popBackStack() }
@@ -133,7 +134,7 @@ fun SightWordChoicePage(
                             uiState.isAnswerCorrect -> PrimaryGreen
                             else -> Color.Red
                         },
-                        style = MaterialTheme.typography.titleLarge,
+                        style = MaterialTheme.typography.titleLarge.scaled(),
                         fontWeight = FontWeight.ExtraBold
                     )
                 }

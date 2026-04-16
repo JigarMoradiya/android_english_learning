@@ -22,6 +22,13 @@ import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
+import android.content.Intent
+import android.net.Uri
+import androidx.compose.foundation.clickable
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.core.net.toUri
+import com.example.myapplication.utils.AppConstants
 
 // --- UI Screen ---
 @Composable
@@ -30,9 +37,12 @@ fun MainLearningAgesCategoriesScreen(
     viewModel: AgeCategoriesViewModel = hiltViewModel()
 ) {
     val categories by viewModel.categories.collectAsState()
+    val context = LocalContext.current
+
     Box(modifier = Modifier.fillMaxSize()) {
 
         BackgroundUI(isGreenGrassShow = true)
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -49,11 +59,30 @@ fun MainLearningAgesCategoriesScreen(
 
             Spacer(modifier = Modifier.height(Dimens16))
 
-            CategoriesHorizontalList(categories,{
+            CategoriesHorizontalList(categories, {
                 AudioPlayerManager.playSoundMenuClick()
                 navController.navigate(it.destination)
             })
         }
+
+        // 🔥 Privacy Policy (Bottom Right)
+        Text(
+            text = stringResource(R.string.privacy_policy),
+            color = Color.Black,
+            textDecoration = TextDecoration.Underline,
+            style = MaterialTheme.typography.bodySmall.scaled(),
+            fontWeight = FontWeight.Medium,
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .clickable {
+                    val intent = Intent(Intent.ACTION_VIEW).apply {
+                        data = AppConstants.PRIVACY_POLICY.toUri()
+                        addCategory(Intent.CATEGORY_BROWSABLE)
+                    }
+                    context.startActivity(intent)
+                }
+                .padding(Dimens16)
+        )
     }
 }
 

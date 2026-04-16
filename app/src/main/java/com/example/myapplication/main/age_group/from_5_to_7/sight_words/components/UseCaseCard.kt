@@ -25,7 +25,9 @@ import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.PrimaryBlue
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun UseCaseCard(
@@ -37,7 +39,7 @@ fun UseCaseCard(
 
     Column(
         modifier = Modifier
-            .clip(RoundedCornerShape(12.dp))
+            .clip(RoundedCornerShape(Dimens12))
             .background(Color.Yellow.copy(alpha = 0.2f))
             .padding(Dimens12),
         verticalArrangement = Arrangement.spacedBy(Dimens6)
@@ -45,12 +47,12 @@ fun UseCaseCard(
 
         Text(
             text = "• $description",
-            style = MaterialTheme.typography.bodyLarge,
+            style = MaterialTheme.typography.bodyLarge.scaled(),
             color = Color.Black
         )
 
         Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(Dimens8),
             modifier = Modifier.clickable {
                 onSpeak(example.lowercase().replace(".", ","))
             }
@@ -64,7 +66,7 @@ fun UseCaseCard(
 
             Text(
                 text = highlightWord(example, currentWord),
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyMedium.scaled(),
                 color = Color.Black.copy(alpha = 0.6f)
             )
         }

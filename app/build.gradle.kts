@@ -45,10 +45,20 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.4" // compatible with Compose BOM 2024.04.01
     }
+
+    flavorDimensions += listOf("variant")
+    productFlavors {
+        create("dev1") {
+            resValue("string","app_name", "English Learning")
+            dimension = "variant"
+            applicationId = "com.vedaavi.english.learning"
+            versionCode = 1
+            versionName = "1.0.0"
+        }
+    }
 }
 
 dependencies {
-//    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))

@@ -47,6 +47,7 @@ import com.example.myapplication.ui.theme.AppDimens.articleChoiceImageHeight
 import com.example.myapplication.ui.theme.AppDimens.articleChoiceWidth
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -56,7 +57,7 @@ fun ArticleChoicePage(
 ) {
 
     val state = viewModel.uiState.collectAsState().value
-    val style = MaterialTheme.typography.titleLarge.copy(
+    val style = MaterialTheme.typography.titleLarge.scaled().copy(
         fontSize = articleChoiceHeight.value.sp * 0.8
     )
     Box(modifier = Modifier.fillMaxSize()) {
@@ -181,7 +182,7 @@ fun ArticleChoicePage(
                             state.isAnswerCorrect -> PrimaryGreen
                             else -> Color.Red
                         },
-                        style = MaterialTheme.typography.titleLarge,
+                        style = MaterialTheme.typography.titleLarge.scaled(),
                         fontWeight = FontWeight.ExtraBold
                     )
                 }

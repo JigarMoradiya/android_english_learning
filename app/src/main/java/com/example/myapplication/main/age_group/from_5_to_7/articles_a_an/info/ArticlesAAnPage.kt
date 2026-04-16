@@ -52,6 +52,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.utils.extensions.scaled
 import java.util.Locale
 
 
@@ -127,7 +128,7 @@ fun ArticlesAAnPage(
                                     // 🔹 TEXT (BOTTOM)
                                     Text(
                                         text = "${item.article} ${item.word}".lowercase(Locale.ROOT),
-                                        style = MaterialTheme.typography.bodyLarge,
+                                        style = MaterialTheme.typography.bodyLarge.scaled(),
                                         fontWeight = FontWeight.Bold,
                                         color = Color.Black
                                     )
@@ -152,13 +153,13 @@ fun ArticlesAAnPage(
 
                     Column(
                         modifier = Modifier
-                            .background(Color(0xFFCAE4F6), RoundedCornerShape(12.dp))
+                            .background(Color(0xFFCAE4F6), RoundedCornerShape(Dimens12))
                             .padding(Dimens16)
                     ) {
 
                         Text(
                             text = stringResource(R.string.learning_guide),
-                            style = MaterialTheme.typography.headlineSmall,
+                            style = MaterialTheme.typography.headlineMedium.scaled(),
                             fontWeight = FontWeight.ExtraBold,
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center //
@@ -191,7 +192,7 @@ fun ArticlesAAnPage(
                                         append("consonant sound.")
                                     }
                                 },
-                                style = MaterialTheme.typography.bodyMedium
+                                style = MaterialTheme.typography.bodyLarge.scaled()
                             )
                         }
 
@@ -205,7 +206,7 @@ fun ArticlesAAnPage(
 
                                 append(" a cat, a dog, a ball.")
                             },
-                            style = MaterialTheme.typography.bodyMedium
+                            style = MaterialTheme.typography.bodyLarge.scaled()
                         )
 
                         Spacer(Modifier.height(Dimens12))
@@ -237,7 +238,7 @@ fun ArticlesAAnPage(
 
                                     append(" (a, e, i, o, u).")
                                 },
-                                style = MaterialTheme.typography.bodyMedium
+                                style = MaterialTheme.typography.bodyLarge.scaled()
                             )
                         }
 
@@ -251,7 +252,7 @@ fun ArticlesAAnPage(
 
                                 append(" an apple, an orange, an ice cream.")
                             },
-                            style = MaterialTheme.typography.bodyMedium
+                            style = MaterialTheme.typography.bodyLarge.scaled()
                         )
                     }
 

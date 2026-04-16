@@ -35,6 +35,7 @@ import com.example.myapplication.main.age_group.from_5_to_7.articles_a_an.exampl
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonColors
+import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -111,14 +112,14 @@ fun KidsArticleToggle(
                 Box {
                     Text(
                         text = mode.label,
-                        style = typography.bodyMedium,
+                        style = typography.bodyMedium.scaled(),
                         color = Color.Black.copy(alpha = 0.35f),
                         modifier = Modifier.offset(1.dp, 1.dp)
                     )
 
                     Text(
                         text = mode.label,
-                        style = typography.bodyMedium,
+                        style = typography.bodyMedium.scaled(),
                         fontWeight = FontWeight.Bold,
                         color = Color.White
                     )

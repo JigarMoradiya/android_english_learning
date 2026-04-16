@@ -21,11 +21,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.main.age_group.from_5_to_7.sight_words.view_model.SightWordsViewModel
 import com.example.myapplication.main.common.buttons.KidsIconButton
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.SightWordFont
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryBlue
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun SightWordsScreen(
@@ -45,7 +48,7 @@ fun SightWordsScreen(
         // 🔹 LEFT SIDE
         Column(
             modifier = Modifier
-                .weight(0.4f)
+                .weight(0.45f)
                 .fillMaxHeight(),
             verticalArrangement = Arrangement.spacedBy(Dimens20),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -54,7 +57,7 @@ fun SightWordsScreen(
             Text(
                 text = currentWord.word,
                 style = MaterialTheme.typography.displayLarge.copy(
-                    fontSize = (MaterialTheme.typography.displayLarge.fontSize.value * 1.3).sp
+                    fontSize = SightWordFont
                 ),
                 fontWeight = FontWeight.Bold,
                 color = PrimaryBlue
@@ -72,9 +75,9 @@ fun SightWordsScreen(
         // 🔹 RIGHT SIDE
         LazyColumn(
             modifier = Modifier
-                .weight(0.6f)
+                .weight(0.55f)
                 .fillMaxHeight(),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(Dimens12)
         ) {
 
             items(currentWord.useCases) { useCase ->

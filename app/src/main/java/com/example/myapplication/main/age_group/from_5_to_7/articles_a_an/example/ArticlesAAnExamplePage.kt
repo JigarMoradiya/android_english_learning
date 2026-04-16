@@ -26,6 +26,7 @@ import com.example.myapplication.main.age_group.from_5_to_7.articles_a_an.exampl
 import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_detail.components.WordCard
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import java.util.Locale
 
 
@@ -61,9 +62,9 @@ fun ArticlesAAnExamplePage(
             }
             LazyVerticalGrid(
                 columns = GridCells.Fixed(3),
-                contentPadding = PaddingValues(12.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                contentPadding = PaddingValues(Dimens12),
+                verticalArrangement = Arrangement.spacedBy(Dimens12),
+                horizontalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
 
                 items(if (uiState.mode == ArticleMode.A)uiState.examplesA else uiState.examplesAn) { item ->
