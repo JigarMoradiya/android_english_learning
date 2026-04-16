@@ -1,7 +1,5 @@
 package com.example.myapplication.main.age_group.from_3_to_5.missing_letter.components
 
-
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -11,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -33,11 +32,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.MissingLetterViewModel
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryBlue
+import com.example.myapplication.ui.theme.PrimaryGreenLight
 import com.example.myapplication.utils.AudioPlayerManager
 
 
@@ -48,7 +49,7 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
     val fixed = viewModel.fixedIndices
 
     Row(
-        horizontalArrangement = Arrangement.spacedBy(Dimens24),
+        horizontalArrangement = Arrangement.spacedBy(Dimens12),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
@@ -85,8 +86,9 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                         .zIndex(if (isDragging) 1f else 0f)
 
                         // ⭐ DRAG ENABLE
-                        .pointerInput(item) {
-                            if (item != null && !isFixed) {
+                        .pointerInput(item, isFixed, viewModel.uiState.showPopup) {
+
+                            if (item != null && !isFixed && !viewModel.uiState.showPopup) {
 
                                 detectDragGestures(
 
@@ -141,32 +143,31 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                                 )
                             }
                         }
-                        .width(DragLetterBoxSize)
+                        .background(if (isFixed) PrimaryGreenLight else Color.Transparent, RoundedCornerShape(Dimens12))
+                        .size(DragLetterBoxSize)
                 ) {
 
                     // 🔤 LETTER
                     Text(
                         text = item?.letter ?: "",
-                        fontSize = (DragLetterBoxSize.value * 0.7).sp,
+                        fontSize = (DragLetterBoxSize.value * 0.75).sp,
                         fontWeight = FontWeight.Bold,
-                        color = if (isFixed) Color.Black else PrimaryBlue
+                        color = if (isFixed) Color.DarkGray else PrimaryBlue
                     )
-
 
                 }
 
                 Spacer(modifier = Modifier.height(Dimens2))
 
                 // ➖ UNDERLINE (MAIN UI CHANGE)
-                Box(
-                    modifier = Modifier
-                        .width(DragLetterBoxSize)
-                        .height(Dimens2)
-                        .background(
-                            if (isFixed) Color.Black else Color.DarkGray,
-                            shape = RoundedCornerShape(2.dp)
-                        )
-                )
+                if (!isFixed){
+                    Box(
+                        modifier = Modifier
+                            .width(DragLetterBoxSize)
+                            .height(Dimens2)
+                            .background(Color.Black)
+                    )
+                }
             }
 
         }

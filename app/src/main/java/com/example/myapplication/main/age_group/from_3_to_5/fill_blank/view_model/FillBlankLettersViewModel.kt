@@ -33,17 +33,18 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
     fun generateGame() {
         val alphabets = getAlphabet()
         // ✅ 1. Pick random 5–6 sequence
-        val size = (5..6).random()
+        val size = (2..3).random()
         val startIndex = (0..(26 - size)).random()
 
         val sequence = alphabets.subList(startIndex, startIndex + size)
 
         // ✅ 2. Create blanks
-        val blankCount = when (size) {
-            5 -> (2..3).random()
-            6 -> 3
-            else -> 2
-        }
+//        val blankCount = when (size) {
+//            5 -> (2..3).random()
+//            6 -> 3
+//            else -> 2
+//        }
+        val blankCount = 1
         val blankIndices = mutableSetOf<Int>()
 
         while (blankIndices.size < blankCount) {
@@ -60,7 +61,8 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
         val options = mutableListOf<String>()
         options.addAll(correctLetters)
 
-        while (options.size < correctLetters.size + 3) {
+        val extraLetter = 2
+        while (options.size < correctLetters.size + extraLetter) {
             val random = alphabets.random()
             if (!sequence.contains(random) && !options.contains(random)) {
                 options.add(random)
@@ -133,7 +135,7 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
             val correct = uiState.fullSequence.joinToString("")
 
             uiState = if (formed == correct) {
-                AudioPlayerManager.playSoundClap()
+                AudioPlayerManager.playSoundCorrectAnswer()
                 val randomTitle = feedbackTitles.random()
                 val randomSub = feedbackFillBlank.random()
                 uiState.copy(

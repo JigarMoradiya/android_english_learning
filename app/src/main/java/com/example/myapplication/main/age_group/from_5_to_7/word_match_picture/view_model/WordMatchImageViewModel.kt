@@ -13,6 +13,7 @@ import com.example.myapplication.data.generation.letter.LetterRepository.vocabul
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.view_model.MatchLetterWithImageUiState
 import com.example.myapplication.ui.theme.colorList
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -147,8 +148,7 @@ class WordMatchImageViewModel @Inject constructor(
                 AudioPlayerManager.playSoundClap()
                 uiState = uiState.copy(
                     showPopup = true,
-                    feedbackText = "Great!",
-                    feedbackSubText = "All matched!"
+                    feedbackTextRes = feedbackTitles.random()
                 )
             }
         }else{

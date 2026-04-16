@@ -70,7 +70,7 @@ fun DragDropBottomPool(viewModel: DragDropWordViewModel) {
 
                     .zIndex(if (isDragging) 1f else 0f)
 
-                    .background(PrimaryOrangeLight, RoundedCornerShape(Dimens16))
+                    .background(PrimaryOrangeLight, RoundedCornerShape(Dimens12))
 
                     .pointerInput(item) {
                         detectDragGestures(
@@ -123,7 +123,7 @@ fun DragDropBottomPool(viewModel: DragDropWordViewModel) {
                 Text(
                     text = item.letter,
                     color = Color.Black,
-                    fontSize = (DragLetterBoxSize.value * 0.65).sp,
+                    fontSize = (DragLetterBoxSize.value * 0.75).sp,
                     fontWeight = FontWeight.Bold
                 )
             }

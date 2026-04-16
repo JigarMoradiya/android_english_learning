@@ -26,6 +26,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.rounded.VolumeUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -55,6 +56,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsHeight
 import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsWidth
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.ui.theme.PrimaryGreen
 
 
 @Composable
@@ -69,10 +71,29 @@ fun ListenAndSelectWordPage(
 
         BackgroundUI(isGreenGrassShow = false)
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
-            BackButtonWithText(
-                title = stringResource(R.string.listen_and_select_answer),
-                onBackClick = { navController.popBackStack() }
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                BackButtonWithText(
+                    modifier = Modifier.weight(1f),
+                    title = stringResource(R.string.listen_and_select_answer),
+                    onBackClick = { navController.popBackStack() }
+                )
+
+                if (uiState.showPopup) {
+                    KidsActionButton(
+                        modifier = Modifier.padding(end = Dimens16),
+                        text = stringResource(R.string.next),
+                        icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
+                        type = ButtonType.GREEN,
+                        isIconStart = false,
+                        onClick = {
+                            viewModel.playAgain()
+                        }
+                    )
+                }
+            }
             Spacer(Modifier.weight(1f))
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -147,26 +168,26 @@ fun ListenAndSelectWordPage(
 
                 Text(
                     text = stringResource(uiState.feedbackTextRes),
-                    color =  Color.Red,
+                    color =  if (uiState.showPopup) PrimaryGreen else Color.Red,
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.ExtraBold,
-                    modifier = Modifier.alpha(if (uiState.showError) 1f else 0f)
+                    modifier = Modifier.alpha(if (uiState.showError || uiState.showPopup) 1f else 0f)
                 )
 
                 Spacer(modifier = Modifier.height(Dimens4))
 
                 Text(
-                    text = uiState.feedbackSubTextError,
+                    text = if (uiState.showPopup) stringResource(uiState.feedbackSubTextRes) else uiState.feedbackSubTextError,
                     color = Color.Black,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Medium,
-                    modifier = Modifier.alpha(if (uiState.showError) 1f else 0f)
+                    modifier = Modifier.alpha(if (uiState.showError || uiState.showPopup) 1f else 0f)
                 )
 
             }
         }
 
-        AnimatedVisibility(
+        /*AnimatedVisibility(
             visible = uiState.showPopup,
             enter = fadeIn(),
             exit = fadeOut()
@@ -184,6 +205,6 @@ fun ListenAndSelectWordPage(
                     navController.popBackStack()
                 }
             )
-        }
+        }*/
     }
 }

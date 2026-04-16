@@ -72,18 +72,6 @@ object FeedbackConstant {
         R.string.feedbackMissingLetterSubTitleForWrong_5
     )
 
-    // use in listen and select word
-    val feedbackGiveAnswerTitleCorrect = listOf(
-        R.string.feedbackGiveAnswerTitleCorrect_1,
-        R.string.feedbackGiveAnswerTitleCorrect_2,
-        R.string.feedbackGiveAnswerTitleCorrect_3,
-        R.string.feedbackGiveAnswerTitleCorrect_4,
-        R.string.feedbackGiveAnswerTitleCorrect_5,
-        R.string.feedbackGiveAnswerTitleCorrect_6,
-        R.string.feedbackGiveAnswerTitleCorrect_7,
-        R.string.feedbackGiveAnswerTitleCorrect_8,
-    )
-
     val feedbackGiveAnswerSubTitleCorrect = listOf(
         R.string.feedbackGiveAnswerSubTitleCorrect_1,
         R.string.feedbackGiveAnswerSubTitleCorrect_2,

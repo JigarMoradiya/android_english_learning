@@ -1,5 +1,7 @@
 package com.example.myapplication.main.age_group.from_3_to_5.match_latters.view_model
 
+import com.example.myapplication.R
+
 
 data class MatchLettersUiState(
     val currentBatch: List<Char> = emptyList(),
@@ -10,6 +12,6 @@ data class MatchLettersUiState(
     val round: Int = 1,
 
     val showPopup: Boolean = false,
-    val feedbackText: String = "",
-    val feedbackSubText: String = ""
+    val feedbackTextRes: Int = R.string.feedbackPhrases_1,
+    val feedbackSubTextRes: Int = R.string.match_letter_done
 )

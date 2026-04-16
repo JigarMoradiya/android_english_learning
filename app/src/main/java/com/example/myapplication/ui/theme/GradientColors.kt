@@ -18,11 +18,12 @@ val gradientBrushList = listOf(
     Brush.linearGradient(listOf(Color(0xFFFF5722),Color(0xFFFF5722))),
 
     // 🌈 real gradients
-    Brush.linearGradient(listOf(Color(0xFFF44336), Color(0xFF673AB7), Color(0xFF3F51B5))),
-    Brush.linearGradient(listOf(Color(0xFF673AB7), Color(0xFF1F35B0), Color(0xFF2196F3))),
-    Brush.linearGradient(listOf(Color(0xFF0281BB), Color(0xFF00BCD4), Color(0xFF009688))),
-    Brush.linearGradient(listOf(Color(0xFF009688), Color(0xFF4CAF50), Color(0xFFCDDC39))),
-    Brush.linearGradient(listOf(Color(0xFFFFA726), Color(0xFFF44336), Color(0xFFFF5722)))
+    Brush.linearGradient(listOf(Color(0xFFFF0700), Color(0xFF5623B0))),
+    Brush.linearGradient(listOf(Color(0xFF1F35B0), Color(0xFFD03066))),
+    Brush.linearGradient(listOf(Color(0xFF3199F5), Color(0xFF08867B))),
+    Brush.linearGradient(listOf(Color(0xFFCDDC39), Color(0xFF4CAF50))),
+    Brush.linearGradient(listOf(Color(0xFFFFEB3B), Color(0xFFFF5722))),
+    Brush.linearGradient(listOf(Color(0xFF43A047), Color(0xFFFB8C00))),
 )
 val colorList = listOf(
     Color(0xFFF44336),

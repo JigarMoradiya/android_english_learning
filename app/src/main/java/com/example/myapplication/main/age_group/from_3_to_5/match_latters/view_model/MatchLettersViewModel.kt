@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -77,8 +78,7 @@ class MatchLettersViewModel @Inject constructor(
                     uiState.copy(
                         matchedPairs = newMatched,
                         showPopup = true,
-                        feedbackText = "Great Job!",
-                        feedbackSubText = "You matched all letters!"
+                        feedbackTextRes = feedbackTitles.random()
                     )
                 } else {
                     AudioPlayerManager.playSoundCorrectAnswer()

@@ -4,12 +4,18 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -21,6 +27,9 @@ import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.CustomPopupView
+import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.ButtonType
 
 
 @Composable
@@ -40,10 +49,29 @@ fun DragDropWordPage(
 
         Box(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)){
             // HEADER
-            BackButtonWithText(
-                title = stringResource(R.string.drag_drop_words),
-                onBackClick = { navController.popBackStack() }
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                BackButtonWithText(
+                    modifier = Modifier.weight(1f),
+                    title = if (difficultyLevel == DifficultyLevel.EASY) stringResource(R.string.drag_drop_words) else stringResource(R.string.word_jigsaw) ,
+                    onBackClick = { navController.popBackStack() }
+                )
+
+                if (uiState.showPopup) {
+                    KidsActionButton(
+                        modifier = Modifier.padding(end = Dimens16),
+                        text = stringResource(R.string.next),
+                        icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
+                        type = ButtonType.GREEN,
+                        isIconStart = false,
+                        onClick = {
+                            viewModel.loadNextWord()
+                        }
+                    )
+                }
+            }
 
             // CONTENT
             DragDropScreen(
@@ -51,7 +79,7 @@ fun DragDropWordPage(
                 modifier = Modifier.fillMaxSize()
             )
 
-            AnimatedVisibility(
+            /*AnimatedVisibility(
                 visible = uiState.showPopup,
                 enter = fadeIn(),
                 exit = fadeOut()
@@ -69,7 +97,7 @@ fun DragDropWordPage(
                         navController.popBackStack()
                     }
                 )
-            }
+            }*/
         }
     }
 }

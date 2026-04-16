@@ -33,6 +33,9 @@ class ABCDWithImagesViewModel @Inject constructor(
     val currentLetterData: LetterData
         get() = letters[uiState.currentIndex]
 
+    init {
+        speakCurrent()
+    }
 
     // NEXT / PREVIOUS
     fun next() {

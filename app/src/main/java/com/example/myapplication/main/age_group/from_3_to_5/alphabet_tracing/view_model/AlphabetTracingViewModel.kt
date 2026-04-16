@@ -254,7 +254,9 @@ class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
     }
 
     fun clear() {
-        resetState()
+        if (uiState.drawnPoints.isNotEmpty()){
+            resetState()
+        }
     }
 
     private fun resetForIndex(index: Int) {

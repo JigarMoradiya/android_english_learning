@@ -192,8 +192,8 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
                 val randomSub = feedbackMissingLetterSubTitleForWrong.random()
                 uiState = uiState.copy(
                     showError = true,
-                    feedbackWrongTextRes = randomTitle,
-                    feedbackWrongSubTextRes = randomSub,
+                    feedbackTextRes = randomTitle,
+                    feedbackSubTextRes = randomSub,
                 )
             }
         }

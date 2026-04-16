@@ -27,6 +27,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.PrimaryGreen
 
 @Composable
@@ -59,7 +60,7 @@ fun MissingLetterScreen(
             // -------------------------
             WordTopSlots(viewModel)
 
-            Spacer(modifier = Modifier.height(Dimens24 * 2))
+            Spacer(modifier = Modifier.height(Dimens50))
 
             // -------------------------
             // LETTER POOL
@@ -75,10 +76,10 @@ fun MissingLetterScreen(
 
                 Text(
                     text = stringResource(uiState.feedbackTextRes),
-                    color =  Color.Red,
+                    color =  if (uiState.showPopup) PrimaryGreen else Color.Red,
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.ExtraBold,
-                    modifier = Modifier.alpha(if (uiState.showError) 1f else 0f)
+                    modifier = Modifier.alpha(if (uiState.showError || uiState.showPopup) 1f else 0f)
                 )
 
                 Spacer(modifier = Modifier.height(Dimens4))
@@ -88,7 +89,7 @@ fun MissingLetterScreen(
                     color = Color.Black,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Medium,
-                    modifier = Modifier.alpha(if (uiState.showError) 1f else 0f)
+                    modifier = Modifier.alpha(if (uiState.showError || uiState.showPopup) 1f else 0f)
                 )
             }
         }

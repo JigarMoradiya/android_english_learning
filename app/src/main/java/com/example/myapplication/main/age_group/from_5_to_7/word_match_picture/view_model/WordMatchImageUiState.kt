@@ -2,6 +2,7 @@ package com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
+import com.example.myapplication.R
 
 
 data class WordMatchImageUiState(
@@ -20,6 +21,6 @@ data class WordMatchImageUiState(
 
     val round: Int = 1,
     val showPopup: Boolean = false,
-    val feedbackText: String = "",
-    val feedbackSubText: String = ""
+    val feedbackTextRes: Int = R.string.feedbackPhrases_1,
+    val feedbackSubTextRes: Int = R.string.match_word_with_image_done
 )

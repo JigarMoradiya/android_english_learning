@@ -49,6 +49,9 @@
     <string name="continue_to_play">Continue to Play</string>
     <string name="no_i_want_to_close">I want to Close</string>
 
+    <string name="match_letter_done">You matched all the letters!</string>
+    <string name="match_letter_with_image_done">You matched all the letter with image!</string>
+    <string name="match_word_with_image_done">You matched all the words!</string>
     <!-- success and fail feedback messages -->
     <!-- Feedback Titles Common -->
     <string name="feedbackPhrases_1">Perfect! 🎯</string>

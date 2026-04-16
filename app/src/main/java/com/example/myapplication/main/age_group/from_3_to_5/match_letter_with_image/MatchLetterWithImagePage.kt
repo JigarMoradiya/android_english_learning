@@ -75,8 +75,8 @@ fun MatchLetterWithImagePage(
             exit = fadeOut()
         ) {
             CustomPopupView(
-                title = uiState.feedbackText,
-                description = uiState.feedbackSubText,
+                title = stringResource(viewModel.uiState.feedbackTextRes),
+                description = stringResource(viewModel.uiState.feedbackSubTextRes),
                 positiveButtonText = stringResource(R.string.continue_to_play),
                 negativeButtonText = stringResource(R.string.no_i_want_to_close),
                 icon = R.drawable.ic_complete,

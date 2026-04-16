@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.ui.theme.colorList
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -140,8 +141,7 @@ class MatchLetterWithImageViewModel @Inject constructor() : ViewModel() {
                 AudioPlayerManager.playSoundClap()
                 uiState = uiState.copy(
                     showPopup = true,
-                    feedbackText = "Great!",
-                    feedbackSubText = "All matched!"
+                    feedbackTextRes = feedbackTitles.random()
                 )
             }
         }else{

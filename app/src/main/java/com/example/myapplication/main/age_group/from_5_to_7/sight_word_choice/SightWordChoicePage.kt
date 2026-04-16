@@ -37,6 +37,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.AppDimens.articleChoiceHeight
 import com.example.myapplication.ui.theme.AppDimens.articleChoiceWidth
 import com.example.myapplication.ui.theme.ButtonType
@@ -99,7 +100,7 @@ fun SightWordChoicePage(
                         )
                     }
 
-                    Spacer(modifier = Modifier.height(Dimens20))
+                    Spacer(modifier = Modifier.height(Dimens50))
 
                     // Options
                     Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {

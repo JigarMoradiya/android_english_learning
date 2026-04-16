@@ -10,7 +10,7 @@ import com.example.myapplication.data.generation.letter.LetterRepository.vocabul
 import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
-import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerTitleCorrect
+import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -69,7 +69,7 @@ class ListenAndSelectWordViewModel @Inject constructor(
     fun checkCorrectOrWrong(word: String) {
         val isCorrect = (word.equals(uiState.currentWord,true))
         if (isCorrect) {
-            val randomTitle = feedbackGiveAnswerTitleCorrect.random()
+            val randomTitle = feedbackTitles.random()
             val randomSubTitle = feedbackGiveAnswerSubTitleCorrect.random()
             uiState = uiState.copy(feedbackTextRes = randomTitle, feedbackSubTextRes = randomSubTitle, showPopup = true, showError = false)
             AudioPlayerManager.playSoundCorrectAnswer()

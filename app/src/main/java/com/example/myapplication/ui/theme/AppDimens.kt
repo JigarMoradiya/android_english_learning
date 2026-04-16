@@ -22,6 +22,7 @@ object AppDimens {
     val Dimens24 = if (isTablet) 36.dp else 24.dp
     val Dimens28 = if (isTablet) 36.dp else 28.dp
     val Dimens40 = if (isTablet) 48.dp else 40.dp
+    val Dimens50 = if (isTablet) 60.dp else 50.dp
     val KidIconSmall = if (isTablet) 38.dp else 30.dp
     val DimensColorCircles = if (isTablet) 44.dp else 36.dp
     val CommonPopupImageSize = if (isTablet) 96.dp else 72.dp
@@ -29,6 +30,7 @@ object AppDimens {
     val ABCDWithImagesSmallImageSize = if (isTablet) 100.dp else 80.dp
     val MatchLetterBoxSize = if (isTablet) 100.dp else 80.dp
     val FillBlankLetterBoxSize = if (isTablet) 90.dp else 72.dp
+    val DragLetterBoxSize = if (isTablet) 90.dp else 72.dp
     val MatchWordBoxWidth = if (isTablet) 156.dp else 124.dp
     val MatchWordBoxHeight = if (isTablet) 48.dp else 40.dp
     val MatchWordTextSize = if (isTablet) 20.sp else 16.sp
@@ -38,7 +40,6 @@ object AppDimens {
     val articleChoiceWidth = if (isTablet) 170.dp else 140.dp
     val articleChoiceHeight = if (isTablet) 50.dp else 42.dp
     val articleChoiceImageHeight = if (isTablet) 120.dp else 100.dp
-    val DragLetterBoxSize = if (isTablet) 80.dp else 60.dp
     val ColoringAlphabetsImageWidth = if (isTablet) 200.dp else 170.dp
     val VocabularyImageHeight = if (isTablet) 1000.dp else 80.dp
 

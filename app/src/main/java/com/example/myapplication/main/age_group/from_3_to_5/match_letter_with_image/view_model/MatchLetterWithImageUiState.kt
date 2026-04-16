@@ -2,6 +2,7 @@ package com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_i
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
+import com.example.myapplication.R
 
 
 data class MatchLetterWithImageUiState(
@@ -20,6 +21,6 @@ data class MatchLetterWithImageUiState(
 
     val round: Int = 1,
     val showPopup: Boolean = false,
-    val feedbackText: String = "",
-    val feedbackSubText: String = ""
+    val feedbackTextRes: Int = R.string.feedbackPhrases_1,
+    val feedbackSubTextRes: Int = R.string.match_letter_with_image_done
 )

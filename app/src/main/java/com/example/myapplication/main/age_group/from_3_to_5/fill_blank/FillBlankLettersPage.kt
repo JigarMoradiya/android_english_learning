@@ -37,6 +37,7 @@ import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens40
+import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
 
@@ -93,7 +94,7 @@ fun FillBlankLettersPage(
 
             TopLetterSlots(viewModel)
 
-            Spacer(modifier = Modifier.height(Dimens40))
+            Spacer(modifier = Modifier.height(Dimens50))
 
             BottomLetterOptions(viewModel)
 

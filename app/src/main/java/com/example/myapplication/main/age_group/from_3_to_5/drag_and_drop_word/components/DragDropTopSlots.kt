@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryOrange
@@ -48,7 +49,7 @@ fun DragDropTopSlots(viewModel: DragDropWordViewModel) {
     val fixed = viewModel.fixedIndices
 
     Row(
-        horizontalArrangement = Arrangement.spacedBy(Dimens24),
+        horizontalArrangement = Arrangement.spacedBy(Dimens12),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
@@ -101,8 +102,9 @@ fun DragDropTopSlots(viewModel: DragDropWordViewModel) {
                             .zIndex(if (isDragging) 1f else 0f)
 
                             // ⭐ DRAG ENABLE
-                            .pointerInput(item) {
-                                if (item != null && !isFixed) {
+                            .pointerInput(item, isFixed, viewModel.uiState.showPopup) {
+
+                                if (item != null && !isFixed && !viewModel.uiState.showPopup) {
 
                                     detectDragGestures(
 
@@ -165,13 +167,13 @@ fun DragDropTopSlots(viewModel: DragDropWordViewModel) {
                         // 🔤 LETTER
                         Text(
                             text = item?.letter ?: "",
-                            fontSize = (DragLetterBoxSize.value * 0.7).sp,
+                            fontSize = (DragLetterBoxSize.value * 0.75).sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White,
                             textAlign = TextAlign.Center,
                             modifier = Modifier.size(DragLetterBoxSize)
                                 .background(if (item?.letter.isNullOrEmpty()) Color.Transparent else PrimaryOrange,
-                                    shape = RoundedCornerShape(12.dp)
+                                    shape = RoundedCornerShape(Dimens12)
                                 )
                                 .wrapContentHeight(Alignment.CenterVertically)
                         )
