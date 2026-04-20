@@ -28,7 +28,7 @@ import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
-fun KidsLabel(txt: String,type: ButtonType = ButtonType.BLUE) {
+fun KidsLabel(txt: String,type: ButtonType = ButtonType.PURPLE) {
     val colors = getButtonColors(type)
     Box(
         modifier = Modifier

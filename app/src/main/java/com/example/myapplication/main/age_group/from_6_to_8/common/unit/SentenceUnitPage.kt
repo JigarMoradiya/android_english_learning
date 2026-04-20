@@ -1,12 +1,10 @@
 package com.example.myapplication.main.age_group.from_6_to_8.common.unit
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -20,30 +18,25 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.common.AppToolbarDropDownOnRight
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.UnitSelectionScreen
+import com.example.myapplication.main.age_group.from_6_to_8.common.StyledColumn
 import com.example.myapplication.main.age_group.from_6_to_8.common.unit.view_model.SentenceUnitViewModel
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackgroundUI
-import com.example.myapplication.ui.theme.AppDimens.Dimens1
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
@@ -82,10 +75,10 @@ fun SentenceUnitPage(
                 onBackClick = { navController.popBackStack() }
             )
 
-
             LazyColumn(
                 modifier = Modifier
-                    .padding(horizontal = Dimens16, vertical = Dimens8)
+                    .padding(horizontal = Dimens16)
+                    .padding(bottom = Dimens8)
                     .weight(1f)
                     .fillMaxHeight(),
                 verticalArrangement = Arrangement.spacedBy(Dimens12)
@@ -177,55 +170,5 @@ fun SentenceUnitPage(
             }
 
         }
-    }
-}
-
-@Composable
-fun StyledColumn(
-    unlocked: Boolean,
-    modifier: Modifier,
-    content: @Composable ColumnScope.() -> Unit
-) {
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-
-            // ✨ Scale effect
-            .graphicsLayer {
-                scaleX = if (unlocked) 1f else 0.95f
-                scaleY = if (unlocked) 1f else 0.95f
-            }
-            // 🎨 Background
-            .background(
-                brush = if (unlocked) {
-                    Brush.linearGradient(
-                        colors = listOf(
-                            Color.Yellow.copy(alpha = 0.2f),
-                            Color(0xFFFFA500).copy(alpha = 0.2f)
-                        )
-                    )
-                } else {
-                    Brush.linearGradient( // 👈 use brush instead of SolidColor
-                        colors = listOf(
-                            Color.Gray.copy(alpha = 0.15f),
-                            Color.Gray.copy(alpha = 0.15f)
-                        )
-                    )
-                },
-                shape = RoundedCornerShape(Dimens12)
-            )
-
-            // 🧱 Border
-            .border(
-                width = if (unlocked) Dimens1 else 0.dp,
-                color = if (unlocked) Color(0xFFFFA500).copy(alpha = 0.5f) else Color.Transparent,
-                shape = RoundedCornerShape(Dimens12)
-            )
-
-            // 🔒 Locked opacity
-            .alpha(if (unlocked) 1f else 0.6f)
-            .padding(Dimens16) // inner padding like SwiftUI
-    ) {
-        content()
     }
 }
