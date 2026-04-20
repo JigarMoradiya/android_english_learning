@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -18,28 +17,21 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
-import androidx.compose.material.icons.automirrored.rounded.Undo
 import androidx.compose.material.icons.automirrored.rounded.VolumeUp
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.data.model.ReadSentenceItemNew
 import com.example.myapplication.data.model.UnitSelectionScreen
+import com.example.myapplication.main.age_group.from_6_to_8.read_listen.components.SentenceWordsView
 import com.example.myapplication.main.age_group.from_6_to_8.read_listen.view_model.ReadAndListenViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
@@ -48,9 +40,9 @@ import com.example.myapplication.main.common.buttons.KidsIconButton
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.KidIconMedium
 import com.example.myapplication.ui.theme.AppDimens.KidIconSmall
 import com.example.myapplication.ui.theme.ButtonType
-import com.example.myapplication.utils.extensions.scaled
 
 
 @Composable
@@ -94,9 +86,11 @@ fun ReadAndListenPage(
 
                 KidsIconButton(
                     icon = Icons.AutoMirrored.Rounded.VolumeUp,
-                    onClick = { },
+                    onClick = {
+                        viewModel.speak()
+                    },
                     type = ButtonType.PINK,
-                    size = KidIconSmall,
+                    size = KidIconMedium,
                     modifier = Modifier.padding(end = Dimens16)
                 )
             }
@@ -162,15 +156,19 @@ fun ReadAndListenPage(
             }
 
             // 🔵 FOOTER
-            Text(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = Dimens16, vertical = Dimens16),
-                text = viewModel.currentSentence,
-                color = Color.Black,
-                style = MaterialTheme.typography.titleSmall.scaled().copy(
-                    fontWeight = FontWeight.Bold
-                ),
-                textAlign = TextAlign.Center
-            )
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = Dimens16),
+                contentAlignment = Alignment.Center
+            ) {
+                SentenceWordsView(
+                    words = viewModel.words,
+                    isJoined = viewModel.uiState.isSentenceJoined,
+                    speakingIndex = viewModel.uiState.joinSentenceSpeakingIndex,
+                    currentWordIndex = viewModel.uiState.splitSentenceWordIndex
+                )
+            }
         }
     }
 }

@@ -10,6 +10,8 @@ object AppDimens {
     // Spacing
     val ToolbarIconSize = if(isLargeTablet) 72.dp else if (isTablet) 64.dp else 42.dp
     val KidsIconSize = if(isLargeTablet) 84.dp else if (isTablet) 72.dp else 56.dp
+    val KidIconMedium = if(isLargeTablet) 56.dp else if (isTablet) 48.dp else 40.dp
+    val KidIconSmall = if(isLargeTablet) 50.dp else if (isTablet) 40.dp else 30.dp
     val ShadowOffset = if(isLargeTablet) 3.dp else if (isTablet) 2.5.dp else 1.5.dp
     val ShadowOffsetText = if(isLargeTablet) 3.dp else if (isTablet) 2.dp else 1.dp
     val Dimens1 = if(isLargeTablet) 3.dp else if (isTablet) 2.dp else 1.dp
@@ -26,7 +28,6 @@ object AppDimens {
     val Dimens28 = if(isLargeTablet) 56.dp else if (isTablet) 36.dp else 28.dp
     val Dimens40 = if(isLargeTablet) 80.dp else if (isTablet) 48.dp else 40.dp
     val Dimens50 = if(isLargeTablet) 100.dp else if (isTablet) 60.dp else 50.dp
-    val KidIconSmall = if(isLargeTablet) 50.dp else if (isTablet) 40.dp else 30.dp
     val DimensColorCircles = if(isLargeTablet) 56.dp else if (isTablet) 48.dp else 36.dp
     val CommonPopupImageSize = if(isLargeTablet) 120.dp else if (isTablet) 96.dp else 72.dp
     val ABCDWithImagesSmallImageSize = if(isLargeTablet) 120.dp else if (isTablet) 100.dp else 80.dp

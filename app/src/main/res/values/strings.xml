@@ -162,5 +162,6 @@
     <string name="lessons_of">Lessons of %1$s</string>
     <string name="join_sentences">Join Sentences</string>
     <string name="split_sentences">Split Sentences</string>
+    <string name="progress">Progress</string>
 
 </resources>

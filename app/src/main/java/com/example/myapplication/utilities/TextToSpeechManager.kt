@@ -1,6 +1,7 @@
 package com.example.myapplication.utilities
 
 import android.content.Context
+import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import android.util.Log
@@ -17,7 +18,8 @@ class TextToSpeechManager @Inject constructor(
 
     private var tts: TextToSpeech? = null
     private var ready = false
-    private var pending: Pair<String, String?>? = null
+    private var pending: Pair<String, String>? = null
+    var onWordSpoken: ((start: Int) -> Unit)? = null
 
     // 🔹 Optional callback (NOT always used)
     private val utteranceCallbacks =
@@ -37,39 +39,59 @@ class TextToSpeechManager @Inject constructor(
     }
     private fun setupListener() {
         tts?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
+
             override fun onStart(utteranceId: String?) = Unit
-            @Deprecated("Deprecated in API")
-            override fun onError(utteranceId: String?)  = Unit
+
             override fun onDone(utteranceId: String?) {
                 utteranceId?.let { id ->
                     utteranceCallbacks[id]?.invoke(id)
                     utteranceCallbacks.remove(id)
                 }
             }
-            override fun onError(utteranceId: String?, errorCode: Int) {
-                utteranceId?.let { id ->
-                    utteranceCallbacks[id]?.invoke(id)
-                    utteranceCallbacks.remove(id)
+
+            @Deprecated("Deprecated in Java")
+            override fun onError(utteranceId: String?) = Unit
+
+            override fun onError(utteranceId: String?, errorCode: Int) = Unit
+
+            override fun onRangeStart(
+                utteranceId: String?,
+                start: Int,
+                end: Int,
+                frame: Int
+            ) {
+                if (utteranceId == "joined") {
+                    onWordSpoken?.invoke(start)
                 }
             }
         })
     }
 
 
-    fun speak(text: String, utteranceId: String? = null, onDone: ((String?) -> Unit)? = null) {
+    fun speak(
+        text: String,
+        utteranceId: String = "",
+        onDone: (() -> Unit)? = null
+    ) {
         if (!ready) {
             pending = text to utteranceId
-            utteranceId?.let { id ->
-                onDone?.let { utteranceCallbacks[id] = it }
-            }
             return
         }
 
-        utteranceId?.let { id ->
-            onDone?.let { utteranceCallbacks[id] = it }
+        val params = Bundle().apply {
+            putString(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, utteranceId)
         }
 
-        tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, utteranceId)
+        onDone?.let {
+            utteranceCallbacks[utteranceId] = { it() }
+        }
+
+        tts?.speak(
+            text,
+            TextToSpeech.QUEUE_ADD,
+            params,
+            utteranceId
+        )
     }
 
 
@@ -103,6 +125,11 @@ class TextToSpeechManager @Inject constructor(
         tts?.stop()
         tts?.shutdown()
         tts = null
+    }
+
+    fun stop() {
+        tts?.stop()
+        utteranceCallbacks.clear()
     }
 }
 

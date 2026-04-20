@@ -9,4 +9,8 @@ data class ReadAndListenUiState(
     val hasMarkedComplete: Boolean = false,
     val isSentenceJoined: Boolean = false,
     val currentSentenceIndex: Int = 0,
+
+    val joinSentenceSpeakingIndex: Int? = null,
+    val splitSentenceWordIndex: Int = -1,
+    val isSpeaking: Boolean = false
 )

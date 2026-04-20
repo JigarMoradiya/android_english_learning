@@ -27,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
@@ -48,6 +49,8 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.PrimaryBlue
+import com.example.myapplication.ui.theme.PrimaryGreen
+import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
 
 
@@ -81,16 +84,23 @@ fun SentenceUnitPage(
 
 
             LazyColumn(
-                modifier = Modifier.padding(horizontal = Dimens16, vertical = Dimens8)
+                modifier = Modifier
+                    .padding(horizontal = Dimens16, vertical = Dimens8)
                     .weight(1f)
                     .fillMaxHeight(),
                 verticalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
 
                 items(viewModel.uiState.sentenceUnitsList) { item ->
-                    StyledColumn(unlocked = true, modifier = Modifier.clickable {
-                        navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name,item.unit.name,viewModel.uiState.level.name))
-                    }) {
+                    StyledColumn(
+                        unlocked = true,
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(Dimens12)) // 👈 IMPORTANT
+                            .clickable {
+                                AudioPlayerManager.playSoundMenuClick()
+                                navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, viewModel.uiState.level.name))
+                            }
+                    ) {
                         Text(
                             text = item.title,
                             color = Color.Black,
@@ -128,7 +138,7 @@ fun SentenceUnitPage(
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
                                 Text(
-                                    text = "Progress",
+                                    text = stringResource(R.string.progress),
                                     style = MaterialTheme.typography.titleSmall.scaled(),
                                     fontWeight = FontWeight.Medium,
                                     color = PrimaryBlue // replace with your color
@@ -143,29 +153,23 @@ fun SentenceUnitPage(
                             }
 
                             Spacer(modifier = Modifier.height(Dimens8))
-
                             val progressValue = if (total > 0) completed / total.toFloat() else 0f
 
-                            if (progressValue > 0f) {
-                                LinearProgressIndicator(
-                                    progress = { progressValue },
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(Dimens6),
-                                    color = Color(0xFF2E7D32),
-                                    trackColor = Color.LightGray.copy(alpha = 0.6f)
-                                )
-                            } else {
-                                // Show only track (no green dot)
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(Dimens6)
-                                        .background(
-                                            Color.LightGray.copy(alpha = 0.6f),
-                                            shape = RoundedCornerShape(50)
-                                        )
-                                )
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(Dimens6)
+                                    .clip(RoundedCornerShape(50))
+                                    .background(Color.LightGray.copy(alpha = 0.6f))
+                            ) {
+                                if (progressValue > 0f) {
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxWidth(progressValue)
+                                            .fillMaxHeight()
+                                            .background(PrimaryGreen)
+                                    )
+                                }
                             }
                         }
                     }
