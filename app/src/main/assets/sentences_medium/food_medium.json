@@ -1,0 +1,1735 @@
+[
+    {
+      "id": "food_m_1",
+      "imageName": "apple_fruit",
+      "title": "An Apple",
+      "unit": "food",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocab", "describing_food"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "food_m_1_s1",
+          "text": "The red apple grows on a tall tree in the garden.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["apple", "tree", "garden"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "red", "type": "adjective" },
+            { "word": "apple", "type": "noun" },
+            { "word": "grows", "type": "verb" },
+            { "word": "tall", "type": "adjective" },
+            { "word": "tree", "type": "noun" },
+            { "word": "garden", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_1_s2",
+          "text": "It looks fresh and shiny in the sunlight.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["appearance"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "looks", "type": "verb" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "shiny", "type": "adjective" },
+            { "word": "sunlight", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_1_s3",
+          "text": "I wash the apple carefully before eating it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["cleaning_food"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wash", "type": "verb" },
+            { "word": "apple", "type": "noun" },
+            { "word": "eating", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_m_1_s4",
+          "text": "It tastes sweet when I take a big bite.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["taste"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "tastes", "type": "verb" },
+            { "word": "sweet", "type": "adjective" },
+            { "word": "take", "type": "verb" },
+            { "word": "big", "type": "adjective" },
+            { "word": "bite", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_1_s5",
+          "text": "The juice drips slowly down my hand.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["juice"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "juice", "type": "noun" },
+            { "word": "drips", "type": "verb" },
+            { "word": "hand", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_1_s6",
+          "text": "My mother says apples keep us healthy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["healthy_food"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "says", "type": "verb" },
+            { "word": "apples", "type": "noun" },
+            { "word": "keep", "type": "verb" },
+            { "word": "healthy", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_m_1_s7",
+          "text": "I feel energetic after eating the fresh apple.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["energy"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "energetic", "type": "adjective" },
+            { "word": "eating", "type": "verb" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "apple", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_m_2",
+      "imageName": "banana_fruit",
+      "title": "A Banana",
+      "unit": "food",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocab", "describing_food"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "food_m_2_s1",
+          "text": "The yellow banana hangs from a large bunch.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["banana", "fruit"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "yellow", "type": "adjective" },
+            { "word": "banana", "type": "noun" },
+            { "word": "hangs", "type": "verb" },
+            { "word": "large", "type": "adjective" },
+            { "word": "bunch", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_2_s2",
+          "text": "It is soft and sweet inside.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["taste", "texture"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "soft", "type": "adjective" },
+            { "word": "sweet", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_m_2_s3",
+          "text": "I peel the banana before eating it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["action"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "peel", "type": "verb" },
+            { "word": "banana", "type": "noun" },
+            { "word": "eating", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_m_2_s4",
+          "text": "It gives me energy during the day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["energy"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "gives", "type": "verb" },
+            { "word": "energy", "type": "noun" },
+            { "word": "day", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_2_s5",
+          "text": "My father eats bananas after exercise.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["family", "exercise"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "father", "type": "noun" },
+            { "word": "eats", "type": "verb" },
+            { "word": "bananas", "type": "noun" },
+            { "word": "exercise", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_2_s6",
+          "text": "The banana smells fresh and pleasant.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["smell"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "banana", "type": "noun" },
+            { "word": "smells", "type": "verb" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "pleasant", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_m_2_s7",
+          "text": "I enjoy eating bananas in the morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["morning"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "enjoy", "type": "verb" },
+            { "word": "eating", "type": "verb" },
+            { "word": "bananas", "type": "noun" },
+            { "word": "morning", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_m_3",
+      "imageName": "breakfast_table",
+      "title": "Breakfast Time",
+      "unit": "food",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "daily_routine_vocab", "healthy_habits"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "food_m_3_s1",
+          "text": "I eat a healthy breakfast before going to school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["breakfast", "school"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "eat", "type": "verb" },
+            { "word": "healthy", "type": "adjective" },
+            { "word": "breakfast", "type": "noun" },
+            { "word": "going", "type": "verb" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_3_s2",
+          "text": "There is milk, bread, and eggs on the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns"],
+          "tags": ["milk", "bread", "eggs"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "milk", "type": "noun" },
+            { "word": "bread", "type": "noun" },
+            { "word": "eggs", "type": "noun" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_3_s3",
+          "text": "My mother prepares warm food every morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["mother", "morning"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "prepares", "type": "verb" },
+            { "word": "warm", "type": "adjective" },
+            { "word": "food", "type": "noun" },
+            { "word": "morning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_3_s4",
+          "text": "I drink milk because it makes me strong.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["milk", "strength"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "drink", "type": "verb" },
+            { "word": "milk", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "strong", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_m_3_s5",
+          "text": "We sit together while eating breakfast.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["family_time"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sit", "type": "verb" },
+            { "word": "eating", "type": "verb" },
+            { "word": "breakfast", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_3_s6",
+          "text": "Father reads the newspaper during the meal.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["father", "meal"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Father", "type": "noun" },
+            { "word": "reads", "type": "verb" },
+            { "word": "newspaper", "type": "noun" },
+            { "word": "meal", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_3_s7",
+          "text": "Breakfast helps me stay active throughout the day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["energy", "daily_routine"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Breakfast", "type": "noun" },
+            { "word": "helps", "type": "verb" },
+            { "word": "active", "type": "adjective" },
+            { "word": "day", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_m_4",
+      "imageName": "lunch_box",
+      "title": "My Lunch Box",
+      "unit": "food",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "school_vocab", "sharing_food"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "food_m_4_s1",
+          "text": "My mother packs a healthy lunch box for me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["mother", "lunch"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "packs", "type": "verb" },
+            { "word": "healthy", "type": "adjective" },
+            { "word": "lunch", "type": "noun" },
+            { "word": "box", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_4_s2",
+          "text": "There is rice, vegetables, and fruit inside.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns"],
+          "tags": ["rice", "vegetables", "fruit"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rice", "type": "noun" },
+            { "word": "vegetables", "type": "noun" },
+            { "word": "fruit", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_4_s3",
+          "text": "I open my lunch box during the school break.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["school", "break"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "open", "type": "verb" },
+            { "word": "lunch", "type": "noun" },
+            { "word": "box", "type": "noun" },
+            { "word": "school", "type": "noun" },
+            { "word": "break", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_4_s4",
+          "text": "I share my food with my best friend.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["sharing", "friend"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "share", "type": "verb" },
+            { "word": "food", "type": "noun" },
+            { "word": "best", "type": "adjective" },
+            { "word": "friend", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_4_s5",
+          "text": "We sit together under the big tree.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["tree", "friends"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sit", "type": "verb" },
+            { "word": "big", "type": "adjective" },
+            { "word": "tree", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_4_s6",
+          "text": "The food tastes delicious after playing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["taste"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "food", "type": "noun" },
+            { "word": "tastes", "type": "verb" },
+            { "word": "delicious", "type": "adjective" },
+            { "word": "playing", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_m_4_s7",
+          "text": "I thank my mother for preparing my lunch.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["gratitude"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "thank", "type": "verb" },
+            { "word": "mother", "type": "noun" },
+            { "word": "preparing", "type": "verb" },
+            { "word": "lunch", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_m_5",
+      "imageName": "orange_fruit",
+      "title": "An Orange",
+      "unit": "food",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "descriptive_vocab", "healthy_food"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "food_m_5_s1",
+          "text": "The orange fruit grows on a small tree.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["fruit", "nature"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "orange", "type": "adjective" },
+            { "word": "fruit", "type": "noun" },
+            { "word": "grows", "type": "verb" },
+            { "word": "small", "type": "adjective" },
+            { "word": "tree", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_5_s2",
+          "text": "Its bright color looks beautiful in the basket.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["color", "basket"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bright", "type": "adjective" },
+            { "word": "color", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "beautiful", "type": "adjective" },
+            { "word": "basket", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_5_s3",
+          "text": "I peel the orange carefully before eating.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["peel", "eat"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "peel", "type": "verb" },
+            { "word": "orange", "type": "noun" },
+            { "word": "eating", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_m_5_s4",
+          "text": "The slices taste sweet and slightly sour.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["taste"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "slices", "type": "noun" },
+            { "word": "taste", "type": "verb" },
+            { "word": "sweet", "type": "adjective" },
+            { "word": "sour", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_m_5_s5",
+          "text": "Juice spills when I press the fruit.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["juice"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Juice", "type": "noun" },
+            { "word": "spills", "type": "verb" },
+            { "word": "press", "type": "verb" },
+            { "word": "fruit", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_5_s6",
+          "text": "Oranges are rich in vitamin C.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["health"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Oranges", "type": "noun" },
+            { "word": "rich", "type": "adjective" },
+            { "word": "vitamin", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_5_s7",
+          "text": "I feel refreshed after eating the orange.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["healthy_food"],
+          "distractorGroup": "food_fruits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "refreshed", "type": "adjective" },
+            { "word": "eating", "type": "verb" },
+            { "word": "orange", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_m_6",
+      "imageName": "vegetables_plate",
+      "title": "Healthy Vegetables",
+      "unit": "food",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "healthy_food_vocab", "descriptive_words"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "food_m_6_s1",
+          "text": "Fresh vegetables are important for a healthy body.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives", "nouns"],
+          "tags": ["health", "body"],
+          "distractorGroup": "food_vegetables",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Fresh", "type": "adjective" },
+            { "word": "vegetables", "type": "noun" },
+            { "word": "important", "type": "adjective" },
+            { "word": "healthy", "type": "adjective" },
+            { "word": "body", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_6_s2",
+          "text": "Carrots, spinach, and tomatoes add bright colors.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["carrots", "spinach", "tomatoes"],
+          "distractorGroup": "food_vegetables",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Carrots", "type": "noun" },
+            { "word": "spinach", "type": "noun" },
+            { "word": "tomatoes", "type": "noun" },
+            { "word": "add", "type": "verb" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "colors", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_6_s3",
+          "text": "My mother cooks vegetables for dinner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["mother", "dinner"],
+          "distractorGroup": "food_vegetables",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "cooks", "type": "verb" },
+            { "word": "vegetables", "type": "noun" },
+            { "word": "dinner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_6_s4",
+          "text": "We eat vegetables because they give us strength.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["strength"],
+          "distractorGroup": "food_vegetables",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "eat", "type": "verb" },
+            { "word": "vegetables", "type": "noun" },
+            { "word": "give", "type": "verb" },
+            { "word": "strength", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_6_s5",
+          "text": "I wash the vegetables before cooking.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["wash", "cooking"],
+          "distractorGroup": "food_vegetables",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wash", "type": "verb" },
+            { "word": "vegetables", "type": "noun" },
+            { "word": "cooking", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_m_6_s6",
+          "text": "The food smells good after it is ready.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["smell"],
+          "distractorGroup": "food_vegetables",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "food", "type": "noun" },
+            { "word": "smells", "type": "verb" },
+            { "word": "good", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_m_6_s7",
+          "text": "Eating vegetables helps me grow strong.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["growth", "health"],
+          "distractorGroup": "food_vegetables",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Eating", "type": "noun" },
+            { "word": "vegetables", "type": "noun" },
+            { "word": "helps", "type": "verb" },
+            { "word": "grow", "type": "verb" },
+            { "word": "strong", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_m_7",
+      "imageName": "milk_glass",
+      "title": "A Glass of Milk",
+      "unit": "food",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "health_vocab", "daily_habits"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "food_m_7_s1",
+          "text": "I drink a glass of warm milk every night.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["milk", "night_routine"],
+          "distractorGroup": "food_drinks",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "drink", "type": "verb" },
+            { "word": "glass", "type": "noun" },
+            { "word": "warm", "type": "adjective" },
+            { "word": "milk", "type": "noun" },
+            { "word": "night", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_7_s2",
+          "text": "Milk contains nutrients that strengthen our bones.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["health", "bones"],
+          "distractorGroup": "food_drinks",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Milk", "type": "noun" },
+            { "word": "contains", "type": "verb" },
+            { "word": "nutrients", "type": "noun" },
+            { "word": "strengthen", "type": "verb" },
+            { "word": "bones", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_7_s3",
+          "text": "My mother reminds me to finish my milk.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["mother", "habit"],
+          "distractorGroup": "food_drinks",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "reminds", "type": "verb" },
+            { "word": "finish", "type": "verb" },
+            { "word": "milk", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_7_s4",
+          "text": "It tastes better when I add some sugar.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["taste"],
+          "distractorGroup": "food_drinks",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "tastes", "type": "verb" },
+            { "word": "better", "type": "adjective" },
+            { "word": "add", "type": "verb" },
+            { "word": "sugar", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_7_s5",
+          "text": "The milk feels warm in my hands.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["warmth"],
+          "distractorGroup": "food_drinks",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "milk", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "warm", "type": "adjective" },
+            { "word": "hands", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_7_s6",
+          "text": "I drink milk before going to bed.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["bedtime"],
+          "distractorGroup": "food_drinks",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "drink", "type": "verb" },
+            { "word": "milk", "type": "noun" },
+            { "word": "going", "type": "verb" },
+            { "word": "bed", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_7_s7",
+          "text": "I feel healthy after drinking my milk.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["health"],
+          "distractorGroup": "food_drinks",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "healthy", "type": "adjective" },
+            { "word": "drinking", "type": "verb" },
+            { "word": "milk", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_m_8",
+      "imageName": "birthday_cake",
+      "title": "Birthday Cake",
+      "unit": "food",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebration_vocab", "descriptive_words"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "food_m_8_s1",
+          "text": "We buy a large chocolate cake for the birthday.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["birthday", "cake"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "buy", "type": "verb" },
+            { "word": "large", "type": "adjective" },
+            { "word": "chocolate", "type": "adjective" },
+            { "word": "cake", "type": "noun" },
+            { "word": "birthday", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_8_s2",
+          "text": "The cake is decorated with colorful cream.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["decoration"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cake", "type": "noun" },
+            { "word": "decorated", "type": "verb" },
+            { "word": "colorful", "type": "adjective" },
+            { "word": "cream", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_8_s3",
+          "text": "We light candles before cutting the cake.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["candles"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "light", "type": "verb" },
+            { "word": "candles", "type": "noun" },
+            { "word": "cutting", "type": "verb" },
+            { "word": "cake", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_8_s4",
+          "text": "Everyone sings loudly during the celebration.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["celebration"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sings", "type": "verb" },
+            { "word": "celebration", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_8_s5",
+          "text": "The cake tastes sweet and soft.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["taste"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cake", "type": "noun" },
+            { "word": "tastes", "type": "verb" },
+            { "word": "sweet", "type": "adjective" },
+            { "word": "soft", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_m_8_s6",
+          "text": "Children smile happily while eating.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "smile", "type": "verb" },
+            { "word": "eating", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_m_8_s7",
+          "text": "The celebration feels joyful and exciting.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["joy"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "celebration", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "joyful", "type": "adjective" },
+            { "word": "exciting", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_m_9",
+      "imageName": "ice_cream",
+      "title": "Ice Cream",
+      "unit": "food",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "summer_vocab", "descriptive_words"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "food_m_9_s1",
+          "text": "Ice cream is my favorite dessert in summer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["dessert", "summer"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Ice", "type": "noun" },
+            { "word": "cream", "type": "noun" },
+            { "word": "favorite", "type": "adjective" },
+            { "word": "dessert", "type": "noun" },
+            { "word": "summer", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_9_s2",
+          "text": "It comes in many flavors like chocolate and vanilla.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["flavors"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "comes", "type": "verb" },
+            { "word": "flavors", "type": "noun" },
+            { "word": "chocolate", "type": "noun" },
+            { "word": "vanilla", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_9_s3",
+          "text": "The ice cream melts quickly under the hot sun.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sun", "weather"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ice", "type": "noun" },
+            { "word": "cream", "type": "noun" },
+            { "word": "melts", "type": "verb" },
+            { "word": "hot", "type": "adjective" },
+            { "word": "sun", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_9_s4",
+          "text": "I eat it slowly to enjoy the taste.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["taste"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "eat", "type": "verb" },
+            { "word": "enjoy", "type": "verb" },
+            { "word": "taste", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_9_s5",
+          "text": "My friends buy ice cream after school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["friends", "school"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "friends", "type": "noun" },
+            { "word": "buy", "type": "verb" },
+            { "word": "ice", "type": "noun" },
+            { "word": "cream", "type": "noun" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_9_s6",
+          "text": "We sit together and talk happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["friends_time"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sit", "type": "verb" },
+            { "word": "talk", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_m_9_s7",
+          "text": "Ice cream makes me feel cheerful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["feelings"],
+          "distractorGroup": "food_desserts",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Ice", "type": "noun" },
+            { "word": "cream", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "cheerful", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_m_10",
+      "imageName": "family_dinner",
+      "title": "Dinner Time",
+      "unit": "food",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_vocab", "daily_routine"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "food_m_10_s1",
+          "text": "Our family eats dinner together every evening.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["family", "evening"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "eats", "type": "verb" },
+            { "word": "dinner", "type": "noun" },
+            { "word": "evening", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_10_s2",
+          "text": "There are fresh dishes placed on the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["table", "food"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "fresh", "type": "adjective" },
+            { "word": "dishes", "type": "noun" },
+            { "word": "placed", "type": "verb" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_10_s3",
+          "text": "We talk about our day while eating.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["conversation"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "talk", "type": "verb" },
+            { "word": "day", "type": "noun" },
+            { "word": "eating", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_m_10_s4",
+          "text": "Mother serves warm rice and vegetables.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["mother", "rice"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Mother", "type": "noun" },
+            { "word": "serves", "type": "verb" },
+            { "word": "warm", "type": "adjective" },
+            { "word": "rice", "type": "noun" },
+            { "word": "vegetables", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_10_s5",
+          "text": "Father shares funny stories during dinner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["father", "stories"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Father", "type": "noun" },
+            { "word": "shares", "type": "verb" },
+            { "word": "funny", "type": "adjective" },
+            { "word": "stories", "type": "noun" },
+            { "word": "dinner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_m_10_s6",
+          "text": "We clean the table after finishing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["cleanup"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "clean", "type": "verb" },
+            { "word": "table", "type": "noun" },
+            { "word": "finishing", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_m_10_s7",
+          "text": "Dinner time brings our family closer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["family_bond"],
+          "distractorGroup": "food_meals",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Dinner", "type": "noun" },
+            { "word": "brings", "type": "verb" },
+            { "word": "family", "type": "noun" },
+            { "word": "closer", "type": "adjective" }
+          ]
+        }
+      ]
+    }
+]

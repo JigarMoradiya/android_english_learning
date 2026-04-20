@@ -1,0 +1,1785 @@
+[
+    {
+      "id": "play_m_1",
+      "imageName": "boy_playing_ball",
+      "title": "Playing with a Ball",
+      "unit": "playAndFun",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "actions", "descriptions"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "play_m_1_s1",
+          "text": "The boy plays with a bright red ball in the park.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["boy","ball","park"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "plays", "type": "verb" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "red", "type": "adjective" },
+            { "word": "ball", "type": "noun" },
+            { "word": "park", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_1_s2",
+          "text": "He throws the ball high into the clear blue sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns","adjectives"],
+          "tags": ["throws","ball","sky"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "throws", "type": "verb" },
+            { "word": "ball", "type": "noun" },
+            { "word": "clear", "type": "adjective" },
+            { "word": "blue", "type": "adjective" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_1_s3",
+          "text": "The ball falls quickly because the wind blows strongly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["ball","wind"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ball", "type": "noun" },
+            { "word": "falls", "type": "verb" },
+            { "word": "wind", "type": "noun" },
+            { "word": "blows", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_1_s4",
+          "text": "He runs across the green grass to catch it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["runs","grass"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "runs", "type": "verb" },
+            { "word": "green", "type": "adjective" },
+            { "word": "grass", "type": "noun" },
+            { "word": "catch", "type": "verb" },
+            { "word": "it", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "play_m_1_s5",
+          "text": "His friend watches him and laughs loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","nouns","verbs"],
+          "tags": ["friend","laughs"],
+          "distractorGroup": "play_people",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "His", "type": "pronoun" },
+            { "word": "friend", "type": "noun" },
+            { "word": "watches", "type": "verb" },
+            { "word": "him", "type": "pronoun" },
+            { "word": "laughs", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_1_s6",
+          "text": "They continue playing even after the sun gets warmer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns","adjectives"],
+          "tags": ["continue","sun"],
+          "distractorGroup": "play_time",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "continue", "type": "verb" },
+            { "word": "sun", "type": "noun" },
+            { "word": "warmer", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "play_m_1_s7",
+          "text": "Both boys feel happy after their fun game.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["boys","game"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boys", "type": "noun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "happy", "type": "adjective" },
+            { "word": "their", "type": "pronoun" },
+            { "word": "game", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "play_m_2",
+      "imageName": "girl_flying_kite",
+      "title": "Flying a Kite",
+      "unit": "playAndFun",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "actions", "nature"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "play_m_2_s1",
+          "text": "The girl flies her yellow kite in the open field.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["girl","kite","field"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "flies", "type": "verb" },
+            { "word": "her", "type": "pronoun" },
+            { "word": "yellow", "type": "adjective" },
+            { "word": "kite", "type": "noun" },
+            { "word": "field", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_2_s2",
+          "text": "She runs forward when the wind begins to blow.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["runs","wind"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "runs", "type": "verb" },
+            { "word": "wind", "type": "noun" },
+            { "word": "begins", "type": "verb" },
+            { "word": "blow", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_2_s3",
+          "text": "The long string moves quickly in her small hands.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs","pronouns"],
+          "tags": ["string","hands"],
+          "distractorGroup": "play_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "long", "type": "adjective" },
+            { "word": "string", "type": "noun" },
+            { "word": "moves", "type": "verb" },
+            { "word": "her", "type": "pronoun" },
+            { "word": "small", "type": "adjective" },
+            { "word": "hands", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_2_s4",
+          "text": "The kite rises high above the tall green trees.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["kite","trees"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "kite", "type": "noun" },
+            { "word": "rises", "type": "verb" },
+            { "word": "tall", "type": "adjective" },
+            { "word": "green", "type": "adjective" },
+            { "word": "trees", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_2_s5",
+          "text": "Her brother cheers because the kite looks beautiful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","nouns","verbs","adjectives"],
+          "tags": ["brother","kite"],
+          "distractorGroup": "play_people",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Her", "type": "pronoun" },
+            { "word": "brother", "type": "noun" },
+            { "word": "cheers", "type": "verb" },
+            { "word": "kite", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "beautiful", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "play_m_2_s6",
+          "text": "Dark clouds slowly move across the wide sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["clouds","sky"],
+          "distractorGroup": "play_weather",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Dark", "type": "adjective" },
+            { "word": "clouds", "type": "noun" },
+            { "word": "move", "type": "verb" },
+            { "word": "wide", "type": "adjective" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_2_s7",
+          "text": "She smiles proudly after flying her kite successfully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["smiles","kite"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "smiles", "type": "verb" },
+            { "word": "her", "type": "pronoun" },
+            { "word": "kite", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "play_m_3",
+      "imageName": "boy_riding_bicycle",
+      "title": "Riding a Bicycle",
+      "unit": "playAndFun",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "actions", "safety"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "play_m_3_s1",
+          "text": "The boy rides his blue bicycle around the quiet street.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["boy","bicycle","street"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "rides", "type": "verb" },
+            { "word": "his", "type": "pronoun" },
+            { "word": "blue", "type": "adjective" },
+            { "word": "bicycle", "type": "noun" },
+            { "word": "quiet", "type": "adjective" },
+            { "word": "street", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_3_s2",
+          "text": "He wears a strong helmet to stay safe.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["helmet","safe"],
+          "distractorGroup": "play_safety",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "wears", "type": "verb" },
+            { "word": "strong", "type": "adjective" },
+            { "word": "helmet", "type": "noun" },
+            { "word": "stay", "type": "verb" },
+            { "word": "safe", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "play_m_3_s3",
+          "text": "He pedals faster when he sees his friends ahead.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["pedals","friends"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "pedals", "type": "verb" },
+            { "word": "sees", "type": "verb" },
+            { "word": "his", "type": "pronoun" },
+            { "word": "friends", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_3_s4",
+          "text": "The cool wind gently touches his smiling face.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs","pronouns"],
+          "tags": ["wind","face"],
+          "distractorGroup": "play_nature",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cool", "type": "adjective" },
+            { "word": "wind", "type": "noun" },
+            { "word": "touches", "type": "verb" },
+            { "word": "his", "type": "pronoun" },
+            { "word": "face", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_3_s5",
+          "text": "He rings the bell before turning the sharp corner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["bell","corner"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "rings", "type": "verb" },
+            { "word": "bell", "type": "noun" },
+            { "word": "sharp", "type": "adjective" },
+            { "word": "corner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_3_s6",
+          "text": "His little sister waves from the garden nearby.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","adjectives","nouns","verbs"],
+          "tags": ["sister","garden"],
+          "distractorGroup": "play_people",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "His", "type": "pronoun" },
+            { "word": "little", "type": "adjective" },
+            { "word": "sister", "type": "noun" },
+            { "word": "waves", "type": "verb" },
+            { "word": "garden", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_3_s7",
+          "text": "He feels proud because he rides confidently alone.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives"],
+          "tags": ["feels","proud"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "proud", "type": "adjective" },
+            { "word": "rides", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "play_m_4",
+      "imageName": "kids_playing_football",
+      "title": "Playing Football",
+      "unit": "playAndFun",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "teamwork", "sports_actions"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "play_m_4_s1",
+          "text": "The children gather in the large playground after school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["children","playground","school"],
+          "distractorGroup": "play_sports",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "gather", "type": "verb" },
+            { "word": "large", "type": "adjective" },
+            { "word": "playground", "type": "noun" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_4_s2",
+          "text": "They divide into teams before starting the match.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["teams","match"],
+          "distractorGroup": "play_sports",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "divide", "type": "verb" },
+            { "word": "teams", "type": "noun" },
+            { "word": "match", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_4_s3",
+          "text": "The ball moves quickly across the dusty field.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["ball","field"],
+          "distractorGroup": "play_sports",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ball", "type": "noun" },
+            { "word": "moves", "type": "verb" },
+            { "word": "dusty", "type": "adjective" },
+            { "word": "field", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_4_s4",
+          "text": "One boy kicks strongly because he wants to score.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["boy","score"],
+          "distractorGroup": "play_sports",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "kicks", "type": "verb" },
+            { "word": "he", "type": "pronoun" },
+            { "word": "wants", "type": "verb" },
+            { "word": "score", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_4_s5",
+          "text": "The goalkeeper jumps high to stop the fast ball.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["goalkeeper","ball"],
+          "distractorGroup": "play_sports",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "goalkeeper", "type": "noun" },
+            { "word": "jumps", "type": "verb" },
+            { "word": "fast", "type": "adjective" },
+            { "word": "ball", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_4_s6",
+          "text": "Everyone shouts loudly when a goal is scored.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["goal","shouts"],
+          "distractorGroup": "play_sports",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Everyone", "type": "pronoun" },
+            { "word": "shouts", "type": "verb" },
+            { "word": "goal", "type": "noun" },
+            { "word": "scored", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_4_s7",
+          "text": "The team celebrates happily after winning the exciting game.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["team","game"],
+          "distractorGroup": "play_sports",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "team", "type": "noun" },
+            { "word": "celebrates", "type": "verb" },
+            { "word": "exciting", "type": "adjective" },
+            { "word": "game", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "play_m_5",
+      "imageName": "boy_building_blocks",
+      "title": "Building Blocks",
+      "unit": "playAndFun",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "creativity", "descriptions"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "play_m_5_s1",
+          "text": "The boy carefully builds a tall tower using colorful blocks.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["boy","tower","blocks"],
+          "distractorGroup": "play_creative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "builds", "type": "verb" },
+            { "word": "tall", "type": "adjective" },
+            { "word": "tower", "type": "noun" },
+            { "word": "colorful", "type": "adjective" },
+            { "word": "blocks", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_5_s2",
+          "text": "He places each block slowly so it does not fall.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["block","fall"],
+          "distractorGroup": "play_creative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "places", "type": "verb" },
+            { "word": "block", "type": "noun" },
+            { "word": "fall", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_5_s3",
+          "text": "The tower becomes taller than his toy box.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["tower","box"],
+          "distractorGroup": "play_creative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "tower", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "taller", "type": "adjective" },
+            { "word": "his", "type": "pronoun" },
+            { "word": "box", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_5_s4",
+          "text": "He adds another block even though it looks risky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns","adjectives"],
+          "tags": ["block","risky"],
+          "distractorGroup": "play_creative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "adds", "type": "verb" },
+            { "word": "block", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "risky", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "play_m_5_s5",
+          "text": "The tower shakes slightly when he touches the top.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["tower","top"],
+          "distractorGroup": "play_creative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "tower", "type": "noun" },
+            { "word": "shakes", "type": "verb" },
+            { "word": "he", "type": "pronoun" },
+            { "word": "touches", "type": "verb" },
+            { "word": "top", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_5_s6",
+          "text": "His sister watches quietly from the soft carpet.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","nouns","verbs","adjectives"],
+          "tags": ["sister","carpet"],
+          "distractorGroup": "play_people",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "His", "type": "pronoun" },
+            { "word": "sister", "type": "noun" },
+            { "word": "watches", "type": "verb" },
+            { "word": "soft", "type": "adjective" },
+            { "word": "carpet", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_5_s7",
+          "text": "He feels proud after finishing the tall tower.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["proud","tower"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "proud", "type": "adjective" },
+            { "word": "tall", "type": "adjective" },
+            { "word": "tower", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "play_m_6",
+      "imageName": "girl_skipping_rope",
+      "title": "Skipping Rope",
+      "unit": "playAndFun",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "actions", "practice"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "play_m_6_s1",
+          "text": "The girl skips rope in the playground after school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["girl","rope","playground"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "skips", "type": "verb" },
+            { "word": "rope", "type": "noun" },
+            { "word": "playground", "type": "noun" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_6_s2",
+          "text": "She jumps quickly while counting the numbers loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["jumps","numbers"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "jumps", "type": "verb" },
+            { "word": "counting", "type": "verb" },
+            { "word": "numbers", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_6_s3",
+          "text": "Her feet move faster as the rope spins around.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","nouns","verbs"],
+          "tags": ["feet","rope"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Her", "type": "pronoun" },
+            { "word": "feet", "type": "noun" },
+            { "word": "move", "type": "verb" },
+            { "word": "rope", "type": "noun" },
+            { "word": "spins", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_6_s4",
+          "text": "Her friends clap because she skips without stopping.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","nouns","verbs"],
+          "tags": ["friends","clap"],
+          "distractorGroup": "play_people",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Her", "type": "pronoun" },
+            { "word": "friends", "type": "noun" },
+            { "word": "clap", "type": "verb" },
+            { "word": "she", "type": "pronoun" },
+            { "word": "skips", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_6_s5",
+          "text": "She smiles brightly when she reaches fifty jumps.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["smiles","jumps"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "smiles", "type": "verb" },
+            { "word": "reaches", "type": "verb" },
+            { "word": "jumps", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_6_s6",
+          "text": "She almost trips but quickly finds her balance.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["trips","balance"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "trips", "type": "verb" },
+            { "word": "finds", "type": "verb" },
+            { "word": "her", "type": "pronoun" },
+            { "word": "balance", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_6_s7",
+          "text": "She feels strong and confident after practicing daily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives"],
+          "tags": ["strong","confident"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "strong", "type": "adjective" },
+            { "word": "confident", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "play_m_7",
+      "imageName": "kids_playing_slide",
+      "title": "Playing on the Slide",
+      "unit": "playAndFun",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "actions", "outdoor_play"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "play_m_7_s1",
+          "text": "The children visit the park on a sunny afternoon.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["children","park","afternoon"],
+          "distractorGroup": "play_outdoor",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "visit", "type": "verb" },
+            { "word": "park", "type": "noun" },
+            { "word": "sunny", "type": "adjective" },
+            { "word": "afternoon", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_7_s2",
+          "text": "They climb the tall slide carefully before sliding down.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["slide","climb"],
+          "distractorGroup": "play_outdoor",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "climb", "type": "verb" },
+            { "word": "tall", "type": "adjective" },
+            { "word": "slide", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_7_s3",
+          "text": "They laugh loudly as they move quickly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs"],
+          "tags": ["laugh","move"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "laugh", "type": "verb" },
+            { "word": "move", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_7_s4",
+          "text": "Some children wait patiently for their turn.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["children","turn"],
+          "distractorGroup": "play_people",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "wait", "type": "verb" },
+            { "word": "their", "type": "pronoun" },
+            { "word": "turn", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_7_s5",
+          "text": "The wind feels cool when they slide down.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["wind","cool"],
+          "distractorGroup": "play_nature",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wind", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "cool", "type": "adjective" },
+            { "word": "they", "type": "pronoun" },
+            { "word": "slide", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_7_s6",
+          "text": "They run back to climb again without feeling tired.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives"],
+          "tags": ["run","tired"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "run", "type": "verb" },
+            { "word": "climb", "type": "verb" },
+            { "word": "tired", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "play_m_7_s7",
+          "text": "They enjoy spending time together in the park.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["enjoy","park"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "enjoy", "type": "verb" },
+            { "word": "time", "type": "noun" },
+            { "word": "park", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "play_m_8",
+      "imageName": "toy_car_race",
+      "title": "Toy Car Race",
+      "unit": "playAndFun",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "competition", "problem_solving"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "play_m_8_s1",
+          "text": "The boy and his friend race their small toy cars.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["boy","friend","cars"],
+          "distractorGroup": "play_competition",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "his", "type": "pronoun" },
+            { "word": "friend", "type": "noun" },
+            { "word": "race", "type": "verb" },
+            { "word": "their", "type": "pronoun" },
+            { "word": "small", "type": "adjective" },
+            { "word": "cars", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_8_s2",
+          "text": "They build a long track across the living room floor.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["track","room","floor"],
+          "distractorGroup": "play_creative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "build", "type": "verb" },
+            { "word": "long", "type": "adjective" },
+            { "word": "track", "type": "noun" },
+            { "word": "room", "type": "noun" },
+            { "word": "floor", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_8_s3",
+          "text": "The cars move quickly when they push them hard.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["cars","push"],
+          "distractorGroup": "play_competition",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cars", "type": "noun" },
+            { "word": "move", "type": "verb" },
+            { "word": "they", "type": "pronoun" },
+            { "word": "push", "type": "verb" },
+            { "word": "them", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "play_m_8_s4",
+          "text": "One car stops suddenly because it hits a chair.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["car","chair"],
+          "distractorGroup": "play_problem",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "car", "type": "noun" },
+            { "word": "stops", "type": "verb" },
+            { "word": "it", "type": "pronoun" },
+            { "word": "hits", "type": "verb" },
+            { "word": "chair", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_8_s5",
+          "text": "They fix the track before starting the race again.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["track","race"],
+          "distractorGroup": "play_problem",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "fix", "type": "verb" },
+            { "word": "track", "type": "noun" },
+            { "word": "race", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_8_s6",
+          "text": "They cheer loudly when the red car wins.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["cheer","car"],
+          "distractorGroup": "play_competition",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "cheer", "type": "verb" },
+            { "word": "red", "type": "adjective" },
+            { "word": "car", "type": "noun" },
+            { "word": "wins", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_8_s7",
+          "text": "They feel excited after finishing the race.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["excited","race"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "excited", "type": "adjective" },
+            { "word": "race", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "play_m_9",
+      "imageName": "kids_playing_swing",
+      "title": "Swinging High",
+      "unit": "playAndFun",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family", "outdoor_play"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "play_m_9_s1",
+          "text": "The girl sits on the swing in the quiet park.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["girl","swing","park"],
+          "distractorGroup": "play_outdoor",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "sits", "type": "verb" },
+            { "word": "swing", "type": "noun" },
+            { "word": "quiet", "type": "adjective" },
+            { "word": "park", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_9_s2",
+          "text": "Her father pushes gently while she holds tightly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","nouns","verbs"],
+          "tags": ["father","pushes"],
+          "distractorGroup": "play_family",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Her", "type": "pronoun" },
+            { "word": "father", "type": "noun" },
+            { "word": "pushes", "type": "verb" },
+            { "word": "she", "type": "pronoun" },
+            { "word": "holds", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_9_s3",
+          "text": "She goes higher when he pushes again.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs"],
+          "tags": ["goes","pushes"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "goes", "type": "verb" },
+            { "word": "he", "type": "pronoun" },
+            { "word": "pushes", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_9_s4",
+          "text": "The cool wind brushes against her face.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs","pronouns"],
+          "tags": ["wind","face"],
+          "distractorGroup": "play_nature",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cool", "type": "adjective" },
+            { "word": "wind", "type": "noun" },
+            { "word": "brushes", "type": "verb" },
+            { "word": "her", "type": "pronoun" },
+            { "word": "face", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_9_s5",
+          "text": "She laughs happily because she feels free.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives"],
+          "tags": ["laughs","free"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "laughs", "type": "verb" },
+            { "word": "feels", "type": "verb" },
+            { "word": "free", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "play_m_9_s6",
+          "text": "Birds fly above her as she swings forward.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["Birds","swings"],
+          "distractorGroup": "play_nature",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Birds", "type": "noun" },
+            { "word": "fly", "type": "verb" },
+            { "word": "her", "type": "pronoun" },
+            { "word": "she", "type": "pronoun" },
+            { "word": "swings", "type": "verb" }
+          ]
+        },
+        {
+          "id": "play_m_9_s7",
+          "text": "She wants to swing again before going home.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["wants","home"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "wants", "type": "verb" },
+            { "word": "swing", "type": "verb" },
+            { "word": "home", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "play_m_10",
+      "imageName": "kids_solving_puzzle",
+      "title": "Solving a Puzzle",
+      "unit": "playAndFun",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "teamwork", "problem_solving"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "play_m_10_s1",
+          "text": "The children sit together to solve a large puzzle.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["children","puzzle"],
+          "distractorGroup": "play_problem",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "solve", "type": "verb" },
+            { "word": "large", "type": "adjective" },
+            { "word": "puzzle", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_10_s2",
+          "text": "They carefully spread the pieces across the floor.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["pieces","floor"],
+          "distractorGroup": "play_problem",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "spread", "type": "verb" },
+            { "word": "pieces", "type": "noun" },
+            { "word": "floor", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_10_s3",
+          "text": "They look at the picture before matching the shapes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["picture","shapes"],
+          "distractorGroup": "play_problem",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "look", "type": "verb" },
+            { "word": "picture", "type": "noun" },
+            { "word": "matching", "type": "verb" },
+            { "word": "shapes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_10_s4",
+          "text": "One child finds the corner pieces first.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["child","pieces"],
+          "distractorGroup": "play_problem",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "child", "type": "noun" },
+            { "word": "finds", "type": "verb" },
+            { "word": "pieces", "type": "noun" }
+          ]
+        },
+        {
+          "id": "play_m_10_s5",
+          "text": "They work together because the puzzle is difficult.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns","adjectives"],
+          "tags": ["puzzle","difficult"],
+          "distractorGroup": "play_problem",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "work", "type": "verb" },
+            { "word": "puzzle", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "difficult", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "play_m_10_s6",
+          "text": "Slowly the colorful picture becomes clear.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["picture","clear"],
+          "distractorGroup": "play_problem",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "colorful", "type": "adjective" },
+            { "word": "picture", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "clear", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "play_m_10_s7",
+          "text": "They feel proud after completing the puzzle.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["proud","puzzle"],
+          "distractorGroup": "play_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "proud", "type": "adjective" },
+            { "word": "puzzle", "type": "noun" }
+          ]
+        }
+      ]
+    }
+]

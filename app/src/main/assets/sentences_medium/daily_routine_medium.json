@@ -1,0 +1,1716 @@
+[
+    {
+      "id": "daily_m_1",
+      "imageName": "waking_up",
+      "title": "Waking Up",
+      "unit": "dailyRoutine",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "daily_routine_vocab", "time_words"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "daily_m_1_s1",
+          "text": "I wake up early when the sun begins to rise.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["morning", "sunrise"],
+          "distractorGroup": "daily_morning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wake", "type": "verb" },
+            { "word": "early", "type": "adjective" },
+            { "word": "sun", "type": "noun" },
+            { "word": "begins", "type": "verb" },
+            { "word": "rise", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_1_s2",
+          "text": "Bright sunlight enters my room through the window.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["sunlight", "room"],
+          "distractorGroup": "daily_morning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Bright", "type": "adjective" },
+            { "word": "sunlight", "type": "noun" },
+            { "word": "enters", "type": "verb" },
+            { "word": "room", "type": "noun" },
+            { "word": "window", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_1_s3",
+          "text": "I stretch my arms before getting out of bed.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["stretch", "bed"],
+          "distractorGroup": "daily_morning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "stretch", "type": "verb" },
+            { "word": "arms", "type": "noun" },
+            { "word": "getting", "type": "verb" },
+            { "word": "bed", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_1_s4",
+          "text": "I feel fresh after washing my face.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["wash", "hygiene"],
+          "distractorGroup": "daily_morning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "washing", "type": "verb" },
+            { "word": "face", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_1_s5",
+          "text": "I make my bed neatly every morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["bed", "routine"],
+          "distractorGroup": "daily_morning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "make", "type": "verb" },
+            { "word": "bed", "type": "noun" },
+            { "word": "morning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_1_s6",
+          "text": "Birds sing softly outside my house.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["birds", "nature"],
+          "distractorGroup": "daily_morning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Birds", "type": "noun" },
+            { "word": "sing", "type": "verb" },
+            { "word": "house", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_1_s7",
+          "text": "I start my day with a happy smile.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["morning", "feelings"],
+          "distractorGroup": "daily_morning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "start", "type": "verb" },
+            { "word": "day", "type": "noun" },
+            { "word": "happy", "type": "adjective" },
+            { "word": "smile", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_m_2",
+      "imageName": "brushing_teeth",
+      "title": "Brushing My Teeth",
+      "unit": "dailyRoutine",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "hygiene_vocab", "daily_habits"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "daily_m_2_s1",
+          "text": "I brush my teeth carefully every morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["morning", "hygiene"],
+          "distractorGroup": "daily_hygiene",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "brush", "type": "verb" },
+            { "word": "teeth", "type": "noun" },
+            { "word": "morning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_2_s2",
+          "text": "I use mint toothpaste to keep them clean.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["toothpaste", "clean"],
+          "distractorGroup": "daily_hygiene",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "use", "type": "verb" },
+            { "word": "toothpaste", "type": "noun" },
+            { "word": "keep", "type": "verb" },
+            { "word": "clean", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_m_2_s3",
+          "text": "I rinse my mouth after brushing properly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["rinse", "mouth"],
+          "distractorGroup": "daily_hygiene",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rinse", "type": "verb" },
+            { "word": "mouth", "type": "noun" },
+            { "word": "brushing", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_2_s4",
+          "text": "I wash my face with cool water.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["wash", "water"],
+          "distractorGroup": "daily_hygiene",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wash", "type": "verb" },
+            { "word": "face", "type": "noun" },
+            { "word": "cool", "type": "adjective" },
+            { "word": "water", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_2_s5",
+          "text": "I look in the mirror before combing my hair.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["mirror", "hair"],
+          "distractorGroup": "daily_hygiene",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "look", "type": "verb" },
+            { "word": "mirror", "type": "noun" },
+            { "word": "combing", "type": "verb" },
+            { "word": "hair", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_2_s6",
+          "text": "My mother reminds me to brush twice daily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["mother", "habit"],
+          "distractorGroup": "daily_hygiene",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "reminds", "type": "verb" },
+            { "word": "brush", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_2_s7",
+          "text": "I feel clean and fresh after finishing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["feelings", "clean"],
+          "distractorGroup": "daily_hygiene",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "clean", "type": "adjective" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "finishing", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_m_3",
+      "imageName": "getting_dressed",
+      "title": "Getting Dressed",
+      "unit": "dailyRoutine",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "clothing_vocab", "daily_habits"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "daily_m_3_s1",
+          "text": "I wear my clean school uniform every morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["clothes", "morning"],
+          "distractorGroup": "daily_clothes",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wear", "type": "verb" },
+            { "word": "clean", "type": "adjective" },
+            { "word": "school", "type": "noun" },
+            { "word": "uniform", "type": "noun" },
+            { "word": "morning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_3_s2",
+          "text": "I button my shirt carefully before leaving home.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["shirt", "home"],
+          "distractorGroup": "daily_clothes",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "button", "type": "verb" },
+            { "word": "shirt", "type": "noun" },
+            { "word": "leaving", "type": "verb" },
+            { "word": "home", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_3_s3",
+          "text": "I polish my shoes to make them shine.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["shoes", "care"],
+          "distractorGroup": "daily_clothes",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "polish", "type": "verb" },
+            { "word": "shoes", "type": "noun" },
+            { "word": "make", "type": "verb" },
+            { "word": "shine", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_3_s4",
+          "text": "I comb my hair neatly in front of the mirror.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["hair", "mirror"],
+          "distractorGroup": "daily_clothes",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "comb", "type": "verb" },
+            { "word": "hair", "type": "noun" },
+            { "word": "mirror", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_3_s5",
+          "text": "I check my school bag before going outside.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["school", "bag"],
+          "distractorGroup": "daily_clothes",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "check", "type": "verb" },
+            { "word": "school", "type": "noun" },
+            { "word": "bag", "type": "noun" },
+            { "word": "going", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_3_s6",
+          "text": "My mother helps me tie my shoelaces.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["mother", "shoelaces"],
+          "distractorGroup": "daily_clothes",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "helps", "type": "verb" },
+            { "word": "tie", "type": "verb" },
+            { "word": "shoelaces", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_3_s7",
+          "text": "I feel ready and confident for school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["feelings", "school"],
+          "distractorGroup": "daily_clothes",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "ready", "type": "adjective" },
+            { "word": "confident", "type": "adjective" },
+            { "word": "school", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_m_4",
+      "imageName": "going_to_school",
+      "title": "Going to School",
+      "unit": "dailyRoutine",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "school_vocab", "daily_routine"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "daily_m_4_s1",
+          "text": "I walk to school with my best friend.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["school", "friend"],
+          "distractorGroup": "daily_school",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "walk", "type": "verb" },
+            { "word": "school", "type": "noun" },
+            { "word": "best", "type": "adjective" },
+            { "word": "friend", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_4_s2",
+          "text": "We talk happily while walking together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["conversation"],
+          "distractorGroup": "daily_school",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "talk", "type": "verb" },
+            { "word": "walking", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_4_s3",
+          "text": "We reach school before the bell rings.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["school", "time"],
+          "distractorGroup": "daily_school",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "reach", "type": "verb" },
+            { "word": "school", "type": "noun" },
+            { "word": "bell", "type": "noun" },
+            { "word": "rings", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_4_s4",
+          "text": "The school gate opens at the right time.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["gate", "time"],
+          "distractorGroup": "daily_school",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "school", "type": "noun" },
+            { "word": "gate", "type": "noun" },
+            { "word": "opens", "type": "verb" },
+            { "word": "right", "type": "adjective" },
+            { "word": "time", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_4_s5",
+          "text": "Teachers greet us warmly at the entrance.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["teachers", "entrance"],
+          "distractorGroup": "daily_school",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Teachers", "type": "noun" },
+            { "word": "greet", "type": "verb" },
+            { "word": "entrance", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_4_s6",
+          "text": "We enter our classroom quietly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["classroom"],
+          "distractorGroup": "daily_school",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "enter", "type": "verb" },
+            { "word": "classroom", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_4_s7",
+          "text": "Our lessons begin after morning assembly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["lessons", "assembly"],
+          "distractorGroup": "daily_school",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "lessons", "type": "noun" },
+            { "word": "begin", "type": "verb" },
+            { "word": "morning", "type": "noun" },
+            { "word": "assembly", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_m_5",
+      "imageName": "doing_homework",
+      "title": "Doing Homework",
+      "unit": "dailyRoutine",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "study_vocab", "responsibility"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "daily_m_5_s1",
+          "text": "I sit at my desk to complete my homework.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["study", "desk"],
+          "distractorGroup": "daily_study",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sit", "type": "verb" },
+            { "word": "desk", "type": "noun" },
+            { "word": "complete", "type": "verb" },
+            { "word": "homework", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_5_s2",
+          "text": "I read the questions carefully before answering.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["reading", "questions"],
+          "distractorGroup": "daily_study",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "read", "type": "verb" },
+            { "word": "questions", "type": "noun" },
+            { "word": "answering", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_5_s3",
+          "text": "I write neatly in my notebook.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["writing", "notebook"],
+          "distractorGroup": "daily_study",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "write", "type": "verb" },
+            { "word": "notebook", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_5_s4",
+          "text": "My mother helps me when I feel confused.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["mother", "feelings"],
+          "distractorGroup": "daily_study",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "helps", "type": "verb" },
+            { "word": "feel", "type": "verb" },
+            { "word": "confused", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_m_5_s5",
+          "text": "I check my work before closing my book.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["checking", "book"],
+          "distractorGroup": "daily_study",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "check", "type": "verb" },
+            { "word": "work", "type": "noun" },
+            { "word": "closing", "type": "verb" },
+            { "word": "book", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_5_s6",
+          "text": "I finish my homework before dinner time.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["homework", "dinner"],
+          "distractorGroup": "daily_study",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "finish", "type": "verb" },
+            { "word": "homework", "type": "noun" },
+            { "word": "dinner", "type": "noun" },
+            { "word": "time", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_5_s7",
+          "text": "I feel proud because I worked hard.",
+          "type": "statement",
+          "tense": "past_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["feelings", "effort"],
+          "distractorGroup": "daily_study",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "proud", "type": "adjective" },
+            { "word": "worked", "type": "verb" },
+            { "word": "hard", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_m_6",
+      "imageName": "playing_evening",
+      "title": "Playing in the Evening",
+      "unit": "dailyRoutine",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "action_verbs", "time_expressions"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "daily_m_6_s1",
+          "text": "I play in the park after finishing my homework.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["park", "homework"],
+          "distractorGroup": "daily_evening",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "play", "type": "verb" },
+            { "word": "park", "type": "noun" },
+            { "word": "finishing", "type": "verb" },
+            { "word": "homework", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_6_s2",
+          "text": "My friends arrive when the weather is pleasant.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["friends", "weather"],
+          "distractorGroup": "daily_evening",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "friends", "type": "noun" },
+            { "word": "arrive", "type": "verb" },
+            { "word": "weather", "type": "noun" },
+            { "word": "pleasant", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_m_6_s3",
+          "text": "We run and laugh together happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["fun", "friends"],
+          "distractorGroup": "daily_evening",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "run", "type": "verb" },
+            { "word": "laugh", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_6_s4",
+          "text": "Some children play football on the field.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["football", "field"],
+          "distractorGroup": "daily_evening",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "play", "type": "verb" },
+            { "word": "football", "type": "noun" },
+            { "word": "field", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_6_s5",
+          "text": "We drink water after playing for a long time.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["water", "time"],
+          "distractorGroup": "daily_evening",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "drink", "type": "verb" },
+            { "word": "water", "type": "noun" },
+            { "word": "playing", "type": "verb" },
+            { "word": "long", "type": "adjective" },
+            { "word": "time", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_6_s6",
+          "text": "The sun slowly sets in the evening sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["sun", "evening"],
+          "distractorGroup": "daily_evening",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "sets", "type": "verb" },
+            { "word": "evening", "type": "noun" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_6_s7",
+          "text": "I return home when it becomes dark.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["home", "night"],
+          "distractorGroup": "daily_evening",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "return", "type": "verb" },
+            { "word": "home", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "dark", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_m_7",
+      "imageName": "eating_dinner",
+      "title": "Eating Dinner",
+      "unit": "dailyRoutine",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_vocab", "meal_routine"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "daily_m_7_s1",
+          "text": "Our family eats dinner together every night.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["family", "night"],
+          "distractorGroup": "daily_dinner",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "eats", "type": "verb" },
+            { "word": "dinner", "type": "noun" },
+            { "word": "night", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_7_s2",
+          "text": "Mother serves warm food on the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["mother", "food"],
+          "distractorGroup": "daily_dinner",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Mother", "type": "noun" },
+            { "word": "serves", "type": "verb" },
+            { "word": "warm", "type": "adjective" },
+            { "word": "food", "type": "noun" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_7_s3",
+          "text": "We talk about our day while eating.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["conversation"],
+          "distractorGroup": "daily_dinner",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "talk", "type": "verb" },
+            { "word": "day", "type": "noun" },
+            { "word": "eating", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_7_s4",
+          "text": "Father shares interesting stories during dinner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["father", "stories"],
+          "distractorGroup": "daily_dinner",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Father", "type": "noun" },
+            { "word": "shares", "type": "verb" },
+            { "word": "interesting", "type": "adjective" },
+            { "word": "stories", "type": "noun" },
+            { "word": "dinner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_7_s5",
+          "text": "We say thank you before leaving the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["manners"],
+          "distractorGroup": "daily_dinner",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "say", "type": "verb" },
+            { "word": "thank", "type": "noun" },
+            { "word": "leaving", "type": "verb" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_7_s6",
+          "text": "We clean the dishes after finishing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["cleanup"],
+          "distractorGroup": "daily_dinner",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "clean", "type": "verb" },
+            { "word": "dishes", "type": "noun" },
+            { "word": "finishing", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_7_s7",
+          "text": "Dinner time makes our family closer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["family_bond"],
+          "distractorGroup": "daily_dinner",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Dinner", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "family", "type": "noun" },
+            { "word": "closer", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_m_8",
+      "imageName": "watching_tv",
+      "title": "Watching TV",
+      "unit": "dailyRoutine",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "entertainment_vocab", "family_rules"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "daily_m_8_s1",
+          "text": "I watch my favorite cartoon after dinner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["cartoon", "evening"],
+          "distractorGroup": "daily_evening_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "watch", "type": "verb" },
+            { "word": "favorite", "type": "adjective" },
+            { "word": "cartoon", "type": "noun" },
+            { "word": "dinner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_8_s2",
+          "text": "The cartoon makes me laugh loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["fun", "laugh"],
+          "distractorGroup": "daily_evening_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cartoon", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "laugh", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_8_s3",
+          "text": "My sister joins me on the sofa.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["family", "sofa"],
+          "distractorGroup": "daily_evening_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sister", "type": "noun" },
+            { "word": "joins", "type": "verb" },
+            { "word": "sofa", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_8_s4",
+          "text": "We keep the volume low because father is resting.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["rules", "home"],
+          "distractorGroup": "daily_evening_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "keep", "type": "verb" },
+            { "word": "volume", "type": "noun" },
+            { "word": "father", "type": "noun" },
+            { "word": "resting", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_8_s5",
+          "text": "We enjoy the funny scenes together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["fun", "family"],
+          "distractorGroup": "daily_evening_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "enjoy", "type": "verb" },
+            { "word": "funny", "type": "adjective" },
+            { "word": "scenes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_8_s6",
+          "text": "Mother reminds us to turn off the TV early.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["rules", "mother"],
+          "distractorGroup": "daily_evening_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Mother", "type": "noun" },
+            { "word": "reminds", "type": "verb" },
+            { "word": "turn", "type": "verb" },
+            { "word": "TV", "type": "noun" },
+            { "word": "early", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_m_8_s7",
+          "text": "We switch it off before going to bed.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["bedtime"],
+          "distractorGroup": "daily_evening_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "switch", "type": "verb" },
+            { "word": "going", "type": "verb" },
+            { "word": "bed", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_m_9",
+      "imageName": "reading_book",
+      "title": "Reading a Book",
+      "unit": "dailyRoutine",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "reading_vocab", "imagination"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "daily_m_9_s1",
+          "text": "I read an interesting book before sleeping.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["reading", "bedtime"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "read", "type": "verb" },
+            { "word": "interesting", "type": "adjective" },
+            { "word": "book", "type": "noun" },
+            { "word": "sleeping", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_9_s2",
+          "text": "The story becomes exciting when the hero appears.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["story", "hero"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "story", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "exciting", "type": "adjective" },
+            { "word": "hero", "type": "noun" },
+            { "word": "appears", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_9_s3",
+          "text": "I turn each page carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["reading"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "turn", "type": "verb" },
+            { "word": "page", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_9_s4",
+          "text": "I imagine the scenes inside my mind.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["imagination"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "imagine", "type": "verb" },
+            { "word": "scenes", "type": "noun" },
+            { "word": "mind", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_9_s5",
+          "text": "Reading helps me learn new words.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["learning"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Reading", "type": "noun" },
+            { "word": "helps", "type": "verb" },
+            { "word": "learn", "type": "verb" },
+            { "word": "new", "type": "adjective" },
+            { "word": "words", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_9_s6",
+          "text": "My father encourages me to read daily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["father", "support"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "father", "type": "noun" },
+            { "word": "encourages", "type": "verb" },
+            { "word": "read", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_9_s7",
+          "text": "I feel calm after finishing the story.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["feelings"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "calm", "type": "adjective" },
+            { "word": "finishing", "type": "verb" },
+            { "word": "story", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_m_10",
+      "imageName": "sleeping_night",
+      "title": "Going to Sleep",
+      "unit": "dailyRoutine",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "bedtime_vocab", "night_routine"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "daily_m_10_s1",
+          "text": "I wear my soft pajamas before bedtime.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["pajamas", "bedtime"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wear", "type": "verb" },
+            { "word": "soft", "type": "adjective" },
+            { "word": "pajamas", "type": "noun" },
+            { "word": "bedtime", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_10_s2",
+          "text": "I brush my teeth carefully every night.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["hygiene", "night"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "brush", "type": "verb" },
+            { "word": "teeth", "type": "noun" },
+            { "word": "night", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_10_s3",
+          "text": "Mother reads a short story to me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["mother", "story"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Mother", "type": "noun" },
+            { "word": "reads", "type": "verb" },
+            { "word": "short", "type": "adjective" },
+            { "word": "story", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_10_s4",
+          "text": "The room becomes quiet when the lights turn off.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["room", "lights"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "room", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "quiet", "type": "adjective" },
+            { "word": "lights", "type": "noun" },
+            { "word": "turn", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_10_s5",
+          "text": "I close my eyes and relax peacefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["sleep", "relax"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "close", "type": "verb" },
+            { "word": "eyes", "type": "noun" },
+            { "word": "relax", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_m_10_s6",
+          "text": "The cool air moves gently in the room.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["air", "night"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cool", "type": "adjective" },
+            { "word": "air", "type": "noun" },
+            { "word": "moves", "type": "verb" },
+            { "word": "room", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_m_10_s7",
+          "text": "I fall asleep after a long busy day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["sleep", "day"],
+          "distractorGroup": "daily_night",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "fall", "type": "verb" },
+            { "word": "asleep", "type": "adjective" },
+            { "word": "long", "type": "adjective" },
+            { "word": "busy", "type": "adjective" },
+            { "word": "day", "type": "noun" }
+          ]
+        }
+      ]
+    }
+]

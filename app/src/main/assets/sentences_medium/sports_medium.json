@@ -1,0 +1,1678 @@
+[
+    {
+      "id": "sports_m_1",
+      "imageName": "playing_football",
+      "title": "Playing Football",
+      "level": "medium",
+      "unit": "sports",
+      "order": 1,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_vocabulary", "teamwork"],
+      "sentences": [
+        {
+          "id": "sports_m_1_s1",
+          "text": "I play football with my friends every evening.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["football", "friends"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "play", "type": "verb" },
+            { "word": "football", "type": "noun" },
+            { "word": "friends", "type": "noun" },
+            { "word": "evening", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_1_s2",
+          "text": "The round ball moves quickly across the field.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["ball", "field"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "round", "type": "adjective" },
+            { "word": "ball", "type": "noun" },
+            { "word": "moves", "type": "verb" },
+            { "word": "field", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_1_s3",
+          "text": "I kick the ball toward the goal post.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["goal", "kick"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "kick", "type": "verb" },
+            { "word": "ball", "type": "noun" },
+            { "word": "goal", "type": "noun" },
+            { "word": "post", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_1_s4",
+          "text": "My teammates cheer when I score.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["teamwork"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teammates", "type": "noun" },
+            { "word": "cheer", "type": "verb" },
+            { "word": "score", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_m_1_s5",
+          "text": "We run fast to defend our side.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["defense"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "run", "type": "verb" },
+            { "word": "defend", "type": "verb" },
+            { "word": "side", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_1_s6",
+          "text": "The referee blows the whistle loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["referee"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "referee", "type": "noun" },
+            { "word": "blows", "type": "verb" },
+            { "word": "whistle", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_1_s7",
+          "text": "Football teaches teamwork and discipline.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["teamwork", "discipline"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Football", "type": "noun" },
+            { "word": "teaches", "type": "verb" },
+            { "word": "teamwork", "type": "noun" },
+            { "word": "discipline", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_m_2",
+      "imageName": "playing_cricket",
+      "title": "Playing Cricket",
+      "level": "medium",
+      "unit": "sports",
+      "order": 2,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_vocabulary", "focus_and_patience"],
+      "sentences": [
+        {
+          "id": "sports_m_2_s1",
+          "text": "I hold the bat firmly during the match.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["cricket", "bat"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "hold", "type": "verb" },
+            { "word": "bat", "type": "noun" },
+            { "word": "match", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_2_s2",
+          "text": "The bowler throws the ball quickly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["bowler", "ball"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bowler", "type": "noun" },
+            { "word": "throws", "type": "verb" },
+            { "word": "ball", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_2_s3",
+          "text": "I watch the ball carefully before hitting it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["watch", "hit"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "watch", "type": "verb" },
+            { "word": "ball", "type": "noun" },
+            { "word": "hitting", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_m_2_s4",
+          "text": "The ball flies high into the air.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["flies", "air"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ball", "type": "noun" },
+            { "word": "flies", "type": "verb" },
+            { "word": "air", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_2_s5",
+          "text": "The fielders try to catch it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["fielders"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "fielders", "type": "noun" },
+            { "word": "try", "type": "verb" },
+            { "word": "catch", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_m_2_s6",
+          "text": "We run between the wickets quickly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["wickets"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "run", "type": "verb" },
+            { "word": "wickets", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_2_s7",
+          "text": "Cricket requires focus and patience.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["focus", "patience"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Cricket", "type": "noun" },
+            { "word": "requires", "type": "verb" },
+            { "word": "focus", "type": "noun" },
+            { "word": "patience", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_m_3",
+      "imageName": "playing_basketball",
+      "title": "Playing Basketball",
+      "level": "medium",
+      "unit": "sports",
+      "order": 3,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_vocabulary", "teamwork"],
+      "sentences": [
+        {
+          "id": "sports_m_3_s1",
+          "text": "I dribble the basketball across the court.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["basketball", "court"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "dribble", "type": "verb" },
+            { "word": "basketball", "type": "noun" },
+            { "word": "court", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_3_s2",
+          "text": "The hoop stands high above the ground.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["hoop", "ground"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "hoop", "type": "noun" },
+            { "word": "stands", "type": "verb" },
+            { "word": "ground", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_3_s3",
+          "text": "I jump and throw the ball carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["jump", "throw"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "jump", "type": "verb" },
+            { "word": "throw", "type": "verb" },
+            { "word": "ball", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_3_s4",
+          "text": "The ball passes through the net.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["passes", "net"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ball", "type": "noun" },
+            { "word": "passes", "type": "verb" },
+            { "word": "net", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_3_s5",
+          "text": "My team celebrates loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["team", "celebrate"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "team", "type": "noun" },
+            { "word": "celebrates", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_m_3_s6",
+          "text": "We practice regularly to improve skills.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["practice", "skills"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "practice", "type": "verb" },
+            { "word": "improve", "type": "verb" },
+            { "word": "skills", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_3_s7",
+          "text": "Basketball builds strength and coordination.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["strength", "coordination"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Basketball", "type": "noun" },
+            { "word": "builds", "type": "verb" },
+            { "word": "strength", "type": "noun" },
+            { "word": "coordination", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_m_4",
+      "imageName": "running_race",
+      "title": "Running Race",
+      "level": "medium",
+      "unit": "sports",
+      "order": 4,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_vocabulary", "determination"],
+      "sentences": [
+        {
+          "id": "sports_m_4_s1",
+          "text": "I participate in a race at school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["race", "school"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "participate", "type": "verb" },
+            { "word": "race", "type": "noun" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_4_s2",
+          "text": "I wear comfortable sports shoes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["shoes"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wear", "type": "verb" },
+            { "word": "comfortable", "type": "adjective" },
+            { "word": "shoes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_4_s3",
+          "text": "The whistle blows to start the race.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["whistle", "start"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "whistle", "type": "noun" },
+            { "word": "blows", "type": "verb" },
+            { "word": "start", "type": "verb" },
+            { "word": "race", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_4_s4",
+          "text": "I run as fast as I can.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["run", "speed"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "run", "type": "verb" },
+            { "word": "fast", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_m_4_s5",
+          "text": "My heart beats quickly during the run.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["heart"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "heart", "type": "noun" },
+            { "word": "beats", "type": "verb" },
+            { "word": "run", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_4_s6",
+          "text": "Friends cheer from the side.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["friends", "cheer"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Friends", "type": "noun" },
+            { "word": "cheer", "type": "verb" },
+            { "word": "side", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_4_s7",
+          "text": "I feel proud after reaching the finish line.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["finish_line"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "proud", "type": "adjective" },
+            { "word": "finish", "type": "noun" },
+            { "word": "line", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_m_5",
+      "imageName": "swimming_pool",
+      "title": "Swimming",
+      "level": "medium",
+      "unit": "sports",
+      "order": 5,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_vocabulary", "health_and_fitness"],
+      "sentences": [
+        {
+          "id": "sports_m_5_s1",
+          "text": "I swim in the large pool during summer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["swimming", "pool"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "swim", "type": "verb" },
+            { "word": "large", "type": "adjective" },
+            { "word": "pool", "type": "noun" },
+            { "word": "summer", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_5_s2",
+          "text": "The water feels cool and refreshing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["water"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "water", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "cool", "type": "adjective" },
+            { "word": "refreshing", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_m_5_s3",
+          "text": "I move my arms and legs together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["arms", "legs"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "move", "type": "verb" },
+            { "word": "arms", "type": "noun" },
+            { "word": "legs", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_5_s4",
+          "text": "I wear goggles to protect my eyes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["goggles", "eyes"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wear", "type": "verb" },
+            { "word": "goggles", "type": "noun" },
+            { "word": "protect", "type": "verb" },
+            { "word": "eyes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_5_s5",
+          "text": "The coach teaches proper techniques.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["coach", "techniques"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "coach", "type": "noun" },
+            { "word": "teaches", "type": "verb" },
+            { "word": "proper", "type": "adjective" },
+            { "word": "techniques", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_5_s6",
+          "text": "Swimming improves breathing and strength.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["breathing", "strength"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Swimming", "type": "noun" },
+            { "word": "improves", "type": "verb" },
+            { "word": "breathing", "type": "noun" },
+            { "word": "strength", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_5_s7",
+          "text": "I feel relaxed after swimming.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["relaxed"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "relaxed", "type": "adjective" },
+            { "word": "swimming", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_m_6",
+      "imageName": "cycling_park",
+      "title": "Cycling",
+      "level": "medium",
+      "unit": "sports",
+      "order": 6,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_vocabulary", "safety_awareness"],
+      "sentences": [
+        {
+          "id": "sports_m_6_s1",
+          "text": "I ride my bicycle in the park every weekend.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["cycling", "bicycle"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ride", "type": "verb" },
+            { "word": "bicycle", "type": "noun" },
+            { "word": "park", "type": "noun" },
+            { "word": "weekend", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_6_s2",
+          "text": "The two wheels move smoothly on the road.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["wheels", "road"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wheels", "type": "noun" },
+            { "word": "move", "type": "verb" },
+            { "word": "road", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_6_s3",
+          "text": "I wear a helmet for safety.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["helmet", "safety"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wear", "type": "verb" },
+            { "word": "helmet", "type": "noun" },
+            { "word": "safety", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_6_s4",
+          "text": "I pedal faster when the path is clear.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["pedal", "path"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "pedal", "type": "verb" },
+            { "word": "faster", "type": "adjective" },
+            { "word": "path", "type": "noun" },
+            { "word": "clear", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_m_6_s5",
+          "text": "The wind blows gently on my face.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["wind", "face"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wind", "type": "noun" },
+            { "word": "blows", "type": "verb" },
+            { "word": "face", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_6_s6",
+          "text": "Cycling keeps my body active.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["body", "active"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Cycling", "type": "noun" },
+            { "word": "keeps", "type": "verb" },
+            { "word": "body", "type": "noun" },
+            { "word": "active", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_m_6_s7",
+          "text": "I enjoy long rides with friends.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["rides", "friends"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "enjoy", "type": "verb" },
+            { "word": "long", "type": "adjective" },
+            { "word": "rides", "type": "noun" },
+            { "word": "friends", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_m_7",
+      "imageName": "yoga_class",
+      "title": "Doing Yoga",
+      "level": "medium",
+      "unit": "sports",
+      "order": 7,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "health_and_wellbeing", "focus_and_calmness"],
+      "sentences": [
+        {
+          "id": "sports_m_7_s1",
+          "text": "I practice yoga every morning before school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["yoga", "morning"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "practice", "type": "verb" },
+            { "word": "yoga", "type": "noun" },
+            { "word": "morning", "type": "noun" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_7_s2",
+          "text": "I sit quietly and close my eyes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["focus"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sit", "type": "verb" },
+            { "word": "close", "type": "verb" },
+            { "word": "eyes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_7_s3",
+          "text": "I breathe slowly and deeply.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["breathing"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "breathe", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_m_7_s4",
+          "text": "I stretch my body carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["stretch", "body"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "stretch", "type": "verb" },
+            { "word": "body", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_7_s5",
+          "text": "Yoga helps me stay calm and focused.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["calm", "focused"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Yoga", "type": "noun" },
+            { "word": "helps", "type": "verb" },
+            { "word": "calm", "type": "adjective" },
+            { "word": "focused", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_m_7_s6",
+          "text": "My teacher guides us gently.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["teacher"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "guides", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_m_7_s7",
+          "text": "I feel peaceful after yoga practice.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["peaceful", "practice"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "peaceful", "type": "adjective" },
+            { "word": "practice", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_m_8",
+      "imageName": "badminton_game",
+      "title": "Playing Badminton",
+      "level": "medium",
+      "unit": "sports",
+      "order": 8,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_vocabulary", "speed_and_coordination"],
+      "sentences": [
+        {
+          "id": "sports_m_8_s1",
+          "text": "I hold the racket tightly during the game.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["badminton", "racket"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "hold", "type": "verb" },
+            { "word": "racket", "type": "noun" },
+            { "word": "game", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_8_s2",
+          "text": "The shuttle flies quickly over the net.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["shuttle", "net"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "shuttle", "type": "noun" },
+            { "word": "flies", "type": "verb" },
+            { "word": "net", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_8_s3",
+          "text": "I move quickly across the court.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["move", "court"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "move", "type": "verb" },
+            { "word": "court", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_8_s4",
+          "text": "I try to hit the shuttle carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["hit"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "try", "type": "verb" },
+            { "word": "hit", "type": "verb" },
+            { "word": "shuttle", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_8_s5",
+          "text": "My opponent returns the shot.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["opponent", "shot"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "opponent", "type": "noun" },
+            { "word": "returns", "type": "verb" },
+            { "word": "shot", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_8_s6",
+          "text": "We play several rounds happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["rounds"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "play", "type": "verb" },
+            { "word": "rounds", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_8_s7",
+          "text": "Badminton improves speed and balance.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["speed", "balance"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Badminton", "type": "noun" },
+            { "word": "improves", "type": "verb" },
+            { "word": "speed", "type": "noun" },
+            { "word": "balance", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_m_9",
+      "imageName": "skipping_rope",
+      "title": "Skipping Rope",
+      "level": "medium",
+      "unit": "sports",
+      "order": 9,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "fitness_vocabulary", "stamina_building"],
+      "sentences": [
+        {
+          "id": "sports_m_9_s1",
+          "text": "I skip rope every evening for exercise.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["skipping", "exercise"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "skip", "type": "verb" },
+            { "word": "rope", "type": "noun" },
+            { "word": "evening", "type": "noun" },
+            { "word": "exercise", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_9_s2",
+          "text": "I jump quickly while counting loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["jump", "counting"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "jump", "type": "verb" },
+            { "word": "counting", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_m_9_s3",
+          "text": "My friends clap to encourage me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["friends", "encourage"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "friends", "type": "noun" },
+            { "word": "clap", "type": "verb" },
+            { "word": "encourage", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_m_9_s4",
+          "text": "Skipping increases my stamina.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["stamina"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Skipping", "type": "noun" },
+            { "word": "increases", "type": "verb" },
+            { "word": "stamina", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_9_s5",
+          "text": "I practice daily to improve.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["practice"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "practice", "type": "verb" },
+            { "word": "improve", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_m_9_s6",
+          "text": "The rope moves smoothly in circles.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["rope", "circles"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rope", "type": "noun" },
+            { "word": "moves", "type": "verb" },
+            { "word": "circles", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_9_s7",
+          "text": "Exercise keeps my body strong.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["exercise", "strong"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Exercise", "type": "noun" },
+            { "word": "keeps", "type": "verb" },
+            { "word": "body", "type": "noun" },
+            { "word": "strong", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_m_10",
+      "imageName": "playing_chess",
+      "title": "Playing Chess",
+      "level": "medium",
+      "unit": "sports",
+      "order": 10,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "thinking_skills", "strategy_and_patience"],
+      "sentences": [
+        {
+          "id": "sports_m_10_s1",
+          "text": "I play chess with my father at home.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["chess", "family"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "play", "type": "verb" },
+            { "word": "chess", "type": "noun" },
+            { "word": "father", "type": "noun" },
+            { "word": "home", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_10_s2",
+          "text": "The chessboard has black and white squares.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["chessboard", "squares"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "chessboard", "type": "noun" },
+            { "word": "black", "type": "adjective" },
+            { "word": "white", "type": "adjective" },
+            { "word": "squares", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_10_s3",
+          "text": "Each piece moves in a special way.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["piece", "movement"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "piece", "type": "noun" },
+            { "word": "moves", "type": "verb" },
+            { "word": "special", "type": "adjective" },
+            { "word": "way", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_10_s4",
+          "text": "I think carefully before making a move.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["thinking"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "think", "type": "verb" },
+            { "word": "making", "type": "verb" },
+            { "word": "move", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_10_s5",
+          "text": "The game requires planning and patience.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["planning", "patience"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "game", "type": "noun" },
+            { "word": "requires", "type": "verb" },
+            { "word": "planning", "type": "noun" },
+            { "word": "patience", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_10_s6",
+          "text": "I try to protect my king.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["king"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "try", "type": "verb" },
+            { "word": "protect", "type": "verb" },
+            { "word": "king", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_m_10_s7",
+          "text": "Chess improves my thinking skills.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["thinking", "skills"],
+          "distractorGroup": "sports_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Chess", "type": "noun" },
+            { "word": "improves", "type": "verb" },
+            { "word": "thinking", "type": "noun" },
+            { "word": "skills", "type": "noun" }
+          ]
+        }
+      ]
+    }
+]

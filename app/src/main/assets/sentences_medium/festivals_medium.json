@@ -1,0 +1,1709 @@
+[
+    {
+      "id": "festival_m_1",
+      "imageName": "birthday_party",
+      "title": "Birthday Party",
+      "level": "medium",
+      "unit": "festivals",
+      "order": 1,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebration_vocabulary", "gratitude_expressions"],
+      "sentences": [
+        {
+          "id": "festival_m_1_s1",
+          "text": "Today we celebrate my birthday with great joy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["birthday", "celebration"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "celebrate", "type": "verb" },
+            { "word": "birthday", "type": "noun" },
+            { "word": "great", "type": "adjective" },
+            { "word": "joy", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_1_s2",
+          "text": "I wear new clothes for the special day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["clothes"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wear", "type": "verb" },
+            { "word": "new", "type": "adjective" },
+            { "word": "clothes", "type": "noun" },
+            { "word": "special", "type": "adjective" },
+            { "word": "day", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_1_s3",
+          "text": "A large cake is placed on the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["cake"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "large", "type": "adjective" },
+            { "word": "cake", "type": "noun" },
+            { "word": "placed", "type": "verb" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_1_s4",
+          "text": "We light candles before cutting the cake.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["candles"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "light", "type": "verb" },
+            { "word": "candles", "type": "noun" },
+            { "word": "cutting", "type": "verb" },
+            { "word": "cake", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_1_s5",
+          "text": "Everyone sings a happy birthday song.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["song"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sings", "type": "verb" },
+            { "word": "happy", "type": "adjective" },
+            { "word": "birthday", "type": "noun" },
+            { "word": "song", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_1_s6",
+          "text": "I thank my friends for their gifts.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["gratitude"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "thank", "type": "verb" },
+            { "word": "friends", "type": "noun" },
+            { "word": "gifts", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_1_s7",
+          "text": "The party becomes a wonderful memory.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["memory"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "party", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "wonderful", "type": "adjective" },
+            { "word": "memory", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_m_2",
+      "imageName": "diwali_lights",
+      "title": "Festival of Lights",
+      "level": "medium",
+      "unit": "festivals",
+      "order": 2,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "festival_vocabulary", "community_sharing"],
+      "sentences": [
+        {
+          "id": "festival_m_2_s1",
+          "text": "The festival of lights is celebrated with happiness.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["festival", "celebration"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "festival", "type": "noun" },
+            { "word": "lights", "type": "noun" },
+            { "word": "celebrated", "type": "verb" },
+            { "word": "happiness", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_2_s2",
+          "text": "Families decorate their homes with bright lamps.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["decoration"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Families", "type": "noun" },
+            { "word": "decorate", "type": "verb" },
+            { "word": "homes", "type": "noun" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "lamps", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_2_s3",
+          "text": "Colorful lights shine beautifully at night.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["lights"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Colorful", "type": "adjective" },
+            { "word": "lights", "type": "noun" },
+            { "word": "shine", "type": "verb" },
+            { "word": "night", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_2_s4",
+          "text": "We wear new clothes during the celebration.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["clothes"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wear", "type": "verb" },
+            { "word": "new", "type": "adjective" },
+            { "word": "clothes", "type": "noun" },
+            { "word": "celebration", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_2_s5",
+          "text": "Sweets are shared among friends and neighbors.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["sharing"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Sweets", "type": "noun" },
+            { "word": "shared", "type": "verb" },
+            { "word": "friends", "type": "noun" },
+            { "word": "neighbors", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_2_s6",
+          "text": "Children enjoy the festive atmosphere.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["children"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "enjoy", "type": "verb" },
+            { "word": "festive", "type": "adjective" },
+            { "word": "atmosphere", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_2_s7",
+          "text": "The festival spreads joy and positivity.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["joy"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "festival", "type": "noun" },
+            { "word": "spreads", "type": "verb" },
+            { "word": "joy", "type": "noun" },
+            { "word": "positivity", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_m_3",
+      "imageName": "christmas_tree",
+      "title": "Christmas Day",
+      "level": "medium",
+      "unit": "festivals",
+      "order": 3,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "festival_vocabulary", "winter_traditions"],
+      "sentences": [
+        {
+          "id": "festival_m_3_s1",
+          "text": "Christmas is celebrated in the winter season.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["christmas", "winter"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Christmas", "type": "noun" },
+            { "word": "celebrated", "type": "verb" },
+            { "word": "winter", "type": "noun" },
+            { "word": "season", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_3_s2",
+          "text": "Families decorate a large Christmas tree.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["tree", "decoration"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Families", "type": "noun" },
+            { "word": "decorate", "type": "verb" },
+            { "word": "large", "type": "adjective" },
+            { "word": "tree", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_3_s3",
+          "text": "Bright ornaments hang from the branches.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["ornaments"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Bright", "type": "adjective" },
+            { "word": "ornaments", "type": "noun" },
+            { "word": "hang", "type": "verb" },
+            { "word": "branches", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_3_s4",
+          "text": "People sing carols together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["carols"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "People", "type": "noun" },
+            { "word": "sing", "type": "verb" },
+            { "word": "carols", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_3_s5",
+          "text": "Children wait excitedly for gifts.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["gifts"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "wait", "type": "verb" },
+            { "word": "gifts", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_3_s6",
+          "text": "Santa Claus brings surprises for everyone.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["santa", "surprises"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Santa", "type": "noun" },
+            { "word": "brings", "type": "verb" },
+            { "word": "surprises", "type": "noun" },
+            { "word": "everyone", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_3_s7",
+          "text": "Christmas fills hearts with happiness.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["happiness"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Christmas", "type": "noun" },
+            { "word": "fills", "type": "verb" },
+            { "word": "hearts", "type": "noun" },
+            { "word": "happiness", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_m_4",
+      "imageName": "holi_colors",
+      "title": "Festival of Colors",
+      "level": "medium",
+      "unit": "festivals",
+      "order": 4,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "festival_vocabulary", "social_interaction"],
+      "sentences": [
+        {
+          "id": "festival_m_4_s1",
+          "text": "The festival of colors brings people together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["festival", "unity"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "festival", "type": "noun" },
+            { "word": "colors", "type": "noun" },
+            { "word": "brings", "type": "verb" },
+            { "word": "people", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_4_s2",
+          "text": "Children throw bright powders playfully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["colors", "celebration"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "throw", "type": "verb" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "powders", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_4_s3",
+          "text": "Everyone laughs and enjoys the fun.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["fun"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "laughs", "type": "verb" },
+            { "word": "enjoys", "type": "verb" },
+            { "word": "fun", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_4_s4",
+          "text": "Music plays loudly in the background.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["music"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Music", "type": "noun" },
+            { "word": "plays", "type": "verb" },
+            { "word": "background", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_4_s5",
+          "text": "Families prepare delicious sweets.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sweets"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Families", "type": "noun" },
+            { "word": "prepare", "type": "verb" },
+            { "word": "delicious", "type": "adjective" },
+            { "word": "sweets", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_4_s6",
+          "text": "People greet each other warmly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["greeting"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "People", "type": "noun" },
+            { "word": "greet", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_m_4_s7",
+          "text": "The festival spreads joy and unity.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["unity"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "festival", "type": "noun" },
+            { "word": "spreads", "type": "verb" },
+            { "word": "joy", "type": "noun" },
+            { "word": "unity", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_m_5",
+      "imageName": "independence_day",
+      "title": "National Day",
+      "level": "medium",
+      "unit": "festivals",
+      "order": 5,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "patriotic_vocabulary", "national_identity"],
+      "sentences": [
+        {
+          "id": "festival_m_5_s1",
+          "text": "We celebrate our national day with pride.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["national_day", "pride"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "celebrate", "type": "verb" },
+            { "word": "national", "type": "adjective" },
+            { "word": "day", "type": "noun" },
+            { "word": "pride", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_5_s2",
+          "text": "The national flag is hoisted proudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["flag"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "national", "type": "adjective" },
+            { "word": "flag", "type": "noun" },
+            { "word": "hoisted", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_m_5_s3",
+          "text": "Students sing patriotic songs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["students"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Students", "type": "noun" },
+            { "word": "sing", "type": "verb" },
+            { "word": "patriotic", "type": "adjective" },
+            { "word": "songs", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_5_s4",
+          "text": "Teachers speak about our country’s history.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["history"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Teachers", "type": "noun" },
+            { "word": "speak", "type": "verb" },
+            { "word": "history", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_5_s5",
+          "text": "Parades are organized in many places.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["parades"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Parades", "type": "noun" },
+            { "word": "organized", "type": "verb" },
+            { "word": "places", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_5_s6",
+          "text": "People remember national heroes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["heroes"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "People", "type": "noun" },
+            { "word": "remember", "type": "verb" },
+            { "word": "national", "type": "adjective" },
+            { "word": "heroes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_5_s7",
+          "text": "The day reminds us of unity and freedom.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["freedom", "unity"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "day", "type": "noun" },
+            { "word": "reminds", "type": "verb" },
+            { "word": "unity", "type": "noun" },
+            { "word": "freedom", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_m_6",
+      "imageName": "new_year_celebration",
+      "title": "New Year",
+      "level": "medium",
+      "unit": "festivals",
+      "order": 6,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebration_vocabulary", "time_expressions"],
+      "sentences": [
+        {
+          "id": "festival_m_6_s1",
+          "text": "People celebrate the new year with excitement.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["new_year", "celebration"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "People", "type": "noun" },
+            { "word": "celebrate", "type": "verb" },
+            { "word": "new", "type": "adjective" },
+            { "word": "year", "type": "noun" },
+            { "word": "excitement", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_6_s2",
+          "text": "Families gather together at midnight.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["midnight"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Families", "type": "noun" },
+            { "word": "gather", "type": "verb" },
+            { "word": "midnight", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_6_s3",
+          "text": "Fireworks light up the dark sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["fireworks"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Fireworks", "type": "noun" },
+            { "word": "light", "type": "verb" },
+            { "word": "dark", "type": "adjective" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_6_s4",
+          "text": "Everyone counts down the final seconds.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["countdown"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "counts", "type": "verb" },
+            { "word": "final", "type": "adjective" },
+            { "word": "seconds", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_6_s5",
+          "text": "Friends exchange warm wishes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["wishes"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Friends", "type": "noun" },
+            { "word": "exchange", "type": "verb" },
+            { "word": "warm", "type": "adjective" },
+            { "word": "wishes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_6_s6",
+          "text": "Music and laughter fill the air.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["music"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Music", "type": "noun" },
+            { "word": "laughter", "type": "noun" },
+            { "word": "fill", "type": "verb" },
+            { "word": "air", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_6_s7",
+          "text": "The new year brings fresh hopes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["hopes"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "new", "type": "adjective" },
+            { "word": "year", "type": "noun" },
+            { "word": "brings", "type": "verb" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "hopes", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_m_7",
+      "imageName": "family_gathering",
+      "title": "Family Gathering",
+      "level": "medium",
+      "unit": "festivals",
+      "order": 7,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_vocabulary", "social_bonding"],
+      "sentences": [
+        {
+          "id": "festival_m_7_s1",
+          "text": "Family gatherings strengthen relationships.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["family", "relationships"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Family", "type": "noun" },
+            { "word": "gatherings", "type": "noun" },
+            { "word": "strengthen", "type": "verb" },
+            { "word": "relationships", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_7_s2",
+          "text": "Relatives meet after a long time.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["relatives"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Relatives", "type": "noun" },
+            { "word": "meet", "type": "verb" },
+            { "word": "long", "type": "adjective" },
+            { "word": "time", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_7_s3",
+          "text": "Delicious meals are prepared at home.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["meals"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Delicious", "type": "adjective" },
+            { "word": "meals", "type": "noun" },
+            { "word": "prepared", "type": "verb" },
+            { "word": "home", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_7_s4",
+          "text": "Children play games happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["games"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "play", "type": "verb" },
+            { "word": "games", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_7_s5",
+          "text": "Adults share stories and memories.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["stories", "memories"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Adults", "type": "noun" },
+            { "word": "share", "type": "verb" },
+            { "word": "stories", "type": "noun" },
+            { "word": "memories", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_7_s6",
+          "text": "Photos are taken to remember the day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["photos"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Photos", "type": "noun" },
+            { "word": "taken", "type": "verb" },
+            { "word": "remember", "type": "verb" },
+            { "word": "day", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_7_s7",
+          "text": "Everyone feels loved and connected.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["love", "connection"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feels", "type": "verb" },
+            { "word": "loved", "type": "adjective" },
+            { "word": "connected", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_m_8",
+      "imageName": "school_function",
+      "title": "School Function",
+      "level": "medium",
+      "unit": "festivals",
+      "order": 8,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "school_vocabulary", "event_expressions"],
+      "sentences": [
+        {
+          "id": "festival_m_8_s1",
+          "text": "Our school organizes an annual function.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["school_event"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "school", "type": "noun" },
+            { "word": "organizes", "type": "verb" },
+            { "word": "annual", "type": "adjective" },
+            { "word": "function", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_8_s2",
+          "text": "Students perform dances and songs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["performance"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Students", "type": "noun" },
+            { "word": "perform", "type": "verb" },
+            { "word": "dances", "type": "noun" },
+            { "word": "songs", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_8_s3",
+          "text": "Parents watch proudly from the audience.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["audience"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Parents", "type": "noun" },
+            { "word": "watch", "type": "verb" },
+            { "word": "audience", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_8_s4",
+          "text": "Teachers guide students carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["teachers"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Teachers", "type": "noun" },
+            { "word": "guide", "type": "verb" },
+            { "word": "students", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_8_s5",
+          "text": "The stage is decorated beautifully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["stage"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "stage", "type": "noun" },
+            { "word": "decorated", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_m_8_s6",
+          "text": "Awards are given to talented students.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["awards"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Awards", "type": "noun" },
+            { "word": "given", "type": "verb" },
+            { "word": "talented", "type": "adjective" },
+            { "word": "students", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_8_s7",
+          "text": "The event becomes a grand success.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["success"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "event", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "grand", "type": "adjective" },
+            { "word": "success", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_m_9",
+      "imageName": "wedding_ceremony",
+      "title": "Wedding Ceremony",
+      "level": "medium",
+      "unit": "festivals",
+      "order": 9,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "event_vocabulary", "social_expressions"],
+      "sentences": [
+        {
+          "id": "festival_m_9_s1",
+          "text": "A wedding ceremony is a joyful event.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["wedding"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wedding", "type": "noun" },
+            { "word": "ceremony", "type": "noun" },
+            { "word": "joyful", "type": "adjective" },
+            { "word": "event", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_9_s2",
+          "text": "The bride and groom wear beautiful clothes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["bride", "groom"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bride", "type": "noun" },
+            { "word": "groom", "type": "noun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "beautiful", "type": "adjective" },
+            { "word": "clothes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_9_s3",
+          "text": "Guests bless the couple warmly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["guests"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Guests", "type": "noun" },
+            { "word": "bless", "type": "verb" },
+            { "word": "couple", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_9_s4",
+          "text": "Music and dance make the event lively.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["celebration"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Music", "type": "noun" },
+            { "word": "dance", "type": "noun" },
+            { "word": "make", "type": "verb" },
+            { "word": "lively", "type": "adjective" },
+            { "word": "event", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_9_s5",
+          "text": "Families celebrate together happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["families"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Families", "type": "noun" },
+            { "word": "celebrate", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_m_9_s6",
+          "text": "Delicious food is served to everyone.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["food"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Delicious", "type": "adjective" },
+            { "word": "food", "type": "noun" },
+            { "word": "served", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_m_9_s7",
+          "text": "The ceremony creates happy memories.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["memories"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ceremony", "type": "noun" },
+            { "word": "creates", "type": "verb" },
+            { "word": "happy", "type": "adjective" },
+            { "word": "memories", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_m_10",
+      "imageName": "picnic_day",
+      "title": "Picnic Day",
+      "level": "medium",
+      "unit": "festivals",
+      "order": 10,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "outdoor_vocabulary", "daily_activities"],
+      "sentences": [
+        {
+          "id": "festival_m_10_s1",
+          "text": "We go on a picnic during holidays.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["picnic"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "go", "type": "verb" },
+            { "word": "picnic", "type": "noun" },
+            { "word": "holidays", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_10_s2",
+          "text": "We choose a peaceful park.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["park"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "choose", "type": "verb" },
+            { "word": "peaceful", "type": "adjective" },
+            { "word": "park", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_10_s3",
+          "text": "Families bring homemade food.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["family", "food"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Families", "type": "noun" },
+            { "word": "bring", "type": "verb" },
+            { "word": "food", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_10_s4",
+          "text": "Children play outdoor games.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["games"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "play", "type": "verb" },
+            { "word": "games", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_10_s5",
+          "text": "We relax under the trees.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["nature"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "relax", "type": "verb" },
+            { "word": "trees", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_10_s6",
+          "text": "Photos are taken to capture moments.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["memories"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Photos", "type": "noun" },
+            { "word": "taken", "type": "verb" },
+            { "word": "capture", "type": "verb" },
+            { "word": "moments", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_m_10_s7",
+          "text": "The picnic makes everyone cheerful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["happiness"],
+          "distractorGroup": "festival_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "picnic", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "cheerful", "type": "adjective" }
+          ]
+        }
+      ]
+    }
+]

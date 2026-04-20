@@ -37,8 +37,8 @@ fun SentenceWordsView(
     currentWordIndex: Int
 ) {
 
-    val containerPaddingH = Dimens10
-    val containerPaddingV = Dimens6
+    val containerPaddingH = Dimens8
+    val containerPaddingV = Dimens4
 
     if (isJoined) {
 
@@ -96,7 +96,7 @@ fun SentenceWordsView(
                 val isSpeaking = currentWordIndex == index
 
                 val scale by animateFloatAsState(
-                    targetValue = if (isSpeaking) 1.2f else 1f,
+                    targetValue = if (isSpeaking) 1.1f else 1f,
                     animationSpec = spring(dampingRatio = 0.6f)
                 )
 
@@ -106,14 +106,14 @@ fun SentenceWordsView(
 
                 Box(
                     modifier = Modifier
-                        .padding(horizontal = Dimens4)
+                        .padding(horizontal = Dimens2)
                         .graphicsLayer {
                             scaleX = scale
                             scaleY = scale
                             rotationZ = rotation
                         }
                         .shadow(
-                            elevation = if (isSpeaking) Dimens8 else Dimens2,
+                            elevation = if (isSpeaking) Dimens8 else Dimens1,
                             shape = RoundedCornerShape(containerPaddingH),
                             ambientColor = if (isSpeaking) Color(0xFFFB8C00) else Color.Black
                         )

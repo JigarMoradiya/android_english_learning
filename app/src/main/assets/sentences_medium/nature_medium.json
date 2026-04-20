@@ -1,0 +1,1751 @@
+[
+    {
+      "id": "nature_m_1",
+      "imageName": "dog_in_park",
+      "title": "Dog in the Park",
+      "unit": "nature",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "animals_in_nature", "descriptive_vocabulary"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "nature_m_1_s1",
+          "text": "The brown dog runs happily across the green park.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["dog","park"],
+          "distractorGroup": "nature_dog",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "brown", "type": "adjective" },
+            { "word": "dog", "type": "noun" },
+            { "word": "runs", "type": "verb" },
+            { "word": "green", "type": "adjective" },
+            { "word": "park", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_1_s2",
+          "text": "It chases a small ball thrown by its owner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["ball","owner"],
+          "distractorGroup": "nature_dog",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "chases", "type": "verb" },
+            { "word": "small", "type": "adjective" },
+            { "word": "ball", "type": "noun" },
+            { "word": "owner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_1_s3",
+          "text": "The grass feels soft under its quick feet.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["grass","feet"],
+          "distractorGroup": "nature_dog",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "grass", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "soft", "type": "adjective" },
+            { "word": "quick", "type": "adjective" },
+            { "word": "feet", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_1_s4",
+          "text": "The dog jumps high when it catches the ball.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["dog","ball"],
+          "distractorGroup": "nature_dog",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "dog", "type": "noun" },
+            { "word": "jumps", "type": "verb" },
+            { "word": "it", "type": "pronoun" },
+            { "word": "catches", "type": "verb" },
+            { "word": "ball", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_1_s5",
+          "text": "Children watch the dog play with excitement.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["children","dog"],
+          "distractorGroup": "nature_dog",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "watch", "type": "verb" },
+            { "word": "dog", "type": "noun" },
+            { "word": "play", "type": "verb" },
+            { "word": "excitement", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_1_s6",
+          "text": "The sun shines brightly above the clear sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["sun","sky"],
+          "distractorGroup": "nature_dog",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "shines", "type": "verb" },
+            { "word": "clear", "type": "adjective" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_1_s7",
+          "text": "The dog rests peacefully after playing for a long time.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["dog","time"],
+          "distractorGroup": "nature_dog",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "dog", "type": "noun" },
+            { "word": "rests", "type": "verb" },
+            { "word": "playing", "type": "verb" },
+            { "word": "long", "type": "adjective" },
+            { "word": "time", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature_m_2",
+      "imageName": "cat_on_tree",
+      "title": "Cat on a Tree",
+      "unit": "nature",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "animals_in_nature", "action_verbs"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "nature_m_2_s1",
+          "text": "The white cat climbs the tall tree carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["cat","tree"],
+          "distractorGroup": "nature_cat",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "white", "type": "adjective" },
+            { "word": "cat", "type": "noun" },
+            { "word": "climbs", "type": "verb" },
+            { "word": "tall", "type": "adjective" },
+            { "word": "tree", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_2_s2",
+          "text": "It moves slowly along the strong branches.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["branches"],
+          "distractorGroup": "nature_cat",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "moves", "type": "verb" },
+            { "word": "strong", "type": "adjective" },
+            { "word": "branches", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_2_s3",
+          "text": "Birds fly away when they see the cat.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["birds","cat"],
+          "distractorGroup": "nature_cat",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Birds", "type": "noun" },
+            { "word": "fly", "type": "verb" },
+            { "word": "they", "type": "pronoun" },
+            { "word": "see", "type": "verb" },
+            { "word": "cat", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_2_s4",
+          "text": "The cat looks down from the high branch.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["cat","branch"],
+          "distractorGroup": "nature_cat",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cat", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "high", "type": "adjective" },
+            { "word": "branch", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_2_s5",
+          "text": "It meows softly because it feels nervous.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives"],
+          "tags": ["emotion"],
+          "distractorGroup": "nature_cat",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "meows", "type": "verb" },
+            { "word": "feels", "type": "verb" },
+            { "word": "nervous", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "nature_m_2_s6",
+          "text": "The wind shakes the leaves gently.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["wind","leaves"],
+          "distractorGroup": "nature_cat",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wind", "type": "noun" },
+            { "word": "shakes", "type": "verb" },
+            { "word": "leaves", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_2_s7",
+          "text": "The cat climbs down safely after some time.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["cat","time"],
+          "distractorGroup": "nature_cat",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cat", "type": "noun" },
+            { "word": "climbs", "type": "verb" },
+            { "word": "time", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature_m_3",
+      "imageName": "butterfly_garden",
+      "title": "Butterfly in the Garden",
+      "unit": "nature",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "insects_and_plants", "descriptive_language"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "nature_m_3_s1",
+          "text": "A colorful butterfly flies across the quiet garden.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["butterfly","garden"],
+          "distractorGroup": "nature_butterfly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "colorful", "type": "adjective" },
+            { "word": "butterfly", "type": "noun" },
+            { "word": "flies", "type": "verb" },
+            { "word": "quiet", "type": "adjective" },
+            { "word": "garden", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_3_s2",
+          "text": "It lands softly on a bright red flower.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["flower"],
+          "distractorGroup": "nature_butterfly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "lands", "type": "verb" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "red", "type": "adjective" },
+            { "word": "flower", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_3_s3",
+          "text": "The flower smells sweet in the fresh air.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["flower","air"],
+          "distractorGroup": "nature_butterfly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "flower", "type": "noun" },
+            { "word": "smells", "type": "verb" },
+            { "word": "sweet", "type": "adjective" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "air", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_3_s4",
+          "text": "The butterfly spreads its delicate wings slowly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["butterfly","wings"],
+          "distractorGroup": "nature_butterfly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "butterfly", "type": "noun" },
+            { "word": "spreads", "type": "verb" },
+            { "word": "delicate", "type": "adjective" },
+            { "word": "wings", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_3_s5",
+          "text": "Children watch quietly without touching it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["children"],
+          "distractorGroup": "nature_butterfly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "watch", "type": "verb" },
+            { "word": "touching", "type": "verb" },
+            { "word": "it", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "nature_m_3_s6",
+          "text": "The sun warms the garden gently.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["sun","garden"],
+          "distractorGroup": "nature_butterfly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "warms", "type": "verb" },
+            { "word": "garden", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_3_s7",
+          "text": "The butterfly flies away after resting briefly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["butterfly"],
+          "distractorGroup": "nature_butterfly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "butterfly", "type": "noun" },
+            { "word": "flies", "type": "verb" },
+            { "word": "resting", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature_m_4",
+      "imageName": "elephant_zoo",
+      "title": "Elephant at the Zoo",
+      "unit": "nature",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "animals", "descriptive_language"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "nature_m_4_s1",
+          "text": "The large elephant walks slowly around the zoo.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["elephant","zoo"],
+          "distractorGroup": "nature_elephant",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "large", "type": "adjective" },
+            { "word": "elephant", "type": "noun" },
+            { "word": "walks", "type": "verb" },
+            { "word": "zoo", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_4_s2",
+          "text": "It uses its long trunk to pick up grass.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["trunk","grass"],
+          "distractorGroup": "nature_elephant",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "uses", "type": "verb" },
+            { "word": "long", "type": "adjective" },
+            { "word": "trunk", "type": "noun" },
+            { "word": "pick", "type": "verb" },
+            { "word": "grass", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_4_s3",
+          "text": "Visitors watch carefully from behind the fence.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["visitors","fence"],
+          "distractorGroup": "nature_elephant",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Visitors", "type": "noun" },
+            { "word": "watch", "type": "verb" },
+            { "word": "fence", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_4_s4",
+          "text": "The elephant sprays water when it feels hot.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["elephant","water"],
+          "distractorGroup": "nature_elephant",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "elephant", "type": "noun" },
+            { "word": "sprays", "type": "verb" },
+            { "word": "water", "type": "noun" },
+            { "word": "it", "type": "pronoun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "hot", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "nature_m_4_s5",
+          "text": "Children laugh because the elephant looks playful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["children","elephant"],
+          "distractorGroup": "nature_elephant",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "laugh", "type": "verb" },
+            { "word": "elephant", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "playful", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "nature_m_4_s6",
+          "text": "The zookeeper feeds it fresh fruits.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["zookeeper","fruits"],
+          "distractorGroup": "nature_elephant",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "zookeeper", "type": "noun" },
+            { "word": "feeds", "type": "verb" },
+            { "word": "it", "type": "pronoun" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "fruits", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_4_s7",
+          "text": "The elephant rests quietly after eating.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["elephant"],
+          "distractorGroup": "nature_elephant",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "elephant", "type": "noun" },
+            { "word": "rests", "type": "verb" },
+            { "word": "eating", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature_m_5",
+      "imageName": "bird_on_branch",
+      "title": "Bird on a Branch",
+      "unit": "nature",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "birds", "descriptive_language"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "nature_m_5_s1",
+          "text": "A small bird sits calmly on a tree branch.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["bird","branch"],
+          "distractorGroup": "nature_bird",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "small", "type": "adjective" },
+            { "word": "bird", "type": "noun" },
+            { "word": "sits", "type": "verb" },
+            { "word": "tree", "type": "noun" },
+            { "word": "branch", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_5_s2",
+          "text": "Its bright feathers shine in the sunlight.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","adjectives","nouns","verbs"],
+          "tags": ["feathers","sunlight"],
+          "distractorGroup": "nature_bird",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Its", "type": "pronoun" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "feathers", "type": "noun" },
+            { "word": "shine", "type": "verb" },
+            { "word": "sunlight", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_5_s3",
+          "text": "It sings a sweet song early in the morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["song","morning"],
+          "distractorGroup": "nature_bird",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "sings", "type": "verb" },
+            { "word": "sweet", "type": "adjective" },
+            { "word": "song", "type": "noun" },
+            { "word": "morning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_5_s4",
+          "text": "The tree moves gently when the wind blows.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["tree","wind"],
+          "distractorGroup": "nature_bird",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "tree", "type": "noun" },
+            { "word": "moves", "type": "verb" },
+            { "word": "wind", "type": "noun" },
+            { "word": "blows", "type": "verb" }
+          ]
+        },
+        {
+          "id": "nature_m_5_s5",
+          "text": "The bird looks around before spreading its wings.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["bird","wings"],
+          "distractorGroup": "nature_bird",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bird", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "spreading", "type": "verb" },
+            { "word": "its", "type": "pronoun" },
+            { "word": "wings", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_5_s6",
+          "text": "Clouds float slowly across the sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["clouds","sky"],
+          "distractorGroup": "nature_bird",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Clouds", "type": "noun" },
+            { "word": "float", "type": "verb" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_5_s7",
+          "text": "The bird flies away after finishing its song.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["bird","song"],
+          "distractorGroup": "nature_bird",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bird", "type": "noun" },
+            { "word": "flies", "type": "verb" },
+            { "word": "finishing", "type": "verb" },
+            { "word": "its", "type": "pronoun" },
+            { "word": "song", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature_m_6",
+      "imageName": "river_flowing",
+      "title": "River Flowing",
+      "unit": "nature",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "nature_scenery", "descriptive_language"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "nature_m_6_s1",
+          "text": "The clear river flows quietly through the valley.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["river","valley"],
+          "distractorGroup": "nature_river",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "clear", "type": "adjective" },
+            { "word": "river", "type": "noun" },
+            { "word": "flows", "type": "verb" },
+            { "word": "valley", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_6_s2",
+          "text": "Fish swim peacefully beneath the cool water.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["fish","water"],
+          "distractorGroup": "nature_river",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Fish", "type": "noun" },
+            { "word": "swim", "type": "verb" },
+            { "word": "cool", "type": "adjective" },
+            { "word": "water", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_6_s3",
+          "text": "Trees grow tall along the riverbank.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["trees","riverbank"],
+          "distractorGroup": "nature_river",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Trees", "type": "noun" },
+            { "word": "grow", "type": "verb" },
+            { "word": "tall", "type": "adjective" },
+            { "word": "riverbank", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_6_s4",
+          "text": "Children sit nearby to enjoy the calm view.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["children","view"],
+          "distractorGroup": "nature_river",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "sit", "type": "verb" },
+            { "word": "enjoy", "type": "verb" },
+            { "word": "calm", "type": "adjective" },
+            { "word": "view", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_6_s5",
+          "text": "The water sparkles brightly under the sunlight.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["water","sunlight"],
+          "distractorGroup": "nature_river",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "water", "type": "noun" },
+            { "word": "sparkles", "type": "verb" },
+            { "word": "sunlight", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_6_s6",
+          "text": "Soft wind moves across the surface gently.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["wind","surface"],
+          "distractorGroup": "nature_river",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Soft", "type": "adjective" },
+            { "word": "wind", "type": "noun" },
+            { "word": "moves", "type": "verb" },
+            { "word": "surface", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_6_s7",
+          "text": "The place feels peaceful and relaxing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["place"],
+          "distractorGroup": "nature_river",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "place", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "peaceful", "type": "adjective" },
+            { "word": "relaxing", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature_m_7",
+      "imageName": "rainy_forest",
+      "title": "Rain in the Forest",
+      "unit": "nature",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "weather_in_nature", "descriptive_language"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "nature_m_7_s1",
+          "text": "Rain falls steadily in the deep green forest.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["rain","forest"],
+          "distractorGroup": "nature_rain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Rain", "type": "noun" },
+            { "word": "falls", "type": "verb" },
+            { "word": "deep", "type": "adjective" },
+            { "word": "green", "type": "adjective" },
+            { "word": "forest", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_7_s2",
+          "text": "Leaves become wet and shiny after the shower.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["leaves","shower"],
+          "distractorGroup": "nature_rain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Leaves", "type": "noun" },
+            { "word": "become", "type": "verb" },
+            { "word": "wet", "type": "adjective" },
+            { "word": "shiny", "type": "adjective" },
+            { "word": "shower", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_7_s3",
+          "text": "Small animals hide under trees for shelter.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["animals","trees"],
+          "distractorGroup": "nature_rain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Small", "type": "adjective" },
+            { "word": "animals", "type": "noun" },
+            { "word": "hide", "type": "verb" },
+            { "word": "trees", "type": "noun" },
+            { "word": "shelter", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_7_s4",
+          "text": "The air smells fresh and clean.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["air"],
+          "distractorGroup": "nature_rain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "air", "type": "noun" },
+            { "word": "smells", "type": "verb" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "clean", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "nature_m_7_s5",
+          "text": "Water drops fall from the tall branches.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["water","branches"],
+          "distractorGroup": "nature_rain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "water", "type": "noun" },
+            { "word": "drops", "type": "noun" },
+            { "word": "fall", "type": "verb" },
+            { "word": "tall", "type": "adjective" },
+            { "word": "branches", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_7_s6",
+          "text": "Thunder sounds loudly in the distance.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["thunder","distance"],
+          "distractorGroup": "nature_rain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Thunder", "type": "noun" },
+            { "word": "sounds", "type": "verb" },
+            { "word": "distance", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_7_s7",
+          "text": "The forest looks beautiful after the rain stops.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["forest","rain"],
+          "distractorGroup": "nature_rain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "forest", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "beautiful", "type": "adjective" },
+            { "word": "rain", "type": "noun" },
+            { "word": "stops", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature_m_8",
+      "imageName": "mountain_view",
+      "title": "Mountain View",
+      "unit": "nature",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "landforms", "descriptive_language"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "nature_m_8_s1",
+          "text": "The tall mountain stands proudly under the blue sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["mountain","sky"],
+          "distractorGroup": "nature_mountain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "tall", "type": "adjective" },
+            { "word": "mountain", "type": "noun" },
+            { "word": "stands", "type": "verb" },
+            { "word": "blue", "type": "adjective" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_8_s2",
+          "text": "Snow covers the top during the cold winter.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["snow","winter"],
+          "distractorGroup": "nature_mountain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "snow", "type": "noun" },
+            { "word": "covers", "type": "verb" },
+            { "word": "top", "type": "noun" },
+            { "word": "cold", "type": "adjective" },
+            { "word": "winter", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_8_s3",
+          "text": "Clouds move slowly around the high peak.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["clouds","peak"],
+          "distractorGroup": "nature_mountain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Clouds", "type": "noun" },
+            { "word": "move", "type": "verb" },
+            { "word": "high", "type": "adjective" },
+            { "word": "peak", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_8_s4",
+          "text": "Travelers climb carefully along the rocky path.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["travelers","path"],
+          "distractorGroup": "nature_mountain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Travelers", "type": "noun" },
+            { "word": "climb", "type": "verb" },
+            { "word": "rocky", "type": "adjective" },
+            { "word": "path", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_8_s5",
+          "text": "The air feels cool and refreshing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["air"],
+          "distractorGroup": "nature_mountain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "air", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "cool", "type": "adjective" },
+            { "word": "refreshing", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "nature_m_8_s6",
+          "text": "Birds fly far above the mountain.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["birds","mountain"],
+          "distractorGroup": "nature_mountain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Birds", "type": "noun" },
+            { "word": "fly", "type": "verb" },
+            { "word": "mountain", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_8_s7",
+          "text": "The view looks amazing from the top.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["view","top"],
+          "distractorGroup": "nature_mountain",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "view", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "amazing", "type": "adjective" },
+            { "word": "top", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature_m_9",
+      "imageName": "cow_in_field",
+      "title": "Cow in the Field",
+      "unit": "nature",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "farm_animals", "descriptive_language"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "nature_m_9_s1",
+          "text": "The brown cow stands quietly in the wide field.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["cow","field"],
+          "distractorGroup": "nature_cow",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "brown", "type": "adjective" },
+            { "word": "cow", "type": "noun" },
+            { "word": "stands", "type": "verb" },
+            { "word": "wide", "type": "adjective" },
+            { "word": "field", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_9_s2",
+          "text": "It eats fresh green grass slowly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["grass"],
+          "distractorGroup": "nature_cow",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "eats", "type": "verb" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "green", "type": "adjective" },
+            { "word": "grass", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_9_s3",
+          "text": "The warm sun shines above the farm.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["sun","farm"],
+          "distractorGroup": "nature_cow",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "warm", "type": "adjective" },
+            { "word": "sun", "type": "noun" },
+            { "word": "shines", "type": "verb" },
+            { "word": "farm", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_9_s4",
+          "text": "Farmers work nearby during the morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["farmers","morning"],
+          "distractorGroup": "nature_cow",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Farmers", "type": "noun" },
+            { "word": "work", "type": "verb" },
+            { "word": "morning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_9_s5",
+          "text": "The cow walks gently across the field.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["cow","field"],
+          "distractorGroup": "nature_cow",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cow", "type": "noun" },
+            { "word": "walks", "type": "verb" },
+            { "word": "field", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_9_s6",
+          "text": "Birds sit on its back sometimes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["birds","back"],
+          "distractorGroup": "nature_cow",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Birds", "type": "noun" },
+            { "word": "sit", "type": "verb" },
+            { "word": "its", "type": "pronoun" },
+            { "word": "back", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_9_s7",
+          "text": "The farm feels calm and peaceful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["farm"],
+          "distractorGroup": "nature_cow",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "farm", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "calm", "type": "adjective" },
+            { "word": "peaceful", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature_m_10",
+      "imageName": "sunset_beach",
+      "title": "Sunset at the Beach",
+      "unit": "nature",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "nature_scenery", "descriptive_language"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "nature_m_10_s1",
+          "text": "The sun sets slowly over the quiet beach.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["sun","beach"],
+          "distractorGroup": "nature_sunset",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "sets", "type": "verb" },
+            { "word": "quiet", "type": "adjective" },
+            { "word": "beach", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_10_s2",
+          "text": "The sky turns orange and pink.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["sky"],
+          "distractorGroup": "nature_sunset",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sky", "type": "noun" },
+            { "word": "turns", "type": "verb" },
+            { "word": "orange", "type": "adjective" },
+            { "word": "pink", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "nature_m_10_s3",
+          "text": "Waves move gently across the sandy shore.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["waves","shore"],
+          "distractorGroup": "nature_sunset",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Waves", "type": "noun" },
+            { "word": "move", "type": "verb" },
+            { "word": "sandy", "type": "adjective" },
+            { "word": "shore", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_10_s4",
+          "text": "People walk peacefully along the water.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["people","water"],
+          "distractorGroup": "nature_sunset",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "People", "type": "noun" },
+            { "word": "walk", "type": "verb" },
+            { "word": "water", "type": "noun" }
+          ]
+        },
+        {
+          "id": "nature_m_10_s5",
+          "text": "Birds fly home before the night begins.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["birds","night"],
+          "distractorGroup": "nature_sunset",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Birds", "type": "noun" },
+            { "word": "fly", "type": "verb" },
+            { "word": "night", "type": "noun" },
+            { "word": "begins", "type": "verb" }
+          ]
+        },
+        {
+          "id": "nature_m_10_s6",
+          "text": "The cool air feels refreshing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["air"],
+          "distractorGroup": "nature_sunset",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cool", "type": "adjective" },
+            { "word": "air", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "refreshing", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "nature_m_10_s7",
+          "text": "The evening looks calm and beautiful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["evening"],
+          "distractorGroup": "nature_sunset",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "evening", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "calm", "type": "adjective" },
+            { "word": "beautiful", "type": "adjective" }
+          ]
+        }
+      ]
+    }
+]

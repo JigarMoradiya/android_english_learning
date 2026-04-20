@@ -1,0 +1,1759 @@
+[
+    {
+      "id": "school_m_1",
+      "imageName": "kids_in_class",
+      "title": "In the Classroom",
+      "unit": "schoolLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "classroom_rules", "asking_questions"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "school_m_1_s1",
+          "text": "The children sit quietly in the bright classroom.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["children","classroom"],
+          "distractorGroup": "school_classroom",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "sit", "type": "verb" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "classroom", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_1_s2",
+          "text": "The teacher writes important notes on the board.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["teacher","board"],
+          "distractorGroup": "school_classroom",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "writes", "type": "verb" },
+            { "word": "important", "type": "adjective" },
+            { "word": "notes", "type": "noun" },
+            { "word": "board", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_1_s3",
+          "text": "The students open their books after the bell rings.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["students","bell"],
+          "distractorGroup": "school_classroom",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "students", "type": "noun" },
+            { "word": "open", "type": "verb" },
+            { "word": "books", "type": "noun" },
+            { "word": "bell", "type": "noun" },
+            { "word": "rings", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_1_s4",
+          "text": "They listen carefully because the lesson is new.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns","adjectives"],
+          "tags": ["lesson"],
+          "distractorGroup": "school_classroom",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "listen", "type": "verb" },
+            { "word": "lesson", "type": "noun" },
+            { "word": "new", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "school_m_1_s5",
+          "text": "One boy raises his hand to ask a question.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["boy","question"],
+          "distractorGroup": "school_classroom",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "raises", "type": "verb" },
+            { "word": "hand", "type": "noun" },
+            { "word": "ask", "type": "verb" },
+            { "word": "question", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_1_s6",
+          "text": "The teacher smiles before answering clearly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["teacher"],
+          "distractorGroup": "school_classroom",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "smiles", "type": "verb" },
+            { "word": "answering", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_1_s7",
+          "text": "The class feels confident after understanding the topic.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["class","topic"],
+          "distractorGroup": "school_classroom",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "class", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "confident", "type": "adjective" },
+            { "word": "topic", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_m_2",
+      "imageName": "girl_reading_book",
+      "title": "Reading a Book",
+      "unit": "schoolLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "reading_skills", "library_time"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "school_m_2_s1",
+          "text": "The girl reads an interesting story during library time.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["girl","story","library"],
+          "distractorGroup": "school_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "reads", "type": "verb" },
+            { "word": "interesting", "type": "adjective" },
+            { "word": "story", "type": "noun" },
+            { "word": "library", "type": "noun" },
+            { "word": "time", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_2_s2",
+          "text": "She sits comfortably near the tall bookshelf.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["bookshelf"],
+          "distractorGroup": "school_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "sits", "type": "verb" },
+            { "word": "tall", "type": "adjective" },
+            { "word": "bookshelf", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_2_s3",
+          "text": "She turns each page slowly to understand the details.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["page","details"],
+          "distractorGroup": "school_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "turns", "type": "verb" },
+            { "word": "page", "type": "noun" },
+            { "word": "understand", "type": "verb" },
+            { "word": "details", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_2_s4",
+          "text": "Her friend whispers softly before sitting beside her.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","nouns","verbs"],
+          "tags": ["friend"],
+          "distractorGroup": "school_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Her", "type": "pronoun" },
+            { "word": "friend", "type": "noun" },
+            { "word": "whispers", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_2_s5",
+          "text": "The story becomes exciting when the hero appears.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["story","hero"],
+          "distractorGroup": "school_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "story", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "exciting", "type": "adjective" },
+            { "word": "hero", "type": "noun" },
+            { "word": "appears", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_2_s6",
+          "text": "She smiles because she enjoys reading.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs"],
+          "tags": [],
+          "distractorGroup": "school_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "smiles", "type": "verb" },
+            { "word": "enjoys", "type": "verb" },
+            { "word": "reading", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_2_s7",
+          "text": "She finishes the chapter before the class ends.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["chapter","class"],
+          "distractorGroup": "school_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "finishes", "type": "verb" },
+            { "word": "chapter", "type": "noun" },
+            { "word": "class", "type": "noun" },
+            { "word": "ends", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_m_3",
+      "imageName": "boy_writing",
+      "title": "Writing in Class",
+      "unit": "schoolLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "writing_skills", "classwork"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "school_m_3_s1",
+          "text": "The boy writes neatly in his notebook during class.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["boy","notebook","class"],
+          "distractorGroup": "school_writing",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "writes", "type": "verb" },
+            { "word": "notebook", "type": "noun" },
+            { "word": "class", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_3_s2",
+          "text": "He holds his pencil firmly while thinking carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["pencil"],
+          "distractorGroup": "school_writing",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "holds", "type": "verb" },
+            { "word": "pencil", "type": "noun" },
+            { "word": "thinking", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_3_s3",
+          "text": "He reads the question before starting his answer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["question","answer"],
+          "distractorGroup": "school_writing",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "reads", "type": "verb" },
+            { "word": "question", "type": "noun" },
+            { "word": "starting", "type": "verb" },
+            { "word": "answer", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_3_s4",
+          "text": "He erases mistakes when he notices them.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["mistakes"],
+          "distractorGroup": "school_writing",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "erases", "type": "verb" },
+            { "word": "mistakes", "type": "noun" },
+            { "word": "notices", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_3_s5",
+          "text": "The teacher walks around to check the work.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["teacher","work"],
+          "distractorGroup": "school_writing",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "walks", "type": "verb" },
+            { "word": "work", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_3_s6",
+          "text": "He finishes his assignment before the time ends.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["assignment","time"],
+          "distractorGroup": "school_writing",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "finishes", "type": "verb" },
+            { "word": "assignment", "type": "noun" },
+            { "word": "time", "type": "noun" },
+            { "word": "ends", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_3_s7",
+          "text": "He feels proud because he worked hard.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives"],
+          "tags": ["proud"],
+          "distractorGroup": "school_writing",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "proud", "type": "adjective" },
+            { "word": "worked", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_m_4",
+      "imageName": "school_playground",
+      "title": "School Playground",
+      "unit": "schoolLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "physical_activity", "play_time"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "school_m_4_s1",
+          "text": "The children run excitedly in the large playground.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["children","playground"],
+          "distractorGroup": "school_playground",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "run", "type": "verb" },
+            { "word": "large", "type": "adjective" },
+            { "word": "playground", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_4_s2",
+          "text": "Some play football while others jump rope.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["football","rope"],
+          "distractorGroup": "school_playground",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Some", "type": "pronoun" },
+            { "word": "others", "type": "pronoun" },
+            { "word": "play", "type": "verb" },
+            { "word": "football", "type": "noun" },
+            { "word": "jump", "type": "verb" },
+            { "word": "rope", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_4_s3",
+          "text": "The sun shines brightly above the field.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["sun","field"],
+          "distractorGroup": "school_playground",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "shines", "type": "verb" },
+            { "word": "field", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_4_s4",
+          "text": "They drink water after running quickly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["water"],
+          "distractorGroup": "school_playground",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "drink", "type": "verb" },
+            { "word": "water", "type": "noun" },
+            { "word": "running", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_4_s5",
+          "text": "A teacher watches carefully from the corner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["teacher","corner"],
+          "distractorGroup": "school_playground",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "watches", "type": "verb" },
+            { "word": "corner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_4_s6",
+          "text": "They laugh loudly because they enjoy playing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs"],
+          "tags": [],
+          "distractorGroup": "school_playground",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "laugh", "type": "verb" },
+            { "word": "enjoy", "type": "verb" },
+            { "word": "playing", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_4_s7",
+          "text": "They return to class when the bell rings.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["class","bell"],
+          "distractorGroup": "school_playground",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "return", "type": "verb" },
+            { "word": "class", "type": "noun" },
+            { "word": "bell", "type": "noun" },
+            { "word": "rings", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_m_5",
+      "imageName": "teacher_helping_student",
+      "title": "Teacher Helping",
+      "unit": "schoolLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "problem_solving", "asking_for_help"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "school_m_5_s1",
+          "text": "The teacher helps a student solve a difficult problem.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["teacher","student","problem"],
+          "distractorGroup": "school_help",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "helps", "type": "verb" },
+            { "word": "student", "type": "noun" },
+            { "word": "solve", "type": "verb" },
+            { "word": "difficult", "type": "adjective" },
+            { "word": "problem", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_5_s2",
+          "text": "The student looks confused before asking for help.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["student","help"],
+          "distractorGroup": "school_help",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "student", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "confused", "type": "adjective" },
+            { "word": "asking", "type": "verb" },
+            { "word": "help", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_5_s3",
+          "text": "The teacher explains the steps slowly and clearly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["teacher","steps"],
+          "distractorGroup": "school_help",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "explains", "type": "verb" },
+            { "word": "steps", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_5_s4",
+          "text": "The student listens carefully to understand better.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["student"],
+          "distractorGroup": "school_help",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "student", "type": "noun" },
+            { "word": "listens", "type": "verb" },
+            { "word": "understand", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_5_s5",
+          "text": "She tries again after receiving guidance.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["guidance"],
+          "distractorGroup": "school_help",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "tries", "type": "verb" },
+            { "word": "receiving", "type": "verb" },
+            { "word": "guidance", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_5_s6",
+          "text": "She smiles because the answer becomes clear.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns","adjectives"],
+          "tags": ["answer"],
+          "distractorGroup": "school_help",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "smiles", "type": "verb" },
+            { "word": "answer", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "clear", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "school_m_5_s7",
+          "text": "The teacher feels happy when the student succeeds.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["teacher","student"],
+          "distractorGroup": "school_help",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "happy", "type": "adjective" },
+            { "word": "student", "type": "noun" },
+            { "word": "succeeds", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_m_6",
+      "imageName": "school_library",
+      "title": "In the Library",
+      "unit": "schoolLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "reading_habits", "library_rules"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "school_m_6_s1",
+          "text": "The library is quiet during reading hour.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","adjectives","verbs"],
+          "tags": ["library","hour"],
+          "distractorGroup": "school_library",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "library", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "quiet", "type": "adjective" },
+            { "word": "reading", "type": "verb" },
+            { "word": "hour", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_6_s2",
+          "text": "Rows of books fill the tall shelves.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["books","shelves"],
+          "distractorGroup": "school_library",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "books", "type": "noun" },
+            { "word": "fill", "type": "verb" },
+            { "word": "tall", "type": "adjective" },
+            { "word": "shelves", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_6_s3",
+          "text": "The boy selects a book about animals.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["boy","book","animals"],
+          "distractorGroup": "school_library",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "selects", "type": "verb" },
+            { "word": "book", "type": "noun" },
+            { "word": "animals", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_6_s4",
+          "text": "He sits quietly before opening the first page.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["page"],
+          "distractorGroup": "school_library",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "sits", "type": "verb" },
+            { "word": "opening", "type": "verb" },
+            { "word": "first", "type": "adjective" },
+            { "word": "page", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_6_s5",
+          "text": "He reads carefully to understand new words.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["words"],
+          "distractorGroup": "school_library",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "reads", "type": "verb" },
+            { "word": "understand", "type": "verb" },
+            { "word": "new", "type": "adjective" },
+            { "word": "words", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_6_s6",
+          "text": "The librarian smiles gently at the students.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["librarian","students"],
+          "distractorGroup": "school_library",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "librarian", "type": "noun" },
+            { "word": "smiles", "type": "verb" },
+            { "word": "students", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_6_s7",
+          "text": "He returns the book after finishing it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["book"],
+          "distractorGroup": "school_library",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "returns", "type": "verb" },
+            { "word": "book", "type": "noun" },
+            { "word": "finishing", "type": "verb" },
+            { "word": "it", "type": "pronoun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_m_7",
+      "imageName": "drawing_class",
+      "title": "Drawing Class",
+      "unit": "schoolLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "creativity", "art_vocabulary"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "school_m_7_s1",
+          "text": "The children draw colorful pictures during art class.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["children","pictures","class"],
+          "distractorGroup": "school_art",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "draw", "type": "verb" },
+            { "word": "colorful", "type": "adjective" },
+            { "word": "pictures", "type": "noun" },
+            { "word": "class", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_7_s2",
+          "text": "They use crayons and paint to create designs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["crayons","paint","designs"],
+          "distractorGroup": "school_art",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "use", "type": "verb" },
+            { "word": "crayons", "type": "noun" },
+            { "word": "paint", "type": "noun" },
+            { "word": "create", "type": "verb" },
+            { "word": "designs", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_7_s3",
+          "text": "One girl draws a house near a river.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["girl","house","river"],
+          "distractorGroup": "school_art",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "draws", "type": "verb" },
+            { "word": "house", "type": "noun" },
+            { "word": "river", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_7_s4",
+          "text": "Another boy paints a bright blue sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["boy","sky"],
+          "distractorGroup": "school_art",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "paints", "type": "verb" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "blue", "type": "adjective" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_7_s5",
+          "text": "The teacher walks around to observe their work.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["teacher","work"],
+          "distractorGroup": "school_art",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "walks", "type": "verb" },
+            { "word": "observe", "type": "verb" },
+            { "word": "their", "type": "pronoun" },
+            { "word": "work", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_7_s6",
+          "text": "She praises them because they try their best.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs"],
+          "tags": ["praise","effort"],
+          "distractorGroup": "school_art",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "praises", "type": "verb" },
+            { "word": "them", "type": "pronoun" },
+            { "word": "try", "type": "verb" },
+            { "word": "their", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "school_m_7_s7",
+          "text": "The classroom looks beautiful after the lesson.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["classroom","lesson"],
+          "distractorGroup": "school_art",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "classroom", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "beautiful", "type": "adjective" },
+            { "word": "lesson", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_m_8",
+      "imageName": "school_assembly",
+      "title": "Morning Assembly",
+      "unit": "schoolLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "school_routine", "discipline_values"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "school_m_8_s1",
+          "text": "The students gather in the school ground for assembly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["students","school","assembly"],
+          "distractorGroup": "school_assembly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "students", "type": "noun" },
+            { "word": "gather", "type": "verb" },
+            { "word": "school", "type": "noun" },
+            { "word": "ground", "type": "noun" },
+            { "word": "assembly", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_8_s2",
+          "text": "They stand in straight lines before the program begins.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["lines","program"],
+          "distractorGroup": "school_assembly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "stand", "type": "verb" },
+            { "word": "straight", "type": "adjective" },
+            { "word": "lines", "type": "noun" },
+            { "word": "program", "type": "noun" },
+            { "word": "begins", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_8_s3",
+          "text": "They sing the national song with pride.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["song","pride"],
+          "distractorGroup": "school_assembly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "sing", "type": "verb" },
+            { "word": "national", "type": "adjective" },
+            { "word": "song", "type": "noun" },
+            { "word": "pride", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_8_s4",
+          "text": "The principal speaks about discipline and honesty.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["principal","discipline","honesty"],
+          "distractorGroup": "school_assembly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "principal", "type": "noun" },
+            { "word": "speaks", "type": "verb" },
+            { "word": "discipline", "type": "noun" },
+            { "word": "honesty", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_8_s5",
+          "text": "The students listen carefully without talking.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["students"],
+          "distractorGroup": "school_assembly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "students", "type": "noun" },
+            { "word": "listen", "type": "verb" },
+            { "word": "talking", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_8_s6",
+          "text": "They clap politely after the speech ends.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["speech"],
+          "distractorGroup": "school_assembly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "clap", "type": "verb" },
+            { "word": "speech", "type": "noun" },
+            { "word": "ends", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_8_s7",
+          "text": "They walk back to class in silence.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["class","silence"],
+          "distractorGroup": "school_assembly",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "walk", "type": "verb" },
+            { "word": "class", "type": "noun" },
+            { "word": "silence", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_m_9",
+      "imageName": "science_class",
+      "title": "Science Class",
+      "unit": "schoolLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "science_vocabulary", "curiosity"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "school_m_9_s1",
+          "text": "The teacher shows a green plant during science class.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["teacher","plant","science","class"],
+          "distractorGroup": "school_science",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "shows", "type": "verb" },
+            { "word": "green", "type": "adjective" },
+            { "word": "plant", "type": "noun" },
+            { "word": "science", "type": "noun" },
+            { "word": "class", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_9_s2",
+          "text": "She explains how plants grow using sunlight and water.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["plants","sunlight","water"],
+          "distractorGroup": "school_science",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "explains", "type": "verb" },
+            { "word": "plants", "type": "noun" },
+            { "word": "grow", "type": "verb" },
+            { "word": "sunlight", "type": "noun" },
+            { "word": "water", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_9_s3",
+          "text": "The students observe the leaves carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["students","leaves"],
+          "distractorGroup": "school_science",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "students", "type": "noun" },
+            { "word": "observe", "type": "verb" },
+            { "word": "leaves", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_9_s4",
+          "text": "One student asks a thoughtful question.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["student","question"],
+          "distractorGroup": "school_science",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "student", "type": "noun" },
+            { "word": "asks", "type": "verb" },
+            { "word": "thoughtful", "type": "adjective" },
+            { "word": "question", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_9_s5",
+          "text": "The teacher answers clearly before continuing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["teacher"],
+          "distractorGroup": "school_science",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "answers", "type": "verb" },
+            { "word": "continuing", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_9_s6",
+          "text": "The class writes notes in their notebooks.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["class","notes","notebooks"],
+          "distractorGroup": "school_science",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "class", "type": "noun" },
+            { "word": "writes", "type": "verb" },
+            { "word": "notes", "type": "noun" },
+            { "word": "their", "type": "pronoun" },
+            { "word": "notebooks", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_9_s7",
+          "text": "They feel curious about learning more.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives"],
+          "tags": ["curiosity"],
+          "distractorGroup": "school_science",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "curious", "type": "adjective" },
+            { "word": "learning", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_m_10",
+      "imageName": "school_bus_home",
+      "title": "Going Home",
+      "unit": "schoolLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "daily_routine", "school_transport"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "school_m_10_s1",
+          "text": "The school bell rings loudly in the afternoon.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["school","bell","afternoon"],
+          "distractorGroup": "school_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "school", "type": "noun" },
+            { "word": "bell", "type": "noun" },
+            { "word": "rings", "type": "verb" },
+            { "word": "afternoon", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_10_s2",
+          "text": "The children pack their bags before leaving.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["children","bags"],
+          "distractorGroup": "school_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "pack", "type": "verb" },
+            { "word": "their", "type": "pronoun" },
+            { "word": "bags", "type": "noun" },
+            { "word": "leaving", "type": "verb" }
+          ]
+        },
+        {
+          "id": "school_m_10_s3",
+          "text": "They walk quickly toward the school gate.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["school","gate"],
+          "distractorGroup": "school_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "walk", "type": "verb" },
+            { "word": "school", "type": "noun" },
+            { "word": "gate", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_10_s4",
+          "text": "Parents wait patiently outside the building.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["parents","building"],
+          "distractorGroup": "school_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "parents", "type": "noun" },
+            { "word": "wait", "type": "verb" },
+            { "word": "building", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_10_s5",
+          "text": "The bus driver greets them politely.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["bus","driver"],
+          "distractorGroup": "school_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bus", "type": "noun" },
+            { "word": "driver", "type": "noun" },
+            { "word": "greets", "type": "verb" },
+            { "word": "them", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "school_m_10_s6",
+          "text": "The bus moves slowly through busy streets.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["bus","streets"],
+          "distractorGroup": "school_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bus", "type": "noun" },
+            { "word": "moves", "type": "verb" },
+            { "word": "busy", "type": "adjective" },
+            { "word": "streets", "type": "noun" }
+          ]
+        },
+        {
+          "id": "school_m_10_s7",
+          "text": "The children feel tired but happy after school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["children","school"],
+          "distractorGroup": "school_home",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "tired", "type": "adjective" },
+            { "word": "happy", "type": "adjective" },
+            { "word": "school", "type": "noun" }
+          ]
+        }
+      ]
+    }
+]

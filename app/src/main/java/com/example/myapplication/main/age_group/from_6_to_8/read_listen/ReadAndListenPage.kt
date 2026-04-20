@@ -115,6 +115,7 @@ fun ReadAndListenPage(
                         text = stringResource(R.string.previous),
                         icon = Icons.AutoMirrored.Rounded.KeyboardArrowLeft,
                         type = if (viewModel.isAtFirst) ButtonType.DISABLE else ButtonType.ORANGE,
+                        isSmall = true,
                         onClick = { viewModel.previousSentence() }
                     )
 
@@ -126,6 +127,7 @@ fun ReadAndListenPage(
                         icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
                         type = if (viewModel.isAtLast) ButtonType.DISABLE else ButtonType.ORANGE,
                         isIconStart = false,
+                        isSmall = true,
                         onClick = { viewModel.nextSentence() }
                     )
                 }

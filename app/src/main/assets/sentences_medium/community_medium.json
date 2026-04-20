@@ -1,0 +1,1693 @@
+[
+    {
+      "id": "community_m_1",
+      "imageName": "doctor_helping",
+      "title": "The Doctor",
+      "level": "medium",
+      "unit": "community",
+      "order": 1,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "community_helpers", "health_vocabulary"],
+      "sentences": [
+        {
+          "id": "community_m_1_s1",
+          "text": "The doctor treats patients in the hospital every day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["doctor", "hospital"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "doctor", "type": "noun" },
+            { "word": "treats", "type": "verb" },
+            { "word": "patients", "type": "noun" },
+            { "word": "hospital", "type": "noun" },
+            { "word": "day", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_1_s2",
+          "text": "She listens carefully to people's problems.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["problems"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "listens", "type": "verb" },
+            { "word": "problems", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_1_s3",
+          "text": "She checks temperature and heartbeat.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["temperature", "heartbeat"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "checks", "type": "verb" },
+            { "word": "temperature", "type": "noun" },
+            { "word": "heartbeat", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_1_s4",
+          "text": "She gives medicine after examining the patient.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["medicine", "patient"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "gives", "type": "verb" },
+            { "word": "medicine", "type": "noun" },
+            { "word": "patient", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_1_s5",
+          "text": "Doctors work hard to save lives.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["doctors", "lives"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Doctors", "type": "noun" },
+            { "word": "work", "type": "verb" },
+            { "word": "hard", "type": "adjective" },
+            { "word": "save", "type": "verb" },
+            { "word": "lives", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_1_s6",
+          "text": "They stay calm during emergencies.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["emergencies"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "stay", "type": "verb" },
+            { "word": "calm", "type": "adjective" },
+            { "word": "emergencies", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_1_s7",
+          "text": "Doctors are important because they keep us healthy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives", "verbs"],
+          "tags": ["important", "healthy"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Doctors", "type": "noun" },
+            { "word": "important", "type": "adjective" },
+            { "word": "keep", "type": "verb" },
+            { "word": "healthy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "community_m_2",
+      "imageName": "teacher_classroom",
+      "title": "The Teacher",
+      "level": "medium",
+      "unit": "community",
+      "order": 2,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "community_helpers", "education_vocabulary"],
+      "sentences": [
+        {
+          "id": "community_m_2_s1",
+          "text": "The teacher guides students in the classroom.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["teacher", "classroom"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "guides", "type": "verb" },
+            { "word": "students", "type": "noun" },
+            { "word": "classroom", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_2_s2",
+          "text": "She explains difficult lessons clearly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["lessons"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "explains", "type": "verb" },
+            { "word": "difficult", "type": "adjective" },
+            { "word": "lessons", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_2_s3",
+          "text": "She answers questions patiently.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["questions"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "answers", "type": "verb" },
+            { "word": "questions", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_2_s4",
+          "text": "Students listen carefully during class.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["students", "class"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Students", "type": "noun" },
+            { "word": "listen", "type": "verb" },
+            { "word": "class", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_2_s5",
+          "text": "She checks homework after school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["homework", "school"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "checks", "type": "verb" },
+            { "word": "homework", "type": "noun" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_2_s6",
+          "text": "Teachers encourage children to do their best.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["teachers", "children"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Teachers", "type": "noun" },
+            { "word": "encourage", "type": "verb" },
+            { "word": "children", "type": "noun" },
+            { "word": "best", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "community_m_2_s7",
+          "text": "A good teacher shapes our future.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["teacher", "future"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "good", "type": "adjective" },
+            { "word": "teacher", "type": "noun" },
+            { "word": "shapes", "type": "verb" },
+            { "word": "future", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "community_m_3",
+      "imageName": "police_officer",
+      "title": "The Police Officer",
+      "level": "medium",
+      "unit": "community",
+      "order": 3,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "community_helpers", "safety_vocabulary"],
+      "sentences": [
+        {
+          "id": "community_m_3_s1",
+          "text": "The police officer protects people in the city.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["officer", "city"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "officer", "type": "noun" },
+            { "word": "protects", "type": "verb" },
+            { "word": "people", "type": "noun" },
+            { "word": "city", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_3_s2",
+          "text": "He controls traffic at busy roads.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["traffic", "roads"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "controls", "type": "verb" },
+            { "word": "traffic", "type": "noun" },
+            { "word": "busy", "type": "adjective" },
+            { "word": "roads", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_3_s3",
+          "text": "He catches criminals who break the law.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["criminals", "law"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "catches", "type": "verb" },
+            { "word": "criminals", "type": "noun" },
+            { "word": "break", "type": "verb" },
+            { "word": "law", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_3_s4",
+          "text": "He helps people during emergencies.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["emergencies"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "helps", "type": "verb" },
+            { "word": "people", "type": "noun" },
+            { "word": "emergencies", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_3_s5",
+          "text": "Police officers work day and night.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["officers", "night"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "officers", "type": "noun" },
+            { "word": "work", "type": "verb" },
+            { "word": "day", "type": "noun" },
+            { "word": "night", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_3_s6",
+          "text": "They wear uniforms and carry badges.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["uniforms", "badges"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wear", "type": "verb" },
+            { "word": "uniforms", "type": "noun" },
+            { "word": "carry", "type": "verb" },
+            { "word": "badges", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_3_s7",
+          "text": "They keep society safe and peaceful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["society", "safe"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "keep", "type": "verb" },
+            { "word": "society", "type": "noun" },
+            { "word": "safe", "type": "adjective" },
+            { "word": "peaceful", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "community_m_4",
+      "imageName": "firefighter",
+      "title": "The Firefighter",
+      "level": "medium",
+      "unit": "community",
+      "order": 4,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "community_helpers", "safety_vocabulary"],
+      "sentences": [
+        {
+          "id": "community_m_4_s1",
+          "text": "Firefighters rush quickly when a fire breaks out.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["firefighters", "fire"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Firefighters", "type": "noun" },
+            { "word": "rush", "type": "verb" },
+            { "word": "fire", "type": "noun" },
+            { "word": "breaks", "type": "verb" }
+          ]
+        },
+        {
+          "id": "community_m_4_s2",
+          "text": "They drive large red fire trucks.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["trucks"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "drive", "type": "verb" },
+            { "word": "large", "type": "adjective" },
+            { "word": "red", "type": "adjective" },
+            { "word": "trucks", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_4_s3",
+          "text": "They spray water to stop the flames.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["water", "flames"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "spray", "type": "verb" },
+            { "word": "water", "type": "noun" },
+            { "word": "stop", "type": "verb" },
+            { "word": "flames", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_4_s4",
+          "text": "They rescue people trapped inside buildings.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["rescue", "buildings"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rescue", "type": "verb" },
+            { "word": "people", "type": "noun" },
+            { "word": "trapped", "type": "adjective" },
+            { "word": "buildings", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_4_s5",
+          "text": "They wear special safety gear.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["gear"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wear", "type": "verb" },
+            { "word": "special", "type": "adjective" },
+            { "word": "safety", "type": "noun" },
+            { "word": "gear", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_4_s6",
+          "text": "Firefighters are brave and strong.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["brave", "strong"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Firefighters", "type": "noun" },
+            { "word": "brave", "type": "adjective" },
+            { "word": "strong", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "community_m_4_s7",
+          "text": "They protect lives and property.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["lives", "property"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "protect", "type": "verb" },
+            { "word": "lives", "type": "noun" },
+            { "word": "property", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "community_m_5",
+      "imageName": "farmer_field",
+      "title": "The Farmer",
+      "level": "medium",
+      "unit": "community",
+      "order": 5,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "community_helpers", "agriculture_vocabulary"],
+      "sentences": [
+        {
+          "id": "community_m_5_s1",
+          "text": "The farmer works hard in the fields.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["farmer", "fields"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "farmer", "type": "noun" },
+            { "word": "works", "type": "verb" },
+            { "word": "hard", "type": "adjective" },
+            { "word": "fields", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_5_s2",
+          "text": "He plants seeds during the planting season.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["seeds", "season"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "plants", "type": "verb" },
+            { "word": "seeds", "type": "noun" },
+            { "word": "season", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_5_s3",
+          "text": "He waters crops regularly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["crops"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "waters", "type": "verb" },
+            { "word": "crops", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_5_s4",
+          "text": "He harvests fruits and vegetables.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["fruits", "vegetables"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "harvests", "type": "verb" },
+            { "word": "fruits", "type": "noun" },
+            { "word": "vegetables", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_5_s5",
+          "text": "Farmers wake up early every morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["farmers", "morning"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Farmers", "type": "noun" },
+            { "word": "wake", "type": "verb" },
+            { "word": "early", "type": "adjective" },
+            { "word": "morning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_5_s6",
+          "text": "They care for animals on the farm.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["animals", "farm"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "care", "type": "verb" },
+            { "word": "animals", "type": "noun" },
+            { "word": "farm", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_5_s7",
+          "text": "Farmers provide food for everyone.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["food", "everyone"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Farmers", "type": "noun" },
+            { "word": "provide", "type": "verb" },
+            { "word": "food", "type": "noun" },
+            { "word": "everyone", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "community_m_6",
+      "imageName": "postman_delivery",
+      "title": "The Postman",
+      "level": "medium",
+      "unit": "community",
+      "order": 6,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "community_helpers", "communication_vocabulary"],
+      "sentences": [
+        {
+          "id": "community_m_6_s1",
+          "text": "The postman delivers letters and parcels daily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["postman", "letters"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "postman", "type": "noun" },
+            { "word": "delivers", "type": "verb" },
+            { "word": "letters", "type": "noun" },
+            { "word": "parcels", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_6_s2",
+          "text": "He rides a bicycle or drives a van.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["bicycle", "van"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rides", "type": "verb" },
+            { "word": "bicycle", "type": "noun" },
+            { "word": "drives", "type": "verb" },
+            { "word": "van", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_6_s3",
+          "text": "He sorts mail before starting work.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["mail", "work"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sorts", "type": "verb" },
+            { "word": "mail", "type": "noun" },
+            { "word": "work", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_6_s4",
+          "text": "He knocks on doors politely.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["doors"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "knocks", "type": "verb" },
+            { "word": "doors", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_6_s5",
+          "text": "People wait for important letters.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["letters"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "People", "type": "noun" },
+            { "word": "wait", "type": "verb" },
+            { "word": "important", "type": "adjective" },
+            { "word": "letters", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_6_s6",
+          "text": "He works in all kinds of weather.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["weather"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "works", "type": "verb" },
+            { "word": "kinds", "type": "noun" },
+            { "word": "weather", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_6_s7",
+          "text": "Postmen help people stay connected.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["connected"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Postmen", "type": "noun" },
+            { "word": "help", "type": "verb" },
+            { "word": "people", "type": "noun" },
+            { "word": "connected", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "community_m_7",
+      "imageName": "nurse_hospital",
+      "title": "The Nurse",
+      "level": "medium",
+      "unit": "community",
+      "order": 7,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "community_helpers", "healthcare_vocabulary"],
+      "sentences": [
+        {
+          "id": "community_m_7_s1",
+          "text": "The nurse cares for patients in hospitals.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["nurse", "patients"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "nurse", "type": "noun" },
+            { "word": "cares", "type": "verb" },
+            { "word": "patients", "type": "noun" },
+            { "word": "hospitals", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_7_s2",
+          "text": "She checks blood pressure and temperature.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["pressure", "temperature"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "checks", "type": "verb" },
+            { "word": "pressure", "type": "noun" },
+            { "word": "temperature", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_7_s3",
+          "text": "She helps doctors during treatment.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["doctors", "treatment"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "helps", "type": "verb" },
+            { "word": "doctors", "type": "noun" },
+            { "word": "treatment", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_7_s4",
+          "text": "She gives medicines on time.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["medicines", "time"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "gives", "type": "verb" },
+            { "word": "medicines", "type": "noun" },
+            { "word": "time", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_7_s5",
+          "text": "She speaks gently to comfort patients.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["comfort", "patients"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "speaks", "type": "verb" },
+            { "word": "comfort", "type": "verb" },
+            { "word": "patients", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_7_s6",
+          "text": "Nurses work long hours.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["hours"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Nurses", "type": "noun" },
+            { "word": "work", "type": "verb" },
+            { "word": "long", "type": "adjective" },
+            { "word": "hours", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_7_s7",
+          "text": "They play an important role in healthcare.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns"],
+          "tags": ["role", "healthcare"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "important", "type": "adjective" },
+            { "word": "role", "type": "noun" },
+            { "word": "healthcare", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "community_m_8",
+      "imageName": "shopkeeper_store",
+      "title": "The Shopkeeper",
+      "level": "medium",
+      "unit": "community",
+      "order": 8,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "community_helpers", "shopping_vocabulary"],
+      "sentences": [
+        {
+          "id": "community_m_8_s1",
+          "text": "The shopkeeper sells items in the store.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["shopkeeper", "store"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "shopkeeper", "type": "noun" },
+            { "word": "sells", "type": "verb" },
+            { "word": "items", "type": "noun" },
+            { "word": "store", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_8_s2",
+          "text": "He arranges products neatly on shelves.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["products", "shelves"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "arranges", "type": "verb" },
+            { "word": "products", "type": "noun" },
+            { "word": "shelves", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_8_s3",
+          "text": "He helps customers find what they need.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["customers"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "helps", "type": "verb" },
+            { "word": "customers", "type": "noun" },
+            { "word": "find", "type": "verb" }
+          ]
+        },
+        {
+          "id": "community_m_8_s4",
+          "text": "He gives the correct change.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["change"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "gives", "type": "verb" },
+            { "word": "correct", "type": "adjective" },
+            { "word": "change", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_8_s5",
+          "text": "He keeps records of sales.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["records", "sales"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "keeps", "type": "verb" },
+            { "word": "records", "type": "noun" },
+            { "word": "sales", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_8_s6",
+          "text": "Customers visit the shop daily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["customers", "shop"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Customers", "type": "noun" },
+            { "word": "visit", "type": "verb" },
+            { "word": "shop", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_8_s7",
+          "text": "Shopkeepers make shopping easy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["shopping"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Shopkeepers", "type": "noun" },
+            { "word": "make", "type": "verb" },
+            { "word": "shopping", "type": "noun" },
+            { "word": "easy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "community_m_9",
+      "imageName": "driver_bus",
+      "title": "The Driver",
+      "level": "medium",
+      "unit": "community",
+      "order": 9,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "community_helpers", "transport_vocabulary"],
+      "sentences": [
+        {
+          "id": "community_m_9_s1",
+          "text": "The driver transports passengers safely.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["driver", "passengers"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "driver", "type": "noun" },
+            { "word": "transports", "type": "verb" },
+            { "word": "passengers", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_9_s2",
+          "text": "He follows traffic rules carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["traffic", "rules"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "follows", "type": "verb" },
+            { "word": "traffic", "type": "noun" },
+            { "word": "rules", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_9_s3",
+          "text": "He stops at signals and bus stops.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["signals", "stops"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "stops", "type": "verb" },
+            { "word": "signals", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_9_s4",
+          "text": "He checks the vehicle before driving.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["vehicle"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "checks", "type": "verb" },
+            { "word": "vehicle", "type": "noun" },
+            { "word": "driving", "type": "verb" }
+          ]
+        },
+        {
+          "id": "community_m_9_s5",
+          "text": "Passengers trust the driver.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["passengers"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Passengers", "type": "noun" },
+            { "word": "trust", "type": "verb" },
+            { "word": "driver", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_9_s6",
+          "text": "Drivers stay alert on busy roads.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["drivers", "roads"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Drivers", "type": "noun" },
+            { "word": "stay", "type": "verb" },
+            { "word": "alert", "type": "adjective" },
+            { "word": "busy", "type": "adjective" },
+            { "word": "roads", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_9_s7",
+          "text": "They help people reach their destinations.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["destinations"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "help", "type": "verb" },
+            { "word": "people", "type": "noun" },
+            { "word": "reach", "type": "verb" },
+            { "word": "destinations", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "community_m_10",
+      "imageName": "cleaner_sweeping",
+      "title": "The Cleaner",
+      "level": "medium",
+      "unit": "community",
+      "order": 10,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "community_helpers", "cleanliness_vocabulary"],
+      "sentences": [
+        {
+          "id": "community_m_10_s1",
+          "text": "The cleaner keeps streets and parks tidy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["cleaner", "streets"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cleaner", "type": "noun" },
+            { "word": "keeps", "type": "verb" },
+            { "word": "streets", "type": "noun" },
+            { "word": "parks", "type": "noun" },
+            { "word": "tidy", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "community_m_10_s2",
+          "text": "He sweeps roads every morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["roads", "morning"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sweeps", "type": "verb" },
+            { "word": "roads", "type": "noun" },
+            { "word": "morning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_10_s3",
+          "text": "He collects garbage carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["garbage"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "collects", "type": "verb" },
+            { "word": "garbage", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_10_s4",
+          "text": "He works hard to maintain cleanliness.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["cleanliness"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "works", "type": "verb" },
+            { "word": "hard", "type": "adjective" },
+            { "word": "cleanliness", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_10_s5",
+          "text": "He wears gloves and a uniform.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["gloves", "uniform"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wears", "type": "verb" },
+            { "word": "gloves", "type": "noun" },
+            { "word": "uniform", "type": "noun" }
+          ]
+        },
+        {
+          "id": "community_m_10_s6",
+          "text": "Clean surroundings keep people healthy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["surroundings", "healthy"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Clean", "type": "adjective" },
+            { "word": "surroundings", "type": "noun" },
+            { "word": "keep", "type": "verb" },
+            { "word": "healthy", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "community_m_10_s7",
+          "text": "Cleaners improve our community life.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["community", "life"],
+          "distractorGroup": "community_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Cleaners", "type": "noun" },
+            { "word": "improve", "type": "verb" },
+            { "word": "community", "type": "noun" },
+            { "word": "life", "type": "noun" }
+          ]
+        }
+      ]
+    }
+]

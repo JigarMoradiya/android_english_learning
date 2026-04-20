@@ -1,0 +1,1720 @@
+[
+    {
+      "id": "colors_m_1",
+      "imageName": "red_ball",
+      "title": "The Red Ball",
+      "level": "medium",
+      "unit": "colorsShapes",
+      "order": 1,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "colors_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "colors_m_1_s1",
+          "text": "The bright red ball rolls quickly across the green field.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["red", "ball", "green"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bright", "type": "adjective" },
+            { "word": "red", "type": "adjective" },
+            { "word": "ball", "type": "noun" },
+            { "word": "rolls", "type": "verb" },
+            { "word": "green", "type": "adjective" },
+            { "word": "field", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_1_s2",
+          "text": "It is perfectly round and smooth.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["round", "smooth"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "round", "type": "adjective" },
+            { "word": "smooth", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_1_s3",
+          "text": "The boy throws the ball high into the sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["boy", "ball"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "throws", "type": "verb" },
+            { "word": "ball", "type": "noun" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_1_s4",
+          "text": "The ball bounces when it hits the ground.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["bounces", "ground"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ball", "type": "noun" },
+            { "word": "bounces", "type": "verb" },
+            { "word": "hits", "type": "verb" },
+            { "word": "ground", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_1_s5",
+          "text": "Children laugh loudly while playing together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children", "laugh"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "laugh", "type": "verb" },
+            { "word": "playing", "type": "verb" }
+          ]
+        },
+        {
+          "id": "colors_m_1_s6",
+          "text": "The red color shines in the sunlight.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["red", "sunlight"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "red", "type": "adjective" },
+            { "word": "color", "type": "noun" },
+            { "word": "shines", "type": "verb" },
+            { "word": "sunlight", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_1_s7",
+          "text": "The game becomes exciting because everyone joins.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["game", "exciting"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "game", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "exciting", "type": "adjective" },
+            { "word": "everyone", "type": "noun" },
+            { "word": "joins", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colors_m_2",
+      "imageName": "blue_sky",
+      "title": "The Blue Sky",
+      "level": "medium",
+      "unit": "colorsShapes",
+      "order": 2,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "colors_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "colors_m_2_s1",
+          "text": "The clear blue sky stretches across the horizon.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["blue", "sky"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "clear", "type": "adjective" },
+            { "word": "blue", "type": "adjective" },
+            { "word": "sky", "type": "noun" },
+            { "word": "stretches", "type": "verb" },
+            { "word": "horizon", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_2_s2",
+          "text": "White clouds move slowly above the trees.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["clouds", "white"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "White", "type": "adjective" },
+            { "word": "clouds", "type": "noun" },
+            { "word": "move", "type": "verb" },
+            { "word": "trees", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_2_s3",
+          "text": "The bright sun shines warmly in the afternoon.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["sun", "bright"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bright", "type": "adjective" },
+            { "word": "sun", "type": "noun" },
+            { "word": "shines", "type": "verb" },
+            { "word": "afternoon", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_2_s4",
+          "text": "Birds fly freely under the wide sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["birds", "sky"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Birds", "type": "noun" },
+            { "word": "fly", "type": "verb" },
+            { "word": "wide", "type": "adjective" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_2_s5",
+          "text": "The blue color looks calm and peaceful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["blue", "calm"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "blue", "type": "adjective" },
+            { "word": "color", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "calm", "type": "adjective" },
+            { "word": "peaceful", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_2_s6",
+          "text": "Children lie on the grass to watch the clouds.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children", "clouds"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "lie", "type": "verb" },
+            { "word": "grass", "type": "noun" },
+            { "word": "watch", "type": "verb" },
+            { "word": "clouds", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_2_s7",
+          "text": "The sky becomes orange when the sun sets.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["orange", "sun"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sky", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "orange", "type": "adjective" },
+            { "word": "sun", "type": "noun" },
+            { "word": "sets", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colors_m_3",
+      "imageName": "yellow_star",
+      "title": "The Yellow Star",
+      "level": "medium",
+      "unit": "colorsShapes",
+      "order": 3,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "colors_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "colors_m_3_s1",
+          "text": "The yellow star shines brightly in the dark sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["yellow", "star", "dark"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "yellow", "type": "adjective" },
+            { "word": "star", "type": "noun" },
+            { "word": "shines", "type": "verb" },
+            { "word": "dark", "type": "adjective" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_3_s2",
+          "text": "It has five sharp points.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns"],
+          "tags": ["five", "points"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "five", "type": "adjective" },
+            { "word": "sharp", "type": "adjective" },
+            { "word": "points", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_3_s3",
+          "text": "Many stars appear when the night begins.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["stars", "night"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "stars", "type": "noun" },
+            { "word": "appear", "type": "verb" },
+            { "word": "night", "type": "noun" },
+            { "word": "begins", "type": "verb" }
+          ]
+        },
+        {
+          "id": "colors_m_3_s4",
+          "text": "The sky looks beautiful after sunset.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sky", "beautiful"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sky", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "beautiful", "type": "adjective" },
+            { "word": "sunset", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_3_s5",
+          "text": "Children watch the stars quietly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children", "stars"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "watch", "type": "verb" },
+            { "word": "stars", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_3_s6",
+          "text": "The stars twinkle because they are far away.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["twinkle", "far"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "stars", "type": "noun" },
+            { "word": "twinkle", "type": "verb" },
+            { "word": "far", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_3_s7",
+          "text": "The night becomes magical under the shining stars.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["night", "magical"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "night", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "magical", "type": "adjective" },
+            { "word": "shining", "type": "adjective" },
+            { "word": "stars", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colors_m_4",
+      "imageName": "green_tree",
+      "title": "The Green Tree",
+      "level": "medium",
+      "unit": "colorsShapes",
+      "order": 4,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "colors_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "colors_m_4_s1",
+          "text": "The tall green tree stands in the garden.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["green", "tree", "garden"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "tall", "type": "adjective" },
+            { "word": "green", "type": "adjective" },
+            { "word": "tree", "type": "noun" },
+            { "word": "stands", "type": "verb" },
+            { "word": "garden", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_4_s2",
+          "text": "Its leaves move gently when the wind blows.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["leaves", "wind"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "leaves", "type": "noun" },
+            { "word": "move", "type": "verb" },
+            { "word": "wind", "type": "noun" },
+            { "word": "blows", "type": "verb" }
+          ]
+        },
+        {
+          "id": "colors_m_4_s3",
+          "text": "The brown trunk looks strong and thick.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["brown", "trunk"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "brown", "type": "adjective" },
+            { "word": "trunk", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "strong", "type": "adjective" },
+            { "word": "thick", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_4_s4",
+          "text": "Birds build nests among the branches.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["birds", "branches"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Birds", "type": "noun" },
+            { "word": "build", "type": "verb" },
+            { "word": "nests", "type": "noun" },
+            { "word": "branches", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_4_s5",
+          "text": "The tree gives cool shade during summer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["shade", "summer"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "tree", "type": "noun" },
+            { "word": "gives", "type": "verb" },
+            { "word": "cool", "type": "adjective" },
+            { "word": "shade", "type": "noun" },
+            { "word": "summer", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_4_s6",
+          "text": "Children sit under the tree after playing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children", "tree"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "sit", "type": "verb" },
+            { "word": "tree", "type": "noun" },
+            { "word": "playing", "type": "verb" }
+          ]
+        },
+        {
+          "id": "colors_m_4_s7",
+          "text": "The garden looks fresh because of the tree.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["garden", "fresh"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "garden", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "tree", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colors_m_5",
+      "imageName": "circle_shape",
+      "title": "Circle Shape",
+      "level": "medium",
+      "unit": "colorsShapes",
+      "order": 5,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "shapes_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "colors_m_5_s1",
+          "text": "A circle is a simple round shape.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["circle", "shape"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "circle", "type": "noun" },
+            { "word": "simple", "type": "adjective" },
+            { "word": "round", "type": "adjective" },
+            { "word": "shape", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_5_s2",
+          "text": "It has no corners or edges.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns"],
+          "tags": ["corners", "edges"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "corners", "type": "noun" },
+            { "word": "edges", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_5_s3",
+          "text": "The sun and moon look like circles.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["sun", "moon"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "moon", "type": "noun" },
+            { "word": "circles", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_5_s4",
+          "text": "The clock on the wall is round.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["clock", "wall"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "clock", "type": "noun" },
+            { "word": "wall", "type": "noun" },
+            { "word": "round", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_5_s5",
+          "text": "Children draw circles in their notebooks.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children", "notebooks"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "draw", "type": "verb" },
+            { "word": "circles", "type": "noun" },
+            { "word": "notebooks", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_5_s6",
+          "text": "The shape is smooth and even.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["shape", "smooth"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "shape", "type": "noun" },
+            { "word": "smooth", "type": "adjective" },
+            { "word": "even", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_5_s7",
+          "text": "Many objects around us are circular.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["objects", "circular"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "objects", "type": "noun" },
+            { "word": "circular", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colors_m_6",
+      "imageName": "square_shape",
+      "title": "Square Shape",
+      "level": "medium",
+      "unit": "colorsShapes",
+      "order": 6,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "shapes_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "colors_m_6_s1",
+          "text": "A square has four equal sides.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["square", "sides"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "square", "type": "noun" },
+            { "word": "four", "type": "adjective" },
+            { "word": "equal", "type": "adjective" },
+            { "word": "sides", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_6_s2",
+          "text": "It also has four sharp corners.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["corners", "sharp"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "four", "type": "adjective" },
+            { "word": "sharp", "type": "adjective" },
+            { "word": "corners", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_6_s3",
+          "text": "The window in my room is square.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["window", "room"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "window", "type": "noun" },
+            { "word": "room", "type": "noun" },
+            { "word": "square", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_6_s4",
+          "text": "The chessboard is made of small squares.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["chessboard", "squares"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "chessboard", "type": "noun" },
+            { "word": "small", "type": "adjective" },
+            { "word": "squares", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_6_s5",
+          "text": "Children practice drawing squares neatly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children", "drawing"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "practice", "type": "verb" },
+            { "word": "drawing", "type": "verb" },
+            { "word": "squares", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_6_s6",
+          "text": "The shape looks balanced and simple.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["shape", "balanced"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "shape", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "balanced", "type": "adjective" },
+            { "word": "simple", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_6_s7",
+          "text": "Squares are common in buildings and designs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["squares", "designs"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Squares", "type": "noun" },
+            { "word": "common", "type": "adjective" },
+            { "word": "buildings", "type": "noun" },
+            { "word": "designs", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colors_m_7",
+      "imageName": "triangle_shape",
+      "title": "Triangle Shape",
+      "level": "medium",
+      "unit": "colorsShapes",
+      "order": 7,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "shapes_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "colors_m_7_s1",
+          "text": "A triangle has three straight sides.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["triangle", "sides"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "triangle", "type": "noun" },
+            { "word": "three", "type": "adjective" },
+            { "word": "straight", "type": "adjective" },
+            { "word": "sides", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_7_s2",
+          "text": "It has three pointed corners.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["corners", "pointed"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "three", "type": "adjective" },
+            { "word": "pointed", "type": "adjective" },
+            { "word": "corners", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_7_s3",
+          "text": "The roof of the house forms a triangle.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["roof", "triangle"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "roof", "type": "noun" },
+            { "word": "house", "type": "noun" },
+            { "word": "forms", "type": "verb" },
+            { "word": "triangle", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_7_s4",
+          "text": "Pizza slices are shaped like triangles.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["pizza", "triangles"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Pizza", "type": "noun" },
+            { "word": "slices", "type": "noun" },
+            { "word": "shaped", "type": "adjective" },
+            { "word": "triangles", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_7_s5",
+          "text": "Children learn to draw triangles in school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children", "school"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "learn", "type": "verb" },
+            { "word": "draw", "type": "verb" },
+            { "word": "triangles", "type": "noun" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_7_s6",
+          "text": "The shape looks sharp and strong.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["shape", "strong"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "shape", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "sharp", "type": "adjective" },
+            { "word": "strong", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_7_s7",
+          "text": "Triangles are important in many designs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["triangles", "designs"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Triangles", "type": "noun" },
+            { "word": "important", "type": "adjective" },
+            { "word": "designs", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colors_m_8",
+      "imageName": "rectangle_shape",
+      "title": "Rectangle Shape",
+      "level": "medium",
+      "unit": "colorsShapes",
+      "order": 8,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "shapes_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "colors_m_8_s1",
+          "text": "A rectangle has four sides like a square.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["rectangle", "sides"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rectangle", "type": "noun" },
+            { "word": "four", "type": "adjective" },
+            { "word": "sides", "type": "noun" },
+            { "word": "square", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_8_s2",
+          "text": "Two sides are longer than the others.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["sides", "longer"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Two", "type": "adjective" },
+            { "word": "sides", "type": "noun" },
+            { "word": "longer", "type": "adjective" },
+            { "word": "others", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_8_s3",
+          "text": "Most doors and books are rectangular.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["doors", "books"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "doors", "type": "noun" },
+            { "word": "books", "type": "noun" },
+            { "word": "rectangular", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_8_s4",
+          "text": "The classroom board is a large rectangle.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["classroom", "rectangle"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "classroom", "type": "noun" },
+            { "word": "board", "type": "noun" },
+            { "word": "large", "type": "adjective" },
+            { "word": "rectangle", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_8_s5",
+          "text": "Children draw rectangles using rulers.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children", "rulers"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "draw", "type": "verb" },
+            { "word": "rectangles", "type": "noun" },
+            { "word": "rulers", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_8_s6",
+          "text": "The shape looks neat and organized.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["shape", "organized"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "shape", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "neat", "type": "adjective" },
+            { "word": "organized", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_8_s7",
+          "text": "Rectangles are useful in daily life.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["rectangles", "life"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Rectangles", "type": "noun" },
+            { "word": "useful", "type": "adjective" },
+            { "word": "life", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colors_m_9",
+      "imageName": "colorful_balloons",
+      "title": "Colorful Balloons",
+      "level": "medium",
+      "unit": "colorsShapes",
+      "order": 9,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "colors_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "colors_m_9_s1",
+          "text": "Colorful balloons float high in the sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["balloons", "sky"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Colorful", "type": "adjective" },
+            { "word": "balloons", "type": "noun" },
+            { "word": "float", "type": "verb" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_9_s2",
+          "text": "One balloon is bright blue and shiny.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["balloon", "blue"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "balloon", "type": "noun" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "blue", "type": "adjective" },
+            { "word": "shiny", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_9_s3",
+          "text": "Another balloon is red and round.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["balloon", "red"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "balloon", "type": "noun" },
+            { "word": "red", "type": "adjective" },
+            { "word": "round", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "colors_m_9_s4",
+          "text": "Green and yellow balloons move in the wind.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["green", "yellow"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Green", "type": "adjective" },
+            { "word": "yellow", "type": "adjective" },
+            { "word": "balloons", "type": "noun" },
+            { "word": "move", "type": "verb" },
+            { "word": "wind", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_9_s5",
+          "text": "Children hold the strings tightly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children", "strings"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "hold", "type": "verb" },
+            { "word": "strings", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_9_s6",
+          "text": "The balloons look beautiful during celebrations.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["balloons", "celebrations"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "balloons", "type": "noun" },
+            { "word": "look", "type": "verb" },
+            { "word": "beautiful", "type": "adjective" },
+            { "word": "celebrations", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_9_s7",
+          "text": "Everyone smiles when they see the colors.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["everyone", "colors"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Everyone", "type": "noun" },
+            { "word": "smiles", "type": "verb" },
+            { "word": "colors", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colors_m_10",
+      "imageName": "rainbow_colors",
+      "title": "The Rainbow",
+      "level": "medium",
+      "unit": "colorsShapes",
+      "order": 10,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "colors_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "colors_m_10_s1",
+          "text": "The rainbow appears after a light rain.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["rainbow", "rain"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rainbow", "type": "noun" },
+            { "word": "appears", "type": "verb" },
+            { "word": "light", "type": "adjective" },
+            { "word": "rain", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_10_s2",
+          "text": "It shows many bright and beautiful colors.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["colors", "bright"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "shows", "type": "verb" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "beautiful", "type": "adjective" },
+            { "word": "colors", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_10_s3",
+          "text": "Red is at the top of the rainbow.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns"],
+          "tags": ["red", "rainbow"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Red", "type": "adjective" },
+            { "word": "top", "type": "noun" },
+            { "word": "rainbow", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_10_s4",
+          "text": "Violet appears at the bottom.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "verbs", "nouns"],
+          "tags": ["violet", "bottom"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Violet", "type": "adjective" },
+            { "word": "appears", "type": "verb" },
+            { "word": "bottom", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_10_s5",
+          "text": "The sky looks bright after the storm.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sky", "storm"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sky", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "storm", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_10_s6",
+          "text": "Children point excitedly at the rainbow.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["children", "rainbow"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "point", "type": "verb" },
+            { "word": "rainbow", "type": "noun" }
+          ]
+        },
+        {
+          "id": "colors_m_10_s7",
+          "text": "The rainbow makes the day feel magical.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["rainbow", "magical"],
+          "distractorGroup": "colors_shapes_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rainbow", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "day", "type": "noun" },
+            { "word": "magical", "type": "adjective" }
+          ]
+        }
+      ]
+    }
+]

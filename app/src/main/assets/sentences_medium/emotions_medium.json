@@ -1,0 +1,1699 @@
+[
+    {
+      "id": "emotion_m_1",
+      "imageName": "happy_child",
+      "title": "Feeling Happy",
+      "level": "medium",
+      "unit": "emotions",
+      "order": 1,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "emotion_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "emotion_m_1_s1",
+          "text": "I feel happy when I spend time with my friends.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["happy", "friends", "time"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "happy", "type": "adjective" },
+            { "word": "spend", "type": "verb" },
+            { "word": "time", "type": "noun" },
+            { "word": "friends", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_1_s2",
+          "text": "My smile becomes wide and bright.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["smile", "bright"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "smile", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "wide", "type": "adjective" },
+            { "word": "bright", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_1_s3",
+          "text": "I laugh loudly during fun activities.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["laugh", "activities"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "laugh", "type": "verb" },
+            { "word": "fun", "type": "adjective" },
+            { "word": "activities", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_1_s4",
+          "text": "My heart feels light and cheerful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["heart", "cheerful"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "heart", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "light", "type": "adjective" },
+            { "word": "cheerful", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_1_s5",
+          "text": "I clap my hands after winning a game.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["clap", "game"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "clap", "type": "verb" },
+            { "word": "hands", "type": "noun" },
+            { "word": "winning", "type": "verb" },
+            { "word": "game", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_1_s6",
+          "text": "Happiness spreads quickly to everyone around me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["happiness", "everyone"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Happiness", "type": "noun" },
+            { "word": "spreads", "type": "verb" },
+            { "word": "everyone", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_1_s7",
+          "text": "I feel grateful because life feels joyful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["grateful", "joyful"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "grateful", "type": "adjective" },
+            { "word": "life", "type": "noun" },
+            { "word": "joyful", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotion_m_2",
+      "imageName": "sad_child",
+      "title": "Feeling Sad",
+      "level": "medium",
+      "unit": "emotions",
+      "order": 2,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "emotion_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "emotion_m_2_s1",
+          "text": "I feel sad when I miss someone special.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["sad", "special"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "sad", "type": "adjective" },
+            { "word": "miss", "type": "verb" },
+            { "word": "someone", "type": "noun" },
+            { "word": "special", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_2_s2",
+          "text": "Tears slowly roll down my cheeks.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["tears", "cheeks"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Tears", "type": "noun" },
+            { "word": "roll", "type": "verb" },
+            { "word": "cheeks", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_2_s3",
+          "text": "I sit quietly in a corner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["corner"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sit", "type": "verb" },
+            { "word": "corner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_2_s4",
+          "text": "My voice becomes soft and slow.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["voice"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "voice", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "soft", "type": "adjective" },
+            { "word": "slow", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_2_s5",
+          "text": "My mother hugs me gently.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["mother", "hugs"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "hugs", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_2_s6",
+          "text": "I talk about my feelings after calming down.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["feelings"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "talk", "type": "verb" },
+            { "word": "feelings", "type": "noun" },
+            { "word": "calming", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_2_s7",
+          "text": "I feel better because someone listens to me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["better", "listens"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "better", "type": "adjective" },
+            { "word": "someone", "type": "noun" },
+            { "word": "listens", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotion_m_3",
+      "imageName": "angry_child",
+      "title": "Feeling Angry",
+      "level": "medium",
+      "unit": "emotions",
+      "order": 3,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "emotion_vocabulary", "self_control"],
+      "sentences": [
+        {
+          "id": "emotion_m_3_s1",
+          "text": "I feel angry when things do not go well.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["angry", "control"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "angry", "type": "adjective" },
+            { "word": "things", "type": "noun" },
+            { "word": "go", "type": "verb" },
+            { "word": "well", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_3_s2",
+          "text": "My face turns red and serious.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["face", "serious"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "face", "type": "noun" },
+            { "word": "turns", "type": "verb" },
+            { "word": "red", "type": "adjective" },
+            { "word": "serious", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_3_s3",
+          "text": "I cross my arms tightly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["arms"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cross", "type": "verb" },
+            { "word": "arms", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_3_s4",
+          "text": "I shout loudly before taking deep breaths.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["shout", "breaths"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "shout", "type": "verb" },
+            { "word": "taking", "type": "verb" },
+            { "word": "deep", "type": "adjective" },
+            { "word": "breaths", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_3_s5",
+          "text": "I count slowly to calm myself.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["count", "calm"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "count", "type": "verb" },
+            { "word": "calm", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_3_s6",
+          "text": "I talk about the problem after relaxing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["problem"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "talk", "type": "verb" },
+            { "word": "problem", "type": "noun" },
+            { "word": "relaxing", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_3_s7",
+          "text": "I feel peaceful when I control my anger.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["peaceful", "anger"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "peaceful", "type": "adjective" },
+            { "word": "control", "type": "verb" },
+            { "word": "anger", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotion_m_4",
+      "imageName": "excited_child",
+      "title": "Feeling Excited",
+      "level": "medium",
+      "unit": "emotions",
+      "order": 4,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "emotion_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "emotion_m_4_s1",
+          "text": "I feel excited before going on a trip.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["excited", "trip"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "excited", "type": "adjective" },
+            { "word": "going", "type": "verb" },
+            { "word": "trip", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_4_s2",
+          "text": "My eyes shine brightly with joy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["eyes", "joy"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "eyes", "type": "noun" },
+            { "word": "shine", "type": "verb" },
+            { "word": "joy", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_4_s3",
+          "text": "I jump happily around the room.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["jump", "room"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "jump", "type": "verb" },
+            { "word": "room", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_4_s4",
+          "text": "My voice becomes louder than usual.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["voice", "louder"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "voice", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "louder", "type": "adjective" },
+            { "word": "usual", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_4_s5",
+          "text": "I smile because something special is coming.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns", "adjectives"],
+          "tags": ["smile", "special"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "smile", "type": "verb" },
+            { "word": "something", "type": "noun" },
+            { "word": "special", "type": "adjective" },
+            { "word": "coming", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_4_s6",
+          "text": "I pack my bag quickly before leaving.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["pack", "bag"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "pack", "type": "verb" },
+            { "word": "bag", "type": "noun" },
+            { "word": "leaving", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_4_s7",
+          "text": "Excitement makes my day more energetic.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["excitement", "energetic"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Excitement", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "day", "type": "noun" },
+            { "word": "energetic", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotion_m_5",
+      "imageName": "scared_child",
+      "title": "Feeling Scared",
+      "level": "medium",
+      "unit": "emotions",
+      "order": 5,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "emotion_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "emotion_m_5_s1",
+          "text": "I feel scared when the room becomes dark.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["scared", "dark"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "scared", "type": "adjective" },
+            { "word": "room", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "dark", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_5_s2",
+          "text": "My heart beats faster than usual.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["heart", "faster"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "heart", "type": "noun" },
+            { "word": "beats", "type": "verb" },
+            { "word": "faster", "type": "adjective" },
+            { "word": "usual", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_5_s3",
+          "text": "I hold my mother's hand tightly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["hold", "hand"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "hold", "type": "verb" },
+            { "word": "hand", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_5_s4",
+          "text": "Strange sounds make me nervous.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["strange", "nervous"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Strange", "type": "adjective" },
+            { "word": "sounds", "type": "noun" },
+            { "word": "make", "type": "verb" },
+            { "word": "nervous", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_5_s5",
+          "text": "I close my eyes before taking deep breaths.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["close", "breaths"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "close", "type": "verb" },
+            { "word": "eyes", "type": "noun" },
+            { "word": "taking", "type": "verb" },
+            { "word": "deep", "type": "adjective" },
+            { "word": "breaths", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_5_s6",
+          "text": "My father switches on the light quickly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["father", "light"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "father", "type": "noun" },
+            { "word": "switches", "type": "verb" },
+            { "word": "light", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_5_s7",
+          "text": "I feel safe again after the fear passes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["safe", "fear"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "safe", "type": "adjective" },
+            { "word": "fear", "type": "noun" },
+            { "word": "passes", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotion_m_6",
+      "imageName": "surprised_child",
+      "title": "Feeling Surprised",
+      "level": "medium",
+      "unit": "emotions",
+      "order": 6,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "emotion_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "emotion_m_6_s1",
+          "text": "I feel surprised when something unexpected happens.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["surprised", "unexpected"],
+          "distractorGroup": "emotions_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "surprised", "type": "adjective" },
+            { "word": "something", "type": "noun" },
+            { "word": "unexpected", "type": "adjective" },
+            { "word": "happens", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_6_s2",
+          "text": "My eyes open wide in shock.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["eyes", "shock"],
+          "distractorGroup": "emotions_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "eyes", "type": "noun" },
+            { "word": "open", "type": "verb" },
+            { "word": "wide", "type": "adjective" },
+            { "word": "shock", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_6_s3",
+          "text": "I gasp loudly because I did not expect it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["gasp", "expect"],
+          "distractorGroup": "emotions_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "gasp", "type": "verb" },
+            { "word": "expect", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_6_s4",
+          "text": "Everyone laughs at my reaction.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["everyone", "reaction"],
+          "distractorGroup": "emotions_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Everyone", "type": "noun" },
+            { "word": "laughs", "type": "verb" },
+            { "word": "reaction", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_6_s5",
+          "text": "I look around to understand what happened.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["look", "understand"],
+          "distractorGroup": "emotions_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "look", "type": "verb" },
+            { "word": "understand", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_6_s6",
+          "text": "The surprise makes the moment exciting.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["surprise", "moment"],
+          "distractorGroup": "emotions_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "surprise", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "moment", "type": "noun" },
+            { "word": "exciting", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_6_s7",
+          "text": "I enjoy pleasant surprises during celebrations.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["pleasant", "celebrations"],
+          "distractorGroup": "emotions_mixed",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "enjoy", "type": "verb" },
+            { "word": "pleasant", "type": "adjective" },
+            { "word": "surprises", "type": "noun" },
+            { "word": "celebrations", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotion_m_7",
+      "imageName": "tired_child",
+      "title": "Feeling Tired",
+      "level": "medium",
+      "unit": "emotions",
+      "order": 7,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "emotion_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "emotion_m_7_s1",
+          "text": "I feel tired after playing for a long time.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["tired", "time"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "tired", "type": "adjective" },
+            { "word": "playing", "type": "verb" },
+            { "word": "long", "type": "adjective" },
+            { "word": "time", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_7_s2",
+          "text": "My legs feel heavy and slow.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["legs", "heavy"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "legs", "type": "noun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "heavy", "type": "adjective" },
+            { "word": "slow", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_7_s3",
+          "text": "I yawn softly while sitting down.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["yawn"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "yawn", "type": "verb" },
+            { "word": "sitting", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_7_s4",
+          "text": "My eyes begin to close gently.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["eyes", "close"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "eyes", "type": "noun" },
+            { "word": "begin", "type": "verb" },
+            { "word": "close", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_7_s5",
+          "text": "I lie down before falling asleep.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["lie", "asleep"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "lie", "type": "verb" },
+            { "word": "falling", "type": "verb" },
+            { "word": "asleep", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_7_s6",
+          "text": "Rest helps my body recover.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["rest", "body"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Rest", "type": "noun" },
+            { "word": "helps", "type": "verb" },
+            { "word": "body", "type": "noun" },
+            { "word": "recover", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_7_s7",
+          "text": "I wake up refreshed after good sleep.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["refreshed", "sleep"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wake", "type": "verb" },
+            { "word": "refreshed", "type": "adjective" },
+            { "word": "good", "type": "adjective" },
+            { "word": "sleep", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotion_m_8",
+      "imageName": "proud_child",
+      "title": "Feeling Proud",
+      "level": "medium",
+      "unit": "emotions",
+      "order": 8,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "emotion_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "emotion_m_8_s1",
+          "text": "I feel proud when I complete my work.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["proud", "work"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "proud", "type": "adjective" },
+            { "word": "complete", "type": "verb" },
+            { "word": "work", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_8_s2",
+          "text": "I stand tall with confidence.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["stand", "confidence"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "stand", "type": "verb" },
+            { "word": "confidence", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_8_s3",
+          "text": "My teacher praises me in front of the class.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["teacher", "class"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "teacher", "type": "noun" },
+            { "word": "praises", "type": "verb" },
+            { "word": "class", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_8_s4",
+          "text": "My parents clap happily at home.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["parents", "home"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "parents", "type": "noun" },
+            { "word": "clap", "type": "verb" },
+            { "word": "home", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_8_s5",
+          "text": "I smile because I worked hard.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["smile", "hard"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "smile", "type": "verb" },
+            { "word": "worked", "type": "verb" },
+            { "word": "hard", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_8_s6",
+          "text": "Success makes my heart feel strong.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["success", "strong"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Success", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "heart", "type": "noun" },
+            { "word": "strong", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_8_s7",
+          "text": "I promise to keep trying my best.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["promise", "best"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "promise", "type": "verb" },
+            { "word": "trying", "type": "verb" },
+            { "word": "best", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotion_m_9",
+      "imageName": "worried_child",
+      "title": "Feeling Worried",
+      "level": "medium",
+      "unit": "emotions",
+      "order": 9,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "emotion_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "emotion_m_9_s1",
+          "text": "I feel worried before an important test.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": true,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["worried", "test"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "worried", "type": "adjective" },
+            { "word": "important", "type": "adjective" },
+            { "word": "test", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_9_s2",
+          "text": "My thoughts move quickly inside my mind.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["thoughts", "mind"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "thoughts", "type": "noun" },
+            { "word": "move", "type": "verb" },
+            { "word": "mind", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_9_s3",
+          "text": "I ask my teacher for help.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["ask", "teacher"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ask", "type": "verb" },
+            { "word": "teacher", "type": "noun" },
+            { "word": "help", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_9_s4",
+          "text": "My friend encourages me gently.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["friend", "encourages"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "friend", "type": "noun" },
+            { "word": "encourages", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_9_s5",
+          "text": "I study carefully before the exam begins.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["study", "exam"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "study", "type": "verb" },
+            { "word": "exam", "type": "noun" },
+            { "word": "begins", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_9_s6",
+          "text": "Deep breathing helps me relax.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["breathing", "relax"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Deep", "type": "adjective" },
+            { "word": "breathing", "type": "noun" },
+            { "word": "helps", "type": "verb" },
+            { "word": "relax", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_9_s7",
+          "text": "I feel confident after preparing well.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["confident", "preparing"],
+          "distractorGroup": "emotions_negative",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "confident", "type": "adjective" },
+            { "word": "preparing", "type": "verb" },
+            { "word": "well", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotion_m_10",
+      "imageName": "kind_child",
+      "title": "Being Kind",
+      "level": "medium",
+      "unit": "emotions",
+      "order": 10,
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "emotion_vocabulary", "adjectives"],
+      "sentences": [
+        {
+          "id": "emotion_m_10_s1",
+          "text": "Being kind makes everyone feel happy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "adjectives", "verbs"],
+          "tags": ["kind", "happy"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Being", "type": "noun" },
+            { "word": "kind", "type": "adjective" },
+            { "word": "makes", "type": "verb" },
+            { "word": "everyone", "type": "noun" },
+            { "word": "happy", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "emotion_m_10_s2",
+          "text": "I help my friend when she needs support.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["help", "support"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "help", "type": "verb" },
+            { "word": "friend", "type": "noun" },
+            { "word": "needs", "type": "verb" },
+            { "word": "support", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_10_s3",
+          "text": "I share my toys without complaining.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["share", "toys"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "share", "type": "verb" },
+            { "word": "toys", "type": "noun" },
+            { "word": "complaining", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_10_s4",
+          "text": "I speak politely to everyone.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["speak", "politely"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "speak", "type": "verb" },
+            { "word": "everyone", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_10_s5",
+          "text": "Kind words make people smile.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["words", "smile"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Kind", "type": "adjective" },
+            { "word": "words", "type": "noun" },
+            { "word": "make", "type": "verb" },
+            { "word": "people", "type": "noun" },
+            { "word": "smile", "type": "verb" }
+          ]
+        },
+        {
+          "id": "emotion_m_10_s6",
+          "text": "I forgive others when they make mistakes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 3,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["forgive", "mistakes"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "forgive", "type": "verb" },
+            { "word": "others", "type": "noun" },
+            { "word": "make", "type": "verb" },
+            { "word": "mistakes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "emotion_m_10_s7",
+          "text": "Kindness makes the world a better place.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["kindness", "world"],
+          "distractorGroup": "emotions_positive",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Kindness", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "world", "type": "noun" },
+            { "word": "better", "type": "adjective" },
+            { "word": "place", "type": "noun" }
+          ]
+        }
+      ]
+    }
+]

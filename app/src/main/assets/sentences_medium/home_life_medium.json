@@ -1,0 +1,1750 @@
+[
+    {
+      "id": "home_m_1",
+      "imageName": "family_eating_dinner",
+      "title": "Family Dinner",
+      "unit": "homeLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_time", "daily_routine"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "home_m_1_s1",
+          "text": "The family sits together at the dining table every evening.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["family","table","evening"],
+          "distractorGroup": "home_routine",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "sits", "type": "verb" },
+            { "word": "table", "type": "noun" },
+            { "word": "evening", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_1_s2",
+          "text": "There are warm dishes placed carefully on the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["verbs","adjectives","nouns"],
+          "tags": ["dishes","table"],
+          "distractorGroup": "home_food",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "are", "type": "verb" },
+            { "word": "warm", "type": "adjective" },
+            { "word": "dishes", "type": "noun" },
+            { "word": "placed", "type": "verb" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_1_s3",
+          "text": "The food smells delicious after mother finishes cooking.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["food","mother"],
+          "distractorGroup": "home_food",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "food", "type": "noun" },
+            { "word": "smells", "type": "verb" },
+            { "word": "delicious", "type": "adjective" },
+            { "word": "mother", "type": "noun" },
+            { "word": "finishes", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_m_1_s4",
+          "text": "They talk happily while eating their dinner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["dinner"],
+          "distractorGroup": "home_food",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "talk", "type": "verb" },
+            { "word": "dinner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_1_s5",
+          "text": "Father tells a story about his busy day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["Father","story","day"],
+          "distractorGroup": "home_family",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Father", "type": "noun" },
+            { "word": "tells", "type": "verb" },
+            { "word": "story", "type": "noun" },
+            { "word": "busy", "type": "adjective" },
+            { "word": "day", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_1_s6",
+          "text": "The children listen carefully before asking questions.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["children","questions"],
+          "distractorGroup": "home_family",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "listen", "type": "verb" },
+            { "word": "asking", "type": "verb" },
+            { "word": "questions", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_1_s7",
+          "text": "Everyone feels peaceful after sharing the meal.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["peaceful","meal"],
+          "distractorGroup": "home_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Everyone", "type": "pronoun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "peaceful", "type": "adjective" },
+            { "word": "meal", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_m_2",
+      "imageName": "girl_cleaning_room",
+      "title": "Cleaning My Room",
+      "unit": "homeLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "responsibility", "daily_routine"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "home_m_2_s1",
+          "text": "The girl cleans her room before going outside to play.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["girl","room"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "cleans", "type": "verb" },
+            { "word": "room", "type": "noun" },
+            { "word": "play", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_m_2_s2",
+          "text": "She picks up the toys scattered across the floor.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["toys","floor"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "picks", "type": "verb" },
+            { "word": "toys", "type": "noun" },
+            { "word": "floor", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_2_s3",
+          "text": "She arranges her books neatly on the wooden shelf.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns","adjectives"],
+          "tags": ["books","shelf"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "arranges", "type": "verb" },
+            { "word": "books", "type": "noun" },
+            { "word": "wooden", "type": "adjective" },
+            { "word": "shelf", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_2_s4",
+          "text": "Dust flies lightly when she wipes the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["Dust","table"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Dust", "type": "noun" },
+            { "word": "flies", "type": "verb" },
+            { "word": "wipes", "type": "verb" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_2_s5",
+          "text": "Her mother smiles because the room looks tidy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["mother","room"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "smiles", "type": "verb" },
+            { "word": "room", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "tidy", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_m_2_s6",
+          "text": "She checks carefully to see if anything is missing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives"],
+          "tags": ["missing"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "checks", "type": "verb" },
+            { "word": "is", "type": "verb" },
+            { "word": "missing", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_m_2_s7",
+          "text": "She feels proud after finishing her work.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["proud","work"],
+          "distractorGroup": "home_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "proud", "type": "adjective" },
+            { "word": "work", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_m_3",
+      "imageName": "mother_cooking",
+      "title": "Mother Cooking",
+      "unit": "homeLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "daily_routine", "food_preparation"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "home_m_3_s1",
+          "text": "Mother prepares dinner in the kitchen every evening.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["Mother","dinner","kitchen","evening"],
+          "distractorGroup": "home_cooking",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Mother", "type": "noun" },
+            { "word": "prepares", "type": "verb" },
+            { "word": "dinner", "type": "noun" },
+            { "word": "kitchen", "type": "noun" },
+            { "word": "evening", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_3_s2",
+          "text": "She cuts fresh vegetables before putting them in the pan.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["vegetables","pan"],
+          "distractorGroup": "home_cooking",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "cuts", "type": "verb" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "vegetables", "type": "noun" },
+            { "word": "pan", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_3_s3",
+          "text": "The oil sizzles when the vegetables touch the hot surface.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["oil","vegetables","surface"],
+          "distractorGroup": "home_cooking",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "oil", "type": "noun" },
+            { "word": "sizzles", "type": "verb" },
+            { "word": "vegetables", "type": "noun" },
+            { "word": "hot", "type": "adjective" },
+            { "word": "surface", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_3_s4",
+          "text": "She adds spices carefully to improve the taste.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["spices","taste"],
+          "distractorGroup": "home_cooking",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "adds", "type": "verb" },
+            { "word": "spices", "type": "noun" },
+            { "word": "improve", "type": "verb" },
+            { "word": "taste", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_3_s5",
+          "text": "The delicious smell spreads across the house.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["smell","house"],
+          "distractorGroup": "home_cooking",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "delicious", "type": "adjective" },
+            { "word": "smell", "type": "noun" },
+            { "word": "spreads", "type": "verb" },
+            { "word": "house", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_3_s6",
+          "text": "The children wait patiently for the food.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["children","food"],
+          "distractorGroup": "home_cooking",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "wait", "type": "verb" },
+            { "word": "food", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_3_s7",
+          "text": "Everyone thanks her after eating the tasty meal.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["meal","tasty"],
+          "distractorGroup": "home_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Everyone", "type": "pronoun" },
+            { "word": "thanks", "type": "verb" },
+            { "word": "tasty", "type": "adjective" },
+            { "word": "meal", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_m_4",
+      "imageName": "boy_watching_tv",
+      "title": "Watching TV",
+      "unit": "homeLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_time", "daily_routine"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "home_m_4_s1",
+          "text": "The boy watches his favorite cartoon in the living room.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["boy","cartoon","room"],
+          "distractorGroup": "home_activity",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "watches", "type": "verb" },
+            { "word": "favorite", "type": "adjective" },
+            { "word": "cartoon", "type": "noun" },
+            { "word": "room", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_4_s2",
+          "text": "He sits comfortably on the soft sofa.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["sofa"],
+          "distractorGroup": "home_activity",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "sits", "type": "verb" },
+            { "word": "soft", "type": "adjective" },
+            { "word": "sofa", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_4_s3",
+          "text": "He laughs loudly when something funny happens.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives"],
+          "tags": ["funny"],
+          "distractorGroup": "home_activity",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "laughs", "type": "verb" },
+            { "word": "funny", "type": "adjective" },
+            { "word": "happens", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_m_4_s4",
+          "text": "His sister joins him after finishing her homework.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","nouns","verbs"],
+          "tags": ["sister","homework"],
+          "distractorGroup": "home_activity",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sister", "type": "noun" },
+            { "word": "joins", "type": "verb" },
+            { "word": "homework", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_4_s5",
+          "text": "They share a bowl of popcorn while watching.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["bowl","popcorn"],
+          "distractorGroup": "home_activity",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "share", "type": "verb" },
+            { "word": "bowl", "type": "noun" },
+            { "word": "popcorn", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_4_s6",
+          "text": "Their mother reminds them to lower the volume.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","nouns","verbs"],
+          "tags": ["mother","volume"],
+          "distractorGroup": "home_activity",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "reminds", "type": "verb" },
+            { "word": "volume", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_4_s7",
+          "text": "They turn off the TV before going to bed.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["TV","bed"],
+          "distractorGroup": "home_activity",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "turn", "type": "verb" },
+            { "word": "TV", "type": "noun" },
+            { "word": "bed", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_m_5",
+      "imageName": "pet_dog_home",
+      "title": "Pet Dog at Home",
+      "unit": "homeLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "pets", "daily_routine"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "home_m_5_s1",
+          "text": "The family has a playful dog at home.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["family","dog","home"],
+          "distractorGroup": "home_pet",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "has", "type": "verb" },
+            { "word": "playful", "type": "adjective" },
+            { "word": "dog", "type": "noun" },
+            { "word": "home", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_5_s2",
+          "text": "The dog wags its tail when the children arrive.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["dog","children"],
+          "distractorGroup": "home_pet",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "dog", "type": "noun" },
+            { "word": "wags", "type": "verb" },
+            { "word": "its", "type": "pronoun" },
+            { "word": "tail", "type": "noun" },
+            { "word": "children", "type": "noun" },
+            { "word": "arrive", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_m_5_s3",
+          "text": "The boy feeds the dog before eating his dinner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["boy","dog","dinner"],
+          "distractorGroup": "home_pet",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "feeds", "type": "verb" },
+            { "word": "dog", "type": "noun" },
+            { "word": "dinner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_5_s4",
+          "text": "The dog runs around the yard happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["dog","yard"],
+          "distractorGroup": "home_pet",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "dog", "type": "noun" },
+            { "word": "runs", "type": "verb" },
+            { "word": "yard", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_5_s5",
+          "text": "It barks loudly when it hears strange sounds.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["sounds"],
+          "distractorGroup": "home_pet",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "barks", "type": "verb" },
+            { "word": "hears", "type": "verb" },
+            { "word": "strange", "type": "adjective" },
+            { "word": "sounds", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_5_s6",
+          "text": "The girl brushes the dog gently every weekend.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["girl","dog","weekend"],
+          "distractorGroup": "home_pet",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "brushes", "type": "verb" },
+            { "word": "dog", "type": "noun" },
+            { "word": "weekend", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_5_s7",
+          "text": "The dog feels safe because it is loved.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives","pronouns"],
+          "tags": ["dog","safe"],
+          "distractorGroup": "home_pet",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "dog", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "safe", "type": "adjective" },
+            { "word": "it", "type": "pronoun" },
+            { "word": "is", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_m_6",
+      "imageName": "family_cleaning",
+      "title": "Cleaning the House",
+      "unit": "homeLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "teamwork", "household_chores"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "home_m_6_s1",
+          "text": "The family cleans the house together on Sunday morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["family","house","Sunday","morning"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "cleans", "type": "verb" },
+            { "word": "house", "type": "noun" },
+            { "word": "Sunday", "type": "noun" },
+            { "word": "morning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_6_s2",
+          "text": "Mother sweeps the floor while father dusts the shelves.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["Mother","father","floor","shelves"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Mother", "type": "noun" },
+            { "word": "sweeps", "type": "verb" },
+            { "word": "floor", "type": "noun" },
+            { "word": "father", "type": "noun" },
+            { "word": "dusts", "type": "verb" },
+            { "word": "shelves", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_6_s3",
+          "text": "The children wipe the windows carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["children","windows"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "wipe", "type": "verb" },
+            { "word": "windows", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_6_s4",
+          "text": "They open the doors to let fresh air in.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["doors","air"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "open", "type": "verb" },
+            { "word": "doors", "type": "noun" },
+            { "word": "fresh", "type": "adjective" },
+            { "word": "air", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_6_s5",
+          "text": "Everyone works quickly before lunchtime arrives.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["lunchtime"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Everyone", "type": "pronoun" },
+            { "word": "works", "type": "verb" },
+            { "word": "lunchtime", "type": "noun" },
+            { "word": "arrives", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_m_6_s6",
+          "text": "The house looks bright after the cleaning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["house","cleaning"],
+          "distractorGroup": "home_cleaning",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "house", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "bright", "type": "adjective" },
+            { "word": "cleaning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_6_s7",
+          "text": "They relax happily once the work is done.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["work"],
+          "distractorGroup": "home_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "relax", "type": "verb" },
+            { "word": "work", "type": "noun" },
+            { "word": "is", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_m_7",
+      "imageName": "girl_reading_home",
+      "title": "Reading at Home",
+      "unit": "homeLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "reading_habit", "imagination"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "home_m_7_s1",
+          "text": "The girl reads an interesting story near the window.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["girl","story","window"],
+          "distractorGroup": "home_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "reads", "type": "verb" },
+            { "word": "interesting", "type": "adjective" },
+            { "word": "story", "type": "noun" },
+            { "word": "window", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_7_s2",
+          "text": "She turns each page slowly to understand the story.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["page","story"],
+          "distractorGroup": "home_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "turns", "type": "verb" },
+            { "word": "page", "type": "noun" },
+            { "word": "understand", "type": "verb" },
+            { "word": "story", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_7_s3",
+          "text": "Sunlight shines gently on her book.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["Sunlight","book"],
+          "distractorGroup": "home_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Sunlight", "type": "noun" },
+            { "word": "shines", "type": "verb" },
+            { "word": "book", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_7_s4",
+          "text": "Her mother listens quietly while cooking dinner.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","nouns","verbs"],
+          "tags": ["mother","dinner"],
+          "distractorGroup": "home_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "listens", "type": "verb" },
+            { "word": "dinner", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_7_s5",
+          "text": "The story becomes exciting after the hero appears.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["story","hero"],
+          "distractorGroup": "home_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "story", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "exciting", "type": "adjective" },
+            { "word": "hero", "type": "noun" },
+            { "word": "appears", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_m_7_s6",
+          "text": "She imagines the scenes inside her mind.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["scenes","mind"],
+          "distractorGroup": "home_reading",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "imagines", "type": "verb" },
+            { "word": "scenes", "type": "noun" },
+            { "word": "mind", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_7_s7",
+          "text": "She feels inspired after finishing the book.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["inspired","book"],
+          "distractorGroup": "home_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "inspired", "type": "adjective" },
+            { "word": "book", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_m_8",
+      "imageName": "father_fixing_chair",
+      "title": "Father Fixing a Chair",
+      "unit": "homeLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "problem_solving", "learning_at_home"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "home_m_8_s1",
+          "text": "Father repairs the broken chair in the garage.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["Father","chair","garage"],
+          "distractorGroup": "home_repair",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Father", "type": "noun" },
+            { "word": "repairs", "type": "verb" },
+            { "word": "broken", "type": "adjective" },
+            { "word": "chair", "type": "noun" },
+            { "word": "garage", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_8_s2",
+          "text": "He uses strong tools to tighten the loose screws.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["tools","screws"],
+          "distractorGroup": "home_repair",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "uses", "type": "verb" },
+            { "word": "strong", "type": "adjective" },
+            { "word": "tools", "type": "noun" },
+            { "word": "tighten", "type": "verb" },
+            { "word": "loose", "type": "adjective" },
+            { "word": "screws", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_8_s3",
+          "text": "The chair shakes slightly before he fixes it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["chair"],
+          "distractorGroup": "home_repair",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "chair", "type": "noun" },
+            { "word": "shakes", "type": "verb" },
+            { "word": "fixes", "type": "verb" },
+            { "word": "he", "type": "pronoun" },
+            { "word": "it", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "home_m_8_s4",
+          "text": "The girl watches carefully to learn something new.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["girl"],
+          "distractorGroup": "home_repair",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "watches", "type": "verb" },
+            { "word": "learn", "type": "verb" },
+            { "word": "new", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_m_8_s5",
+          "text": "He explains the steps while working patiently.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["steps"],
+          "distractorGroup": "home_repair",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "explains", "type": "verb" },
+            { "word": "steps", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_8_s6",
+          "text": "The chair becomes strong after the repair.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["chair","repair"],
+          "distractorGroup": "home_repair",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "chair", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "strong", "type": "adjective" },
+            { "word": "repair", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_8_s7",
+          "text": "The girl thanks her father for teaching her.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["girl","father"],
+          "distractorGroup": "home_repair",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "thanks", "type": "verb" },
+            { "word": "father", "type": "noun" },
+            { "word": "teaching", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_m_9",
+      "imageName": "family_prayer",
+      "title": "Family Prayer",
+      "unit": "homeLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_values", "gratitude"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "home_m_9_s1",
+          "text": "The family gathers in the living room for prayer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["family","room","prayer"],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "gathers", "type": "verb" },
+            { "word": "room", "type": "noun" },
+            { "word": "prayer", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_9_s2",
+          "text": "They stand quietly before starting together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs"],
+          "tags": [],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "stand", "type": "verb" },
+            { "word": "starting", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_m_9_s3",
+          "text": "They thank God for the blessings they received.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["God","blessings"],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "thank", "type": "verb" },
+            { "word": "God", "type": "noun" },
+            { "word": "blessings", "type": "noun" },
+            { "word": "received", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_m_9_s4",
+          "text": "The room feels calm and peaceful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["room"],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "room", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "calm", "type": "adjective" },
+            { "word": "peaceful", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_m_9_s5",
+          "text": "The children close their eyes respectfully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["children","eyes"],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "close", "type": "verb" },
+            { "word": "eyes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_9_s6",
+          "text": "Soft voices fill the silent house.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["voices","house"],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Soft", "type": "adjective" },
+            { "word": "voices", "type": "noun" },
+            { "word": "fill", "type": "verb" },
+            { "word": "silent", "type": "adjective" },
+            { "word": "house", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_9_s7",
+          "text": "They feel grateful after finishing the prayer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["grateful","prayer"],
+          "distractorGroup": "home_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "grateful", "type": "adjective" },
+            { "word": "prayer", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_m_9",
+      "imageName": "family_prayer",
+      "title": "Family Prayer",
+      "unit": "homeLife",
+      "level": "medium",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_values", "gratitude"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "home_m_9_s1",
+          "text": "The family gathers in the living room for prayer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": true,
+          "grammarFocus": ["nouns","verbs"],
+          "tags": ["family","room","prayer"],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "gathers", "type": "verb" },
+            { "word": "room", "type": "noun" },
+            { "word": "prayer", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_9_s2",
+          "text": "They stand quietly before starting together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs"],
+          "tags": [],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "stand", "type": "verb" },
+            { "word": "starting", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_m_9_s3",
+          "text": "They thank God for the blessings they received.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","nouns"],
+          "tags": ["God","blessings"],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "thank", "type": "verb" },
+            { "word": "God", "type": "noun" },
+            { "word": "blessings", "type": "noun" },
+            { "word": "received", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_m_9_s4",
+          "text": "The room feels calm and peaceful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","adjectives"],
+          "tags": ["room"],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "room", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "calm", "type": "adjective" },
+            { "word": "peaceful", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_m_9_s5",
+          "text": "The children close their eyes respectfully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["nouns","verbs","pronouns"],
+          "tags": ["children","eyes"],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "close", "type": "verb" },
+            { "word": "eyes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_9_s6",
+          "text": "Soft voices fill the silent house.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives","nouns","verbs"],
+          "tags": ["voices","house"],
+          "distractorGroup": "home_prayer",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Soft", "type": "adjective" },
+            { "word": "voices", "type": "noun" },
+            { "word": "fill", "type": "verb" },
+            { "word": "silent", "type": "adjective" },
+            { "word": "house", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_m_9_s7",
+          "text": "They feel grateful after finishing the prayer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns","verbs","adjectives","nouns"],
+          "tags": ["grateful","prayer"],
+          "distractorGroup": "home_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "grateful", "type": "adjective" },
+            { "word": "prayer", "type": "noun" }
+          ]
+        }
+      ]
+    }
+]
