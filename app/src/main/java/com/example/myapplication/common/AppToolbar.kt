@@ -73,7 +73,8 @@ fun AppToolbarDropDownOnRight(
                     icon = Icons.Rounded.KeyboardArrowDown,
                     type = ButtonType.BLUE,
                     onClick = { expanded = true },
-                    isIconStart = false
+                    isIconStart = false,
+                    isSmall = true
                 )
 
                 DropdownMenu(
@@ -93,7 +94,7 @@ fun AppToolbarDropDownOnRight(
                                         Spacer(modifier = Modifier.width(Dimens8))
                                         Icon(
                                             imageVector = Icons.Rounded.Check, contentDescription = null, tint = Color.Black,
-                                            modifier = Modifier.size(24.dp.scaled())
+                                            modifier = Modifier.size(20.dp.scaled())
                                         )
                                     }
                                 }

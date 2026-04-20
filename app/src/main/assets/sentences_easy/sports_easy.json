@@ -1,0 +1,1658 @@
+[
+    {
+      "id": "sports_1",
+      "imageName": "playing_football",
+      "title": "Playing Football",
+      "unit": "sports",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_actions"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "sports_1_s1",
+          "text": "I play football.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["football"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "play", "type": "verb" },
+            { "word": "football", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_1_s2",
+          "text": "The ball is round.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["ball"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ball", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "round", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_1_s3",
+          "text": "I kick the ball.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["kick"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "kick", "type": "verb" },
+            { "word": "ball", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_1_s4",
+          "text": "I run fast.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["run"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "run", "type": "verb" },
+            { "word": "fast", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_1_s5",
+          "text": "My team cheers.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "nouns", "verbs"],
+          "tags": ["team"],
+          "distractorGroup": "sports_team",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "My", "type": "pronoun" },
+            { "word": "team", "type": "noun" },
+            { "word": "cheers", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_1_s6",
+          "text": "We score a goal.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["goal"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "score", "type": "verb" },
+            { "word": "goal", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_1_s7",
+          "text": "Football is fun.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Football"],
+          "distractorGroup": "sports_general",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Football", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "fun", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_2",
+      "imageName": "playing_cricket",
+      "title": "Playing Cricket",
+      "unit": "sports",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_actions"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "sports_2_s1",
+          "text": "I play cricket.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["cricket"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "play", "type": "verb" },
+            { "word": "cricket", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_2_s2",
+          "text": "I hold a bat.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["bat"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "hold", "type": "verb" },
+            { "word": "bat", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_2_s3",
+          "text": "The ball is small.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["ball"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ball", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "small", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_2_s4",
+          "text": "I hit the ball.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["hit"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "hit", "type": "verb" },
+            { "word": "ball", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_2_s5",
+          "text": "I run quickly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["run"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "run", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_2_s6",
+          "text": "My team claps.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "nouns", "verbs"],
+          "tags": ["team"],
+          "distractorGroup": "sports_team",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "My", "type": "pronoun" },
+            { "word": "team", "type": "noun" },
+            { "word": "claps", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_2_s7",
+          "text": "Cricket is exciting.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Cricket"],
+          "distractorGroup": "sports_general",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Cricket", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "exciting", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_2",
+      "imageName": "playing_cricket",
+      "title": "Playing Cricket",
+      "unit": "sports",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_actions"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "sports_2_s1",
+          "text": "I play cricket.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["cricket"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "play", "type": "verb" },
+            { "word": "cricket", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_2_s2",
+          "text": "I hold a bat.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["bat"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "hold", "type": "verb" },
+            { "word": "bat", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_2_s3",
+          "text": "The ball is small.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["ball"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ball", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "small", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_2_s4",
+          "text": "I hit the ball.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["hit"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "hit", "type": "verb" },
+            { "word": "ball", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_2_s5",
+          "text": "I run quickly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["run"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "run", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_2_s6",
+          "text": "My team claps.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "nouns", "verbs"],
+          "tags": ["team"],
+          "distractorGroup": "sports_team",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "My", "type": "pronoun" },
+            { "word": "team", "type": "noun" },
+            { "word": "claps", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_2_s7",
+          "text": "Cricket is exciting.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Cricket"],
+          "distractorGroup": "sports_general",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Cricket", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "exciting", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_4",
+      "imageName": "running_race",
+      "title": "Running Race",
+      "unit": "sports",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_actions"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "sports_4_s1",
+          "text": "I run in a race.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["race"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "run", "type": "verb" },
+            { "word": "race", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_4_s2",
+          "text": "I wear sports shoes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["shoes"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "shoes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_4_s3",
+          "text": "I run very fast.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["run"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "run", "type": "verb" },
+            { "word": "fast", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_4_s4",
+          "text": "My heart beats fast.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "nouns", "verbs", "adjectives"],
+          "tags": ["heart"],
+          "distractorGroup": "sports_body",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "My", "type": "pronoun" },
+            { "word": "heart", "type": "noun" },
+            { "word": "beats", "type": "verb" },
+            { "word": "fast", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_4_s5",
+          "text": "People clap loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["People"],
+          "distractorGroup": "sports_team",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "People", "type": "noun" },
+            { "word": "clap", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_4_s6",
+          "text": "I reach the finish line.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["line"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "reach", "type": "verb" },
+            { "word": "line", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_4_s7",
+          "text": "I feel proud.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["proud"],
+          "distractorGroup": "sports_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "proud", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_5",
+      "imageName": "swimming_pool",
+      "title": "Swimming",
+      "unit": "sports",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_actions"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "sports_5_s1",
+          "text": "I swim in the pool.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["swim"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "swim", "type": "verb" },
+            { "word": "pool", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_5_s2",
+          "text": "The water is cool.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["water"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "water", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "cool", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_5_s3",
+          "text": "I move my arms.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["arms"],
+          "distractorGroup": "sports_body",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "move", "type": "verb" },
+            { "word": "my", "type": "pronoun" },
+            { "word": "arms", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_5_s4",
+          "text": "I kick my legs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["legs"],
+          "distractorGroup": "sports_body",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "kick", "type": "verb" },
+            { "word": "my", "type": "pronoun" },
+            { "word": "legs", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_5_s5",
+          "text": "I wear goggles.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["goggles"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "goggles", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_5_s6",
+          "text": "I float on water.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["float"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "float", "type": "verb" },
+            { "word": "water", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_5_s7",
+          "text": "Swimming is healthy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Swimming"],
+          "distractorGroup": "sports_general",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Swimming", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "healthy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_6",
+      "imageName": "cycling_park",
+      "title": "Cycling",
+      "unit": "sports",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_actions"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "sports_6_s1",
+          "text": "I ride my bicycle.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["bicycle"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "ride", "type": "verb" },
+            { "word": "my", "type": "pronoun" },
+            { "word": "bicycle", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_6_s2",
+          "text": "It has two wheels.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["wheels"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "has", "type": "verb" },
+            { "word": "two", "type": "adjective" },
+            { "word": "wheels", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_6_s3",
+          "text": "I pedal slowly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["pedal"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "pedal", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_6_s4",
+          "text": "I wear a helmet.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["helmet"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "helmet", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_6_s5",
+          "text": "The wind feels nice.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["wind"],
+          "distractorGroup": "sports_environment",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wind", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "nice", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_6_s6",
+          "text": "I stop safely.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["stop"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "stop", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_6_s7",
+          "text": "Cycling is fun.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Cycling"],
+          "distractorGroup": "sports_general",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Cycling", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "fun", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_7",
+      "imageName": "yoga_class",
+      "title": "Doing Yoga",
+      "unit": "sports",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_actions"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "sports_7_s1",
+          "text": "I do yoga.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["yoga"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "do", "type": "verb" },
+            { "word": "yoga", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_7_s2",
+          "text": "I sit quietly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["sit"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "sit", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_7_s3",
+          "text": "I breathe slowly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["breathe"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "breathe", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_7_s4",
+          "text": "I stretch my body.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["body"],
+          "distractorGroup": "sports_body",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "stretch", "type": "verb" },
+            { "word": "my", "type": "pronoun" },
+            { "word": "body", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_7_s5",
+          "text": "I close my eyes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["eyes"],
+          "distractorGroup": "sports_body",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "close", "type": "verb" },
+            { "word": "my", "type": "pronoun" },
+            { "word": "eyes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_7_s6",
+          "text": "I feel calm.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["calm"],
+          "distractorGroup": "sports_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "calm", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_7_s7",
+          "text": "Yoga is relaxing.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Yoga"],
+          "distractorGroup": "sports_general",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Yoga", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "relaxing", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_8",
+      "imageName": "badminton_game",
+      "title": "Playing Badminton",
+      "unit": "sports",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_actions"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "sports_8_s1",
+          "text": "I play badminton.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["badminton"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "play", "type": "verb" },
+            { "word": "badminton", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_8_s2",
+          "text": "I hold a racket.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["racket"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "hold", "type": "verb" },
+            { "word": "racket", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_8_s3",
+          "text": "I hit the shuttle.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["shuttle"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "hit", "type": "verb" },
+            { "word": "shuttle", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_8_s4",
+          "text": "It flies high.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["flies"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "flies", "type": "verb" },
+            { "word": "high", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_8_s5",
+          "text": "I move quickly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["move"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "move", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_8_s6",
+          "text": "I score points.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["points"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "score", "type": "verb" },
+            { "word": "points", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_8_s7",
+          "text": "Badminton is fun.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Badminton"],
+          "distractorGroup": "sports_general",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Badminton", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "fun", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_9",
+      "imageName": "skipping_rope",
+      "title": "Skipping Rope",
+      "unit": "sports",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sports_actions"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "sports_9_s1",
+          "text": "I skip with a rope.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["rope"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "skip", "type": "verb" },
+            { "word": "rope", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_9_s2",
+          "text": "I jump high.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["jump"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "jump", "type": "verb" },
+            { "word": "high", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_9_s3",
+          "text": "I count loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["count"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "count", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_9_s4",
+          "text": "My friends clap.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "nouns", "verbs"],
+          "tags": ["friends"],
+          "distractorGroup": "sports_team",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "My", "type": "pronoun" },
+            { "word": "friends", "type": "noun" },
+            { "word": "clap", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_9_s5",
+          "text": "I do not fall.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["fall"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "fall", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_9_s6",
+          "text": "I try again.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["try"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "try", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_9_s7",
+          "text": "Skipping is healthy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Skipping"],
+          "distractorGroup": "sports_general",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Skipping", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "healthy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports_10",
+      "imageName": "playing_chess",
+      "title": "Playing Chess",
+      "unit": "sports",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "thinking_sports"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "sports_10_s1",
+          "text": "I play chess.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["chess"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "play", "type": "verb" },
+            { "word": "chess", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_10_s2",
+          "text": "The board is square.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["board"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "board", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "square", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_10_s3",
+          "text": "The pieces are small.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["pieces"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "pieces", "type": "noun" },
+            { "word": "are", "type": "verb" },
+            { "word": "small", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "sports_10_s4",
+          "text": "I move my piece.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["piece"],
+          "distractorGroup": "sports_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "move", "type": "verb" },
+            { "word": "my", "type": "pronoun" },
+            { "word": "piece", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_10_s5",
+          "text": "I think carefully.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["think"],
+          "distractorGroup": "thinking_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "think", "type": "verb" }
+          ]
+        },
+        {
+          "id": "sports_10_s6",
+          "text": "I say check.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["check"],
+          "distractorGroup": "sports_terms",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "say", "type": "verb" },
+            { "word": "check", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_10_s7",
+          "text": "Chess is smart.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Chess"],
+          "distractorGroup": "sports_general",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Chess", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "smart", "type": "adjective" }
+          ]
+        }
+      ]
+    }
+]

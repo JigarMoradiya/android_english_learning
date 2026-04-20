@@ -11,14 +11,6 @@ class AppPreferencesHelper @Inject constructor(
     @param:PreferenceInfo private val prefFileName: String
 ) : PreferencesHelper {
     companion object {
-        private const val PREF_KEY_ACCESS_TOKEN = "PREF_KEY_ACCESS_TOKEN"
-        private const val PREF_KEY_IS_USER_LOGGED_IN = "PREF_KEY_IS_USER_LOGGED_IN"
-        private const val PREF_KEY_IS_USER_IN_FREE_TRIAL = "PREF_KEY_IS_USER_IN_FREE_TRIAL"
-        private const val PREF_KEY_LOGIN_DATA = "PREF_KEY_LoginData"
-
-        const val KEY_DEFAULT_TTS_VOICE = "KEY_DEFAULT_TTS_VOICE"
-        const val DEFAULT_TTS_VOICE_VALUE = "en-in-x-end-network"
-//        const val DEFAULT_TTS_VOICE_VALUE = "hi-in-x-hie-local"
 
         const val KEY_DEFAULT_TTS_LANGUAGE = "KEY_DEFAULT_TTS_LANGUAGE"
         const val DEFAULT_TTS_LANGUAGE_VALUE = "en_IN" // hi_IN, en_US
@@ -59,27 +51,6 @@ class AppPreferencesHelper @Inject constructor(
         putFloat(paramName, paramValue)
     }
 
-    override fun isUserLoggedIn(): Boolean = mPrefs.getBoolean(PREF_KEY_IS_USER_LOGGED_IN, false)
-
-    override fun setUserLoggedIn(value: Boolean) = mPrefs.edit {
-        putBoolean(PREF_KEY_IS_USER_LOGGED_IN, value)
-    }
-    override fun isUserInFreeTrial(): Boolean = mPrefs.getBoolean(PREF_KEY_IS_USER_IN_FREE_TRIAL, false)
-
-    override fun setUserInFreeTrial(value: Boolean) = mPrefs.edit {
-        putBoolean(PREF_KEY_IS_USER_IN_FREE_TRIAL, value)
-    }
-
-    override fun getAccessToken(): String? = mPrefs.getString(PREF_KEY_ACCESS_TOKEN, null)
-
-    override fun setAccessToken(accessToken: String?) = mPrefs.edit {
-        putString(PREF_KEY_ACCESS_TOKEN, accessToken)
-    }
-    override fun getLoginData(): String? = mPrefs.getString(PREF_KEY_LOGIN_DATA, null)
-
-    override fun setLoginData(data: String?) = mPrefs.edit {
-        putString(PREF_KEY_LOGIN_DATA, data)
-    }
 
     fun getDefaultTTSPitch(): Float {
         return getCustomParamFloat(KEY_DEFAULT_TTS_PITCH, 10f)

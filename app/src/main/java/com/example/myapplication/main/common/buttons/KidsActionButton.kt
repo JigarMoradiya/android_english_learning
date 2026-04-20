@@ -126,7 +126,7 @@ fun KidsActionButton(
                         modifier = Modifier.size(iconSize)
                     )
                 }
-                Spacer(Modifier.width(Dimens2))
+                Spacer(Modifier.width(Dimens4))
             }
 
             Box(Modifier.padding(start = if (!isIconStart) Dimens4 else 0.dp, end = if (isIconStart) Dimens4 else 0.dp)) {
@@ -152,7 +152,7 @@ fun KidsActionButton(
             }
 
             if (!isIconStart && icon != null) {
-                Spacer(Modifier.width(Dimens2))
+                Spacer(Modifier.width(Dimens4))
 
                 Box {
                     if (type != ButtonType.DISABLE){

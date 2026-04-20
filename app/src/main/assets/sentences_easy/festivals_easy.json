@@ -1,0 +1,1665 @@
+[
+    {
+      "id": "festival_1",
+      "imageName": "birthday_party",
+      "title": "Birthday Party",
+      "unit": "festivals",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "festival_1_s1",
+          "text": "Today is my birthday.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "pronouns"],
+          "tags": ["Today", "birthday"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Today", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "my", "type": "pronoun" },
+            { "word": "birthday", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_1_s2",
+          "text": "I wear new clothes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["wear", "clothes"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "new", "type": "adjective" },
+            { "word": "clothes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_1_s3",
+          "text": "There is a big cake.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["cake", "big"],
+          "distractorGroup": "festivals_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "is", "type": "verb" },
+            { "word": "big", "type": "adjective" },
+            { "word": "cake", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_1_s4",
+          "text": "We light candles.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["light", "candles"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "light", "type": "verb" },
+            { "word": "candles", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_1_s5",
+          "text": "We sing a song.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["sing", "song"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "sing", "type": "verb" },
+            { "word": "song", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_1_s6",
+          "text": "I cut the cake.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["cut", "cake"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "cut", "type": "verb" },
+            { "word": "cake", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_1_s7",
+          "text": "Everyone claps happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["Everyone", "claps"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Everyone", "type": "pronoun" },
+            { "word": "claps", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_2",
+      "imageName": "diwali_lights",
+      "title": "Festival of Lights",
+      "unit": "festivals",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "festival_2_s1",
+          "text": "We celebrate the festival of lights.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["celebrate", "festival", "lights"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "celebrate", "type": "verb" },
+            { "word": "festival", "type": "noun" },
+            { "word": "lights", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_2_s2",
+          "text": "We decorate our home.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["decorate", "home"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "decorate", "type": "verb" },
+            { "word": "our", "type": "pronoun" },
+            { "word": "home", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_2_s3",
+          "text": "We light lamps.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["light", "lamps"],
+          "distractorGroup": "festivals_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "light", "type": "verb" },
+            { "word": "lamps", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_2_s4",
+          "text": "The house looks bright.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["house", "bright"],
+          "distractorGroup": "festivals_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "house", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "bright", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "festival_2_s5",
+          "text": "We wear new clothes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["wear", "clothes"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "new", "type": "adjective" },
+            { "word": "clothes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_2_s6",
+          "text": "We share sweets.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["share", "sweets"],
+          "distractorGroup": "festivals_food",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "share", "type": "verb" },
+            { "word": "sweets", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_2_s7",
+          "text": "Everyone feels happy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["Everyone", "happy"],
+          "distractorGroup": "festivals_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Everyone", "type": "pronoun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "happy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_3",
+      "imageName": "christmas_tree",
+      "title": "Christmas Day",
+      "unit": "festivals",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "festival_3_s1",
+          "text": "We celebrate Christmas.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["celebrate", "Christmas"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "celebrate", "type": "verb" },
+            { "word": "Christmas", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_3_s2",
+          "text": "There is a big tree.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives", "nouns"],
+          "tags": ["tree", "big"],
+          "distractorGroup": "festivals_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "is", "type": "verb" },
+            { "word": "big", "type": "adjective" },
+            { "word": "tree", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_3_s3",
+          "text": "The tree has lights.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["tree", "lights"],
+          "distractorGroup": "festivals_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "tree", "type": "noun" },
+            { "word": "has", "type": "verb" },
+            { "word": "lights", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_3_s4",
+          "text": "We decorate it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["decorate"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "decorate", "type": "verb" },
+            { "word": "it", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "festival_3_s5",
+          "text": "We sing songs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["sing", "songs"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "sing", "type": "verb" },
+            { "word": "songs", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_3_s6",
+          "text": "We open gifts.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["open", "gifts"],
+          "distractorGroup": "festivals_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "open", "type": "verb" },
+            { "word": "gifts", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_3_s7",
+          "text": "Christmas is joyful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Christmas", "joyful"],
+          "distractorGroup": "festivals_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Christmas", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "joyful", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_4",
+      "imageName": "holi_colors",
+      "title": "Festival of Colors",
+      "unit": "festivals",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "festival_4_s1",
+          "text": "We celebrate the festival of colors.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["celebrate", "festival", "colors"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "celebrate", "type": "verb" },
+            { "word": "festival", "type": "noun" },
+            { "word": "colors", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_4_s2",
+          "text": "We throw colors.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["throw", "colors"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "throw", "type": "verb" },
+            { "word": "colors", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_4_s3",
+          "text": "We laugh loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["laugh"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "laugh", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_4_s4",
+          "text": "Our clothes become colorful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "nouns", "verbs", "adjectives"],
+          "tags": ["clothes", "colorful"],
+          "distractorGroup": "festivals_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Our", "type": "pronoun" },
+            { "word": "clothes", "type": "noun" },
+            { "word": "become", "type": "verb" },
+            { "word": "colorful", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "festival_4_s5",
+          "text": "We dance happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["dance"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "dance", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_4_s6",
+          "text": "We eat sweets.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["eat", "sweets"],
+          "distractorGroup": "festivals_food",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "sweets", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_4_s7",
+          "text": "The day is fun.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["day", "fun"],
+          "distractorGroup": "festivals_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "day", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "fun", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_5",
+      "imageName": "independence_day",
+      "title": "National Day",
+      "unit": "festivals",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "festival_5_s1",
+          "text": "We celebrate our national day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["celebrate", "day"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "celebrate", "type": "verb" },
+            { "word": "our", "type": "pronoun" },
+            { "word": "national", "type": "adjective" },
+            { "word": "day", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_5_s2",
+          "text": "We see the flag.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["see", "flag"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "see", "type": "verb" },
+            { "word": "flag", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_5_s3",
+          "text": "We sing songs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["sing", "songs"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "sing", "type": "verb" },
+            { "word": "songs", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_5_s4",
+          "text": "We attend a program.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["attend", "program"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "attend", "type": "verb" },
+            { "word": "program", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_5_s5",
+          "text": "Children perform dances.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Children", "perform", "dances"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "perform", "type": "verb" },
+            { "word": "dances", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_5_s6",
+          "text": "People clap loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["People", "clap"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "People", "type": "noun" },
+            { "word": "clap", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_5_s7",
+          "text": "The day is special.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["day", "special"],
+          "distractorGroup": "festivals_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "day", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "special", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_6",
+      "imageName": "new_year_celebration",
+      "title": "New Year",
+      "unit": "festivals",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "festival_6_s1",
+          "text": "We celebrate New Year.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["celebrate", "Year"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "celebrate", "type": "verb" },
+            { "word": "Year", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_6_s2",
+          "text": "We decorate our home.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["decorate", "home"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "decorate", "type": "verb" },
+            { "word": "our", "type": "pronoun" },
+            { "word": "home", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_6_s3",
+          "text": "We count numbers.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["count", "numbers"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "count", "type": "verb" },
+            { "word": "numbers", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_6_s4",
+          "text": "We say Happy New Year.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["say", "Year"],
+          "distractorGroup": "festivals_greetings",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "say", "type": "verb" },
+            { "word": "Year", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_6_s5",
+          "text": "Fireworks light the sky.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Fireworks", "light", "sky"],
+          "distractorGroup": "festivals_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Fireworks", "type": "noun" },
+            { "word": "light", "type": "verb" },
+            { "word": "sky", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_6_s6",
+          "text": "We hug each other.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["hug"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "hug", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_6_s7",
+          "text": "The new year begins.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "nouns", "verbs"],
+          "tags": ["year", "begins"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "new", "type": "adjective" },
+            { "word": "year", "type": "noun" },
+            { "word": "begins", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_7",
+      "imageName": "family_gathering",
+      "title": "Family Gathering",
+      "unit": "festivals",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "festival_7_s1",
+          "text": "Our family meets together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "nouns", "verbs"],
+          "tags": ["family", "meets"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Our", "type": "pronoun" },
+            { "word": "family", "type": "noun" },
+            { "word": "meets", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_7_s2",
+          "text": "We cook tasty food.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["cook", "food"],
+          "distractorGroup": "festivals_food",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "cook", "type": "verb" },
+            { "word": "tasty", "type": "adjective" },
+            { "word": "food", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_7_s3",
+          "text": "We talk happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["talk"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "talk", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_7_s4",
+          "text": "Children play games.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Children", "games"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "play", "type": "verb" },
+            { "word": "games", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_7_s5",
+          "text": "We take photos.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["take", "photos"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "take", "type": "verb" },
+            { "word": "photos", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_7_s6",
+          "text": "We laugh together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["laugh"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "laugh", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_7_s7",
+          "text": "It is a joyful day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["joyful", "day"],
+          "distractorGroup": "festivals_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "is", "type": "verb" },
+            { "word": "joyful", "type": "adjective" },
+            { "word": "day", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_8",
+      "imageName": "school_function",
+      "title": "School Function",
+      "unit": "festivals",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "festival_8_s1",
+          "text": "Our school has a function.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "nouns", "verbs"],
+          "tags": ["school", "function"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Our", "type": "pronoun" },
+            { "word": "school", "type": "noun" },
+            { "word": "has", "type": "verb" },
+            { "word": "function", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_8_s2",
+          "text": "Students wear costumes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Students", "costumes"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Students", "type": "noun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "costumes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_8_s3",
+          "text": "They sing songs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["sing", "songs"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "sing", "type": "verb" },
+            { "word": "songs", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_8_s4",
+          "text": "They dance on stage.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["dance", "stage"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "dance", "type": "verb" },
+            { "word": "stage", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_8_s5",
+          "text": "Parents watch proudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Parents", "watch"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Parents", "type": "noun" },
+            { "word": "watch", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_8_s6",
+          "text": "Teachers smile.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Teachers", "smile"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Teachers", "type": "noun" },
+            { "word": "smile", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_8_s7",
+          "text": "The program is fun.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["program", "fun"],
+          "distractorGroup": "festivals_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "program", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "fun", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_9",
+      "imageName": "wedding_ceremony",
+      "title": "Wedding Ceremony",
+      "unit": "festivals",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "festival_9_s1",
+          "text": "We attend a wedding.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["attend", "wedding"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "attend", "type": "verb" },
+            { "word": "wedding", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_9_s2",
+          "text": "The bride looks beautiful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["bride", "beautiful"],
+          "distractorGroup": "festivals_people",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bride", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "beautiful", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "festival_9_s3",
+          "text": "The groom smiles.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["groom", "smiles"],
+          "distractorGroup": "festivals_people",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "groom", "type": "noun" },
+            { "word": "smiles", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_9_s4",
+          "text": "Guests wear nice clothes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Guests", "clothes"],
+          "distractorGroup": "festivals_people",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Guests", "type": "noun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "nice", "type": "adjective" },
+            { "word": "clothes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_9_s5",
+          "text": "There is music.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "nouns"],
+          "tags": ["music"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "is", "type": "verb" },
+            { "word": "music", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_9_s6",
+          "text": "People eat tasty food.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["People", "food"],
+          "distractorGroup": "festivals_food",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "People", "type": "noun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "tasty", "type": "adjective" },
+            { "word": "food", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_9_s7",
+          "text": "The wedding is joyful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["wedding", "joyful"],
+          "distractorGroup": "festivals_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wedding", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "joyful", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_10",
+      "imageName": "picnic_day",
+      "title": "Picnic Day",
+      "unit": "festivals",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "festival_10_s1",
+          "text": "We go on a picnic.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["go", "picnic"],
+          "distractorGroup": "festivals_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "go", "type": "verb" },
+            { "word": "picnic", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_10_s2",
+          "text": "We sit on the grass.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["sit", "grass"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "sit", "type": "verb" },
+            { "word": "grass", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_10_s3",
+          "text": "We eat snacks.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["eat", "snacks"],
+          "distractorGroup": "festivals_food",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "snacks", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_10_s4",
+          "text": "We play games.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["play", "games"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "play", "type": "verb" },
+            { "word": "games", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_10_s5",
+          "text": "We take photos.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["take", "photos"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "take", "type": "verb" },
+            { "word": "photos", "type": "noun" }
+          ]
+        },
+        {
+          "id": "festival_10_s6",
+          "text": "We laugh loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["laugh"],
+          "distractorGroup": "festivals_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "laugh", "type": "verb" }
+          ]
+        },
+        {
+          "id": "festival_10_s7",
+          "text": "Picnic days are fun.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["days", "fun"],
+          "distractorGroup": "festivals_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "days", "type": "noun" },
+            { "word": "are", "type": "verb" },
+            { "word": "fun", "type": "noun" }
+          ]
+        }
+      ]
+    }
+]

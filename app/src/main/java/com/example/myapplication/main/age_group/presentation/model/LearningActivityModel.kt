@@ -10,6 +10,7 @@ import com.example.myapplication.data.generation.letter.LetterRepository.vocabul
 import com.example.myapplication.data.generation.letter.LetterRepository.vocabularyCategoryVegetables
 import com.example.myapplication.data.generation.letter.LetterRepository.vocabularyCategoryVehicle
 import com.example.myapplication.data.model.LearningActivityModel
+import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.data.model.VocabularyCategoryData
 import com.example.myapplication.data.model.VocabularyCategoryType
 import com.example.myapplication.main.base.nav.RouteNavigation
@@ -50,4 +51,13 @@ val vocabularyCategoryDataList = listOf(
     VocabularyCategoryData(VocabularyCategoryType.BIRDS.name, R.string.birds, R.drawable.age_5_7_vocabulary_category_birds, vocabularyCategoryBirds),
     VocabularyCategoryData(VocabularyCategoryType.VEGETABLES.name, R.string.vegetables, R.drawable.age_5_7_vocabulary_category_vegetables, vocabularyCategoryVegetables),
     VocabularyCategoryData(VocabularyCategoryType.VEHICLES.name, R.string.vehicles, R.drawable.age_5_7_vocabulary_category_vehicles, vocabularyCategoryVehicle)
+)
+
+val activities_age_6_8 = listOf(
+    LearningActivityModel(R.string.readListen,R.drawable.age_6_8_read_sentences, RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name),Color(0xFFD62828)),
+    LearningActivityModel(R.string.oneWordAnswer, R.drawable.age_6_8_one_word_answer,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.ONE_WORD_ANSWER.name),Color(0xFFFF4400)),
+    LearningActivityModel(R.string.fillTheMissingWord, R.drawable.age_6_8_fill_the_missing_word,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.FILL_THE_MISSING_WORD.name),Color(0xFF85479D)),
+    LearningActivityModel(R.string.chooseTheRightSentence, R.drawable.age_6_8_choose_the_right_sentence,RouteNavigation.ChooseTheRightSentence.route,Color(0xFF3265D3)),
+    LearningActivityModel(R.string.sentenceCheck, R.drawable.age_6_8_sentence_check,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.SENTENCE_CHECK.name),Color(0xFFFF9D00)),
+    LearningActivityModel(R.string.sentenceBuilder, R.drawable.age_6_8_build_the_sentence,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.BUILD_THE_SENTENCE.name),Color(0xFF237227)),
 )

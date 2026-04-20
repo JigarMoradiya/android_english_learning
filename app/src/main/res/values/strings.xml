@@ -7,6 +7,7 @@
     <!-- Categories -->
     <string name="level1_title">Little Explorers</string>
     <string name="level2_title">Word Adventure</string>
+    <string name="level3_title">Sentence Builders</string>
 
     <!-- Category Ages 3–5 -->
     <string name="alphabet_tracing">Alphabet Tracing</string>
@@ -40,6 +41,17 @@
     <string name="colors">Colors</string>
     <string name="shapes">Shapes</string>
     <string name="vehicles">Vehicles</string>
+
+    <!-- Category Ages 6–8 -->
+    <string name="readListen">Read &amp; Listen</string>
+    <string name="oneWordAnswer">One Word Answer</string>
+    <string name="fillTheMissingWord">Fill the Missing Word</string>
+    <string name="chooseTheRightSentence">Choose the Right Sentence</string>
+    <string name="sentenceCheck">Sentence Check</string>
+    <string name="sentenceBuilder">Sentence Builder</string>
+    <string name="matchTheSentence">Match the Sentence</string>
+    <string name="grammarBasics">Grammar Basics</string>
+    <string name="growTheSentence">Grow the Sentence</string>
 
     <string name="back">Back</string>
     <string name="clear">CLEAR</string>
@@ -144,5 +156,9 @@
     <string name="learning_guide">Learning Guide</string>
     <string name="see_more_examples">See More Examples</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="list_of_chapters">List of Chapters</string>
+    <string name="do_practice">Do Practice</string>
+    <string name="practice_again">Practice Again</string>
+    <string name="lessons_of">Lessons of %1$s</string>
 
 </resources>

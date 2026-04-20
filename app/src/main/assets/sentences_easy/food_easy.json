@@ -1,0 +1,1632 @@
+[
+    {
+      "id": "food_1",
+      "imageName": "apple_fruit",
+      "title": "An Apple",
+      "unit": "food",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocabulary", "describing_objects"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "food_1_s1",
+          "text": "This is an apple.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "nouns"],
+          "tags": ["apple"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "This", "type": "pronoun" },
+            { "word": "apple", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_1_s2",
+          "text": "The apple is red.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["apple", "red"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "apple", "type": "noun" },
+            { "word": "red", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_1_s3",
+          "text": "It is round.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["round"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "round", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_1_s4",
+          "text": "It tastes sweet.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["tastes", "sweet"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "tastes", "type": "verb" },
+            { "word": "sweet", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_1_s5",
+          "text": "I wash the apple.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["wash", "apple"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wash", "type": "verb" },
+            { "word": "apple", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_1_s6",
+          "text": "I take a bite.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["take", "bite"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "take", "type": "verb" },
+            { "word": "bite", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_1_s7",
+          "text": "The apple is healthy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["apple", "healthy"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "apple", "type": "noun" },
+            { "word": "healthy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_2",
+      "imageName": "banana_fruit",
+      "title": "A Banana",
+      "unit": "food",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocabulary", "describing_objects"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "food_2_s1",
+          "text": "This is a banana.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "nouns"],
+          "tags": ["banana"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "This", "type": "pronoun" },
+            { "word": "banana", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_2_s2",
+          "text": "The banana is yellow.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["banana", "yellow"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "banana", "type": "noun" },
+            { "word": "yellow", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_2_s3",
+          "text": "It is long.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["long"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "long", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_2_s4",
+          "text": "It tastes sweet.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["tastes", "sweet"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "tastes", "type": "verb" },
+            { "word": "sweet", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_2_s5",
+          "text": "I peel the banana.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["peel", "banana"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "peel", "type": "verb" },
+            { "word": "banana", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_2_s6",
+          "text": "I eat it slowly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["eat"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "it", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "food_2_s7",
+          "text": "Bananas give energy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Bananas", "give", "energy"],
+          "distractorGroup": "food_benefits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Bananas", "type": "noun" },
+            { "word": "give", "type": "verb" },
+            { "word": "energy", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_3",
+      "imageName": "breakfast_table",
+      "title": "Breakfast Time",
+      "unit": "food",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocabulary", "daily_routine"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "food_3_s1",
+          "text": "I eat breakfast in the morning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["eat", "breakfast", "morning"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "breakfast", "type": "noun" },
+            { "word": "morning", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_3_s2",
+          "text": "There is milk on the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns"],
+          "tags": ["milk", "table"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "milk", "type": "noun" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_3_s3",
+          "text": "There is bread and butter.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns"],
+          "tags": ["bread", "butter"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "bread", "type": "noun" },
+            { "word": "butter", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_3_s4",
+          "text": "My mother makes eggs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["mother", "makes", "eggs"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "eggs", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_3_s5",
+          "text": "I drink milk.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["drink", "milk"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "drink", "type": "verb" },
+            { "word": "milk", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_3_s6",
+          "text": "I eat my food.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["eat", "food"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "food", "type": "noun" },
+            { "word": "eat", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_3_s7",
+          "text": "Breakfast is important.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Breakfast", "important"],
+          "distractorGroup": "food_benefits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Breakfast", "type": "noun" },
+            { "word": "important", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_4",
+      "imageName": "lunch_box",
+      "title": "My Lunch Box",
+      "unit": "food",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocabulary", "daily_routine"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "food_4_s1",
+          "text": "I have a lunch box.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["have", "lunch", "box"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "have", "type": "verb" },
+            { "word": "lunch", "type": "noun" },
+            { "word": "box", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_4_s2",
+          "text": "There is rice inside.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns"],
+          "tags": ["rice"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rice", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_4_s3",
+          "text": "There are vegetables.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns"],
+          "tags": ["vegetables"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "vegetables", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_4_s4",
+          "text": "My mother packs it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "nouns", "verbs"],
+          "tags": ["mother", "packs"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "packs", "type": "verb" },
+            { "word": "it", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "food_4_s5",
+          "text": "I eat at school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["eat", "school"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_4_s6",
+          "text": "I share with my friend.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["share", "friend"],
+          "distractorGroup": "social_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "share", "type": "verb" },
+            { "word": "friend", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_4_s7",
+          "text": "The food is tasty.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["food", "tasty"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "food", "type": "noun" },
+            { "word": "tasty", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_5",
+      "imageName": "orange_fruit",
+      "title": "An Orange",
+      "unit": "food",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocabulary", "describing_objects"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "food_5_s1",
+          "text": "This is an orange.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "nouns"],
+          "tags": ["orange"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "This", "type": "pronoun" },
+            { "word": "orange", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_5_s2",
+          "text": "The orange is round.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["orange", "round"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "orange", "type": "noun" },
+            { "word": "round", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_5_s3",
+          "text": "It is orange in color.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives", "nouns"],
+          "tags": ["orange", "color"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "orange", "type": "adjective" },
+            { "word": "color", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_5_s4",
+          "text": "It tastes sweet and sour.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["tastes", "sweet", "sour"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "tastes", "type": "verb" },
+            { "word": "sweet", "type": "adjective" },
+            { "word": "sour", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_5_s5",
+          "text": "I peel the orange.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["peel", "orange"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "peel", "type": "verb" },
+            { "word": "orange", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_5_s6",
+          "text": "I eat the slices.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["eat", "slices"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "slices", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_5_s7",
+          "text": "Oranges are healthy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Oranges", "healthy"],
+          "distractorGroup": "food_benefits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Oranges", "type": "noun" },
+            { "word": "healthy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_6",
+      "imageName": "vegetables_plate",
+      "title": "Healthy Vegetables",
+      "unit": "food",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocabulary", "healthy_habits"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "food_6_s1",
+          "text": "Vegetables are healthy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Vegetables", "healthy"],
+          "distractorGroup": "food_benefits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Vegetables", "type": "noun" },
+            { "word": "healthy", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_6_s2",
+          "text": "Carrots are orange.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Carrots", "orange"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Carrots", "type": "noun" },
+            { "word": "orange", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_6_s3",
+          "text": "Spinach is green.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Spinach", "green"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Spinach", "type": "noun" },
+            { "word": "green", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_6_s4",
+          "text": "Tomatoes are red.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Tomatoes", "red"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Tomatoes", "type": "noun" },
+            { "word": "red", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_6_s5",
+          "text": "We cook vegetables.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["cook", "vegetables"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "cook", "type": "verb" },
+            { "word": "vegetables", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_6_s6",
+          "text": "We eat them daily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["eat"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "them", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "food_6_s7",
+          "text": "They make us strong.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["make", "strong"],
+          "distractorGroup": "food_benefits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "make", "type": "verb" },
+            { "word": "us", "type": "pronoun" },
+            { "word": "strong", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_7",
+      "imageName": "milk_glass",
+      "title": "A Glass of Milk",
+      "unit": "food",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocabulary", "healthy_habits"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "food_7_s1",
+          "text": "This is a glass of milk.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "nouns"],
+          "tags": ["glass", "milk"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "This", "type": "pronoun" },
+            { "word": "glass", "type": "noun" },
+            { "word": "milk", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_7_s2",
+          "text": "Milk is white.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Milk", "white"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Milk", "type": "noun" },
+            { "word": "white", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_7_s3",
+          "text": "It is good for bones.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives", "nouns"],
+          "tags": ["good", "bones"],
+          "distractorGroup": "food_benefits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "good", "type": "adjective" },
+            { "word": "bones", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_7_s4",
+          "text": "I drink milk daily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["drink", "milk"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "drink", "type": "verb" },
+            { "word": "milk", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_7_s5",
+          "text": "It tastes fresh.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["tastes", "fresh"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "tastes", "type": "verb" },
+            { "word": "fresh", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_7_s6",
+          "text": "My mother gives milk.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["mother", "gives", "milk"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "gives", "type": "verb" },
+            { "word": "milk", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_7_s7",
+          "text": "Milk makes me strong.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "pronouns", "adjectives"],
+          "tags": ["Milk", "makes", "strong"],
+          "distractorGroup": "food_benefits",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Milk", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "me", "type": "pronoun" },
+            { "word": "strong", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_8",
+      "imageName": "birthday_cake",
+      "title": "Birthday Cake",
+      "unit": "food",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocabulary", "celebrations"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "food_8_s1",
+          "text": "There is a big cake.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["adjectives", "nouns"],
+          "tags": ["cake", "big"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "big", "type": "adjective" },
+            { "word": "cake", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_8_s2",
+          "text": "The cake is sweet.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["cake", "sweet"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cake", "type": "noun" },
+            { "word": "sweet", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_8_s3",
+          "text": "It has cream.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["has", "cream"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "has", "type": "verb" },
+            { "word": "cream", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_8_s4",
+          "text": "We cut the cake.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["cut", "cake"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "cut", "type": "verb" },
+            { "word": "cake", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_8_s5",
+          "text": "We sing a song.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["sing", "song"],
+          "distractorGroup": "celebration_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "sing", "type": "verb" },
+            { "word": "song", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_8_s6",
+          "text": "We eat together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["eat"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "eat", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_8_s7",
+          "text": "The cake is delicious.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["cake", "delicious"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cake", "type": "noun" },
+            { "word": "delicious", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_9",
+      "imageName": "ice_cream",
+      "title": "Ice Cream",
+      "unit": "food",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocabulary", "describing_objects"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "food_9_s1",
+          "text": "I like ice cream.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["like", "cream"],
+          "distractorGroup": "food_preferences",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "like", "type": "verb" },
+            { "word": "cream", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_9_s2",
+          "text": "It is cold.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["cold"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "cold", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_9_s3",
+          "text": "It is sweet.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["sweet"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "sweet", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "food_9_s4",
+          "text": "It melts quickly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["melts"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "melts", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_9_s5",
+          "text": "I eat it slowly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["eat"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "it", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "food_9_s6",
+          "text": "It comes in many flavors.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["comes", "flavors"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "comes", "type": "verb" },
+            { "word": "flavors", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_9_s7",
+          "text": "Ice cream is tasty.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["cream", "tasty"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cream", "type": "noun" },
+            { "word": "tasty", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_10",
+      "imageName": "family_dinner",
+      "title": "Dinner Time",
+      "unit": "food",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "food_vocabulary", "family_routine"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "food_10_s1",
+          "text": "We eat dinner at night.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["eat", "dinner", "night"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "dinner", "type": "noun" },
+            { "word": "night", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_10_s2",
+          "text": "We sit at the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["sit", "table"],
+          "distractorGroup": "family_routine",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "sit", "type": "verb" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_10_s3",
+          "text": "There is rice and curry.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns"],
+          "tags": ["rice", "curry"],
+          "distractorGroup": "food_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rice", "type": "noun" },
+            { "word": "curry", "type": "noun" }
+          ]
+        },
+        {
+          "id": "food_10_s4",
+          "text": "We talk together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["talk"],
+          "distractorGroup": "family_routine",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "talk", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_10_s5",
+          "text": "We eat slowly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["eat"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "eat", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_10_s6",
+          "text": "We say thank you.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["say"],
+          "distractorGroup": "family_routine",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "say", "type": "verb" }
+          ]
+        },
+        {
+          "id": "food_10_s7",
+          "text": "Dinner is peaceful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Dinner", "peaceful"],
+          "distractorGroup": "family_routine",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Dinner", "type": "noun" },
+            { "word": "peaceful", "type": "adjective" }
+          ]
+        }
+      ]
+    }
+]

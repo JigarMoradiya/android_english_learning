@@ -12,6 +12,7 @@ object AppDimens {
     val KidsIconSize = if(isLargeTablet) 84.dp else if (isTablet) 72.dp else 56.dp
     val ShadowOffset = if(isLargeTablet) 3.dp else if (isTablet) 2.5.dp else 1.5.dp
     val ShadowOffsetText = if(isLargeTablet) 3.dp else if (isTablet) 2.dp else 1.dp
+    val Dimens1 = if(isLargeTablet) 3.dp else if (isTablet) 2.dp else 1.dp
     val Dimens2 = if(isLargeTablet) 4.dp else if (isTablet) 3.dp else 2.dp
     val Dimens3 = if(isLargeTablet) 6.dp else if (isTablet) 4.dp else 3.dp
     val Dimens4 = if(isLargeTablet) 8.dp else if (isTablet) 6.dp else 4.dp

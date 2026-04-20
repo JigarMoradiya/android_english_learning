@@ -6,6 +6,12 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.myapplication.data.model.SentenceLevel
+import com.example.myapplication.data.model.SentenceUnit
+import com.example.myapplication.data.model.UnitSelectionScreen
+import com.example.myapplication.data.model.getSentenceLevel
+import com.example.myapplication.data.model.getSentenceUnit
+import com.example.myapplication.data.model.getUnitSelectionScreen
 import com.example.myapplication.main.age_category.MainLearningAgesCategoriesScreen
 import com.example.myapplication.main.age_group.AgeGroup3to5Page
 import com.example.myapplication.main.age_group.AgeGroup5to7Page
@@ -31,6 +37,14 @@ import com.example.myapplication.main.age_group.from_5_to_7.sight_words.SightWor
 import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_detail.VocabularyBuildingDetailPage
 import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_list.VocabularyBuildingPage
 import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.WordMatchImagePage
+import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.ChooseTheRightSentencePage
+import com.example.myapplication.main.age_group.from_6_to_8.common.lesson.SentenceLessonPage
+import com.example.myapplication.main.age_group.from_6_to_8.common.unit.SentenceUnitPage
+import com.example.myapplication.main.age_group.from_6_to_8.fill_the_missing_word.FillTheMissingWordPage
+import com.example.myapplication.main.age_group.from_6_to_8.one_word_answer.OneWordAnswerPage
+import com.example.myapplication.main.age_group.from_6_to_8.read_listen.ReadAndListenPage
+import com.example.myapplication.main.age_group.from_6_to_8.sentence_builder.SentenceBuilderPage
+import com.example.myapplication.main.age_group.from_6_to_8.sentence_check.SentenceCheckPage
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
@@ -46,10 +60,6 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.AgeGroup3to5.route) {
             AgeGroup3to5Page(navController)
         }
-        composable(RouteNavigation.AgeGroup6to8.route) {
-            AgeGroup6to8Page()
-        }
-        // Age Category 3 to 5
         composable(RouteNavigation.AlphabetTracing.route) {
             AlphabetTracingPage(navController)
         }
@@ -121,7 +131,6 @@ fun AppNavGraph(navController: NavHostController) {
             MissingLetterPage(navController,DifficultyLevel.MEDIUM)
         }
         composable(RouteNavigation.WordJigsaw.route) {
-//            WordJigsawPage(navController)
             DragDropWordPage(navController,DifficultyLevel.MEDIUM)
         }
         composable(RouteNavigation.ArticlesAAn.route) {
@@ -138,6 +147,59 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.SightWordChoice.route) {
             SightWordChoicePage(navController)
+        }
+
+        // Age Category 6 to 8
+        composable(RouteNavigation.AgeGroup6to8.route) {
+            AgeGroup6to8Page(navController)
+        }
+        composable(
+            route = RouteNavigation.SentenceUnitList.route,
+            arguments = listOf(
+                navArgument("screenType") { type = NavType.StringType },
+            )
+        ) { backStackEntry ->
+            val screenType = backStackEntry.arguments?.getString("screenType")?:UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name
+            SentenceUnitPage(
+                screenType = getUnitSelectionScreen(screenType),
+                navController = navController
+            )
+        }
+        composable(
+            route = RouteNavigation.SentenceLessonList.route,
+            arguments = listOf(
+                navArgument("screenType") { type = NavType.StringType },
+                navArgument("unit") { type = NavType.StringType },
+                navArgument("level") { type = NavType.StringType },
+            )
+        ) { backStackEntry ->
+            val screenType = backStackEntry.arguments?.getString("screenType")?:UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name
+            val unit = backStackEntry.arguments?.getString("unit")?:SentenceUnit.PLAY_AND_FUN.name
+            val level = backStackEntry.arguments?.getString("level")?: SentenceLevel.EASY.name
+            SentenceLessonPage(
+                screenType = getUnitSelectionScreen(screenType),
+                unit = getSentenceUnit(unit),
+                level = getSentenceLevel(level),
+                navController = navController
+            )
+        }
+        composable(RouteNavigation.ReadAndListen.route) {
+            ReadAndListenPage(navController)
+        }
+        composable(RouteNavigation.OneWordAnswer.route) {
+            OneWordAnswerPage(navController)
+        }
+        composable(RouteNavigation.FillTheMissingWord.route) {
+            FillTheMissingWordPage(navController)
+        }
+        composable(RouteNavigation.ChooseTheRightSentence.route) {
+            ChooseTheRightSentencePage(navController)
+        }
+        composable(RouteNavigation.SentenceCheck.route) {
+            SentenceCheckPage(navController)
+        }
+        composable(RouteNavigation.SentenceBuilder.route) {
+            SentenceBuilderPage(navController)
         }
     }
 }

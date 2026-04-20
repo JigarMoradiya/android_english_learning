@@ -1,0 +1,1645 @@
+[
+    {
+      "id": "daily_1",
+      "imageName": "waking_up",
+      "title": "Waking Up",
+      "unit": "dailyRoutine",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "daily_actions", "routine_vocabulary"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "daily_1_s1",
+          "text": "I wake up early.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["wake", "early"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wake", "type": "verb" },
+            { "word": "early", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_1_s2",
+          "text": "The sun is bright.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["sun", "bright"],
+          "distractorGroup": "nature_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "bright", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_1_s3",
+          "text": "I get out of bed.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["get", "bed"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "get", "type": "verb" },
+            { "word": "bed", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_1_s4",
+          "text": "I stretch my arms.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["stretch", "arms"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "stretch", "type": "verb" },
+            { "word": "arms", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_1_s5",
+          "text": "I feel fresh.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["feel", "fresh"],
+          "distractorGroup": "feelings",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "fresh", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_1_s6",
+          "text": "I make my bed.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["make", "bed"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "make", "type": "verb" },
+            { "word": "bed", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_1_s7",
+          "text": "I start my day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["start", "day"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "start", "type": "verb" },
+            { "word": "day", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_2",
+      "imageName": "brushing_teeth",
+      "title": "Brushing My Teeth",
+      "unit": "dailyRoutine",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "personal_hygiene", "daily_actions"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "daily_2_s1",
+          "text": "I brush my teeth.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["brush", "teeth"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "brush", "type": "verb" },
+            { "word": "teeth", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_2_s2",
+          "text": "I use toothbrush.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["use", "toothbrush"],
+          "distractorGroup": "daily_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "use", "type": "verb" },
+            { "word": "toothbrush", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_2_s3",
+          "text": "Toothpaste is minty.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Toothpaste", "minty"],
+          "distractorGroup": "daily_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Toothpaste", "type": "noun" },
+            { "word": "minty", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_2_s4",
+          "text": "I rinse mouth.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["rinse", "mouth"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "rinse", "type": "verb" },
+            { "word": "mouth", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_2_s5",
+          "text": "I wash face.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["wash", "face"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wash", "type": "verb" },
+            { "word": "face", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_2_s6",
+          "text": "I look mirror.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["look", "mirror"],
+          "distractorGroup": "daily_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "look", "type": "verb" },
+            { "word": "mirror", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_2_s7",
+          "text": "I feel clean.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["feel", "clean"],
+          "distractorGroup": "feelings",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "clean", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_3",
+      "imageName": "getting_dressed",
+      "title": "Getting Dressed",
+      "unit": "dailyRoutine",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "clothing_vocabulary", "daily_actions"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "daily_3_s1",
+          "text": "I wear school uniform.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["wear", "uniform"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "uniform", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_3_s2",
+          "text": "Shirt is clean.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["shirt", "clean"],
+          "distractorGroup": "clothing",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Shirt", "type": "noun" },
+            { "word": "clean", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_3_s3",
+          "text": "Shoes are black.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Shoes", "black"],
+          "distractorGroup": "clothing",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Shoes", "type": "noun" },
+            { "word": "black", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_3_s4",
+          "text": "I comb hair.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["comb", "hair"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "comb", "type": "verb" },
+            { "word": "hair", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_3_s5",
+          "text": "I check bag.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["check", "bag"],
+          "distractorGroup": "daily_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "check", "type": "verb" },
+            { "word": "bag", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_3_s6",
+          "text": "I am ready.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["ready"],
+          "distractorGroup": "feelings",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "ready", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_3_s7",
+          "text": "I go school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["go", "school"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "go", "type": "verb" },
+            { "word": "school", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_4",
+      "imageName": "going_to_school",
+      "title": "Going to School",
+      "unit": "dailyRoutine",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "school_actions", "daily_routine"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "daily_4_s1",
+          "text": "I walk school.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["walk", "school"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "walk", "type": "verb" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_4_s2",
+          "text": "I carry bag.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["carry", "bag"],
+          "distractorGroup": "daily_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "carry", "type": "verb" },
+            { "word": "bag", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_4_s3",
+          "text": "I meet friends.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["meet", "friends"],
+          "distractorGroup": "school_people",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "meet", "type": "verb" },
+            { "word": "friends", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_4_s4",
+          "text": "We talk.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["talk"],
+          "distractorGroup": "school_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "talk", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_4_s5",
+          "text": "We enter class.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["enter", "class"],
+          "distractorGroup": "school_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "enter", "type": "verb" },
+            { "word": "class", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_4_s6",
+          "text": "Bell rings.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Bell", "rings"],
+          "distractorGroup": "school_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Bell", "type": "noun" },
+            { "word": "rings", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_4_s7",
+          "text": "We start learning.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["start", "learning"],
+          "distractorGroup": "school_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "start", "type": "verb" },
+            { "word": "learning", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_5",
+      "imageName": "doing_homework",
+      "title": "Doing Homework",
+      "unit": "dailyRoutine",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "study_actions", "responsibility"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "daily_5_s1",
+          "text": "I sit desk.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["sit", "desk"],
+          "distractorGroup": "study_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "sit", "type": "verb" },
+            { "word": "desk", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_5_s2",
+          "text": "I open notebook.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["open", "notebook"],
+          "distractorGroup": "study_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "open", "type": "verb" },
+            { "word": "notebook", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_5_s3",
+          "text": "I write lesson.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["write", "lesson"],
+          "distractorGroup": "study_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "write", "type": "verb" },
+            { "word": "lesson", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_5_s4",
+          "text": "I read lesson.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["read", "lesson"],
+          "distractorGroup": "study_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "read", "type": "verb" },
+            { "word": "lesson", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_5_s5",
+          "text": "Mother helps me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "pronouns"],
+          "tags": ["Mother", "helps"],
+          "distractorGroup": "family_support",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Mother", "type": "noun" },
+            { "word": "helps", "type": "verb" },
+            { "word": "me", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "daily_5_s6",
+          "text": "I finish work.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["finish", "work"],
+          "distractorGroup": "study_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "finish", "type": "verb" },
+            { "word": "work", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_5_s7",
+          "text": "I feel proud.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["feel", "proud"],
+          "distractorGroup": "feelings",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "proud", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_6",
+      "imageName": "playing_evening",
+      "title": "Playing Evening",
+      "unit": "dailyRoutine",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "play_actions", "feelings"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "daily_6_s1",
+          "text": "I play park.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["play", "park"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "play", "type": "verb" },
+            { "word": "park", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_6_s2",
+          "text": "I run fast.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["run", "fast"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "run", "type": "verb" },
+            { "word": "fast", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_6_s3",
+          "text": "I jump high.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["jump", "high"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "jump", "type": "verb" },
+            { "word": "high", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_6_s4",
+          "text": "I laugh.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["laugh"],
+          "distractorGroup": "feelings",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "laugh", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_6_s5",
+          "text": "Friends play with me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "pronouns"],
+          "tags": ["Friends", "play"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Friends", "type": "noun" },
+            { "word": "play", "type": "verb" },
+            { "word": "me", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "daily_6_s6",
+          "text": "We have fun.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["have", "fun"],
+          "distractorGroup": "play_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "have", "type": "verb" },
+            { "word": "fun", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_6_s7",
+          "text": "I feel happy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["feel", "happy"],
+          "distractorGroup": "feelings",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "happy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_7",
+      "imageName": "eating_dinner",
+      "title": "Eating Dinner",
+      "unit": "dailyRoutine",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_time", "daily_routine"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "daily_7_s1",
+          "text": "I eat dinner at night.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["eat", "dinner", "night"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "eat", "type": "verb" },
+            { "word": "dinner", "type": "noun" },
+            { "word": "night", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_7_s2",
+          "text": "We sit together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["sit"],
+          "distractorGroup": "family_time",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "sit", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_7_s3",
+          "text": "The food is warm.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["food", "warm"],
+          "distractorGroup": "food_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "food", "type": "noun" },
+            { "word": "warm", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_7_s4",
+          "text": "We talk softly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["talk"],
+          "distractorGroup": "family_time",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "talk", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_7_s5",
+          "text": "I drink water.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["drink", "water"],
+          "distractorGroup": "food_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "drink", "type": "verb" },
+            { "word": "water", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_7_s6",
+          "text": "I say thank you.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["say"],
+          "distractorGroup": "family_time",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "say", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_7_s7",
+          "text": "Dinner is peaceful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Dinner", "peaceful"],
+          "distractorGroup": "family_time",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Dinner", "type": "noun" },
+            { "word": "peaceful", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_8",
+      "imageName": "watching_tv",
+      "title": "Watching TV",
+      "unit": "dailyRoutine",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "leisure_activities", "family_time"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "daily_8_s1",
+          "text": "I watch TV.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["watch", "TV"],
+          "distractorGroup": "leisure_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "watch", "type": "verb" },
+            { "word": "TV", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_8_s2",
+          "text": "The cartoon is funny.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["cartoon", "funny"],
+          "distractorGroup": "leisure_items",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cartoon", "type": "noun" },
+            { "word": "funny", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_8_s3",
+          "text": "I laugh loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["laugh"],
+          "distractorGroup": "feelings",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "laugh", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_8_s4",
+          "text": "My sister joins me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "pronouns"],
+          "tags": ["sister", "joins"],
+          "distractorGroup": "family_time",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sister", "type": "noun" },
+            { "word": "joins", "type": "verb" },
+            { "word": "me", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "daily_8_s5",
+          "text": "We sit on the sofa.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["sit", "sofa"],
+          "distractorGroup": "family_time",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "sit", "type": "verb" },
+            { "word": "sofa", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_8_s6",
+          "text": "We enjoy the show.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["enjoy", "show"],
+          "distractorGroup": "leisure_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "enjoy", "type": "verb" },
+            { "word": "show", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_8_s7",
+          "text": "We turn off the TV.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["turn", "TV"],
+          "distractorGroup": "leisure_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "turn", "type": "verb" },
+            { "word": "TV", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_9",
+      "imageName": "reading_book",
+      "title": "Reading a Book",
+      "unit": "dailyRoutine",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "reading_habit", "learning_actions"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "daily_9_s1",
+          "text": "I read a book.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["read", "book"],
+          "distractorGroup": "reading_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "read", "type": "verb" },
+            { "word": "book", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_9_s2",
+          "text": "The story is nice.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["story", "nice"],
+          "distractorGroup": "reading_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "story", "type": "noun" },
+            { "word": "nice", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_9_s3",
+          "text": "I turn the page.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["turn", "page"],
+          "distractorGroup": "reading_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "turn", "type": "verb" },
+            { "word": "page", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_9_s4",
+          "text": "I look at pictures.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["look", "pictures"],
+          "distractorGroup": "reading_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "look", "type": "verb" },
+            { "word": "pictures", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_9_s5",
+          "text": "I sit quietly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["sit"],
+          "distractorGroup": "reading_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "sit", "type": "verb" }
+          ]
+        },
+        {
+          "id": "daily_9_s6",
+          "text": "I enjoy reading.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["enjoy", "reading"],
+          "distractorGroup": "reading_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "enjoy", "type": "verb" },
+            { "word": "reading", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_9_s7",
+          "text": "I learn new words.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns", "adjectives"],
+          "tags": ["learn", "new", "words"],
+          "distractorGroup": "learning_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "learn", "type": "verb" },
+            { "word": "new", "type": "adjective" },
+            { "word": "words", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily_10",
+      "imageName": "sleeping_night",
+      "title": "Going to Sleep",
+      "unit": "dailyRoutine",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "night_routine", "daily_habits"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "daily_10_s1",
+          "text": "I wear my pajamas.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["wear", "pajamas"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "pajamas", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_10_s2",
+          "text": "I brush my teeth.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["brush", "teeth"],
+          "distractorGroup": "daily_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "brush", "type": "verb" },
+            { "word": "teeth", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_10_s3",
+          "text": "I lie on my bed.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["lie", "bed"],
+          "distractorGroup": "night_routine",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "lie", "type": "verb" },
+            { "word": "bed", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_10_s4",
+          "text": "My mother kisses me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "pronouns"],
+          "tags": ["mother", "kisses"],
+          "distractorGroup": "family_time",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" },
+            { "word": "kisses", "type": "verb" },
+            { "word": "me", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "daily_10_s5",
+          "text": "The room is quiet.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["room", "quiet"],
+          "distractorGroup": "night_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "room", "type": "noun" },
+            { "word": "quiet", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "daily_10_s6",
+          "text": "I close my eyes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["close", "eyes"],
+          "distractorGroup": "night_routine",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "close", "type": "verb" },
+            { "word": "eyes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "daily_10_s7",
+          "text": "I fall asleep.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["fall"],
+          "distractorGroup": "night_routine",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "fall", "type": "verb" }
+          ]
+        }
+      ]
+    }
+]

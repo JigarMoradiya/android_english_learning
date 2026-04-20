@@ -1,0 +1,1653 @@
+[
+    {
+      "id": "home_1",
+      "imageName": "family_eating_dinner",
+      "title": "Family Dinner",
+      "unit": "homeLife",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_interaction", "daily_routine"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "home_1_s1",
+          "text": "The family sits at the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["family", "table"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "sits", "type": "verb" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_1_s2",
+          "text": "There is food on the plate.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns"],
+          "tags": ["food", "plate"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "food", "type": "noun" },
+            { "word": "plate", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_1_s3",
+          "text": "The food smells good.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["food"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "food", "type": "noun" },
+            { "word": "smells", "type": "verb" },
+            { "word": "good", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_1_s4",
+          "text": "They eat together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns"],
+          "tags": ["eat"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "eat", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_1_s5",
+          "text": "They talk happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adverbs"],
+          "tags": ["talk"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "talk", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_1_s6",
+          "text": "Everyone smiles.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns"],
+          "tags": ["smile"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Everyone", "type": "pronoun" },
+            { "word": "smiles", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_1_s7",
+          "text": "It is a warm evening.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["evening"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "warm", "type": "adjective" },
+            { "word": "evening", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_2",
+      "imageName": "girl_cleaning_room",
+      "title": "Cleaning My Room",
+      "unit": "homeLife",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "daily_routine", "responsibility"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "home_2_s1",
+          "text": "The girl is in her room.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns"],
+          "tags": ["girl", "room"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "her", "type": "pronoun" },
+            { "word": "room", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_2_s2",
+          "text": "Toys are on the floor.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["plural_nouns"],
+          "tags": ["toys", "floor"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Toys", "type": "noun" },
+            { "word": "floor", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_2_s3",
+          "text": "She picks them up.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["pick"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "picks", "type": "verb" },
+            { "word": "them", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "home_2_s4",
+          "text": "She puts them in a box.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns"],
+          "tags": ["box"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "puts", "type": "verb" },
+            { "word": "them", "type": "pronoun" },
+            { "word": "box", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_2_s5",
+          "text": "She arranges her books.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "plural_nouns"],
+          "tags": ["books"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "arranges", "type": "verb" },
+            { "word": "her", "type": "pronoun" },
+            { "word": "books", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_2_s6",
+          "text": "The room looks neat.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["room"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "room", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "neat", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_2_s7",
+          "text": "She feels proud.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["emotion"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "proud", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_3",
+      "imageName": "mother_cooking",
+      "title": "Mother Cooking",
+      "unit": "homeLife",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "daily_routine", "family_roles"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "home_3_s1",
+          "text": "Mother is in the kitchen.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns"],
+          "tags": ["mother", "kitchen"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Mother", "type": "noun" },
+            { "word": "kitchen", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_3_s2",
+          "text": "She cuts vegetables.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["vegetables"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "cuts", "type": "verb" },
+            { "word": "vegetables", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_3_s3",
+          "text": "She cooks rice.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["rice"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "cooks", "type": "verb" },
+            { "word": "rice", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_3_s4",
+          "text": "The food smells nice.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["food"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "food", "type": "noun" },
+            { "word": "smells", "type": "verb" },
+            { "word": "nice", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_3_s5",
+          "text": "She stirs the pan.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["pan"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "stirs", "type": "verb" },
+            { "word": "pan", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_3_s6",
+          "text": "Dinner is ready.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["dinner"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Dinner", "type": "noun" },
+            { "word": "ready", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_3_s7",
+          "text": "The family thanks her.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["family"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "thanks", "type": "verb" },
+            { "word": "her", "type": "pronoun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_4",
+      "imageName": "boy_watching_tv",
+      "title": "Watching TV",
+      "unit": "homeLife",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_interaction", "leisure_activity"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "home_4_s1",
+          "text": "The boy sits on the sofa.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["boy", "sofa"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "sits", "type": "verb" },
+            { "word": "sofa", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_4_s2",
+          "text": "He watches cartoons.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["cartoons"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "watches", "type": "verb" },
+            { "word": "cartoons", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_4_s3",
+          "text": "The show is funny.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["show"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "show", "type": "noun" },
+            { "word": "funny", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_4_s4",
+          "text": "He laughs loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adverbs"],
+          "tags": ["laugh"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "laughs", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_4_s5",
+          "text": "His sister joins him.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns"],
+          "tags": ["sister"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "His", "type": "pronoun" },
+            { "word": "sister", "type": "noun" },
+            { "word": "joins", "type": "verb" },
+            { "word": "him", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "home_4_s6",
+          "text": "They share snacks.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "plural_nouns"],
+          "tags": ["snacks"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "share", "type": "verb" },
+            { "word": "snacks", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_4_s7",
+          "text": "They enjoy the show.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["show"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "enjoy", "type": "verb" },
+            { "word": "show", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_5",
+      "imageName": "pet_dog_home",
+      "title": "Pet Dog at Home",
+      "unit": "homeLife",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "pets", "family_bond"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "home_5_s1",
+          "text": "The family has a dog.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["family", "dog"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "has", "type": "verb" },
+            { "word": "dog", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_5_s2",
+          "text": "The dog wags its tail.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns"],
+          "tags": ["dog", "tail"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "dog", "type": "noun" },
+            { "word": "wags", "type": "verb" },
+            { "word": "its", "type": "pronoun" },
+            { "word": "tail", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_5_s3",
+          "text": "The boy feeds the dog.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["boy", "dog"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "boy", "type": "noun" },
+            { "word": "feeds", "type": "verb" },
+            { "word": "dog", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_5_s4",
+          "text": "The dog eats happily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adverbs"],
+          "tags": ["dog"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "dog", "type": "noun" },
+            { "word": "eats", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_5_s5",
+          "text": "They play in the yard.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns"],
+          "tags": ["yard"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "play", "type": "verb" },
+            { "word": "yard", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_5_s6",
+          "text": "The dog runs fast.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["dog"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "dog", "type": "noun" },
+            { "word": "runs", "type": "verb" },
+            { "word": "fast", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_5_s7",
+          "text": "The family loves the dog.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["family", "dog"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "loves", "type": "verb" },
+            { "word": "dog", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_6",
+      "imageName": "family_cleaning",
+      "title": "Cleaning the House",
+      "unit": "homeLife",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "teamwork", "household_chores"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "home_6_s1",
+          "text": "The family cleans the house.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["family", "house"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "cleans", "type": "verb" },
+            { "word": "house", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_6_s2",
+          "text": "Mother sweeps the floor.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["mother", "floor"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Mother", "type": "noun" },
+            { "word": "sweeps", "type": "verb" },
+            { "word": "floor", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_6_s3",
+          "text": "Father wipes the table.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["father", "table"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Father", "type": "noun" },
+            { "word": "wipes", "type": "verb" },
+            { "word": "table", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_6_s4",
+          "text": "The children dust the shelf.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["plural_nouns"],
+          "tags": ["children", "shelf"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "children", "type": "noun" },
+            { "word": "dust", "type": "verb" },
+            { "word": "shelf", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_6_s5",
+          "text": "The house looks bright.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["house"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "house", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "bright", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_6_s6",
+          "text": "They work together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns"],
+          "tags": ["teamwork"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "work", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_6_s7",
+          "text": "They feel happy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["emotion"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "happy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_7",
+      "imageName": "girl_reading_home",
+      "title": "Reading at Home",
+      "unit": "homeLife",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "reading_habit", "family_bond"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "home_7_s1",
+          "text": "The girl sits near the window.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["girl", "window"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "sits", "type": "verb" },
+            { "word": "window", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_7_s2",
+          "text": "She reads a book.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["book"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "reads", "type": "verb" },
+            { "word": "book", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_7_s3",
+          "text": "The book has pictures.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["plural_nouns"],
+          "tags": ["book", "pictures"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "book", "type": "noun" },
+            { "word": "has", "type": "verb" },
+            { "word": "pictures", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_7_s4",
+          "text": "She turns the pages slowly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adverbs"],
+          "tags": ["pages"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "turns", "type": "verb" },
+            { "word": "pages", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_7_s5",
+          "text": "She smiles at the story.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["story"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "smiles", "type": "verb" },
+            { "word": "story", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_7_s6",
+          "text": "Her mother listens.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["possessive_pronouns"],
+          "tags": ["mother"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Her", "type": "pronoun" },
+            { "word": "mother", "type": "noun" },
+            { "word": "listens", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_7_s7",
+          "text": "It is peaceful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["peaceful"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "peaceful", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_8",
+      "imageName": "father_fixing_chair",
+      "title": "Father Fixing a Chair",
+      "unit": "homeLife",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "problem_solving", "learning_by_observing"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "home_8_s1",
+          "text": "Father fixes a chair.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["father", "chair"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Father", "type": "noun" },
+            { "word": "fixes", "type": "verb" },
+            { "word": "chair", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_8_s2",
+          "text": "He uses a tool.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["tool"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "uses", "type": "verb" },
+            { "word": "tool", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_8_s3",
+          "text": "The chair was broken.",
+          "type": "statement",
+          "tense": "past_simple",
+          "difficulty": 2,
+          "isPrimary": false,
+          "grammarFocus": ["past_tense", "adjectives"],
+          "tags": ["chair"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "chair", "type": "noun" },
+            { "word": "broken", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_8_s4",
+          "text": "He tightens the screws.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "plural_nouns"],
+          "tags": ["screws"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "He", "type": "pronoun" },
+            { "word": "tightens", "type": "verb" },
+            { "word": "screws", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_8_s5",
+          "text": "The chair becomes strong.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["chair"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "chair", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "strong", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_8_s6",
+          "text": "The girl watches him.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns"],
+          "tags": ["girl"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "watches", "type": "verb" },
+            { "word": "him", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "home_8_s7",
+          "text": "She learns something new.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["learn"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "learns", "type": "verb" },
+            { "word": "new", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_9",
+      "imageName": "family_prayer",
+      "title": "Family Prayer",
+      "unit": "homeLife",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "values", "family_time"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "home_9_s1",
+          "text": "The family stands together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["family"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "stands", "type": "verb" }
+          ]
+        },
+        {
+          "id": "home_9_s2",
+          "text": "They close their eyes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "possessive_pronouns"],
+          "tags": ["eyes"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "close", "type": "verb" },
+            { "word": "their", "type": "pronoun" },
+            { "word": "eyes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_9_s3",
+          "text": "They say a prayer.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["prayer"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "say", "type": "verb" },
+            { "word": "prayer", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_9_s4",
+          "text": "They feel calm.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "adjectives"],
+          "tags": ["emotion"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "calm", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_9_s5",
+          "text": "They thank God.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["proper_nouns"],
+          "tags": ["God"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "thank", "type": "verb" },
+            { "word": "God", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_9_s6",
+          "text": "They hold hands.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["plural_nouns"],
+          "tags": ["hands"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "They", "type": "pronoun" },
+            { "word": "hold", "type": "verb" },
+            { "word": "hands", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_9_s7",
+          "text": "The room is peaceful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["room"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "room", "type": "noun" },
+            { "word": "peaceful", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_10",
+      "imageName": "girl_sleeping",
+      "title": "Going to Bed",
+      "unit": "homeLife",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "daily_routine", "night_time"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "home_10_s1",
+          "text": "The girl changes into pajamas.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["girl", "pajamas"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "girl", "type": "noun" },
+            { "word": "changes", "type": "verb" },
+            { "word": "pajamas", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_10_s2",
+          "text": "She brushes her teeth.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "possessive_pronouns"],
+          "tags": ["teeth"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "brushes", "type": "verb" },
+            { "word": "her", "type": "pronoun" },
+            { "word": "teeth", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_10_s3",
+          "text": "She lies on the bed.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["bed"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "lies", "type": "verb" },
+            { "word": "bed", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_10_s4",
+          "text": "Her mother kisses her.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["possessive_pronouns", "pronouns"],
+          "tags": ["mother"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Her", "type": "pronoun" },
+            { "word": "mother", "type": "noun" },
+            { "word": "kisses", "type": "verb" },
+            { "word": "her", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "home_10_s5",
+          "text": "The room is quiet.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["room"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "room", "type": "noun" },
+            { "word": "quiet", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "home_10_s6",
+          "text": "She closes her eyes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "possessive_pronouns"],
+          "tags": ["eyes"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "closes", "type": "verb" },
+            { "word": "her", "type": "pronoun" },
+            { "word": "eyes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "home_10_s7",
+          "text": "She falls asleep.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["sleep"],
+          "distractorGroup": "home_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "She", "type": "pronoun" },
+            { "word": "falls", "type": "verb" }
+          ]
+        }
+      ]
+    }
+]

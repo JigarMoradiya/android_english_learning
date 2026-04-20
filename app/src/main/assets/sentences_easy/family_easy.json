@@ -1,0 +1,1566 @@
+[
+    {
+      "id": "family_1",
+      "imageName": "family_photo",
+      "title": "My Family",
+      "unit": "family",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_members", "basic_sentences"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "family_1_s1",
+          "text": "This is my family.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["demonstratives"],
+          "tags": ["family"],
+          "distractorGroup": "family_members",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_1_s2",
+          "text": "I have a mother.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["mother"],
+          "distractorGroup": "family_members",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_1_s3",
+          "text": "I have a father.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["father"],
+          "distractorGroup": "family_members",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "father", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_1_s4",
+          "text": "I have a sister.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["sister"],
+          "distractorGroup": "family_members",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sister", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_1_s5",
+          "text": "We live together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["live"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "live", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_1_s6",
+          "text": "We love each other.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["love"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "love", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_1_s7",
+          "text": "My family is happy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["family", "emotion"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "family", "type": "noun" },
+            { "word": "happy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family_2",
+      "imageName": "mother_child",
+      "title": "My Mother",
+      "unit": "family",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_members", "daily_actions"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "family_2_s1",
+          "text": "This is my mother.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["demonstratives"],
+          "tags": ["mother"],
+          "distractorGroup": "family_members",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "mother", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_2_s2",
+          "text": "She cooks food.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["cook", "food"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cooks", "type": "verb" },
+            { "word": "food", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_2_s3",
+          "text": "She helps me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["help"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "helps", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_2_s4",
+          "text": "She smiles at me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["smile"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "smiles", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_2_s5",
+          "text": "She reads stories.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["read", "stories"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "reads", "type": "verb" },
+            { "word": "stories", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_2_s6",
+          "text": "She hugs me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["hug"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "hugs", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_2_s7",
+          "text": "I love my mother.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["love", "mother"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "love", "type": "verb" },
+            { "word": "mother", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family_3",
+      "imageName": "father_child",
+      "title": "My Father",
+      "unit": "family",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_members", "daily_actions"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "family_3_s1",
+          "text": "This is my father.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["demonstratives"],
+          "tags": ["father"],
+          "distractorGroup": "family_members",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "father", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_3_s2",
+          "text": "He goes to work.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["go", "work"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "goes", "type": "verb" },
+            { "word": "work", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_3_s3",
+          "text": "He plays with me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["play"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "plays", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_3_s4",
+          "text": "He helps me study.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["help", "study"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "helps", "type": "verb" },
+            { "word": "study", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_3_s5",
+          "text": "He tells funny stories.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["stories"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "tells", "type": "verb" },
+            { "word": "funny", "type": "adjective" },
+            { "word": "stories", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_3_s6",
+          "text": "He is kind.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["kind"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "kind", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "family_3_s7",
+          "text": "I love my father.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["love", "father"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "love", "type": "verb" },
+            { "word": "father", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family_4",
+      "imageName": "brother_sister",
+      "title": "My Brother",
+      "unit": "family",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_members", "daily_actions"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "family_4_s1",
+          "text": "I have a brother.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["verbs"],
+          "tags": ["brother"],
+          "distractorGroup": "family_members",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "brother", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_4_s2",
+          "text": "He is younger than me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["comparatives", "adjectives"],
+          "tags": ["younger"],
+          "distractorGroup": "family_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "younger", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "family_4_s3",
+          "text": "We play together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["play"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "play", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_4_s4",
+          "text": "We share toys.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["share", "toys"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "share", "type": "verb" },
+            { "word": "toys", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_4_s5",
+          "text": "He makes me laugh.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["make", "laugh"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "makes", "type": "verb" },
+            { "word": "laugh", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_4_s6",
+          "text": "We sometimes fight.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adverbs", "verbs"],
+          "tags": ["fight"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "fight", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_4_s7",
+          "text": "We are friends.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns"],
+          "tags": ["friends"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "friends", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family_5",
+      "imageName": "sister_helping",
+      "title": "My Sister",
+      "unit": "family",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_members", "daily_actions"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "family_5_s1",
+          "text": "I have a sister.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["verbs"],
+          "tags": ["sister"],
+          "distractorGroup": "family_members",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sister", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_5_s2",
+          "text": "She is very kind.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives", "adverbs"],
+          "tags": ["kind"],
+          "distractorGroup": "family_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "kind", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "family_5_s3",
+          "text": "She helps me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["help"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "helps", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_5_s4",
+          "text": "We study together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["study"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "study", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_5_s5",
+          "text": "She sings songs.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["sing", "songs"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sings", "type": "verb" },
+            { "word": "songs", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_5_s6",
+          "text": "She shares her books.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["share", "books"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "shares", "type": "verb" },
+            { "word": "books", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_5_s7",
+          "text": "I love my sister.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["love", "sister"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "love", "type": "verb" },
+            { "word": "sister", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family_6",
+      "imageName": "friends_playing",
+      "title": "My Friends",
+      "unit": "family",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "friendship", "daily_actions"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "family_6_s1",
+          "text": "I have many friends.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["quantifiers"],
+          "tags": ["friends"],
+          "distractorGroup": "family_members",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "friends", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_6_s2",
+          "text": "We play in the park.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["play", "park"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "play", "type": "verb" },
+            { "word": "park", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_6_s3",
+          "text": "We go to school together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["go", "school"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "go", "type": "verb" },
+            { "word": "school", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_6_s4",
+          "text": "We laugh loudly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adverbs"],
+          "tags": ["laugh"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "laugh", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_6_s5",
+          "text": "We share food.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["share", "food"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "share", "type": "verb" },
+            { "word": "food", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_6_s6",
+          "text": "We help each other.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["help"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "help", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_6_s7",
+          "text": "My friends are kind.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["friends", "kind"],
+          "distractorGroup": "family_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "friends", "type": "noun" },
+            { "word": "kind", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family_7",
+      "imageName": "grandparents_home",
+      "title": "My Grandparents",
+      "unit": "family",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "family_members", "daily_actions"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "family_7_s1",
+          "text": "I have grandparents.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["plural_nouns"],
+          "tags": ["grandparents"],
+          "distractorGroup": "family_members",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "grandparents", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_7_s2",
+          "text": "They love me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["love"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "love", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_7_s3",
+          "text": "Grandmother cooks tasty food.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["subject_verb_agreement", "adjectives"],
+          "tags": ["grandmother", "food"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Grandmother", "type": "noun" },
+            { "word": "cooks", "type": "verb" },
+            { "word": "tasty", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "family_7_s4",
+          "text": "Grandfather tells stories.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["grandfather", "stories"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Grandfather", "type": "noun" },
+            { "word": "tells", "type": "verb" },
+            { "word": "stories", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_7_s5",
+          "text": "They live in a village.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["live", "village"],
+          "distractorGroup": "family_life",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "live", "type": "verb" },
+            { "word": "village", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_7_s6",
+          "text": "I visit them often.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adverbs"],
+          "tags": ["visit"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "visit", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_7_s7",
+          "text": "They make me happy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs", "adjectives"],
+          "tags": ["make", "happy"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "make", "type": "verb" },
+            { "word": "happy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family_8",
+      "imageName": "birthday_family",
+      "title": "Family Celebration",
+      "unit": "family",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "celebrations", "daily_actions"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "family_8_s1",
+          "text": "We celebrate together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["verbs"],
+          "tags": ["celebrate"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "celebrate", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_8_s2",
+          "text": "There is a cake.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["there_is_are"],
+          "tags": ["cake"],
+          "distractorGroup": "family_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "cake", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_8_s3",
+          "text": "We sing a song.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["sing", "song"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sing", "type": "verb" },
+            { "word": "song", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_8_s4",
+          "text": "We clap our hands.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["clap", "hands"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "clap", "type": "verb" },
+            { "word": "hands", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_8_s5",
+          "text": "Everyone smiles.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["smiles"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "smiles", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_8_s6",
+          "text": "We take photos.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["take", "photos"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "take", "type": "verb" },
+            { "word": "photos", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_8_s7",
+          "text": "It is a happy day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["happy", "day"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "happy", "type": "adjective" },
+            { "word": "day", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family_9",
+      "imageName": "family_helping",
+      "title": "Helping at Home",
+      "unit": "family",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "daily_actions", "responsibility"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "family_9_s1",
+          "text": "I help my mother.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["verbs"],
+          "tags": ["help", "mother"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "help", "type": "verb" },
+            { "word": "mother", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_9_s2",
+          "text": "I clean my room.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["clean", "room"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "clean", "type": "verb" },
+            { "word": "room", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_9_s3",
+          "text": "My father helps me.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["subject_verb_agreement"],
+          "tags": ["father", "helps"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "father", "type": "noun" },
+            { "word": "helps", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_9_s4",
+          "text": "We work together.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["verbs"],
+          "tags": ["work"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "work", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_9_s5",
+          "text": "We finish quickly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adverbs"],
+          "tags": ["finish"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "finish", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_9_s6",
+          "text": "We feel proud.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["feel", "proud"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "feel", "type": "verb" },
+            { "word": "proud", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "family_9_s7",
+          "text": "Our home looks neat.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["adjectives"],
+          "tags": ["home", "neat"],
+          "distractorGroup": "family_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "home", "type": "noun" },
+            { "word": "neat", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family_10",
+      "imageName": "friends_sharing",
+      "title": "Sharing with Friends",
+      "unit": "family",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "sharing", "social_skills"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "family_10_s1",
+          "text": "I share my toys.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["share", "toys"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "share", "type": "verb" },
+            { "word": "toys", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_10_s2",
+          "text": "My friend shares food.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["friend", "food"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "friend", "type": "noun" },
+            { "word": "shares", "type": "verb" },
+            { "word": "food", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_10_s3",
+          "text": "We take turns.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["take", "turns"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "take", "type": "verb" },
+            { "word": "turns", "type": "noun" }
+          ]
+        },
+        {
+          "id": "family_10_s4",
+          "text": "We say thank you.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["say"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "say", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_10_s5",
+          "text": "We help each other.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["help"],
+          "distractorGroup": "family_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "help", "type": "verb" }
+          ]
+        },
+        {
+          "id": "family_10_s6",
+          "text": "We are polite.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "be_verbs", "adjectives"],
+          "tags": ["polite"],
+          "distractorGroup": "family_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "We", "type": "pronoun" },
+            { "word": "are", "type": "verb" },
+            { "word": "polite", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "family_10_s7",
+          "text": "Sharing is good.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "adjectives"],
+          "tags": ["Sharing", "good"],
+          "distractorGroup": "family_emotions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Sharing", "type": "noun" },
+            { "word": "good", "type": "adjective" }
+          ]
+        }
+      ]
+    }
+]

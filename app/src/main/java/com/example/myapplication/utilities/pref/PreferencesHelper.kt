@@ -2,14 +2,6 @@ package com.example.myapplication.utilities.pref
 
 interface PreferencesHelper {
     // constants
-    fun isUserLoggedIn(): Boolean
-    fun setUserLoggedIn(value: Boolean)
-    fun isUserInFreeTrial(): Boolean
-    fun setUserInFreeTrial(value: Boolean)
-    fun getAccessToken(): String?
-    fun setAccessToken(accessToken: String?)
-    fun getLoginData(): String?
-    fun setLoginData(data: String?)
 
     fun getCustomParam(paramName: String,defaultValue : String): String
     fun setCustomParam(paramName: String,paramValue: String)

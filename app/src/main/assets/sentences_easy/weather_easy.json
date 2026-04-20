@@ -1,0 +1,1662 @@
+[
+    {
+      "id": "weather_1",
+      "imageName": "sunny_day",
+      "title": "Sunny Day",
+      "unit": "weather",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "weather_words"],
+      "order": 1,
+      "sentences": [
+        {
+          "id": "weather_1_s1",
+          "text": "The sun is bright.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sun", "bright"],
+          "distractorGroup": "weather_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "bright", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_1_s2",
+          "text": "The sky is blue.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sky", "blue"],
+          "distractorGroup": "weather_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sky", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "blue", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_1_s3",
+          "text": "It is a sunny day.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["sunny", "day"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "is", "type": "verb" },
+            { "word": "sunny", "type": "adjective" },
+            { "word": "day", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_1_s4",
+          "text": "I wear a cap.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["wear", "cap"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "cap", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_1_s5",
+          "text": "I play outside.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["play"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "play", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_1_s6",
+          "text": "The air feels warm.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["air", "warm"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "air", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "warm", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_1_s7",
+          "text": "Sunny days are happy.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["days", "happy"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "days", "type": "noun" },
+            { "word": "are", "type": "verb" },
+            { "word": "happy", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather_2",
+      "imageName": "rainy_day",
+      "title": "Rainy Day",
+      "unit": "weather",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "weather_words"],
+      "order": 2,
+      "sentences": [
+        {
+          "id": "weather_2_s1",
+          "text": "It is raining.",
+          "type": "statement",
+          "tense": "present_continuous",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["raining"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "is", "type": "verb" },
+            { "word": "raining", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_2_s2",
+          "text": "The sky is gray.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sky", "gray"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sky", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "gray", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_2_s3",
+          "text": "I use an umbrella.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["use", "umbrella"],
+          "distractorGroup": "weather_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "use", "type": "verb" },
+            { "word": "umbrella", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_2_s4",
+          "text": "Rain falls from the clouds.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Rain", "clouds"],
+          "distractorGroup": "weather_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Rain", "type": "noun" },
+            { "word": "falls", "type": "verb" },
+            { "word": "clouds", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_2_s5",
+          "text": "The road is wet.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["road", "wet"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "road", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "wet", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_2_s6",
+          "text": "I wear a raincoat.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["wear", "raincoat"],
+          "distractorGroup": "weather_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "raincoat", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_2_s7",
+          "text": "Rain makes plants grow.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Rain", "plants"],
+          "distractorGroup": "weather_effects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Rain", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "plants", "type": "noun" },
+            { "word": "grow", "type": "verb" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather_3",
+      "imageName": "cloudy_day",
+      "title": "Cloudy Day",
+      "unit": "weather",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "weather_words"],
+      "order": 3,
+      "sentences": [
+        {
+          "id": "weather_3_s1",
+          "text": "The sky has many clouds.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sky", "clouds"],
+          "distractorGroup": "weather_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sky", "type": "noun" },
+            { "word": "has", "type": "verb" },
+            { "word": "many", "type": "adjective" },
+            { "word": "clouds", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_3_s2",
+          "text": "The sun hides behind clouds.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["sun", "clouds"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "hides", "type": "verb" },
+            { "word": "clouds", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_3_s3",
+          "text": "The day feels cool.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["day", "cool"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "day", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "cool", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_3_s4",
+          "text": "The clouds look soft.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["clouds", "soft"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "clouds", "type": "noun" },
+            { "word": "look", "type": "verb" },
+            { "word": "soft", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_3_s5",
+          "text": "The wind blows slowly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["wind"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wind", "type": "noun" },
+            { "word": "blows", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_3_s6",
+          "text": "Birds fly low.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Birds"],
+          "distractorGroup": "weather_effects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Birds", "type": "noun" },
+            { "word": "fly", "type": "verb" },
+            { "word": "low", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_3_s7",
+          "text": "Cloudy days are calm.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["days", "calm"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "days", "type": "noun" },
+            { "word": "are", "type": "verb" },
+            { "word": "calm", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather_4",
+      "imageName": "windy_day",
+      "title": "Windy Day",
+      "unit": "weather",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "weather_words"],
+      "order": 4,
+      "sentences": [
+        {
+          "id": "weather_4_s1",
+          "text": "The wind blows fast.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["wind"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wind", "type": "noun" },
+            { "word": "blows", "type": "verb" },
+            { "word": "fast", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_4_s2",
+          "text": "Leaves fly in the air.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Leaves", "air"],
+          "distractorGroup": "weather_effects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Leaves", "type": "noun" },
+            { "word": "fly", "type": "verb" },
+            { "word": "air", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_4_s3",
+          "text": "My hat moves.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "nouns", "verbs"],
+          "tags": ["hat"],
+          "distractorGroup": "weather_effects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "My", "type": "pronoun" },
+            { "word": "hat", "type": "noun" },
+            { "word": "moves", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_4_s4",
+          "text": "Trees shake gently.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Trees"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Trees", "type": "noun" },
+            { "word": "shake", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_4_s5",
+          "text": "I hold my jacket.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["hold", "jacket"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "hold", "type": "verb" },
+            { "word": "my", "type": "pronoun" },
+            { "word": "jacket", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_4_s6",
+          "text": "The air feels cool.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["air", "cool"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "air", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "cool", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_4_s7",
+          "text": "Windy days are fun.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["days", "fun"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "days", "type": "noun" },
+            { "word": "are", "type": "verb" },
+            { "word": "fun", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather_5",
+      "imageName": "stormy_weather",
+      "title": "Stormy Weather",
+      "unit": "weather",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "weather_words"],
+      "order": 5,
+      "sentences": [
+        {
+          "id": "weather_5_s1",
+          "text": "The sky is dark.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sky", "dark"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sky", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "dark", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_5_s2",
+          "text": "Thunder makes loud sounds.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Thunder", "sounds"],
+          "distractorGroup": "weather_sounds",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Thunder", "type": "noun" },
+            { "word": "makes", "type": "verb" },
+            { "word": "loud", "type": "adjective" },
+            { "word": "sounds", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_5_s3",
+          "text": "Lightning shines brightly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Lightning"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Lightning", "type": "noun" },
+            { "word": "shines", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_5_s4",
+          "text": "Rain falls heavily.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Rain"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Rain", "type": "noun" },
+            { "word": "falls", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_5_s5",
+          "text": "I stay inside.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs"],
+          "tags": ["stay"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "stay", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_5_s6",
+          "text": "The storm passes soon.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["storm"],
+          "distractorGroup": "weather_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "storm", "type": "noun" },
+            { "word": "passes", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_5_s7",
+          "text": "The sky becomes clear.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sky", "clear"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sky", "type": "noun" },
+            { "word": "becomes", "type": "verb" },
+            { "word": "clear", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather_6",
+      "imageName": "snowy_day",
+      "title": "Snowy Day",
+      "unit": "weather",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "weather_words"],
+      "order": 6,
+      "sentences": [
+        {
+          "id": "weather_6_s1",
+          "text": "Snow falls softly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Snow"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Snow", "type": "noun" },
+            { "word": "falls", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_6_s2",
+          "text": "The ground is white.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["ground", "white"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "ground", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "white", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_6_s3",
+          "text": "I wear warm clothes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["wear", "clothes"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "warm", "type": "adjective" },
+            { "word": "clothes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_6_s4",
+          "text": "I make a snowman.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["make", "snowman"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "make", "type": "verb" },
+            { "word": "snowman", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_6_s5",
+          "text": "My hands feel cold.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "nouns", "verbs", "adjectives"],
+          "tags": ["hands", "cold"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "My", "type": "pronoun" },
+            { "word": "hands", "type": "noun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "cold", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_6_s6",
+          "text": "Snow looks beautiful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Snow", "beautiful"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Snow", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "beautiful", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_6_s7",
+          "text": "Winter is chilly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Winter", "chilly"],
+          "distractorGroup": "weather_seasons",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Winter", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "chilly", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather_7",
+      "imageName": "hot_day",
+      "title": "Hot Day",
+      "unit": "weather",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "weather_words"],
+      "order": 7,
+      "sentences": [
+        {
+          "id": "weather_7_s1",
+          "text": "The sun is very hot.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sun", "hot"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "hot", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_7_s2",
+          "text": "I feel warm.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives"],
+          "tags": ["feel", "warm"],
+          "distractorGroup": "weather_feelings",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "warm", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_7_s3",
+          "text": "I drink cold water.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["drink", "water"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "drink", "type": "verb" },
+            { "word": "cold", "type": "adjective" },
+            { "word": "water", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_7_s4",
+          "text": "I stay in shade.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["stay", "shade"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "stay", "type": "verb" },
+            { "word": "shade", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_7_s5",
+          "text": "The air feels dry.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["air", "dry"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "air", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "dry", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_7_s6",
+          "text": "I wear light clothes.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["wear", "clothes"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "light", "type": "adjective" },
+            { "word": "clothes", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_7_s7",
+          "text": "Hot days need water.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["days", "water"],
+          "distractorGroup": "weather_needs",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "days", "type": "noun" },
+            { "word": "need", "type": "verb" },
+            { "word": "water", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather_8",
+      "imageName": "cold_day",
+      "title": "Cold Day",
+      "unit": "weather",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "weather_words"],
+      "order": 8,
+      "sentences": [
+        {
+          "id": "weather_8_s1",
+          "text": "The weather is cold.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["weather", "cold"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "weather", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "cold", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_8_s2",
+          "text": "I wear a sweater.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["wear", "sweater"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "wear", "type": "verb" },
+            { "word": "sweater", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_8_s3",
+          "text": "My hands feel cold.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "nouns", "verbs", "adjectives"],
+          "tags": ["hands", "cold"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "My", "type": "pronoun" },
+            { "word": "hands", "type": "noun" },
+            { "word": "feel", "type": "verb" },
+            { "word": "cold", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_8_s4",
+          "text": "I see my breath.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["see", "breath"],
+          "distractorGroup": "weather_effects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "see", "type": "verb" },
+            { "word": "my", "type": "pronoun" },
+            { "word": "breath", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_8_s5",
+          "text": "The wind is chilly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["wind", "chilly"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "wind", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "chilly", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_8_s6",
+          "text": "I drink warm milk.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["drink", "milk"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "I", "type": "pronoun" },
+            { "word": "drink", "type": "verb" },
+            { "word": "warm", "type": "adjective" },
+            { "word": "milk", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_8_s7",
+          "text": "Cold days need jackets.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["days", "jackets"],
+          "distractorGroup": "weather_needs",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "days", "type": "noun" },
+            { "word": "need", "type": "verb" },
+            { "word": "jackets", "type": "noun" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather_9",
+      "imageName": "rainbow_after_rain",
+      "title": "Rainbow After Rain",
+      "unit": "weather",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "weather_words"],
+      "order": 9,
+      "sentences": [
+        {
+          "id": "weather_9_s1",
+          "text": "Rain stops slowly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Rain"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Rain", "type": "noun" },
+            { "word": "stops", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_9_s2",
+          "text": "The sun comes out.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["sun"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sun", "type": "noun" },
+            { "word": "comes", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_9_s3",
+          "text": "A rainbow appears.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["rainbow"],
+          "distractorGroup": "weather_events",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "rainbow", "type": "noun" },
+            { "word": "appears", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_9_s4",
+          "text": "It has many colors.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "adjectives", "nouns"],
+          "tags": ["colors"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "has", "type": "verb" },
+            { "word": "many", "type": "adjective" },
+            { "word": "colors", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_9_s5",
+          "text": "Children look at it.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "pronouns"],
+          "tags": ["Children"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "look", "type": "verb" },
+            { "word": "it", "type": "pronoun" }
+          ]
+        },
+        {
+          "id": "weather_9_s6",
+          "text": "The sky looks bright.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["sky", "bright"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "sky", "type": "noun" },
+            { "word": "looks", "type": "verb" },
+            { "word": "bright", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_9_s7",
+          "text": "Rainbows are beautiful.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Rainbows", "beautiful"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Rainbows", "type": "noun" },
+            { "word": "are", "type": "verb" },
+            { "word": "beautiful", "type": "adjective" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weather_10",
+      "imageName": "spring_weather",
+      "title": "Spring Season",
+      "unit": "weather",
+      "level": "easy",
+      "ageGroup": "6-8",
+      "learningGoals": ["present_simple", "seasons", "weather_words"],
+      "order": 10,
+      "sentences": [
+        {
+          "id": "weather_10_s1",
+          "text": "Spring is pleasant.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": true,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Spring", "pleasant"],
+          "distractorGroup": "weather_seasons",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Spring", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "pleasant", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_10_s2",
+          "text": "Flowers bloom brightly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Flowers"],
+          "distractorGroup": "weather_nature",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Flowers", "type": "noun" },
+            { "word": "bloom", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_10_s3",
+          "text": "The air feels fresh.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["air", "fresh"],
+          "distractorGroup": "weather_description",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "air", "type": "noun" },
+            { "word": "feels", "type": "verb" },
+            { "word": "fresh", "type": "adjective" }
+          ]
+        },
+        {
+          "id": "weather_10_s4",
+          "text": "Birds sing sweetly.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Birds"],
+          "distractorGroup": "weather_nature",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Birds", "type": "noun" },
+            { "word": "sing", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_10_s5",
+          "text": "Trees grow new leaves.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Trees", "leaves"],
+          "distractorGroup": "weather_nature",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Trees", "type": "noun" },
+            { "word": "grow", "type": "verb" },
+            { "word": "new", "type": "adjective" },
+            { "word": "leaves", "type": "noun" }
+          ]
+        },
+        {
+          "id": "weather_10_s6",
+          "text": "Children play outside.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Children"],
+          "distractorGroup": "weather_actions",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Children", "type": "noun" },
+            { "word": "play", "type": "verb" }
+          ]
+        },
+        {
+          "id": "weather_10_s7",
+          "text": "Spring is lovely.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["nouns", "verbs", "adjectives"],
+          "tags": ["Spring", "lovely"],
+          "distractorGroup": "weather_seasons",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "Spring", "type": "noun" },
+            { "word": "is", "type": "verb" },
+            { "word": "lovely", "type": "adjective" }
+          ]
+        }
+      ]
+    }
+]
