@@ -27,7 +27,6 @@ class TextToSpeechManager @Inject constructor(
         tts = TextToSpeech(context) { status ->
             if (status == TextToSpeech.SUCCESS) {
                 ready = true
-//                applySettings()
                 setupListener()
                 pending?.let { (text, id) ->
                     speak(text, id)

@@ -6,6 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.myapplication.data.model.ReadSentenceItemNew
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
 import com.example.myapplication.data.model.UnitSelectionScreen
@@ -45,6 +46,7 @@ import com.example.myapplication.main.age_group.from_6_to_8.one_word_answer.OneW
 import com.example.myapplication.main.age_group.from_6_to_8.read_listen.ReadAndListenPage
 import com.example.myapplication.main.age_group.from_6_to_8.sentence_builder.SentenceBuilderPage
 import com.example.myapplication.main.age_group.from_6_to_8.sentence_check.SentenceCheckPage
+import com.google.gson.Gson
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
@@ -183,8 +185,17 @@ fun AppNavGraph(navController: NavHostController) {
                 navController = navController
             )
         }
-        composable(RouteNavigation.ReadAndListen.route) {
-            ReadAndListenPage(navController)
+        composable(RouteNavigation.ReadAndListen.route,
+            arguments = listOf(
+                navArgument("screenType") { type = NavType.StringType },
+                navArgument("lessonData") { type = NavType.StringType },
+            )) { backStackEntry ->
+            val screenType = backStackEntry.arguments?.getString("screenType")?:UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name
+            val lessonData = backStackEntry.arguments?.getString("lessonData")
+            lessonData?.let{
+                val lessonData = Gson().fromJson(lessonData, ReadSentenceItemNew::class.java)
+                ReadAndListenPage(getUnitSelectionScreen(screenType),lessonData,navController)
+            }
         }
         composable(RouteNavigation.OneWordAnswer.route) {
             OneWordAnswerPage(navController)

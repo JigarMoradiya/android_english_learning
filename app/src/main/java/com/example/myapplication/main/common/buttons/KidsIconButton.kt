@@ -37,7 +37,8 @@ fun KidsIconButton(
     icon: ImageVector,
     onClick: () -> Unit,
     type: ButtonType,
-    size: Dp = KidsIconSize
+    size: Dp = KidsIconSize,
+    modifier: Modifier = Modifier
 ) {
     val colors = getButtonColors(type)
     val interactionSource = remember { MutableInteractionSource() }
@@ -53,7 +54,7 @@ fun KidsIconButton(
     )
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .size(size)
             .graphicsLayer {
                 scaleX = scale

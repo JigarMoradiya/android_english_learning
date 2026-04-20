@@ -41,7 +41,9 @@ sealed class RouteNavigation(val route: String) {
     object SentenceLessonList : RouteNavigation("SentenceLessonList/{screenType}/{unit}/{level}") {
         fun sentenceLessonList(screenType: String, unit: String, level: String): String = "SentenceLessonList/$screenType/$unit/$level"
     }
-    object ReadAndListen : RouteNavigation("ReadAndListen")
+    object ReadAndListen : RouteNavigation("ReadAndListen/{screenType}/{lessonData}"){
+        fun readAndListen(screenType: String, lessonData: String): String = "ReadAndListen/$screenType/$lessonData"
+    }
     object OneWordAnswer : RouteNavigation("OneWordAnswer")
     object FillTheMissingWord : RouteNavigation("FillTheMissingWord")
     object ChooseTheRightSentence : RouteNavigation("ChooseTheRightSentence")

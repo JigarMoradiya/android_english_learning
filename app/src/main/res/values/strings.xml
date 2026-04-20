@@ -160,5 +160,7 @@
     <string name="do_practice">Do Practice</string>
     <string name="practice_again">Practice Again</string>
     <string name="lessons_of">Lessons of %1$s</string>
+    <string name="join_sentences">Join Sentences</string>
+    <string name="split_sentences">Split Sentences</string>
 
 </resources>

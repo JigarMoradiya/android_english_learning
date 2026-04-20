@@ -18,10 +18,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Replay
-import androidx.compose.material.icons.filled.School
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,7 +37,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.common.AppToolbarDropDownOnRight
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
 import com.example.myapplication.data.model.UnitSelectionScreen
@@ -53,6 +51,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.google.gson.Gson
 
 
 @Composable
@@ -88,8 +87,8 @@ fun SentenceLessonPage(
 
                 items(viewModel.uiState.lessons) { item ->
                     val isCompleted = viewModel.isCompleted(item.id)
-                    StyledColumn(unlocked = true) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
+                    StyledColumn(unlocked = true){
+                    Row(verticalAlignment = Alignment.CenterVertically) {
                             Text(
                                 modifier = Modifier.weight(1f),
                                 text = "\uD83D\uDCD8 ${item.title}",
@@ -102,10 +101,11 @@ fun SentenceLessonPage(
                             if (isCompleted){
                                 KidsActionButton(
                                     text = "Completed",
-                                    icon = Icons.AutoMirrored.Filled.List,
+                                    icon = Icons.Filled.CheckCircle,
                                     type = ButtonType.GREEN,
                                     onClick = {},
-                                    isSmall = true
+                                    isSmall = true,
+                                    modifier = Modifier.padding(end = Dimens8)
                                 )
                             }
 
@@ -113,7 +113,9 @@ fun SentenceLessonPage(
                                 text = if (isCompleted) stringResource(R.string.practice_again) else stringResource(R.string.do_practice),
                                 icon = if (isCompleted) Icons.Filled.Replay else Icons.Filled.PlayArrow,
                                 type = ButtonType.BLUE,
-                                onClick = { },
+                                onClick = {
+                                    navController.navigate(RouteNavigation.ReadAndListen.readAndListen(screenType.name, Gson().toJson(item)))
+                                },
                                 isSmall = true
                             )
                         }
