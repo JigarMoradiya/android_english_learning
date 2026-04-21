@@ -153,7 +153,8 @@ class ReadAndListenViewModel @Inject constructor(
 
             ttsManager.speak(
                 text = sentence,
-                utteranceId = "joined"
+                utteranceId = "joined",
+                isAddInQueue = true
             ) {
                 viewModelScope.launch {
                     uiState = uiState.copy(
@@ -196,7 +197,7 @@ class ReadAndListenViewModel @Inject constructor(
     }
     private suspend fun speakWord(text: String, id: String) =
         suspendCancellableCoroutine { cont ->
-            ttsManager.speak(text, id) {
+            ttsManager.speak(text, id,isAddInQueue = true) {
                 if (cont.isActive) cont.resume(Unit) { _, _, _ -> }
             }
         }

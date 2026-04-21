@@ -160,8 +160,8 @@ fun MatchWordWithImageContent(
                         ) {
                             Text(text = letter.replaceFirstChar { it.uppercase() },
                                 color = Color.Black,
-                                fontWeight = FontWeight.Bold,
-                                style = MaterialTheme.typography.titleLarge.scaled().copy(
+                                fontWeight = FontWeight.SemiBold,
+                                style = MaterialTheme.typography.titleMedium.scaled().copy(
                                     shadow = Shadow(
                                         color = if (isMatched) Color.Transparent else Color.Black.copy(alpha = 0.4f),
                                         offset = Offset(1f, 1f),

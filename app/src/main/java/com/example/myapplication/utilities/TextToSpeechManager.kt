@@ -71,6 +71,7 @@ class TextToSpeechManager @Inject constructor(
     fun speak(
         text: String,
         utteranceId: String = "",
+        isAddInQueue : Boolean = false,
         onDone: (() -> Unit)? = null
     ) {
         if (!ready) {
@@ -88,7 +89,7 @@ class TextToSpeechManager @Inject constructor(
 
         tts?.speak(
             text,
-            TextToSpeech.QUEUE_ADD,
+            if (isAddInQueue)TextToSpeech.QUEUE_ADD else TextToSpeech.QUEUE_FLUSH,
             params,
             utteranceId
         )
