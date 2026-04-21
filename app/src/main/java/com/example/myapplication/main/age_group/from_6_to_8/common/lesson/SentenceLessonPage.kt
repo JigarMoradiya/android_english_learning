@@ -53,7 +53,7 @@ import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
-import com.example.myapplication.main.common.getImageResFromWord
+import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
@@ -102,7 +102,7 @@ fun SentenceLessonPage(
                     StyledRow(unlocked = true, modifier = Modifier, padding = 0.dp) {
 
                         // Image
-                        getImageResFromWord(item.imageName)?.let { resId ->
+                        getImageResForSentence(item.imageName)?.let { resId ->
                             if (rowHeight > 0) {
                                 Image(
                                     painter = painterResource(resId),

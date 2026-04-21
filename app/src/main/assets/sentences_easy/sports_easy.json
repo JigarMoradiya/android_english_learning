@@ -331,24 +331,24 @@
       ]
     },
     {
-      "id": "sports_2",
-      "imageName": "playing_cricket",
-      "title": "Playing Cricket",
+      "id": "sports_3",
+      "imageName": "playing_basketball",
+      "title": "Playing Basketball",
       "unit": "sports",
       "level": "easy",
       "ageGroup": "6-8",
       "learningGoals": ["present_simple", "sports_actions"],
-      "order": 2,
+      "order": 3,
       "sentences": [
         {
-          "id": "sports_2_s1",
-          "text": "I play cricket.",
+          "id": "sports_3_s1",
+          "text": "I play basketball.",
           "type": "statement",
           "tense": "present_simple",
           "difficulty": 1,
           "isPrimary": true,
           "grammarFocus": ["pronouns", "verbs", "nouns"],
-          "tags": ["cricket"],
+          "tags": ["basketball"],
           "distractorGroup": "sports_actions",
           "activities": {
             "readListen": true,
@@ -359,40 +359,18 @@
           "blankableWords": [
             { "word": "I", "type": "pronoun" },
             { "word": "play", "type": "verb" },
-            { "word": "cricket", "type": "noun" }
+            { "word": "basketball", "type": "noun" }
           ]
         },
         {
-          "id": "sports_2_s2",
-          "text": "I hold a bat.",
-          "type": "statement",
-          "tense": "present_simple",
-          "difficulty": 1,
-          "isPrimary": false,
-          "grammarFocus": ["pronouns", "verbs", "nouns"],
-          "tags": ["bat"],
-          "distractorGroup": "sports_objects",
-          "activities": {
-            "readListen": true,
-            "fillBlank": true,
-            "chooseCorrect": true,
-            "sentenceBuilder": true
-          },
-          "blankableWords": [
-            { "word": "I", "type": "pronoun" },
-            { "word": "hold", "type": "verb" },
-            { "word": "bat", "type": "noun" }
-          ]
-        },
-        {
-          "id": "sports_2_s3",
-          "text": "The ball is small.",
+          "id": "sports_3_s2",
+          "text": "The hoop is high.",
           "type": "statement",
           "tense": "present_simple",
           "difficulty": 1,
           "isPrimary": false,
           "grammarFocus": ["nouns", "verbs", "adjectives"],
-          "tags": ["ball"],
+          "tags": ["hoop"],
           "distractorGroup": "sports_objects",
           "activities": {
             "readListen": true,
@@ -401,20 +379,20 @@
             "sentenceBuilder": true
           },
           "blankableWords": [
-            { "word": "ball", "type": "noun" },
+            { "word": "hoop", "type": "noun" },
             { "word": "is", "type": "verb" },
-            { "word": "small", "type": "adjective" }
+            { "word": "high", "type": "adjective" }
           ]
         },
         {
-          "id": "sports_2_s4",
-          "text": "I hit the ball.",
+          "id": "sports_3_s3",
+          "text": "I bounce the ball.",
           "type": "statement",
           "tense": "present_simple",
           "difficulty": 1,
           "isPrimary": false,
           "grammarFocus": ["pronouns", "verbs", "nouns"],
-          "tags": ["hit"],
+          "tags": ["bounce"],
           "distractorGroup": "sports_actions",
           "activities": {
             "readListen": true,
@@ -424,19 +402,19 @@
           },
           "blankableWords": [
             { "word": "I", "type": "pronoun" },
-            { "word": "hit", "type": "verb" },
+            { "word": "bounce", "type": "verb" },
             { "word": "ball", "type": "noun" }
           ]
         },
         {
-          "id": "sports_2_s5",
-          "text": "I run quickly.",
+          "id": "sports_3_s4",
+          "text": "I throw the ball.",
           "type": "statement",
           "tense": "present_simple",
           "difficulty": 1,
           "isPrimary": false,
-          "grammarFocus": ["pronouns", "verbs"],
-          "tags": ["run"],
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["throw"],
           "distractorGroup": "sports_actions",
           "activities": {
             "readListen": true,
@@ -446,18 +424,41 @@
           },
           "blankableWords": [
             { "word": "I", "type": "pronoun" },
-            { "word": "run", "type": "verb" }
+            { "word": "throw", "type": "verb" },
+            { "word": "ball", "type": "noun" }
           ]
         },
         {
-          "id": "sports_2_s6",
-          "text": "My team claps.",
+          "id": "sports_3_s5",
+          "text": "It goes into the net.",
+          "type": "statement",
+          "tense": "present_simple",
+          "difficulty": 1,
+          "isPrimary": false,
+          "grammarFocus": ["pronouns", "verbs", "nouns"],
+          "tags": ["net"],
+          "distractorGroup": "sports_objects",
+          "activities": {
+            "readListen": true,
+            "fillBlank": true,
+            "chooseCorrect": true,
+            "sentenceBuilder": true
+          },
+          "blankableWords": [
+            { "word": "It", "type": "pronoun" },
+            { "word": "goes", "type": "verb" },
+            { "word": "net", "type": "noun" }
+          ]
+        },
+        {
+          "id": "sports_3_s6",
+          "text": "My friends cheer.",
           "type": "statement",
           "tense": "present_simple",
           "difficulty": 1,
           "isPrimary": false,
           "grammarFocus": ["pronouns", "nouns", "verbs"],
-          "tags": ["team"],
+          "tags": ["friends"],
           "distractorGroup": "sports_team",
           "activities": {
             "readListen": true,
@@ -467,19 +468,19 @@
           },
           "blankableWords": [
             { "word": "My", "type": "pronoun" },
-            { "word": "team", "type": "noun" },
-            { "word": "claps", "type": "verb" }
+            { "word": "friends", "type": "noun" },
+            { "word": "cheer", "type": "verb" }
           ]
         },
         {
-          "id": "sports_2_s7",
-          "text": "Cricket is exciting.",
+          "id": "sports_3_s7",
+          "text": "Basketball is fun.",
           "type": "statement",
           "tense": "present_simple",
           "difficulty": 1,
           "isPrimary": false,
-          "grammarFocus": ["nouns", "verbs", "adjectives"],
-          "tags": ["Cricket"],
+          "grammarFocus": ["nouns", "verbs"],
+          "tags": ["Basketball"],
           "distractorGroup": "sports_general",
           "activities": {
             "readListen": true,
@@ -488,9 +489,9 @@
             "sentenceBuilder": true
           },
           "blankableWords": [
-            { "word": "Cricket", "type": "noun" },
+            { "word": "Basketball", "type": "noun" },
             { "word": "is", "type": "verb" },
-            { "word": "exciting", "type": "adjective" }
+            { "word": "fun", "type": "noun" }
           ]
         }
       ]

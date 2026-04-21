@@ -25,10 +25,10 @@ class AgeCategoriesViewModel @Inject constructor(
                 img = R.drawable._level_2_icon,
                 destination = RouteNavigation.AgeGroup5to7.route
             ),
-//            AgeCategoryData(
-//                img = R.drawable._level_3_icon,
-//                destination = RouteNavigation.AgeGroup6to8.route
-//            )
+            AgeCategoryData(
+                img = R.drawable._level_3_icon,
+                destination = RouteNavigation.AgeGroup6to8.route
+            )
         )
     )
     val categories: StateFlow<List<AgeCategoryData>> = _categories.asStateFlow()

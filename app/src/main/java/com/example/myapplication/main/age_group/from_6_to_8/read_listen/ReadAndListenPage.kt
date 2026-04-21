@@ -37,11 +37,10 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsIconButton
-import com.example.myapplication.main.common.getImageResFromWord
+import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.KidIconMedium
-import com.example.myapplication.ui.theme.AppDimens.KidIconSmall
 import com.example.myapplication.ui.theme.ButtonType
 
 
@@ -142,7 +141,7 @@ fun ReadAndListenPage(
                     Spacer(modifier = Modifier.weight(1f))
 
                     // 🟩 CENTER IMAGE
-                    getImageResFromWord(viewModel.uiState.lessonData?.imageName)?.let { resId ->
+                    getImageResForSentence(viewModel.uiState.lessonData?.imageName)?.let { resId ->
                         Image(
                             painter = painterResource(resId),
                             contentDescription = null,
