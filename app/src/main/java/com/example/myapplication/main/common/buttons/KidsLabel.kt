@@ -39,7 +39,7 @@ fun KidsLabel(txt: String,type: ButtonType = ButtonType.PURPLE) {
             modifier = Modifier
                 .clip(RoundedCornerShape(100.dp))
                 .background(colors.gradient)
-                .padding(horizontal = Dimens16, vertical = Dimens8)
+                .padding(horizontal = Dimens12, vertical = Dimens6)
         ) {
 
             Box(
@@ -76,8 +76,8 @@ fun KidsLabel(txt: String,type: ButtonType = ButtonType.PURPLE) {
             Text(
                 text = txt,
                 color = Color.White,
-                style = MaterialTheme.typography.bodyLarge.scaled(),
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.bodyMedium.scaled(),
+                fontWeight = FontWeight.SemiBold,
             )
         }
     }

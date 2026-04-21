@@ -1,8 +1,5 @@
 package com.example.myapplication.main.age_group.from_6_to_8.read_listen.view_model
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.model.ReadSentenceItemNew
@@ -11,6 +8,9 @@ import com.example.myapplication.main.age_group.from_6_to_8.common.unit.data.Sen
 import com.example.myapplication.utilities.TextToSpeechManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -24,21 +24,26 @@ class ReadAndListenViewModel @Inject constructor(
 
     private var speakingJob: Job? = null
 
-    var uiState by mutableStateOf(ReadAndListenUiState())
-        private set
+    private val _uiState = MutableStateFlow(ReadAndListenUiState())
+    val uiState: StateFlow<ReadAndListenUiState> = _uiState
 
     // user when joined sentences
     private var wordRanges: List<IntRange> = emptyList()
 
-    fun setScreenTypeAndLessonData(screenType: UnitSelectionScreen, lessonData: ReadSentenceItemNew) {
-        uiState = uiState.copy(screenType = screenType,lessonData = lessonData)
+    fun setScreenTypeAndLessonData(
+        screenType: UnitSelectionScreen,
+        lessonData: ReadSentenceItemNew
+    ) {
+        _uiState.update {
+            it.copy(screenType = screenType, lessonData = lessonData)
+        }
     }
 
     // Current sentence
     val currentSentence: String
-        get() = uiState.lessonData
+        get() = _uiState.value.lessonData
             ?.sentences
-            ?.getOrNull(uiState.currentSentenceIndex)
+            ?.getOrNull(_uiState.value.currentSentenceIndex)
             ?.text
             ?: ""
 
@@ -48,48 +53,63 @@ class ReadAndListenViewModel @Inject constructor(
 
     // First
     val isAtFirst: Boolean
-        get() = uiState.currentSentenceIndex == 0
+        get() = _uiState.value.currentSentenceIndex == 0
 
     // Last
     val isAtLast: Boolean
-        get() = uiState.lessonData?.let {
-            uiState.currentSentenceIndex == it.sentences.size - 1
+        get() = _uiState.value.lessonData?.let {
+            _uiState.value.currentSentenceIndex == it.sentences.size - 1
         } ?: false
 
     // Next
     fun nextSentence() {
-        val lesson = uiState.lessonData ?: return
+        val state = _uiState.value
+        val lesson = state.lessonData ?: return
 
-        if (uiState.currentSentenceIndex < lesson.sentences.size - 1) {
+        if (state.currentSentenceIndex < lesson.sentences.size - 1) {
             stopSpeaking()
-            uiState = uiState.copy(currentSentenceIndex = uiState.currentSentenceIndex + 1)
+            _uiState.update {
+                it.copy(currentSentenceIndex = it.currentSentenceIndex + 1)
+            }
             checkIfCompleted()
         }
     }
 
     // Previous
     fun previousSentence() {
-        if (uiState.currentSentenceIndex > 0) {
+        val state = _uiState.value
+
+        if (state.currentSentenceIndex > 0) {
             stopSpeaking()
-            uiState = uiState.copy(currentSentenceIndex = uiState.currentSentenceIndex - 1)
+            _uiState.update {
+                it.copy(currentSentenceIndex = it.currentSentenceIndex - 1)
+            }
         }
     }
 
     // Toggle join
     fun toggleJoinWords() {
         stopSpeaking()
-        uiState = uiState.copy(isSentenceJoined = !uiState.isSentenceJoined)
+        _uiState.update {
+            it.copy(isSentenceJoined = !it.isSentenceJoined)
+        }
     }
 
     // MARK: - Auto Completion
     private fun checkIfCompleted() {
 
-        val lesson = uiState.lessonData ?: return
-        if (uiState.hasMarkedComplete) return
+        val state = _uiState.value
+        val lesson = state.lessonData ?: return
+        if (state.hasMarkedComplete) return
 
-        if (uiState.currentSentenceIndex == lesson.sentences.size - 1) {
-            progressManager.markCompleted(type = uiState.screenType, lessonId = lesson.id)
-            uiState = uiState.copy(hasMarkedComplete = true)
+        if (state.currentSentenceIndex == lesson.sentences.size - 1) {
+            progressManager.markCompleted(
+                type = state.screenType,
+                lessonId = lesson.id
+            )
+            _uiState.update {
+                it.copy(hasMarkedComplete = true)
+            }
         }
     }
 
@@ -99,7 +119,7 @@ class ReadAndListenViewModel @Inject constructor(
 
         stopSpeaking()
 
-        if (uiState.isSentenceJoined) {
+        if (_uiState.value.isSentenceJoined) {
             speakJoined(words)
         } else {
             speakSplit(words)
@@ -124,10 +144,10 @@ class ReadAndListenViewModel @Inject constructor(
         return wordRanges.indexOfFirst { charIndex in it }
             .takeIf { it != -1 } ?: 0
     }
+
     private fun speakJoined(words: List<String>) {
 
         speakingJob?.cancel()
-
         ttsManager.stop()
 
         val sentence = words.joinToString(" ")
@@ -136,19 +156,22 @@ class ReadAndListenViewModel @Inject constructor(
 
         speakingJob = viewModelScope.launch {
 
-            uiState = uiState.copy(
-                isSpeaking = true,
-                joinSentenceSpeakingIndex = 0
-            )
+            _uiState.update {
+                it.copy(
+                    isSpeaking = true,
+                    joinSentenceSpeakingIndex = 0
+                )
+            }
 
             ttsManager.onWordSpoken = onWordSpoken@ { charIndex ->
 
-                // ✅ Ignore if already stopped or sentence changed
-                if (!uiState.isSpeaking) return@onWordSpoken
+                if (!_uiState.value.isSpeaking) return@onWordSpoken
 
                 val index = getWordIndex(charIndex)
 
-                uiState = uiState.copy(joinSentenceSpeakingIndex = index)
+                _uiState.update {
+                    it.copy(joinSentenceSpeakingIndex = index)
+                }
             }
 
             ttsManager.speak(
@@ -157,10 +180,12 @@ class ReadAndListenViewModel @Inject constructor(
                 isAddInQueue = true
             ) {
                 viewModelScope.launch {
-                    uiState = uiState.copy(
-                        isSpeaking = false,
-                        joinSentenceSpeakingIndex = null
-                    )
+                    _uiState.update {
+                        it.copy(
+                            isSpeaking = false,
+                            joinSentenceSpeakingIndex = null
+                        )
+                    }
                 }
             }
         }
@@ -169,49 +194,57 @@ class ReadAndListenViewModel @Inject constructor(
     private fun speakSplit(words: List<String>) {
 
         ttsManager.stop()
-
-        speakingJob?.cancel() // cancel previous if any
+        speakingJob?.cancel()
 
         speakingJob = viewModelScope.launch {
 
-            uiState = uiState.copy(
-                isSpeaking = true,
-                splitSentenceWordIndex = 0
-            )
+            _uiState.update {
+                it.copy(
+                    isSpeaking = true,
+                    splitSentenceWordIndex = 0
+                )
+            }
 
             for ((index, word) in words.withIndex()) {
 
-                // Stop if cancelled
                 if (!isActive) return@launch
 
-                uiState = uiState.copy(splitSentenceWordIndex = index)
+                _uiState.update {
+                    it.copy(splitSentenceWordIndex = index)
+                }
 
                 speakWord(word, "word_$index")
             }
 
-            uiState = uiState.copy(
-                isSpeaking = false,
-                splitSentenceWordIndex = -1
-            )
+            _uiState.update {
+                it.copy(
+                    isSpeaking = false,
+                    splitSentenceWordIndex = -1
+                )
+            }
         }
     }
+
     private suspend fun speakWord(text: String, id: String) =
-        suspendCancellableCoroutine { cont ->
-            ttsManager.speak(text, id,isAddInQueue = true) {
-                if (cont.isActive) cont.resume(Unit) { _, _, _ -> }
+        suspendCancellableCoroutine<Unit> { cont ->
+            ttsManager.speak(text, id, isAddInQueue = true) {
+                if (cont.isActive) cont.resume(Unit) {}
             }
         }
 
     fun stopSpeaking() {
-        speakingJob?.cancel() // 👈 IMPORTANT
+        speakingJob?.cancel()
         speakingJob = null
 
         ttsManager.stop()
         ttsManager.onWordSpoken = null
-        uiState = uiState.copy(
-            isSpeaking = false,
-            joinSentenceSpeakingIndex = null,
-            splitSentenceWordIndex = -1
-        )
+
+        _uiState.update {
+            it.copy(
+                isSpeaking = false,
+                joinSentenceSpeakingIndex = null,
+                splitSentenceWordIndex = -1
+            )
+        }
     }
 }

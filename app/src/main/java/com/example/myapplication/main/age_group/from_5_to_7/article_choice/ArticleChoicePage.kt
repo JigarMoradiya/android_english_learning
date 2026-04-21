@@ -149,10 +149,9 @@ fun ArticleChoicePage(
                             type = ButtonType.OPTIONS,
                             fontSize = articleChoiceHeight.value.sp * 0.6,
                             onClick = {
-                                if (state.selectedAnswer == null){
-                                    viewModel.checkAnswer("a")
-                                }
+                                viewModel.checkAnswer("a")
                             },
+                            enabled = state.selectedAnswer == null,
                             modifier = Modifier
                                 .width(articleChoiceWidth)
                                 .height(articleChoiceHeight),
@@ -163,10 +162,9 @@ fun ArticleChoicePage(
                             type = ButtonType.OPTIONS,
                             fontSize = articleChoiceHeight.value.sp * 0.6,
                             onClick = {
-                                if (state.selectedAnswer == null){
-                                    viewModel.checkAnswer("an")
-                                }
+                                viewModel.checkAnswer("an")
                             },
+                            enabled = state.selectedAnswer == null,
                             modifier = Modifier
                                 .width(articleChoiceWidth)
                                 .height(articleChoiceHeight),

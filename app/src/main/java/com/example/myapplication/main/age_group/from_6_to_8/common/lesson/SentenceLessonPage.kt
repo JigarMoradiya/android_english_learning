@@ -42,6 +42,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.SentenceLevel
@@ -70,6 +71,7 @@ fun SentenceLessonPage(
     navController: NavController,
     viewModel: SentenceLessonViewModel = hiltViewModel()
 ) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     LaunchedEffect(Unit) {
         viewModel.setScreenTypeAndUnit(screenType,unit,level)
     }
@@ -94,7 +96,7 @@ fun SentenceLessonPage(
                 verticalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
 
-                items(viewModel.uiState.lessons) { item ->
+                items(uiState.lessons) { item ->
                     val isCompleted = viewModel.isCompleted(item.id)
 
                     var rowHeight by remember { mutableStateOf(0) }
@@ -151,7 +153,11 @@ fun SentenceLessonPage(
                                 icon = if (isCompleted) Icons.Filled.Replay else Icons.Filled.PlayArrow,
                                 type = ButtonType.BLUE,
                                 onClick = {
-                                    navController.navigate(RouteNavigation.ReadAndListen.readAndListen(screenType.name, Gson().toJson(item)))
+                                    if (screenType == UnitSelectionScreen.READ_AND_LISTEN_SENTENCE){
+                                        navController.navigate(RouteNavigation.ReadAndListen.readAndListen(screenType.name, Gson().toJson(item)))
+                                    }else if (screenType == UnitSelectionScreen.ONE_WORD_ANSWER){
+                                        navController.navigate(RouteNavigation.OneWordAnswer.oneWordAnswer(screenType.name, Gson().toJson(item), level.name))
+                                    }
                                 },
                                 isSmall = true
                             )

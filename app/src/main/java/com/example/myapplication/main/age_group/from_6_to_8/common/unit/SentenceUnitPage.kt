@@ -22,12 +22,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.common.AppToolbarDropDownOnRight
@@ -53,6 +55,8 @@ fun SentenceUnitPage(
     navController: NavController,
     viewModel: SentenceUnitViewModel = hiltViewModel()
 ) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
     LaunchedEffect(Unit) {
         viewModel.setScreenType(screenType)
     }
@@ -66,7 +70,7 @@ fun SentenceUnitPage(
             AppToolbarDropDownOnRight(
                 modifier = Modifier.fillMaxWidth(),
                 title = stringResource(R.string.list_of_chapters),
-                currentSelected = viewModel.uiState.level.title,
+                currentSelected = uiState.level.title,
                 modes = SentenceLevel.entries.map { it.title },
                 onItemChange = {
                     val level = SentenceLevel.entries.first { m -> m.title == it }
@@ -84,14 +88,14 @@ fun SentenceUnitPage(
                 verticalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
 
-                items(viewModel.uiState.sentenceUnitsList) { item ->
+                items(uiState.sentenceUnitsList) { item ->
                     StyledColumn(
                         unlocked = true,
                         modifier = Modifier
                             .clip(RoundedCornerShape(Dimens12)) // 👈 IMPORTANT
                             .clickable {
                                 AudioPlayerManager.playSoundMenuClick()
-                                navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, viewModel.uiState.level.name))
+                                navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, uiState.level.name))
                             }
                     ) {
                         Text(

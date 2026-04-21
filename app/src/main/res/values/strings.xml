@@ -113,6 +113,9 @@
     <string name="feedbackGiveAnswerTitleCorrect_6">Superb!</string>
     <string name="feedbackGiveAnswerTitleCorrect_7">Correct!</string>
     <string name="feedbackGiveAnswerTitleCorrect_8">Excellent!</string>
+    <string name="great_job">Great Job!</string>
+    <string name="good_try">Good Try!</string>
+    <string name="keepPracticing">Keep Practicing!</string>
 
     <string name="feedbackGiveAnswerSubTitleCorrect_1">Well done, keep it up!</string>
     <string name="feedbackGiveAnswerSubTitleCorrect_2">Awesome work, that’s correct!</string>
@@ -163,5 +166,8 @@
     <string name="join_sentences">Join Sentences</string>
     <string name="split_sentences">Split Sentences</string>
     <string name="progress">Progress</string>
+    <string name="lesson_completed">Lesson Completed</string>
+    <string name="go_back_to_lesson">Go Back to Lesson</string>
+    <string name="correct_answers">Correct Answers</string>
 
 </resources>

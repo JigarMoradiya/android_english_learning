@@ -197,8 +197,19 @@ fun AppNavGraph(navController: NavHostController) {
                 ReadAndListenPage(getUnitSelectionScreen(screenType),lessonData,navController)
             }
         }
-        composable(RouteNavigation.OneWordAnswer.route) {
-            OneWordAnswerPage(navController)
+        composable(RouteNavigation.OneWordAnswer.route,
+            arguments = listOf(
+                navArgument("screenType") { type = NavType.StringType },
+                navArgument("lessonData") { type = NavType.StringType },
+                navArgument("level") { type = NavType.StringType },
+            )) { backStackEntry ->
+            val screenType = backStackEntry.arguments?.getString("screenType")?:UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name
+            val lessonData = backStackEntry.arguments?.getString("lessonData")
+            val level = backStackEntry.arguments?.getString("level")?: SentenceLevel.EASY.name
+            lessonData?.let{
+                val lessonData = Gson().fromJson(lessonData, ReadSentenceItemNew::class.java)
+                OneWordAnswerPage(getUnitSelectionScreen(screenType),lessonData,level = getSentenceLevel(level),navController)
+            }
         }
         composable(RouteNavigation.FillTheMissingWord.route) {
             FillTheMissingWordPage(navController)

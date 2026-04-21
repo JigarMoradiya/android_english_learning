@@ -112,10 +112,9 @@ fun SightWordChoicePage(
                                 type = ButtonType.OPTIONS,
                                 fontSize = articleChoiceHeight.value.sp * 0.6,
                                 onClick = {
-                                    if (uiState.selectedAnswer == null){
-                                        viewModel.checkAnswer(option)
-                                    }
+                                    viewModel.checkAnswer(option)
                                 },
+                                enabled = uiState.selectedAnswer == null,
                                 modifier = Modifier
                                     .width(articleChoiceWidth)
                                     .height(articleChoiceHeight),

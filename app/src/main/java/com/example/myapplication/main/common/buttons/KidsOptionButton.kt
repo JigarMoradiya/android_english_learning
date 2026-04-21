@@ -41,6 +41,7 @@ fun KidsOptionButton(
     type: ButtonType,
     fontSize : TextUnit,
     onClick: () -> Unit,
+    enabled: Boolean = true,
     modifier: Modifier = Modifier,
 ) {
     val colors = getButtonColors(type)
@@ -75,12 +76,18 @@ fun KidsOptionButton(
             .background(
                 brush = colors.gradient
             )
-            .clickable(
-                interactionSource = interactionSource,
-                indication = null
-            ) {
-                onClick()
-            }
+            .then(
+                if (enabled) {
+                    Modifier.clickable(
+                        interactionSource = interactionSource,
+                        indication = null
+                    ) {
+                        onClick()
+                    }
+                } else {
+                    Modifier // ❌ no click when disabled
+                }
+            )
             .padding(horizontal = Dimens12),
         contentAlignment = Alignment.Center
     ) {
@@ -89,21 +96,21 @@ fun KidsOptionButton(
         Box {
             Text(
                 text = text,
-                style = MaterialTheme.typography.titleLarge.copy(
+                style = MaterialTheme.typography.bodySmall.copy(
                     fontSize = fontSize
                 ),
                 fontWeight = FontWeight.ExtraBold,
-                color = Color.Black.copy(alpha = 0.25f),
+                color = Color.Black.copy(alpha = if (type == ButtonType.OPTIONS) 0.15f else 0.25f),
                 modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
             )
 
             Text(
                 text = text,
-                style = MaterialTheme.typography.titleLarge.copy(
+                style = MaterialTheme.typography.bodySmall.copy(
                     fontSize = fontSize
                 ),
                 fontWeight = FontWeight.ExtraBold,
-                color = Color.Black
+                color = if (type == ButtonType.OPTIONS) Color.Black else Color.White
             )
         }
     }

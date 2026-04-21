@@ -20,6 +20,7 @@ import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.rounded.VolumeUp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -27,6 +28,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.ReadSentenceItemNew
@@ -51,6 +53,7 @@ fun ReadAndListenPage(
     navController: NavController,
     viewModel: ReadAndListenViewModel = hiltViewModel()
 ) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
         viewModel.setScreenTypeAndLessonData(screenType,lessonData)
@@ -74,7 +77,7 @@ fun ReadAndListenPage(
                 )
 
                 KidsActionButton(
-                    text = if (viewModel.uiState.isSentenceJoined)
+                    text = if (uiState.isSentenceJoined)
                         stringResource(R.string.split_sentences)
                     else stringResource(R.string.join_sentences),
                     type = ButtonType.BLUE,
@@ -141,7 +144,7 @@ fun ReadAndListenPage(
                     Spacer(modifier = Modifier.weight(1f))
 
                     // 🟩 CENTER IMAGE
-                    getImageResForSentence(viewModel.uiState.lessonData?.imageName)?.let { resId ->
+                    getImageResForSentence(uiState.lessonData?.imageName)?.let { resId ->
                         Image(
                             painter = painterResource(resId),
                             contentDescription = null,
@@ -165,9 +168,9 @@ fun ReadAndListenPage(
             ) {
                 SentenceWordsView(
                     words = viewModel.words,
-                    isJoined = viewModel.uiState.isSentenceJoined,
-                    speakingIndex = viewModel.uiState.joinSentenceSpeakingIndex,
-                    currentWordIndex = viewModel.uiState.splitSentenceWordIndex
+                    isJoined = uiState.isSentenceJoined,
+                    speakingIndex = uiState.joinSentenceSpeakingIndex,
+                    currentWordIndex = uiState.splitSentenceWordIndex
                 )
             }
         }

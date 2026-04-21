@@ -133,6 +133,7 @@ fun ListenAndSelectWordPage(
                                     onClick = {
                                         viewModel.checkCorrectOrWrong(word)
                                     },
+                                    enabled = !uiState.showSuccess,
                                     modifier = Modifier
                                         .width(listenAndAnswerOptionsWidth)
                                         .height(listenAndAnswerOptionsHeight)
