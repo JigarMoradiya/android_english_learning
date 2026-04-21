@@ -157,6 +157,8 @@ fun SentenceLessonPage(
                                         navController.navigate(RouteNavigation.ReadAndListen.readAndListen(screenType.name, Gson().toJson(item)))
                                     }else if (screenType == UnitSelectionScreen.ONE_WORD_ANSWER){
                                         navController.navigate(RouteNavigation.OneWordAnswer.oneWordAnswer(screenType.name, Gson().toJson(item), level.name))
+                                    }else if (screenType == UnitSelectionScreen.FILL_THE_MISSING_WORD){
+                                        navController.navigate(RouteNavigation.FillTheMissingWord.fillTheMissingWord(screenType.name, Gson().toJson(item)))
                                     }
                                 },
                                 isSmall = true

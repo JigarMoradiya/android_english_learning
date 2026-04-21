@@ -1,5 +1,6 @@
 package com.example.myapplication.data.model
 
+import com.google.gson.annotations.SerializedName
 import java.util.UUID
 
 // ==============================
@@ -155,9 +156,17 @@ data class BlankableWord(
 // WORD TYPE
 // ==============================
 enum class WordType {
+
+    @SerializedName("noun")
     NOUN,
-    ADJECTIVE,
+
+    @SerializedName("verb")
     VERB,
+
+    @SerializedName("adjective")
+    ADJECTIVE,
+
+    @SerializedName("pronoun")
     PRONOUN
 }
 
