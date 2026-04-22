@@ -61,3 +61,9 @@ val activities_age_6_8 = listOf(
     LearningActivityModel(R.string.sentenceCheck, R.drawable.age_6_8_sentence_check,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.SENTENCE_CHECK.name),Color(0xFFFF9D00)),
     LearningActivityModel(R.string.sentenceBuilder, R.drawable.age_6_8_build_the_sentence,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.BUILD_THE_SENTENCE.name),Color(0xFF237227)),
 )
+
+val activities_age_6_8_right_sentence = listOf(
+    LearningActivityModel(R.string.match_the_picture_desc,R.drawable.age_6_8_right_sentence_match_the_picture, RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.MATCH_THE_PICTURE.name),Color(0xFF872404)),
+    LearningActivityModel(R.string.which_sentence_sounds_right_desc, R.drawable.age_6_8_right_sentence_which_sentence_sounds_right,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT.name),Color(0xFF872404)),
+    LearningActivityModel(R.string.find_the_correct_writing_desc, R.drawable.age_6_8_right_sentence_find_the_correct_writing,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.FIND_THE_CORRECT_WRITING.name),Color(0xFF872404))
+)

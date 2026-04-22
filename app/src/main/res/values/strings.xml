@@ -46,12 +46,18 @@
     <string name="readListen">Read &amp; Listen</string>
     <string name="oneWordAnswer">One Word Answer</string>
     <string name="fillTheMissingWord">Fill the Missing Word</string>
-    <string name="chooseTheRightSentence">Choose the Right Sentence</string>
     <string name="sentenceCheck">Sentence Check</string>
     <string name="sentenceBuilder">Sentence Builder</string>
     <string name="matchTheSentence">Match the Sentence</string>
     <string name="grammarBasics">Grammar Basics</string>
     <string name="growTheSentence">Grow the Sentence</string>
+    <string name="chooseTheRightSentence">Choose the Right Sentence</string>
+    <string name="match_the_picture">Match the Picture</string>
+    <string name="match_the_picture_desc">Look at the picture and choose the best sentence.</string>
+    <string name="which_sentence_sounds_right">Which Sentence Sounds Right?</string>
+    <string name="which_sentence_sounds_right_desc">Read carefully and choose the sentence that sounds right.</string>
+    <string name="find_the_correct_writing">Find the Correct Writing</string>
+    <string name="find_the_correct_writing_desc">Choose the sentence written correctly.</string>
 
     <string name="back">Back</string>
     <string name="clear">CLEAR</string>

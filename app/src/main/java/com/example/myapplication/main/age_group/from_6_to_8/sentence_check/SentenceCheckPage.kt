@@ -13,7 +13,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.view_model.ChooseTheRightSentenceViewModel
 import com.example.myapplication.main.age_group.from_6_to_8.sentence_check.view_model.SentenceCheckViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI

@@ -38,6 +38,7 @@ import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.main.age_group.from_6_to_8.common.StyledColumn
 import com.example.myapplication.main.age_group.from_6_to_8.common.unit.view_model.SentenceUnitViewModel
 import com.example.myapplication.main.base.nav.RouteNavigation
+import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -60,6 +61,13 @@ fun SentenceUnitPage(
     LaunchedEffect(Unit) {
         viewModel.setScreenType(screenType)
     }
+    val hideProgressFor = setOf(
+        UnitSelectionScreen.MATCH_THE_PICTURE,
+        UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT,
+        UnitSelectionScreen.FIND_THE_CORRECT_WRITING,
+        UnitSelectionScreen.SENTENCE_CHECK,
+        UnitSelectionScreen.BUILD_THE_SENTENCE
+    )
 
     Box(modifier = Modifier.fillMaxSize()) {
 
@@ -67,17 +75,24 @@ fun SentenceUnitPage(
 
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
 
-            AppToolbarDropDownOnRight(
-                modifier = Modifier.fillMaxWidth(),
-                title = stringResource(R.string.list_of_chapters),
-                currentSelected = uiState.level.title,
-                modes = SentenceLevel.entries.map { it.title },
-                onItemChange = {
-                    val level = SentenceLevel.entries.first { m -> m.title == it }
-                    viewModel.changeLevel(level)
-                },
-                onBackClick = { navController.popBackStack() }
-            )
+            if (screenType in hideProgressFor){
+                BackButtonWithText(
+                    title = stringResource(R.string.list_of_chapters),
+                    onBackClick = { navController.popBackStack() }
+                )
+            }else{
+                AppToolbarDropDownOnRight(
+                    modifier = Modifier.fillMaxWidth(),
+                    title = stringResource(R.string.list_of_chapters),
+                    currentSelected = uiState.level.title,
+                    modes = SentenceLevel.entries.map { it.title },
+                    onItemChange = {
+                        val level = SentenceLevel.entries.first { m -> m.title == it }
+                        viewModel.changeLevel(level)
+                    },
+                    onBackClick = { navController.popBackStack() }
+                )
+            }
 
             LazyColumn(
                 modifier = Modifier
@@ -95,7 +110,19 @@ fun SentenceUnitPage(
                             .clip(RoundedCornerShape(Dimens12)) // 👈 IMPORTANT
                             .clickable {
                                 AudioPlayerManager.playSoundMenuClick()
-                                navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, uiState.level.name))
+                                if (screenType == UnitSelectionScreen.MATCH_THE_PICTURE){
+
+                                }else if (screenType == UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT){
+
+                                }else if (screenType == UnitSelectionScreen.FIND_THE_CORRECT_WRITING){
+
+                                }else if (screenType == UnitSelectionScreen.SENTENCE_CHECK){
+
+                                }else if (screenType == UnitSelectionScreen.BUILD_THE_SENTENCE){
+
+                                }else{
+                                    navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, uiState.level.name))
+                                }
                             }
                     ) {
                         Text(
@@ -112,14 +139,6 @@ fun SentenceUnitPage(
                             style = MaterialTheme.typography.labelMedium.scaled().copy(
                                 fontWeight = FontWeight.Normal
                             )
-                        )
-
-                        val hideProgressFor = setOf(
-                            UnitSelectionScreen.MATCH_THE_PICTURE,
-                            UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT,
-                            UnitSelectionScreen.FIND_THE_CORRECT_WRITING,
-                            UnitSelectionScreen.SENTENCE_CHECK,
-                            UnitSelectionScreen.BUILD_THE_SENTENCE
                         )
 
                         if (screenType !in hideProgressFor) {

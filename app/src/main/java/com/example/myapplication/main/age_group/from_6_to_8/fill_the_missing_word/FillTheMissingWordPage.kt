@@ -36,11 +36,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.ReadSentenceItemNew
-import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.main.age_group.from_6_to_8.fill_the_missing_word.view_model.FillTheMissingWordViewModel
-import com.example.myapplication.main.age_group.from_6_to_8.one_word_answer.components.ResultView
-import com.example.myapplication.main.age_group.from_6_to_8.one_word_answer.view_model.OneWordAnswerViewModel
+import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
