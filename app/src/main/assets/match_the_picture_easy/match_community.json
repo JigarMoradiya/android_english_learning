@@ -1,0 +1,772 @@
+[
+    {
+      "id": "community_1_q1",
+      "imageId": "community_1",
+      "imageName": "doctor_helping",
+      "level": "easy",
+      "correctSentence": "The doctor helps sick people.",
+      "wrongOptions": [
+        "The doctor paints pictures.",
+        "The doctor cooks food."
+      ]
+    },
+    {
+      "id": "community_1_q2",
+      "imageId": "community_1",
+      "imageName": "doctor_helping",
+      "level": "easy",
+      "correctSentence": "The doctor works in a hospital.",
+      "wrongOptions": [
+        "The doctor works in a bakery.",
+        "The doctor works in a library."
+      ]
+    },
+    {
+      "id": "community_1_q3",
+      "imageId": "community_1",
+      "imageName": "doctor_helping",
+      "level": "easy",
+      "correctSentence": "The doctor wears a white coat.",
+      "wrongOptions": [
+        "The doctor wears a raincoat.",
+        "The doctor wears a helmet."
+      ]
+    },
+    {
+      "id": "community_1_q4",
+      "imageId": "community_1",
+      "imageName": "doctor_helping",
+      "level": "easy",
+      "correctSentence": "The doctor checks my heartbeat.",
+      "wrongOptions": [
+        "The doctor checks the weather.",
+        "The doctor checks the clock."
+      ]
+    },
+    {
+      "id": "community_1_q5",
+      "imageId": "community_1",
+      "imageName": "doctor_helping",
+      "level": "easy",
+      "correctSentence": "The doctor gives medicine.",
+      "wrongOptions": [
+        "The doctor gives candy.",
+        "The doctor gives toys."
+      ]
+    },
+    {
+      "id": "community_1_q6",
+      "imageId": "community_1",
+      "imageName": "doctor_helping",
+      "level": "easy",
+      "correctSentence": "The doctor speaks kindly.",
+      "wrongOptions": [
+        "The doctor shouts loudly.",
+        "The doctor ignores people."
+      ]
+    },
+    {
+      "id": "community_1_q7",
+      "imageId": "community_1",
+      "imageName": "doctor_helping",
+      "level": "easy",
+      "correctSentence": "Doctors keep us healthy.",
+      "wrongOptions": [
+        "Doctors break toys.",
+        "Doctors sell clothes."
+      ]
+    },
+    {
+      "id": "community_2_q1",
+      "imageId": "community_2",
+      "imageName": "teacher_classroom",
+      "level": "easy",
+      "correctSentence": "The teacher teaches students.",
+      "wrongOptions": [
+        "The teacher repairs cars.",
+        "The teacher sells fruits."
+      ]
+    },
+    {
+      "id": "community_2_q2",
+      "imageId": "community_2",
+      "imageName": "teacher_classroom",
+      "level": "easy",
+      "correctSentence": "The teacher writes on the board.",
+      "wrongOptions": [
+        "The teacher writes on the road.",
+        "The teacher writes on the window."
+      ]
+    },
+    {
+      "id": "community_2_q3",
+      "imageId": "community_2",
+      "imageName": "teacher_classroom",
+      "level": "easy",
+      "correctSentence": "The teacher explains lessons.",
+      "wrongOptions": [
+        "The teacher explains recipes.",
+        "The teacher explains games."
+      ]
+    },
+    {
+      "id": "community_2_q4",
+      "imageId": "community_2",
+      "imageName": "teacher_classroom",
+      "level": "easy",
+      "correctSentence": "The teacher asks questions.",
+      "wrongOptions": [
+        "The teacher asks animals.",
+        "The teacher asks clouds."
+      ]
+    },
+    {
+      "id": "community_2_q5",
+      "imageId": "community_2",
+      "imageName": "teacher_classroom",
+      "level": "easy",
+      "correctSentence": "The teacher helps students learn.",
+      "wrongOptions": [
+        "The teacher helps students sleep.",
+        "The teacher helps students hide."
+      ]
+    },
+    {
+      "id": "community_2_q6",
+      "imageId": "community_2",
+      "imageName": "teacher_classroom",
+      "level": "easy",
+      "correctSentence": "The teacher smiles at students.",
+      "wrongOptions": [
+        "The teacher shouts at students.",
+        "The teacher ignores students."
+      ]
+    },
+    {
+      "id": "community_2_q7",
+      "imageId": "community_2",
+      "imageName": "teacher_classroom",
+      "level": "easy",
+      "correctSentence": "Teachers guide children.",
+      "wrongOptions": [
+        "Teachers chase birds.",
+        "Teachers build houses."
+      ]
+    },
+    {
+      "id": "community_3_q1",
+      "imageId": "community_3",
+      "imageName": "police_officer",
+      "level": "easy",
+      "correctSentence": "The police officer keeps people safe.",
+      "wrongOptions": [
+        "The police officer grows plants.",
+        "The police officer bakes bread."
+      ]
+    },
+    {
+      "id": "community_3_q2",
+      "imageId": "community_3",
+      "imageName": "police_officer",
+      "level": "easy",
+      "correctSentence": "The police officer wears a uniform.",
+      "wrongOptions": [
+        "The police officer wears a chef hat.",
+        "The police officer wears swimming clothes."
+      ]
+    },
+    {
+      "id": "community_3_q3",
+      "imageId": "community_3",
+      "imageName": "police_officer",
+      "level": "easy",
+      "correctSentence": "The police officer controls traffic.",
+      "wrongOptions": [
+        "The police officer controls animals.",
+        "The police officer controls clouds."
+      ]
+    },
+    {
+      "id": "community_3_q4",
+      "imageId": "community_3",
+      "imageName": "police_officer",
+      "level": "easy",
+      "correctSentence": "The police officer catches thieves.",
+      "wrongOptions": [
+        "The police officer catches butterflies.",
+        "The police officer catches fish."
+      ]
+    },
+    {
+      "id": "community_3_q5",
+      "imageId": "community_3",
+      "imageName": "police_officer",
+      "level": "easy",
+      "correctSentence": "The police officer helps people.",
+      "wrongOptions": [
+        "The police officer hides from people.",
+        "The police officer ignores people."
+      ]
+    },
+    {
+      "id": "community_3_q6",
+      "imageId": "community_3",
+      "imageName": "police_officer",
+      "level": "easy",
+      "correctSentence": "The police officer works day and night.",
+      "wrongOptions": [
+        "The police officer works only at noon.",
+        "The police officer works only on holidays."
+      ]
+    },
+    {
+      "id": "community_3_q7",
+      "imageId": "community_3",
+      "imageName": "police_officer",
+      "level": "easy",
+      "correctSentence": "Police officers protect people.",
+      "wrongOptions": [
+        "Police officers sell toys.",
+        "Police officers grow vegetables."
+      ]
+    },
+    {
+      "id": "community_4_q1",
+      "imageId": "community_4",
+      "imageName": "firefighter",
+      "level": "easy",
+      "correctSentence": "The firefighter puts out fires.",
+      "wrongOptions": [
+        "The firefighter paints houses.",
+        "The firefighter cooks meals."
+      ]
+    },
+    {
+      "id": "community_4_q2",
+      "imageId": "community_4",
+      "imageName": "firefighter",
+      "level": "easy",
+      "correctSentence": "The firefighter wears a helmet.",
+      "wrongOptions": [
+        "The firefighter wears a crown.",
+        "The firefighter wears sunglasses."
+      ]
+    },
+    {
+      "id": "community_4_q3",
+      "imageId": "community_4",
+      "imageName": "firefighter",
+      "level": "easy",
+      "correctSentence": "The firefighter drives a fire truck.",
+      "wrongOptions": [
+        "The firefighter drives a school bus.",
+        "The firefighter drives a tractor."
+      ]
+    },
+    {
+      "id": "community_4_q4",
+      "imageId": "community_4",
+      "imageName": "firefighter",
+      "level": "easy",
+      "correctSentence": "The firefighter sprays water.",
+      "wrongOptions": [
+        "The firefighter sprays paint.",
+        "The firefighter sprays sand."
+      ]
+    },
+    {
+      "id": "community_4_q5",
+      "imageId": "community_4",
+      "imageName": "firefighter",
+      "level": "easy",
+      "correctSentence": "The firefighter saves people.",
+      "wrongOptions": [
+        "The firefighter hides from people.",
+        "The firefighter scares people."
+      ]
+    },
+    {
+      "id": "community_4_q6",
+      "imageId": "community_4",
+      "imageName": "firefighter",
+      "level": "easy",
+      "correctSentence": "The firefighter is brave.",
+      "wrongOptions": [
+        "The firefighter is sleepy.",
+        "The firefighter is quiet."
+      ]
+    },
+    {
+      "id": "community_4_q7",
+      "imageId": "community_4",
+      "imageName": "firefighter",
+      "level": "easy",
+      "correctSentence": "Firefighters help in danger.",
+      "wrongOptions": [
+        "Firefighters hide in danger.",
+        "Firefighters sleep in danger."
+      ]
+    },
+    {
+      "id": "community_5_q1",
+      "imageId": "community_5",
+      "imageName": "farmer_field",
+      "level": "easy",
+      "correctSentence": "The farmer grows crops.",
+      "wrongOptions": [
+        "The farmer builds houses.",
+        "The farmer fixes cars."
+      ]
+    },
+    {
+      "id": "community_5_q2",
+      "imageId": "community_5",
+      "imageName": "farmer_field",
+      "level": "easy",
+      "correctSentence": "The farmer works in the field.",
+      "wrongOptions": [
+        "The farmer works in the office.",
+        "The farmer works in the airport."
+      ]
+    },
+    {
+      "id": "community_5_q3",
+      "imageId": "community_5",
+      "imageName": "farmer_field",
+      "level": "easy",
+      "correctSentence": "The farmer plants seeds.",
+      "wrongOptions": [
+        "The farmer plants toys.",
+        "The farmer plants stones."
+      ]
+    },
+    {
+      "id": "community_5_q4",
+      "imageId": "community_5",
+      "imageName": "farmer_field",
+      "level": "easy",
+      "correctSentence": "The farmer waters plants.",
+      "wrongOptions": [
+        "The farmer waters books.",
+        "The farmer waters clothes."
+      ]
+    },
+    {
+      "id": "community_5_q5",
+      "imageId": "community_5",
+      "imageName": "farmer_field",
+      "level": "easy",
+      "correctSentence": "The farmer harvests crops.",
+      "wrongOptions": [
+        "The farmer harvests chairs.",
+        "The farmer harvests shoes."
+      ]
+    },
+    {
+      "id": "community_5_q6",
+      "imageId": "community_5",
+      "imageName": "farmer_field",
+      "level": "easy",
+      "correctSentence": "The farmer feeds animals.",
+      "wrongOptions": [
+        "The farmer feeds stones.",
+        "The farmer feeds machines."
+      ]
+    },
+    {
+      "id": "community_5_q7",
+      "imageId": "community_5",
+      "imageName": "farmer_field",
+      "level": "easy",
+      "correctSentence": "Farmers give us food.",
+      "wrongOptions": [
+        "Farmers give us cloud.",
+        "Farmers give us sun."
+      ]
+    },
+    {
+      "id": "community_6_q1",
+      "imageId": "community_6",
+      "imageName": "postman_delivery",
+      "level": "easy",
+      "correctSentence": "The postman delivers letters.",
+      "wrongOptions": [
+        "The postman paints walls.",
+        "The postman repairs shoes."
+      ]
+    },
+    {
+      "id": "community_6_q2",
+      "imageId": "community_6",
+      "imageName": "postman_delivery",
+      "level": "easy",
+      "correctSentence": "The postman rides a bicycle.",
+      "wrongOptions": [
+        "The postman rides a horse.",
+        "The postman rides a boat."
+      ]
+    },
+    {
+      "id": "community_6_q3",
+      "imageId": "community_6",
+      "imageName": "postman_delivery",
+      "level": "easy",
+      "correctSentence": "The postman carries a bag.",
+      "wrongOptions": [
+        "The postman carries a ladder.",
+        "The postman carries a pillow."
+      ]
+    },
+    {
+      "id": "community_6_q4",
+      "imageId": "community_6",
+      "imageName": "postman_delivery",
+      "level": "easy",
+      "correctSentence": "The postman brings parcels.",
+      "wrongOptions": [
+        "The postman brings balloons.",
+        "The postman brings toys."
+      ]
+    },
+    {
+      "id": "community_6_q5",
+      "imageId": "community_6",
+      "imageName": "postman_delivery",
+      "level": "easy",
+      "correctSentence": "The postman knocks on doors.",
+      "wrongOptions": [
+        "The postman knocks on trees.",
+        "The postman knocks on cars."
+      ]
+    },
+    {
+      "id": "community_6_q6",
+      "imageId": "community_6",
+      "imageName": "postman_delivery",
+      "level": "easy",
+      "correctSentence": "The postman smiles kindly.",
+      "wrongOptions": [
+        "The postman shouts loudly.",
+        "The postman ignores people."
+      ]
+    },
+    {
+      "id": "community_6_q7",
+      "imageId": "community_6",
+      "imageName": "postman_delivery",
+      "level": "easy",
+      "correctSentence": "Postmen bring messages.",
+      "wrongOptions": [
+        "Postmen bring vegetables.",
+        "Postmen bring furniture."
+      ]
+    },
+    {
+      "id": "community_7_q1",
+      "imageId": "community_7",
+      "imageName": "nurse_hospital",
+      "level": "easy",
+      "correctSentence": "The nurse helps the doctor.",
+      "wrongOptions": [
+        "The nurse drives a bus.",
+        "The nurse sells vegetables."
+      ]
+    },
+    {
+      "id": "community_7_q2",
+      "imageId": "community_7",
+      "imageName": "nurse_hospital",
+      "level": "easy",
+      "correctSentence": "The nurse works in a hospital.",
+      "wrongOptions": [
+        "The nurse works in a farm.",
+        "The nurse works in a bakery."
+      ]
+    },
+    {
+      "id": "community_7_q3",
+      "imageId": "community_7",
+      "imageName": "nurse_hospital",
+      "level": "easy",
+      "correctSentence": "The nurse gives injections.",
+      "wrongOptions": [
+        "The nurse gives balloons.",
+        "The nurse gives pencils."
+      ]
+    },
+    {
+      "id": "community_7_q4",
+      "imageId": "community_7",
+      "imageName": "nurse_hospital",
+      "level": "easy",
+      "correctSentence": "The nurse checks patients.",
+      "wrongOptions": [
+        "The nurse checks cars.",
+        "The nurse checks trees."
+      ]
+    },
+    {
+      "id": "community_7_q5",
+      "imageId": "community_7",
+      "imageName": "nurse_hospital",
+      "level": "easy",
+      "correctSentence": "The nurse speaks gently.",
+      "wrongOptions": [
+        "The nurse shouts loudly.",
+        "The nurse whispers to walls."
+      ]
+    },
+    {
+      "id": "community_7_q6",
+      "imageId": "community_7",
+      "imageName": "nurse_hospital",
+      "level": "easy",
+      "correctSentence": "The nurse cares for people.",
+      "wrongOptions": [
+        "The nurse hides from people.",
+        "The nurse ignores people."
+      ]
+    },
+    {
+      "id": "community_7_q7",
+      "imageId": "community_7",
+      "imageName": "nurse_hospital",
+      "level": "easy",
+      "correctSentence": "Nurses are helpful.",
+      "wrongOptions": [
+        "Nurses are careless.",
+        "Nurses are lazy."
+      ]
+    },
+    {
+      "id": "community_8_q1",
+      "imageId": "community_8",
+      "imageName": "shopkeeper_store",
+      "level": "easy",
+      "correctSentence": "The shopkeeper sells goods.",
+      "wrongOptions": [
+        "The shopkeeper grows crops.",
+        "The shopkeeper drives a train."
+      ]
+    },
+    {
+      "id": "community_8_q2",
+      "imageId": "community_8",
+      "imageName": "shopkeeper_store",
+      "level": "easy",
+      "correctSentence": "The shopkeeper works in a shop.",
+      "wrongOptions": [
+        "The shopkeeper works in a hospital.",
+        "The shopkeeper works in a forest."
+      ]
+    },
+    {
+      "id": "community_8_q3",
+      "imageId": "community_8",
+      "imageName": "shopkeeper_store",
+      "level": "easy",
+      "correctSentence": "The shopkeeper keeps things neatly.",
+      "wrongOptions": [
+        "The shopkeeper throws things everywhere.",
+        "The shopkeeper hides things underground."
+      ]
+    },
+    {
+      "id": "community_8_q4",
+      "imageId": "community_8",
+      "imageName": "shopkeeper_store",
+      "level": "easy",
+      "correctSentence": "The shopkeeper gives change.",
+      "wrongOptions": [
+        "The shopkeeper gives homework.",
+        "The shopkeeper gives seeds."
+      ]
+    },
+    {
+      "id": "community_8_q5",
+      "imageId": "community_8",
+      "imageName": "shopkeeper_store",
+      "level": "easy",
+      "correctSentence": "The shopkeeper talks politely.",
+      "wrongOptions": [
+        "The shopkeeper shouts angrily.",
+        "The shopkeeper ignores customers."
+      ]
+    },
+    {
+      "id": "community_8_q6",
+      "imageId": "community_8",
+      "imageName": "shopkeeper_store",
+      "level": "easy",
+      "correctSentence": "People buy items.",
+      "wrongOptions": [
+        "People plant items.",
+        "People paint items."
+      ]
+    },
+    {
+      "id": "community_8_q7",
+      "imageId": "community_8",
+      "imageName": "shopkeeper_store",
+      "level": "easy",
+      "correctSentence": "Shopkeepers help customers.",
+      "wrongOptions": [
+        "Shopkeepers chase customers.",
+        "Shopkeepers hide from customers."
+      ]
+    },
+    {
+      "id": "community_9_q1",
+      "imageId": "community_9",
+      "imageName": "driver_bus",
+      "level": "easy",
+      "correctSentence": "The driver drives a bus.",
+      "wrongOptions": [
+        "The driver paints a bus.",
+        "The driver carries a bus."
+      ]
+    },
+    {
+      "id": "community_9_q2",
+      "imageId": "community_9",
+      "imageName": "driver_bus",
+      "level": "easy",
+      "correctSentence": "The driver follows traffic rules.",
+      "wrongOptions": [
+        "The driver breaks traffic lights.",
+        "The driver ignores road signs."
+      ]
+    },
+    {
+      "id": "community_9_q3",
+      "imageId": "community_9",
+      "imageName": "driver_bus",
+      "level": "easy",
+      "correctSentence": "The driver stops at signals.",
+      "wrongOptions": [
+        "The driver stops on rooftops.",
+        "The driver stops in rivers."
+      ]
+    },
+    {
+      "id": "community_9_q4",
+      "imageId": "community_9",
+      "imageName": "driver_bus",
+      "level": "easy",
+      "correctSentence": "The driver helps passengers.",
+      "wrongOptions": [
+        "The driver hides from passengers.",
+        "The driver pushes passengers."
+      ]
+    },
+    {
+      "id": "community_9_q5",
+      "imageId": "community_9",
+      "imageName": "driver_bus",
+      "level": "easy",
+      "correctSentence": "The driver drives carefully.",
+      "wrongOptions": [
+        "The driver drives blindly.",
+        "The driver drives backwards always."
+      ]
+    },
+    {
+      "id": "community_9_q6",
+      "imageId": "community_9",
+      "imageName": "driver_bus",
+      "level": "easy",
+      "correctSentence": "The driver keeps people safe.",
+      "wrongOptions": [
+        "The driver scares people.",
+        "The driver ignores safety."
+      ]
+    },
+    {
+      "id": "community_9_q7",
+      "imageId": "community_9",
+      "imageName": "driver_bus",
+      "level": "easy",
+      "correctSentence": "Drivers take us places.",
+      "wrongOptions": [
+        "Drivers leave us lost.",
+        "Drivers hide vehicles."
+      ]
+    },
+    {
+      "id": "community_10_q1",
+      "imageId": "community_10",
+      "imageName": "cleaner_sweeping",
+      "level": "easy",
+      "correctSentence": "The cleaner keeps streets clean.",
+      "wrongOptions": [
+        "The cleaner throws trash on streets.",
+        "The cleaner paints streets red."
+      ]
+    },
+    {
+      "id": "community_10_q2",
+      "imageId": "community_10",
+      "imageName": "cleaner_sweeping",
+      "level": "easy",
+      "correctSentence": "The cleaner sweeps the road.",
+      "wrongOptions": [
+        "The cleaner sweeps the ceiling.",
+        "The cleaner sweeps the river."
+      ]
+    },
+    {
+      "id": "community_10_q3",
+      "imageId": "community_10",
+      "imageName": "cleaner_sweeping",
+      "level": "easy",
+      "correctSentence": "The cleaner collects garbage.",
+      "wrongOptions": [
+        "The cleaner collects flowers.",
+        "The cleaner collects toys."
+      ]
+    },
+    {
+      "id": "community_10_q4",
+      "imageId": "community_10",
+      "imageName": "cleaner_sweeping",
+      "level": "easy",
+      "correctSentence": "The cleaner works daily.",
+      "wrongOptions": [
+        "The cleaner works once a year.",
+        "The cleaner works only at night."
+      ]
+    },
+    {
+      "id": "community_10_q5",
+      "imageId": "community_10",
+      "imageName": "cleaner_sweeping",
+      "level": "easy",
+      "correctSentence": "The cleaner wears gloves.",
+      "wrongOptions": [
+        "The cleaner wears slippers on hands.",
+        "The cleaner wears a crown."
+      ]
+    },
+    {
+      "id": "community_10_q6",
+      "imageId": "community_10",
+      "imageName": "cleaner_sweeping",
+      "level": "easy",
+      "correctSentence": "The cleaner keeps the city neat.",
+      "wrongOptions": [
+        "The cleaner makes the city messy.",
+        "The cleaner fills the city with trash."
+      ]
+    },
+    {
+      "id": "community_10_q7",
+      "imageId": "community_10",
+      "imageName": "cleaner_sweeping",
+      "level": "easy",
+      "correctSentence": "Cleaners help our community.",
+      "wrongOptions": [
+        "Cleaners damage our community.",
+        "Cleaners ignore the streets."
+      ]
+    }
+]

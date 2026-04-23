@@ -1,0 +1,475 @@
+[
+    {
+      "id": "play_1_q1",
+      "imageId": "play_1",
+      "imageName": "boy_playing_ball",
+      "level": "easy",
+      "correctSentence": "The boy is playing with a ball.",
+      "wrongOptions": [
+        "The boy is flying a kite.",
+        "The boy is riding a bicycle."
+      ]
+    },
+    {
+      "id": "play_1_q2",
+      "imageId": "play_1",
+      "imageName": "boy_playing_ball",
+      "level": "easy",
+      "correctSentence": "The ball is red.",
+      "wrongOptions": [
+        "The ball is blue.",
+        "The ball is yellow."
+      ]
+    },
+    {
+      "id": "play_1_q3",
+      "imageId": "play_1",
+      "imageName": "boy_playing_ball",
+      "level": "easy",
+      "correctSentence": "The ball is in the air.",
+      "wrongOptions": [
+        "The ball is under the bed.",
+        "The ball is inside a box."
+      ]
+    },
+    {
+      "id": "play_1_q4",
+      "imageId": "play_1",
+      "imageName": "boy_playing_ball",
+      "level": "easy",
+      "correctSentence": "The boy runs to catch the ball.",
+      "wrongOptions": [
+        "The boy sits on a chair.",
+        "The boy reads a book."
+      ]
+    },
+    {
+      "id": "play_1_q5",
+      "imageId": "play_1",
+      "imageName": "boy_playing_ball",
+      "level": "easy",
+      "correctSentence": "The boy smiles while playing.",
+      "wrongOptions": [
+        "The boy cries loudly.",
+        "The boy sleeps on the ground."
+      ]
+    },
+    {
+      "id": "play_2_q1",
+      "imageId": "play_2",
+      "imageName": "girl_flying_kite",
+      "level": "easy",
+      "correctSentence": "The girl is flying a kite.",
+      "wrongOptions": [
+        "The girl is reading a book.",
+        "The girl is riding a bicycle."
+      ]
+    },
+    {
+      "id": "play_2_q2",
+      "imageId": "play_2",
+      "imageName": "girl_flying_kite",
+      "level": "easy",
+      "correctSentence": "The kite is yellow.",
+      "wrongOptions": [
+        "The kite is red.",
+        "The kite is blue."
+      ]
+    },
+    {
+      "id": "play_2_q3",
+      "imageId": "play_2",
+      "imageName": "girl_flying_kite",
+      "level": "easy",
+      "correctSentence": "The kite is in the sky.",
+      "wrongOptions": [
+        "The kite is under the bed.",
+        "The kite is inside the house."
+      ]
+    },
+    {
+      "id": "play_2_q4",
+      "imageId": "play_2",
+      "imageName": "girl_flying_kite",
+      "level": "easy",
+      "correctSentence": "The wind blows the kite.",
+      "wrongOptions": [
+        "The rain falls on the kite.",
+        "The snow covers the kite."
+      ]
+    },
+    {
+      "id": "play_2_q5",
+      "imageId": "play_2",
+      "imageName": "girl_flying_kite",
+      "level": "easy",
+      "correctSentence": "The girl holds the kite string.",
+      "wrongOptions": [
+        "The girl drops the kite string.",
+        "The girl cuts the kite string."
+      ]
+    },
+    {
+      "id": "play_2_q6",
+      "imageId": "play_2",
+      "imageName": "girl_flying_kite",
+      "level": "easy",
+      "correctSentence": "The girl feels happy while flying the kite.",
+      "wrongOptions": [
+        "The girl feels sad.",
+        "The girl feels angry."
+      ]
+    },
+    {
+      "id": "play_3_q1",
+      "imageId": "play_3",
+      "imageName": "boy_riding_bicycle",
+      "level": "easy",
+      "correctSentence": "The boy is riding a bicycle.",
+      "wrongOptions": [
+        "The boy is flying a kite.",
+        "The boy is playing football."
+      ]
+    },
+    {
+      "id": "play_3_q2",
+      "imageId": "play_3",
+      "imageName": "boy_riding_bicycle",
+      "level": "easy",
+      "correctSentence": "The boy wears a helmet.",
+      "wrongOptions": [
+        "The boy wears a hat.",
+        "The boy wears sunglasses."
+      ]
+    },
+    {
+      "id": "play_3_q3",
+      "imageId": "play_3",
+      "imageName": "boy_riding_bicycle",
+      "level": "easy",
+      "correctSentence": "The boy rings the bicycle bell.",
+      "wrongOptions": [
+        "The boy drops the bicycle.",
+        "The boy carries the bicycle."
+      ]
+    },
+    {
+      "id": "play_4_q1",
+      "imageId": "play_4",
+      "imageName": "kids_playing_football",
+      "level": "easy",
+      "correctSentence": "The children are playing football.",
+      "wrongOptions": [
+        "The children are studying in a classroom.",
+        "The children are cooking food."
+      ]
+    },
+    {
+      "id": "play_4_q2",
+      "imageId": "play_4",
+      "imageName": "kids_playing_football",
+      "level": "easy",
+      "correctSentence": "The children are in the field.",
+      "wrongOptions": [
+        "The children are in the kitchen.",
+        "The children are in the bedroom."
+      ]
+    },
+    {
+      "id": "play_4_q3",
+      "imageId": "play_4",
+      "imageName": "kids_playing_football",
+      "level": "easy",
+      "correctSentence": "The children kick the ball.",
+      "wrongOptions": [
+        "The children throw the ball into the river.",
+        "The children hide the ball."
+      ]
+    },
+    {
+      "id": "play_4_q4",
+      "imageId": "play_4",
+      "imageName": "kids_playing_football",
+      "level": "easy",
+      "correctSentence": "The children cheer loudly.",
+      "wrongOptions": [
+        "The children cry loudly.",
+        "The children sleep on the field."
+      ]
+    },
+    {
+      "id": "play_5_q1",
+      "imageId": "play_5",
+      "imageName": "boy_building_blocks",
+      "level": "easy",
+      "correctSentence": "The boy is building with blocks.",
+      "wrongOptions": [
+        "The boy is playing football.",
+        "The boy is flying a kite."
+      ]
+    },
+    {
+      "id": "play_5_q2",
+      "imageId": "play_5",
+      "imageName": "boy_building_blocks",
+      "level": "easy",
+      "correctSentence": "The boy has many blocks.",
+      "wrongOptions": [
+        "The boy has many books.",
+        "The boy has many pencils."
+      ]
+    },
+    {
+      "id": "play_5_q3",
+      "imageId": "play_5",
+      "imageName": "boy_building_blocks",
+      "level": "easy",
+      "correctSentence": "The blocks are colorful.",
+      "wrongOptions": [
+        "The blocks are broken.",
+        "The blocks are wet."
+      ]
+    },
+    {
+      "id": "play_5_q4",
+      "imageId": "play_5",
+      "imageName": "boy_building_blocks",
+      "level": "easy",
+      "correctSentence": "The boy builds a tall tower.",
+      "wrongOptions": [
+        "The boy breaks the tower.",
+        "The boy hides the tower."
+      ]
+    },
+    {
+      "id": "play_5_q5",
+      "imageId": "play_5",
+      "imageName": "boy_building_blocks",
+      "level": "easy",
+      "correctSentence": "The tower looks strong.",
+      "wrongOptions": [
+        "The tower looks weak.",
+        "The tower looks broken."
+      ]
+    },
+    {
+      "id": "play_6_q1",
+      "imageId": "play_6",
+      "imageName": "girl_skipping_rope",
+      "level": "easy",
+      "correctSentence": "The girl is skipping rope.",
+      "wrongOptions": [
+        "The girl is riding a bicycle.",
+        "The girl is drawing a picture."
+      ]
+    },
+    {
+      "id": "play_6_q2",
+      "imageId": "play_6",
+      "imageName": "girl_skipping_rope",
+      "level": "easy",
+      "correctSentence": "The girl jumps over the rope.",
+      "wrongOptions": [
+        "The girl sits on the rope.",
+        "The girl throws the rope away."
+      ]
+    },
+    {
+      "id": "play_6_q3",
+      "imageId": "play_6",
+      "imageName": "girl_skipping_rope",
+      "level": "easy",
+      "correctSentence": "The friends watch the girl.",
+      "wrongOptions": [
+        "The friends leave the park.",
+        "The friends sleep on the ground."
+      ]
+    },
+    {
+      "id": "play_7_q1",
+      "imageId": "play_7",
+      "imageName": "kids_playing_slide",
+      "level": "easy",
+      "correctSentence": "The children are playing on the slide.",
+      "wrongOptions": [
+        "The children are studying in a classroom.",
+        "The children are eating dinner."
+      ]
+    },
+    {
+      "id": "play_7_q2",
+      "imageId": "play_7",
+      "imageName": "kids_playing_slide",
+      "level": "easy",
+      "correctSentence": "The park has a big slide.",
+      "wrongOptions": [
+        "The park has a swimming pool.",
+        "The park has a classroom."
+      ]
+    },
+    {
+      "id": "play_7_q3",
+      "imageId": "play_7",
+      "imageName": "kids_playing_slide",
+      "level": "easy",
+      "correctSentence": "The children climb up the slide.",
+      "wrongOptions": [
+        "The children sleep on the slide.",
+        "The children paint the slide."
+      ]
+    },
+    {
+      "id": "play_7_q4",
+      "imageId": "play_7",
+      "imageName": "kids_playing_slide",
+      "level": "easy",
+      "correctSentence": "The children slide down fast.",
+      "wrongOptions": [
+        "The children hide under the slide.",
+        "The children carry the slide."
+      ]
+    },
+    {
+      "id": "play_7_q5",
+      "imageId": "play_7",
+      "imageName": "kids_playing_slide",
+      "level": "easy",
+      "correctSentence": "The children take turns on the slide.",
+      "wrongOptions": [
+        "The children fight for the slide.",
+        "The children ignore the slide."
+      ]
+    },
+    {
+      "id": "play_8_q1",
+      "imageId": "play_8",
+      "imageName": "toy_car_race",
+      "level": "easy",
+      "correctSentence": "The boy is playing with toy cars.",
+      "wrongOptions": [
+        "The boy is flying a kite.",
+        "The boy is swimming in a pool."
+      ]
+    },
+    {
+      "id": "play_8_q2",
+      "imageId": "play_8",
+      "imageName": "toy_car_race",
+      "level": "easy",
+      "correctSentence": "The toy cars are small.",
+      "wrongOptions": [
+        "The toy cars are broken.",
+        "The toy cars are missing."
+      ]
+    },
+    {
+      "id": "play_8_q3",
+      "imageId": "play_8",
+      "imageName": "toy_car_race",
+      "level": "easy",
+      "correctSentence": "The toy cars move on the floor.",
+      "wrongOptions": [
+        "The toy cars are inside a bag.",
+        "The toy cars are on a shelf."
+      ]
+    },
+    {
+      "id": "play_8_q4",
+      "imageId": "play_8",
+      "imageName": "toy_car_race",
+      "level": "easy",
+      "correctSentence": "The children race the toy cars together.",
+      "wrongOptions": [
+        "The children throw the toy cars away.",
+        "The children hide the toy cars."
+      ]
+    },
+    {
+      "id": "play_9_q1",
+      "imageId": "play_9",
+      "imageName": "kids_playing_swing",
+      "level": "easy",
+      "correctSentence": "The girl is sitting on a swing.",
+      "wrongOptions": [
+        "The girl is riding a bicycle.",
+        "The girl is playing football."
+      ]
+    },
+    {
+      "id": "play_9_q2",
+      "imageId": "play_9",
+      "imageName": "kids_playing_swing",
+      "level": "easy",
+      "correctSentence": "The father pushes the swing.",
+      "wrongOptions": [
+        "The father fixes the swing.",
+        "The father removes the swing."
+      ]
+    },
+    {
+      "id": "play_9_q3",
+      "imageId": "play_9",
+      "imageName": "kids_playing_swing",
+      "level": "easy",
+      "correctSentence": "The swing moves high in the air.",
+      "wrongOptions": [
+        "The swing is broken on the ground.",
+        "The swing is inside the house."
+      ]
+    },
+    {
+      "id": "play_9_q4",
+      "imageId": "play_9",
+      "imageName": "kids_playing_swing",
+      "level": "easy",
+      "correctSentence": "The girl feels happy on the swing.",
+      "wrongOptions": [
+        "The girl feels scared.",
+        "The girl feels angry."
+      ]
+    },
+    {
+      "id": "play_10_q1",
+      "imageId": "play_10",
+      "imageName": "kids_solving_puzzle",
+      "level": "easy",
+      "correctSentence": "The children are solving a puzzle.",
+      "wrongOptions": [
+        "The children are playing football.",
+        "The children are watching television."
+      ]
+    },
+    {
+      "id": "play_10_q2",
+      "imageId": "play_10",
+      "imageName": "kids_solving_puzzle",
+      "level": "easy",
+      "correctSentence": "The children sit on the floor.",
+      "wrongOptions": [
+        "The children sit on the roof.",
+        "The children sit in a car."
+      ]
+    },
+    {
+      "id": "play_10_q3",
+      "imageId": "play_10",
+      "imageName": "kids_solving_puzzle",
+      "level": "easy",
+      "correctSentence": "The puzzle pieces are on the floor.",
+      "wrongOptions": [
+        "The puzzle pieces are in a box.",
+        "The puzzle pieces are missing."
+      ]
+    },
+    {
+      "id": "play_10_q4",
+      "imageId": "play_10",
+      "imageName": "kids_solving_puzzle",
+      "level": "easy",
+      "correctSentence": "The children match the shapes.",
+      "wrongOptions": [
+        "The children break the shapes.",
+        "The children throw the shapes."
+      ]
+    }
+]

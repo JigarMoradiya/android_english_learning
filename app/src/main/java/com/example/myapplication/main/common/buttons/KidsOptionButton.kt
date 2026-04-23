@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -25,6 +26,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
@@ -39,10 +41,12 @@ import com.example.myapplication.ui.theme.getButtonColors
 fun KidsOptionButton(
     text: String,
     type: ButtonType,
-    fontSize : TextUnit,
+    fontSize: TextUnit,
     onClick: () -> Unit,
     enabled: Boolean = true,
     modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center,           // 👈 new
+    contentAlignment: Alignment = Alignment.Center     // 👈 new
 ) {
     val colors = getButtonColors(type)
     val interactionSource = remember { MutableInteractionSource() }
@@ -64,7 +68,6 @@ fun KidsOptionButton(
                 scaleY = scale
             }
             .drawBehind {
-                // 🔥 bottom depth
                 drawRoundRect(
                     color = colors.base,
                     size = size,
@@ -73,44 +76,40 @@ fun KidsOptionButton(
                 )
             }
             .clip(RoundedCornerShape(50))
-            .background(
-                brush = colors.gradient
-            )
-            .then(
-                if (enabled) {
-                    Modifier.clickable(
-                        interactionSource = interactionSource,
-                        indication = null
-                    ) {
-                        onClick()
-                    }
-                } else {
-                    Modifier // ❌ no click when disabled
-                }
-            )
+            .background(brush = colors.gradient)
+            .clickable(
+                enabled = enabled,
+                interactionSource = interactionSource,
+                indication = null
+            ) {
+                onClick()
+            }
             .padding(horizontal = Dimens12),
-        contentAlignment = Alignment.Center
+        contentAlignment = contentAlignment // 👈 dynamic
     ) {
 
-        // 🔤 Text with shadow
-        Box {
+        Box(
+            modifier = Modifier.fillMaxWidth() // 👈 needed for textAlign
+        ) {
+
             Text(
                 text = text,
-                style = MaterialTheme.typography.bodySmall.copy(
-                    fontSize = fontSize
-                ),
+                style = MaterialTheme.typography.bodySmall.copy(fontSize = fontSize),
                 fontWeight = FontWeight.ExtraBold,
+                textAlign = textAlign, // 👈 dynamic
                 color = Color.Black.copy(alpha = if (type == ButtonType.OPTIONS) 0.15f else 0.25f),
-                modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .offset(ShadowOffsetText, ShadowOffsetText)
             )
 
             Text(
                 text = text,
-                style = MaterialTheme.typography.bodySmall.copy(
-                    fontSize = fontSize
-                ),
+                style = MaterialTheme.typography.bodySmall.copy(fontSize = fontSize),
                 fontWeight = FontWeight.ExtraBold,
-                color = if (type == ButtonType.OPTIONS) Color.Black else Color.White
+                textAlign = textAlign, // 👈 dynamic
+                color = if (type == ButtonType.OPTIONS) Color.Black else Color.White,
+                modifier = Modifier.fillMaxWidth()
             )
         }
     }

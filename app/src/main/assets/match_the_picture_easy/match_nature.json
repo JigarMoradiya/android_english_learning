@@ -1,0 +1,618 @@
+[
+    {
+      "id": "nature_1_q1",
+      "imageId": "nature_1",
+      "imageName": "dog_in_park",
+      "level": "easy",
+      "correctSentence": "The dog runs in the park.",
+      "wrongOptions": [
+        "The dog climbs a tree.",
+        "The dog swims in the river."
+      ]
+    },
+    {
+      "id": "nature_1_q2",
+      "imageId": "nature_1",
+      "imageName": "dog_in_park",
+      "level": "easy",
+      "correctSentence": "The dog is brown and small.",
+      "wrongOptions": [
+        "The dog is black and tall.",
+        "The dog is white and big."
+      ]
+    },
+    {
+      "id": "nature_1_q3",
+      "imageId": "nature_1",
+      "imageName": "dog_in_park",
+      "level": "easy",
+      "correctSentence": "The dog wags its tail.",
+      "wrongOptions": [
+        "The dog hides its tail.",
+        "The dog bites its tail."
+      ]
+    },
+    {
+      "id": "nature_1_q4",
+      "imageId": "nature_1",
+      "imageName": "dog_in_park",
+      "level": "easy",
+      "correctSentence": "The grass is green.",
+      "wrongOptions": [
+        "The grass is red.",
+        "The grass is blue."
+      ]
+    },
+    {
+      "id": "nature_1_q5",
+      "imageId": "nature_1",
+      "imageName": "dog_in_park",
+      "level": "easy",
+      "correctSentence": "The sun shines brightly.",
+      "wrongOptions": [
+        "The sun is hidden by snow.",
+        "The sun falls down."
+      ]
+    },
+    {
+      "id": "nature_1_q6",
+      "imageId": "nature_1",
+      "imageName": "dog_in_park",
+      "level": "easy",
+      "correctSentence": "The dog jumps happily.",
+      "wrongOptions": [
+        "The dog cries loudly.",
+        "The dog sits sadly."
+      ]
+    },
+    {
+      "id": "nature_2_q1",
+      "imageId": "nature_2",
+      "imageName": "cat_on_tree",
+      "level": "easy",
+      "correctSentence": "The cat climbs the tree.",
+      "wrongOptions": [
+        "The cat digs the ground.",
+        "The cat sleeps on the road."
+      ]
+    },
+    {
+      "id": "nature_2_q2",
+      "imageId": "nature_2",
+      "imageName": "cat_on_tree",
+      "level": "easy",
+      "correctSentence": "The cat has white fur.",
+      "wrongOptions": [
+        "The cat has green fur.",
+        "The cat has blue fur."
+      ]
+    },
+    {
+      "id": "nature_2_q3",
+      "imageId": "nature_2",
+      "imageName": "cat_on_tree",
+      "level": "easy",
+      "correctSentence": "The cat looks around carefully.",
+      "wrongOptions": [
+        "The cat closes its eyes.",
+        "The cat runs away quickly."
+      ]
+    },
+    {
+      "id": "nature_2_q4",
+      "imageId": "nature_2",
+      "imageName": "cat_on_tree",
+      "level": "easy",
+      "correctSentence": "Birds sit on the branches.",
+      "wrongOptions": [
+        "Birds swim in the river.",
+        "Birds sleep under the ground."
+      ]
+    },
+    {
+      "id": "nature_2_q5",
+      "imageId": "nature_2",
+      "imageName": "cat_on_tree",
+      "level": "easy",
+      "correctSentence": "The cat comes down safely.",
+      "wrongOptions": [
+        "The cat jumps into the water.",
+        "The cat climbs a house."
+      ]
+    },
+    {
+      "id": "nature_3_q1",
+      "imageId": "nature_3",
+      "imageName": "butterfly_garden",
+      "level": "easy",
+      "correctSentence": "A butterfly flies in the garden.",
+      "wrongOptions": [
+        "A butterfly swims in the river.",
+        "A butterfly runs on the road."
+      ]
+    },
+    {
+      "id": "nature_3_q2",
+      "imageId": "nature_3",
+      "imageName": "butterfly_garden",
+      "level": "easy",
+      "correctSentence": "The butterfly has colorful wings.",
+      "wrongOptions": [
+        "The butterfly has black wings.",
+        "The butterfly has torn wings."
+      ]
+    },
+    {
+      "id": "nature_3_q3",
+      "imageId": "nature_3",
+      "imageName": "butterfly_garden",
+      "level": "easy",
+      "correctSentence": "The butterfly sits on a flower.",
+      "wrongOptions": [
+        "The butterfly sits on a chair.",
+        "The butterfly sits on a wall."
+      ]
+    },
+    {
+      "id": "nature_3_q4",
+      "imageId": "nature_3",
+      "imageName": "butterfly_garden",
+      "level": "easy",
+      "correctSentence": "The flower smells sweet.",
+      "wrongOptions": [
+        "The flower smells bad.",
+        "The flower smells like smoke."
+      ]
+    },
+    {
+      "id": "nature_3_q5",
+      "imageId": "nature_3",
+      "imageName": "butterfly_garden",
+      "level": "easy",
+      "correctSentence": "The garden looks beautiful.",
+      "wrongOptions": [
+        "The garden looks dry.",
+        "The garden looks empty."
+      ]
+    },
+    {
+      "id": "nature_4_q1",
+      "imageId": "nature_4",
+      "imageName": "elephant_zoo",
+      "level": "easy",
+      "correctSentence": "The elephant is very big.",
+      "wrongOptions": [
+        "The elephant is very small.",
+        "The elephant is thin and tiny."
+      ]
+    },
+    {
+      "id": "nature_4_q2",
+      "imageId": "nature_4",
+      "imageName": "elephant_zoo",
+      "level": "easy",
+      "correctSentence": "The elephant has long ears.",
+      "wrongOptions": [
+        "The elephant has short ears.",
+        "The elephant has round wings."
+      ]
+    },
+    {
+      "id": "nature_4_q3",
+      "imageId": "nature_4",
+      "imageName": "elephant_zoo",
+      "level": "easy",
+      "correctSentence": "The elephant has a strong trunk.",
+      "wrongOptions": [
+        "The elephant has a small trunk.",
+        "The elephant has no trunk."
+      ]
+    },
+    {
+      "id": "nature_4_q4",
+      "imageId": "nature_4",
+      "imageName": "elephant_zoo",
+      "level": "easy",
+      "correctSentence": "The elephant eats green grass.",
+      "wrongOptions": [
+        "The elephant eats meat.",
+        "The elephant eats chocolate."
+      ]
+    },
+    {
+      "id": "nature_4_q5",
+      "imageId": "nature_4",
+      "imageName": "elephant_zoo",
+      "level": "easy",
+      "correctSentence": "Children watch the elephant.",
+      "wrongOptions": [
+        "Children ignore the elephant.",
+        "Children ride bicycles."
+      ]
+    },
+    {
+      "id": "nature_4_q6",
+      "imageId": "nature_4",
+      "imageName": "elephant_zoo",
+      "level": "easy",
+      "correctSentence": "The elephant walks slowly.",
+      "wrongOptions": [
+        "The elephant runs very fast.",
+        "The elephant jumps high."
+      ]
+    },
+    {
+      "id": "nature_4_q7",
+      "imageId": "nature_4",
+      "imageName": "elephant_zoo",
+      "level": "easy",
+      "correctSentence": "The zookeeper feeds the elephant fresh fruits.",
+      "wrongOptions": [
+        "The zookeeper feeds the elephant meat.",
+        "The zookeeper chases the elephant away."
+      ]
+    },
+    {
+      "id": "nature_5_q1",
+      "imageId": "nature_5",
+      "imageName": "bird_on_branch",
+      "level": "easy",
+      "correctSentence": "The bird sits on a branch.",
+      "wrongOptions": [
+        "The bird sits on the ground.",
+        "The bird sits on a chair."
+      ]
+    },
+    {
+      "id": "nature_5_q2",
+      "imageId": "nature_5",
+      "imageName": "bird_on_branch",
+      "level": "easy",
+      "correctSentence": "The bird has bright feathers.",
+      "wrongOptions": [
+        "The bird has dark feathers.",
+        "The bird has wet feathers."
+      ]
+    },
+    {
+      "id": "nature_5_q3",
+      "imageId": "nature_5",
+      "imageName": "bird_on_branch",
+      "level": "easy",
+      "correctSentence": "The bird sings sweetly.",
+      "wrongOptions": [
+        "The bird roars loudly.",
+        "The bird stays silent."
+      ]
+    },
+    {
+      "id": "nature_5_q4",
+      "imageId": "nature_5",
+      "imageName": "bird_on_branch",
+      "level": "easy",
+      "correctSentence": "The bird spreads its wings.",
+      "wrongOptions": [
+        "The bird folds its wings tightly.",
+        "The bird hides under leaves."
+      ]
+    },
+    {
+      "id": "nature_5_q5",
+      "imageId": "nature_5",
+      "imageName": "bird_on_branch",
+      "level": "easy",
+      "correctSentence": "The bird flies away.",
+      "wrongOptions": [
+        "The bird dives into water.",
+        "The bird runs on the grass."
+      ]
+    },
+    {
+      "id": "nature_6_q1",
+      "imageId": "nature_6",
+      "imageName": "river_flowing",
+      "level": "easy",
+      "correctSentence": "The river flows slowly.",
+      "wrongOptions": [
+        "The river stands still.",
+        "The river climbs the hill."
+      ]
+    },
+    {
+      "id": "nature_6_q2",
+      "imageId": "nature_6",
+      "imageName": "river_flowing",
+      "level": "easy",
+      "correctSentence": "The water looks clear.",
+      "wrongOptions": [
+        "The water looks muddy.",
+        "The water looks dry."
+      ]
+    },
+    {
+      "id": "nature_6_q3",
+      "imageId": "nature_6",
+      "imageName": "river_flowing",
+      "level": "easy",
+      "correctSentence": "Fish swim in the river.",
+      "wrongOptions": [
+        "Fish sleep on the ground.",
+        "Fish climb the trees."
+      ]
+    },
+    {
+      "id": "nature_6_q4",
+      "imageId": "nature_6",
+      "imageName": "river_flowing",
+      "level": "easy",
+      "correctSentence": "Trees grow near the river.",
+      "wrongOptions": [
+        "Trees float in the sky.",
+        "Trees run across the water."
+      ]
+    },
+    {
+      "id": "nature_6_q5",
+      "imageId": "nature_6",
+      "imageName": "river_flowing",
+      "level": "easy",
+      "correctSentence": "Children play near the river bank.",
+      "wrongOptions": [
+        "Children play in the classroom.",
+        "Children play on the roof."
+      ]
+    },
+    {
+      "id": "nature_6_q6",
+      "imageId": "nature_6",
+      "imageName": "river_flowing",
+      "level": "easy",
+      "correctSentence": "The place is peaceful.",
+      "wrongOptions": [
+        "The place is crowded.",
+        "The place is noisy."
+      ]
+    },
+    {
+      "id": "nature_7_q1",
+      "imageId": "nature_7",
+      "imageName": "rainy_forest",
+      "level": "easy",
+      "correctSentence": "Rain falls in the forest.",
+      "wrongOptions": [
+        "Snow falls in the forest.",
+        "Sand falls in the forest."
+      ]
+    },
+    {
+      "id": "nature_7_q2",
+      "imageId": "nature_7",
+      "imageName": "rainy_forest",
+      "level": "easy",
+      "correctSentence": "Leaves become wet.",
+      "wrongOptions": [
+        "Leaves become dry.",
+        "Leaves become hot."
+      ]
+    },
+    {
+      "id": "nature_7_q3",
+      "imageId": "nature_7",
+      "imageName": "rainy_forest",
+      "level": "easy",
+      "correctSentence": "The air smells fresh.",
+      "wrongOptions": [
+        "The air smells bad.",
+        "The air smells smoky."
+      ]
+    },
+    {
+      "id": "nature_7_q4",
+      "imageId": "nature_7",
+      "imageName": "rainy_forest",
+      "level": "easy",
+      "correctSentence": "Animals hide under trees.",
+      "wrongOptions": [
+        "Animals dance in the open field.",
+        "Animals swim in the sky."
+      ]
+    },
+    {
+      "id": "nature_7_q5",
+      "imageId": "nature_7",
+      "imageName": "rainy_forest",
+      "level": "easy",
+      "correctSentence": "The sky looks gray.",
+      "wrongOptions": [
+        "The sky looks pink.",
+        "The sky looks bright yellow."
+      ]
+    },
+    {
+      "id": "nature_7_q6",
+      "imageId": "nature_7",
+      "imageName": "rainy_forest",
+      "level": "easy",
+      "correctSentence": "Water drops shine on the leaves.",
+      "wrongOptions": [
+        "Water drops burn the leaves.",
+        "Water drops freeze the trees."
+      ]
+    },
+    {
+      "id": "nature_8_q1",
+      "imageId": "nature_8",
+      "imageName": "mountain_view",
+      "level": "easy",
+      "correctSentence": "The mountain is tall.",
+      "wrongOptions": [
+        "The mountain is flat.",
+        "The mountain is tiny."
+      ]
+    },
+    {
+      "id": "nature_8_q2",
+      "imageId": "nature_8",
+      "imageName": "mountain_view",
+      "level": "easy",
+      "correctSentence": "Snow covers the top.",
+      "wrongOptions": [
+        "Grass covers the top.",
+        "Sand covers the top."
+      ]
+    },
+    {
+      "id": "nature_8_q3",
+      "imageId": "nature_8",
+      "imageName": "mountain_view",
+      "level": "easy",
+      "correctSentence": "Clouds move slowly.",
+      "wrongOptions": [
+        "Clouds stay frozen.",
+        "Clouds fall to the ground."
+      ]
+    },
+    {
+      "id": "nature_8_q4",
+      "imageId": "nature_8",
+      "imageName": "mountain_view",
+      "level": "easy",
+      "correctSentence": "People take pictures.",
+      "wrongOptions": [
+        "People sleep on the road.",
+        "People hide behind rocks."
+      ]
+    },
+    {
+      "id": "nature_8_q5",
+      "imageId": "nature_8",
+      "imageName": "mountain_view",
+      "level": "easy",
+      "correctSentence": "The view is beautiful.",
+      "wrongOptions": [
+        "The view is dull.",
+        "The view is messy."
+      ]
+    },
+    {
+      "id": "nature_9_q1",
+      "imageId": "nature_9",
+      "imageName": "cow_in_field",
+      "level": "easy",
+      "correctSentence": "The cow stands in the field.",
+      "wrongOptions": [
+        "The cow swims in the river.",
+        "The cow sits on a tree."
+      ]
+    },
+    {
+      "id": "nature_9_q2",
+      "imageId": "nature_9",
+      "imageName": "cow_in_field",
+      "level": "easy",
+      "correctSentence": "The cow eats green grass.",
+      "wrongOptions": [
+        "The cow eats dry leaves.",
+        "The cow eats stones."
+      ]
+    },
+    {
+      "id": "nature_9_q3",
+      "imageId": "nature_9",
+      "imageName": "cow_in_field",
+      "level": "easy",
+      "correctSentence": "The cow has a big body.",
+      "wrongOptions": [
+        "The cow has a tiny body.",
+        "The cow has a thin body."
+      ]
+    },
+    {
+      "id": "nature_9_q4",
+      "imageId": "nature_9",
+      "imageName": "cow_in_field",
+      "level": "easy",
+      "correctSentence": "The field is wide.",
+      "wrongOptions": [
+        "The field is narrow.",
+        "The field is closed."
+      ]
+    },
+    {
+      "id": "nature_9_q5",
+      "imageId": "nature_9",
+      "imageName": "cow_in_field",
+      "level": "easy",
+      "correctSentence": "The sun shines warmly.",
+      "wrongOptions": [
+        "The sun hides behind clouds.",
+        "The sun feels cold."
+      ]
+    },
+    {
+      "id": "nature_9_q6",
+      "imageId": "nature_9",
+      "imageName": "cow_in_field",
+      "level": "easy",
+      "correctSentence": "The cow walks slowly.",
+      "wrongOptions": [
+        "The cow runs very fast.",
+        "The cow jumps over a fence."
+      ]
+    },
+    {
+      "id": "nature_10_q1",
+      "imageId": "nature_10",
+      "imageName": "sunset_beach",
+      "level": "easy",
+      "correctSentence": "The sun sets in the sky.",
+      "wrongOptions": [
+        "The sun rises at night.",
+        "The sun hides under the sea."
+      ]
+    },
+    {
+      "id": "nature_10_q2",
+      "imageId": "nature_10",
+      "imageName": "sunset_beach",
+      "level": "easy",
+      "correctSentence": "The sky turns orange.",
+      "wrongOptions": [
+        "The sky turns green.",
+        "The sky turns black suddenly."
+      ]
+    },
+    {
+      "id": "nature_10_q3",
+      "imageId": "nature_10",
+      "imageName": "sunset_beach",
+      "level": "easy",
+      "correctSentence": "The sea looks calm.",
+      "wrongOptions": [
+        "The sea looks stormy.",
+        "The sea looks frozen."
+      ]
+    },
+    {
+      "id": "nature_10_q4",
+      "imageId": "nature_10",
+      "imageName": "sunset_beach",
+      "level": "easy",
+      "correctSentence": "Waves move gently.",
+      "wrongOptions": [
+        "Waves stop completely.",
+        "Waves fly into the sky."
+      ]
+    },
+    {
+      "id": "nature_10_q5",
+      "imageId": "nature_10",
+      "imageName": "sunset_beach",
+      "level": "easy",
+      "correctSentence": "Birds fly home.",
+      "wrongOptions": [
+        "Birds swim in the water.",
+        "Birds dig in the sand."
+      ]
+    }
+]

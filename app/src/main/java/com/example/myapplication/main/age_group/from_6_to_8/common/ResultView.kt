@@ -5,10 +5,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -36,8 +38,9 @@ import com.example.myapplication.utils.extensions.scaled
 fun ResultView(
     score: Int,
     total: Int,
-    onBack: () -> Unit
-) {
+    onBack: () -> Unit,
+    onContinue: (() -> Unit)? = null // 👈 nullable callback
+){
     val percentage = score.toFloat() / maxOf(total, 1)
 
     val (title, emoji, color) = when {
@@ -101,11 +104,26 @@ fun ResultView(
         }
 
         // 👉 Button
-        KidsActionButton(
-            text = stringResource(R.string.go_back_to_lesson),
-            type = ButtonType.ORANGE,
-            onClick = onBack
-        )
+        Row {
+
+            KidsActionButton(
+                text = stringResource(R.string.go_back_to_lesson),
+                type = ButtonType.ORANGE,
+                onClick = onBack
+            )
+
+            if (onContinue != null){
+                Spacer(Modifier.width(Dimens8))
+
+                KidsActionButton(
+                    text = stringResource(R.string.want_to_continue),
+                    type = ButtonType.GREEN,
+                    onClick = onContinue
+                )
+            }
+        }
+
+
 
         Spacer(Modifier.weight(1f))
     }

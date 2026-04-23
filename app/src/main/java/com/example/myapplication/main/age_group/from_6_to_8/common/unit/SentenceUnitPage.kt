@@ -110,18 +110,25 @@ fun SentenceUnitPage(
                             .clip(RoundedCornerShape(Dimens12)) // 👈 IMPORTANT
                             .clickable {
                                 AudioPlayerManager.playSoundMenuClick()
-                                if (screenType == UnitSelectionScreen.MATCH_THE_PICTURE){
+                                when (screenType) {
+                                    UnitSelectionScreen.MATCH_THE_PICTURE -> {
+                                        navController.navigate(RouteNavigation.MatchThePicture.matchThePicture(item.unit.name, uiState.level.name))
+                                    }
+                                    UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT -> {
 
-                                }else if (screenType == UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT){
+                                    }
+                                    UnitSelectionScreen.FIND_THE_CORRECT_WRITING -> {
 
-                                }else if (screenType == UnitSelectionScreen.FIND_THE_CORRECT_WRITING){
+                                    }
+                                    UnitSelectionScreen.SENTENCE_CHECK -> {
 
-                                }else if (screenType == UnitSelectionScreen.SENTENCE_CHECK){
+                                    }
+                                    UnitSelectionScreen.BUILD_THE_SENTENCE -> {
 
-                                }else if (screenType == UnitSelectionScreen.BUILD_THE_SENTENCE){
-
-                                }else{
-                                    navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, uiState.level.name))
+                                    }
+                                    else -> {
+                                        navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, uiState.level.name))
+                                    }
                                 }
                             }
                     ) {

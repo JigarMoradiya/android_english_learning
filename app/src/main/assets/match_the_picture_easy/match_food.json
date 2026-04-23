@@ -1,0 +1,717 @@
+[
+    {
+      "id": "food_1_q1",
+      "imageId": "food_1",
+      "imageName": "apple_fruit",
+      "level": "easy",
+      "correctSentence": "This is an apple.",
+      "wrongOptions": [
+        "This is a mango.",
+        "This is a tomato."
+      ]
+    },
+    {
+      "id": "food_1_q2",
+      "imageId": "food_1",
+      "imageName": "apple_fruit",
+      "level": "easy",
+      "correctSentence": "The apple is red.",
+      "wrongOptions": [
+        "The apple is blue.",
+        "The apple is purple."
+      ]
+    },
+    {
+      "id": "food_1_q3",
+      "imageId": "food_1",
+      "imageName": "apple_fruit",
+      "level": "easy",
+      "correctSentence": "The apple is round.",
+      "wrongOptions": [
+        "The apple is square.",
+        "The apple is flat."
+      ]
+    },
+    {
+      "id": "food_1_q4",
+      "imageId": "food_1",
+      "imageName": "apple_fruit",
+      "level": "easy",
+      "correctSentence": "The apple tastes sweet.",
+      "wrongOptions": [
+        "The apple tastes salty.",
+        "The apple tastes bitter."
+      ]
+    },
+    {
+      "id": "food_1_q5",
+      "imageId": "food_1",
+      "imageName": "apple_fruit",
+      "level": "easy",
+      "correctSentence": "The child washes the apple.",
+      "wrongOptions": [
+        "The child throws the apple.",
+        "The child hides the apple."
+      ]
+    },
+    {
+      "id": "food_1_q6",
+      "imageId": "food_1",
+      "imageName": "apple_fruit",
+      "level": "easy",
+      "correctSentence": "The child takes a bite.",
+      "wrongOptions": [
+        "The child drops the apple.",
+        "The child steps on the apple."
+      ]
+    },
+    {
+      "id": "food_1_q7",
+      "imageId": "food_1",
+      "imageName": "apple_fruit",
+      "level": "easy",
+      "correctSentence": "The apple is healthy.",
+      "wrongOptions": [
+        "The apple is harmful.",
+        "The apple is dirty."
+      ]
+    },
+    {
+      "id": "food_2_q1",
+      "imageId": "food_2",
+      "imageName": "banana_fruit",
+      "level": "easy",
+      "correctSentence": "This is a banana.",
+      "wrongOptions": [
+        "This is a carrot.",
+        "This is a cucumber."
+      ]
+    },
+    {
+      "id": "food_2_q2",
+      "imageId": "food_2",
+      "imageName": "banana_fruit",
+      "level": "easy",
+      "correctSentence": "The banana is yellow.",
+      "wrongOptions": [
+        "The banana is blue.",
+        "The banana is pink."
+      ]
+    },
+    {
+      "id": "food_2_q3",
+      "imageId": "food_2",
+      "imageName": "banana_fruit",
+      "level": "easy",
+      "correctSentence": "The banana is long.",
+      "wrongOptions": [
+        "The banana is square.",
+        "The banana is tiny and round."
+      ]
+    },
+    {
+      "id": "food_2_q4",
+      "imageId": "food_2",
+      "imageName": "banana_fruit",
+      "level": "easy",
+      "correctSentence": "The child peels the banana.",
+      "wrongOptions": [
+        "The child throws the banana.",
+        "The child hides the banana."
+      ]
+    },
+    {
+      "id": "food_2_q5",
+      "imageId": "food_2",
+      "imageName": "banana_fruit",
+      "level": "easy",
+      "correctSentence": "The child eats the banana.",
+      "wrongOptions": [
+        "The child eats the mango.",
+        "The child eats the pineapple."
+      ]
+    },
+    {
+      "id": "food_2_q6",
+      "imageId": "food_2",
+      "imageName": "banana_fruit",
+      "level": "easy",
+      "correctSentence": "Bananas give energy.",
+      "wrongOptions": [
+        "Bananas make you sleepy.",
+        "Bananas remove energy."
+      ]
+    },
+    {
+      "id": "food_3_q1",
+      "imageId": "food_3",
+      "imageName": "breakfast_table",
+      "level": "easy",
+      "correctSentence": "The child eats breakfast in the morning.",
+      "wrongOptions": [
+        "The child eats dinner at night.",
+        "The child skips breakfast."
+      ]
+    },
+    {
+      "id": "food_3_q2",
+      "imageId": "food_3",
+      "imageName": "breakfast_table",
+      "level": "easy",
+      "correctSentence": "There is milk on the table.",
+      "wrongOptions": [
+        "There is juice on the floor.",
+        "There is water in the bag."
+      ]
+    },
+    {
+      "id": "food_3_q3",
+      "imageId": "food_3",
+      "imageName": "breakfast_table",
+      "level": "easy",
+      "correctSentence": "There is bread and butter.",
+      "wrongOptions": [
+        "There is rice and curry.",
+        "There are chips and soda."
+      ]
+    },
+    {
+      "id": "food_3_q4",
+      "imageId": "food_3",
+      "imageName": "breakfast_table",
+      "level": "easy",
+      "correctSentence": "Mother makes eggs.",
+      "wrongOptions": [
+        "Mother throws the eggs.",
+        "Mother hides the eggs."
+      ]
+    },
+    {
+      "id": "food_3_q5",
+      "imageId": "food_3",
+      "imageName": "breakfast_table",
+      "level": "easy",
+      "correctSentence": "The child drinks milk.",
+      "wrongOptions": [
+        "The child spills the milk.",
+        "The child throws the milk."
+      ]
+    },
+    {
+      "id": "food_4_q1",
+      "imageId": "food_4",
+      "imageName": "lunch_box",
+      "level": "easy",
+      "correctSentence": "The child has a lunch box.",
+      "wrongOptions": [
+        "The child has a school bag.",
+        "The child has a water bottle."
+      ]
+    },
+    {
+      "id": "food_4_q2",
+      "imageId": "food_4",
+      "imageName": "lunch_box",
+      "level": "easy",
+      "correctSentence": "The lunch box has rice.",
+      "wrongOptions": [
+        "The lunch box has chocolate.",
+        "The lunch box has ice cream."
+      ]
+    },
+    {
+      "id": "food_4_q3",
+      "imageId": "food_4",
+      "imageName": "lunch_box",
+      "level": "easy",
+      "correctSentence": "The lunch box has vegetables.",
+      "wrongOptions": [
+        "The lunch box has candies.",
+        "The lunch box has chips."
+      ]
+    },
+    {
+      "id": "food_4_q4",
+      "imageId": "food_4",
+      "imageName": "lunch_box",
+      "level": "easy",
+      "correctSentence": "Mother packs the lunch.",
+      "wrongOptions": [
+        "Mother throws the lunch.",
+        "Mother forgets the lunch."
+      ]
+    },
+    {
+      "id": "food_4_q5",
+      "imageId": "food_4",
+      "imageName": "lunch_box",
+      "level": "easy",
+      "correctSentence": "The child eats at school.",
+      "wrongOptions": [
+        "The child eats in the bathroom.",
+        "The child eats in the playground while running."
+      ]
+    },
+    {
+      "id": "food_4_q6",
+      "imageId": "food_4",
+      "imageName": "lunch_box",
+      "level": "easy",
+      "correctSentence": "The child shares with a friend.",
+      "wrongOptions": [
+        "The child hides the food from a friend.",
+        "The child refuses to share."
+      ]
+    },
+    {
+      "id": "food_4_q7",
+      "imageId": "food_4",
+      "imageName": "lunch_box",
+      "level": "easy",
+      "correctSentence": "The food is tasty.",
+      "wrongOptions": [
+        "The food is spoiled.",
+        "The food is dirty."
+      ]
+    },
+    {
+      "id": "food_5_q1",
+      "imageId": "food_5",
+      "imageName": "orange_fruit",
+      "level": "easy",
+      "correctSentence": "This is an orange.",
+      "wrongOptions": [
+        "This is an apple.",
+        "This is a lemon."
+      ]
+    },
+    {
+      "id": "food_5_q2",
+      "imageId": "food_5",
+      "imageName": "orange_fruit",
+      "level": "easy",
+      "correctSentence": "The orange is round.",
+      "wrongOptions": [
+        "The orange is square.",
+        "The orange is flat."
+      ]
+    },
+    {
+      "id": "food_5_q3",
+      "imageId": "food_5",
+      "imageName": "orange_fruit",
+      "level": "easy",
+      "correctSentence": "The orange is orange in color.",
+      "wrongOptions": [
+        "The orange is blue in color.",
+        "The orange is purple in color."
+      ]
+    },
+    {
+      "id": "food_5_q4",
+      "imageId": "food_5",
+      "imageName": "orange_fruit",
+      "level": "easy",
+      "correctSentence": "The orange tastes sweet and sour.",
+      "wrongOptions": [
+        "The orange tastes salty.",
+        "The orange tastes bitter."
+      ]
+    },
+    {
+      "id": "food_5_q5",
+      "imageId": "food_5",
+      "imageName": "orange_fruit",
+      "level": "easy",
+      "correctSentence": "The child peels the orange.",
+      "wrongOptions": [
+        "The child throws the orange.",
+        "The child hides the orange."
+      ]
+    },
+    {
+      "id": "food_5_q6",
+      "imageId": "food_5",
+      "imageName": "orange_fruit",
+      "level": "easy",
+      "correctSentence": "The child eats the slices.",
+      "wrongOptions": [
+        "The child drops the slices.",
+        "The child steps on the slices."
+      ]
+    },
+    {
+      "id": "food_5_q7",
+      "imageId": "food_5",
+      "imageName": "orange_fruit",
+      "level": "easy",
+      "correctSentence": "Oranges are healthy.",
+      "wrongOptions": [
+        "Oranges are harmful.",
+        "Oranges are dirty."
+      ]
+    },
+    {
+      "id": "food_6_q1",
+      "imageId": "food_6",
+      "imageName": "vegetables_plate",
+      "level": "easy",
+      "correctSentence": "Vegetables are healthy.",
+      "wrongOptions": [
+        "Vegetables are harmful.",
+        "Vegetables are junk food."
+      ]
+    },
+    {
+      "id": "food_6_q2",
+      "imageId": "food_6",
+      "imageName": "vegetables_plate",
+      "level": "easy",
+      "correctSentence": "Carrots are orange.",
+      "wrongOptions": [
+        "Carrots are blue.",
+        "Carrots are purple."
+      ]
+    },
+    {
+      "id": "food_6_q3",
+      "imageId": "food_6",
+      "imageName": "vegetables_plate",
+      "level": "easy",
+      "correctSentence": "Spinach is green.",
+      "wrongOptions": [
+        "Spinach is red.",
+        "Spinach is yellow."
+      ]
+    },
+    {
+      "id": "food_6_q4",
+      "imageId": "food_6",
+      "imageName": "vegetables_plate",
+      "level": "easy",
+      "correctSentence": "Tomatoes are red.",
+      "wrongOptions": [
+        "Tomatoes are white.",
+        "Tomatoes are black."
+      ]
+    },
+    {
+      "id": "food_6_q6",
+      "imageId": "food_6",
+      "imageName": "vegetables_plate",
+      "level": "easy",
+      "correctSentence": "Vegetables are good to eat every day.",
+      "wrongOptions": [
+        "Vegetables are bad for health.",
+        "Vegetables should not be eaten."
+      ]
+    },
+    {
+      "id": "food_6_q7",
+      "imageId": "food_6",
+      "imageName": "vegetables_plate",
+      "level": "easy",
+      "correctSentence": "Vegetables make us strong.",
+      "wrongOptions": [
+        "Vegetables make us weak.",
+        "Vegetables make us sick."
+      ]
+    },
+    {
+      "id": "food_7_q1",
+      "imageId": "food_7",
+      "imageName": "milk_glass",
+      "level": "easy",
+      "correctSentence": "This is a glass of milk.",
+      "wrongOptions": [
+        "This is a glass of juice.",
+        "This is a cup of tea."
+      ]
+    },
+    {
+      "id": "food_7_q2",
+      "imageId": "food_7",
+      "imageName": "milk_glass",
+      "level": "easy",
+      "correctSentence": "Milk is white.",
+      "wrongOptions": [
+        "Milk is black.",
+        "Milk is green."
+      ]
+    },
+    {
+      "id": "food_7_q3",
+      "imageId": "food_7",
+      "imageName": "milk_glass",
+      "level": "easy",
+      "correctSentence": "Milk is good for bones.",
+      "wrongOptions": [
+        "Milk is bad for bones.",
+        "Milk harms the body."
+      ]
+    },
+    {
+      "id": "food_7_q4",
+      "imageId": "food_7",
+      "imageName": "milk_glass",
+      "level": "easy",
+      "correctSentence": "Milk tastes fresh.",
+      "wrongOptions": [
+        "Milk tastes bitter.",
+        "Milk tastes salty."
+      ]
+    },
+    {
+      "id": "food_7_q5",
+      "imageId": "food_7",
+      "imageName": "milk_glass",
+      "level": "easy",
+      "correctSentence": "Milk is healthy to drink daily.",
+      "wrongOptions": [
+        "Milk should not be drunk.",
+        "Milk is harmful to health."
+      ]
+    },
+    {
+      "id": "food_7_q6",
+      "imageId": "food_7",
+      "imageName": "milk_glass",
+      "level": "easy",
+      "correctSentence": "Milk makes the body strong.",
+      "wrongOptions": [
+        "Milk makes the body weak.",
+        "Milk makes the body sick."
+      ]
+    },
+    {
+      "id": "food_7_q7",
+      "imageId": "food_7",
+      "imageName": "milk_glass",
+      "level": "easy",
+      "correctSentence": "A glass of milk is healthy.",
+      "wrongOptions": [
+        "A glass of milk is dirty.",
+        "A glass of milk is unsafe."
+      ]
+    },
+    {
+      "id": "food_8_q1",
+      "imageId": "food_8",
+      "imageName": "birthday_cake",
+      "level": "easy",
+      "correctSentence": "There is a big cake.",
+      "wrongOptions": [
+        "There is a big pizza.",
+        "There is a big sandwich."
+      ]
+    },
+    {
+      "id": "food_8_q2",
+      "imageId": "food_8",
+      "imageName": "birthday_cake",
+      "level": "easy",
+      "correctSentence": "The cake is sweet.",
+      "wrongOptions": [
+        "The cake is salty.",
+        "The cake is bitter."
+      ]
+    },
+    {
+      "id": "food_8_q3",
+      "imageId": "food_8",
+      "imageName": "birthday_cake",
+      "level": "easy",
+      "correctSentence": "The cake has cream.",
+      "wrongOptions": [
+        "The cake has soup.",
+        "The cake has rice."
+      ]
+    },
+    {
+      "id": "food_8_q4",
+      "imageId": "food_8",
+      "imageName": "birthday_cake",
+      "level": "easy",
+      "correctSentence": "The cake is cut into pieces.",
+      "wrongOptions": [
+        "The cake is thrown away.",
+        "The cake is broken on the floor."
+      ]
+    },
+    {
+      "id": "food_8_q5",
+      "imageId": "food_8",
+      "imageName": "birthday_cake",
+      "level": "easy",
+      "correctSentence": "The cake is shared with everyone.",
+      "wrongOptions": [
+        "The cake is hidden from everyone.",
+        "The cake is wasted."
+      ]
+    },
+    {
+      "id": "food_8_q6",
+      "imageId": "food_8",
+      "imageName": "birthday_cake",
+      "level": "easy",
+      "correctSentence": "The cake looks delicious.",
+      "wrongOptions": [
+        "The cake looks spoiled.",
+        "The cake looks dirty."
+      ]
+    },
+    {
+      "id": "food_8_q7",
+      "imageId": "food_8",
+      "imageName": "birthday_cake",
+      "level": "easy",
+      "correctSentence": "A birthday cake makes the day special.",
+      "wrongOptions": [
+        "A birthday cake makes the day sad.",
+        "A birthday cake makes the day boring."
+      ]
+    },
+    {
+      "id": "food_9_q1",
+      "imageId": "food_9",
+      "imageName": "ice_cream",
+      "level": "easy",
+      "correctSentence": "The girl is holding an ice cream.",
+      "wrongOptions": [
+        "The girl is holding a book.",
+        "The girl is holding a balloon."
+      ]
+    },
+    {
+      "id": "food_9_q2",
+      "imageId": "food_9",
+      "imageName": "ice_cream",
+      "level": "easy",
+      "correctSentence": "Ice cream is cold.",
+      "wrongOptions": [
+        "Ice cream is hot.",
+        "Ice cream is warm."
+      ]
+    },
+    {
+      "id": "food_9_q3",
+      "imageId": "food_9",
+      "imageName": "ice_cream",
+      "level": "easy",
+      "correctSentence": "Ice cream tastes sweet.",
+      "wrongOptions": [
+        "Ice cream tastes salty.",
+        "Ice cream tastes bitter."
+      ]
+    },
+    {
+      "id": "food_9_q4",
+      "imageId": "food_9",
+      "imageName": "ice_cream",
+      "level": "easy",
+      "correctSentence": "Ice cream melts quickly.",
+      "wrongOptions": [
+        "Ice cream becomes hard in the sun.",
+        "Ice cream stays frozen in the heat."
+      ]
+    },
+    {
+      "id": "food_9_q5",
+      "imageId": "food_9",
+      "imageName": "ice_cream",
+      "level": "easy",
+      "correctSentence": "Ice cream comes in many flavors.",
+      "wrongOptions": [
+        "Ice cream comes in one flavor only.",
+        "Ice cream has no taste."
+      ]
+    },
+    {
+      "id": "food_9_q6",
+      "imageId": "food_9",
+      "imageName": "ice_cream",
+      "level": "easy",
+      "correctSentence": "Ice cream looks colorful.",
+      "wrongOptions": [
+        "Ice cream looks dirty.",
+        "Ice cream looks spoiled."
+      ]
+    },
+    {
+      "id": "food_9_q7",
+      "imageId": "food_9",
+      "imageName": "ice_cream",
+      "level": "easy",
+      "correctSentence": "Ice cream is a tasty treat.",
+      "wrongOptions": [
+        "Ice cream is a healthy vegetable.",
+        "Ice cream is plain water."
+      ]
+    },
+    {
+      "id": "food_10_q1",
+      "imageId": "food_10",
+      "imageName": "family_dinner",
+      "level": "easy",
+      "correctSentence": "The family eats dinner at night.",
+      "wrongOptions": [
+        "The family eats breakfast in the morning.",
+        "The family skips dinner."
+      ]
+    },
+    {
+      "id": "food_10_q2",
+      "imageId": "food_10",
+      "imageName": "family_dinner",
+      "level": "easy",
+      "correctSentence": "The family sits at the table.",
+      "wrongOptions": [
+        "The family stands on the table.",
+        "The family sits on the floor outside."
+      ]
+    },
+    {
+      "id": "food_10_q3",
+      "imageId": "food_10",
+      "imageName": "family_dinner",
+      "level": "easy",
+      "correctSentence": "There is rice and curry on the table.",
+      "wrongOptions": [
+        "There is cake and ice cream on the table.",
+        "There are toys on the table."
+      ]
+    },
+    {
+      "id": "food_10_q4",
+      "imageId": "food_10",
+      "imageName": "family_dinner",
+      "level": "easy",
+      "correctSentence": "The family talks together.",
+      "wrongOptions": [
+        "The family argues loudly.",
+        "The family stays silent and angry."
+      ]
+    },
+    {
+      "id": "food_10_q5",
+      "imageId": "food_10",
+      "imageName": "family_dinner",
+      "level": "easy",
+      "correctSentence": "The family eats slowly.",
+      "wrongOptions": [
+        "The family throws the food.",
+        "The family wastes the food."
+      ]
+    },
+    {
+      "id": "food_10_q6",
+      "imageId": "food_10",
+      "imageName": "family_dinner",
+      "level": "easy",
+      "correctSentence": "The family says thank you.",
+      "wrongOptions": [
+        "The family shouts angrily.",
+        "The family ignores each other."
+      ]
+    }
+]

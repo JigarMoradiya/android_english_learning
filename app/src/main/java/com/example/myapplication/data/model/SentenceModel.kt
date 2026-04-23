@@ -186,7 +186,6 @@ data class MatchPictureQuestion(
     val id: String,
     val imageId: String,
     val imageName: String,
-    val level: SentenceLevel,
     val correctSentence: String,
     val wrongOptions: List<String>
 )

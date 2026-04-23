@@ -1,0 +1,662 @@
+[
+    {
+      "id": "emotion_1_q1",
+      "imageId": "emotion_1",
+      "imageName": "happy_child",
+      "level": "easy",
+      "correctSentence": "The child laughs with joy.",
+      "wrongOptions": [
+        "The child shouts in anger.",
+        "The child hides in fear."
+      ]
+    },
+    {
+      "id": "emotion_1_q2",
+      "imageId": "emotion_1",
+      "imageName": "happy_child",
+      "level": "easy",
+      "correctSentence": "The child plays with friends.",
+      "wrongOptions": [
+        "The child sits alone.",
+        "The child pushes friends away."
+      ]
+    },
+    {
+      "id": "emotion_1_q3",
+      "imageId": "emotion_1",
+      "imageName": "happy_child",
+      "level": "easy",
+      "correctSentence": "The child jumps with excitement.",
+      "wrongOptions": [
+        "The child lies down sadly.",
+        "The child walks away quietly."
+      ]
+    },
+    {
+      "id": "emotion_1_q4",
+      "imageId": "emotion_1",
+      "imageName": "happy_child",
+      "level": "easy",
+      "correctSentence": "Happiness makes the child cheerful.",
+      "wrongOptions": [
+        "Happiness makes the child cry.",
+        "Happiness makes the child tired."
+      ]
+    },
+    {
+      "id": "emotion_1_q5",
+      "imageId": "emotion_1",
+      "imageName": "happy_child",
+      "level": "easy",
+      "correctSentence": "The child's face looks joyful.",
+      "wrongOptions": [
+        "The child's face looks worried.",
+        "The child's face looks upset."
+      ]
+    },
+    {
+      "id": "emotion_2_q1",
+      "imageId": "emotion_2",
+      "imageName": "sad_child",
+      "level": "easy",
+      "correctSentence": "The child feels sad.",
+      "wrongOptions": [
+        "The child feels excited.",
+        "The child feels proud."
+      ]
+    },
+    {
+      "id": "emotion_2_q2",
+      "imageId": "emotion_2",
+      "imageName": "sad_child",
+      "level": "easy",
+      "correctSentence": "Tears fall from the child's eyes.",
+      "wrongOptions": [
+        "The child laughs loudly.",
+        "The child smiles brightly."
+      ]
+    },
+    {
+      "id": "emotion_2_q3",
+      "imageId": "emotion_2",
+      "imageName": "sad_child",
+      "level": "easy",
+      "correctSentence": "The child sits quietly.",
+      "wrongOptions": [
+        "The child jumps happily.",
+        "The child runs quickly."
+      ]
+    },
+    {
+      "id": "emotion_2_q4",
+      "imageId": "emotion_2",
+      "imageName": "sad_child",
+      "level": "easy",
+      "correctSentence": "The child's face looks dull.",
+      "wrongOptions": [
+        "The child's face looks cheerful.",
+        "The child's face looks excited."
+      ]
+    },
+    {
+      "id": "emotion_2_q5",
+      "imageId": "emotion_2",
+      "imageName": "sad_child",
+      "level": "easy",
+      "correctSentence": "The child misses a friend.",
+      "wrongOptions": [
+        "The child plays with friends.",
+        "The child wins a prize."
+      ]
+    },
+    {
+      "id": "emotion_2_q6",
+      "imageId": "emotion_2",
+      "imageName": "sad_child",
+      "level": "easy",
+      "correctSentence": "Mother hugs the child gently.",
+      "wrongOptions": [
+        "Mother ignores the child.",
+        "Mother scolds the child."
+      ]
+    },
+    {
+      "id": "emotion_2_q7",
+      "imageId": "emotion_2",
+      "imageName": "sad_child",
+      "level": "easy",
+      "correctSentence": "The child feels better after a hug.",
+      "wrongOptions": [
+        "The child becomes angrier.",
+        "The child runs away."
+      ]
+    },
+    {
+      "id": "emotion_3_q1",
+      "imageId": "emotion_3",
+      "imageName": "angry_child",
+      "level": "easy",
+      "correctSentence": "The child feels angry.",
+      "wrongOptions": [
+        "The child feels happy.",
+        "The child feels sleepy."
+      ]
+    },
+    {
+      "id": "emotion_3_q2",
+      "imageId": "emotion_3",
+      "imageName": "angry_child",
+      "level": "easy",
+      "correctSentence": "The child's face turns red.",
+      "wrongOptions": [
+        "The child's face looks cheerful.",
+        "The child's face looks calm."
+      ]
+    },
+    {
+      "id": "emotion_3_q3",
+      "imageId": "emotion_3",
+      "imageName": "angry_child",
+      "level": "easy",
+      "correctSentence": "The child folds arms tightly.",
+      "wrongOptions": [
+        "The child claps hands happily.",
+        "The child waves at friends."
+      ]
+    },
+    {
+      "id": "emotion_3_q4",
+      "imageId": "emotion_3",
+      "imageName": "angry_child",
+      "level": "easy",
+      "correctSentence": "The child shouts loudly.",
+      "wrongOptions": [
+        "The child whispers softly.",
+        "The child sings a song."
+      ]
+    },
+    {
+      "id": "emotion_3_q5",
+      "imageId": "emotion_3",
+      "imageName": "angry_child",
+      "level": "easy",
+      "correctSentence": "The child takes deep breaths.",
+      "wrongOptions": [
+        "The child laughs loudly.",
+        "The child runs away."
+      ]
+    },
+    {
+      "id": "emotion_3_q6",
+      "imageId": "emotion_3",
+      "imageName": "angry_child",
+      "level": "easy",
+      "correctSentence": "The child calms down slowly.",
+      "wrongOptions": [
+        "The child becomes louder.",
+        "The child breaks toys."
+      ]
+    },
+    {
+      "id": "emotion_4_q1",
+      "imageId": "emotion_4",
+      "imageName": "excited_child",
+      "level": "easy",
+      "correctSentence": "The child feels excited.",
+      "wrongOptions": [
+        "The child feels sleepy.",
+        "The child feels bored."
+      ]
+    },
+    {
+      "id": "emotion_4_q2",
+      "imageId": "emotion_4",
+      "imageName": "excited_child",
+      "level": "easy",
+      "correctSentence": "The child's eyes shine brightly.",
+      "wrongOptions": [
+        "The child's eyes close slowly.",
+        "The child's eyes look dull."
+      ]
+    },
+    {
+      "id": "emotion_4_q3",
+      "imageId": "emotion_4",
+      "imageName": "excited_child",
+      "level": "easy",
+      "correctSentence": "The child claps hands happily.",
+      "wrongOptions": [
+        "The child folds arms angrily.",
+        "The child sits quietly."
+      ]
+    },
+    {
+      "id": "emotion_4_q4",
+      "imageId": "emotion_4",
+      "imageName": "excited_child",
+      "level": "easy",
+      "correctSentence": "The child jumps up and down.",
+      "wrongOptions": [
+        "The child lies on the bed.",
+        "The child walks away slowly."
+      ]
+    },
+    {
+      "id": "emotion_4_q5",
+      "imageId": "emotion_4",
+      "imageName": "excited_child",
+      "level": "easy",
+      "correctSentence": "The child talks quickly with joy.",
+      "wrongOptions": [
+        "The child whispers sadly.",
+        "The child stays silent."
+      ]
+    },
+    {
+      "id": "emotion_4_q6",
+      "imageId": "emotion_4",
+      "imageName": "excited_child",
+      "level": "easy",
+      "correctSentence": "Excitement makes the child smile widely.",
+      "wrongOptions": [
+        "Excitement makes the child cry.",
+        "Excitement makes the child tired."
+      ]
+    },
+    {
+      "id": "emotion_5_q1",
+      "imageId": "emotion_5",
+      "imageName": "scared_child",
+      "level": "easy",
+      "correctSentence": "The child feels scared.",
+      "wrongOptions": [
+        "The child feels excited.",
+        "The child feels proud."
+      ]
+    },
+    {
+      "id": "emotion_5_q2",
+      "imageId": "emotion_5",
+      "imageName": "scared_child",
+      "level": "easy",
+      "correctSentence": "The child's heart beats fast.",
+      "wrongOptions": [
+        "The child laughs loudly.",
+        "The child sings happily."
+      ]
+    },
+    {
+      "id": "emotion_5_q3",
+      "imageId": "emotion_5",
+      "imageName": "scared_child",
+      "level": "easy",
+      "correctSentence": "The child holds the mother tightly.",
+      "wrongOptions": [
+        "The child runs away confidently.",
+        "The child jumps with joy."
+      ]
+    },
+    {
+      "id": "emotion_5_q4",
+      "imageId": "emotion_5",
+      "imageName": "scared_child",
+      "level": "easy",
+      "correctSentence": "The child looks around nervously.",
+      "wrongOptions": [
+        "The child waves at friends.",
+        "The child dances happily."
+      ]
+    },
+    {
+      "id": "emotion_5_q5",
+      "imageId": "emotion_5",
+      "imageName": "scared_child",
+      "level": "easy",
+      "correctSentence": "The room feels dark and quiet.",
+      "wrongOptions": [
+        "The room is bright and colorful.",
+        "The room is full of laughter."
+      ]
+    },
+    {
+      "id": "emotion_5_q6",
+      "imageId": "emotion_5",
+      "imageName": "scared_child",
+      "level": "easy",
+      "correctSentence": "The child closes eyes in fear.",
+      "wrongOptions": [
+        "The child opens gifts happily.",
+        "The child starts clapping."
+      ]
+    },
+    {
+      "id": "emotion_6_q1",
+      "imageId": "emotion_6",
+      "imageName": "surprised_child",
+      "level": "easy",
+      "correctSentence": "The child feels surprised.",
+      "wrongOptions": [
+        "The child feels sleepy.",
+        "The child feels angry."
+      ]
+    },
+    {
+      "id": "emotion_6_q2",
+      "imageId": "emotion_6",
+      "imageName": "surprised_child",
+      "level": "easy",
+      "correctSentence": "The child's mouth opens wide.",
+      "wrongOptions": [
+        "The child closes the mouth tightly.",
+        "The child starts laughing loudly."
+      ]
+    },
+    {
+      "id": "emotion_6_q3",
+      "imageId": "emotion_6",
+      "imageName": "surprised_child",
+      "level": "easy",
+      "correctSentence": "The child's eyes grow big.",
+      "wrongOptions": [
+        "The child's eyes close slowly.",
+        "The child's eyes look sleepy."
+      ]
+    },
+    {
+      "id": "emotion_6_q4",
+      "imageId": "emotion_6",
+      "imageName": "surprised_child",
+      "level": "easy",
+      "correctSentence": "The child says wow.",
+      "wrongOptions": [
+        "The child cries loudly.",
+        "The child whispers sadly."
+      ]
+    },
+    {
+      "id": "emotion_6_q5",
+      "imageId": "emotion_6",
+      "imageName": "surprised_child",
+      "level": "easy",
+      "correctSentence": "The child looks around in surprise.",
+      "wrongOptions": [
+        "The child hides behind a chair.",
+        "The child lies down to sleep."
+      ]
+    },
+    {
+      "id": "emotion_6_q6",
+      "imageId": "emotion_6",
+      "imageName": "surprised_child",
+      "level": "easy",
+      "correctSentence": "Surprise brings a big smile.",
+      "wrongOptions": [
+        "Surprise makes the room dark.",
+        "Surprise makes everyone tired."
+      ]
+    },
+    {
+      "id": "emotion_7_q1",
+      "imageId": "emotion_7",
+      "imageName": "tired_child",
+      "level": "easy",
+      "correctSentence": "The child feels tired.",
+      "wrongOptions": [
+        "The child feels excited.",
+        "The child feels proud."
+      ]
+    },
+    {
+      "id": "emotion_7_q2",
+      "imageId": "emotion_7",
+      "imageName": "tired_child",
+      "level": "easy",
+      "correctSentence": "The child yawns softly.",
+      "wrongOptions": [
+        "The child jumps happily.",
+        "The child shouts loudly."
+      ]
+    },
+    {
+      "id": "emotion_7_q3",
+      "imageId": "emotion_7",
+      "imageName": "tired_child",
+      "level": "easy",
+      "correctSentence": "The child's eyes close slowly.",
+      "wrongOptions": [
+        "The child's eyes shine brightly.",
+        "The child's eyes look angry."
+      ]
+    },
+    {
+      "id": "emotion_7_q4",
+      "imageId": "emotion_7",
+      "imageName": "tired_child",
+      "level": "easy",
+      "correctSentence": "The child lies down to rest.",
+      "wrongOptions": [
+        "The child runs in the park.",
+        "The child dances on the table."
+      ]
+    },
+    {
+      "id": "emotion_7_q5",
+      "imageId": "emotion_7",
+      "imageName": "tired_child",
+      "level": "easy",
+      "correctSentence": "The child stretches arms slowly.",
+      "wrongOptions": [
+        "The child claps loudly.",
+        "The child throws toys."
+      ]
+    },
+    {
+      "id": "emotion_7_q6",
+      "imageId": "emotion_7",
+      "imageName": "tired_child",
+      "level": "easy",
+      "correctSentence": "Sleep helps the child feel better.",
+      "wrongOptions": [
+        "Sleep makes the child angry.",
+        "Sleep makes the child shout."
+      ]
+    },
+    {
+      "id": "emotion_8_q1",
+      "imageId": "emotion_8",
+      "imageName": "proud_child",
+      "level": "easy",
+      "correctSentence": "The child feels proud.",
+      "wrongOptions": [
+        "The child feels scared.",
+        "The child feels worried."
+      ]
+    },
+    {
+      "id": "emotion_8_q2",
+      "imageId": "emotion_8",
+      "imageName": "proud_child",
+      "level": "easy",
+      "correctSentence": "The child stands tall confidently.",
+      "wrongOptions": [
+        "The child hides behind a chair.",
+        "The child sits on the floor sadly."
+      ]
+    },
+    {
+      "id": "emotion_8_q3",
+      "imageId": "emotion_8",
+      "imageName": "proud_child",
+      "level": "easy",
+      "correctSentence": "The child smiles with confidence.",
+      "wrongOptions": [
+        "The child cries loudly.",
+        "The child looks angry."
+      ]
+    },
+    {
+      "id": "emotion_8_q4",
+      "imageId": "emotion_8",
+      "imageName": "proud_child",
+      "level": "easy",
+      "correctSentence": "The child finishes the work successfully.",
+      "wrongOptions": [
+        "The child tears the notebook.",
+        "The child throws the pencil."
+      ]
+    },
+    {
+      "id": "emotion_8_q5",
+      "imageId": "emotion_8",
+      "imageName": "proud_child",
+      "level": "easy",
+      "correctSentence": "The teacher praises the child.",
+      "wrongOptions": [
+        "The teacher ignores the child.",
+        "The teacher scolds the child."
+      ]
+    },
+    {
+      "id": "emotion_8_q6",
+      "imageId": "emotion_8",
+      "imageName": "proud_child",
+      "level": "easy",
+      "correctSentence": "The parents clap happily.",
+      "wrongOptions": [
+        "The parents walk away.",
+        "The parents look upset."
+      ]
+    },
+    {
+      "id": "emotion_8_q7",
+      "imageId": "emotion_8",
+      "imageName": "proud_child",
+      "level": "easy",
+      "correctSentence": "Pride brings a bright smile.",
+      "wrongOptions": [
+        "Pride brings tears.",
+        "Pride brings fear."
+      ]
+    },
+    {
+      "id": "emotion_9_q1",
+      "imageId": "emotion_9",
+      "imageName": "worried_child",
+      "level": "easy",
+      "correctSentence": "The child feels worried.",
+      "wrongOptions": [
+        "The child feels excited.",
+        "The child feels proud."
+      ]
+    },
+    {
+      "id": "emotion_9_q2",
+      "imageId": "emotion_9",
+      "imageName": "worried_child",
+      "level": "easy",
+      "correctSentence": "The child thinks deeply.",
+      "wrongOptions": [
+        "The child laughs loudly.",
+        "The child dances happily."
+      ]
+    },
+    {
+      "id": "emotion_9_q3",
+      "imageId": "emotion_9",
+      "imageName": "worried_child",
+      "level": "easy",
+      "correctSentence": "The child's face looks serious.",
+      "wrongOptions": [
+        "The child's face looks joyful.",
+        "The child's face looks excited."
+      ]
+    },
+    {
+      "id": "emotion_9_q4",
+      "imageId": "emotion_9",
+      "imageName": "worried_child",
+      "level": "easy",
+      "correctSentence": "The child asks for help.",
+      "wrongOptions": [
+        "The child hides the problem.",
+        "The child starts playing."
+      ]
+    },
+    {
+      "id": "emotion_10_q1",
+      "imageId": "emotion_10",
+      "imageName": "kind_child",
+      "level": "easy",
+      "correctSentence": "The child is kind.",
+      "wrongOptions": [
+        "The child is rude.",
+        "The child is angry."
+      ]
+    },
+    {
+      "id": "emotion_10_q2",
+      "imageId": "emotion_10",
+      "imageName": "kind_child",
+      "level": "easy",
+      "correctSentence": "The child helps a friend.",
+      "wrongOptions": [
+        "The child pushes a friend.",
+        "The child ignores a friend."
+      ]
+    },
+    {
+      "id": "emotion_10_q3",
+      "imageId": "emotion_10",
+      "imageName": "kind_child",
+      "level": "easy",
+      "correctSentence": "The child shares toys.",
+      "wrongOptions": [
+        "The child hides toys.",
+        "The child breaks toys."
+      ]
+    },
+    {
+      "id": "emotion_10_q4",
+      "imageId": "emotion_10",
+      "imageName": "kind_child",
+      "level": "easy",
+      "correctSentence": "The child says thank you.",
+      "wrongOptions": [
+        "The child shouts angrily.",
+        "The child refuses to speak."
+      ]
+    },
+    {
+      "id": "emotion_10_q5",
+      "imageId": "emotion_10",
+      "imageName": "kind_child",
+      "level": "easy",
+      "correctSentence": "The child speaks softly.",
+      "wrongOptions": [
+        "The child screams loudly.",
+        "The child argues loudly."
+      ]
+    },
+    {
+      "id": "emotion_10_q6",
+      "imageId": "emotion_10",
+      "imageName": "kind_child",
+      "level": "easy",
+      "correctSentence": "The child smiles at others.",
+      "wrongOptions": [
+        "The child turns away.",
+        "The child looks upset."
+      ]
+    },
+    {
+      "id": "emotion_10_q7",
+      "imageId": "emotion_10",
+      "imageName": "kind_child",
+      "level": "easy",
+      "correctSentence": "Kindness makes everyone happy.",
+      "wrongOptions": [
+        "Kindness makes everyone sad.",
+        "Kindness causes anger."
+      ]
+    }
+]

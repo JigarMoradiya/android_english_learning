@@ -1,0 +1,706 @@
+[
+    {
+      "id": "sports_1_q1",
+      "imageId": "sports_1",
+      "imageName": "playing_football",
+      "level": "easy",
+      "correctSentence": "Children play football.",
+      "wrongOptions": [
+        "Children read books.",
+        "Children bake cakes."
+      ]
+    },
+    {
+      "id": "sports_1_q2",
+      "imageId": "sports_1",
+      "imageName": "playing_football",
+      "level": "easy",
+      "correctSentence": "The ball is round.",
+      "wrongOptions": [
+        "The ball is square.",
+        "The ball is flat."
+      ]
+    },
+    {
+      "id": "sports_1_q3",
+      "imageId": "sports_1",
+      "imageName": "playing_football",
+      "level": "easy",
+      "correctSentence": "Children kick the ball.",
+      "wrongOptions": [
+        "Children carry the ball.",
+        "Children hide the ball."
+      ]
+    },
+    {
+      "id": "sports_1_q4",
+      "imageId": "sports_1",
+      "imageName": "playing_football",
+      "level": "easy",
+      "correctSentence": "Players run fast.",
+      "wrongOptions": [
+        "Players walk slowly.",
+        "Players crawl quietly."
+      ]
+    },
+    {
+      "id": "sports_1_q5",
+      "imageId": "sports_1",
+      "imageName": "playing_football",
+      "level": "easy",
+      "correctSentence": "The team cheers loudly.",
+      "wrongOptions": [
+        "The team sleeps silently.",
+        "The team whispers softly."
+      ]
+    },
+    {
+      "id": "sports_1_q6",
+      "imageId": "sports_1",
+      "imageName": "playing_football",
+      "level": "easy",
+      "correctSentence": "Players score a goal.",
+      "wrongOptions": [
+        "Players paint a wall.",
+        "Players wash clothes."
+      ]
+    },
+    {
+      "id": "sports_2_q1",
+      "imageId": "sports_2",
+      "imageName": "playing_cricket",
+      "level": "easy",
+      "correctSentence": "Children play cricket.",
+      "wrongOptions": [
+        "Children draw pictures.",
+        "Children cook dinner."
+      ]
+    },
+    {
+      "id": "sports_2_q2",
+      "imageId": "sports_2",
+      "imageName": "playing_cricket",
+      "level": "easy",
+      "correctSentence": "A player holds a bat.",
+      "wrongOptions": [
+        "A player holds a basket.",
+        "A player holds a pillow."
+      ]
+    },
+    {
+      "id": "sports_2_q3",
+      "imageId": "sports_2",
+      "imageName": "playing_cricket",
+      "level": "easy",
+      "correctSentence": "The ball is small.",
+      "wrongOptions": [
+        "The ball is giant.",
+        "The ball is heavy."
+      ]
+    },
+    {
+      "id": "sports_2_q4",
+      "imageId": "sports_2",
+      "imageName": "playing_cricket",
+      "level": "easy",
+      "correctSentence": "Players hit the ball.",
+      "wrongOptions": [
+        "Players paint the ball.",
+        "Players carry the ball."
+      ]
+    },
+    {
+      "id": "sports_2_q5",
+      "imageId": "sports_2",
+      "imageName": "playing_cricket",
+      "level": "easy",
+      "correctSentence": "Players run quickly.",
+      "wrongOptions": [
+        "Players sit quietly.",
+        "Players sleep peacefully."
+      ]
+    },
+    {
+      "id": "sports_2_q6",
+      "imageId": "sports_2",
+      "imageName": "playing_cricket",
+      "level": "easy",
+      "correctSentence": "The team claps loudly.",
+      "wrongOptions": [
+        "The team whispers softly.",
+        "The team listens silently."
+      ]
+    },
+    {
+      "id": "sports_3_q1",
+      "imageId": "sports_3",
+      "imageName": "playing_basketball",
+      "level": "easy",
+      "correctSentence": "Children play basketball.",
+      "wrongOptions": [
+        "Children read novels.",
+        "Children plant flowers."
+      ]
+    },
+    {
+      "id": "sports_3_q2",
+      "imageId": "sports_3",
+      "imageName": "playing_basketball",
+      "level": "easy",
+      "correctSentence": "The hoop is high.",
+      "wrongOptions": [
+        "The hoop is tiny.",
+        "The hoop is broken."
+      ]
+    },
+    {
+      "id": "sports_3_q3",
+      "imageId": "sports_3",
+      "imageName": "playing_basketball",
+      "level": "easy",
+      "correctSentence": "Players bounce the ball.",
+      "wrongOptions": [
+        "Players paint the ball.",
+        "Players polish the ball."
+      ]
+    },
+    {
+      "id": "sports_3_q4",
+      "imageId": "sports_3",
+      "imageName": "playing_basketball",
+      "level": "easy",
+      "correctSentence": "Players throw the ball.",
+      "wrongOptions": [
+        "Players carry the ball.",
+        "Players wash the ball."
+      ]
+    },
+    {
+      "id": "sports_3_q5",
+      "imageId": "sports_3",
+      "imageName": "playing_basketball",
+      "level": "easy",
+      "correctSentence": "The ball goes into the net.",
+      "wrongOptions": [
+        "The ball rolls under the bench.",
+        "The ball lands beside the tree."
+      ]
+    },
+    {
+      "id": "sports_3_q6",
+      "imageId": "sports_3",
+      "imageName": "playing_basketball",
+      "level": "easy",
+      "correctSentence": "Friends cheer loudly.",
+      "wrongOptions": [
+        "Friends whisper quietly.",
+        "Friends sleep peacefully."
+      ]
+    },
+    {
+      "id": "sports_4_q1",
+      "imageId": "sports_4",
+      "imageName": "running_race",
+      "level": "easy",
+      "correctSentence": "Children run in a race.",
+      "wrongOptions": [
+        "Children paint in a studio.",
+        "Children cook in a kitchen."
+      ]
+    },
+    {
+      "id": "sports_4_q2",
+      "imageId": "sports_4",
+      "imageName": "running_race",
+      "level": "easy",
+      "correctSentence": "Runners wear sports shoes.",
+      "wrongOptions": [
+        "Runners wear winter coats.",
+        "Runners wear shiny crowns."
+      ]
+    },
+    {
+      "id": "sports_4_q3",
+      "imageId": "sports_4",
+      "imageName": "running_race",
+      "level": "easy",
+      "correctSentence": "Runners run very fast.",
+      "wrongOptions": [
+        "Runners walk very slowly.",
+        "Runners crawl very carefully."
+      ]
+    },
+    {
+      "id": "sports_4_q4",
+      "imageId": "sports_4",
+      "imageName": "running_race",
+      "level": "easy",
+      "correctSentence": "The heart beats fast.",
+      "wrongOptions": [
+        "The clock ticks loudly.",
+        "The drum sounds softly."
+      ]
+    },
+    {
+      "id": "sports_4_q5",
+      "imageId": "sports_4",
+      "imageName": "running_race",
+      "level": "easy",
+      "correctSentence": "People clap loudly.",
+      "wrongOptions": [
+        "People whisper quietly.",
+        "People listen silently."
+      ]
+    },
+    {
+      "id": "sports_4_q6",
+      "imageId": "sports_4",
+      "imageName": "running_race",
+      "level": "easy",
+      "correctSentence": "Runners reach the finish line.",
+      "wrongOptions": [
+        "Runners cross the river bridge.",
+        "Runners enter the classroom door."
+      ]
+    },
+    {
+      "id": "sports_4_q7",
+      "imageId": "sports_4",
+      "imageName": "running_race",
+      "level": "easy",
+      "correctSentence": "Victory feels proud.",
+      "wrongOptions": [
+        "Defeat feels bitter.",
+        "Failure feels heavy."
+      ]
+    },
+    {
+      "id": "sports_5_q1",
+      "imageId": "sports_5",
+      "imageName": "swimming_pool",
+      "level": "easy",
+      "correctSentence": "Children swim in the pool.",
+      "wrongOptions": [
+        "Children draw on paper.",
+        "Children bake sweet cakes."
+      ]
+    },
+    {
+      "id": "sports_5_q2",
+      "imageId": "sports_5",
+      "imageName": "swimming_pool",
+      "level": "easy",
+      "correctSentence": "The water is cool.",
+      "wrongOptions": [
+        "The water is boiling.",
+        "The water is muddy."
+      ]
+    },
+    {
+      "id": "sports_5_q3",
+      "imageId": "sports_5",
+      "imageName": "swimming_pool",
+      "level": "easy",
+      "correctSentence": "Swimmers move arms.",
+      "wrongOptions": [
+        "Swimmers fold arms.",
+        "Swimmers wave flags."
+      ]
+    },
+    {
+      "id": "sports_5_q4",
+      "imageId": "sports_5",
+      "imageName": "swimming_pool",
+      "level": "easy",
+      "correctSentence": "Swimmers kick legs.",
+      "wrongOptions": [
+        "Swimmers bend knees.",
+        "Swimmers tap fingers."
+      ]
+    },
+    {
+      "id": "sports_5_q5",
+      "imageId": "sports_5",
+      "imageName": "swimming_pool",
+      "level": "easy",
+      "correctSentence": "Swimmers wear goggles.",
+      "wrongOptions": [
+        "Swimmers wear jackets.",
+        "Swimmers wear sandals."
+      ]
+    },
+    {
+      "id": "sports_5_q6",
+      "imageId": "sports_5",
+      "imageName": "swimming_pool",
+      "level": "easy",
+      "correctSentence": "Swimmers float on water.",
+      "wrongOptions": [
+        "Swimmers climb ladders.",
+        "Swimmers carry buckets."
+      ]
+    },
+    {
+      "id": "sports_5_q7",
+      "imageId": "sports_5",
+      "imageName": "swimming_pool",
+      "level": "easy",
+      "correctSentence": "Swimming is healthy.",
+      "wrongOptions": [
+        "Swimming is dangerous.",
+        "Swimming is boring."
+      ]
+    },
+    {
+      "id": "sports_6_q1",
+      "imageId": "sports_6",
+      "imageName": "cycling_park",
+      "level": "easy",
+      "correctSentence": "Children ride bicycles.",
+      "wrongOptions": [
+        "Children bake bread.",
+        "Children paint walls."
+      ]
+    },
+    {
+      "id": "sports_6_q2",
+      "imageId": "sports_6",
+      "imageName": "cycling_park",
+      "level": "easy",
+      "correctSentence": "The bicycle has two wheels.",
+      "wrongOptions": [
+        "The bicycle has five pedals.",
+        "The bicycle has four mirrors."
+      ]
+    },
+    {
+      "id": "sports_6_q3",
+      "imageId": "sports_6",
+      "imageName": "cycling_park",
+      "level": "easy",
+      "correctSentence": "Cyclists pedal slowly.",
+      "wrongOptions": [
+        "Cyclists whistle loudly.",
+        "Cyclists wave flags."
+      ]
+    },
+    {
+      "id": "sports_6_q4",
+      "imageId": "sports_6",
+      "imageName": "cycling_park",
+      "level": "easy",
+      "correctSentence": "Cyclists wear helmets.",
+      "wrongOptions": [
+        "Cyclists wear crowns.",
+        "Cyclists wear scarves."
+      ]
+    },
+    {
+      "id": "sports_6_q5",
+      "imageId": "sports_6",
+      "imageName": "cycling_park",
+      "level": "easy",
+      "correctSentence": "The wind feels nice.",
+      "wrongOptions": [
+        "The wind feels freezing.",
+        "The wind feels dusty."
+      ]
+    },
+    {
+      "id": "sports_6_q6",
+      "imageId": "sports_6",
+      "imageName": "cycling_park",
+      "level": "easy",
+      "correctSentence": "Cyclists stop safely.",
+      "wrongOptions": [
+        "Cyclists stop suddenly.",
+        "Cyclists stop carelessly."
+      ]
+    },
+    {
+      "id": "sports_7_q1",
+      "imageId": "sports_7",
+      "imageName": "yoga_class",
+      "level": "easy",
+      "correctSentence": "Children practice yoga.",
+      "wrongOptions": [
+        "Children cook noodles.",
+        "Children repair bicycles."
+      ]
+    },
+    {
+      "id": "sports_7_q2",
+      "imageId": "sports_7",
+      "imageName": "yoga_class",
+      "level": "easy",
+      "correctSentence": "Students sit quietly.",
+      "wrongOptions": [
+        "Students shout loudly.",
+        "Students jump wildly."
+      ]
+    },
+    {
+      "id": "sports_7_q3",
+      "imageId": "sports_7",
+      "imageName": "yoga_class",
+      "level": "easy",
+      "correctSentence": "Students breathe slowly.",
+      "wrongOptions": [
+        "Students whistle sharply.",
+        "Students laugh loudly."
+      ]
+    },
+    {
+      "id": "sports_7_q4",
+      "imageId": "sports_7",
+      "imageName": "yoga_class",
+      "level": "easy",
+      "correctSentence": "Students stretch bodies.",
+      "wrongOptions": [
+        "Students carry bags.",
+        "Students push tables."
+      ]
+    },
+    {
+      "id": "sports_7_q5",
+      "imageId": "sports_7",
+      "imageName": "yoga_class",
+      "level": "easy",
+      "correctSentence": "Students close eyes.",
+      "wrongOptions": [
+        "Students wave hands.",
+        "Students stamp feet."
+      ]
+    },
+    {
+      "id": "sports_7_q6",
+      "imageId": "sports_7",
+      "imageName": "yoga_class",
+      "level": "easy",
+      "correctSentence": "Yoga makes minds calm.",
+      "wrongOptions": [
+        "Yoga makes rooms noisy.",
+        "Yoga makes streets crowded."
+      ]
+    },
+    {
+      "id": "sports_7_q7",
+      "imageId": "sports_7",
+      "imageName": "yoga_class",
+      "level": "easy",
+      "correctSentence": "Yoga is relaxing.",
+      "wrongOptions": [
+        "Yoga is difficult.",
+        "Yoga is tiring."
+      ]
+    },
+    {
+      "id": "sports_8_q1",
+      "imageId": "sports_8",
+      "imageName": "badminton_game",
+      "level": "easy",
+      "correctSentence": "Children play badminton.",
+      "wrongOptions": [
+        "Children draw pictures.",
+        "Children bake cookies."
+      ]
+    },
+    {
+      "id": "sports_8_q2",
+      "imageId": "sports_8",
+      "imageName": "badminton_game",
+      "level": "easy",
+      "correctSentence": "Players hold rackets.",
+      "wrongOptions": [
+        "Players carry baskets.",
+        "Players hold umbrellas."
+      ]
+    },
+    {
+      "id": "sports_8_q3",
+      "imageId": "sports_8",
+      "imageName": "badminton_game",
+      "level": "easy",
+      "correctSentence": "Players hit the shuttle.",
+      "wrongOptions": [
+        "Players throw stones.",
+        "Players kick bottles."
+      ]
+    },
+    {
+      "id": "sports_8_q4",
+      "imageId": "sports_8",
+      "imageName": "badminton_game",
+      "level": "easy",
+      "correctSentence": "The shuttle flies high.",
+      "wrongOptions": [
+        "The shuttle falls slowly.",
+        "The shuttle rolls sideways."
+      ]
+    },
+    {
+      "id": "sports_8_q5",
+      "imageId": "sports_8",
+      "imageName": "badminton_game",
+      "level": "easy",
+      "correctSentence": "Players move quickly.",
+      "wrongOptions": [
+        "Players sleep peacefully.",
+        "Players sit quietly."
+      ]
+    },
+    {
+      "id": "sports_8_q6",
+      "imageId": "sports_8",
+      "imageName": "badminton_game",
+      "level": "easy",
+      "correctSentence": "Players score points.",
+      "wrongOptions": [
+        "Players write letters.",
+        "Players wash dishes."
+      ]
+    },
+    {
+      "id": "sports_9_q1",
+      "imageId": "sports_9",
+      "imageName": "skipping_rope",
+      "level": "easy",
+      "correctSentence": "Children skip with a rope.",
+      "wrongOptions": [
+        "Children draw on boards.",
+        "Children cook sweet rice."
+      ]
+    },
+    {
+      "id": "sports_9_q2",
+      "imageId": "sports_9",
+      "imageName": "skipping_rope",
+      "level": "easy",
+      "correctSentence": "Children jump high.",
+      "wrongOptions": [
+        "Children crawl slowly.",
+        "Children sleep deeply."
+      ]
+    },
+    {
+      "id": "sports_9_q3",
+      "imageId": "sports_9",
+      "imageName": "skipping_rope",
+      "level": "easy",
+      "correctSentence": "Children count loudly.",
+      "wrongOptions": [
+        "Children whisper softly.",
+        "Children listen quietly."
+      ]
+    },
+    {
+      "id": "sports_9_q4",
+      "imageId": "sports_9",
+      "imageName": "skipping_rope",
+      "level": "easy",
+      "correctSentence": "Friends clap happily.",
+      "wrongOptions": [
+        "Friends sleep peacefully.",
+        "Friends read silently."
+      ]
+    },
+    {
+      "id": "sports_9_q5",
+      "imageId": "sports_9",
+      "imageName": "skipping_rope",
+      "level": "easy",
+      "correctSentence": "Children keep balance.",
+      "wrongOptions": [
+        "Children break windows.",
+        "Children carry buckets."
+      ]
+    },
+    {
+      "id": "sports_9_q6",
+      "imageId": "sports_9",
+      "imageName": "skipping_rope",
+      "level": "easy",
+      "correctSentence": "Children try again.",
+      "wrongOptions": [
+        "Children close doors.",
+        "Children open boxes."
+      ]
+    },
+    {
+      "id": "sports_10_q1",
+      "imageId": "sports_10",
+      "imageName": "playing_chess",
+      "level": "easy",
+      "correctSentence": "Children play chess.",
+      "wrongOptions": [
+        "Children cook pasta.",
+        "Children paint fences."
+      ]
+    },
+    {
+      "id": "sports_10_q2",
+      "imageId": "sports_10",
+      "imageName": "playing_chess",
+      "level": "easy",
+      "correctSentence": "The board is square.",
+      "wrongOptions": [
+        "The board is round.",
+        "The board is broken."
+      ]
+    },
+    {
+      "id": "sports_10_q3",
+      "imageId": "sports_10",
+      "imageName": "playing_chess",
+      "level": "easy",
+      "correctSentence": "The pieces are small.",
+      "wrongOptions": [
+        "The pieces are giant.",
+        "The pieces are heavy."
+      ]
+    },
+    {
+      "id": "sports_10_q4",
+      "imageId": "sports_10",
+      "imageName": "playing_chess",
+      "level": "easy",
+      "correctSentence": "Players move pieces.",
+      "wrongOptions": [
+        "Players carry baskets.",
+        "Players wash plates."
+      ]
+    },
+    {
+      "id": "sports_10_q5",
+      "imageId": "sports_10",
+      "imageName": "playing_chess",
+      "level": "easy",
+      "correctSentence": "Players think carefully.",
+      "wrongOptions": [
+        "Players shout loudly.",
+        "Players run wildly."
+      ]
+    },
+    {
+      "id": "sports_10_q6",
+      "imageId": "sports_10",
+      "imageName": "playing_chess",
+      "level": "easy",
+      "correctSentence": "Players say check.",
+      "wrongOptions": [
+        "Players sing songs.",
+        "Players read stories."
+      ]
+    },
+    {
+      "id": "sports_10_q7",
+      "imageId": "sports_10",
+      "imageName": "playing_chess",
+      "level": "easy",
+      "correctSentence": "Chess is smart game.",
+      "wrongOptions": [
+        "Chess is boring game.",
+        "Chess is puzzle game."
+      ]
+    }
+]

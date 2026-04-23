@@ -1,0 +1,728 @@
+[
+    {
+      "id": "colors_1_q1",
+      "imageId": "colors_1",
+      "imageName": "red_ball",
+      "level": "easy",
+      "correctSentence": "The ball is Red.",
+      "wrongOptions": [
+        "The ball is blue.",
+        "The ball is green."
+      ]
+    },
+    {
+      "id": "colors_1_q2",
+      "imageId": "colors_1",
+      "imageName": "red_ball",
+      "level": "easy",
+      "correctSentence": "The ball is round.",
+      "wrongOptions": [
+        "The ball is square.",
+        "The ball is flat."
+      ]
+    },
+    {
+      "id": "colors_1_q3",
+      "imageId": "colors_1",
+      "imageName": "red_ball",
+      "level": "easy",
+      "correctSentence": "The ball is bright red.",
+      "wrongOptions": [
+        "The ball is dark blue.",
+        "The ball is yellow."
+      ]
+    },
+    {
+      "id": "colors_1_q4",
+      "imageId": "colors_1",
+      "imageName": "red_ball",
+      "level": "easy",
+      "correctSentence": "The ball rolls on the ground.",
+      "wrongOptions": [
+        "The ball hangs on the wall.",
+        "The ball floats in water."
+      ]
+    },
+    {
+      "id": "colors_1_q5",
+      "imageId": "colors_1",
+      "imageName": "red_ball",
+      "level": "easy",
+      "correctSentence": "The child catches the ball.",
+      "wrongOptions": [
+        "The child throws a book.",
+        "The child kicks a box."
+      ]
+    },
+    {
+      "id": "colors_2_q1",
+      "imageId": "colors_2",
+      "imageName": "blue_sky",
+      "level": "easy",
+      "correctSentence": "The sky is blue.",
+      "wrongOptions": [
+        "The sky is green.",
+        "The sky is brown."
+      ]
+    },
+    {
+      "id": "colors_2_q2",
+      "imageId": "colors_2",
+      "imageName": "blue_sky",
+      "level": "easy",
+      "correctSentence": "White clouds float in the sky.",
+      "wrongOptions": [
+        "Black rocks float in the sky.",
+        "Houses float in the sky."
+      ]
+    },
+    {
+      "id": "colors_2_q3",
+      "imageId": "colors_2",
+      "imageName": "blue_sky",
+      "level": "easy",
+      "correctSentence": "The sun looks bright.",
+      "wrongOptions": [
+        "The sun looks dark.",
+        "The sun looks purple."
+      ]
+    },
+    {
+      "id": "colors_2_q4",
+      "imageId": "colors_2",
+      "imageName": "blue_sky",
+      "level": "easy",
+      "correctSentence": "Birds fly high in the sky.",
+      "wrongOptions": [
+        "Birds swim in the sky.",
+        "Birds crawl on the sky."
+      ]
+    },
+    {
+      "id": "colors_2_q5",
+      "imageId": "colors_2",
+      "imageName": "blue_sky",
+      "level": "easy",
+      "correctSentence": "The sky looks clear.",
+      "wrongOptions": [
+        "The sky looks muddy.",
+        "The sky looks cracked."
+      ]
+    },
+    {
+      "id": "colors_2_q6",
+      "imageId": "colors_2",
+      "imageName": "blue_sky",
+      "level": "easy",
+      "correctSentence": "The blue sky looks beautiful.",
+      "wrongOptions": [
+        "The blue sky looks broken.",
+        "The blue sky looks dirty."
+      ]
+    },
+    {
+      "id": "colors_2_q7",
+      "imageId": "colors_2",
+      "imageName": "blue_sky",
+      "level": "easy",
+      "correctSentence": "Children watch the clouds.",
+      "wrongOptions": [
+        "Children watch the fish.",
+        "Children watch the cars."
+      ]
+    },
+    {
+      "id": "colors_3_q1",
+      "imageId": "colors_3",
+      "imageName": "yellow_star",
+      "level": "easy",
+      "correctSentence": "The star is yellow.",
+      "wrongOptions": [
+        "The star is blue.",
+        "The star is green."
+      ]
+    },
+    {
+      "id": "colors_3_q2",
+      "imageId": "colors_3",
+      "imageName": "yellow_star",
+      "level": "easy",
+      "correctSentence": "The star has five points.",
+      "wrongOptions": [
+        "The star has four points.",
+        "The star has six points."
+      ]
+    },
+    {
+      "id": "colors_3_q3",
+      "imageId": "colors_3",
+      "imageName": "yellow_star",
+      "level": "easy",
+      "correctSentence": "The star shines at night.",
+      "wrongOptions": [
+        "The star shines at noon.",
+        "The star shines underwater."
+      ]
+    },
+    {
+      "id": "colors_3_q4",
+      "imageId": "colors_3",
+      "imageName": "yellow_star",
+      "level": "easy",
+      "correctSentence": "The sky looks dark at night.",
+      "wrongOptions": [
+        "The sky looks bright green.",
+        "The sky looks pink."
+      ]
+    },
+    {
+      "id": "colors_3_q5",
+      "imageId": "colors_3",
+      "imageName": "yellow_star",
+      "level": "easy",
+      "correctSentence": "Many stars shine in the sky.",
+      "wrongOptions": [
+        "Many trees shine in the sky.",
+        "Many houses shine in the sky."
+      ]
+    },
+    {
+      "id": "colors_3_q6",
+      "imageId": "colors_3",
+      "imageName": "yellow_star",
+      "level": "easy",
+      "correctSentence": "The yellow star looks bright.",
+      "wrongOptions": [
+        "The yellow star looks dark.",
+        "The yellow star looks broken."
+      ]
+    },
+    {
+      "id": "colors_3_q7",
+      "imageId": "colors_3",
+      "imageName": "yellow_star",
+      "level": "easy",
+      "correctSentence": "Children watch the stars quietly.",
+      "wrongOptions": [
+        "Children kick the stars.",
+        "Children hide the stars."
+      ]
+    },
+    {
+      "id": "colors_4_q1",
+      "imageId": "colors_4",
+      "imageName": "green_tree",
+      "level": "easy",
+      "correctSentence": "The tree is green.",
+      "wrongOptions": [
+        "The tree is purple.",
+        "The tree is blue."
+      ]
+    },
+    {
+      "id": "colors_4_q2",
+      "imageId": "colors_4",
+      "imageName": "green_tree",
+      "level": "easy",
+      "correctSentence": "The tree is tall.",
+      "wrongOptions": [
+        "The tree is tiny.",
+        "The tree is flat."
+      ]
+    },
+    {
+      "id": "colors_4_q3",
+      "imageId": "colors_4",
+      "imageName": "green_tree",
+      "level": "easy",
+      "correctSentence": "The trunk is brown.",
+      "wrongOptions": [
+        "The trunk is pink.",
+        "The trunk is white."
+      ]
+    },
+    {
+      "id": "colors_4_q4",
+      "imageId": "colors_4",
+      "imageName": "green_tree",
+      "level": "easy",
+      "correctSentence": "The tree has many leaves.",
+      "wrongOptions": [
+        "The tree has many wheels.",
+        "The tree has many doors."
+      ]
+    },
+    {
+      "id": "colors_4_q5",
+      "imageId": "colors_4",
+      "imageName": "green_tree",
+      "level": "easy",
+      "correctSentence": "Birds sit on the tree.",
+      "wrongOptions": [
+        "Birds swim in the tree.",
+        "Birds crawl under the tree."
+      ]
+    },
+    {
+      "id": "colors_4_q6",
+      "imageId": "colors_4",
+      "imageName": "green_tree",
+      "level": "easy",
+      "correctSentence": "The tree gives shade.",
+      "wrongOptions": [
+        "The tree gives fire.",
+        "The tree gives snow."
+      ]
+    },
+    {
+      "id": "colors_4_q7",
+      "imageId": "colors_4",
+      "imageName": "green_tree",
+      "level": "easy",
+      "correctSentence": "Children sit under the tree.",
+      "wrongOptions": [
+        "Children sit on the cloud.",
+        "Children sit inside the river."
+      ]
+    },
+    {
+      "id": "colors_4_q8",
+      "imageId": "colors_4",
+      "imageName": "green_tree",
+      "level": "easy",
+      "correctSentence": "A bird makes a nest on the tree.",
+      "wrongOptions": [
+        "A bird makes a nest on the car.",
+        "A bird makes a nest on the house."
+      ]
+    },
+    {
+      "id": "colors_5_q1",
+      "imageId": "colors_5",
+      "imageName": "circle_shape",
+      "level": "easy",
+      "correctSentence": "A circle is round.",
+      "wrongOptions": [
+        "A circle is square.",
+        "A circle is triangular."
+      ]
+    },
+    {
+      "id": "colors_5_q2",
+      "imageId": "colors_5",
+      "imageName": "circle_shape",
+      "level": "easy",
+      "correctSentence": "A circle has no corners.",
+      "wrongOptions": [
+        "A circle has four corners.",
+        "A circle has three corners."
+      ]
+    },
+    {
+      "id": "colors_5_q3",
+      "imageId": "colors_5",
+      "imageName": "circle_shape",
+      "level": "easy",
+      "correctSentence": "The sun is a circle.",
+      "wrongOptions": [
+        "The sun is a square.",
+        "The sun is a triangle."
+      ]
+    },
+    {
+      "id": "colors_5_q4",
+      "imageId": "colors_5",
+      "imageName": "circle_shape",
+      "level": "easy",
+      "correctSentence": "The plate is round.",
+      "wrongOptions": [
+        "The plate is rectangular.",
+        "The plate is triangular."
+      ]
+    },
+    {
+      "id": "colors_5_q5",
+      "imageId": "colors_5",
+      "imageName": "circle_shape",
+      "level": "easy",
+      "correctSentence": "The clock is round.",
+      "wrongOptions": [
+        "The clock is square.",
+        "The clock is oval."
+      ]
+    },
+    {
+      "id": "colors_5_q6",
+      "imageId": "colors_5",
+      "level": "easy",
+      "imageName": "circle_shape",
+      "correctSentence": "A circle is a simple shape.",
+      "wrongOptions": [
+        "A circle is a sharp shape.",
+        "A circle is a pointed shape."
+      ]
+    },
+    {
+      "id": "colors_5_q7",
+      "imageId": "colors_5",
+      "imageName": "circle_shape",
+      "level": "easy",
+      "correctSentence": "Children draw circles.",
+      "wrongOptions": [
+        "Children draw squares.",
+        "Children draw triangles."
+      ]
+    },
+    {
+      "id": "colors_6_q1",
+      "imageId": "colors_6",
+      "imageName": "square_shape",
+      "level": "easy",
+      "correctSentence": "A square has four sides.",
+      "wrongOptions": [
+        "A square has three sides.",
+        "A square has five sides."
+      ]
+    },
+    {
+      "id": "colors_6_q2",
+      "imageId": "colors_6",
+      "imageName": "square_shape",
+      "level": "easy",
+      "correctSentence": "All sides are equal.",
+      "wrongOptions": [
+        "All sides are different.",
+        "Only one side is long."
+      ]
+    },
+    {
+      "id": "colors_6_q3",
+      "imageId": "colors_6",
+      "imageName": "square_shape",
+      "level": "easy",
+      "correctSentence": "A square has four corners.",
+      "wrongOptions": [
+        "A square has two corners.",
+        "A square has three corners."
+      ]
+    },
+    {
+      "id": "colors_6_q4",
+      "imageId": "colors_6",
+      "imageName": "square_shape",
+      "level": "easy",
+      "correctSentence": "The window is square.",
+      "wrongOptions": [
+        "The window is round.",
+        "The window is triangular."
+      ]
+    },
+    {
+      "id": "colors_6_q5",
+      "imageId": "colors_6",
+      "imageName": "square_shape",
+      "level": "easy",
+      "correctSentence": "The box looks square.",
+      "wrongOptions": [
+        "The box looks round.",
+        "The box looks triangular."
+      ]
+    },
+    {
+      "id": "colors_6_q6",
+      "imageId": "colors_6",
+      "imageName": "square_shape",
+      "level": "easy",
+      "correctSentence": "Children practice drawing squares.",
+      "wrongOptions": [
+        "Children practice drawing circles.",
+        "Children practice drawing triangles."
+      ]
+    },
+    {
+      "id": "colors_6_q7",
+      "imageId": "colors_6",
+      "imageName": "square_shape",
+      "level": "easy",
+      "correctSentence": "Squares are common in buildings.",
+      "wrongOptions": [
+        "Squares are common in rivers.",
+        "Squares are common in clouds."
+      ]
+    },
+    {
+      "id": "colors_7_q1",
+      "imageId": "colors_7",
+      "imageName": "triangle_shape",
+      "level": "easy",
+      "correctSentence": "A triangle has three sides.",
+      "wrongOptions": [
+        "A triangle has four sides.",
+        "A triangle has five sides."
+      ]
+    },
+    {
+      "id": "colors_7_q2",
+      "imageId": "colors_7",
+      "imageName": "triangle_shape",
+      "level": "easy",
+      "correctSentence": "A triangle has three corners.",
+      "wrongOptions": [
+        "A triangle has two corners.",
+        "A triangle has four corners."
+      ]
+    },
+    {
+      "id": "colors_7_q3",
+      "imageId": "colors_7",
+      "imageName": "triangle_shape",
+      "level": "easy",
+      "correctSentence": "The roof looks like a triangle.",
+      "wrongOptions": [
+        "The roof looks like a circle.",
+        "The roof looks like a square."
+      ]
+    },
+    {
+      "id": "colors_7_q4",
+      "imageId": "colors_7",
+      "imageName": "triangle_shape",
+      "level": "easy",
+      "correctSentence": "Pizza slices look like triangles.",
+      "wrongOptions": [
+        "Pizza slices look like circles.",
+        "Pizza slices look like rectangles."
+      ]
+    },
+    {
+      "id": "colors_7_q5",
+      "imageId": "colors_7",
+      "imageName": "triangle_shape",
+      "level": "easy",
+      "correctSentence": "Children draw triangles.",
+      "wrongOptions": [
+        "Children draw circles.",
+        "Children draw squares."
+      ]
+    },
+    {
+      "id": "colors_7_q6",
+      "imageId": "colors_7",
+      "imageName": "triangle_shape",
+      "level": "easy",
+      "correctSentence": "Triangles are simple shapes.",
+      "wrongOptions": [
+        "Triangles are round shapes.",
+        "Triangles are curved shapes."
+      ]
+    },
+    {
+      "id": "colors_8_q1",
+      "imageId": "colors_8",
+      "imageName": "rectangle_shape",
+      "level": "easy",
+      "correctSentence": "A rectangle has four sides.",
+      "wrongOptions": [
+        "A rectangle has three sides.",
+        "A rectangle has five sides."
+      ]
+    },
+    {
+      "id": "colors_8_q2",
+      "imageId": "colors_8",
+      "imageName": "rectangle_shape",
+      "level": "easy",
+      "correctSentence": "Two sides are long.",
+      "wrongOptions": [
+        "All sides are equal.",
+        "Only one side is long."
+      ]
+    },
+    {
+      "id": "colors_8_q3",
+      "imageId": "colors_8",
+      "imageName": "rectangle_shape",
+      "level": "easy",
+      "correctSentence": "Two sides are short.",
+      "wrongOptions": [
+        "Two sides are curved.",
+        "Three sides are short."
+      ]
+    },
+    {
+      "id": "colors_8_q4",
+      "imageId": "colors_8",
+      "imageName": "rectangle_shape",
+      "level": "easy",
+      "correctSentence": "The door is a rectangle.",
+      "wrongOptions": [
+        "The door is a triangle.",
+        "The door is a circle."
+      ]
+    },
+    {
+      "id": "colors_8_q5",
+      "imageId": "colors_8",
+      "imageName": "rectangle_shape",
+      "level": "easy",
+      "correctSentence": "The book is a rectangle.",
+      "wrongOptions": [
+        "The book is a circle.",
+        "The book is a triangle."
+      ]
+    },
+    {
+      "id": "colors_8_q6",
+      "imageId": "colors_8",
+      "imageName": "rectangle_shape",
+      "level": "easy",
+      "correctSentence": "Children draw rectangles.",
+      "wrongOptions": [
+        "Children draw circles.",
+        "Children draw triangles."
+      ]
+    },
+    {
+      "id": "colors_8_q7",
+      "imageId": "colors_8",
+      "imageName": "rectangle_shape",
+      "level": "easy",
+      "correctSentence": "A swimming pool is a large rectangle.",
+      "wrongOptions": [
+        "A swimming pool is a large triangle.",
+        "A swimming pool is a large circle."
+      ]
+    },
+    {
+      "id": "colors_9_q1",
+      "imageId": "colors_9",
+      "imageName": "colorful_balloons",
+      "level": "easy",
+      "correctSentence": "The balloons are colorful.",
+      "wrongOptions": [
+        "The balloons are black.",
+        "The balloons are transparent."
+      ]
+    },
+    {
+      "id": "colors_9_q2",
+      "imageId": "colors_9",
+      "imageName": "colorful_balloons",
+      "level": "easy",
+      "correctSentence": "One balloon is red.",
+      "wrongOptions": [
+        "One balloon is brown.",
+        "One balloon is gray."
+      ]
+    },
+    {
+      "id": "colors_9_q3",
+      "imageId": "colors_9",
+      "imageName": "colorful_balloons",
+      "level": "easy",
+      "correctSentence": "One balloon is blue.",
+      "wrongOptions": [
+        "One balloon is black.",
+        "One balloon is white."
+      ]
+    },
+    {
+      "id": "colors_9_q4",
+      "imageId": "colors_9",
+      "imageName": "colorful_balloons",
+      "level": "easy",
+      "correctSentence": "One balloon is green.",
+      "wrongOptions": [
+        "One balloon is transparent.",
+        "One balloon is silver."
+      ]
+    },
+    {
+      "id": "colors_9_q5",
+      "imageId": "colors_9",
+      "imageName": "colorful_balloons",
+      "level": "easy",
+      "correctSentence": "The balloons float in the air.",
+      "wrongOptions": [
+        "The balloons swim in the water.",
+        "The balloons crawl on the ground."
+      ]
+    },
+    {
+      "id": "colors_9_q6",
+      "imageId": "colors_9",
+      "imageName": "colorful_balloons",
+      "level": "easy",
+      "correctSentence": "Children hold the balloons.",
+      "wrongOptions": [
+        "Children kick the balloons.",
+        "Children hide the balloons."
+      ]
+    },
+    {
+      "id": "colors_10_q1",
+      "imageId": "colors_10",
+      "imageName": "rainbow_colors",
+      "level": "easy",
+      "correctSentence": "The rainbow has many colors.",
+      "wrongOptions": [
+        "The rainbow has only one color.",
+        "The rainbow has no colors."
+      ]
+    },
+    {
+      "id": "colors_10_q2",
+      "imageId": "colors_10",
+      "imageName": "rainbow_colors",
+      "level": "easy",
+      "correctSentence": "Red is at the top.",
+      "wrongOptions": [
+        "Red is at the bottom.",
+        "Red is in the middle."
+      ]
+    },
+    {
+      "id": "colors_10_q3",
+      "imageId": "colors_10",
+      "imageName": "rainbow_colors",
+      "level": "easy",
+      "correctSentence": "Violet is at the bottom.",
+      "wrongOptions": [
+        "Violet is at the top.",
+        "Violet is in the middle."
+      ]
+    },
+    {
+      "id": "colors_10_q4",
+      "imageId": "colors_10",
+      "imageName": "rainbow_colors",
+      "level": "easy",
+      "correctSentence": "The rainbow appears after rain.",
+      "wrongOptions": [
+        "The rainbow appears at night.",
+        "The rainbow appears in winter."
+      ]
+    },
+    {
+      "id": "colors_10_q5",
+      "imageId": "colors_10",
+      "imageName": "rainbow_colors",
+      "level": "easy",
+      "correctSentence": "Children watch the rainbow.",
+      "wrongOptions": [
+        "Children hide the rainbow.",
+        "Children break the rainbow."
+      ]
+    },
+    {
+      "id": "colors_10_q6",
+      "imageId": "colors_10",
+      "imageName": "rainbow_colors",
+      "level": "easy",
+      "correctSentence": "The rainbow looks beautiful.",
+      "wrongOptions": [
+        "The rainbow looks dark.",
+        "The rainbow looks colorless."
+      ]
+    }
+]

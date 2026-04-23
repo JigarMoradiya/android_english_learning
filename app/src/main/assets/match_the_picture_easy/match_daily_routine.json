@@ -1,0 +1,695 @@
+[
+    {
+      "id": "daily_1_q1",
+      "imageId": "daily_1",
+      "imageName": "waking_up",
+      "level": "easy",
+      "correctSentence": "The child wakes up early.",
+      "wrongOptions": [
+        "The child sleeps all day.",
+        "The child goes to bed late."
+      ]
+    },
+    {
+      "id": "daily_1_q2",
+      "imageId": "daily_1",
+      "imageName": "waking_up",
+      "level": "easy",
+      "correctSentence": "The sun is bright.",
+      "wrongOptions": [
+        "The moon is bright.",
+        "The sky is dark at night."
+      ]
+    },
+    {
+      "id": "daily_1_q3",
+      "imageId": "daily_1",
+      "imageName": "waking_up",
+      "level": "easy",
+      "correctSentence": "The child gets out of bed.",
+      "wrongOptions": [
+        "The child hides under the bed.",
+        "The child jumps on the bed."
+      ]
+    },
+    {
+      "id": "daily_1_q4",
+      "imageId": "daily_1",
+      "imageName": "waking_up",
+      "level": "easy",
+      "correctSentence": "The child stretches the arms.",
+      "wrongOptions": [
+        "The child folds the arms tightly.",
+        "The child waves goodbye."
+      ]
+    },
+    {
+      "id": "daily_1_q5",
+      "imageId": "daily_1",
+      "imageName": "waking_up",
+      "level": "easy",
+      "correctSentence": "The child feels fresh.",
+      "wrongOptions": [
+        "The child feels sleepy.",
+        "The child feels tired."
+      ]
+    },
+    {
+      "id": "daily_1_q6",
+      "imageId": "daily_1",
+      "imageName": "waking_up",
+      "level": "easy",
+      "correctSentence": "The bed is neat.",
+      "wrongOptions": [
+        "The bed is broken.",
+        "The bed is dirty."
+      ]
+    },
+    {
+      "id": "daily_1_q7",
+      "imageId": "daily_1",
+      "imageName": "waking_up",
+      "level": "easy",
+      "correctSentence": "The day begins in the morning.",
+      "wrongOptions": [
+        "The day begins at midnight.",
+        "The day begins in the evening."
+      ]
+    },
+    {
+      "id": "daily_2_q1",
+      "imageId": "daily_2",
+      "imageName": "brushing_teeth",
+      "level": "easy",
+      "correctSentence": "The child brushes the teeth.",
+      "wrongOptions": [
+        "The child paints the teeth.",
+        "The child covers the teeth."
+      ]
+    },
+    {
+      "id": "daily_2_q2",
+      "imageId": "daily_2",
+      "imageName": "brushing_teeth",
+      "level": "easy",
+      "correctSentence": "The child uses a toothbrush.",
+      "wrongOptions": [
+        "The child uses a spoon.",
+        "The child uses a pencil."
+      ]
+    },
+    {
+      "id": "daily_2_q3",
+      "imageId": "daily_2",
+      "imageName": "brushing_teeth",
+      "level": "easy",
+      "correctSentence": "The toothpaste is minty.",
+      "wrongOptions": [
+        "The toothpaste is spicy.",
+        "The toothpaste is sour."
+      ]
+    },
+    {
+      "id": "daily_2_q4",
+      "imageId": "daily_2",
+      "imageName": "brushing_teeth",
+      "level": "easy",
+      "correctSentence": "The child rinses the mouth.",
+      "wrongOptions": [
+        "The child fills the mouth with food.",
+        "The child closes the mouth tightly."
+      ]
+    },
+    {
+      "id": "daily_2_q5",
+      "imageId": "daily_2",
+      "imageName": "brushing_teeth",
+      "level": "easy",
+      "correctSentence": "The child washes the face.",
+      "wrongOptions": [
+        "The child paints the face.",
+        "The child hides the face."
+      ]
+    },
+    {
+      "id": "daily_2_q6",
+      "imageId": "daily_2",
+      "imageName": "brushing_teeth",
+      "level": "easy",
+      "correctSentence": "The child looks in the mirror.",
+      "wrongOptions": [
+        "The child looks at the floor.",
+        "The child looks at the wall."
+      ]
+    },
+    {
+      "id": "daily_2_q7",
+      "imageId": "daily_2",
+      "imageName": "brushing_teeth",
+      "level": "easy",
+      "correctSentence": "Brushing teeth keeps them clean.",
+      "wrongOptions": [
+        "Brushing teeth makes them dirty.",
+        "Brushing teeth damages them."
+      ]
+    },
+    {
+      "id": "daily_3_q1",
+      "imageId": "daily_3",
+      "imageName": "getting_dressed",
+      "level": "easy",
+      "correctSentence": "She wears a school uniform.",
+      "wrongOptions": [
+        "The child wears pajamas.",
+        "The child wears a raincoat."
+      ]
+    },
+    {
+      "id": "daily_3_q2",
+      "imageId": "daily_3",
+      "imageName": "getting_dressed",
+      "level": "easy",
+      "correctSentence": "The shirt is clean.",
+      "wrongOptions": [
+        "The shirt is torn.",
+        "The shirt is dirty."
+      ]
+    },
+    {
+      "id": "daily_3_q3",
+      "imageId": "daily_3",
+      "imageName": "getting_dressed",
+      "level": "easy",
+      "correctSentence": "The shoes are black.",
+      "wrongOptions": [
+        "The shoes are pink.",
+        "The shoes are green."
+      ]
+    },
+    {
+      "id": "daily_3_q4",
+      "imageId": "daily_3",
+      "imageName": "getting_dressed",
+      "level": "easy",
+      "correctSentence": "The child combs the hair.",
+      "wrongOptions": [
+        "The child cuts the hair.",
+        "The child hides the hair."
+      ]
+    },
+    {
+      "id": "daily_3_q5",
+      "imageId": "daily_3",
+      "imageName": "getting_dressed",
+      "level": "easy",
+      "correctSentence": "She checks the school bag.",
+      "wrongOptions": [
+        "The child throws the school bag.",
+        "The child forgets the school bag."
+      ]
+    },
+    {
+      "id": "daily_3_q6",
+      "imageId": "daily_3",
+      "imageName": "getting_dressed",
+      "level": "easy",
+      "correctSentence": "She is ready for school.",
+      "wrongOptions": [
+        "The child is sleepy in bed.",
+        "The child is ready for sleep."
+      ]
+    },
+    {
+      "id": "daily_3_q7",
+      "imageId": "daily_3",
+      "imageName": "getting_dressed",
+      "level": "easy",
+      "correctSentence": "School time begins in the morning.",
+      "wrongOptions": [
+        "School time begins at midnight.",
+        "School time begins late at night."
+      ]
+    },
+    {
+      "id": "daily_4_q1",
+      "imageId": "daily_4",
+      "imageName": "going_to_school",
+      "level": "easy",
+      "correctSentence": "The child walks to school.",
+      "wrongOptions": [
+        "The child sleeps at home.",
+        "The child runs away from school."
+      ]
+    },
+    {
+      "id": "daily_4_q2",
+      "imageId": "daily_4",
+      "imageName": "going_to_school",
+      "level": "easy",
+      "correctSentence": "The child carries a school bag.",
+      "wrongOptions": [
+        "The child carries a pillow.",
+        "The child carries a toy car."
+      ]
+    },
+    {
+      "id": "daily_4_q3",
+      "imageId": "daily_4",
+      "imageName": "going_to_school",
+      "level": "easy",
+      "correctSentence": "The child meets friends.",
+      "wrongOptions": [
+        "The child avoids friends.",
+        "The child hides from friends."
+      ]
+    },
+    {
+      "id": "daily_4_q4",
+      "imageId": "daily_4",
+      "imageName": "going_to_school",
+      "level": "easy",
+      "correctSentence": "Friends walk together.",
+      "wrongOptions": [
+        "Friends fight loudly.",
+        "Friends walk in opposite directions."
+      ]
+    },
+    {
+      "id": "daily_4_q5",
+      "imageId": "daily_4",
+      "imageName": "going_to_school",
+      "level": "easy",
+      "correctSentence": "The school building is nearby.",
+      "wrongOptions": [
+        "The school building is far away.",
+        "The school building is closed."
+      ]
+    },
+    {
+      "id": "daily_4_q6",
+      "imageId": "daily_4",
+      "imageName": "going_to_school",
+      "level": "easy",
+      "correctSentence": "The bell rings at school.",
+      "wrongOptions": [
+        "The bell is silent all day.",
+        "The bell rings at midnight."
+      ]
+    },
+    {
+      "id": "daily_4_q7",
+      "imageId": "daily_4",
+      "imageName": "going_to_school",
+      "level": "easy",
+      "correctSentence": "Learning begins in class.",
+      "wrongOptions": [
+        "Playing games begins in class.",
+        "Lunch time begins in class."
+      ]
+    },
+    {
+      "id": "daily_5_q1",
+      "imageId": "daily_5",
+      "imageName": "doing_homework",
+      "level": "easy",
+      "correctSentence": "The child sits at the desk.",
+      "wrongOptions": [
+        "The child sleeps on the desk.",
+        "The child runs outside."
+      ]
+    },
+    {
+      "id": "daily_5_q2",
+      "imageId": "daily_5",
+      "imageName": "doing_homework",
+      "level": "easy",
+      "correctSentence": "The child opens a notebook.",
+      "wrongOptions": [
+        "The child closes the notebook.",
+        "The child tears the notebook."
+      ]
+    },
+    {
+      "id": "daily_5_q3",
+      "imageId": "daily_5",
+      "imageName": "doing_homework",
+      "level": "easy",
+      "correctSentence": "The child writes carefully.",
+      "wrongOptions": [
+        "The child scribbles on the wall.",
+        "The child throws the pencil."
+      ]
+    },
+    {
+      "id": "daily_5_q4",
+      "imageId": "daily_5",
+      "imageName": "doing_homework",
+      "level": "easy",
+      "correctSentence": "The child reads the lesson.",
+      "wrongOptions": [
+        "The child ignores the lesson.",
+        "The child hides the book."
+      ]
+    },
+    {
+      "id": "daily_5_q5",
+      "imageId": "daily_5",
+      "imageName": "doing_homework",
+      "level": "easy",
+      "correctSentence": "Mother helps the child.",
+      "wrongOptions": [
+        "Mother scolds the child.",
+        "Mother leaves the room."
+      ]
+    },
+    {
+      "id": "daily_5_q6",
+      "imageId": "daily_5",
+      "imageName": "doing_homework",
+      "level": "easy",
+      "correctSentence": "Doing homework makes learning better.",
+      "wrongOptions": [
+        "Doing homework makes learning worse.",
+        "Doing homework stops learning."
+      ]
+    },
+    {
+      "id": "daily_6_q1",
+      "imageId": "daily_6",
+      "imageName": "playing_evening",
+      "level": "easy",
+      "correctSentence": "The child plays in the park.",
+      "wrongOptions": [
+        "The child sleeps in the park.",
+        "The child studies in the park."
+      ]
+    },
+    {
+      "id": "daily_6_q2",
+      "imageId": "daily_6",
+      "imageName": "playing_evening",
+      "level": "easy",
+      "correctSentence": "The child runs fast.",
+      "wrongOptions": [
+        "The child walks very slowly.",
+        "The child stands still."
+      ]
+    },
+    {
+      "id": "daily_6_q3",
+      "imageId": "daily_6",
+      "imageName": "playing_evening",
+      "level": "easy",
+      "correctSentence": "The child jumps high.",
+      "wrongOptions": [
+        "The child lies on the ground.",
+        "The child sits quietly."
+      ]
+    },
+    {
+      "id": "daily_6_q4",
+      "imageId": "daily_6",
+      "imageName": "playing_evening",
+      "level": "easy",
+      "correctSentence": "Friends play together.",
+      "wrongOptions": [
+        "Friends fight angrily.",
+        "Friends ignore each other."
+      ]
+    },
+    {
+      "id": "daily_6_q5",
+      "imageId": "daily_6",
+      "imageName": "playing_evening",
+      "level": "easy",
+      "correctSentence": "Playing outside is fun.",
+      "wrongOptions": [
+        "Playing outside is boring.",
+        "Playing outside is dangerous."
+      ]
+    },
+    {
+      "id": "daily_6_q6",
+      "imageId": "daily_6",
+      "imageName": "playing_evening",
+      "level": "easy",
+      "correctSentence": "Evening time is for play.",
+      "wrongOptions": [
+        "Evening time is for sleeping at school.",
+        "Evening time is for exams."
+      ]
+    },
+    {
+      "id": "daily_6_q7",
+      "imageId": "daily_6",
+      "imageName": "playing_evening",
+      "level": "easy",
+      "correctSentence": "The child drinks water.",
+      "wrongOptions": [
+        "The child throws the water.",
+        "The child spills the water."
+      ]
+    },
+    {
+      "id": "daily_7_q1",
+      "imageId": "daily_7",
+      "imageName": "eating_dinner",
+      "level": "easy",
+      "correctSentence": "The child eats dinner at night.",
+      "wrongOptions": [
+        "The child eats breakfast at night.",
+        "The child skips dinner."
+      ]
+    },
+    {
+      "id": "daily_7_q2",
+      "imageId": "daily_7",
+      "imageName": "eating_dinner",
+      "level": "easy",
+      "correctSentence": "The family sits together.",
+      "wrongOptions": [
+        "The family stands on chairs.",
+        "The family sits in separate rooms."
+      ]
+    },
+    {
+      "id": "daily_7_q3",
+      "imageId": "daily_7",
+      "imageName": "eating_dinner",
+      "level": "easy",
+      "correctSentence": "The food is warm.",
+      "wrongOptions": [
+        "The food is frozen solid.",
+        "The food is spoiled."
+      ]
+    },
+    {
+      "id": "daily_7_q4",
+      "imageId": "daily_7",
+      "imageName": "eating_dinner",
+      "level": "easy",
+      "correctSentence": "The family talks softly.",
+      "wrongOptions": [
+        "The family shouts angrily.",
+        "The family argues loudly."
+      ]
+    },
+    {
+      "id": "daily_7_q5",
+      "imageId": "daily_7",
+      "imageName": "eating_dinner",
+      "level": "easy",
+      "correctSentence": "The family says thank you.",
+      "wrongOptions": [
+        "The family ignores the meal.",
+        "The family wastes the food."
+      ]
+    },
+    {
+      "id": "daily_7_q6",
+      "imageId": "daily_7",
+      "imageName": "eating_dinner",
+      "level": "easy",
+      "correctSentence": "The family cleans the dishes.",
+      "wrongOptions": [
+        "The family leaves the dishes dirty.",
+        "The family throws the dishes away."
+      ]
+    },
+    {
+      "id": "daily_8_q1",
+      "imageId": "daily_8",
+      "imageName": "watching_tv",
+      "level": "easy",
+      "correctSentence": "The child watches TV.",
+      "wrongOptions": [
+        "The child reads a book.",
+        "The child sleeps on the sofa."
+      ]
+    },
+    {
+      "id": "daily_8_q2",
+      "imageId": "daily_8",
+      "imageName": "watching_tv",
+      "level": "easy",
+      "correctSentence": "The cartoon is funny.",
+      "wrongOptions": [
+        "The cartoon is scary.",
+        "The cartoon is boring."
+      ]
+    },
+    {
+      "id": "daily_8_q3",
+      "imageId": "daily_8",
+      "imageName": "watching_tv",
+      "level": "easy",
+      "correctSentence": "The sister joins the child.",
+      "wrongOptions": [
+        "The sister leaves the room.",
+        "The sister hides the remote."
+      ]
+    },
+    {
+      "id": "daily_8_q4",
+      "imageId": "daily_8",
+      "imageName": "watching_tv",
+      "level": "easy",
+      "correctSentence": "The children sit on the sofa.",
+      "wrongOptions": [
+        "The children stand on the sofa.",
+        "The children sit on the roof."
+      ]
+    },
+    {
+      "id": "daily_8_q5",
+      "imageId": "daily_8",
+      "imageName": "watching_tv",
+      "level": "easy",
+      "correctSentence": "The TV is turned off after watching.",
+      "wrongOptions": [
+        "The TV stays on all night.",
+        "The TV is thrown away."
+      ]
+    },
+    {
+      "id": "daily_9_q1",
+      "imageId": "daily_9",
+      "imageName": "reading_book",
+      "level": "easy",
+      "correctSentence": "The child reads a book.",
+      "wrongOptions": [
+        "The child watches television.",
+        "The child plays football."
+      ]
+    },
+    {
+      "id": "daily_9_q2",
+      "imageId": "daily_9",
+      "imageName": "reading_book",
+      "level": "easy",
+      "correctSentence": "The story is interesting.",
+      "wrongOptions": [
+        "The story is empty.",
+        "The story is torn."
+      ]
+    },
+    {
+      "id": "daily_9_q3",
+      "imageId": "daily_9",
+      "imageName": "reading_book",
+      "level": "easy",
+      "correctSentence": "The child turns the page.",
+      "wrongOptions": [
+        "The child closes the book.",
+        "The child throws the book."
+      ]
+    },
+    {
+      "id": "daily_9_q4",
+      "imageId": "daily_9",
+      "imageName": "reading_book",
+      "level": "easy",
+      "correctSentence": "The child looks at the pictures.",
+      "wrongOptions": [
+        "The child hides the book.",
+        "The child tears the pictures."
+      ]
+    },
+    {
+      "id": "daily_9_q5",
+      "imageId": "daily_9",
+      "imageName": "reading_book",
+      "level": "easy",
+      "correctSentence": "Reading helps the child learn new words.",
+      "wrongOptions": [
+        "Reading makes the child forget everything.",
+        "Reading breaks the book."
+      ]
+    },
+    {
+      "id": "daily_9_q6",
+      "imageId": "daily_9",
+      "imageName": "reading_book",
+      "level": "easy",
+      "correctSentence": "The book is open in the child's hands.",
+      "wrongOptions": [
+        "The book is locked inside a box.",
+        "The book is close in the child's hands."
+      ]
+    },
+    {
+      "id": "daily_10_q1",
+      "imageId": "daily_10",
+      "imageName": "sleeping_night",
+      "level": "easy",
+      "correctSentence": "The child wears pajamas.",
+      "wrongOptions": [
+        "The child wears a school uniform.",
+        "The child wears a raincoat."
+      ]
+    },
+    {
+      "id": "daily_10_q2",
+      "imageId": "daily_10",
+      "imageName": "sleeping_night",
+      "level": "easy",
+      "correctSentence": "The child brushes teeth before bed.",
+      "wrongOptions": [
+        "The child eats candy before bed.",
+        "The child runs in the park before bed."
+      ]
+    },
+    {
+      "id": "daily_10_q3",
+      "imageId": "daily_10",
+      "imageName": "sleeping_night",
+      "level": "easy",
+      "correctSentence": "The child lies on the bed.",
+      "wrongOptions": [
+        "The child jumps on the table.",
+        "The child sits on the roof."
+      ]
+    },
+    {
+      "id": "daily_10_q4",
+      "imageId": "daily_10",
+      "imageName": "sleeping_night",
+      "level": "easy",
+      "correctSentence": "The child closes eyes to sleep.",
+      "wrongOptions": [
+        "The child keeps eyes wide open.",
+        "The child starts dancing."
+      ]
+    },
+    {
+      "id": "daily_10_q5",
+      "imageId": "daily_10",
+      "imageName": "sleeping_night",
+      "level": "easy",
+      "correctSentence": "Mother reads a short story to the child.",
+      "wrongOptions": [
+        "Mother writes a long letter.",
+        "Mother watches television alone."
+      ]
+    }
+]

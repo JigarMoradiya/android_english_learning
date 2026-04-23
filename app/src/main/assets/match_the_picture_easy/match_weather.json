@@ -1,0 +1,750 @@
+[
+    {
+      "id": "weather_1_q1",
+      "imageId": "weather_1",
+      "imageName": "sunny_day",
+      "level": "easy",
+      "correctSentence": "The sun is bright.",
+      "wrongOptions": [
+        "The sun is dark.",
+        "The sun is cold."
+      ]
+    },
+    {
+      "id": "weather_1_q2",
+      "imageId": "weather_1",
+      "imageName": "sunny_day",
+      "level": "easy",
+      "correctSentence": "The sky is blue.",
+      "wrongOptions": [
+        "The sky is green.",
+        "The sky is black."
+      ]
+    },
+    {
+      "id": "weather_1_q3",
+      "imageId": "weather_1",
+      "imageName": "sunny_day",
+      "level": "easy",
+      "correctSentence": "The day is sunny.",
+      "wrongOptions": [
+        "The day is snowy.",
+        "The day is stormy."
+      ]
+    },
+    {
+      "id": "weather_1_q4",
+      "imageId": "weather_1",
+      "imageName": "sunny_day",
+      "level": "easy",
+      "correctSentence": "Children wear a cap.",
+      "wrongOptions": [
+        "Children wear shoes on the head.",
+        "Children wear gloves on the head."
+      ]
+    },
+    {
+      "id": "weather_1_q5",
+      "imageId": "weather_1",
+      "imageName": "sunny_day",
+      "level": "easy",
+      "correctSentence": "Children play outside.",
+      "wrongOptions": [
+        "Children sleep outside always.",
+        "Children swim in the sky."
+      ]
+    },
+    {
+      "id": "weather_1_q6",
+      "imageId": "weather_1",
+      "imageName": "sunny_day",
+      "level": "easy",
+      "correctSentence": "The air feels warm.",
+      "wrongOptions": [
+        "The air feels frozen.",
+        "The air feels hard."
+      ]
+    },
+    {
+      "id": "weather_1_q7",
+      "imageId": "weather_1",
+      "imageName": "sunny_day",
+      "level": "easy",
+      "correctSentence": "Sunny days are happy.",
+      "wrongOptions": [
+        "Sunny days are sad.",
+        "Sunny days are impossible."
+      ]
+    },
+    {
+      "id": "weather_2_q1",
+      "imageId": "weather_2",
+      "imageName": "rainy_day",
+      "level": "easy",
+      "correctSentence": "Rain is falling.",
+      "wrongOptions": [
+        "Rain is flying.",
+        "Rain is sleeping."
+      ]
+    },
+    {
+      "id": "weather_2_q2",
+      "imageId": "weather_2",
+      "imageName": "rainy_day",
+      "level": "easy",
+      "correctSentence": "The sky is gray.",
+      "wrongOptions": [
+        "The sky is yellow.",
+        "The sky is pink."
+      ]
+    },
+    {
+      "id": "weather_2_q3",
+      "imageId": "weather_2",
+      "imageName": "rainy_day",
+      "level": "easy",
+      "correctSentence": "Children use an umbrella.",
+      "wrongOptions": [
+        "Children use a pillow.",
+        "Children use a blanket."
+      ]
+    },
+    {
+      "id": "weather_2_q4",
+      "imageId": "weather_2",
+      "imageName": "rainy_day",
+      "level": "easy",
+      "correctSentence": "Rain falls from the clouds.",
+      "wrongOptions": [
+        "Rain falls from trees.",
+        "Rain falls from mountains."
+      ]
+    },
+    {
+      "id": "weather_2_q5",
+      "imageId": "weather_2",
+      "imageName": "rainy_day",
+      "level": "easy",
+      "correctSentence": "The road is wet.",
+      "wrongOptions": [
+        "The road is burning.",
+        "The road is frozen."
+      ]
+    },
+    {
+      "id": "weather_2_q6",
+      "imageId": "weather_2",
+      "imageName": "rainy_day",
+      "level": "easy",
+      "correctSentence": "Children wear a raincoat.",
+      "wrongOptions": [
+        "Children wear a blanket.",
+        "Children wear a pillow."
+      ]
+    },
+    {
+      "id": "weather_2_q7",
+      "imageId": "weather_2",
+      "imageName": "rainy_day",
+      "level": "easy",
+      "correctSentence": "Rain makes plants grow.",
+      "wrongOptions": [
+        "Rain makes rocks grow.",
+        "Rain makes clouds grow."
+      ]
+    },
+    {
+      "id": "weather_3_q1",
+      "imageId": "weather_3",
+      "imageName": "cloudy_day",
+      "level": "easy",
+      "correctSentence": "The sky has many clouds.",
+      "wrongOptions": [
+        "The sky has many birds.",
+        "The sky has many trees."
+      ]
+    },
+    {
+      "id": "weather_3_q2",
+      "imageId": "weather_3",
+      "imageName": "cloudy_day",
+      "level": "easy",
+      "correctSentence": "The sun hides behind clouds.",
+      "wrongOptions": [
+        "The sun hides behind mountains.",
+        "The sun hides behind rivers."
+      ]
+    },
+    {
+      "id": "weather_3_q3",
+      "imageId": "weather_3",
+      "imageName": "cloudy_day",
+      "level": "easy",
+      "correctSentence": "The day feels cool.",
+      "wrongOptions": [
+        "The day feels burning.",
+        "The day feels frozen."
+      ]
+    },
+    {
+      "id": "weather_3_q4",
+      "imageId": "weather_3",
+      "imageName": "cloudy_day",
+      "level": "easy",
+      "correctSentence": "The clouds look soft.",
+      "wrongOptions": [
+        "The clouds look sharp.",
+        "The clouds look hard."
+      ]
+    },
+    {
+      "id": "weather_3_q5",
+      "imageId": "weather_3",
+      "imageName": "cloudy_day",
+      "level": "easy",
+      "correctSentence": "The wind blows slowly.",
+      "wrongOptions": [
+        "The wind swims slowly.",
+        "The wind sleeps slowly."
+      ]
+    },
+    {
+      "id": "weather_3_q6",
+      "imageId": "weather_3",
+      "imageName": "cloudy_day",
+      "level": "easy",
+      "correctSentence": "Birds fly low.",
+      "wrongOptions": [
+        "Birds swim low.",
+        "Birds crawl low."
+      ]
+    },
+    {
+      "id": "weather_3_q7",
+      "imageId": "weather_3",
+      "imageName": "cloudy_day",
+      "level": "easy",
+      "correctSentence": "Cloudy days are calm.",
+      "wrongOptions": [
+        "Cloudy days are loud.",
+        "Cloudy days are burning."
+      ]
+    },
+    {
+      "id": "weather_4_q1",
+      "imageId": "weather_4",
+      "imageName": "windy_day",
+      "level": "easy",
+      "correctSentence": "The wind blows fast.",
+      "wrongOptions": [
+        "The wind sleeps fast.",
+        "The wind swims fast."
+      ]
+    },
+    {
+      "id": "weather_4_q2",
+      "imageId": "weather_4",
+      "imageName": "windy_day",
+      "level": "easy",
+      "correctSentence": "Leaves fly in the air.",
+      "wrongOptions": [
+        "Leaves swim in the air.",
+        "Leaves walk in the air."
+      ]
+    },
+    {
+      "id": "weather_4_q3",
+      "imageId": "weather_4",
+      "imageName": "windy_day",
+      "level": "easy",
+      "correctSentence": "The hat moves.",
+      "wrongOptions": [
+        "The hat sleeps.",
+        "The hat drinks."
+      ]
+    },
+    {
+      "id": "weather_4_q4",
+      "imageId": "weather_4",
+      "imageName": "windy_day",
+      "level": "easy",
+      "correctSentence": "Trees shake gently.",
+      "wrongOptions": [
+        "Trees swim gently.",
+        "Trees crawl gently."
+      ]
+    },
+    {
+      "id": "weather_4_q5",
+      "imageId": "weather_4",
+      "imageName": "windy_day",
+      "level": "easy",
+      "correctSentence": "Children hold jackets.",
+      "wrongOptions": [
+        "Children hold clouds.",
+        "Children hold trees."
+      ]
+    },
+    {
+      "id": "weather_4_q6",
+      "imageId": "weather_4",
+      "imageName": "windy_day",
+      "level": "easy",
+      "correctSentence": "The air feels cool.",
+      "wrongOptions": [
+        "The air feels burning.",
+        "The air feels frozen."
+      ]
+    },
+    {
+      "id": "weather_5_q1",
+      "imageId": "weather_5",
+      "imageName": "stormy_weather",
+      "level": "easy",
+      "correctSentence": "The sky is dark.",
+      "wrongOptions": [
+        "The sky is pink.",
+        "The sky is green."
+      ]
+    },
+    {
+      "id": "weather_5_q2",
+      "imageId": "weather_5",
+      "imageName": "stormy_weather",
+      "level": "easy",
+      "correctSentence": "Thunder makes loud sounds.",
+      "wrongOptions": [
+        "Thunder makes sweet music.",
+        "Thunder makes no sound."
+      ]
+    },
+    {
+      "id": "weather_5_q3",
+      "imageId": "weather_5",
+      "imageName": "stormy_weather",
+      "level": "easy",
+      "correctSentence": "Lightning shines brightly.",
+      "wrongOptions": [
+        "Lightning swims slowly.",
+        "Lightning sleeps quietly."
+      ]
+    },
+    {
+      "id": "weather_5_q4",
+      "imageId": "weather_5",
+      "imageName": "stormy_weather",
+      "level": "easy",
+      "correctSentence": "Rain falls heavily.",
+      "wrongOptions": [
+        "Rain climbs trees.",
+        "Rain flies slowly."
+      ]
+    },
+    {
+      "id": "weather_5_q5",
+      "imageId": "weather_5",
+      "imageName": "stormy_weather",
+      "level": "easy",
+      "correctSentence": "Children stay inside.",
+      "wrongOptions": [
+        "Children swim inside.",
+        "Children fly inside."
+      ]
+    },
+    {
+      "id": "weather_5_q6",
+      "imageId": "weather_5",
+      "imageName": "stormy_weather",
+      "level": "easy",
+      "correctSentence": "The storm passes soon.",
+      "wrongOptions": [
+        "The storm sleeps soon.",
+        "The storm disappears forever."
+      ]
+    },
+    {
+      "id": "weather_5_q7",
+      "imageId": "weather_5",
+      "imageName": "stormy_weather",
+      "level": "easy",
+      "correctSentence": "The sky becomes clear.",
+      "wrongOptions": [
+        "The sky becomes green.",
+        "The sky becomes noisy."
+      ]
+    },
+    {
+      "id": "weather_6_q1",
+      "imageId": "weather_6",
+      "imageName": "snowy_day",
+      "level": "easy",
+      "correctSentence": "Snow falls softly.",
+      "wrongOptions": [
+        "Snow falls upward.",
+        "Snow falls from trees."
+      ]
+    },
+    {
+      "id": "weather_6_q2",
+      "imageId": "weather_6",
+      "imageName": "snowy_day",
+      "level": "easy",
+      "correctSentence": "The ground is white.",
+      "wrongOptions": [
+        "The ground is green.",
+        "The ground is blue."
+      ]
+    },
+    {
+      "id": "weather_6_q3",
+      "imageId": "weather_6",
+      "imageName": "snowy_day",
+      "level": "easy",
+      "correctSentence": "Children wear warm clothes.",
+      "wrongOptions": [
+        "Children wear summer shorts.",
+        "Children wear swimming suits."
+      ]
+    },
+    {
+      "id": "weather_6_q4",
+      "imageId": "weather_6",
+      "imageName": "snowy_day",
+      "level": "easy",
+      "correctSentence": "Children make a snowman.",
+      "wrongOptions": [
+        "Children make a sandcastle.",
+        "Children make a wooden table."
+      ]
+    },
+    {
+      "id": "weather_6_q5",
+      "imageId": "weather_6",
+      "imageName": "snowy_day",
+      "level": "easy",
+      "correctSentence": "Hands feel cold.",
+      "wrongOptions": [
+        "Hands feel hot.",
+        "Hands feel dry."
+      ]
+    },
+    {
+      "id": "weather_6_q6",
+      "imageId": "weather_6",
+      "imageName": "snowy_day",
+      "level": "easy",
+      "correctSentence": "Snow looks beautiful.",
+      "wrongOptions": [
+        "Snow looks rough.",
+        "Snow looks dark."
+      ]
+    },
+    {
+      "id": "weather_6_q7",
+      "imageId": "weather_6",
+      "imageName": "snowy_day",
+      "level": "easy",
+      "correctSentence": "Winter is chilly.",
+      "wrongOptions": [
+        "Winter is hot.",
+        "Winter is sunny."
+      ]
+    },
+    {
+      "id": "weather_7_q1",
+      "imageId": "weather_7",
+      "imageName": "hot_day",
+      "level": "easy",
+      "correctSentence": "The sun is very hot.",
+      "wrongOptions": [
+        "The sun is very cold.",
+        "The sun is very dim."
+      ]
+    },
+    {
+      "id": "weather_7_q2",
+      "imageId": "weather_7",
+      "imageName": "hot_day",
+      "level": "easy",
+      "correctSentence": "Children feel warm.",
+      "wrongOptions": [
+        "Children feel cold.",
+        "Children feel sleepy."
+      ]
+    },
+    {
+      "id": "weather_7_q3",
+      "imageId": "weather_7",
+      "imageName": "hot_day",
+      "level": "easy",
+      "correctSentence": "Children drink cold water.",
+      "wrongOptions": [
+        "Children drink hot soup.",
+        "Children drink warm milk."
+      ]
+    },
+    {
+      "id": "weather_7_q4",
+      "imageId": "weather_7",
+      "imageName": "hot_day",
+      "level": "easy",
+      "correctSentence": "Children stay in shade.",
+      "wrongOptions": [
+        "Children stay under rain.",
+        "Children stay in deep water."
+      ]
+    },
+    {
+      "id": "weather_7_q5",
+      "imageId": "weather_7",
+      "imageName": "hot_day",
+      "level": "easy",
+      "correctSentence": "The air feels dry.",
+      "wrongOptions": [
+        "The air feels wet.",
+        "The air feels icy."
+      ]
+    },
+    {
+      "id": "weather_7_q6",
+      "imageId": "weather_7",
+      "imageName": "hot_day",
+      "level": "easy",
+      "correctSentence": "Children wear light clothes.",
+      "wrongOptions": [
+        "Children wear thick coats.",
+        "Children wear wool sweaters."
+      ]
+    },
+    {
+      "id": "weather_7_q7",
+      "imageId": "weather_7",
+      "imageName": "hot_day",
+      "level": "easy",
+      "correctSentence": "Hot days need water.",
+      "wrongOptions": [
+        "Hot days need blankets.",
+        "Hot days need snow."
+      ]
+    },
+    {
+      "id": "weather_8_q1",
+      "imageId": "weather_8",
+      "imageName": "cold_day",
+      "level": "easy",
+      "correctSentence": "The weather is cold.",
+      "wrongOptions": [
+        "The weather is hot.",
+        "The weather is warm."
+      ]
+    },
+    {
+      "id": "weather_8_q2",
+      "imageId": "weather_8",
+      "imageName": "cold_day",
+      "level": "easy",
+      "correctSentence": "Children wear a sweater.",
+      "wrongOptions": [
+        "Children wear a swimsuit.",
+        "Children wear a raincoat."
+      ]
+    },
+    {
+      "id": "weather_8_q3",
+      "imageId": "weather_8",
+      "imageName": "cold_day",
+      "level": "easy",
+      "correctSentence": "Hands feel cold.",
+      "wrongOptions": [
+        "Hands feel warm.",
+        "Hands feel dry."
+      ]
+    },
+    {
+      "id": "weather_8_q4",
+      "imageId": "weather_8",
+      "imageName": "cold_day",
+      "level": "easy",
+      "correctSentence": "Children see breath in the air.",
+      "wrongOptions": [
+        "Children see fish in the air.",
+        "Children see clouds in the ground."
+      ]
+    },
+    {
+      "id": "weather_8_q5",
+      "imageId": "weather_8",
+      "imageName": "cold_day",
+      "level": "easy",
+      "correctSentence": "The wind is chilly.",
+      "wrongOptions": [
+        "The wind is warm.",
+        "The wind is dry."
+      ]
+    },
+    {
+      "id": "weather_8_q6",
+      "imageId": "weather_8",
+      "imageName": "cold_day",
+      "level": "easy",
+      "correctSentence": "Children drink warm milk.",
+      "wrongOptions": [
+        "Children drink cold juice.",
+        "Children drink icy water."
+      ]
+    },
+    {
+      "id": "weather_8_q7",
+      "imageId": "weather_8",
+      "imageName": "cold_day",
+      "level": "easy",
+      "correctSentence": "Cold days need jackets.",
+      "wrongOptions": [
+        "Cold days need umbrellas.",
+        "Cold days need sandals."
+      ]
+    },
+    {
+      "id": "weather_9_q1",
+      "imageId": "weather_9",
+      "imageName": "rainbow_after_rain",
+      "level": "easy",
+      "correctSentence": "Rain stops slowly.",
+      "wrongOptions": [
+        "Rain starts from the ground.",
+        "Rain moves sideways."
+      ]
+    },
+    {
+      "id": "weather_9_q2",
+      "imageId": "weather_9",
+      "imageName": "rainbow_after_rain",
+      "level": "easy",
+      "correctSentence": "The sun comes out.",
+      "wrongOptions": [
+        "The sun hides forever.",
+        "The sun sinks into water."
+      ]
+    },
+    {
+      "id": "weather_9_q3",
+      "imageId": "weather_9",
+      "imageName": "rainbow_after_rain",
+      "level": "easy",
+      "correctSentence": "A rainbow appears.",
+      "wrongOptions": [
+        "A rainbow disappears underground.",
+        "A rainbow falls from trees."
+      ]
+    },
+    {
+      "id": "weather_9_q4",
+      "imageId": "weather_9",
+      "imageName": "rainbow_after_rain",
+      "level": "easy",
+      "correctSentence": "A rainbow has many colors.",
+      "wrongOptions": [
+        "A rainbow has one color.",
+        "A rainbow has no colors."
+      ]
+    },
+    {
+      "id": "weather_9_q5",
+      "imageId": "weather_9",
+      "imageName": "rainbow_after_rain",
+      "level": "easy",
+      "correctSentence": "Children look at the rainbow.",
+      "wrongOptions": [
+        "Children look at the ground only.",
+        "Children look inside water."
+      ]
+    },
+    {
+      "id": "weather_9_q6",
+      "imageId": "weather_9",
+      "imageName": "rainbow_after_rain",
+      "level": "easy",
+      "correctSentence": "The sky looks bright.",
+      "wrongOptions": [
+        "The sky looks dark black.",
+        "The sky looks muddy."
+      ]
+    },
+    {
+      "id": "weather_9_q7",
+      "imageId": "weather_9",
+      "imageName": "rainbow_after_rain",
+      "level": "easy",
+      "correctSentence": "Rainbows are beautiful.",
+      "wrongOptions": [
+        "Rainbows are invisible.",
+        "Rainbows are dull."
+      ]
+    },
+    {
+      "id": "weather_10_q1",
+      "imageId": "weather_10",
+      "imageName": "spring_weather",
+      "level": "easy",
+      "correctSentence": "Spring is pleasant.",
+      "wrongOptions": [
+        "Spring is stormy.",
+        "Spring is freezing."
+      ]
+    },
+    {
+      "id": "weather_10_q2",
+      "imageId": "weather_10",
+      "imageName": "spring_weather",
+      "level": "easy",
+      "correctSentence": "Flowers bloom brightly.",
+      "wrongOptions": [
+        "Flowers fall from trees.",
+        "Flowers disappear in water."
+      ]
+    },
+    {
+      "id": "weather_10_q3",
+      "imageId": "weather_10",
+      "imageName": "spring_weather",
+      "level": "easy",
+      "correctSentence": "The air feels fresh.",
+      "wrongOptions": [
+        "The air feels dusty.",
+        "The air feels smoky."
+      ]
+    },
+    {
+      "id": "weather_10_q4",
+      "imageId": "weather_10",
+      "imageName": "spring_weather",
+      "level": "easy",
+      "correctSentence": "Birds sing sweetly.",
+      "wrongOptions": [
+        "Birds swim in the sky.",
+        "Birds crawl on trees."
+      ]
+    },
+    {
+      "id": "weather_10_q5",
+      "imageId": "weather_10",
+      "imageName": "spring_weather",
+      "level": "easy",
+      "correctSentence": "Trees grow new leaves.",
+      "wrongOptions": [
+        "Trees grow new stones.",
+        "Trees grow new clouds."
+      ]
+    },
+    {
+      "id": "weather_10_q6",
+      "imageId": "weather_10",
+      "imageName": "spring_weather",
+      "level": "easy",
+      "correctSentence": "Children play outside.",
+      "wrongOptions": [
+        "Children sleep outside all day.",
+        "Children hide under the ground."
+      ]
+    }
+]
