@@ -99,7 +99,6 @@ class OneWordAnswerViewModel @Inject constructor(
         _uiState.update {
             it.copy(
                 selectedAnswer = answer,
-                isCorrect = isCorrect,
                 score = if (isCorrect) it.score + 1 else it.score
             )
         }

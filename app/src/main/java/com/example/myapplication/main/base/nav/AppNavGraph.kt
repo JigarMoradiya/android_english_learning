@@ -274,8 +274,20 @@ fun AppNavGraph(navController: NavHostController) {
                 navController = navController
             )
         }
-        composable(RouteNavigation.SentenceCheck.route) {
-            SentenceCheckPage(navController)
+        composable(
+            route = RouteNavigation.SentenceCheck.route,
+            arguments = listOf(
+                navArgument("unit") { type = NavType.StringType },
+                navArgument("level") { type = NavType.StringType },
+            )
+        ) { backStackEntry ->
+            val unit = backStackEntry.arguments?.getString("unit")?:SentenceUnit.PLAY_AND_FUN.name
+            val level = backStackEntry.arguments?.getString("level")?: SentenceLevel.EASY.name
+            SentenceCheckPage(
+                unit = getSentenceUnit(unit),
+                level = getSentenceLevel(level),
+                navController = navController
+            )
         }
         composable(RouteNavigation.SentenceBuilder.route) {
             SentenceBuilderPage(navController)

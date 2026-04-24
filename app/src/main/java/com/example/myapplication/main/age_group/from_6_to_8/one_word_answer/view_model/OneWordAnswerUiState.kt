@@ -13,7 +13,6 @@ data class OneWordAnswerUiState(
     val currentIndex: Int = 0,
     val selectedAnswer: String? = null,
     val score: Int = 0,
-    val isCorrect: Boolean = false,
     val showResult: Boolean = false
 ) {
     val currentQuestion: ComprehensionQuestion?
