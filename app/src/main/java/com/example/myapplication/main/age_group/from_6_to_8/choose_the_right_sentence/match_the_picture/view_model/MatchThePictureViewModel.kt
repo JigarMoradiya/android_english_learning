@@ -100,8 +100,6 @@ class MatchThePictureViewModel @Inject constructor(
     // Next question
     fun next() {
         val state = _uiState.value
-        Log.e("jigarMatch","questions size = "+ state.questions.size)
-        Log.e("jigarMatch","currentIndex = "+ state.currentIndex)
         if (state.currentIndex < state.questions.size - 1) {
 
             _uiState.update {

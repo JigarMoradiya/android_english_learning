@@ -1,7 +1,6 @@
 package com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.which_sentence_sound_right.view_model
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.loader.SoundCorrectLoader
 import com.example.myapplication.data.model.SentenceLevel
@@ -99,8 +98,6 @@ class WhichSentenceSoundRightViewModel @Inject constructor(
     // Next question
     fun next() {
         val state = _uiState.value
-        Log.e("jigarMatch","questions size = "+ state.questions.size)
-        Log.e("jigarMatch","currentIndex = "+ state.currentIndex)
         if (state.currentIndex < state.questions.size - 1) {
 
             _uiState.update {

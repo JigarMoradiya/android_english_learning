@@ -118,7 +118,7 @@ fun SentenceUnitPage(
                                         navController.navigate(RouteNavigation.WhichSentenceSoundRight.whichSentenceSoundRight(item.unit.name, uiState.level.name))
                                     }
                                     UnitSelectionScreen.FIND_THE_CORRECT_WRITING -> {
-
+                                        navController.navigate(RouteNavigation.FindTheCorrectWriting.findTheCorrectWriting(item.unit.name, uiState.level.name))
                                     }
                                     UnitSelectionScreen.SENTENCE_CHECK -> {
 

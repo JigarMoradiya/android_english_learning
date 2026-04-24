@@ -58,6 +58,9 @@ sealed class RouteNavigation(val route: String) {
     object WhichSentenceSoundRight : RouteNavigation("WhichSentenceSoundRight/{unit}/{level}") {
         fun whichSentenceSoundRight(unit: String, level: String): String = "WhichSentenceSoundRight/$unit/$level"
     }
+    object FindTheCorrectWriting : RouteNavigation("FindTheCorrectWriting/{unit}/{level}") {
+        fun findTheCorrectWriting(unit: String, level: String): String = "FindTheCorrectWriting/$unit/$level"
+    }
     object SentenceCheck : RouteNavigation("SentenceCheck")
     object SentenceBuilder : RouteNavigation("SentenceBuilder")
 
