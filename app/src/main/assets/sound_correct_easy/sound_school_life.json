@@ -1,0 +1,552 @@
+[
+  {
+    "id": "sound_school_1",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students open their books.",
+    "wrongOptions": [
+      "Students open their breakfast.",
+      "Students open the playground grass.",
+      "Students open the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_2",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The teacher writes on the board.",
+    "wrongOptions": [
+      "The teacher writes on the sandwich.",
+      "The teacher writes on the rain.",
+      "The teacher writes on the wind."
+    ]
+  },
+  {
+    "id": "sound_school_3",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The boy solves a math problem.",
+    "wrongOptions": [
+      "The boy solves the lunch box.",
+      "The boy solves the football field.",
+      "The boy solves the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_4",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The girl raises her hand.",
+    "wrongOptions": [
+      "The girl raises the classroom floor.",
+      "The girl raises the school bell tower.",
+      "The girl raises the moon."
+    ]
+  },
+  {
+    "id": "sound_school_5",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Children read a story.",
+    "wrongOptions": [
+      "Children read the playground slide.",
+      "Children read the lunch table.",
+      "Children read the clouds."
+    ]
+  },
+  {
+    "id": "sound_school_6",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The teacher asks a question.",
+    "wrongOptions": [
+      "The teacher asks the pencil box.",
+      "The teacher asks the playground tree.",
+      "The teacher asks the rainbow."
+    ]
+  },
+  {
+    "id": "sound_school_7",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students listen to the teacher.",
+    "wrongOptions": [
+      "Students listen to the school bag.",
+      "Students listen to the lunch plate.",
+      "Students listen to the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_8",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The boy writes in his notebook.",
+    "wrongOptions": [
+      "The boy writes in his sandwich.",
+      "The boy writes in the football.",
+      "The boy writes in the wind."
+    ]
+  },
+  {
+    "id": "sound_school_9",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The girl colors a picture.",
+    "wrongOptions": [
+      "The girl colors the playground fence.",
+      "The girl colors the classroom door.",
+      "The girl colors the rain."
+    ]
+  },
+  {
+    "id": "sound_school_10",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students solve a puzzle.",
+    "wrongOptions": [
+      "Students solve the lunch break.",
+      "Students solve the classroom bell.",
+      "Students solve the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_11",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The teacher reads a poem.",
+    "wrongOptions": [
+      "The teacher reads the football net.",
+      "The teacher reads the lunch bag.",
+      "The teacher reads the wind."
+    ]
+  },
+  {
+    "id": "sound_school_12",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Children draw shapes.",
+    "wrongOptions": [
+      "Children draw the playground swing.",
+      "Children draw the school gate.",
+      "Children draw the thunder."
+    ]
+  },
+  {
+    "id": "sound_school_13",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The boy sharpens his pencil.",
+    "wrongOptions": [
+      "The boy sharpens his backpack.",
+      "The boy sharpens the football.",
+      "The boy sharpens the rainbow."
+    ]
+  },
+  {
+    "id": "sound_school_14",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The girl erases a mistake.",
+    "wrongOptions": [
+      "The girl erases the school bell.",
+      "The girl erases the playground grass.",
+      "The girl erases the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_15",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students close their books.",
+    "wrongOptions": [
+      "Students close the lunch break.",
+      "Students close the football field.",
+      "Students close the clouds."
+    ]
+  },
+  {
+    "id": "sound_school_16",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The teacher checks homework.",
+    "wrongOptions": [
+      "The teacher checks the playground slide.",
+      "The teacher checks the school bus tire.",
+      "The teacher checks the rainbow."
+    ]
+  },
+  {
+    "id": "sound_school_17",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Children sit in rows.",
+    "wrongOptions": [
+      "Children sit in the lunch box.",
+      "Children sit in the football net.",
+      "Children sit in the wind."
+    ]
+  },
+  {
+    "id": "sound_school_18",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The boy opens his lunch box.",
+    "wrongOptions": [
+      "The boy opens the classroom floor.",
+      "The boy opens the football ground.",
+      "The boy opens the moon."
+    ]
+  },
+  {
+    "id": "sound_school_19",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The girl shares her crayons.",
+    "wrongOptions": [
+      "The girl shares the school bell rope.",
+      "The girl shares the playground tree.",
+      "The girl shares the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_20",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students sing a song.",
+    "wrongOptions": [
+      "Students sing the lunch break.",
+      "Students sing the football goalpost.",
+      "Students sing the clouds."
+    ]
+  },
+  {
+    "id": "sound_school_21",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The teacher explains the lesson.",
+    "wrongOptions": [
+      "The teacher explains the playground slide.",
+      "The teacher explains the lunch sandwich.",
+      "The teacher explains the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_22",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students pack their school bags.",
+    "wrongOptions": [
+      "Students pack the football field.",
+      "Students pack the playground tree.",
+      "Students pack the rainbow."
+    ]
+  },
+  {
+    "id": "sound_school_23",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The boy reads aloud.",
+    "wrongOptions": [
+      "The boy reads the basketball hoop.",
+      "The boy reads the lunch plate.",
+      "The boy reads the thunder."
+    ]
+  },
+  {
+    "id": "sound_school_24",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The girl solves a riddle.",
+    "wrongOptions": [
+      "The girl solves the playground bench.",
+      "The girl solves the lunch milk bottle.",
+      "The girl solves the clouds."
+    ]
+  },
+  {
+    "id": "sound_school_25",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students count numbers.",
+    "wrongOptions": [
+      "Students count the playground fence.",
+      "Students count the school gate lock.",
+      "Students count the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_26",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The teacher rings the bell.",
+    "wrongOptions": [
+      "The teacher rings the playground tree.",
+      "The teacher rings the lunch sandwich.",
+      "The teacher rings the rainbow."
+    ]
+  },
+  {
+    "id": "sound_school_27",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Children line up quietly.",
+    "wrongOptions": [
+      "Children line up the playground grass.",
+      "Children line up the lunch apples.",
+      "Children line up the clouds."
+    ]
+  },
+  {
+    "id": "sound_school_28",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The boy borrows a library book.",
+    "wrongOptions": [
+      "The boy borrows the football goal.",
+      "The boy borrows the lunch banana.",
+      "The boy borrows the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_29",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The girl writes a sentence.",
+    "wrongOptions": [
+      "The girl writes the playground swing.",
+      "The girl writes the lunch spoon.",
+      "The girl writes the rain."
+    ]
+  },
+  {
+    "id": "sound_school_30",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students learn new words.",
+    "wrongOptions": [
+      "Students learn the playground ladder.",
+      "Students learn the lunch plate.",
+      "Students learn the wind."
+    ]
+  },
+  {
+    "id": "sound_school_31",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The teacher opens the class.",
+    "wrongOptions": [
+      "The teacher opens the playground sand.",
+      "The teacher opens the lunch cookie.",
+      "The teacher opens the clouds."
+    ]
+  },
+  {
+    "id": "sound_school_32",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Children practice handwriting.",
+    "wrongOptions": [
+      "Children practice the playground swing.",
+      "Children practice the lunch juice box.",
+      "Children practice the rainbow."
+    ]
+  },
+  {
+    "id": "sound_school_33",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The boy answers the question.",
+    "wrongOptions": [
+      "The boy answers the playground grass.",
+      "The boy answers the lunch yogurt.",
+      "The boy answers the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_34",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The girl studies a map.",
+    "wrongOptions": [
+      "The girl studies the playground slide.",
+      "The girl studies the lunch apple.",
+      "The girl studies the thunder."
+    ]
+  },
+  {
+    "id": "sound_school_35",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students repeat the words.",
+    "wrongOptions": [
+      "Students repeat the playground fence.",
+      "Students repeat the lunch biscuit.",
+      "Students repeat the rain."
+    ]
+  },
+  {
+    "id": "sound_school_36",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The teacher draws a diagram.",
+    "wrongOptions": [
+      "The teacher draws the playground grass.",
+      "The teacher draws the lunch spoon.",
+      "The teacher draws the wind."
+    ]
+  },
+  {
+    "id": "sound_school_37",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Children copy the sentence.",
+    "wrongOptions": [
+      "Children copy the playground gate.",
+      "Children copy the lunch sandwich.",
+      "Children copy the clouds."
+    ]
+  },
+  {
+    "id": "sound_school_38",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The boy studies his lesson.",
+    "wrongOptions": [
+      "The boy studies the playground ladder.",
+      "The boy studies the lunch chocolate.",
+      "The boy studies the rainbow."
+    ]
+  },
+  {
+    "id": "sound_school_39",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The girl reads a paragraph.",
+    "wrongOptions": [
+      "The girl reads the playground rope.",
+      "The girl reads the lunch cake.",
+      "The girl reads the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_40",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students listen carefully.",
+    "wrongOptions": [
+      "Students listen the playground swing.",
+      "Students listen the lunch apple.",
+      "Students listen the thunder."
+    ]
+  },
+  {
+    "id": "sound_school_41",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The teacher gives homework.",
+    "wrongOptions": [
+      "The teacher gives the playground grass.",
+      "The teacher gives the lunch cookie.",
+      "The teacher gives the wind."
+    ]
+  },
+  {
+    "id": "sound_school_42",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Children read together.",
+    "wrongOptions": [
+      "Children read the playground ladder.",
+      "Children read the lunch sandwich.",
+      "Children read the clouds."
+    ]
+  },
+  {
+    "id": "sound_school_43",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The boy studies science.",
+    "wrongOptions": [
+      "The boy studies the playground slide.",
+      "The boy studies the lunch apple.",
+      "The boy studies the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_44",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The girl practices spelling.",
+    "wrongOptions": [
+      "The girl practices the playground swing.",
+      "The girl practices the lunch biscuit.",
+      "The girl practices the thunder."
+    ]
+  },
+  {
+    "id": "sound_school_45",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students finish their test.",
+    "wrongOptions": [
+      "Students finish the playground grass.",
+      "Students finish the lunch milk.",
+      "Students finish the clouds."
+    ]
+  },
+  {
+    "id": "sound_school_46",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The teacher collects notebooks.",
+    "wrongOptions": [
+      "The teacher collects the playground ladder.",
+      "The teacher collects the lunch banana.",
+      "The teacher collects the rainbow."
+    ]
+  },
+  {
+    "id": "sound_school_47",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Children wait for recess.",
+    "wrongOptions": [
+      "Children wait the playground tree.",
+      "Children wait the lunch sandwich.",
+      "Children wait the sunshine."
+    ]
+  },
+  {
+    "id": "sound_school_48",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The boy studies quietly.",
+    "wrongOptions": [
+      "The boy studies the playground rope.",
+      "The boy studies the lunch apple.",
+      "The boy studies the wind."
+    ]
+  },
+  {
+    "id": "sound_school_49",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "The girl reads the lesson.",
+    "wrongOptions": [
+      "The girl reads the playground slide.",
+      "The girl reads the lunch spoon.",
+      "The girl reads the clouds."
+    ]
+  },
+  {
+    "id": "sound_school_50",
+    "unit": "schoolLife",
+    "level": "easy",
+    "correctSentence": "Students leave the classroom.",
+    "wrongOptions": [
+      "Students leave the playground grass.",
+      "Students leave the lunch cookie.",
+      "Students leave the rainbow."
+    ]
+  }
+]

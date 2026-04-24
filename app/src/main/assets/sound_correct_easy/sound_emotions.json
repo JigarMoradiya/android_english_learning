@@ -1,0 +1,552 @@
+[
+{
+"id":"sound_emotions_1",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels happy.",
+"wrongOptions":[
+"The boy feels the volcano.",
+"The boy feels the telescope.",
+"The boy feels the pyramid."
+]
+},
+{
+"id":"sound_emotions_2",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels excited.",
+"wrongOptions":[
+"The girl feels the waterfall.",
+"The girl feels the rocket.",
+"The girl feels the canyon."
+]
+},
+{
+"id":"sound_emotions_3",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels proud.",
+"wrongOptions":[
+"The boy feels the castle.",
+"The boy feels the submarine.",
+"The boy feels the galaxy."
+]
+},
+{
+"id":"sound_emotions_4",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels surprised.",
+"wrongOptions":[
+"The girl feels the comet.",
+"The girl feels the glacier.",
+"The girl feels the desert."
+]
+},
+{
+"id":"sound_emotions_5",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels nervous.",
+"wrongOptions":[
+"The boy feels the satellite.",
+"The boy feels the tornado.",
+"The boy feels the bridge."
+]
+},
+{
+"id":"sound_emotions_6",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels calm.",
+"wrongOptions":[
+"The girl feels the jungle.",
+"The girl feels the lighthouse.",
+"The girl feels the asteroid."
+]
+},
+{
+"id":"sound_emotions_7",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels sleepy.",
+"wrongOptions":[
+"The boy feels the iceberg.",
+"The boy feels the windmill.",
+"The boy feels the temple."
+]
+},
+{
+"id":"sound_emotions_8",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels shy.",
+"wrongOptions":[
+"The girl feels the rainbow.",
+"The girl feels the rocket engine.",
+"The girl feels the canyon cliff."
+]
+},
+{
+"id":"sound_emotions_9",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels tired.",
+"wrongOptions":[
+"The boy feels the coral reef.",
+"The boy feels the tower clock.",
+"The boy feels the comet tail."
+]
+},
+{
+"id":"sound_emotions_10",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels joyful.",
+"wrongOptions":[
+"The girl feels the castle gate.",
+"The girl feels the glacier cave.",
+"The girl feels the volcano lava."
+]
+},
+{
+"id":"sound_emotions_11",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels angry.",
+"wrongOptions":[
+"The boy feels the jungle tree.",
+"The boy feels the satellite dish.",
+"The boy feels the desert storm."
+]
+},
+{
+"id":"sound_emotions_12",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels worried.",
+"wrongOptions":[
+"The girl feels the submarine deck.",
+"The girl feels the pyramid wall.",
+"The girl feels the comet rock."
+]
+},
+{
+"id":"sound_emotions_13",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels brave.",
+"wrongOptions":[
+"The boy feels the lighthouse beam.",
+"The boy feels the canyon bridge.",
+"The boy feels the ocean wave."
+]
+},
+{
+"id":"sound_emotions_14",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels curious.",
+"wrongOptions":[
+"The girl feels the asteroid belt.",
+"The girl feels the castle tower.",
+"The girl feels the waterfall pool."
+]
+},
+{
+"id":"sound_emotions_15",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels relaxed.",
+"wrongOptions":[
+"The boy feels the volcano crater.",
+"The boy feels the glacier valley.",
+"The boy feels the temple bell."
+]
+},
+{
+"id":"sound_emotions_16",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels cheerful.",
+"wrongOptions":[
+"The girl feels the comet orbit.",
+"The girl feels the rocket booster.",
+"The girl feels the desert cactus."
+]
+},
+{
+"id":"sound_emotions_17",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels sad.",
+"wrongOptions":[
+"The boy feels the pyramid statue.",
+"The boy feels the ocean reef.",
+"The boy feels the canyon river."
+]
+},
+{
+"id":"sound_emotions_18",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels hopeful.",
+"wrongOptions":[
+"The girl feels the lighthouse ladder.",
+"The girl feels the satellite panel.",
+"The girl feels the jungle waterfall."
+]
+},
+{
+"id":"sound_emotions_19",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels confident.",
+"wrongOptions":[
+"The boy feels the iceberg peak.",
+"The boy feels the castle dungeon.",
+"The boy feels the rocket flame."
+]
+},
+{
+"id":"sound_emotions_20",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels thankful.",
+"wrongOptions":[
+"The girl feels the glacier mountain.",
+"The girl feels the comet ice.",
+"The girl feels the canyon tunnel."
+]
+},
+{
+"id":"sound_emotions_21",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels lonely.",
+"wrongOptions":[
+"The boy feels the windmill blade.",
+"The boy feels the coral island.",
+"The boy feels the submarine hatch."
+]
+},
+{
+"id":"sound_emotions_22",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels friendly.",
+"wrongOptions":[
+"The girl feels the asteroid stone.",
+"The girl feels the desert dune.",
+"The girl feels the lighthouse tower."
+]
+},
+{
+"id":"sound_emotions_23",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels excited about the game.",
+"wrongOptions":[
+"The boy feels the pyramid ceiling.",
+"The boy feels the canyon rock.",
+"The boy feels the rocket wing."
+]
+},
+{
+"id":"sound_emotions_24",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels proud of her drawing.",
+"wrongOptions":[
+"The girl feels the waterfall cliff.",
+"The girl feels the comet flame.",
+"The girl feels the ocean tide."
+]
+},
+{
+"id":"sound_emotions_25",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels relaxed after school.",
+"wrongOptions":[
+"The boy feels the temple tower.",
+"The boy feels the jungle river.",
+"The boy feels the castle flag."
+]
+},
+{
+"id":"sound_emotions_26",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels excited about the trip.",
+"wrongOptions":[
+"The girl feels the glacier cave.",
+"The girl feels the rocket hatch.",
+"The girl feels the pyramid stair."
+]
+},
+{
+"id":"sound_emotions_27",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels nervous before the test.",
+"wrongOptions":[
+"The boy feels the desert canyon.",
+"The boy feels the satellite orbit.",
+"The boy feels the lighthouse beam."
+]
+},
+{
+"id":"sound_emotions_28",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels joyful at the party.",
+"wrongOptions":[
+"The girl feels the coral reef.",
+"The girl feels the volcano smoke.",
+"The girl feels the comet trail."
+]
+},
+{
+"id":"sound_emotions_29",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels calm during reading time.",
+"wrongOptions":[
+"The boy feels the pyramid stone.",
+"The boy feels the ocean wave.",
+"The boy feels the canyon cliff."
+]
+},
+{
+"id":"sound_emotions_30",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels sleepy at night.",
+"wrongOptions":[
+"The girl feels the rocket launchpad.",
+"The girl feels the glacier peak.",
+"The girl feels the desert valley."
+]
+},
+{
+"id":"sound_emotions_31",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels scared during the thunder.",
+"wrongOptions":[
+"The boy feels the rocket ladder.",
+"The boy feels the jungle bridge.",
+"The boy feels the glacier river."
+]
+},
+{
+"id":"sound_emotions_32",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels proud of her painting.",
+"wrongOptions":[
+"The girl feels the lighthouse window.",
+"The girl feels the volcano stone.",
+"The girl feels the desert cactus."
+]
+},
+{
+"id":"sound_emotions_33",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels joyful after winning the game.",
+"wrongOptions":[
+"The boy feels the comet circle.",
+"The boy feels the castle ladder.",
+"The boy feels the waterfall cave."
+]
+},
+{
+"id":"sound_emotions_34",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels nervous before the performance.",
+"wrongOptions":[
+"The girl feels the satellite wing.",
+"The girl feels the canyon tunnel.",
+"The girl feels the iceberg corner."
+]
+},
+{
+"id":"sound_emotions_35",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels relaxed on the weekend.",
+"wrongOptions":[
+"The boy feels the coral beach.",
+"The boy feels the rocket shield.",
+"The boy feels the pyramid window."
+]
+},
+{
+"id":"sound_emotions_36",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels grateful for the gift.",
+"wrongOptions":[
+"The girl feels the glacier stone.",
+"The girl feels the volcano cliff.",
+"The girl feels the ocean bridge."
+]
+},
+{
+"id":"sound_emotions_37",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels excited before the match.",
+"wrongOptions":[
+"The boy feels the desert rock.",
+"The boy feels the lighthouse gate.",
+"The boy feels the comet wing."
+]
+},
+{
+"id":"sound_emotions_38",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels calm while drawing.",
+"wrongOptions":[
+"The girl feels the canyon ladder.",
+"The girl feels the rocket window.",
+"The girl feels the iceberg road."
+]
+},
+{
+"id":"sound_emotions_39",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels lonely in the empty room.",
+"wrongOptions":[
+"The boy feels the jungle stone.",
+"The boy feels the satellite door.",
+"The boy feels the volcano ladder."
+]
+},
+{
+"id":"sound_emotions_40",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels cheerful at the picnic.",
+"wrongOptions":[
+"The girl feels the pyramid gate.",
+"The girl feels the waterfall rock.",
+"The girl feels the comet bridge."
+]
+},
+{
+"id":"sound_emotions_41",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels confident before speaking.",
+"wrongOptions":[
+"The boy feels the lighthouse roof.",
+"The boy feels the glacier cave.",
+"The boy feels the desert ladder."
+]
+},
+{
+"id":"sound_emotions_42",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels surprised by the magic trick.",
+"wrongOptions":[
+"The girl feels the rocket pillar.",
+"The girl feels the canyon stone.",
+"The girl feels the coral ladder."
+]
+},
+{
+"id":"sound_emotions_43",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels thankful for his friends.",
+"wrongOptions":[
+"The boy feels the comet window.",
+"The boy feels the ocean tower.",
+"The boy feels the pyramid ladder."
+]
+},
+{
+"id":"sound_emotions_44",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels curious about the story.",
+"wrongOptions":[
+"The girl feels the volcano wall.",
+"The girl feels the glacier ladder.",
+"The girl feels the satellite pillar."
+]
+},
+{
+"id":"sound_emotions_45",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels happy on his birthday.",
+"wrongOptions":[
+"The boy feels the canyon roof.",
+"The boy feels the rocket stair.",
+"The boy feels the jungle bridge."
+]
+},
+{
+"id":"sound_emotions_46",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels peaceful while listening to music.",
+"wrongOptions":[
+"The girl feels the comet ladder.",
+"The girl feels the desert wall.",
+"The girl feels the waterfall stair."
+]
+},
+{
+"id":"sound_emotions_47",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels proud of his team.",
+"wrongOptions":[
+"The boy feels the lighthouse pillar.",
+"The boy feels the glacier tunnel.",
+"The boy feels the ocean rock."
+]
+},
+{
+"id":"sound_emotions_48",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels hopeful about tomorrow.",
+"wrongOptions":[
+"The girl feels the volcano tower.",
+"The girl feels the canyon stair.",
+"The girl feels the satellite gate."
+]
+},
+{
+"id":"sound_emotions_49",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The boy feels excited about the holiday.",
+"wrongOptions":[
+"The boy feels the pyramid ladder.",
+"The boy feels the iceberg bridge.",
+"The boy feels the comet rock."
+]
+},
+{
+"id":"sound_emotions_50",
+"unit":"emotions",
+"level":"easy",
+"correctSentence":"The girl feels relaxed after finishing homework.",
+"wrongOptions":[
+"The girl feels the jungle tower.",
+"The girl feels the desert cliff.",
+"The girl feels the lighthouse stair."
+]
+}
+]

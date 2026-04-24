@@ -196,7 +196,6 @@ data class MatchPictureQuestion(
 data class WhichSentenceSoundsRight(
     val id: String,
     val unit: String,
-    val level: SentenceLevel,
     val correctSentence: String,
     val wrongOptions: List<String>
 )

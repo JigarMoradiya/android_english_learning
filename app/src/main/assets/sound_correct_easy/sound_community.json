@@ -1,0 +1,552 @@
+[
+{
+"id":"sound_community_1",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The doctor helps sick people.",
+"wrongOptions":[
+"The doctor helps the pineapple.",
+"The doctor helps the zebra.",
+"The doctor helps the telescope."
+]
+},
+{
+"id":"sound_community_2",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The firefighter puts out fires.",
+"wrongOptions":[
+"The firefighter puts out the cupcake.",
+"The firefighter puts out the dolphin.",
+"The firefighter puts out the backpack."
+]
+},
+{
+"id":"sound_community_3",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The police officer keeps the city safe.",
+"wrongOptions":[
+"The police officer keeps the watermelon.",
+"The police officer keeps the camel.",
+"The police officer keeps the violin."
+]
+},
+{
+"id":"sound_community_4",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The teacher teaches the class.",
+"wrongOptions":[
+"The teacher teaches the banana.",
+"The teacher teaches the kangaroo.",
+"The teacher teaches the ladder."
+]
+},
+{
+"id":"sound_community_5",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The baker makes fresh bread.",
+"wrongOptions":[
+"The baker makes the strawberry.",
+"The baker makes the peacock.",
+"The baker makes the mirror."
+]
+},
+{
+"id":"sound_community_6",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The librarian gives books to readers.",
+"wrongOptions":[
+"The librarian gives the donut.",
+"The librarian gives the tiger.",
+"The librarian gives the umbrella."
+]
+},
+{
+"id":"sound_community_7",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The farmer grows crops in the field.",
+"wrongOptions":[
+"The farmer grows the apple pie.",
+"The farmer grows the giraffe.",
+"The farmer grows the notebook."
+]
+},
+{
+"id":"sound_community_8",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The mail carrier delivers letters.",
+"wrongOptions":[
+"The mail carrier delivers the carrot cake.",
+"The mail carrier delivers the owl.",
+"The mail carrier delivers the suitcase."
+]
+},
+{
+"id":"sound_community_9",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The nurse cares for patients.",
+"wrongOptions":[
+"The nurse cares the pancake.",
+"The nurse cares the rabbit.",
+"The nurse cares the camera."
+]
+},
+{
+"id":"sound_community_10",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The bus driver takes children to school.",
+"wrongOptions":[
+"The bus driver takes the coconut.",
+"The bus driver takes the walrus.",
+"The bus driver takes the curtain."
+]
+},
+{
+"id":"sound_community_11",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The chef cooks meals in the restaurant.",
+"wrongOptions":[
+"The chef cooks the mango.",
+"The chef cooks the parrot.",
+"The chef cooks the toolbox."
+]
+},
+{
+"id":"sound_community_12",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The mechanic repairs cars.",
+"wrongOptions":[
+"The mechanic repairs the cupcake box.",
+"The mechanic repairs the leopard.",
+"The mechanic repairs the lantern."
+]
+},
+{
+"id":"sound_community_13",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The dentist checks our teeth.",
+"wrongOptions":[
+"The dentist checks the tomato soup.",
+"The dentist checks the penguin.",
+"The dentist checks the guitar."
+]
+},
+{
+"id":"sound_community_14",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The barber cuts hair.",
+"wrongOptions":[
+"The barber cuts the pineapple slice.",
+"The barber cuts the fox.",
+"The barber cuts the pillow."
+]
+},
+{
+"id":"sound_community_15",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The shopkeeper sells groceries.",
+"wrongOptions":[
+"The shopkeeper sells the cookie jar.",
+"The shopkeeper sells the koala.",
+"The shopkeeper sells the ladder step."
+]
+},
+{
+"id":"sound_community_16",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The gardener waters the plants.",
+"wrongOptions":[
+"The gardener waters the peach pie.",
+"The gardener waters the turtle.",
+"The gardener waters the suitcase wheel."
+]
+},
+{
+"id":"sound_community_17",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The pilot flies the airplane.",
+"wrongOptions":[
+"The pilot flies the blueberry.",
+"The pilot flies the flamingo.",
+"The pilot flies the violin case."
+]
+},
+{
+"id":"sound_community_18",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The construction worker builds houses.",
+"wrongOptions":[
+"The construction worker builds the chocolate bar.",
+"The construction worker builds the camel.",
+"The construction worker builds the mirror frame."
+]
+},
+{
+"id":"sound_community_19",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The street cleaner sweeps the road.",
+"wrongOptions":[
+"The street cleaner sweeps the lemon pie.",
+"The street cleaner sweeps the panda.",
+"The street cleaner sweeps the backpack strap."
+]
+},
+{
+"id":"sound_community_20",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The librarian organizes books on shelves.",
+"wrongOptions":[
+"The librarian organizes the waffle cone.",
+"The librarian organizes the meerkat.",
+"The librarian organizes the lantern hook."
+]
+},
+{
+"id":"sound_community_21",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The post office sends letters.",
+"wrongOptions":[
+"The post office sends the avocado.",
+"The post office sends the lemur.",
+"The post office sends the paintbrush."
+]
+},
+{
+"id":"sound_community_22",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The doctor works in the hospital.",
+"wrongOptions":[
+"The doctor works the chocolate bar.",
+"The doctor works the ostrich.",
+"The doctor works the flashlight."
+]
+},
+{
+"id":"sound_community_23",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The police car patrols the streets.",
+"wrongOptions":[
+"The police car patrols the blueberry muffin.",
+"The police car patrols the hedgehog.",
+"The police car patrols the telescope stand."
+]
+},
+{
+"id":"sound_community_24",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The librarian reads stories to children.",
+"wrongOptions":[
+"The librarian reads the coconut cake.",
+"The librarian reads the raccoon.",
+"The librarian reads the suitcase handle."
+]
+},
+{
+"id":"sound_community_25",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The farmer feeds the animals.",
+"wrongOptions":[
+"The farmer feeds the pancake stack.",
+"The farmer feeds the flamingo chick.",
+"The farmer feeds the curtain rod."
+]
+},
+{
+"id":"sound_community_26",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The bus stops at the bus stop.",
+"wrongOptions":[
+"The bus stops the strawberry tart.",
+"The bus stops the llama.",
+"The bus stops the violin string."
+]
+},
+{
+"id":"sound_community_27",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The chef prepares dinner for guests.",
+"wrongOptions":[
+"The chef prepares the pineapple jam.",
+"The chef prepares the penguin egg.",
+"The chef prepares the toolbox lid."
+]
+},
+{
+"id":"sound_community_28",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The baker opens the bakery early.",
+"wrongOptions":[
+"The baker opens the carrot cake.",
+"The baker opens the koala bear.",
+"The baker opens the guitar case."
+]
+},
+{
+"id":"sound_community_29",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The mechanic fixes broken engines.",
+"wrongOptions":[
+"The mechanic fixes the lemon pie.",
+"The mechanic fixes the hyena.",
+"The mechanic fixes the notebook clip."
+]
+},
+{
+"id":"sound_community_30",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The dentist cleans our teeth.",
+"wrongOptions":[
+"The dentist cleans the chocolate donut.",
+"The dentist cleans the zebra foal.",
+"The dentist cleans the paint bucket."
+]
+},
+{
+"id":"sound_community_31",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The firefighter drives the fire truck.",
+"wrongOptions":[
+"The firefighter drives the mango pudding.",
+"The firefighter drives the camel calf.",
+"The firefighter drives the umbrella stand."
+]
+},
+{
+"id":"sound_community_32",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The gardener plants flowers in the park.",
+"wrongOptions":[
+"The gardener plants the apple tart.",
+"The gardener plants the otter pup.",
+"The gardener plants the lantern pole."
+]
+},
+{
+"id":"sound_community_33",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The teacher writes on the board.",
+"wrongOptions":[
+"The teacher writes the waffle cone.",
+"The teacher writes the panda cub.",
+"The teacher writes the suitcase zipper."
+]
+},
+{
+"id":"sound_community_34",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The shopkeeper opens the store.",
+"wrongOptions":[
+"The shopkeeper opens the blueberry pie.",
+"The shopkeeper opens the parrot feather.",
+"The shopkeeper opens the ladder rung."
+]
+},
+{
+"id":"sound_community_35",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The nurse helps the doctor.",
+"wrongOptions":[
+"The nurse helps the coconut candy.",
+"The nurse helps the kangaroo tail.",
+"The nurse helps the mirror frame."
+]
+},
+{
+"id":"sound_community_36",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The bus driver checks the mirror.",
+"wrongOptions":[
+"The bus driver checks the strawberry shake.",
+"The bus driver checks the gorilla.",
+"The bus driver checks the toolbox drawer."
+]
+},
+{
+"id":"sound_community_37",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The construction worker builds a bridge.",
+"wrongOptions":[
+"The construction worker builds the chocolate cookie.",
+"The construction worker builds the cheetah cub.",
+"The construction worker builds the camera lens."
+]
+},
+{
+"id":"sound_community_38",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The librarian arranges books neatly.",
+"wrongOptions":[
+"The librarian arranges the pineapple slice.",
+"The librarian arranges the turtle shell.",
+"The librarian arranges the curtain hook."
+]
+},
+{
+"id":"sound_community_39",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The street cleaner collects trash.",
+"wrongOptions":[
+"The street cleaner collects the donut glaze.",
+"The street cleaner collects the walrus calf.",
+"The street cleaner collects the guitar string."
+]
+},
+{
+"id":"sound_community_40",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The pilot guides the plane safely.",
+"wrongOptions":[
+"The pilot guides the chocolate waffle.",
+"The pilot guides the alpaca.",
+"The pilot guides the flashlight beam."
+]
+},
+{
+"id":"sound_community_41",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The doctor writes a prescription.",
+"wrongOptions":[
+"The doctor writes the mango smoothie.",
+"The doctor writes the fox cub.",
+"The doctor writes the violin bow."
+]
+},
+{
+"id":"sound_community_42",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The teacher reads a lesson.",
+"wrongOptions":[
+"The teacher reads the lemon cake.",
+"The teacher reads the meerkat pup.",
+"The teacher reads the toolbox latch."
+]
+},
+{
+"id":"sound_community_43",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The bus driver closes the door.",
+"wrongOptions":[
+"The bus driver closes the coconut tart.",
+"The bus driver closes the zebra tail.",
+"The bus driver closes the umbrella handle."
+]
+},
+{
+"id":"sound_community_44",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The chef serves hot soup.",
+"wrongOptions":[
+"The chef serves the blueberry jam.",
+"The chef serves the penguin chick.",
+"The chef serves the suitcase strap."
+]
+},
+{
+"id":"sound_community_45",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The firefighter climbs the ladder.",
+"wrongOptions":[
+"The firefighter climbs the carrot pie.",
+"The firefighter climbs the snow leopard.",
+"The firefighter climbs the notebook spiral."
+]
+},
+{
+"id":"sound_community_46",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The police officer directs traffic.",
+"wrongOptions":[
+"The police officer directs the chocolate pudding.",
+"The police officer directs the otter.",
+"The police officer directs the camera tripod."
+]
+},
+{
+"id":"sound_community_47",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The baker decorates the cake.",
+"wrongOptions":[
+"The baker decorates the avocado toast.",
+"The baker decorates the flamingo feather.",
+"The baker decorates the toolbox screw."
+]
+},
+{
+"id":"sound_community_48",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The farmer drives the tractor.",
+"wrongOptions":[
+"The farmer drives the peach cobbler.",
+"The farmer drives the kangaroo pouch.",
+"The farmer drives the lantern glass."
+]
+},
+{
+"id":"sound_community_49",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The nurse checks the temperature.",
+"wrongOptions":[
+"The nurse checks the strawberry tart.",
+"The nurse checks the camel hump.",
+"The nurse checks the backpack buckle."
+]
+},
+{
+"id":"sound_community_50",
+"unit":"community",
+"level":"easy",
+"correctSentence":"The teacher greets the students.",
+"wrongOptions":[
+"The teacher greets the pineapple pie.",
+"The teacher greets the panda ear.",
+"The teacher greets the violin case."
+]
+}
+]

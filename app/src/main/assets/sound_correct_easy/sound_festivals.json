@@ -1,0 +1,1102 @@
+[
+{
+"id":"sound_festivals_1",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People light lamps during Diwali.",
+"wrongOptions":[
+"People light the pineapple.",
+"People light the walrus.",
+"People light the telescope."
+]
+},
+{
+"id":"sound_festivals_2",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children burst firecrackers at night.",
+"wrongOptions":[
+"Children burst the cupcake.",
+"Children burst the giraffe.",
+"Children burst the suitcase."
+]
+},
+{
+"id":"sound_festivals_3",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families decorate their homes for the festival.",
+"wrongOptions":[
+"Families decorate the banana.",
+"Families decorate the kangaroo.",
+"Families decorate the violin."
+]
+},
+{
+"id":"sound_festivals_4",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People exchange sweets during celebrations.",
+"wrongOptions":[
+"People exchange the donut.",
+"People exchange the zebra.",
+"People exchange the mirror."
+]
+},
+{
+"id":"sound_festivals_5",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children wear new clothes on festivals.",
+"wrongOptions":[
+"Children wear the mango.",
+"Children wear the dolphin.",
+"Children wear the lantern."
+]
+},
+{
+"id":"sound_festivals_6",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People decorate trees during Christmas.",
+"wrongOptions":[
+"People decorate the carrot cake.",
+"People decorate the tiger.",
+"People decorate the notebook."
+]
+},
+{
+"id":"sound_festivals_7",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"The family eats a big meal together.",
+"wrongOptions":[
+"The family eats the coconut.",
+"The family eats the rabbit.",
+"The family eats the ladder."
+]
+},
+{
+"id":"sound_festivals_8",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children fly kites during Makar Sankranti.",
+"wrongOptions":[
+"Children fly the apple pie.",
+"Children fly the owl.",
+"Children fly the curtain."
+]
+},
+{
+"id":"sound_festivals_9",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People throw colors during Holi.",
+"wrongOptions":[
+"People throw the strawberry.",
+"People throw the panda.",
+"People throw the camera."
+]
+},
+{
+"id":"sound_festivals_10",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families visit temples during festivals.",
+"wrongOptions":[
+"Families visit the peach pie.",
+"Families visit the flamingo.",
+"Families visit the suitcase."
+]
+},
+{
+"id":"sound_festivals_11",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People sing songs during celebrations.",
+"wrongOptions":[
+"People sing the blueberry.",
+"People sing the camel.",
+"People sing the umbrella."
+]
+},
+{
+"id":"sound_festivals_12",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children receive gifts on special days.",
+"wrongOptions":[
+"Children receive the lemon cake.",
+"Children receive the zebra.",
+"Children receive the toolbox."
+]
+},
+{
+"id":"sound_festivals_13",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families watch fireworks together.",
+"wrongOptions":[
+"Families watch the pineapple slice.",
+"Families watch the penguin.",
+"Families watch the pillow."
+]
+},
+{
+"id":"sound_festivals_14",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People pray in the temple.",
+"wrongOptions":[
+"People pray the chocolate cake.",
+"People pray the koala.",
+"People pray the guitar."
+]
+},
+{
+"id":"sound_festivals_15",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children enjoy the festival lights.",
+"wrongOptions":[
+"Children enjoy the carrot pie.",
+"Children enjoy the giraffe calf.",
+"Children enjoy the backpack."
+]
+},
+{
+"id":"sound_festivals_16",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families decorate rangoli at the door.",
+"wrongOptions":[
+"Families decorate the mango smoothie.",
+"Families decorate the walrus.",
+"Families decorate the lantern."
+]
+},
+{
+"id":"sound_festivals_17",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People visit friends during festivals.",
+"wrongOptions":[
+"People visit the strawberry pie.",
+"People visit the tiger cub.",
+"People visit the mirror."
+]
+},
+{
+"id":"sound_festivals_18",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children enjoy sweet treats during celebrations.",
+"wrongOptions":[
+"Children enjoy the donut box.",
+"Children enjoy the owl chick.",
+"Children enjoy the violin case."
+]
+},
+{
+"id":"sound_festivals_19",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families gather to celebrate together.",
+"wrongOptions":[
+"Families gather the pineapple cake.",
+"Families gather the camel.",
+"Families gather the toolbox."
+]
+},
+{
+"id":"sound_festivals_20",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People share happiness during festivals.",
+"wrongOptions":[
+"People share the avocado pie.",
+"People share the panda cub.",
+"People share the lantern pole."
+]
+},
+{
+"id":"sound_festivals_21",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People dance during Navratri.",
+"wrongOptions":[
+"People dance the avocado.",
+"People dance the walrus.",
+"People dance the compass."
+]
+},
+{
+"id":"sound_festivals_22",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children spin the dandiya sticks.",
+"wrongOptions":[
+"Children spin the pancake.",
+"Children spin the flamingo.",
+"Children spin the suitcase."
+]
+},
+{
+"id":"sound_festivals_23",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families cook sweet rice for Pongal.",
+"wrongOptions":[
+"Families cook the pineapple.",
+"Families cook the camel.",
+"Families cook the violin."
+]
+},
+{
+"id":"sound_festivals_24",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People thank the sun during Pongal.",
+"wrongOptions":[
+"People thank the cupcake.",
+"People thank the zebra.",
+"People thank the mirror."
+]
+},
+{
+"id":"sound_festivals_25",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children collect candies on Halloween.",
+"wrongOptions":[
+"Children collect the mango.",
+"Children collect the dolphin.",
+"Children collect the lantern."
+]
+},
+{
+"id":"sound_festivals_26",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People carve pumpkins for Halloween.",
+"wrongOptions":[
+"People carve the carrot cake.",
+"People carve the tiger.",
+"People carve the notebook."
+]
+},
+{
+"id":"sound_festivals_27",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families decorate eggs for Easter.",
+"wrongOptions":[
+"Families decorate the coconut.",
+"Families decorate the rabbit.",
+"Families decorate the ladder."
+]
+},
+{
+"id":"sound_festivals_28",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children hunt for Easter eggs.",
+"wrongOptions":[
+"Children hunt the apple pie.",
+"Children hunt the owl.",
+"Children hunt the curtain."
+]
+},
+{
+"id":"sound_festivals_29",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People share dates during Eid.",
+"wrongOptions":[
+"People share the strawberry.",
+"People share the panda.",
+"People share the camera."
+]
+},
+{
+"id":"sound_festivals_30",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families greet each other on Eid.",
+"wrongOptions":[
+"Families greet the peach pie.",
+"Families greet the flamingo.",
+"Families greet the suitcase."
+]
+},
+{
+"id":"sound_festivals_31",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People visit the gurdwara on Baisakhi.",
+"wrongOptions":[
+"People visit the blueberry.",
+"People visit the camel.",
+"People visit the umbrella."
+]
+},
+{
+"id":"sound_festivals_32",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Farmers celebrate harvest during Baisakhi.",
+"wrongOptions":[
+"Farmers celebrate the lemon cake.",
+"Farmers celebrate the zebra.",
+"Farmers celebrate the toolbox."
+]
+},
+{
+"id":"sound_festivals_33",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People watch the parade on Independence Day.",
+"wrongOptions":[
+"People watch the pineapple slice.",
+"People watch the penguin.",
+"People watch the pillow."
+]
+},
+{
+"id":"sound_festivals_34",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children wave flags during the celebration.",
+"wrongOptions":[
+"Children wave the chocolate cake.",
+"Children wave the koala.",
+"Children wave the guitar."
+]
+},
+{
+"id":"sound_festivals_35",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families cook special food for Thanksgiving.",
+"wrongOptions":[
+"Families cook the carrot pie.",
+"Families cook the giraffe calf.",
+"Families cook the backpack."
+]
+},
+{
+"id":"sound_festivals_36",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People give thanks during Thanksgiving.",
+"wrongOptions":[
+"People give the mango smoothie.",
+"People give the walrus.",
+"People give the lantern."
+]
+},
+{
+"id":"sound_festivals_37",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children hang stockings at Christmas.",
+"wrongOptions":[
+"Children hang the strawberry pie.",
+"Children hang the tiger cub.",
+"Children hang the mirror."
+]
+},
+{
+"id":"sound_festivals_38",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People sing carols on Christmas night.",
+"wrongOptions":[
+"People sing the donut box.",
+"People sing the owl chick.",
+"People sing the violin case."
+]
+},
+{
+"id":"sound_festivals_39",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families light candles on Hanukkah.",
+"wrongOptions":[
+"Families light the pineapple cake.",
+"Families light the camel.",
+"Families light the toolbox."
+]
+},
+{
+"id":"sound_festivals_40",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People spin the dreidel during Hanukkah.",
+"wrongOptions":[
+"People spin the avocado pie.",
+"People spin the panda cub.",
+"People spin the lantern pole."
+]
+},
+{
+"id":"sound_festivals_41",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People welcome Lord Ganesha during Ganesh Chaturthi.",
+"wrongOptions":[
+"People welcome the watermelon.",
+"People welcome the ostrich.",
+"People welcome the compass."
+]
+},
+{
+"id":"sound_festivals_42",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families immerse the Ganesh idol in water.",
+"wrongOptions":[
+"Families immerse the cupcake.",
+"Families immerse the turtle.",
+"Families immerse the suitcase."
+]
+},
+{
+"id":"sound_festivals_43",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Sisters tie rakhi during Raksha Bandhan.",
+"wrongOptions":[
+"Sisters tie the pineapple.",
+"Sisters tie the fox.",
+"Sisters tie the violin."
+]
+},
+{
+"id":"sound_festivals_44",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Brothers give gifts on Raksha Bandhan.",
+"wrongOptions":[
+"Brothers give the donut.",
+"Brothers give the giraffe.",
+"Brothers give the mirror."
+]
+},
+{
+"id":"sound_festivals_45",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People worship Goddess Durga during Durga Puja.",
+"wrongOptions":[
+"People worship the mango.",
+"People worship the dolphin.",
+"People worship the lantern."
+]
+},
+{
+"id":"sound_festivals_46",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families visit pandals during Durga Puja.",
+"wrongOptions":[
+"Families visit the carrot cake.",
+"Families visit the tiger.",
+"Families visit the notebook."
+]
+},
+{
+"id":"sound_festivals_47",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People sing devotional songs during Janmashtami.",
+"wrongOptions":[
+"People sing the coconut.",
+"People sing the rabbit.",
+"People sing the ladder."
+]
+},
+{
+"id":"sound_festivals_48",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children break the dahi handi pot.",
+"wrongOptions":[
+"Children break the apple pie.",
+"Children break the owl.",
+"Children break the curtain."
+]
+},
+{
+"id":"sound_festivals_49",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People fast during Ramadan.",
+"wrongOptions":[
+"People fast the strawberry.",
+"People fast the panda.",
+"People fast the camera."
+]
+},
+{
+"id":"sound_festivals_50",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families eat together at Iftar.",
+"wrongOptions":[
+"Families eat the peach pie.",
+"Families eat the flamingo.",
+"Families eat the suitcase."
+]
+},
+{
+"id":"sound_festivals_51",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People offer prayers during Eid.",
+"wrongOptions":[
+"People offer the blueberry.",
+"People offer the camel.",
+"People offer the umbrella."
+]
+},
+{
+"id":"sound_festivals_52",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families greet neighbors on Eid.",
+"wrongOptions":[
+"Families greet the lemon cake.",
+"Families greet the zebra.",
+"Families greet the toolbox."
+]
+},
+{
+"id":"sound_festivals_53",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People dance during the Chinese New Year.",
+"wrongOptions":[
+"People dance the pineapple slice.",
+"People dance the penguin.",
+"People dance the pillow."
+]
+},
+{
+"id":"sound_festivals_54",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children watch dragon dances.",
+"wrongOptions":[
+"Children watch the chocolate cake.",
+"Children watch the koala.",
+"Children watch the guitar."
+]
+},
+{
+"id":"sound_festivals_55",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families cook sweet dumplings for Lunar New Year.",
+"wrongOptions":[
+"Families cook the carrot pie.",
+"Families cook the giraffe calf.",
+"Families cook the backpack."
+]
+},
+{
+"id":"sound_festivals_56",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People decorate homes for New Year.",
+"wrongOptions":[
+"People decorate the mango smoothie.",
+"People decorate the walrus.",
+"People decorate the lantern."
+]
+},
+{
+"id":"sound_festivals_57",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Friends count down to midnight on New Year's Eve.",
+"wrongOptions":[
+"Friends count the strawberry pie.",
+"Friends count the tiger cub.",
+"Friends count the mirror."
+]
+},
+{
+"id":"sound_festivals_58",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People exchange wishes on New Year.",
+"wrongOptions":[
+"People exchange the donut box.",
+"People exchange the owl chick.",
+"People exchange the violin case."
+]
+},
+{
+"id":"sound_festivals_59",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families prepare pookalam during Onam.",
+"wrongOptions":[
+"Families prepare the pineapple cake.",
+"Families prepare the camel.",
+"Families prepare the toolbox."
+]
+},
+{
+"id":"sound_festivals_60",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People enjoy boat races during Onam.",
+"wrongOptions":[
+"People enjoy the avocado pie.",
+"People enjoy the panda cub.",
+"People enjoy the lantern pole."
+]
+},
+{
+"id":"sound_festivals_61",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People light bonfires during Lohri.",
+"wrongOptions":[
+"People light the mango pudding.",
+"People light the fox cub.",
+"People light the camera lens."
+]
+},
+{
+"id":"sound_festivals_62",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families throw popcorn into the fire at Lohri.",
+"wrongOptions":[
+"Families throw the coconut tart.",
+"Families throw the penguin feather.",
+"Families throw the toolbox screw."
+]
+},
+{
+"id":"sound_festivals_63",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People decorate homes during Guru Nanak Jayanti.",
+"wrongOptions":[
+"People decorate the peach cobbler.",
+"People decorate the kangaroo tail.",
+"People decorate the lantern glass."
+]
+},
+{
+"id":"sound_festivals_64",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Devotees visit the gurdwara on Guru Nanak Jayanti.",
+"wrongOptions":[
+"Devotees visit the apple tart.",
+"Devotees visit the lemur.",
+"Devotees visit the violin bow."
+]
+},
+{
+"id":"sound_festivals_65",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People carry lanterns during the Lantern Festival.",
+"wrongOptions":[
+"People carry the chocolate waffle.",
+"People carry the alpaca.",
+"People carry the flashlight."
+]
+},
+{
+"id":"sound_festivals_66",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families watch fireworks during celebrations.",
+"wrongOptions":[
+"Families watch the blueberry jam.",
+"Families watch the otter.",
+"Families watch the guitar case."
+]
+},
+{
+"id":"sound_festivals_67",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People cook traditional food for festivals.",
+"wrongOptions":[
+"People cook the pineapple candy.",
+"People cook the camel calf.",
+"People cook the curtain rod."
+]
+},
+{
+"id":"sound_festivals_68",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children enjoy colorful decorations.",
+"wrongOptions":[
+"Children enjoy the donut glaze.",
+"Children enjoy the walrus calf.",
+"Children enjoy the suitcase strap."
+]
+},
+{
+"id":"sound_festivals_69",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families gather to celebrate together.",
+"wrongOptions":[
+"Families gather the avocado toast.",
+"Families gather the snow leopard.",
+"Families gather the camera tripod."
+]
+},
+{
+"id":"sound_festivals_70",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People share happiness during festivals.",
+"wrongOptions":[
+"People share the coconut candy.",
+"People share the cheetah cub.",
+"People share the toolbox drawer."
+]
+},
+{
+"id":"sound_festivals_71",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People pray in temples on Ram Navami.",
+"wrongOptions":[
+"People pray the blueberry pie.",
+"People pray the hedgehog.",
+"People pray the paintbrush."
+]
+},
+{
+"id":"sound_festivals_72",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families sing bhajans during Ram Navami.",
+"wrongOptions":[
+"Families sing the avocado toast.",
+"Families sing the sea turtle.",
+"Families sing the backpack zipper."
+]
+},
+{
+"id":"sound_festivals_73",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People meditate on Buddha Purnima.",
+"wrongOptions":[
+"People meditate the strawberry cake.",
+"People meditate the alpaca.",
+"People meditate the flashlight."
+]
+},
+{
+"id":"sound_festivals_74",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Devotees visit monasteries on Buddha Purnima.",
+"wrongOptions":[
+"Devotees visit the coconut pudding.",
+"Devotees visit the falcon.",
+"Devotees visit the violin string."
+]
+},
+{
+"id":"sound_festivals_75",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People remember Mahavir on Mahavir Jayanti.",
+"wrongOptions":[
+"People remember the mango tart.",
+"People remember the armadillo.",
+"People remember the notebook clip."
+]
+},
+{
+"id":"sound_festivals_76",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Devotees walk in processions during Mahavir Jayanti.",
+"wrongOptions":[
+"Devotees walk the chocolate waffle.",
+"Devotees walk the pelican.",
+"Devotees walk the toolbox handle."
+]
+},
+{
+"id":"sound_festivals_77",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People observe fast during Karva Chauth.",
+"wrongOptions":[
+"People observe the blueberry smoothie.",
+"People observe the otter pup.",
+"People observe the curtain ring."
+]
+},
+{
+"id":"sound_festivals_78",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Women look at the moon on Karva Chauth.",
+"wrongOptions":[
+"Women look the pineapple tart.",
+"Women look the jaguar cub.",
+"Women look the camera strap."
+]
+},
+{
+"id":"sound_festivals_79",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People splash water during Songkran.",
+"wrongOptions":[
+"People splash the lemon pudding.",
+"People splash the parrot chick.",
+"People splash the ladder rung."
+]
+},
+{
+"id":"sound_festivals_80",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families clean homes before Songkran.",
+"wrongOptions":[
+"Families clean the chocolate cookie.",
+"Families clean the yak.",
+"Families clean the guitar cable."
+]
+},
+{
+"id":"sound_festivals_81",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People eat mooncakes during the Mid-Autumn Festival.",
+"wrongOptions":[
+"People eat the apple tart.",
+"People eat the lynx cub.",
+"People eat the lantern hook."
+]
+},
+{
+"id":"sound_festivals_82",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children carry lanterns at night.",
+"wrongOptions":[
+"Children carry the mango pudding.",
+"Children carry the penguin chick.",
+"Children carry the toolbox bolt."
+]
+},
+{
+"id":"sound_festivals_83",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People wear green on St. Patrick’s Day.",
+"wrongOptions":[
+"People wear the strawberry tart.",
+"People wear the giraffe calf.",
+"People wear the suitcase lock."
+]
+},
+{
+"id":"sound_festivals_84",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Parades happen on St. Patrick’s Day.",
+"wrongOptions":[
+"Parades happen the coconut pie.",
+"Parades happen the leopard cub.",
+"Parades happen the violin bow."
+]
+},
+{
+"id":"sound_festivals_85",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People throw flowers during festivals.",
+"wrongOptions":[
+"People throw the blueberry cake.",
+"People throw the fox kit.",
+"People throw the umbrella handle."
+]
+},
+{
+"id":"sound_festivals_86",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families prepare traditional dishes.",
+"wrongOptions":[
+"Families prepare the peach tart.",
+"Families prepare the walrus pup.",
+"Families prepare the mirror frame."
+]
+},
+{
+"id":"sound_festivals_87",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People decorate streets for celebrations.",
+"wrongOptions":[
+"People decorate the pineapple candy.",
+"People decorate the camel calf.",
+"People decorate the notebook spiral."
+]
+},
+{
+"id":"sound_festivals_88",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children watch cultural dances.",
+"wrongOptions":[
+"Children watch the chocolate brownie.",
+"Children watch the panda cub.",
+"Children watch the toolbox latch."
+]
+},
+{
+"id":"sound_festivals_89",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families visit relatives on festivals.",
+"wrongOptions":[
+"Families visit the lemon tart.",
+"Families visit the otter cub.",
+"Families visit the lantern glass."
+]
+},
+{
+"id":"sound_festivals_90",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People decorate houses with lights.",
+"wrongOptions":[
+"People decorate the strawberry jam.",
+"People decorate the kangaroo joey.",
+"People decorate the violin bridge."
+]
+},
+{
+"id":"sound_festivals_91",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children enjoy festival games.",
+"wrongOptions":[
+"Children enjoy the mango candy.",
+"Children enjoy the snow leopard cub.",
+"Children enjoy the backpack strap."
+]
+},
+{
+"id":"sound_festivals_92",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families cook special sweets.",
+"wrongOptions":[
+"Families cook the chocolate mousse.",
+"Families cook the dolphin calf.",
+"Families cook the curtain rod."
+]
+},
+{
+"id":"sound_festivals_93",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People gather in public squares.",
+"wrongOptions":[
+"People gather the coconut fudge.",
+"People gather the lynx kitten.",
+"People gather the toolbox hinge."
+]
+},
+{
+"id":"sound_festivals_94",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Musicians play drums in celebrations.",
+"wrongOptions":[
+"Musicians play the blueberry muffin.",
+"Musicians play the alpaca cria.",
+"Musicians play the camera lens."
+]
+},
+{
+"id":"sound_festivals_95",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children enjoy colorful fireworks.",
+"wrongOptions":[
+"Children enjoy the pineapple tart.",
+"Children enjoy the flamingo chick.",
+"Children enjoy the notebook page."
+]
+},
+{
+"id":"sound_festivals_96",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People light candles during celebrations.",
+"wrongOptions":[
+"People light the mango cake.",
+"People light the gorilla infant.",
+"People light the guitar string."
+]
+},
+{
+"id":"sound_festivals_97",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families celebrate cultural traditions.",
+"wrongOptions":[
+"Families celebrate the strawberry tart.",
+"Families celebrate the yak calf.",
+"Families celebrate the mirror handle."
+]
+},
+{
+"id":"sound_festivals_98",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"People share sweets with neighbors.",
+"wrongOptions":[
+"People share the coconut cookie.",
+"People share the lemur pup.",
+"People share the suitcase strap."
+]
+},
+{
+"id":"sound_festivals_99",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Children smile during celebrations.",
+"wrongOptions":[
+"Children smile the blueberry donut.",
+"Children smile the fox cub.",
+"Children smile the lantern ring."
+]
+},
+{
+"id":"sound_festivals_100",
+"unit":"festivals",
+"level":"easy",
+"correctSentence":"Families enjoy festivals together.",
+"wrongOptions":[
+"Families enjoy the mango tart.",
+"Families enjoy the panda cub.",
+"Families enjoy the toolbox drawer."
+]
+}
+]

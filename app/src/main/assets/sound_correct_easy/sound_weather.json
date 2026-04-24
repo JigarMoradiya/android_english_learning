@@ -1,0 +1,552 @@
+[
+{
+"id":"sound_weather_1",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Rain falls from the clouds.",
+"wrongOptions":[
+"Rain falls from the pineapple.",
+"Rain falls from the walrus.",
+"Rain falls from the telescope."
+]
+},
+{
+"id":"sound_weather_2",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The sun shines brightly.",
+"wrongOptions":[
+"The sun shines the pumpkin.",
+"The sun shines the giraffe.",
+"The sun shines the suitcase."
+]
+},
+{
+"id":"sound_weather_3",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Cold wind blows across the field.",
+"wrongOptions":[
+"Cold wind blows the sandwich.",
+"Cold wind blows the panda.",
+"Cold wind blows the bookshelf."
+]
+},
+{
+"id":"sound_weather_4",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Snow covers the mountains.",
+"wrongOptions":[
+"Snow covers the cupcake.",
+"Snow covers the kangaroo.",
+"Snow covers the lantern."
+]
+},
+{
+"id":"sound_weather_5",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Dark clouds fill the sky.",
+"wrongOptions":[
+"Dark clouds fill the carrot.",
+"Dark clouds fill the dolphin.",
+"Dark clouds fill the violin."
+]
+},
+{
+"id":"sound_weather_6",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Lightning flashes during the storm.",
+"wrongOptions":[
+"Lightning flashes the watermelon.",
+"Lightning flashes the peacock.",
+"Lightning flashes the camera."
+]
+},
+{
+"id":"sound_weather_7",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Thunder makes a loud sound.",
+"wrongOptions":[
+"Thunder makes the broccoli.",
+"Thunder makes the cheetah.",
+"Thunder makes the mirror."
+]
+},
+{
+"id":"sound_weather_8",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The sky becomes dark before rain.",
+"wrongOptions":[
+"The sky becomes the apple.",
+"The sky becomes the zebra.",
+"The sky becomes the backpack."
+]
+},
+{
+"id":"sound_weather_9",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"A rainbow appears after rain.",
+"wrongOptions":[
+"A rainbow appears the tomato.",
+"A rainbow appears the owl.",
+"A rainbow appears the notebook."
+]
+},
+{
+"id":"sound_weather_10",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"A cool breeze moves the leaves.",
+"wrongOptions":[
+"A cool breeze moves the donut.",
+"A cool breeze moves the penguin.",
+"A cool breeze moves the suitcase."
+]
+},
+{
+"id":"sound_weather_11",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The sun warms the earth.",
+"wrongOptions":[
+"The sun warms the cookie.",
+"The sun warms the rabbit.",
+"The sun warms the ladder."
+]
+},
+{
+"id":"sound_weather_12",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Clouds move slowly across the sky.",
+"wrongOptions":[
+"Clouds move the strawberry.",
+"Clouds move the camel.",
+"Clouds move the curtain."
+]
+},
+{
+"id":"sound_weather_13",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Snowflakes fall softly.",
+"wrongOptions":[
+"Snowflakes fall the pineapple cake.",
+"Snowflakes fall the tiger.",
+"Snowflakes fall the globe."
+]
+},
+{
+"id":"sound_weather_14",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Morning fog covers the valley.",
+"wrongOptions":[
+"Morning fog covers the peach.",
+"Morning fog covers the flamingo.",
+"Morning fog covers the pillow."
+]
+},
+{
+"id":"sound_weather_15",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Warm sunlight fills the day.",
+"wrongOptions":[
+"Warm sunlight fills the carrot cake.",
+"Warm sunlight fills the koala.",
+"Warm sunlight fills the guitar."
+]
+},
+{
+"id":"sound_weather_16",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Heavy rain fills the rivers.",
+"wrongOptions":[
+"Heavy rain fills the pumpkin pie.",
+"Heavy rain fills the polar bear.",
+"Heavy rain fills the compass."
+]
+},
+{
+"id":"sound_weather_17",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The bright sun lights the valley.",
+"wrongOptions":[
+"The bright sun lights the coconut.",
+"The bright sun lights the ostrich.",
+"The bright sun lights the helmet."
+]
+},
+{
+"id":"sound_weather_18",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Cold wind shakes the trees.",
+"wrongOptions":[
+"Cold wind shakes the mango.",
+"Cold wind shakes the llama.",
+"Cold wind shakes the suitcase."
+]
+},
+{
+"id":"sound_weather_19",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Storm clouds gather quickly.",
+"wrongOptions":[
+"Storm clouds gather the cupcake tray.",
+"Storm clouds gather the jellyfish.",
+"Storm clouds gather the telescope lens."
+]
+},
+{
+"id":"sound_weather_20",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"A rainbow colors the sky.",
+"wrongOptions":[
+"A rainbow colors the pancake stack.",
+"A rainbow colors the kangaroo tail.",
+"A rainbow colors the lantern pole."
+]
+},
+{
+"id":"sound_weather_21",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The morning sun warms the grass.",
+"wrongOptions":[
+"The morning sun warms the avocado.",
+"The morning sun warms the seal.",
+"The morning sun warms the paintbrush."
+]
+},
+{
+"id":"sound_weather_22",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Cool wind blows across the lake.",
+"wrongOptions":[
+"Cool wind blows the blueberry.",
+"Cool wind blows the raccoon.",
+"Cool wind blows the umbrella stand."
+]
+},
+{
+"id":"sound_weather_23",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Thick fog covers the road.",
+"wrongOptions":[
+"Thick fog covers the chocolate bar.",
+"Thick fog covers the giraffe calf.",
+"Thick fog covers the alarm clock."
+]
+},
+{
+"id":"sound_weather_24",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Snow covers the rooftops.",
+"wrongOptions":[
+"Snow covers the pineapple slice.",
+"Snow covers the flamingo chick.",
+"Snow covers the kitchen spoon."
+]
+},
+{
+"id":"sound_weather_25",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Raindrops tap on the window.",
+"wrongOptions":[
+"Raindrops tap the peanut butter.",
+"Raindrops tap the koala cub.",
+"Raindrops tap the backpack strap."
+]
+},
+{
+"id":"sound_weather_26",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"A strong storm shakes the trees.",
+"wrongOptions":[
+"A strong storm shakes the melon.",
+"A strong storm shakes the meerkat.",
+"A strong storm shakes the chessboard."
+]
+},
+{
+"id":"sound_weather_27",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The sunset colors the clouds.",
+"wrongOptions":[
+"The sunset colors the waffle.",
+"The sunset colors the parrot feather.",
+"The sunset colors the drumstick."
+]
+},
+{
+"id":"sound_weather_28",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The sunrise lights the hills.",
+"wrongOptions":[
+"The sunrise lights the coconut shell.",
+"The sunrise lights the otter pup.",
+"The sunrise lights the notebook page."
+]
+},
+{
+"id":"sound_weather_29",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"A cool breeze touches the flowers.",
+"wrongOptions":[
+"A cool breeze touches the chocolate cake.",
+"A cool breeze touches the lemur tail.",
+"A cool breeze touches the flashlight."
+]
+},
+{
+"id":"sound_weather_30",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The storm brings loud thunder.",
+"wrongOptions":[
+"The storm brings the blueberry pie.",
+"The storm brings the walrus tusk.",
+"The storm brings the violin bow."
+]
+},
+{
+"id":"sound_weather_31",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Warm sunshine brightens the morning.",
+"wrongOptions":[
+"Warm sunshine brightens the broccoli soup.",
+"Warm sunshine brightens the hyena cub.",
+"Warm sunshine brightens the wristwatch."
+]
+},
+{
+"id":"sound_weather_32",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Grey clouds cover the hills.",
+"wrongOptions":[
+"Grey clouds cover the pineapple ring.",
+"Grey clouds cover the alpaca.",
+"Grey clouds cover the paint bucket."
+]
+},
+{
+"id":"sound_weather_33",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"A cold breeze moves the branches.",
+"wrongOptions":[
+"A cold breeze moves the strawberry jam.",
+"A cold breeze moves the iguana.",
+"A cold breeze moves the toolbox."
+]
+},
+{
+"id":"sound_weather_34",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Snow falls during winter nights.",
+"wrongOptions":[
+"Snow falls the chocolate donut.",
+"Snow falls the kangaroo paw.",
+"Snow falls the desk lamp."
+]
+},
+{
+"id":"sound_weather_35",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Rain wets the streets.",
+"wrongOptions":[
+"Rain wets the mango slice.",
+"Rain wets the flamingo wing.",
+"Rain wets the suitcase wheel."
+]
+},
+{
+"id":"sound_weather_36",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The storm darkens the sky.",
+"wrongOptions":[
+"The storm darkens the pumpkin seed.",
+"The storm darkens the gorilla.",
+"The storm darkens the kitchen bowl."
+]
+},
+{
+"id":"sound_weather_37",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Morning dew shines on the grass.",
+"wrongOptions":[
+"Morning dew shines the waffle cone.",
+"Morning dew shines the meerkat pup.",
+"Morning dew shines the notebook cover."
+]
+},
+{
+"id":"sound_weather_38",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"A light drizzle falls softly.",
+"wrongOptions":[
+"A light drizzle falls the lemon tart.",
+"A light drizzle falls the sea turtle.",
+"A light drizzle falls the toolbox handle."
+]
+},
+{
+"id":"sound_weather_39",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The wind whistles through the trees.",
+"wrongOptions":[
+"The wind whistles the avocado toast.",
+"The wind whistles the peacock tail.",
+"The wind whistles the guitar string."
+]
+},
+{
+"id":"sound_weather_40",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Thick clouds hide the sun.",
+"wrongOptions":[
+"Thick clouds hide the chocolate muffin.",
+"Thick clouds hide the zebra foal.",
+"Thick clouds hide the backpack zipper."
+]
+},
+{
+"id":"sound_weather_41",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"A warm breeze touches the lake.",
+"wrongOptions":[
+"A warm breeze touches the coconut cake.",
+"A warm breeze touches the snow leopard.",
+"A warm breeze touches the desk drawer."
+]
+},
+{
+"id":"sound_weather_42",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The sky clears after rain.",
+"wrongOptions":[
+"The sky clears the blueberry pie.",
+"The sky clears the otter pup.",
+"The sky clears the violin case."
+]
+},
+{
+"id":"sound_weather_43",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Frost covers the leaves in winter.",
+"wrongOptions":[
+"Frost covers the pineapple cake.",
+"Frost covers the cheetah cub.",
+"Frost covers the tablecloth."
+]
+},
+{
+"id":"sound_weather_44",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The evening breeze cools the air.",
+"wrongOptions":[
+"The evening breeze cools the peach tart.",
+"The evening breeze cools the walrus calf.",
+"The evening breeze cools the toolbox lid."
+]
+},
+{
+"id":"sound_weather_45",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"A rainbow stretches across the sky.",
+"wrongOptions":[
+"A rainbow stretches the mango smoothie.",
+"A rainbow stretches the lemur tail.",
+"A rainbow stretches the camera lens."
+]
+},
+{
+"id":"sound_weather_46",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The wind bends the tall grass.",
+"wrongOptions":[
+"The wind bends the chocolate waffle.",
+"The wind bends the camel calf.",
+"The wind bends the curtain rod."
+]
+},
+{
+"id":"sound_weather_47",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Rain clouds gather before the storm.",
+"wrongOptions":[
+"Rain clouds gather the blueberry jam.",
+"Rain clouds gather the penguin chick.",
+"Rain clouds gather the lantern hook."
+]
+},
+{
+"id":"sound_weather_48",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"Bright sunlight warms the sand.",
+"wrongOptions":[
+"Bright sunlight warms the coconut candy.",
+"Bright sunlight warms the hyrax.",
+"Bright sunlight warms the guitar case."
+]
+},
+{
+"id":"sound_weather_49",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"A cool wind blows through the valley.",
+"wrongOptions":[
+"A cool wind blows the strawberry milkshake.",
+"A cool wind blows the panda cub.",
+"A cool wind blows the ladder step."
+]
+},
+{
+"id":"sound_weather_50",
+"unit":"weather",
+"level":"easy",
+"correctSentence":"The cloudy sky hides the stars.",
+"wrongOptions":[
+"The cloudy sky hides the chocolate pudding.",
+"The cloudy sky hides the llama.",
+"The cloudy sky hides the suitcase lock."
+]
+}
+]

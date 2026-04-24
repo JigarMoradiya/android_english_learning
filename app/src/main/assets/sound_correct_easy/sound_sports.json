@@ -1,0 +1,552 @@
+[
+{
+"id":"sound_sports_1",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The player kicks the football.",
+"wrongOptions":[
+"The player kicks the pineapple.",
+"The player kicks the kangaroo.",
+"The player kicks the telescope."
+]
+},
+{
+"id":"sound_sports_2",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The runner runs on the track.",
+"wrongOptions":[
+"The runner runs the cupcake.",
+"The runner runs the walrus.",
+"The runner runs the backpack."
+]
+},
+{
+"id":"sound_sports_3",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The swimmer swims in the pool.",
+"wrongOptions":[
+"The swimmer swims the banana.",
+"The swimmer swims the camel.",
+"The swimmer swims the violin."
+]
+},
+{
+"id":"sound_sports_4",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The tennis player hits the ball.",
+"wrongOptions":[
+"The tennis player hits the donut.",
+"The tennis player hits the giraffe.",
+"The tennis player hits the mirror."
+]
+},
+{
+"id":"sound_sports_5",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The team scores a goal.",
+"wrongOptions":[
+"The team scores the mango.",
+"The team scores the peacock.",
+"The team scores the lantern."
+]
+},
+{
+"id":"sound_sports_6",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The cyclist rides the bicycle.",
+"wrongOptions":[
+"The cyclist rides the carrot cake.",
+"The cyclist rides the dolphin.",
+"The cyclist rides the suitcase."
+]
+},
+{
+"id":"sound_sports_7",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The player throws the basketball.",
+"wrongOptions":[
+"The player throws the apple pie.",
+"The player throws the tiger.",
+"The player throws the notebook."
+]
+},
+{
+"id":"sound_sports_8",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The goalkeeper catches the ball.",
+"wrongOptions":[
+"The goalkeeper catches the strawberry.",
+"The goalkeeper catches the owl.",
+"The goalkeeper catches the curtain."
+]
+},
+{
+"id":"sound_sports_9",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The skater glides on the ice.",
+"wrongOptions":[
+"The skater glides the coconut.",
+"The skater glides the rabbit.",
+"The skater glides the ladder."
+]
+},
+{
+"id":"sound_sports_10",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The boxer punches the bag.",
+"wrongOptions":[
+"The boxer punches the chocolate cake.",
+"The boxer punches the panda.",
+"The boxer punches the guitar."
+]
+},
+{
+"id":"sound_sports_11",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The golfer hits the golf ball.",
+"wrongOptions":[
+"The golfer hits the peach pie.",
+"The golfer hits the flamingo.",
+"The golfer hits the camera."
+]
+},
+{
+"id":"sound_sports_12",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The referee blows the whistle.",
+"wrongOptions":[
+"The referee blows the blueberry.",
+"The referee blows the camel.",
+"The referee blows the umbrella."
+]
+},
+{
+"id":"sound_sports_13",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The player swings the bat.",
+"wrongOptions":[
+"The player swings the lemon cake.",
+"The player swings the zebra.",
+"The player swings the toolbox."
+]
+},
+{
+"id":"sound_sports_14",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The athlete jumps over the bar.",
+"wrongOptions":[
+"The athlete jumps the pineapple slice.",
+"The athlete jumps the penguin.",
+"The athlete jumps the pillow."
+]
+},
+{
+"id":"sound_sports_15",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The team wins the match.",
+"wrongOptions":[
+"The team wins the chocolate donut.",
+"The team wins the koala.",
+"The team wins the suitcase."
+]
+},
+{
+"id":"sound_sports_16",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The coach trains the players.",
+"wrongOptions":[
+"The coach trains the mango smoothie.",
+"The coach trains the walrus.",
+"The coach trains the lantern."
+]
+},
+{
+"id":"sound_sports_17",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The runner crosses the finish line.",
+"wrongOptions":[
+"The runner crosses the strawberry pie.",
+"The runner crosses the tiger cub.",
+"The runner crosses the mirror."
+]
+},
+{
+"id":"sound_sports_18",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The swimmer dives into the water.",
+"wrongOptions":[
+"The swimmer dives the cupcake box.",
+"The swimmer dives the owl.",
+"The swimmer dives the violin case."
+]
+},
+{
+"id":"sound_sports_19",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The player passes the ball.",
+"wrongOptions":[
+"The player passes the carrot pie.",
+"The player passes the giraffe calf.",
+"The player passes the backpack."
+]
+},
+{
+"id":"sound_sports_20",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The crowd cheers loudly.",
+"wrongOptions":[
+"The crowd cheers the pineapple cake.",
+"The crowd cheers the panda cub.",
+"The crowd cheers the lantern pole."
+]
+},
+{
+"id":"sound_sports_21",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The cricket player hits the ball.",
+"wrongOptions":[
+"The cricket player hits the avocado.",
+"The cricket player hits the penguin.",
+"The cricket player hits the compass."
+]
+},
+{
+"id":"sound_sports_22",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The badminton player swings the racket.",
+"wrongOptions":[
+"The badminton player swings the cupcake.",
+"The badminton player swings the giraffe.",
+"The badminton player swings the backpack."
+]
+},
+{
+"id":"sound_sports_23",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The hockey player pushes the puck.",
+"wrongOptions":[
+"The hockey player pushes the pineapple.",
+"The hockey player pushes the dolphin.",
+"The hockey player pushes the lantern."
+]
+},
+{
+"id":"sound_sports_24",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The volleyball player hits the ball.",
+"wrongOptions":[
+"The volleyball player hits the mango.",
+"The volleyball player hits the zebra.",
+"The volleyball player hits the notebook."
+]
+},
+{
+"id":"sound_sports_25",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The gymnast flips on the mat.",
+"wrongOptions":[
+"The gymnast flips the donut.",
+"The gymnast flips the walrus.",
+"The gymnast flips the mirror."
+]
+},
+{
+"id":"sound_sports_26",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The archer shoots the arrow.",
+"wrongOptions":[
+"The archer shoots the carrot.",
+"The archer shoots the camel.",
+"The archer shoots the violin."
+]
+},
+{
+"id":"sound_sports_27",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The table tennis player hits the ball.",
+"wrongOptions":[
+"The table tennis player hits the apple pie.",
+"The table tennis player hits the owl.",
+"The table tennis player hits the curtain."
+]
+},
+{
+"id":"sound_sports_28",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The skateboarder rides the skateboard.",
+"wrongOptions":[
+"The skateboarder rides the cupcake box.",
+"The skateboarder rides the tiger.",
+"The skateboarder rides the umbrella."
+]
+},
+{
+"id":"sound_sports_29",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The runner stretches before the race.",
+"wrongOptions":[
+"The runner stretches the coconut.",
+"The runner stretches the rabbit.",
+"The runner stretches the ladder."
+]
+},
+{
+"id":"sound_sports_30",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The swimmer kicks the water.",
+"wrongOptions":[
+"The swimmer kicks the blueberry.",
+"The swimmer kicks the panda.",
+"The swimmer kicks the camera."
+]
+},
+{
+"id":"sound_sports_31",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The player dribbles the basketball.",
+"wrongOptions":[
+"The player dribbles the peach.",
+"The player dribbles the flamingo.",
+"The player dribbles the suitcase."
+]
+},
+{
+"id":"sound_sports_32",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The cyclist pedals fast.",
+"wrongOptions":[
+"The cyclist pedals the strawberry pie.",
+"The cyclist pedals the kangaroo.",
+"The cyclist pedals the toolbox."
+]
+},
+{
+"id":"sound_sports_33",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The referee starts the game.",
+"wrongOptions":[
+"The referee starts the chocolate cake.",
+"The referee starts the camel calf.",
+"The referee starts the lantern."
+]
+},
+{
+"id":"sound_sports_34",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The player blocks the shot.",
+"wrongOptions":[
+"The player blocks the lemon pie.",
+"The player blocks the penguin chick.",
+"The player blocks the guitar."
+]
+},
+{
+"id":"sound_sports_35",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The athlete lifts the weight.",
+"wrongOptions":[
+"The athlete lifts the mango pudding.",
+"The athlete lifts the zebra foal.",
+"The athlete lifts the pillow."
+]
+},
+{
+"id":"sound_sports_36",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The player catches the cricket ball.",
+"wrongOptions":[
+"The player catches the pineapple cake.",
+"The player catches the koala.",
+"The player catches the violin case."
+]
+},
+{
+"id":"sound_sports_37",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The team practices every day.",
+"wrongOptions":[
+"The team practices the avocado pie.",
+"The team practices the fox.",
+"The team practices the mirror."
+]
+},
+{
+"id":"sound_sports_38",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The coach explains the rules.",
+"wrongOptions":[
+"The coach explains the donut glaze.",
+"The coach explains the llama.",
+"The coach explains the suitcase."
+]
+},
+{
+"id":"sound_sports_39",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The runner drinks water after the race.",
+"wrongOptions":[
+"The runner drinks the blueberry cake.",
+"The runner drinks the walrus.",
+"The runner drinks the notebook."
+]
+},
+{
+"id":"sound_sports_40",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The swimmer wears goggles.",
+"wrongOptions":[
+"The swimmer wears the coconut pie.",
+"The swimmer wears the owl chick.",
+"The swimmer wears the ladder."
+]
+},
+{
+"id":"sound_sports_41",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The hockey goalie guards the net.",
+"wrongOptions":[
+"The hockey goalie guards the mango slice.",
+"The hockey goalie guards the panda cub.",
+"The hockey goalie guards the lantern."
+]
+},
+{
+"id":"sound_sports_42",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The cricket bowler throws the ball.",
+"wrongOptions":[
+"The cricket bowler throws the carrot cake.",
+"The cricket bowler throws the camel.",
+"The cricket bowler throws the umbrella."
+]
+},
+{
+"id":"sound_sports_43",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The football player tackles the opponent.",
+"wrongOptions":[
+"The football player tackles the chocolate pie.",
+"The football player tackles the dolphin.",
+"The football player tackles the toolbox."
+]
+},
+{
+"id":"sound_sports_44",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The gymnast balances on the beam.",
+"wrongOptions":[
+"The gymnast balances the strawberry tart.",
+"The gymnast balances the penguin.",
+"The gymnast balances the suitcase."
+]
+},
+{
+"id":"sound_sports_45",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The archer aims at the target.",
+"wrongOptions":[
+"The archer aims the pineapple cake.",
+"The archer aims the zebra.",
+"The archer aims the mirror."
+]
+},
+{
+"id":"sound_sports_46",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The team celebrates the victory.",
+"wrongOptions":[
+"The team celebrates the lemon tart.",
+"The team celebrates the tiger cub.",
+"The team celebrates the guitar."
+]
+},
+{
+"id":"sound_sports_47",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The runner ties the shoelaces.",
+"wrongOptions":[
+"The runner ties the donut box.",
+"The runner ties the walrus.",
+"The runner ties the lantern."
+]
+},
+{
+"id":"sound_sports_48",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The swimmer practices every morning.",
+"wrongOptions":[
+"The swimmer practices the mango pie.",
+"The swimmer practices the flamingo.",
+"The swimmer practices the notebook."
+]
+},
+{
+"id":"sound_sports_49",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The player serves the tennis ball.",
+"wrongOptions":[
+"The player serves the avocado cake.",
+"The player serves the camel.",
+"The player serves the pillow."
+]
+},
+{
+"id":"sound_sports_50",
+"unit":"sports",
+"level":"easy",
+"correctSentence":"The crowd applauds the winner.",
+"wrongOptions":[
+"The crowd applauds the blueberry pie.",
+"The crowd applauds the kangaroo.",
+"The crowd applauds the suitcase."
+]
+}
+]

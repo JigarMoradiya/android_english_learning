@@ -1,0 +1,552 @@
+[
+{
+"id":"sound_colorsShapes_1",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The ball is round.",
+"wrongOptions":[
+"The ball is the mountain.",
+"The ball is the ocean.",
+"The ball is the forest."
+]
+},
+{
+"id":"sound_colorsShapes_2",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The apple is red.",
+"wrongOptions":[
+"The apple is the elephant.",
+"The apple is the airplane.",
+"The apple is the bridge."
+]
+},
+{
+"id":"sound_colorsShapes_3",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The banana is yellow.",
+"wrongOptions":[
+"The banana is the camel.",
+"The banana is the river.",
+"The banana is the castle."
+]
+},
+{
+"id":"sound_colorsShapes_4",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The leaf is green.",
+"wrongOptions":[
+"The leaf is the dolphin.",
+"The leaf is the helicopter.",
+"The leaf is the tunnel."
+]
+},
+{
+"id":"sound_colorsShapes_5",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The snow is white.",
+"wrongOptions":[
+"The snow is the kangaroo.",
+"The snow is the submarine.",
+"The snow is the island."
+]
+},
+{
+"id":"sound_colorsShapes_6",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The sky is blue.",
+"wrongOptions":[
+"The sky is the giraffe.",
+"The sky is the bicycle.",
+"The sky is the volcano."
+]
+},
+{
+"id":"sound_colorsShapes_7",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The box is square.",
+"wrongOptions":[
+"The box is the penguin.",
+"The box is the ladder.",
+"The box is the stadium."
+]
+},
+{
+"id":"sound_colorsShapes_8",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The wheel is circular.",
+"wrongOptions":[
+"The wheel is the tiger.",
+"The wheel is the rocket.",
+"The wheel is the waterfall."
+]
+},
+{
+"id":"sound_colorsShapes_9",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The pizza slice is triangular.",
+"wrongOptions":[
+"The pizza slice is the zebra.",
+"The pizza slice is the tractor.",
+"The pizza slice is the desert."
+]
+},
+{
+"id":"sound_colorsShapes_10",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The chalk is white.",
+"wrongOptions":[
+"The chalk is the parrot.",
+"The chalk is the train.",
+"The chalk is the canyon."
+]
+},
+{
+"id":"sound_colorsShapes_11",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The strawberry is red.",
+"wrongOptions":[
+"The strawberry is the shark.",
+"The strawberry is the sailboat.",
+"The strawberry is the cliff."
+]
+},
+{
+"id":"sound_colorsShapes_12",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The grass is green.",
+"wrongOptions":[
+"The grass is the panda.",
+"The grass is the bus.",
+"The grass is the cave."
+]
+},
+{
+"id":"sound_colorsShapes_13",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The egg is oval.",
+"wrongOptions":[
+"The egg is the owl.",
+"The egg is the scooter.",
+"The egg is the tower."
+]
+},
+{
+"id":"sound_colorsShapes_14",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The traffic light is red.",
+"wrongOptions":[
+"The traffic light is the seal.",
+"The traffic light is the tram.",
+"The traffic light is the harbor."
+]
+},
+{
+"id":"sound_colorsShapes_15",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The star shape has points.",
+"wrongOptions":[
+"The star shape is the rabbit.",
+"The star shape is the spaceship.",
+"The star shape is the canyon."
+]
+},
+{
+"id":"sound_colorsShapes_16",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The lemon is yellow.",
+"wrongOptions":[
+"The lemon is the whale.",
+"The lemon is the scooter.",
+"The lemon is the jungle."
+]
+},
+{
+"id":"sound_colorsShapes_17",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The cube looks square.",
+"wrongOptions":[
+"The cube is the flamingo.",
+"The cube is the helicopter.",
+"The cube is the glacier."
+]
+},
+{
+"id":"sound_colorsShapes_18",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The balloon is round.",
+"wrongOptions":[
+"The balloon is the crocodile.",
+"The balloon is the submarine.",
+"The balloon is the valley."
+]
+},
+{
+"id":"sound_colorsShapes_19",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The tomato is red.",
+"wrongOptions":[
+"The tomato is the butterfly.",
+"The tomato is the tractor.",
+"The tomato is the plateau."
+]
+},
+{
+"id":"sound_colorsShapes_20",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The cloud is white.",
+"wrongOptions":[
+"The cloud is the koala.",
+"The cloud is the scooter.",
+"The cloud is the waterfall."
+]
+},
+{
+"id":"sound_colorsShapes_21",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The rectangle has four sides.",
+"wrongOptions":[
+"The rectangle is the lighthouse.",
+"The rectangle is the kangaroo.",
+"The rectangle is the spaceship."
+]
+},
+{
+"id":"sound_colorsShapes_22",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The triangle has three sides.",
+"wrongOptions":[
+"The triangle is the dolphin.",
+"The triangle is the tractor.",
+"The triangle is the canyon."
+]
+},
+{
+"id":"sound_colorsShapes_23",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The sun is bright yellow.",
+"wrongOptions":[
+"The sun is the owl.",
+"The sun is the ferry.",
+"The sun is the glacier."
+]
+},
+{
+"id":"sound_colorsShapes_24",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The heart shape is red.",
+"wrongOptions":[
+"The heart is the flamingo.",
+"The heart is the sailboat.",
+"The heart is the plateau."
+]
+},
+{
+"id":"sound_colorsShapes_25",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The circle has no corners.",
+"wrongOptions":[
+"The circle is the cheetah.",
+"The circle is the tram.",
+"The circle is the island."
+]
+},
+{
+"id":"sound_colorsShapes_26",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The square has four equal sides.",
+"wrongOptions":[
+"The square is the koala.",
+"The square is the pickup truck.",
+"The square is the canyon bridge."
+]
+},
+{
+"id":"sound_colorsShapes_27",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The carrot is orange.",
+"wrongOptions":[
+"The carrot is the pelican.",
+"The carrot is the scooter helmet.",
+"The carrot is the snow cave."
+]
+},
+{
+"id":"sound_colorsShapes_28",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The grape is purple.",
+"wrongOptions":[
+"The grape is the buffalo.",
+"The grape is the gondola.",
+"The grape is the rainforest."
+]
+},
+{
+"id":"sound_colorsShapes_29",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The chalkboard is black.",
+"wrongOptions":[
+"The chalkboard is the hamster.",
+"The chalkboard is the cargo ship.",
+"The chalkboard is the cliff."
+]
+},
+{
+"id":"sound_colorsShapes_30",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The milk looks white.",
+"wrongOptions":[
+"The milk is the peacock.",
+"The milk is the bulldozer.",
+"The milk is the lagoon."
+]
+},
+{
+"id":"sound_colorsShapes_31",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The basketball is round.",
+"wrongOptions":[
+"The basketball is the rhino.",
+"The basketball is the tramway.",
+"The basketball is the canyon road."
+]
+},
+{
+"id":"sound_colorsShapes_32",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The stop sign is red.",
+"wrongOptions":[
+"The stop sign is the hedgehog.",
+"The stop sign is the fishing boat.",
+"The stop sign is the desert hill."
+]
+},
+{
+"id":"sound_colorsShapes_33",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The cucumber is green.",
+"wrongOptions":[
+"The cucumber is the raccoon.",
+"The cucumber is the forklift.",
+"The cucumber is the coral bay."
+]
+},
+{
+"id":"sound_colorsShapes_34",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The moon looks round.",
+"wrongOptions":[
+"The moon is the toucan.",
+"The moon is the hot air balloon.",
+"The moon is the ice field."
+]
+},
+{
+"id":"sound_colorsShapes_35",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The notebook is rectangular.",
+"wrongOptions":[
+"The notebook is the sloth.",
+"The notebook is the cable car.",
+"The notebook is the canyon wall."
+]
+},
+{
+"id":"sound_colorsShapes_36",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The watermelon is green outside.",
+"wrongOptions":[
+"The watermelon is the leopard.",
+"The watermelon is the patrol boat.",
+"The watermelon is the lava cave."
+]
+},
+{
+"id":"sound_colorsShapes_37",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The diamond shape has four points.",
+"wrongOptions":[
+"The diamond is the otter.",
+"The diamond is the trolley bus.",
+"The diamond is the iceberg valley."
+]
+},
+{
+"id":"sound_colorsShapes_38",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The paint is blue.",
+"wrongOptions":[
+"The paint is the walrus.",
+"The paint is the cargo plane.",
+"The paint is the bamboo forest."
+]
+},
+{
+"id":"sound_colorsShapes_39",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The marker cap is red.",
+"wrongOptions":[
+"The marker cap is the meerkat.",
+"The marker cap is the bulldozer bucket.",
+"The marker cap is the coral cliff."
+]
+},
+{
+"id":"sound_colorsShapes_40",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The egg yolk is yellow.",
+"wrongOptions":[
+"The egg yolk is the lynx.",
+"The egg yolk is the ferry dock.",
+"The egg yolk is the frozen lake."
+]
+},
+{
+"id":"sound_colorsShapes_41",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The cube has six faces.",
+"wrongOptions":[
+"The cube is the pegasus statue.",
+"The cube is the wind turbine.",
+"The cube is the canyon lake."
+]
+},
+{
+"id":"sound_colorsShapes_42",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The oval mirror is smooth.",
+"wrongOptions":[
+"The mirror is the gazelle.",
+"The mirror is the oil tanker.",
+"The mirror is the mangrove swamp."
+]
+},
+{
+"id":"sound_colorsShapes_43",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The triangle sign is yellow.",
+"wrongOptions":[
+"The sign is the beaver.",
+"The sign is the subway train.",
+"The sign is the rock arch."
+]
+},
+{
+"id":"sound_colorsShapes_44",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The marble is round.",
+"wrongOptions":[
+"The marble is the puffin.",
+"The marble is the hovercraft.",
+"The marble is the canyon desert."
+]
+},
+{
+"id":"sound_colorsShapes_45",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The strawberry is red.",
+"wrongOptions":[
+"The strawberry is the lynx cub.",
+"The strawberry is the snowmobile.",
+"The strawberry is the jungle hill."
+]
+},
+{
+"id":"sound_colorsShapes_46",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The chalk circle is white.",
+"wrongOptions":[
+"The chalk is the iguana.",
+"The chalk is the glider plane.",
+"The chalk is the rocky island."
+]
+},
+{
+"id":"sound_colorsShapes_47",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The paper star has five points.",
+"wrongOptions":[
+"The star is the porcupine.",
+"The star is the tractor trailer.",
+"The star is the canyon forest."
+]
+},
+{
+"id":"sound_colorsShapes_48",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The cube block is blue.",
+"wrongOptions":[
+"The cube is the lemur.",
+"The cube is the sail yacht.",
+"The cube is the cliff cave."
+]
+},
+{
+"id":"sound_colorsShapes_49",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The signboard is rectangular.",
+"wrongOptions":[
+"The signboard is the yak.",
+"The signboard is the fishing trawler.",
+"The signboard is the coral lagoon."
+]
+},
+{
+"id":"sound_colorsShapes_50",
+"unit":"colorsShapes",
+"level":"easy",
+"correctSentence":"The beach ball is colorful.",
+"wrongOptions":[
+"The beach ball is the antelope.",
+"The beach ball is the rescue helicopter.",
+"The beach ball is the snowy mountain."
+]
+}
+]

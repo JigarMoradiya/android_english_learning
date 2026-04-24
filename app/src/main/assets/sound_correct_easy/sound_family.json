@@ -1,0 +1,552 @@
+[
+{
+"id":"sound_family_1",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Mother hugs the baby.",
+"wrongOptions":[
+"Mother hugs the lamp post.",
+"Mother hugs the cooking pan.",
+"Mother hugs the mailbox."
+]
+},
+{
+"id":"sound_family_2",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Father reads a bedtime story.",
+"wrongOptions":[
+"Father reads the garden shovel.",
+"Father reads the ceiling fan.",
+"Father reads the shoe cabinet."
+]
+},
+{
+"id":"sound_family_3",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Sister shares her toys.",
+"wrongOptions":[
+"Sister shares the window curtain.",
+"Sister shares the frying basket.",
+"Sister shares the ladder step."
+]
+},
+{
+"id":"sound_family_4",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Brother helps clean the table.",
+"wrongOptions":[
+"Brother helps clean the bicycle helmet.",
+"Brother helps clean the doorbell.",
+"Brother helps clean the flower pot."
+]
+},
+{
+"id":"sound_family_5",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandmother knits a warm scarf.",
+"wrongOptions":[
+"Grandmother knits the wall clock.",
+"Grandmother knits the water jug.",
+"Grandmother knits the kitchen spoon."
+]
+},
+{
+"id":"sound_family_6",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandfather tells a funny joke.",
+"wrongOptions":[
+"Grandfather tells the frying spatula.",
+"Grandfather tells the tool hammer.",
+"Grandfather tells the window latch."
+]
+},
+{
+"id":"sound_family_7",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Mother cooks dinner for everyone.",
+"wrongOptions":[
+"Mother cooks the toolbox lid.",
+"Mother cooks the door handle.",
+"Mother cooks the garden rake."
+]
+},
+{
+"id":"sound_family_8",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Father fixes the broken chair.",
+"wrongOptions":[
+"Father fixes the rain cloud.",
+"Father fixes the sand dune.",
+"Father fixes the mountain rock."
+]
+},
+{
+"id":"sound_family_9",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Parents watch their children play.",
+"wrongOptions":[
+"Parents watch the shoe lace.",
+"Parents watch the cupboard hinge.",
+"Parents watch the kettle whistle."
+]
+},
+{
+"id":"sound_family_10",
+"unit":"family",
+"level":"easy",
+"correctSentence":"The baby smiles at mother.",
+"wrongOptions":[
+"The baby smiles at the ladder rail.",
+"The baby smiles at the broom stick.",
+"The baby smiles at the door lock."
+]
+},
+{
+"id":"sound_family_11",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Father carries the little child.",
+"wrongOptions":[
+"Father carries the baking tray.",
+"Father carries the window frame.",
+"Father carries the suitcase wheel."
+]
+},
+{
+"id":"sound_family_12",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Mother packs lunch for school.",
+"wrongOptions":[
+"Mother packs the garden hose.",
+"Mother packs the floor tile.",
+"Mother packs the curtain rod."
+]
+},
+{
+"id":"sound_family_13",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Brother teaches his sister a game.",
+"wrongOptions":[
+"Brother teaches the frying pan lid.",
+"Brother teaches the roof tile.",
+"Brother teaches the bicycle pump."
+]
+},
+{
+"id":"sound_family_14",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Sister sings a happy song.",
+"wrongOptions":[
+"Sister sings the wooden ladder.",
+"Sister sings the cooking pot.",
+"Sister sings the cupboard shelf."
+]
+},
+{
+"id":"sound_family_15",
+"unit":"family",
+"level":"easy",
+"correctSentence":"The family eats dinner together.",
+"wrongOptions":[
+"The family eats the garden shovel.",
+"The family eats the school chalk.",
+"The family eats the tool wrench."
+]
+},
+{
+"id":"sound_family_16",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Father waters the backyard plants.",
+"wrongOptions":[
+"Father waters the desk drawer.",
+"Father waters the frying fork.",
+"Father waters the shoe brush."
+]
+},
+{
+"id":"sound_family_17",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Mother folds clean clothes.",
+"wrongOptions":[
+"Mother folds the wall painting.",
+"Mother folds the door hinge.",
+"Mother folds the ceiling beam."
+]
+},
+{
+"id":"sound_family_18",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandfather feeds the pet dog.",
+"wrongOptions":[
+"Grandfather feeds the table lamp.",
+"Grandfather feeds the ladder rung.",
+"Grandfather feeds the garden bucket."
+]
+},
+{
+"id":"sound_family_19",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandmother pours warm tea.",
+"wrongOptions":[
+"Grandmother pours the window glass.",
+"Grandmother pours the iron nail.",
+"Grandmother pours the wooden plank."
+]
+},
+{
+"id":"sound_family_20",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Brother rides with his father.",
+"wrongOptions":[
+"Brother rides the cooking pan.",
+"Brother rides the shoe rack.",
+"Brother rides the curtain hook."
+]
+},
+{
+"id":"sound_family_21",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Mother reads a story to the child.",
+"wrongOptions":[
+"Mother reads the toolbox screw.",
+"Mother reads the brick wall.",
+"Mother reads the frying spatula."
+]
+},
+{
+"id":"sound_family_22",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Father washes the family car.",
+"wrongOptions":[
+"Father washes the kitchen spoon.",
+"Father washes the window nail.",
+"Father washes the floor bucket."
+]
+},
+{
+"id":"sound_family_23",
+"unit":"family",
+"level":"easy",
+"correctSentence":"The baby claps happily.",
+"wrongOptions":[
+"The baby claps the frying pan.",
+"The baby claps the garden stone.",
+"The baby claps the broom handle."
+]
+},
+{
+"id":"sound_family_24",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Sister helps mother cook.",
+"wrongOptions":[
+"Sister helps the ladder hook.",
+"Sister helps the roof pipe.",
+"Sister helps the metal hinge."
+]
+},
+{
+"id":"sound_family_25",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Brother draws a picture for dad.",
+"wrongOptions":[
+"Brother draws the frying fork.",
+"Brother draws the window screw.",
+"Brother draws the tool chisel."
+]
+},
+{
+"id":"sound_family_26",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Mother braids her daughter's hair.",
+"wrongOptions":[
+"Mother braids the fence wire.",
+"Mother braids the saucepan lid.",
+"Mother braids the window latch."
+]
+},
+{
+"id":"sound_family_27",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Father ties his son's shoelaces.",
+"wrongOptions":[
+"Father ties the ladder rung.",
+"Father ties the watering can.",
+"Father ties the desk hinge."
+]
+},
+{
+"id":"sound_family_28",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandmother bakes sweet cookies.",
+"wrongOptions":[
+"Grandmother bakes the toolbox handle.",
+"Grandmother bakes the broom bristle.",
+"Grandmother bakes the garden trowel."
+]
+},
+{
+"id":"sound_family_29",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandfather waters the rose bush.",
+"wrongOptions":[
+"Grandfather waters the ceiling beam.",
+"Grandfather waters the cabinet knob.",
+"Grandfather waters the door stopper."
+]
+},
+{
+"id":"sound_family_30",
+"unit":"family",
+"level":"easy",
+"correctSentence":"The baby crawls toward mother.",
+"wrongOptions":[
+"The baby crawls toward the kettle spout.",
+"The baby crawls toward the brick wall.",
+"The baby crawls toward the lantern hook."
+]
+},
+{
+"id":"sound_family_31",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Brother carries the picnic basket.",
+"wrongOptions":[
+"Brother carries the window shutter.",
+"Brother carries the garden rake head.",
+"Brother carries the oven tray."
+]
+},
+{
+"id":"sound_family_32",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Sister decorates the birthday cake.",
+"wrongOptions":[
+"Sister decorates the roof gutter.",
+"Sister decorates the hammer claw.",
+"Sister decorates the floor tile."
+]
+},
+{
+"id":"sound_family_33",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Father lifts the sleeping baby.",
+"wrongOptions":[
+"Father lifts the fence post.",
+"Father lifts the paint roller.",
+"Father lifts the garden hose."
+]
+},
+{
+"id":"sound_family_34",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Mother opens the storybook.",
+"wrongOptions":[
+"Mother opens the cupboard hinge.",
+"Mother opens the iron bolt.",
+"Mother opens the ladder brace."
+]
+},
+{
+"id":"sound_family_35",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandmother stitches a button.",
+"wrongOptions":[
+"Grandmother stitches the gate latch.",
+"Grandmother stitches the brick corner.",
+"Grandmother stitches the door spring."
+]
+},
+{
+"id":"sound_family_36",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandfather sharpens a pencil.",
+"wrongOptions":[
+"Grandfather sharpens the frying ladle.",
+"Grandfather sharpens the garden shovel blade.",
+"Grandfather sharpens the window bar."
+]
+},
+{
+"id":"sound_family_37",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Mother pours juice for the children.",
+"wrongOptions":[
+"Mother pours the ladder bolt.",
+"Mother pours the table hinge.",
+"Mother pours the broom stick."
+]
+},
+{
+"id":"sound_family_38",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Father lights the evening lamp.",
+"wrongOptions":[
+"Father lights the mailbox flap.",
+"Father lights the door hinge pin.",
+"Father lights the watering hose."
+]
+},
+{
+"id":"sound_family_39",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Brother washes the pet dog.",
+"wrongOptions":[
+"Brother washes the fence latch.",
+"Brother washes the tool wrench head.",
+"Brother washes the garden shovel."
+]
+},
+{
+"id":"sound_family_40",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Sister arranges the flower vase.",
+"wrongOptions":[
+"Sister arranges the brick chimney.",
+"Sister arranges the door hinge plate.",
+"Sister arranges the garden wheelbarrow."
+]
+},
+{
+"id":"sound_family_41",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Mother serves warm soup.",
+"wrongOptions":[
+"Mother serves the roof nail.",
+"Mother serves the ladder hook.",
+"Mother serves the cupboard screw."
+]
+},
+{
+"id":"sound_family_42",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Father sweeps the front yard.",
+"wrongOptions":[
+"Father sweeps the window hinge.",
+"Father sweeps the hammer head.",
+"Father sweeps the shovel blade."
+]
+},
+{
+"id":"sound_family_43",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandmother folds the blanket.",
+"wrongOptions":[
+"Grandmother folds the door bracket.",
+"Grandmother folds the brick pillar.",
+"Grandmother folds the curtain ring."
+]
+},
+{
+"id":"sound_family_44",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandfather feeds the chickens.",
+"wrongOptions":[
+"Grandfather feeds the ladder hook.",
+"Grandfather feeds the cabinet hinge.",
+"Grandfather feeds the iron nail."
+]
+},
+{
+"id":"sound_family_45",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Brother pushes the stroller.",
+"wrongOptions":[
+"Brother pushes the fence plank.",
+"Brother pushes the roof gutter pipe.",
+"Brother pushes the iron rod."
+]
+},
+{
+"id":"sound_family_46",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Sister waters the tulip plant.",
+"wrongOptions":[
+"Sister waters the door hinge.",
+"Sister waters the ladder rung.",
+"Sister waters the brick arch."
+]
+},
+{
+"id":"sound_family_47",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Mother packs a travel bag.",
+"wrongOptions":[
+"Mother packs the oven rack.",
+"Mother packs the tool screwdriver.",
+"Mother packs the cabinet latch."
+]
+},
+{
+"id":"sound_family_48",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Father closes the garden gate.",
+"wrongOptions":[
+"Father closes the hammer claw.",
+"Father closes the ladder brace.",
+"Father closes the window nail."
+]
+},
+{
+"id":"sound_family_49",
+"unit":"family",
+"level":"easy",
+"correctSentence":"Grandmother waters the herb garden.",
+"wrongOptions":[
+"Grandmother waters the brick wall edge.",
+"Grandmother waters the door hinge bar.",
+"Grandmother waters the iron bracket."
+]
+},
+{
+"id":"sound_family_50",
+"unit":"family",
+"level":"easy",
+"correctSentence":"The family walks in the park.",
+"wrongOptions":[
+"The family walks the frying pan.",
+"The family walks the ladder plank.",
+"The family walks the cupboard shelf."
+]
+}
+]

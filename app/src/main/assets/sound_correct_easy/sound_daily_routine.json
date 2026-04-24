@@ -1,0 +1,552 @@
+[
+{
+"id":"sound_dailyRoutine_1",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy wakes up early.",
+"wrongOptions":[
+"The boy wakes up the volcano.",
+"The boy wakes up the telescope.",
+"The boy wakes up the castle."
+]
+},
+{
+"id":"sound_dailyRoutine_2",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl brushes her teeth.",
+"wrongOptions":[
+"The girl brushes the rainbow.",
+"The girl brushes the pyramid.",
+"The girl brushes the satellite."
+]
+},
+{
+"id":"sound_dailyRoutine_3",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy washes his face.",
+"wrongOptions":[
+"The boy washes the desert.",
+"The boy washes the rocket.",
+"The boy washes the lighthouse."
+]
+},
+{
+"id":"sound_dailyRoutine_4",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl combs her hair.",
+"wrongOptions":[
+"The girl combs the galaxy.",
+"The girl combs the canyon.",
+"The girl combs the submarine."
+]
+},
+{
+"id":"sound_dailyRoutine_5",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy wears his school uniform.",
+"wrongOptions":[
+"The boy wears the mountain.",
+"The boy wears the bridge.",
+"The boy wears the waterfall."
+]
+},
+{
+"id":"sound_dailyRoutine_6",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl packs her school bag.",
+"wrongOptions":[
+"The girl packs the comet.",
+"The girl packs the temple.",
+"The girl packs the roller coaster."
+]
+},
+{
+"id":"sound_dailyRoutine_7",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy ties his shoelaces.",
+"wrongOptions":[
+"The boy ties the thunderstorm.",
+"The boy ties the island.",
+"The boy ties the carousel."
+]
+},
+{
+"id":"sound_dailyRoutine_8",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl eats breakfast.",
+"wrongOptions":[
+"The girl eats the tornado.",
+"The girl eats the iceberg.",
+"The girl eats the windmill."
+]
+},
+{
+"id":"sound_dailyRoutine_9",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy drinks a glass of milk.",
+"wrongOptions":[
+"The boy drinks the volcano lava.",
+"The boy drinks the jungle tree.",
+"The boy drinks the canyon rock."
+]
+},
+{
+"id":"sound_dailyRoutine_10",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl walks to school.",
+"wrongOptions":[
+"The girl walks the rainbow cloud.",
+"The girl walks the desert dune.",
+"The girl walks the pyramid wall."
+]
+},
+{
+"id":"sound_dailyRoutine_11",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy sits in the classroom.",
+"wrongOptions":[
+"The boy sits the satellite dish.",
+"The boy sits the lighthouse beam.",
+"The boy sits the rocket engine."
+]
+},
+{
+"id":"sound_dailyRoutine_12",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl reads a book.",
+"wrongOptions":[
+"The girl reads the glacier peak.",
+"The girl reads the coral reef.",
+"The girl reads the castle tower."
+]
+},
+{
+"id":"sound_dailyRoutine_13",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy writes in his notebook.",
+"wrongOptions":[
+"The boy writes the asteroid belt.",
+"The boy writes the airplane wing.",
+"The boy writes the subway rail."
+]
+},
+{
+"id":"sound_dailyRoutine_14",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl answers the teacher.",
+"wrongOptions":[
+"The girl answers the comet tail.",
+"The girl answers the temple bell.",
+"The girl answers the bridge cable."
+]
+},
+{
+"id":"sound_dailyRoutine_15",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy plays with his friends.",
+"wrongOptions":[
+"The boy plays the skyscraper.",
+"The boy plays the dam wall.",
+"The boy plays the tower clock."
+]
+},
+{
+"id":"sound_dailyRoutine_16",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl runs in the playground.",
+"wrongOptions":[
+"The girl runs the spaceship.",
+"The girl runs the canyon bridge.",
+"The girl runs the volcano crater."
+]
+},
+{
+"id":"sound_dailyRoutine_17",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy returns home after school.",
+"wrongOptions":[
+"The boy returns the coral island.",
+"The boy returns the glacier cave.",
+"The boy returns the submarine hatch."
+]
+},
+{
+"id":"sound_dailyRoutine_18",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl washes her hands.",
+"wrongOptions":[
+"The girl washes the comet rock.",
+"The girl washes the desert cactus.",
+"The girl washes the rocket wing."
+]
+},
+{
+"id":"sound_dailyRoutine_19",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy eats lunch.",
+"wrongOptions":[
+"The boy eats the castle gate.",
+"The boy eats the lighthouse tower.",
+"The boy eats the roller coaster rail."
+]
+},
+{
+"id":"sound_dailyRoutine_20",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl drinks water.",
+"wrongOptions":[
+"The girl drinks the asteroid stone.",
+"The girl drinks the canyon river.",
+"The girl drinks the windmill blade."
+]
+},
+{
+"id":"sound_dailyRoutine_21",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy finishes his homework.",
+"wrongOptions":[
+"The boy finishes the jungle waterfall.",
+"The boy finishes the glacier lake.",
+"The boy finishes the pyramid statue."
+]
+},
+{
+"id":"sound_dailyRoutine_22",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl helps her mother.",
+"wrongOptions":[
+"The girl helps the temple tower.",
+"The girl helps the volcano rock.",
+"The girl helps the desert storm."
+]
+},
+{
+"id":"sound_dailyRoutine_23",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy plays football in the evening.",
+"wrongOptions":[
+"The boy plays the comet orbit.",
+"The boy plays the coral reef.",
+"The boy plays the castle dungeon."
+]
+},
+{
+"id":"sound_dailyRoutine_24",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl watches television.",
+"wrongOptions":[
+"The girl watches the rocket launchpad.",
+"The girl watches the submarine deck.",
+"The girl watches the waterfall cliff."
+]
+},
+{
+"id":"sound_dailyRoutine_25",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy takes a bath.",
+"wrongOptions":[
+"The boy takes the desert canyon.",
+"The boy takes the lighthouse ladder.",
+"The boy takes the asteroid rock."
+]
+},
+{
+"id":"sound_dailyRoutine_26",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl eats dinner with her family.",
+"wrongOptions":[
+"The girl eats the rainbow sky.",
+"The girl eats the glacier mountain.",
+"The girl eats the jungle river."
+]
+},
+{
+"id":"sound_dailyRoutine_27",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy brushes his teeth at night.",
+"wrongOptions":[
+"The boy brushes the rocket nozzle.",
+"The boy brushes the comet ice.",
+"The boy brushes the temple wall."
+]
+},
+{
+"id":"sound_dailyRoutine_28",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl reads a story before bed.",
+"wrongOptions":[
+"The girl reads the ocean wave.",
+"The girl reads the volcano smoke.",
+"The girl reads the pyramid stone."
+]
+},
+{
+"id":"sound_dailyRoutine_29",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy turns off the lights.",
+"wrongOptions":[
+"The boy turns off the lighthouse lamp.",
+"The boy turns off the rocket flame.",
+"The boy turns off the satellite panel."
+]
+},
+{
+"id":"sound_dailyRoutine_30",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl goes to sleep.",
+"wrongOptions":[
+"The girl sleeps the glacier cave.",
+"The girl sleeps the desert dune.",
+"The girl sleeps the canyon cliff."
+]
+},
+{
+"id":"sound_dailyRoutine_31",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy opens his school notebook.",
+"wrongOptions":[
+"The boy opens the volcano crater.",
+"The boy opens the galaxy spiral.",
+"The boy opens the iceberg cave."
+]
+},
+{
+"id":"sound_dailyRoutine_32",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl sharpens her pencil.",
+"wrongOptions":[
+"The girl sharpens the castle tower.",
+"The girl sharpens the rainbow arch.",
+"The girl sharpens the comet tail."
+]
+},
+{
+"id":"sound_dailyRoutine_33",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy listens to the teacher.",
+"wrongOptions":[
+"The boy listens to the submarine engine.",
+"The boy listens to the desert dune.",
+"The boy listens to the waterfall cliff."
+]
+},
+{
+"id":"sound_dailyRoutine_34",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl raises her hand in class.",
+"wrongOptions":[
+"The girl raises the lighthouse beam.",
+"The girl raises the rocket booster.",
+"The girl raises the glacier peak."
+]
+},
+{
+"id":"sound_dailyRoutine_35",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy cleans his study table.",
+"wrongOptions":[
+"The boy cleans the canyon wall.",
+"The boy cleans the satellite dish.",
+"The boy cleans the tornado cloud."
+]
+},
+{
+"id":"sound_dailyRoutine_36",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl folds her clothes.",
+"wrongOptions":[
+"The girl folds the temple pillar.",
+"The girl folds the jungle waterfall.",
+"The girl folds the asteroid rock."
+]
+},
+{
+"id":"sound_dailyRoutine_37",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy waters the plants.",
+"wrongOptions":[
+"The boy waters the volcano smoke.",
+"The boy waters the pyramid stone.",
+"The boy waters the ocean tide."
+]
+},
+{
+"id":"sound_dailyRoutine_38",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl feeds her pet cat.",
+"wrongOptions":[
+"The girl feeds the canyon bridge.",
+"The girl feeds the comet orbit.",
+"The girl feeds the glacier river."
+]
+},
+{
+"id":"sound_dailyRoutine_39",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy rides the school bus.",
+"wrongOptions":[
+"The boy rides the castle dungeon.",
+"The boy rides the waterfall pool.",
+"The boy rides the rocket launchpad."
+]
+},
+{
+"id":"sound_dailyRoutine_40",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl stands in the school line.",
+"wrongOptions":[
+"The girl stands the desert storm.",
+"The girl stands the lighthouse ladder.",
+"The girl stands the coral reef."
+]
+},
+{
+"id":"sound_dailyRoutine_41",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy borrows a library book.",
+"wrongOptions":[
+"The boy borrows the galaxy star.",
+"The boy borrows the volcano lava.",
+"The boy borrows the canyon rock."
+]
+},
+{
+"id":"sound_dailyRoutine_42",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl shares her lunch.",
+"wrongOptions":[
+"The girl shares the rocket engine.",
+"The girl shares the pyramid statue.",
+"The girl shares the glacier valley."
+]
+},
+{
+"id":"sound_dailyRoutine_43",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy practices handwriting.",
+"wrongOptions":[
+"The boy practices the tornado wind.",
+"The boy practices the ocean wave.",
+"The boy practices the comet trail."
+]
+},
+{
+"id":"sound_dailyRoutine_44",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl solves a math problem.",
+"wrongOptions":[
+"The girl solves the waterfall cave.",
+"The girl solves the lighthouse tower.",
+"The girl solves the satellite orbit."
+]
+},
+{
+"id":"sound_dailyRoutine_45",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy packs his lunch box.",
+"wrongOptions":[
+"The boy packs the canyon river.",
+"The boy packs the jungle tree.",
+"The boy packs the volcano ash."
+]
+},
+{
+"id":"sound_dailyRoutine_46",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl opens the classroom door.",
+"wrongOptions":[
+"The girl opens the glacier cave.",
+"The girl opens the rocket hatch.",
+"The girl opens the pyramid gate."
+]
+},
+{
+"id":"sound_dailyRoutine_47",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy washes his lunch box.",
+"wrongOptions":[
+"The boy washes the comet stone.",
+"The boy washes the coral island.",
+"The boy washes the desert canyon."
+]
+},
+{
+"id":"sound_dailyRoutine_48",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl prepares her school uniform.",
+"wrongOptions":[
+"The girl prepares the lighthouse tower.",
+"The girl prepares the waterfall cliff.",
+"The girl prepares the satellite antenna."
+]
+},
+{
+"id":"sound_dailyRoutine_49",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The boy reads his homework notes.",
+"wrongOptions":[
+"The boy reads the pyramid ceiling.",
+"The boy reads the ocean reef.",
+"The boy reads the volcano crater."
+]
+},
+{
+"id":"sound_dailyRoutine_50",
+"unit":"dailyRoutine",
+"level":"easy",
+"correctSentence":"The girl turns off her alarm clock.",
+"wrongOptions":[
+"The girl turns off the comet flame.",
+"The girl turns off the canyon bridge.",
+"The girl turns off the glacier peak."
+]
+}
+]

@@ -1,0 +1,552 @@
+[
+{
+"id":"sound_nature_1",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Birds build nests in trees.",
+"wrongOptions":[
+"Birds build nests in backpacks.",
+"Birds build nests in bicycles.",
+"Birds build nests in cooking pots."
+]
+},
+{
+"id":"sound_nature_2",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The sun shines brightly.",
+"wrongOptions":[
+"The sun shines a notebook.",
+"The sun shines a shoe rack.",
+"The sun shines a lantern."
+]
+},
+{
+"id":"sound_nature_3",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Rain falls from the clouds.",
+"wrongOptions":[
+"Rain falls from the bookshelf.",
+"Rain falls from the teapot.",
+"Rain falls from the wardrobe."
+]
+},
+{
+"id":"sound_nature_4",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Butterflies fly over flowers.",
+"wrongOptions":[
+"Butterflies fly over helmets.",
+"Butterflies fly over frying pans.",
+"Butterflies fly over backpacks."
+]
+},
+{
+"id":"sound_nature_5",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Fish swim in the pond.",
+"wrongOptions":[
+"Fish swim in the mailbox.",
+"Fish swim in the suitcase.",
+"Fish swim in the bathtub drain."
+]
+},
+{
+"id":"sound_nature_6",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The wind moves the leaves.",
+"wrongOptions":[
+"The wind moves the wall clock.",
+"The wind moves the kettle lid.",
+"The wind moves the chair cushion."
+]
+},
+{
+"id":"sound_nature_7",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Bees collect nectar.",
+"wrongOptions":[
+"Bees collect bicycles.",
+"Bees collect backpacks.",
+"Bees collect notebooks."
+]
+},
+{
+"id":"sound_nature_8",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The moon shines at night.",
+"wrongOptions":[
+"The moon shines a toaster.",
+"The moon shines a suitcase.",
+"The moon shines a window frame."
+]
+},
+{
+"id":"sound_nature_9",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Leaves fall in autumn.",
+"wrongOptions":[
+"Leaves fall in the cupboard.",
+"Leaves fall in the kettle.",
+"Leaves fall in the toolbox."
+]
+},
+{
+"id":"sound_nature_10",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"A rainbow appears after rain.",
+"wrongOptions":[
+"A rainbow appears after cooking.",
+"A rainbow appears after laundry.",
+"A rainbow appears after homework."
+]
+},
+{
+"id":"sound_nature_11",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The river flows gently.",
+"wrongOptions":[
+"The river flows a ladder.",
+"The river flows a lunchbox.",
+"The river flows a bicycle tire."
+]
+},
+{
+"id":"sound_nature_12",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The sky looks blue.",
+"wrongOptions":[
+"The sky looks a saucepan.",
+"The sky looks a pencil case.",
+"The sky looks a pillow cover."
+]
+},
+{
+"id":"sound_nature_13",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Stars shine at night.",
+"wrongOptions":[
+"Stars shine the bookshelf.",
+"Stars shine the frying spoon.",
+"Stars shine the garden shovel."
+]
+},
+{
+"id":"sound_nature_14",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Ducks swim on the lake.",
+"wrongOptions":[
+"Ducks swim on the sofa seat.",
+"Ducks swim on the cooking tray.",
+"Ducks swim on the suitcase lid."
+]
+},
+{
+"id":"sound_nature_15",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The tree gives shade.",
+"wrongOptions":[
+"The tree gives laptops.",
+"The tree gives alarm clocks.",
+"The tree gives bicycles."
+]
+},
+{
+"id":"sound_nature_16",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Birds sing in the morning.",
+"wrongOptions":[
+"Birds sing in the oven.",
+"Birds sing in the washing basket.",
+"Birds sing in the cupboard."
+]
+},
+{
+"id":"sound_nature_17",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The forest has many trees.",
+"wrongOptions":[
+"The forest has many bicycles.",
+"The forest has many helmets.",
+"The forest has many notebooks."
+]
+},
+{
+"id":"sound_nature_18",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"A squirrel climbs a tree.",
+"wrongOptions":[
+"A squirrel climbs a bookshelf.",
+"A squirrel climbs a ladder shelf.",
+"A squirrel climbs a mailbox."
+]
+},
+{
+"id":"sound_nature_19",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The breeze feels cool.",
+"wrongOptions":[
+"The breeze feels a cooking pot.",
+"The breeze feels a suitcase handle.",
+"The breeze feels a school bag."
+]
+},
+{
+"id":"sound_nature_20",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Grass grows on the ground.",
+"wrongOptions":[
+"Grass grows on the sofa arm.",
+"Grass grows on the desk drawer.",
+"Grass grows on the bicycle seat."
+]
+},
+{
+"id":"sound_nature_21",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"A deer runs in the forest.",
+"wrongOptions":[
+"A deer runs in the kitchen sink.",
+"A deer runs in the wardrobe shelf.",
+"A deer runs in the laundry basket."
+]
+},
+{
+"id":"sound_nature_22",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The mountain stands tall.",
+"wrongOptions":[
+"The mountain stands a kettle.",
+"The mountain stands a backpack.",
+"The mountain stands a lamp."
+]
+},
+{
+"id":"sound_nature_23",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The waterfall flows down rocks.",
+"wrongOptions":[
+"The waterfall flows down notebooks.",
+"The waterfall flows down helmets.",
+"The waterfall flows down lunchboxes."
+]
+},
+{
+"id":"sound_nature_24",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Frogs jump near the pond.",
+"wrongOptions":[
+"Frogs jump near the microwave.",
+"Frogs jump near the cupboard drawer.",
+"Frogs jump near the sofa cushion."
+]
+},
+{
+"id":"sound_nature_25",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The desert has hot sand.",
+"wrongOptions":[
+"The desert has hot backpacks.",
+"The desert has hot bicycles.",
+"The desert has hot notebooks."
+]
+},
+{
+"id":"sound_nature_26",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Snow covers the hills.",
+"wrongOptions":[
+"Snow covers the frying pan.",
+"Snow covers the schoolbag.",
+"Snow covers the wall calendar."
+]
+},
+{
+"id":"sound_nature_27",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The sun rises in the east.",
+"wrongOptions":[
+"The sun rises in the toolbox.",
+"The sun rises in the cookie jar.",
+"The sun rises in the pencil box."
+]
+},
+{
+"id":"sound_nature_28",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Owls hunt at night.",
+"wrongOptions":[
+"Owls hunt the teacup.",
+"Owls hunt the shoe rack.",
+"Owls hunt the bicycle bell."
+]
+},
+{
+"id":"sound_nature_29",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Clouds bring heavy rain.",
+"wrongOptions":[
+"Clouds bring kitchen knives.",
+"Clouds bring a lunch tray.",
+"Clouds bring a door handle."
+]
+},
+{
+"id":"sound_nature_30",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The ocean has big waves.",
+"wrongOptions":[
+"The ocean has big pillows.",
+"The ocean has big lunchboxes.",
+"The ocean has big umbrellas."
+]
+},
+{
+"id":"sound_nature_31",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"A rabbit hops in the field.",
+"wrongOptions":[
+"A rabbit hops in the wardrobe drawer.",
+"A rabbit hops in the toaster oven.",
+"A rabbit hops in the sink bowl."
+]
+},
+{
+"id":"sound_nature_32",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The sun sets in the west.",
+"wrongOptions":[
+"The sun sets in the kettle lid.",
+"The sun sets in the suitcase pocket.",
+"The sun sets in the table drawer."
+]
+},
+{
+"id":"sound_nature_33",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The lake looks calm.",
+"wrongOptions":[
+"The lake looks a frying spoon.",
+"The lake looks a ladder step.",
+"The lake looks a curtain rod."
+]
+},
+{
+"id":"sound_nature_34",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"A fox runs across the grass.",
+"wrongOptions":[
+"A fox runs across the dining plate.",
+"A fox runs across the shoe lace.",
+"A fox runs across the alarm clock."
+]
+},
+{
+"id":"sound_nature_35",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The sky turns orange at sunset.",
+"wrongOptions":[
+"The sky turns orange a cooking pot.",
+"The sky turns orange a school ruler.",
+"The sky turns orange a cabinet knob."
+]
+},
+{
+"id":"sound_nature_36",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The jungle has tall trees.",
+"wrongOptions":[
+"The jungle has tall ladders.",
+"The jungle has tall notebooks.",
+"The jungle has tall frying baskets."
+]
+},
+{
+"id":"sound_nature_37",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"A turtle walks slowly.",
+"wrongOptions":[
+"A turtle walks the desk lamp.",
+"A turtle walks the coffee mug.",
+"A turtle walks the curtain hook."
+]
+},
+{
+"id":"sound_nature_38",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The wind shakes the branches.",
+"wrongOptions":[
+"The wind shakes the shoe cabinet.",
+"The wind shakes the toolbox lid.",
+"The wind shakes the laundry basket."
+]
+},
+{
+"id":"sound_nature_39",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"A parrot sits on a branch.",
+"wrongOptions":[
+"A parrot sits on a frying spatula.",
+"A parrot sits on a coat hanger.",
+"A parrot sits on a pencil sharpener."
+]
+},
+{
+"id":"sound_nature_40",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The rain makes puddles.",
+"wrongOptions":[
+"The rain makes frying pans.",
+"The rain makes school desks.",
+"The rain makes travel bags."
+]
+},
+{
+"id":"sound_nature_41",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"A bear walks in the forest.",
+"wrongOptions":[
+"A bear walks in the bathtub.",
+"A bear walks in the cupboard shelf.",
+"A bear walks in the suitcase."
+]
+},
+{
+"id":"sound_nature_42",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The field is full of grass.",
+"wrongOptions":[
+"The field is full of pillows.",
+"The field is full of helmets.",
+"The field is full of kettles."
+]
+},
+{
+"id":"sound_nature_43",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The butterfly rests on a flower.",
+"wrongOptions":[
+"The butterfly rests on a frying pan.",
+"The butterfly rests on a sofa arm.",
+"The butterfly rests on a lunch tray."
+]
+},
+{
+"id":"sound_nature_44",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The river reaches the sea.",
+"wrongOptions":[
+"The river reaches the shoe rack.",
+"The river reaches the tool shelf.",
+"The river reaches the cookie box."
+]
+},
+{
+"id":"sound_nature_45",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The storm brings strong wind.",
+"wrongOptions":[
+"The storm brings frying pans.",
+"The storm brings alarm clocks.",
+"The storm brings backpacks."
+]
+},
+{
+"id":"sound_nature_46",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"A horse runs across the field.",
+"wrongOptions":[
+"A horse runs across the wardrobe.",
+"A horse runs across the oven rack.",
+"A horse runs across the sink."
+]
+},
+{
+"id":"sound_nature_47",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The clouds cover the sun.",
+"wrongOptions":[
+"The clouds cover the lunch table.",
+"The clouds cover the sofa pillow.",
+"The clouds cover the frying pan."
+]
+},
+{
+"id":"sound_nature_48",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"The valley lies between mountains.",
+"wrongOptions":[
+"The valley lies between bookshelves.",
+"The valley lies between bicycles.",
+"The valley lies between wardrobes."
+]
+},
+{
+"id":"sound_nature_49",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"A crab walks on the beach.",
+"wrongOptions":[
+"A crab walks on the dining chair.",
+"A crab walks on the shoe box.",
+"A crab walks on the coffee table."
+]
+},
+{
+"id":"sound_nature_50",
+"unit":"nature",
+"level":"easy",
+"correctSentence":"Morning dew shines on the grass.",
+"wrongOptions":[
+"Morning dew shines on the frying basket.",
+"Morning dew shines on the desk drawer.",
+"Morning dew shines on the umbrella."
+]
+}
+]

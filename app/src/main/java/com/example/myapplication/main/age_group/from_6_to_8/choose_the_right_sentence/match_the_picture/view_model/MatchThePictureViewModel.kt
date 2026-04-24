@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.generation.loader.MatchPictureLoader
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
-import com.example.myapplication.main.age_group.from_6_to_8.common.unit.data.SentenceProgressManager
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
 import com.google.gson.Gson
@@ -20,7 +19,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MatchThePictureViewModel @Inject constructor(
-    private val progressManager: SentenceProgressManager,
     @ApplicationContext private val context: Context
 ) : ViewModel() {
 
@@ -43,11 +41,9 @@ class MatchThePictureViewModel @Inject constructor(
             unit = state.unit,
             level = state.level
         )
-        Log.e("jigarMatch","allQuestions = "+ Gson().toJson(allQuestions))
         val filtered = allQuestions
             .shuffled()
             .take(5)
-        Log.e("jigarMatch","filtered = "+ Gson().toJson(filtered))
 
         _uiState.update {
             it.copy(
@@ -68,23 +64,16 @@ class MatchThePictureViewModel @Inject constructor(
         val question = state.currentQuestion ?: return
 
         val requiredCount = if (state.level == SentenceLevel.EASY) 3 else 4
-
         val options = mutableListOf(question.correctSentence)
-        Log.e("jigarMatch","question = "+ Gson().toJson(question))
-        Log.e("jigarMatch","options before = "+ Gson().toJson(options))
-
-
         val wrongs = question.wrongOptions.shuffled()
 
         for (wrong in wrongs) {
             if (options.size >= requiredCount) break
             options.add(wrong)
         }
-        Log.e("jigarMatch","options after = "+ Gson().toJson(options))
         _uiState.update {
             it.copy(options = options.shuffled())
         }
-        Log.e("jigarMatch","options _uiState === "+ Gson().toJson(_uiState.value.options))
     }
 
     // Select answer

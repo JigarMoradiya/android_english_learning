@@ -176,5 +176,6 @@
     <string name="go_back_to_lesson">Go Back to Lesson</string>
     <string name="want_to_continue">Want to Continue</string>
     <string name="correct_answers">Correct Answers</string>
+    <string name="completed">Completed</string>
 
 </resources>

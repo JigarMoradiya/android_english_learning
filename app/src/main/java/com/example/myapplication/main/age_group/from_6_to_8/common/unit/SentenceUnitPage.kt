@@ -115,7 +115,7 @@ fun SentenceUnitPage(
                                         navController.navigate(RouteNavigation.MatchThePicture.matchThePicture(item.unit.name, uiState.level.name))
                                     }
                                     UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT -> {
-
+                                        navController.navigate(RouteNavigation.WhichSentenceSoundRight.whichSentenceSoundRight(item.unit.name, uiState.level.name))
                                     }
                                     UnitSelectionScreen.FIND_THE_CORRECT_WRITING -> {
 

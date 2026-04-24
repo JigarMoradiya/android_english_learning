@@ -38,6 +38,7 @@ import com.example.myapplication.utils.extensions.scaled
 fun ResultView(
     score: Int,
     total: Int,
+    title : String = stringResource(R.string.lesson_completed),
     onBack: () -> Unit,
     onContinue: (() -> Unit)? = null // 👈 nullable callback
 ){

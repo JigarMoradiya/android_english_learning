@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
@@ -39,6 +40,8 @@ import com.example.myapplication.main.age_group.presentation.model.activities_ag
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens40
+import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
@@ -61,8 +64,8 @@ fun ChooseTheRightSentencePage(
                 modifier = Modifier
                     .windowInsetsPadding(WindowInsets.safeDrawing)
             )
-
-            BoxWithConstraints {
+            Spacer(Modifier.weight(1f))
+            BoxWithConstraints(modifier = Modifier.padding(bottom = Dimens50)) {
 
                 val totalSpacing = Dimens16 * 2 // 2 gaps between 3 items
                 val horizontalPadding = DeviceInfo.screenHorizontalPadding() + Dimens16
@@ -120,6 +123,7 @@ fun ChooseTheRightSentencePage(
                     }
                 }
             }
+            Spacer(Modifier.weight(1f))
         }
     }
 }

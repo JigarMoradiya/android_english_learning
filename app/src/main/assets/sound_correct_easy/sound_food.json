@@ -1,0 +1,552 @@
+[
+{
+"id":"sound_food_1",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy eats an apple.",
+"wrongOptions":[
+"The boy eats the mountain.",
+"The boy eats the rainbow.",
+"The boy eats the telescope."
+]
+},
+{
+"id":"sound_food_2",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl drinks milk.",
+"wrongOptions":[
+"The girl drinks the volcano.",
+"The girl drinks the castle.",
+"The girl drinks the bridge."
+]
+},
+{
+"id":"sound_food_3",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother cooks rice.",
+"wrongOptions":[
+"Mother cooks the desert.",
+"Mother cooks the ocean.",
+"Mother cooks the galaxy."
+]
+},
+{
+"id":"sound_food_4",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Father cuts a watermelon.",
+"wrongOptions":[
+"Father cuts the rocket.",
+"Father cuts the satellite.",
+"Father cuts the submarine."
+]
+},
+{
+"id":"sound_food_5",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy peels a banana.",
+"wrongOptions":[
+"The boy peels the pyramid.",
+"The boy peels the island.",
+"The boy peels the canyon."
+]
+},
+{
+"id":"sound_food_6",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl spreads butter on bread.",
+"wrongOptions":[
+"The girl spreads butter on the trumpet.",
+"The girl spreads butter on the violin.",
+"The girl spreads butter on the drum."
+]
+},
+{
+"id":"sound_food_7",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Children eat sweet grapes.",
+"wrongOptions":[
+"Children eat the compass.",
+"Children eat the hourglass.",
+"Children eat the calendar."
+]
+},
+{
+"id":"sound_food_8",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother bakes a cake.",
+"wrongOptions":[
+"Mother bakes the anchor.",
+"Mother bakes the parachute.",
+"Mother bakes the lantern."
+]
+},
+{
+"id":"sound_food_9",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy drinks orange juice.",
+"wrongOptions":[
+"The boy drinks the roller coaster.",
+"The boy drinks the carousel.",
+"The boy drinks the skateboard."
+]
+},
+{
+"id":"sound_food_10",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl eats a sandwich.",
+"wrongOptions":[
+"The girl eats the snowman.",
+"The girl eats the iceberg.",
+"The girl eats the glacier."
+]
+},
+{
+"id":"sound_food_11",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Father grills corn.",
+"wrongOptions":[
+"Father grills the lighthouse.",
+"Father grills the windmill.",
+"Father grills the skyscraper."
+]
+},
+{
+"id":"sound_food_12",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy tastes honey.",
+"wrongOptions":[
+"The boy tastes the helicopter.",
+"The boy tastes the airplane.",
+"The boy tastes the train."
+]
+},
+{
+"id":"sound_food_13",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl eats yogurt.",
+"wrongOptions":[
+"The girl eats the keyboard.",
+"The girl eats the microphone.",
+"The girl eats the camera."
+]
+},
+{
+"id":"sound_food_14",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother fries potatoes.",
+"wrongOptions":[
+"Mother fries the painting.",
+"Mother fries the statue.",
+"Mother fries the sculpture."
+]
+},
+{
+"id":"sound_food_15",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Father pours soup.",
+"wrongOptions":[
+"Father pours the volcano crater.",
+"Father pours the jungle tree.",
+"Father pours the coral reef."
+]
+},
+{
+"id":"sound_food_16",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Children eat chocolate.",
+"wrongOptions":[
+"Children eat the comet.",
+"Children eat the asteroid.",
+"Children eat the meteor."
+]
+},
+{
+"id":"sound_food_17",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl slices bread.",
+"wrongOptions":[
+"The girl slices the pyramid stone.",
+"The girl slices the castle tower.",
+"The girl slices the palace gate."
+]
+},
+{
+"id":"sound_food_18",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy drinks lemonade.",
+"wrongOptions":[
+"The boy drinks the compass needle.",
+"The boy drinks the map corner.",
+"The boy drinks the globe stand."
+]
+},
+{
+"id":"sound_food_19",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother cooks noodles.",
+"wrongOptions":[
+"Mother cooks the drumstick.",
+"Mother cooks the guitar string.",
+"Mother cooks the piano key."
+]
+},
+{
+"id":"sound_food_20",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Father cuts a pineapple.",
+"wrongOptions":[
+"Father cuts the football stadium.",
+"Father cuts the race track.",
+"Father cuts the basketball hoop."
+]
+},
+{
+"id":"sound_food_21",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy eats popcorn.",
+"wrongOptions":[
+"The boy eats the tornado.",
+"The boy eats the thunderstorm.",
+"The boy eats the lightning bolt."
+]
+},
+{
+"id":"sound_food_22",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl drinks hot tea.",
+"wrongOptions":[
+"The girl drinks the penguin.",
+"The girl drinks the dolphin.",
+"The girl drinks the elephant."
+]
+},
+{
+"id":"sound_food_23",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother washes vegetables.",
+"wrongOptions":[
+"Mother washes the rainbow cloud.",
+"Mother washes the sunset sky.",
+"Mother washes the northern lights."
+]
+},
+{
+"id":"sound_food_24",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Father cuts fresh carrots.",
+"wrongOptions":[
+"Father cuts the castle bridge.",
+"Father cuts the temple bell.",
+"Father cuts the museum door."
+]
+},
+{
+"id":"sound_food_25",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl eats strawberries.",
+"wrongOptions":[
+"The girl eats the spaceship wing.",
+"The girl eats the rocket engine.",
+"The girl eats the satellite dish."
+]
+},
+{
+"id":"sound_food_26",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy drinks coconut water.",
+"wrongOptions":[
+"The boy drinks the iceberg peak.",
+"The boy drinks the snow mountain.",
+"The boy drinks the frozen lake."
+]
+},
+{
+"id":"sound_food_27",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Children eat ice cream.",
+"wrongOptions":[
+"Children eat the violin bow.",
+"Children eat the trumpet valve.",
+"Children eat the flute pipe."
+]
+},
+{
+"id":"sound_food_28",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother spreads jam on toast.",
+"wrongOptions":[
+"Mother spreads jam on the telescope lens.",
+"Mother spreads jam on the microscope slide.",
+"Mother spreads jam on the camera tripod."
+]
+},
+{
+"id":"sound_food_29",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Father pours a glass of juice.",
+"wrongOptions":[
+"Father pours the bridge pillar.",
+"Father pours the tunnel wall.",
+"Father pours the tower roof."
+]
+},
+{
+"id":"sound_food_30",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The family eats dinner together.",
+"wrongOptions":[
+"The family eats the waterfall.",
+"The family eats the forest tree.",
+"The family eats the river stone."
+]
+},
+{
+"id":"sound_food_31",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy eats a mango.",
+"wrongOptions":[
+"The boy eats the volcano crater.",
+"The boy eats the castle wall.",
+"The boy eats the lighthouse beam."
+]
+},
+{
+"id":"sound_food_32",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl drinks grape juice.",
+"wrongOptions":[
+"The girl drinks the sailboat mast.",
+"The girl drinks the desert cactus.",
+"The girl drinks the canyon cliff."
+]
+},
+{
+"id":"sound_food_33",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother slices a cucumber.",
+"wrongOptions":[
+"Mother slices the airplane wing.",
+"Mother slices the subway tunnel.",
+"Mother slices the tower clock."
+]
+},
+{
+"id":"sound_food_34",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Father peels a potato.",
+"wrongOptions":[
+"Father peels the rocket booster.",
+"Father peels the satellite antenna.",
+"Father peels the spaceship window."
+]
+},
+{
+"id":"sound_food_35",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy drinks tomato soup.",
+"wrongOptions":[
+"The boy drinks the jungle vine.",
+"The boy drinks the bamboo forest.",
+"The boy drinks the coral island."
+]
+},
+{
+"id":"sound_food_36",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl eats a cupcake.",
+"wrongOptions":[
+"The girl eats the castle gate.",
+"The girl eats the pyramid stair.",
+"The girl eats the temple pillar."
+]
+},
+{
+"id":"sound_food_37",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother boils sweet corn.",
+"wrongOptions":[
+"Mother boils the glacier peak.",
+"Mother boils the snow cave.",
+"Mother boils the polar iceberg."
+]
+},
+{
+"id":"sound_food_38",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Father pours tea into cups.",
+"wrongOptions":[
+"Father pours the trumpet bell.",
+"Father pours the guitar bridge.",
+"Father pours the violin neck."
+]
+},
+{
+"id":"sound_food_39",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy eats fried rice.",
+"wrongOptions":[
+"The boy eats the windmill blade.",
+"The boy eats the water dam.",
+"The boy eats the castle moat."
+]
+},
+{
+"id":"sound_food_40",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl drinks chocolate milk.",
+"wrongOptions":[
+"The girl drinks the roller skate wheel.",
+"The girl drinks the snowboard edge.",
+"The girl drinks the surfboard fin."
+]
+},
+{
+"id":"sound_food_41",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother chops onions.",
+"wrongOptions":[
+"Mother chops the volcano rock.",
+"Mother chops the canyon bridge.",
+"Mother chops the glacier cave."
+]
+},
+{
+"id":"sound_food_42",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Father grills chicken.",
+"wrongOptions":[
+"Father grills the lighthouse ladder.",
+"Father grills the subway rail.",
+"Father grills the skyscraper glass."
+]
+},
+{
+"id":"sound_food_43",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy eats a waffle.",
+"wrongOptions":[
+"The boy eats the parachute rope.",
+"The boy eats the hot-air balloon basket.",
+"The boy eats the airplane propeller."
+]
+},
+{
+"id":"sound_food_44",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl drinks mango smoothie.",
+"wrongOptions":[
+"The girl drinks the jungle waterfall.",
+"The girl drinks the river delta.",
+"The girl drinks the ocean tide."
+]
+},
+{
+"id":"sound_food_45",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother mixes fruit salad.",
+"wrongOptions":[
+"Mother mixes the pyramid statue.",
+"Mother mixes the temple tower.",
+"Mother mixes the castle tower."
+]
+},
+{
+"id":"sound_food_46",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Father cooks vegetable curry.",
+"wrongOptions":[
+"Father cooks the comet tail.",
+"Father cooks the meteor crater.",
+"Father cooks the asteroid belt."
+]
+},
+{
+"id":"sound_food_47",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The boy eats roasted corn.",
+"wrongOptions":[
+"The boy eats the race track curve.",
+"The boy eats the football goalpost.",
+"The boy eats the tennis net."
+]
+},
+{
+"id":"sound_food_48",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The girl drinks fresh coconut milk.",
+"wrongOptions":[
+"The girl drinks the dolphin fin.",
+"The girl drinks the whale tail.",
+"The girl drinks the penguin beak."
+]
+},
+{
+"id":"sound_food_49",
+"unit":"food",
+"level":"easy",
+"correctSentence":"Mother serves hot pancakes.",
+"wrongOptions":[
+"Mother serves the castle flag.",
+"Mother serves the bridge cable.",
+"Mother serves the tower antenna."
+]
+},
+{
+"id":"sound_food_50",
+"unit":"food",
+"level":"easy",
+"correctSentence":"The family shares a bowl of soup.",
+"wrongOptions":[
+"The family shares the forest waterfall.",
+"The family shares the mountain cave.",
+"The family shares the desert dune."
+]
+}
+]

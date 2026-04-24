@@ -40,6 +40,7 @@ import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.
 import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.WordMatchImagePage
 import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.ChooseTheRightSentencePage
 import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.match_the_picture.MatchThePicturePage
+import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.which_sentence_sound_right.WhichSentenceSoundRightPage
 import com.example.myapplication.main.age_group.from_6_to_8.common.lesson.SentenceLessonPage
 import com.example.myapplication.main.age_group.from_6_to_8.common.unit.SentenceUnitPage
 import com.example.myapplication.main.age_group.from_6_to_8.fill_the_missing_word.FillTheMissingWordPage
@@ -237,6 +238,21 @@ fun AppNavGraph(navController: NavHostController) {
             val unit = backStackEntry.arguments?.getString("unit")?:SentenceUnit.PLAY_AND_FUN.name
             val level = backStackEntry.arguments?.getString("level")?: SentenceLevel.EASY.name
             MatchThePicturePage(
+                unit = getSentenceUnit(unit),
+                level = getSentenceLevel(level),
+                navController = navController
+            )
+        }
+        composable(
+            route = RouteNavigation.WhichSentenceSoundRight.route,
+            arguments = listOf(
+                navArgument("unit") { type = NavType.StringType },
+                navArgument("level") { type = NavType.StringType },
+            )
+        ) { backStackEntry ->
+            val unit = backStackEntry.arguments?.getString("unit")?:SentenceUnit.PLAY_AND_FUN.name
+            val level = backStackEntry.arguments?.getString("level")?: SentenceLevel.EASY.name
+            WhichSentenceSoundRightPage(
                 unit = getSentenceUnit(unit),
                 level = getSentenceLevel(level),
                 navController = navController

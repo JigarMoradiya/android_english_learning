@@ -1,0 +1,552 @@
+[
+  {
+    "id": "sound_home_1",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother cooks dinner.",
+    "wrongOptions": [
+      "Mother cooks the bicycle.",
+      "Mother cooks the alarm clock.",
+      "Mother cooks the garden fence."
+    ]
+  },
+  {
+    "id": "sound_home_2",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Father reads a newspaper.",
+    "wrongOptions": [
+      "Father reads the frying pan.",
+      "Father reads the staircase.",
+      "Father reads the flower pot."
+    ]
+  },
+  {
+    "id": "sound_home_3",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl cleans her room.",
+    "wrongOptions": [
+      "The girl cleans the football.",
+      "The girl cleans the mailbox.",
+      "The girl cleans the bicycle wheel."
+    ]
+  },
+  {
+    "id": "sound_home_4",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy folds his clothes.",
+    "wrongOptions": [
+      "The boy folds the microwave.",
+      "The boy folds the garden tree.",
+      "The boy folds the television remote."
+    ]
+  },
+  {
+    "id": "sound_home_5",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Grandmother tells a story.",
+    "wrongOptions": [
+      "Grandmother tells the frying pan.",
+      "Grandmother tells the kitchen sink.",
+      "Grandmother tells the shoe rack."
+    ]
+  },
+  {
+    "id": "sound_home_6",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The family eats dinner together.",
+    "wrongOptions": [
+      "The family eats the pillowcase.",
+      "The family eats the wall clock.",
+      "The family eats the light switch."
+    ]
+  },
+  {
+    "id": "sound_home_7",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother washes the dishes.",
+    "wrongOptions": [
+      "Mother washes the laptop screen.",
+      "Mother washes the ceiling fan.",
+      "Mother washes the door handle."
+    ]
+  },
+  {
+    "id": "sound_home_8",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy waters the plants.",
+    "wrongOptions": [
+      "The boy waters the bookshelf.",
+      "The boy waters the pillow cover.",
+      "The boy waters the staircase."
+    ]
+  },
+  {
+    "id": "sound_home_9",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl arranges her books.",
+    "wrongOptions": [
+      "The girl arranges the frying pan.",
+      "The girl arranges the light bulb.",
+      "The girl arranges the garden hose."
+    ]
+  },
+  {
+    "id": "sound_home_10",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Father fixes a chair.",
+    "wrongOptions": [
+      "Father fixes the sandwich.",
+      "Father fixes the water bottle.",
+      "Father fixes the window curtain."
+    ]
+  },
+  {
+    "id": "sound_home_11",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother bakes a cake.",
+    "wrongOptions": [
+      "Mother bakes the pillowcase.",
+      "Mother bakes the bookshelf.",
+      "Mother bakes the lamp shade."
+    ]
+  },
+  {
+    "id": "sound_home_12",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Father waters the garden.",
+    "wrongOptions": [
+      "Father waters the frying pan.",
+      "Father waters the sofa cushion.",
+      "Father waters the doorbell."
+    ]
+  },
+  {
+    "id": "sound_home_13",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The baby sleeps in the crib.",
+    "wrongOptions": [
+      "The baby sleeps in the shoe rack.",
+      "The baby sleeps in the mailbox.",
+      "The baby sleeps in the frying pan."
+    ]
+  },
+  {
+    "id": "sound_home_14",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy sets the table.",
+    "wrongOptions": [
+      "The boy sets the bicycle tire.",
+      "The boy sets the garden stone.",
+      "The boy sets the television antenna."
+    ]
+  },
+  {
+    "id": "sound_home_15",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl opens the window.",
+    "wrongOptions": [
+      "The girl opens the refrigerator magnet.",
+      "The girl opens the wall painting.",
+      "The girl opens the kitchen towel."
+    ]
+  },
+  {
+    "id": "sound_home_16",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Grandfather reads a book.",
+    "wrongOptions": [
+      "Grandfather reads the frying pan lid.",
+      "Grandfather reads the flower vase.",
+      "Grandfather reads the sofa armrest."
+    ]
+  },
+  {
+    "id": "sound_home_17",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The family watches a movie.",
+    "wrongOptions": [
+      "The family watches the refrigerator door.",
+      "The family watches the frying spoon.",
+      "The family watches the laundry basket."
+    ]
+  },
+  {
+    "id": "sound_home_18",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother cuts fresh vegetables.",
+    "wrongOptions": [
+      "Mother cuts the pillow cover.",
+      "Mother cuts the wall clock.",
+      "Mother cuts the window curtain."
+    ]
+  },
+  {
+    "id": "sound_home_19",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy closes the door.",
+    "wrongOptions": [
+      "The boy closes the frying pan.",
+      "The boy closes the flower pot.",
+      "The boy closes the carpet edge."
+    ]
+  },
+  {
+    "id": "sound_home_20",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl fills a water bottle.",
+    "wrongOptions": [
+      "The girl fills the bookshelf.",
+      "The girl fills the television stand.",
+      "The girl fills the sofa pillow."
+    ]
+  },
+  {
+    "id": "sound_home_21",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Father carries a toolbox.",
+    "wrongOptions": [
+      "Father carries the window curtain rod.",
+      "Father carries the dinner plate.",
+      "Father carries the alarm clock."
+    ]
+  },
+  {
+    "id": "sound_home_22",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother pours a glass of milk.",
+    "wrongOptions": [
+      "Mother pours the television cable.",
+      "Mother pours the door hinge.",
+      "Mother pours the wall calendar."
+    ]
+  },
+  {
+    "id": "sound_home_23",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl combs her hair.",
+    "wrongOptions": [
+      "The girl combs the kitchen spoon.",
+      "The girl combs the window frame.",
+      "The girl combs the garden stone."
+    ]
+  },
+  {
+    "id": "sound_home_24",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy puts toys away.",
+    "wrongOptions": [
+      "The boy puts the flower pot away.",
+      "The boy puts the frying pan away.",
+      "The boy puts the staircase away."
+    ]
+  },
+  {
+    "id": "sound_home_25",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Grandmother knits a sweater.",
+    "wrongOptions": [
+      "Grandmother knits the frying pan.",
+      "Grandmother knits the wall clock.",
+      "Grandmother knits the window glass."
+    ]
+  },
+  {
+    "id": "sound_home_26",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother sweeps the floor.",
+    "wrongOptions": [
+      "Mother sweeps the refrigerator handle.",
+      "Mother sweeps the pillow button.",
+      "Mother sweeps the garden ladder."
+    ]
+  },
+  {
+    "id": "sound_home_27",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Father locks the gate.",
+    "wrongOptions": [
+      "Father locks the cooking pot.",
+      "Father locks the flower petal.",
+      "Father locks the window curtain."
+    ]
+  },
+  {
+    "id": "sound_home_28",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl washes her hands.",
+    "wrongOptions": [
+      "The girl washes the alarm bell.",
+      "The girl washes the table drawer.",
+      "The girl washes the ceiling lamp."
+    ]
+  },
+  {
+    "id": "sound_home_29",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy brushes his teeth.",
+    "wrongOptions": [
+      "The boy brushes the sofa cushion.",
+      "The boy brushes the staircase rail.",
+      "The boy brushes the cooking spoon."
+    ]
+  },
+  {
+    "id": "sound_home_30",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Grandfather drinks hot tea.",
+    "wrongOptions": [
+      "Grandfather drinks the window latch.",
+      "Grandfather drinks the door mat.",
+      "Grandfather drinks the wall shelf."
+    ]
+  },
+  {
+    "id": "sound_home_31",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother irons the clothes.",
+    "wrongOptions": [
+      "Mother irons the bookshelf corner.",
+      "Mother irons the shoe lace.",
+      "Mother irons the table leg."
+    ]
+  },
+  {
+    "id": "sound_home_32",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Father opens the garage.",
+    "wrongOptions": [
+      "Father opens the pillow zipper.",
+      "Father opens the flower leaf.",
+      "Father opens the dinner spoon."
+    ]
+  },
+  {
+    "id": "sound_home_33",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl feeds the fish.",
+    "wrongOptions": [
+      "The girl feeds the cupboard hinge.",
+      "The girl feeds the carpet thread.",
+      "The girl feeds the wall hook."
+    ]
+  },
+  {
+    "id": "sound_home_34",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy wipes the table.",
+    "wrongOptions": [
+      "The boy wipes the bicycle bell.",
+      "The boy wipes the door nail.",
+      "The boy wipes the lamp wire."
+    ]
+  },
+  {
+    "id": "sound_home_35",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother chops onions.",
+    "wrongOptions": [
+      "Mother chops the pillow seam.",
+      "Mother chops the door frame.",
+      "Mother chops the curtain ring."
+    ]
+  },
+  {
+    "id": "sound_home_36",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Father starts the washing machine.",
+    "wrongOptions": [
+      "Father starts the flower branch.",
+      "Father starts the carpet corner.",
+      "Father starts the spoon handle."
+    ]
+  },
+  {
+    "id": "sound_home_37",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl decorates the room.",
+    "wrongOptions": [
+      "The girl decorates the frying spatula.",
+      "The girl decorates the staircase bolt.",
+      "The girl decorates the water tap."
+    ]
+  },
+  {
+    "id": "sound_home_38",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy fills the bird feeder.",
+    "wrongOptions": [
+      "The boy fills the cupboard knob.",
+      "The boy fills the pillow thread.",
+      "The boy fills the door hinge."
+    ]
+  },
+  {
+    "id": "sound_home_39",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother peels an apple.",
+    "wrongOptions": [
+      "Mother peels the sofa zipper.",
+      "Mother peels the window latch.",
+      "Mother peels the carpet edge."
+    ]
+  },
+  {
+    "id": "sound_home_40",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Father trims the hedge.",
+    "wrongOptions": [
+      "Father trims the pillow corner.",
+      "Father trims the cooking ladle.",
+      "Father trims the wall calendar."
+    ]
+  },
+  {
+    "id": "sound_home_41",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl folds a blanket.",
+    "wrongOptions": [
+      "The girl folds the window screw.",
+      "The girl folds the flower pot rim.",
+      "The girl folds the lamp switch."
+    ]
+  },
+  {
+    "id": "sound_home_42",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy carries groceries.",
+    "wrongOptions": [
+      "The boy carries the curtain hook.",
+      "The boy carries the sofa spring.",
+      "The boy carries the table screw."
+    ]
+  },
+  {
+    "id": "sound_home_43",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother lights a candle.",
+    "wrongOptions": [
+      "Mother lights the pillow seam.",
+      "Mother lights the cupboard wheel.",
+      "Mother lights the door chain."
+    ]
+  },
+  {
+    "id": "sound_home_44",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Father fixes the bicycle.",
+    "wrongOptions": [
+      "Father fixes the flower petal.",
+      "Father fixes the pillowcase edge.",
+      "Father fixes the curtain tassel."
+    ]
+  },
+  {
+    "id": "sound_home_45",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl fills the kettle.",
+    "wrongOptions": [
+      "The girl fills the carpet thread.",
+      "The girl fills the window bolt.",
+      "The girl fills the sofa button."
+    ]
+  },
+  {
+    "id": "sound_home_46",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy opens the mailbox.",
+    "wrongOptions": [
+      "The boy opens the pillow stuffing.",
+      "The boy opens the wall tile.",
+      "The boy opens the carpet stitch."
+    ]
+  },
+  {
+    "id": "sound_home_47",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Mother packs lunch boxes.",
+    "wrongOptions": [
+      "Mother packs the window hinge.",
+      "Mother packs the flower stem.",
+      "Mother packs the lamp screw."
+    ]
+  },
+  {
+    "id": "sound_home_48",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "Father starts the lawn mower.",
+    "wrongOptions": [
+      "Father starts the pillowcase zipper.",
+      "Father starts the table cloth edge.",
+      "Father starts the curtain ring."
+    ]
+  },
+  {
+    "id": "sound_home_49",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The girl waters the flowers.",
+    "wrongOptions": [
+      "The girl waters the cupboard screw.",
+      "The girl waters the carpet thread.",
+      "The girl waters the pillow tag."
+    ]
+  },
+  {
+    "id": "sound_home_50",
+    "unit": "homeLife",
+    "level": "easy",
+    "correctSentence": "The boy takes out the trash.",
+    "wrongOptions": [
+      "The boy takes out the curtain rod.",
+      "The boy takes out the lamp switch.",
+      "The boy takes out the sofa zipper."
+    ]
+  }
+]

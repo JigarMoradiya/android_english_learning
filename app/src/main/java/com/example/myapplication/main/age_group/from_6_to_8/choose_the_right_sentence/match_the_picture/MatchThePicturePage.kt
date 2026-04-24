@@ -17,19 +17,15 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -40,7 +36,6 @@ import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
 import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.match_the_picture.view_model.MatchThePictureViewModel
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
-import com.example.myapplication.main.age_group.from_6_to_8.sentence_check.view_model.SentenceCheckViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
@@ -49,14 +44,8 @@ import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens2
-import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsHeight
 import com.example.myapplication.ui.theme.ButtonType
-import com.example.myapplication.utils.extensions.scaled
-import kotlin.collections.chunked
-import kotlin.collections.forEach
-import kotlin.text.replaceFirstChar
 
 
 @Composable
@@ -101,8 +90,10 @@ fun MatchThePicturePage(
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(Dimens16),
-                    modifier = Modifier.fillMaxWidth()
-                        .padding(horizontal = Dimens16).padding(bottom = Dimens16)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = Dimens16)
+                        .padding(bottom = Dimens16)
                 ) {
 
                     // 🟩 CENTER IMAGE
@@ -118,7 +109,8 @@ fun MatchThePicturePage(
                     }
 
                     if (uiState.showResult){
-                        ResultView(uiState.score,uiState.questions.size, onBack = {
+                        ResultView(uiState.score,uiState.questions.size, title = stringResource(R.string.completed),
+                        onBack = {
                             navController.popBackStack()
                         },onContinue = {
                             viewModel.restart()

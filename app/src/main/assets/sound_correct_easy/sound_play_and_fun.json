@@ -1,0 +1,552 @@
+[
+  {
+    "id": "sound_play_1",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy kicks the ball.",
+    "wrongOptions": [
+      "The boy kicks the ladder.",
+      "The boy kicks the mailbox.",
+      "The boy kicks the frying pan."
+    ]
+  },
+  {
+    "id": "sound_play_2",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl flies a kite.",
+    "wrongOptions": [
+      "The girl flies a lantern.",
+      "The girl flies a toolbox.",
+      "The girl flies a teapot."
+    ]
+  },
+  {
+    "id": "sound_play_3",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy rides a bike.",
+    "wrongOptions": [
+      "The boy rides a bookshelf.",
+      "The boy rides a suitcase.",
+      "The boy rides a shovel."
+    ]
+  },
+  {
+    "id": "sound_play_4",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children play football.",
+    "wrongOptions": [
+      "Children play a kettle.",
+      "Children play a curtain rod.",
+      "Children play a paint bucket."
+    ]
+  },
+  {
+    "id": "sound_play_5",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy builds with blocks.",
+    "wrongOptions": [
+      "The boy builds the hammer.",
+      "The boy builds the faucet.",
+      "The boy builds the ladder rail."
+    ]
+  },
+  {
+    "id": "sound_play_6",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl jumps rope.",
+    "wrongOptions": [
+      "The girl jumps a cabinet.",
+      "The girl jumps a toolbox.",
+      "The girl jumps a window frame."
+    ]
+  },
+  {
+    "id": "sound_play_7",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children slide down the slide.",
+    "wrongOptions": [
+      "Children slide the frying spoon.",
+      "Children slide the roof tile.",
+      "Children slide the bucket handle."
+    ]
+  },
+  {
+    "id": "sound_play_8",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy races toy cars.",
+    "wrongOptions": [
+      "The boy races the desk lamp.",
+      "The boy races the kettle lid.",
+      "The boy races the rake head."
+    ]
+  },
+  {
+    "id": "sound_play_9",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl sits on a swing.",
+    "wrongOptions": [
+      "The girl sits on a door hinge.",
+      "The girl sits on a brick.",
+      "The girl sits on a toolbox."
+    ]
+  },
+  {
+    "id": "sound_play_10",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children solve puzzles.",
+    "wrongOptions": [
+      "Children solve a frying spatula.",
+      "Children solve a garden hose.",
+      "Children solve a ladder rung."
+    ]
+  },
+  {
+    "id": "sound_play_11",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy throws a ball.",
+    "wrongOptions": [
+      "The boy throws a curtain rod.",
+      "The boy throws a hammer.",
+      "The boy throws a cooking pot."
+    ]
+  },
+  {
+    "id": "sound_play_12",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children play tag together.",
+    "wrongOptions": [
+      "Children play the mailbox slot.",
+      "Children play the shovel blade.",
+      "Children play the cabinet knob."
+    ]
+  },
+  {
+    "id": "sound_play_13",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy bounces a ball.",
+    "wrongOptions": [
+      "The boy bounces the wrench.",
+      "The boy bounces the ladder hook.",
+      "The boy bounces the lantern glass."
+    ]
+  },
+  {
+    "id": "sound_play_14",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl draws with chalk.",
+    "wrongOptions": [
+      "The girl draws the frying fork.",
+      "The girl draws the roof gutter.",
+      "The girl draws the window latch."
+    ]
+  },
+  {
+    "id": "sound_play_15",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children build a sandcastle.",
+    "wrongOptions": [
+      "Children build the garden rake.",
+      "Children build the kettle handle.",
+      "Children build the iron nail."
+    ]
+  },
+  {
+    "id": "sound_play_16",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy rolls a toy train.",
+    "wrongOptions": [
+      "The boy rolls the cabinet door.",
+      "The boy rolls the bucket.",
+      "The boy rolls the paint brush."
+    ]
+  },
+  {
+    "id": "sound_play_17",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl blows bubbles.",
+    "wrongOptions": [
+      "The girl blows the screwdriver.",
+      "The girl blows the toolbox lid.",
+      "The girl blows the ladder brace."
+    ]
+  },
+  {
+    "id": "sound_play_18",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children play outside.",
+    "wrongOptions": [
+      "Children play the door lock.",
+      "Children play the frying ladle.",
+      "Children play the broom handle."
+    ]
+  },
+  {
+    "id": "sound_play_19",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy spins a top.",
+    "wrongOptions": [
+      "The boy spins the cabinet hinge.",
+      "The boy spins the kettle spout.",
+      "The boy spins the garden shovel."
+    ]
+  },
+  {
+    "id": "sound_play_20",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl rolls a hoop.",
+    "wrongOptions": [
+      "The girl rolls the window bar.",
+      "The girl rolls the lantern hook.",
+      "The girl rolls the iron bolt."
+    ]
+  },
+  {
+    "id": "sound_play_21",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Kids chase the ball.",
+    "wrongOptions": [
+      "Kids chase the frying basket.",
+      "Kids chase the cabinet shelf.",
+      "Kids chase the toolbox latch."
+    ]
+  },
+  {
+    "id": "sound_play_22",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Friends race toy cars.",
+    "wrongOptions": [
+      "Friends race the ladder plank.",
+      "Friends race the paint roller.",
+      "Friends race the broom head."
+    ]
+  },
+  {
+    "id": "sound_play_23",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Two boys fly a kite.",
+    "wrongOptions": [
+      "Two boys fly the mailbox lid.",
+      "Two boys fly the door bracket.",
+      "Two boys fly the watering can."
+    ]
+  },
+  {
+    "id": "sound_play_24",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Kids jump over a rope.",
+    "wrongOptions": [
+      "Kids jump over the kettle stand.",
+      "Kids jump over the cabinet frame.",
+      "Kids jump over the lantern base."
+    ]
+  },
+  {
+    "id": "sound_play_25",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "A girl paints a picture.",
+    "wrongOptions": [
+      "A girl paints the hammer claw.",
+      "A girl paints the door hinge.",
+      "A girl paints the ladder rung."
+    ]
+  },
+  {
+    "id": "sound_play_26",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children throw a frisbee.",
+    "wrongOptions": [
+      "Children throw the shovel handle.",
+      "Children throw the toolbox lock.",
+      "Children throw the frying tray."
+    ]
+  },
+  {
+    "id": "sound_play_27",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Kids build sand castles.",
+    "wrongOptions": [
+      "Kids build the cabinet knob.",
+      "Kids build the lantern ring.",
+      "Kids build the garden rake."
+    ]
+  },
+  {
+    "id": "sound_play_28",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The team plays football.",
+    "wrongOptions": [
+      "The team plays the ladder rail.",
+      "The team plays the hammer head.",
+      "The team plays the bucket lid."
+    ]
+  },
+  {
+    "id": "sound_play_29",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "A boy spins a top.",
+    "wrongOptions": [
+      "A boy spins the toolbox screw.",
+      "A boy spins the cabinet hinge.",
+      "A boy spins the lantern cap."
+    ]
+  },
+  {
+    "id": "sound_play_30",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children solve a puzzle.",
+    "wrongOptions": [
+      "Children solve the shovel blade.",
+      "Children solve the frying basket.",
+      "Children solve the window latch."
+    ]
+  },
+  {
+    "id": "sound_play_31",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy kicks a soccer ball.",
+    "wrongOptions": [
+      "The boy kicks a bookshelf.",
+      "The boy kicks a lantern.",
+      "The boy kicks a backpack."
+    ]
+  },
+  {
+    "id": "sound_play_32",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl swings on a rope.",
+    "wrongOptions": [
+      "The girl swings on a notebook.",
+      "The girl swings on a kettle.",
+      "The girl swings on a mirror."
+    ]
+  },
+  {
+    "id": "sound_play_33",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children run in the playground.",
+    "wrongOptions": [
+      "Children run in the cupboard.",
+      "Children run in the bathtub.",
+      "Children run in the oven."
+    ]
+  },
+  {
+    "id": "sound_play_34",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy pushes a toy truck.",
+    "wrongOptions": [
+      "The boy pushes a lamp shade.",
+      "The boy pushes a pillowcase.",
+      "The boy pushes a frying pan."
+    ]
+  },
+  {
+    "id": "sound_play_35",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl tosses a ball.",
+    "wrongOptions": [
+      "The girl tosses a saucepan.",
+      "The girl tosses a shoe rack.",
+      "The girl tosses a flower vase."
+    ]
+  },
+  {
+    "id": "sound_play_36",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children climb the jungle gym.",
+    "wrongOptions": [
+      "Children climb the refrigerator shelf.",
+      "Children climb the dinner plate.",
+      "Children climb the pillow cover."
+    ]
+  },
+  {
+    "id": "sound_play_37",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy flies a colorful kite.",
+    "wrongOptions": [
+      "The boy flies a toaster.",
+      "The boy flies a blanket.",
+      "The boy flies a curtain rod."
+    ]
+  },
+  {
+    "id": "sound_play_38",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Kids hop in a sack race.",
+    "wrongOptions": [
+      "Kids hop in a bookshelf.",
+      "Kids hop in a microwave.",
+      "Kids hop in a cupboard drawer."
+    ]
+  },
+  {
+    "id": "sound_play_39",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl rolls a bowling ball.",
+    "wrongOptions": [
+      "The girl rolls a teapot.",
+      "The girl rolls a wall clock.",
+      "The girl rolls a cushion."
+    ]
+  },
+  {
+    "id": "sound_play_40",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children play hide and seek.",
+    "wrongOptions": [
+      "Children play the refrigerator door.",
+      "Children play the frying spoon.",
+      "Children play the curtain hook."
+    ]
+  },
+  {
+    "id": "sound_play_41",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy dribbles a basketball.",
+    "wrongOptions": [
+      "The boy dribbles a frying pan lid.",
+      "The boy dribbles a door hinge.",
+      "The boy dribbles a pillow seam."
+    ]
+  },
+  {
+    "id": "sound_play_42",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl rides a scooter.",
+    "wrongOptions": [
+      "The girl rides a window curtain.",
+      "The girl rides a table lamp.",
+      "The girl rides a wall calendar."
+    ]
+  },
+  {
+    "id": "sound_play_43",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Kids splash in a water game.",
+    "wrongOptions": [
+      "Kids splash the television screen.",
+      "Kids splash the carpet thread.",
+      "Kids splash the cupboard hinge."
+    ]
+  },
+  {
+    "id": "sound_play_44",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy throws a frisbee.",
+    "wrongOptions": [
+      "The boy throws a pillow tag.",
+      "The boy throws a door knob.",
+      "The boy throws a cooking ladle."
+    ]
+  },
+  {
+    "id": "sound_play_45",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children run a relay race.",
+    "wrongOptions": [
+      "Children run the dining table.",
+      "Children run the flower pot.",
+      "Children run the shoe cabinet."
+    ]
+  },
+  {
+    "id": "sound_play_46",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl plays hopscotch.",
+    "wrongOptions": [
+      "The girl plays the toaster oven.",
+      "The girl plays the curtain rope.",
+      "The girl plays the frying basket."
+    ]
+  },
+  {
+    "id": "sound_play_47",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The boy balances on a skateboard.",
+    "wrongOptions": [
+      "The boy balances on a frying spatula.",
+      "The boy balances on a window latch.",
+      "The boy balances on a wall tile."
+    ]
+  },
+  {
+    "id": "sound_play_48",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Children race their bicycles.",
+    "wrongOptions": [
+      "Children race the kitchen sink.",
+      "Children race the door frame.",
+      "Children race the cupboard knob."
+    ]
+  },
+  {
+    "id": "sound_play_49",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "The girl skips with friends.",
+    "wrongOptions": [
+      "The girl skips the frying spoon.",
+      "The girl skips the lamp wire.",
+      "The girl skips the pillow zipper."
+    ]
+  },
+  {
+    "id": "sound_play_50",
+    "unit": "playAndFun",
+    "level": "easy",
+    "correctSentence": "Kids laugh during the game.",
+    "wrongOptions": [
+      "Kids laugh the bookshelf corner.",
+      "Kids laugh the kettle lid.",
+      "Kids laugh the door handle."
+    ]
+  }
+]

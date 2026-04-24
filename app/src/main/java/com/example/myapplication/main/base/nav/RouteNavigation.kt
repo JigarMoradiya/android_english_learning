@@ -55,6 +55,9 @@ sealed class RouteNavigation(val route: String) {
     object MatchThePicture : RouteNavigation("MatchThePicture/{unit}/{level}") {
         fun matchThePicture(unit: String, level: String): String = "MatchThePicture/$unit/$level"
     }
+    object WhichSentenceSoundRight : RouteNavigation("WhichSentenceSoundRight/{unit}/{level}") {
+        fun whichSentenceSoundRight(unit: String, level: String): String = "WhichSentenceSoundRight/$unit/$level"
+    }
     object SentenceCheck : RouteNavigation("SentenceCheck")
     object SentenceBuilder : RouteNavigation("SentenceBuilder")
 
