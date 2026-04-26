@@ -177,5 +177,7 @@
     <string name="want_to_continue">Want to Continue</string>
     <string name="correct_answers">Correct Answers</string>
     <string name="completed">Completed</string>
+    <string name="its_wrong">It\'s Wrong</string>
+    <string name="correct_sentence_is">"Correct Sentence is : "</string>
 
 </resources>

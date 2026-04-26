@@ -124,7 +124,7 @@ fun SentenceUnitPage(
                                         navController.navigate(RouteNavigation.SentenceCheck.sentenceCheck(item.unit.name, uiState.level.name))
                                     }
                                     UnitSelectionScreen.BUILD_THE_SENTENCE -> {
-
+                                        navController.navigate(RouteNavigation.SentenceBuilder.sentenceBuilder(item.unit.name, uiState.level.name))
                                     }
                                     else -> {
                                         navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, uiState.level.name))
