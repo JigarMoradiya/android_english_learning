@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -25,8 +26,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
@@ -43,6 +48,7 @@ import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.KidIconMedium
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.ButtonType
 
 
@@ -54,7 +60,6 @@ fun ReadAndListenPage(
     viewModel: ReadAndListenViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-
     LaunchedEffect(Unit) {
         viewModel.setScreenTypeAndLessonData(screenType,lessonData)
     }
@@ -143,14 +148,22 @@ fun ReadAndListenPage(
 
                     Spacer(modifier = Modifier.weight(1f))
 
+                    val modifier : Modifier = if (isTablet){
+                        val screenHeight = with(LocalDensity.current) {
+                            LocalWindowInfo.current.containerSize.height.toDp()
+                        }
+                        Modifier.size(screenHeight * 0.6f) // 60% of screen height
+                    } else{
+                        Modifier.aspectRatio(1f) // perfect square
+                    }
+
                     // 🟩 CENTER IMAGE
                     getImageResForSentence(uiState.lessonData?.imageName)?.let { resId ->
                         Image(
                             painter = painterResource(resId),
                             contentDescription = null,
                             contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .aspectRatio(1f) // perfect square
+                            modifier = modifier
                                 .clip(RoundedCornerShape(Dimens16))
                         )
                     }

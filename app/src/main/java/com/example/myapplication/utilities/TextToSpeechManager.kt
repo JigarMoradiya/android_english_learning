@@ -12,7 +12,7 @@ import java.util.Locale
 import javax.inject.Inject
 
 class TextToSpeechManager @Inject constructor(
-    context: Context,
+    private val context: Context,
     private val prefs: AppPreferencesHelper
 ) {
 
@@ -28,12 +28,21 @@ class TextToSpeechManager @Inject constructor(
     init {
         tts = TextToSpeech(context) { status ->
             if (status == TextToSpeech.SUCCESS) {
-                ready = true
-                setupListener()
-                pending?.let { (text, id) ->
-                    speak(text, id)
-                    pending = null
+
+                val result = tts?.setLanguage(Locale.US)
+
+                ready = result != TextToSpeech.LANG_MISSING_DATA &&
+                        result != TextToSpeech.LANG_NOT_SUPPORTED
+
+                if (ready) {
+                    applySettings()
+                    setupListener()
+                    flushPending()
+                } else {
+                    Log.e("TTS", "Language not supported")
                 }
+            } else {
+                Log.e("TTS", "Initialization failed")
             }
         }
     }
@@ -71,11 +80,11 @@ class TextToSpeechManager @Inject constructor(
     fun speak(
         text: String,
         utteranceId: String = "",
-        isAddInQueue : Boolean = false,
+        isAddInQueue: Boolean = false,
         onDone: (() -> Unit)? = null
     ) {
         if (!ready) {
-            pending = text to utteranceId
+            pendingQueue.add(Triple(text, utteranceId, isAddInQueue))
             return
         }
 
@@ -87,50 +96,101 @@ class TextToSpeechManager @Inject constructor(
             utteranceCallbacks[utteranceId] = { it() }
         }
 
-        tts?.speak(
-            text,
-            if (isAddInQueue)TextToSpeech.QUEUE_ADD else TextToSpeech.QUEUE_FLUSH,
-            params,
-            utteranceId
-        )
+        try {
+            val result = tts?.speak(
+                text,
+                if (isAddInQueue) TextToSpeech.QUEUE_ADD else TextToSpeech.QUEUE_FLUSH,
+                params,
+                utteranceId
+            )
+
+            if (result == TextToSpeech.ERROR) {
+                Log.e("TTS", "Speak failed, retrying...")
+                restartTTS()
+            }
+
+        } catch (e: Exception) {
+            Log.e("TTS", "Crash in speak: ${e.message}")
+            restartTTS()
+        }
+    }
+
+    private fun restartTTS() {
+        try {
+            tts?.shutdown()
+        } catch (_: Exception) {}
+
+        ready = false
+        tts = null
+
+        // re-init
+        tts = TextToSpeech(context) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                ready = true
+                applySettings()
+                setupListener()
+                flushPending()
+            }
+        }
+    }
+
+    private val pendingQueue = mutableListOf<Triple<String, String, Boolean>>()
+
+    private fun flushPending() {
+        pendingQueue.forEach { (text, id, isAdd) ->
+            speak(text, id, isAdd)
+        }
+        pendingQueue.clear()
+    }
+
+    fun shutdown() {
+        try {
+            tts?.stop()
+        } catch (e: Exception) {
+            Log.e("TTS", "Error stopping TTS in shutdown: ${e.message}")
+        }
+        try {
+            tts?.shutdown()
+        } catch (e: Exception) {
+            Log.e("TTS", "Error shutting down TTS: ${e.message}")
+        }
+        tts = null
+        ready = false
+    }
+
+    fun stop() {
+        try {
+            tts?.stop()
+        } catch (e: Exception) {
+            Log.e("TTS", "Error stopping TTS: ${e.message}")
+        }
+        utteranceCallbacks.clear()
     }
 
 
     fun applySettings() {
-        val currentLanguageJson = prefs.getCustomParam(AppPreferencesHelper.KEY_DEFAULT_TTS_LANGUAGE, "")
-
-        val locale = if (currentLanguageJson.isEmpty()) {
-            Locale.forLanguageTag(AppPreferencesHelper.DEFAULT_TTS_LANGUAGE_VALUE)
-        } else {
-            Gson().fromJson(currentLanguageJson, Locale::class.java)
-        }
-        val speed = prefs.getDefaultTTSSpeed()
-        val pitch = prefs.getDefaultTTSPitch()
-
-        // Set language
-        val langResult = tts?.setLanguage(locale)
-
-        if (langResult == TextToSpeech.LANG_MISSING_DATA ||
-            langResult == TextToSpeech.LANG_NOT_SUPPORTED
-        ) {
-            Log.e("TTS", "Language not supported: $locale")
-            tts?.language = Locale.forLanguageTag(AppPreferencesHelper.DEFAULT_TTS_LANGUAGE_VALUE)
-            return
-        }
-
-        tts?.setSpeechRate(speed/10f)
-        tts?.setPitch(pitch/10f)
-    }
-
-    fun shutdown() {
-        tts?.stop()
-        tts?.shutdown()
-        tts = null
-    }
-
-    fun stop() {
-        tts?.stop()
-        utteranceCallbacks.clear()
+//        val currentLanguageJson = prefs.getCustomParam(AppPreferencesHelper.KEY_DEFAULT_TTS_LANGUAGE, "")
+//
+//        val locale = if (currentLanguageJson.isEmpty()) {
+//            Locale.forLanguageTag(AppPreferencesHelper.DEFAULT_TTS_LANGUAGE_VALUE)
+//        } else {
+//            Gson().fromJson(currentLanguageJson, Locale::class.java)
+//        }
+//        val speed = prefs.getDefaultTTSSpeed()
+//        val pitch = prefs.getDefaultTTSPitch()
+//
+//        // Set language
+//        val langResult = tts?.setLanguage(locale)
+//
+//        if (langResult == TextToSpeech.LANG_MISSING_DATA ||
+//            langResult == TextToSpeech.LANG_NOT_SUPPORTED
+//        ) {
+//            Log.e("TTS", "Language not supported: $locale")
+//            tts?.language = Locale.forLanguageTag(AppPreferencesHelper.DEFAULT_TTS_LANGUAGE_VALUE)
+//            return
+//        }
+//
+//        tts?.setSpeechRate(speed/10f)
+//        tts?.setPitch(pitch/10f)
     }
 }
-

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -28,6 +29,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.PrimaryBlue
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun SentenceWordsView(
@@ -69,6 +71,7 @@ fun SentenceWordsView(
 
                 Text(
                     text = word,
+                    style = MaterialTheme.typography.bodyLarge.scaled(),
                     modifier = Modifier
                         .padding(horizontal = Dimens2) // 👈 VERY IMPORTANT (was too big before)
                         .graphicsLayer {
@@ -138,6 +141,7 @@ fun SentenceWordsView(
                 ) {
                     Text(
                         text = word,
+                        style = MaterialTheme.typography.bodyLarge.scaled(),
                         color = if (isSpeaking) Color.White else Color.Black,
                         fontWeight = FontWeight.SemiBold
                     )

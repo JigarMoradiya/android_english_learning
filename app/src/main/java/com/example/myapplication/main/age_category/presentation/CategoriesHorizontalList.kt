@@ -21,6 +21,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.main.age_category.view_model.AgeCategoryData
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens20
 
 @Composable
 fun CategoriesHorizontalList(
@@ -35,20 +38,18 @@ fun CategoriesHorizontalList(
         val boxWidth = maxWidth
         val boxHeight = maxHeight
 
-        val spacing = 20.dp
+        val spacing = Dimens12
         val visibleItems = 3f // change to 2.7f for iOS peek style
 
         // ✅ Calculate item width properly
-        val totalSpacing = spacing * (visibleItems - 1)
+        val totalSpacing = (spacing * (visibleItems - 1)) + (Dimens16 * 2)
         val itemWidth = (boxWidth - totalSpacing) / visibleItems
 
         // ✅ Content width for centering logic
-        val contentWidth =
-            (itemWidth * categories.size.toFloat()) +
-                    (spacing * (categories.size - 1).coerceAtLeast(0).toFloat())
+        val contentWidth = (itemWidth * categories.size.toFloat()) + (spacing * (categories.size - 1).coerceAtLeast(0).toFloat())
 
-        val sidePadding =
-            if (contentWidth < boxWidth) (boxWidth - contentWidth) / 2 else 0.dp
+//        val sidePadding = if (contentWidth < boxWidth) (boxWidth - contentWidth) / 2 else 0.dp
+        val sidePadding = Dimens16
 
         LazyRow(
             modifier = Modifier.fillMaxWidth(),

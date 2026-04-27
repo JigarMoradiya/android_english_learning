@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -24,6 +25,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -44,6 +47,7 @@ import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsHeight
 import com.example.myapplication.ui.theme.ButtonType
 
@@ -89,19 +93,26 @@ fun MatchThePicturePage(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(Dimens16),
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .fillMaxSize()
                         .padding(horizontal = Dimens16)
                         .padding(bottom = Dimens16)
                 ) {
 
                     // 🟩 CENTER IMAGE
                     getImageResForSentence(uiState.currentQuestion?.imageName)?.let { resId ->
+                        val modifier : Modifier = if (isTablet){
+                            val screenHeight = with(LocalDensity.current) {
+                                LocalWindowInfo.current.containerSize.height.toDp()
+                            }
+                            Modifier.size(screenHeight * 0.5f) // 50% of screen height
+                        } else{
+                            Modifier.aspectRatio(1f) // perfect square
+                        }
                         Image(
                             painter = painterResource(resId),
                             contentDescription = null,
                             contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .aspectRatio(1f) // perfect square
+                            modifier = modifier
                                 .clip(RoundedCornerShape(Dimens16))
                         )
                     }
