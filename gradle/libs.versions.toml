@@ -20,6 +20,9 @@ animationCore = "1.10.5"
 composeTesting = "1.0.0-alpha12"
 uiGraphics = "1.10.6"
 ui = "1.10.6"
+firebase-bom = "34.5.0"
+onesignal = "5.4.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -51,6 +54,10 @@ compose-material-icons-extended = { group = "androidx.compose.material", name = 
 androidx-compose-testing = { group = "androidx.xr.compose", name = "compose-testing", version.ref = "composeTesting" }
 androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-crashlytics-ndk = { module = "com.google.firebase:firebase-crashlytics-ndk" }
+onesignal = { module = "com.onesignal:OneSignal", version.ref = "onesignal" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

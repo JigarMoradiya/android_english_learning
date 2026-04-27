@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "650587239957",
+    "project_id": "vedaavi-english-learning",
+    "storage_bucket": "vedaavi-english-learning.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650587239957:android:9215c1b40cc64ed6ca801c",
+        "android_client_info": {
+          "package_name": "com.vedaavi.english.learning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP6_YSsAVPyEfTMSr3FoKsxy0fGcrh3KM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
