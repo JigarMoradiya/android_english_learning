@@ -6,6 +6,9 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.annotation.NonNull
 import com.example.myapplication.data.model.NotificationData
+import com.example.myapplication.main.base.notification.NotificationCommand
+import com.example.myapplication.main.base.notification.NotificationRouteMapper
+import com.example.myapplication.main.base.notification.PendingNotificationRoute
 import com.example.myapplication.utils.AppConstants
 import com.google.firebase.crashlytics.internal.common.CommonUtils
 import com.google.gson.Gson
@@ -77,14 +80,20 @@ class MyApplication : Application(){
 
         Notifications.addClickListener(object : INotificationClickListener {
             override fun onClick(event: INotificationClickEvent) {
-                val additional_data = event.notification.additionalData.toString()
-                if (additional_data.isNotEmpty()) {
-                    val notification = Gson().fromJson(additional_data, NotificationData::class.java)
+                val additionalData = event.notification.additionalData ?: return
+                val notification = runCatching {
+                    Gson().fromJson(additionalData.toString(), NotificationData::class.java)
+                }.getOrNull() ?: return
 
-                    if (notification != null) {
-
+                when {
+                    notification.type == "link" && notification.link.isNotEmpty() -> {
+                        PendingNotificationRoute.emit(NotificationCommand.OpenLink(notification.link))
                     }
-
+                    notification.type.isNotEmpty() -> {
+                        NotificationRouteMapper.routeFromType(notification.type)?.let { route ->
+                            PendingNotificationRoute.emit(NotificationCommand.Navigate(route))
+                        }
+                    }
                 }
             }
         })

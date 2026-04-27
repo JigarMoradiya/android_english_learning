@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">English Learning</string>
+    <string name="web_client_id">650587239957-43elh9310gf2teg3k0h7uhohc83jkqb1.apps.googleusercontent.com</string>
     <string name="default_notification_channel_id">Vedaavi English Learning</string>
 
     <!-- Screen title -->

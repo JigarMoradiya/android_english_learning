@@ -1,6 +1,10 @@
 package com.example.myapplication.main.base.nav
 
+import android.content.Intent
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.net.toUri
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -14,6 +18,8 @@ import com.example.myapplication.data.model.getSentenceLevel
 import com.example.myapplication.data.model.getSentenceUnit
 import com.example.myapplication.data.model.getUnitSelectionScreen
 import com.example.myapplication.main.age_category.MainLearningAgesCategoriesScreen
+import com.example.myapplication.main.base.notification.NotificationCommand
+import com.example.myapplication.main.base.notification.PendingNotificationRoute
 import com.example.myapplication.main.age_group.AgeGroup3to5Page
 import com.example.myapplication.main.age_group.AgeGroup5to7Page
 import com.example.myapplication.main.age_group.AgeGroup6to8Page
@@ -53,6 +59,32 @@ import com.google.gson.Gson
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
+    val context = LocalContext.current
+
+    LaunchedEffect(Unit) {
+        PendingNotificationRoute.commands.collect { command ->
+            when (command) {
+                is NotificationCommand.Navigate -> {
+                    navController.navigate(command.route) {
+                        popUpTo(RouteNavigation.AgeCategories.route) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                    PendingNotificationRoute.clear()
+                }
+                is NotificationCommand.OpenLink -> {
+                    runCatching {
+                        val intent = Intent(Intent.ACTION_VIEW, command.url.toUri()).apply {
+                            addCategory(Intent.CATEGORY_BROWSABLE)
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        }
+                        context.startActivity(intent)
+                    }
+                    PendingNotificationRoute.clear()
+                }
+            }
+        }
+    }
+
     NavHost(
         navController = navController,
         startDestination = RouteNavigation.AgeCategories.route

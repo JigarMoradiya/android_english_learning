@@ -1,6 +1,5 @@
 package com.example.myapplication.main.age_category
 
-import android.content.Context
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,12 +17,13 @@ import com.example.myapplication.R
 import com.example.myapplication.main.age_category.presentation.CategoriesHorizontalList
 import com.example.myapplication.main.age_category.view_model.AgeCategoriesViewModel
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.base.notification.OneSignalSubscriptionWatcher
+import com.example.myapplication.main.common.permission.NotificationPermissionHandler
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.clickable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextDecoration
@@ -38,6 +38,9 @@ fun MainLearningAgesCategoriesScreen(
 ) {
     val categories by viewModel.categories.collectAsState()
     val context = LocalContext.current
+
+    NotificationPermissionHandler()
+    OneSignalSubscriptionWatcher()
 
     Box(modifier = Modifier.fillMaxSize()) {
 

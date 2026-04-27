@@ -12,7 +12,16 @@
           "package_name": "com.vedaavi.english.learning"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "650587239957-43elh9310gf2teg3k0h7uhohc83jkqb1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vedaavi.english.learning",
+            "certificate_hash": "d6646202006b061b50e975901f82eba2199d1012"
+          }
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCP6_YSsAVPyEfTMSr3FoKsxy0fGcrh3KM"
