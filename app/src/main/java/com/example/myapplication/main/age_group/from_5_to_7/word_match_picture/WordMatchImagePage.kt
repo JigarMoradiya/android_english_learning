@@ -58,8 +58,6 @@ fun WordMatchImagePage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                Spacer(Modifier.weight(1f))
-
                 KidsLabel("🎯  Round ${uiState.round}")
             }
 

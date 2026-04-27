@@ -48,12 +48,12 @@ import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens1
+import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.ButtonType
-import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
 
 
@@ -97,169 +97,177 @@ fun SentenceBuilderPage(
 
             Spacer(Modifier.weight(1f))
             // CONTENT
-            if (!uiState.isCompleted) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(Dimens16),
+                modifier = Modifier.fillMaxSize()
+                    .padding(horizontal = Dimens16).padding(bottom = Dimens16)
+            ) {
+                if (uiState.isCompleted) {
 
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(Dimens16),
-                    verticalArrangement = Arrangement.spacedBy(Dimens16)
-                ) {
+                    ResultView(uiState.score,uiState.questions.size, title = stringResource(R.string.completed),
+                        onBack = {
+                            navController.popBackStack()
+                        },onContinue = {
+                            viewModel.restart()
+                        })
+                } else {
 
-                    // ARRANGED WORDS (top)
-                    FlowRow(
-                        horizontalArrangement = Arrangement.Center,
-                        modifier = Modifier.fillMaxWidth()
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(Dimens16),
+                        verticalArrangement = Arrangement.spacedBy(Dimens12)
                     ) {
-                        uiState.arrangedWords.forEach { word ->
 
-                            val shape = RoundedCornerShape(Dimens12)
-                            val interactionSource = remember { MutableInteractionSource() }
-                            Text(
-                                text = word,
-                                style = MaterialTheme.typography.titleSmall.scaled(),
-                                modifier = Modifier
-                                    .padding(Dimens4)
-                                    .clip(shape)
-                                    .background(Color.Green.copy(alpha = 0.2f), shape)
-                                    .clickable(
-                                        enabled = uiState.isCorrect == null,
-                                        interactionSource = interactionSource,
-                                        indication = LocalIndication.current
-                                    ) {
-                                        viewModel.removeWord(word)
-                                    }
-                                    .padding(horizontal = Dimens12, vertical = Dimens6),
-                                fontWeight = FontWeight.Medium
-                            )
-                        }
-                    }
-
-                    // SENTENCE PREVIEW
-                    if (uiState.arrangedWords.isNotEmpty()) {
-                        Box(
-                            modifier = Modifier.fillMaxWidth(),
-                            contentAlignment = Alignment.Center
+                        // ARRANGED WORDS (top)
+                        FlowRow(
+                            horizontalArrangement = Arrangement.Center,
+                            modifier = Modifier.fillMaxWidth()
                         ) {
-                            Text(
-                                text = viewModel.formattedSentence(),
-                                style = MaterialTheme.typography.headlineMedium.scaled(),
-                                modifier = Modifier
-                                    .background(
-                                        Color.Yellow.copy(0.2f),
-                                        RoundedCornerShape(Dimens12)
-                                    )
-                                    .padding(horizontal = Dimens16, vertical = Dimens12),
-                                textAlign = TextAlign.Center,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                    }
+                            uiState.arrangedWords.forEach { word ->
 
-                    // SHUFFLED WORDS
-                    FlowRow(
-                        horizontalArrangement = Arrangement.Center,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        uiState.shuffledWords.forEach { word ->
-                            val shape = RoundedCornerShape(Dimens12)
-                            val interactionSource = remember { MutableInteractionSource() }
-                            Text(
-                                text = word,
-                                style = MaterialTheme.typography.titleSmall.scaled(),
-                                modifier = Modifier
-                                    .padding(Dimens4)
-                                    .clip(shape)
-                                    .background(Color.White, shape)
-                                    .border(Dimens1, Color.Gray.copy(0.2f), shape)
-                                    .clickable(
-                                        enabled = uiState.isCorrect == null,
-                                        interactionSource = interactionSource,
-                                        indication = LocalIndication.current
-                                    ) {
-                                        viewModel.addWord(word)
-                                    }
-                                    .padding(horizontal = Dimens12, vertical = Dimens6),
-                                fontWeight = FontWeight.SemiBold
-                            )
-                        }
-                    }
-
-                    // RESULT
-                    uiState.isCorrect?.let { correct ->
-
-                        if (correct) {
-
-                            Text(
-                                text = stringResource(uiState.feedbackTextRes),
-                                color = Color(0xFF2E7D32),
-                                fontWeight = FontWeight.Bold,
-                                textAlign = TextAlign.Center,
-                                style = MaterialTheme.typography.titleLarge.scaled(),
-                                modifier = Modifier.fillMaxWidth()
-                            )
-
-                        } else {
-
-                            Text(
-                                text = stringResource(R.string.its_wrong),
-                                color = Color.Red,
-                                style = MaterialTheme.typography.titleLarge.scaled(),
-                                fontWeight = FontWeight.Bold,
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier.fillMaxWidth()
-                            )
-
-                            uiState.currentQuestion?.let {
+                                val shape = RoundedCornerShape(Dimens12)
+                                val interactionSource = remember { MutableInteractionSource() }
                                 Text(
-                                    text = buildAnnotatedString {
-                                        withStyle(
-                                            style = SpanStyle(
-                                                color = Color(0xFF2E7D32),
-                                                fontWeight = FontWeight.Bold
-                                            )
+                                    text = word,
+                                    style = MaterialTheme.typography.titleSmall.scaled(),
+                                    modifier = Modifier
+                                        .padding(Dimens4)
+                                        .clip(shape)
+                                        .background(Color.Green.copy(alpha = 0.2f), shape)
+                                        .clickable(
+                                            enabled = uiState.isCorrect == null,
+                                            interactionSource = interactionSource,
+                                            indication = LocalIndication.current
                                         ) {
-                                            append(stringResource(R.string.correct_sentence_is))
+                                            viewModel.removeWord(word)
                                         }
-
-                                        append(it.correctSentence)
-                                    },
-                                    style = MaterialTheme.typography.titleMedium.scaled(),
-                                    textAlign = TextAlign.Center,
-                                    modifier = Modifier.fillMaxWidth()
+                                        .padding(horizontal = Dimens10, vertical = Dimens6),
+                                    fontWeight = FontWeight.Medium
                                 )
                             }
                         }
-                    }
 
-                    // NEXT BUTTON
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.Center
-                    ) {
+                        // SENTENCE PREVIEW
+                        if (uiState.arrangedWords.isNotEmpty()) {
+                            Box(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = viewModel.formattedSentence(),
+                                    style = MaterialTheme.typography.headlineMedium.scaled(),
+                                    modifier = Modifier
+                                        .background(
+                                            Color.Yellow.copy(0.2f),
+                                            RoundedCornerShape(Dimens12)
+                                        )
+                                        .padding(horizontal = Dimens16, vertical = Dimens12),
+                                    textAlign = TextAlign.Center,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+                        }
 
-                        KidsActionButton(
-                            text = stringResource(R.string.next),
-                            type = if (uiState.isCorrect == null)
-                                ButtonType.DISABLE else ButtonType.ORANGE,
-                            onClick = {
-                                if (uiState.isCorrect != null){
-                                    viewModel.next()
+                        // SHUFFLED WORDS
+                        FlowRow(
+                            horizontalArrangement = Arrangement.Center,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            uiState.shuffledWords.forEach { word ->
+                                val shape = RoundedCornerShape(Dimens12)
+                                val interactionSource = remember { MutableInteractionSource() }
+                                Text(
+                                    text = word,
+                                    style = MaterialTheme.typography.titleSmall.scaled(),
+                                    modifier = Modifier
+                                        .padding(Dimens4)
+                                        .clip(shape)
+                                        .background(Color.White, shape)
+                                        .border(Dimens1, Color.Gray.copy(0.2f), shape)
+                                        .clickable(
+                                            enabled = uiState.isCorrect == null,
+                                            interactionSource = interactionSource,
+                                            indication = LocalIndication.current
+                                        ) {
+                                            viewModel.addWord(word)
+                                        }
+                                        .padding(horizontal = Dimens12, vertical = Dimens6),
+                                    fontWeight = FontWeight.SemiBold
+                                )
+                            }
+                        }
+
+                        // RESULT
+                        uiState.isCorrect?.let { correct ->
+
+                            if (correct) {
+
+                                Text(
+                                    text = stringResource(uiState.feedbackTextRes),
+                                    color = Color(0xFF2E7D32),
+                                    fontWeight = FontWeight.Bold,
+                                    textAlign = TextAlign.Center,
+                                    style = MaterialTheme.typography.titleLarge.scaled(),
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+
+                            } else {
+
+                                Text(
+                                    text = stringResource(R.string.its_wrong),
+                                    color = Color.Red,
+                                    style = MaterialTheme.typography.titleLarge.scaled(),
+                                    fontWeight = FontWeight.Bold,
+                                    textAlign = TextAlign.Center,
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+
+                                uiState.currentQuestion?.let {
+                                    Text(
+                                        text = buildAnnotatedString {
+                                            withStyle(
+                                                style = SpanStyle(
+                                                    color = Color(0xFF2E7D32),
+                                                    fontWeight = FontWeight.Bold
+                                                )
+                                            ) {
+                                                append(stringResource(R.string.correct_sentence_is))
+                                            }
+
+                                            append(it.correctSentence)
+                                        },
+                                        style = MaterialTheme.typography.titleMedium.scaled(),
+                                        textAlign = TextAlign.Center,
+                                        modifier = Modifier.fillMaxWidth()
+                                    )
                                 }
                             }
-                        )
+                        }
+
+                        // NEXT BUTTON
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.Center
+                        ) {
+
+                            KidsActionButton(
+                                text = stringResource(R.string.next),
+                                type = if (uiState.isCorrect == null)
+                                    ButtonType.DISABLE else ButtonType.ORANGE,
+                                onClick = {
+                                    if (uiState.isCorrect != null){
+                                        viewModel.next()
+                                    }
+                                }
+                            )
+                        }
                     }
+
                 }
-
-            } else {
-
-                ResultView(uiState.score,uiState.questions.size, title = stringResource(R.string.completed),
-                    onBack = {
-                        navController.popBackStack()
-                    },onContinue = {
-                        viewModel.restart()
-                    })
             }
+
 
             Spacer(Modifier.weight(1f))
         }

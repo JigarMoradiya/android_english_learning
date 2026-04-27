@@ -80,8 +80,6 @@ fun SentenceCheckPage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                Spacer(Modifier.weight(1f))
-
                 KidsLabel("Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",)
             }
 

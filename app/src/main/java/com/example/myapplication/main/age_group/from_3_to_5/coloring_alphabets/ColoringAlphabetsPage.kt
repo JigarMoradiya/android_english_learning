@@ -83,8 +83,6 @@ fun ColoringAlphabetsPage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                Spacer(Modifier.weight(1f))
-
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.padding(end = Dimens16)
