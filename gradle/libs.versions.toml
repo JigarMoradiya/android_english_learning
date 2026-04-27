@@ -57,6 +57,7 @@ androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref 
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-crashlytics-ndk = { module = "com.google.firebase:firebase-crashlytics-ndk" }
+firebase-config = { module = "com.google.firebase:firebase-config" }
 onesignal = { module = "com.onesignal:OneSignal", version.ref = "onesignal" }
 
 [plugins]

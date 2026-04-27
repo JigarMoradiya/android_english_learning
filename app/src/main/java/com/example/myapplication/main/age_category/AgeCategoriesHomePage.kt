@@ -17,6 +17,7 @@ import com.example.myapplication.R
 import com.example.myapplication.main.age_category.presentation.CategoriesHorizontalList
 import com.example.myapplication.main.age_category.view_model.AgeCategoriesViewModel
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.base.force_update.ForceUpdateHandler
 import com.example.myapplication.main.base.notification.OneSignalSubscriptionWatcher
 import com.example.myapplication.main.common.permission.NotificationPermissionHandler
 import com.example.myapplication.ui.theme.AppDimens
@@ -86,6 +87,8 @@ fun MainLearningAgesCategoriesScreen(
                 }
                 .padding(Dimens16)
         )
+
+        ForceUpdateHandler()
     }
 }
 

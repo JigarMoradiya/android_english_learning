@@ -74,7 +74,8 @@ fun CustomPopupView(
     onPositiveTapped: (() -> Unit)? = null,
     onNegativeTapped: (() -> Unit)? = null,
     widthMultiplier: Float = 0.5f,
-    icon: Int? = null
+    icon: Int? = null,
+    isShowConfettiRainEffect : Boolean = true
 ) {
 
     val popupWidth = LocalConfiguration.current.screenWidthDp * widthMultiplier
@@ -252,6 +253,9 @@ fun CustomPopupView(
                 }
             }
         }
-        ConfettiRainEffect()
+
+        if (isShowConfettiRainEffect){
+            ConfettiRainEffect()
+        }
     }
 }

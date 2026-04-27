@@ -182,4 +182,8 @@
     <string name="its_wrong">It\'s Wrong</string>
     <string name="correct_sentence_is">"Correct Sentence is : "</string>
 
+    <string name="force_update_title">Update Available</string>
+    <string name="force_update_description">A new version is available on Play Store. Please update to continue.</string>
+    <string name="force_update_positive">Update Now</string>
+
 </resources>

@@ -111,5 +111,6 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.crashlytics.ndk)
+    implementation(libs.firebase.config)
     implementation(libs.onesignal)
 }
