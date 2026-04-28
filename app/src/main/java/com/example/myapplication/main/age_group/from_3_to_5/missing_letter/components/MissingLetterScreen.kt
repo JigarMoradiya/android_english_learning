@@ -38,7 +38,7 @@ fun MissingLetterScreen(
                 Image(
                     painter = painterResource(it),
                     contentDescription = null,
-                    modifier = Modifier.fillMaxHeight(0.2f)
+                    modifier = Modifier.fillMaxHeight(0.17f)
                 )
 
                 Spacer(modifier = Modifier.height(Dimens16.scaled()))

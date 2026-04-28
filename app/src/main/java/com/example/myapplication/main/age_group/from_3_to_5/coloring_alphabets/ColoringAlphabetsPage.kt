@@ -44,6 +44,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.v
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.main.common.getImageResForAlphabet
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
@@ -143,7 +144,7 @@ fun ColoringAlphabetsPage(
                             .background(Color(0xFFEFEFEF), RoundedCornerShape(Dimens24))
                             .padding(Dimens16)
                     ) {
-                        val res = getImageResFromWord(item.outlineImageName)
+                        val res = getImageResForAlphabet(item.outlineImageName)
                         ColoringCanvas(
                             res = res ?: R.drawable.a_outline_c,
                             outlineName = item.outlineImageName,

@@ -233,19 +233,15 @@ class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
     // 🔁 NAVIGATION
     // -------------------------------
     fun next() {
-        safeAction {
-            val nextIndex = (uiState.currentIndex + 1) % letters.size
-            resetForIndex(nextIndex)
-        }
+        val nextIndex = (uiState.currentIndex + 1) % letters.size
+        resetForIndex(nextIndex)
     }
 
     fun previous() {
-        safeAction {
-            val prevIndex =
-                if (uiState.currentIndex == 0) letters.lastIndex
-                else uiState.currentIndex - 1
-            resetForIndex(prevIndex)
-        }
+        val prevIndex =
+            if (uiState.currentIndex == 0) letters.lastIndex
+            else uiState.currentIndex - 1
+        resetForIndex(prevIndex)
     }
 
     fun changeMode(mode: LetterMode) {
