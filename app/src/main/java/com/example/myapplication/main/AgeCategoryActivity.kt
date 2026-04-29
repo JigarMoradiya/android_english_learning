@@ -54,7 +54,7 @@ class AgeCategoryActivity : BaseActivity() {
                 val navController = rememberNavController()
                 MyApplicationTheme {
                     Surface(
-                        modifier = Modifier.Companion.fillMaxSize(),
+                        modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background // will be white if you set it in LightColors
                     ) {
                         AppNavGraph(navController = navController)

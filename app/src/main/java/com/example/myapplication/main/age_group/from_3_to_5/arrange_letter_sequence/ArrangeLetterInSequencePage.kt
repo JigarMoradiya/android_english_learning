@@ -13,15 +13,10 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
@@ -30,20 +25,14 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.vie
 import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.components.BottomArrangeLetterOptions
 import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.components.TopArrangeLetterSlots
 import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.view_model.ArrangeLetterInSequenceViewModel
-import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.components.BottomLetterOptions
-import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.components.TopLetterSlots
-import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens4
-import com.example.myapplication.ui.theme.AppDimens.Dimens40
 import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.ButtonType
-import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.utils.extensions.scaled
 
 

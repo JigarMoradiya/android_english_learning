@@ -35,8 +35,30 @@
 ##############################################
 # 🔹 GSON
 ##############################################
-# Keep model classes (IMPORTANT)
+##############################################
+# 🔥 GSON FIX (CRITICAL)
+##############################################
+
+# Keep generic signatures (you already have, keep it)
+-keepattributes Signature
+
+# Keep TypeToken and its subclasses (VERY IMPORTANT)
+-keep class com.google.gson.reflect.TypeToken { *; }
+
+# 🔥 THIS is the missing piece (most important)
+-keep class * extends com.google.gson.reflect.TypeToken
+
+# Keep Gson core (safe)
+-keep class com.google.gson.** { *; }
+-dontwarn com.google.gson.**
+
+# Keep your model classes
 -keep class com.example.myapplication.**.model.** { *; }
+
+# Keep fields inside models
+-keepclassmembers class com.example.myapplication.**.model.** {
+    <fields>;
+}
 
 # Keep serialized names
 -keepclassmembers class * {
@@ -66,4 +88,14 @@
 -keepclassmembers enum * {
     public static **[] values();
     public static ** valueOf(java.lang.String);
+}
+
+#  LOG REMOVAL ==
+# Remove logs in release (performance)
+-assumenosideeffects class android.util.Log {
+  public static *** d(...);
+  public static *** w(...);
+  public static *** v(...);
+  public static *** i(...);
+  public static *** e(...);
 }
