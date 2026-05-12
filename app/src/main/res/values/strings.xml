@@ -60,6 +60,30 @@
     <string name="which_sentence_sounds_right_desc">Read carefully and choose the sentence that sounds right.</string>
     <string name="find_the_correct_writing">Find the Correct Writing</string>
     <string name="find_the_correct_writing_desc">Choose the sentence written correctly.</string>
+    <string name="nouns">Nouns</string>
+    <string name="noun_title">Noun (Naming Word)</string>
+    <string name="verbs">Verbs</string>
+    <string name="verb_title">Verb (Action Word)</string>
+    <string name="adjectives">Adjectives</string>
+    <string name="adjective_title">Adjective (Describing Word)</string>
+    <string name="pronouns">Pronouns</string>
+    <string name="pronoun_title">Pronoun Word</string>
+    <string name="practice_activity">Practice Activity</string>
+    <string name="practice_nouns">Practice Nouns</string>
+    <string name="practice_verbs">Practice Verbs</string>
+    <string name="practice_adjectives">Practice Adjectives</string>
+    <string name="practice_pronouns">Practice Pronouns</string>
+    <string name="next_noun">Next Noun</string>
+    <string name="next_verb">Next Verb</string>
+    <string name="next_adjective">Next Adjective</string>
+    <string name="next_pronoun">Next Pronoun</string>
+    <string name="check_result">Check Result</string>
+    <string name="your_result">Your Result</string>
+    <string name="go_back">Go Back</string>
+    <string name="tap_the_correct_noun"><![CDATA[Tap the correct <font color="#0074D5"><b>noun</b></font>]]></string>
+    <string name="tap_the_correct_verb"><![CDATA[Tap the correct <font color="#0074D5"><b>verb</b></font>]]></string>
+    <string name="tap_the_correct_adjective"><![CDATA[Tap the correct <font color="#0074D5"><b>adjective</b></font>]]></string>
+    <string name="tap_the_correct_pronoun"><![CDATA[Tap the correct <font color="#0074D5"><b>pronoun</b></font>]]></string>
 
     <string name="back">Back</string>
     <string name="clear">CLEAR</string>

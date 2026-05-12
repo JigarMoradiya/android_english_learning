@@ -55,14 +55,12 @@ fun ChooseTheRightSentencePage(
     Box(modifier = Modifier.fillMaxSize()) {
         BackgroundUI()
         Column(
-            modifier = Modifier
-                .fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)
+            modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
             BackButtonWithText(
                 title = stringResource(R.string.chooseTheRightSentence),
                 onBackClick = { navController.popBackStack() },
                 modifier = Modifier
-                    .windowInsetsPadding(WindowInsets.safeDrawing)
             )
             Spacer(Modifier.weight(1f))
             BoxWithConstraints(modifier = Modifier.padding(bottom = Dimens50)) {

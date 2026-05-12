@@ -96,20 +96,63 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="version 3 release">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="version 4 release&#10;proguard rule issue">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/GrammarBasicPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/common_ui/lesson/GrammarExamplesSection.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/common_ui/lesson/GrammarExplanationSection.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/common_ui/lesson/GrammarLessonHeader.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/common_ui/practice/GrammarPracticeQuestionFactory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/common_ui/practice/GrammarPracticeQuestionLayout.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/lesson/NounLessonPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/lesson/view_model/NounLessonUiState.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/lesson/view_model/NounLessonViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/practice/NounPracticePage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/practice/view_model/NounPracticeUiState.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/practice/view_model/NounPracticeViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_grammar_basic_adjective.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_grammar_basic_noun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_grammar_basic_pronoun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_grammar_basic_verb.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/AgeCategoryActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/AgeCategoryActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/arrange_letter_sequence/ArrangeLetterInSequencePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/arrange_letter_sequence/ArrangeLetterInSequencePage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/colors_shapes_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/colors_shapes_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/community_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/community_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/daily_routine_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/daily_routine_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/emotions_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/emotions_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/family_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/family_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/festivals_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/festivals_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/food_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/food_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/home_life_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/home_life_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/nature_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/nature_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/play_and_fun_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/play_and_fun_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/school_life_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/school_life_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/sports_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/sports_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/transport_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/transport_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/weather_easy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/sentences_easy/weather_easy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/loader/LessonLoader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/loader/LessonLoader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/model/SentenceModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/model/SentenceModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/vocabulary_building/category_list/VocabularyBuildingPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/vocabulary_building/category_list/VocabularyBuildingPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/choose_the_right_sentence/ChooseTheRightSentencePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/choose_the_right_sentence/ChooseTheRightSentencePage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/common/ResultView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/common/ResultView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/BackButtonWithText.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/BackButtonWithText.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/FeedbackText.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/FeedbackText.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/buttons/KidsActionButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/buttons/KidsActionButton.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/buttons/KidsLabel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/buttons/KidsLabel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/theme/AppDimens.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/theme/AppDimens.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +168,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[LocalEmulator::path=/Users/jigarmoradiya/.android/avd/Pixel_Tablet.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=RZ8RC0C1F6B]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -222,7 +265,7 @@
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jigarmoradiya/Documents/newProjects/MyApplication/app/src/main/res/drawable&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jigarmoradiya/Documents/newProjects/MyApplication/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/practice&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.android.studio.ml.bot.mainConfigurable&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -233,11 +276,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/practice" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/lesson" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic" />
       <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/app/src/main/assets/sound _correct_easy" />
-      <recent name="$PROJECT_DIR$/app/src/main/assets/match_the_picture_easy" />
-      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/choose_the_right_sentence" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/assets/jsons" />
@@ -251,18 +294,18 @@
       <recent name="com.example.myapplication.ui.theme" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.noun.practice.view_model" />
       <recent name="com.example.myapplication.data.generation.letter" />
       <recent name="com.example.myapplication.data.generation.loader" />
       <recent name="com.example.myapplication.utils" />
       <recent name="com.example.myapplication.main.age_group.from_3_to_5.match_latters.view_model" />
-      <recent name="com.example.myapplication.main.age_group.from_3_to_5.abcd_with_images.view_model" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.common_ui.lesson" />
       <recent name="com.example.myapplication.main.age_group.from_6_to_8.common" />
       <recent name="com.example.myapplication.data.generation.loader" />
       <recent name="com.example.myapplication.main.age_group.from_6_to_8.common.unit.data" />
       <recent name="com.example.myapplication.main.age_group.from_6_to_8.common.unit" />
-      <recent name="com.example.myapplication.main.age_group.from_5_to_7.sight_words.components" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -292,8 +335,6 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
       <Auto>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -302,7 +343,6 @@
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
         <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Auto>
       <Hybrid>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -311,11 +351,9 @@
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
         <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Hybrid>
       <Java>
         <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Java>
       <Native>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -324,7 +362,6 @@
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
         <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
@@ -343,9 +380,10 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="${TEAM_ID}" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <embedded_app_extension_list />
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="MyApplication [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -373,6 +411,17 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="MyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="MyApplication" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.MyApplication [signingReport]" />
@@ -387,14 +436,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00051" summary="working on coloring alphabets">
-      <option name="closed" value="true" />
-      <created>1775568616142</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1775568616142</updated>
     </task>
     <task id="LOCAL-00052" summary="working on coloring alphabets">
       <option name="closed" value="true" />
@@ -780,11 +821,18 @@
       <option name="project" value="LOCAL" />
       <updated>1777339881547</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="version 4 release&#10;proguard rule issue">
+      <option name="closed" value="true" />
+      <created>1777431677737</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1777431677737</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="gradient in coloring alphabets" />
     <MESSAGE value="changes" />
     <MESSAGE value="working on tablet sizes" />
     <MESSAGE value="release 1st version" />
@@ -809,7 +857,8 @@
     <MESSAGE value="one signal notification done" />
     <MESSAGE value="force update popup done" />
     <MESSAGE value="version 3 release" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 3 release" />
+    <MESSAGE value="version 4 release&#10;proguard rule issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 4 release&#10;proguard rule issue" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
@@ -826,12 +875,12 @@
         </entry>
         <entry key="com.vedaavi.english.learning">
           <value>
-            <CheckInfo lastCheckTimestamp="1777292994470" />
+            <CheckInfo lastCheckTimestamp="1778569343012" />
           </value>
         </entry>
         <entry key="com.vedaavi.english.learning.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1777292994480" />
+            <CheckInfo lastCheckTimestamp="1778569342994" />
           </value>
         </entry>
       </map>

@@ -141,6 +141,5 @@ fun BackButtonWithText(
             }
         }
 
-        Spacer(modifier = Modifier.weight(1f))
     }
 }

@@ -20,6 +20,7 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
+import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
@@ -31,15 +32,14 @@ import com.example.myapplication.utils.extensions.scaled
 fun KidsLabel(txt: String,type: ButtonType = ButtonType.PURPLE) {
     val colors = getButtonColors(type)
     Box(
-        modifier = Modifier
-            .padding(end = Dimens16)
+        modifier = Modifier.padding(end = Dimens16)
     ) {
 
         Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(100.dp))
                 .background(colors.gradient)
-                .padding(horizontal = Dimens12, vertical = Dimens6)
+                .padding(horizontal = Dimens8, vertical = Dimens4)
         ) {
 
             Box(
@@ -76,7 +76,7 @@ fun KidsLabel(txt: String,type: ButtonType = ButtonType.PURPLE) {
             Text(
                 text = txt,
                 color = Color.White,
-                style = MaterialTheme.typography.bodyMedium.scaled(),
+                style = MaterialTheme.typography.labelMedium.scaled(),
                 fontWeight = FontWeight.SemiBold,
             )
         }

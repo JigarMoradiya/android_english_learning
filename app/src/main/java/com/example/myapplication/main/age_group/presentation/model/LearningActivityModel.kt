@@ -60,10 +60,19 @@ val activities_age_6_8 = listOf(
     LearningActivityModel(R.string.chooseTheRightSentence, R.drawable.age_6_8_choose_the_right_sentence,RouteNavigation.ChooseTheRightSentence.route,Color(0xFF3265D3)),
     LearningActivityModel(R.string.sentenceCheck, R.drawable.age_6_8_sentence_check,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.SENTENCE_CHECK.name),Color(0xFFFF9D00)),
     LearningActivityModel(R.string.sentenceBuilder, R.drawable.age_6_8_build_the_sentence,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.BUILD_THE_SENTENCE.name),Color(0xFF237227)),
+    LearningActivityModel(R.string.grammarBasics, R.drawable.age_6_8_grammer_basics,RouteNavigation.GrammarBasic.route,Color(0xFF7315B7)),
 )
 
 val activities_age_6_8_right_sentence = listOf(
     LearningActivityModel(R.string.match_the_picture_desc,R.drawable.age_6_8_right_sentence_match_the_picture, RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.MATCH_THE_PICTURE.name),Color(0xFF872404)),
     LearningActivityModel(R.string.which_sentence_sounds_right_desc, R.drawable.age_6_8_right_sentence_which_sentence_sounds_right,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT.name),Color(0xFF872404)),
     LearningActivityModel(R.string.find_the_correct_writing_desc, R.drawable.age_6_8_right_sentence_find_the_correct_writing,RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.FIND_THE_CORRECT_WRITING.name),Color(0xFF872404))
+)
+
+val activities_age_6_8_grammar_basics = listOf(
+    LearningActivityModel(R.string.nouns,R.drawable.age_6_8_grammar_basic_noun, RouteNavigation.GrammarBasicNoun.route,Color(0xFF237227).copy(alpha = 0.20f)),
+    LearningActivityModel(R.string.verbs,R.drawable.age_6_8_grammar_basic_verb, RouteNavigation.GrammarBasicVerb.route,Color(0xFF85479D).copy(alpha = 0.20f)),
+    LearningActivityModel(R.string.adjectives,R.drawable.age_6_8_grammar_basic_adjective, RouteNavigation.GrammarBasicAdjectives.route,Color(0xFFFF9D00).copy(alpha = 0.20f)),
+    LearningActivityModel(R.string.pronouns,R.drawable.age_6_8_grammar_basic_pronoun, RouteNavigation.GrammarBasicPronouns.route,Color(0xFFD62828).copy(alpha = 0.20f)),
+
 )

@@ -67,5 +67,10 @@ sealed class RouteNavigation(val route: String) {
     object SentenceBuilder : RouteNavigation("SentenceBuilder/{unit}/{level}") {
         fun sentenceBuilder(unit: String, level: String): String = "SentenceBuilder/$unit/$level"
     }
-
+    object GrammarBasic : RouteNavigation("GrammarBasic")
+    object GrammarBasicNoun : RouteNavigation("GrammarBasicNoun")
+    object GrammarBasicNounPractice : RouteNavigation("GrammarBasicNounPractice")
+    object GrammarBasicVerb : RouteNavigation("GrammarBasicVerb")
+    object GrammarBasicAdjectives : RouteNavigation("GrammarBasicAdjectives")
+    object GrammarBasicPronouns : RouteNavigation("GrammarBasicPronouns")
 }

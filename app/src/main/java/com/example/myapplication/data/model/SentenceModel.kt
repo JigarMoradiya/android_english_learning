@@ -14,7 +14,9 @@ enum class UnitSelectionScreen {
     WHICH_SENTENCE_SOUNDS_RIGHT,
     FIND_THE_CORRECT_WRITING,
     SENTENCE_CHECK,
-    BUILD_THE_SENTENCE
+    BUILD_THE_SENTENCE,
+    GRAMMAR_BASIC,
+    GrammarBasicNoun
 }
 
 fun getUnitSelectionScreen(name: String): UnitSelectionScreen {
@@ -24,18 +26,6 @@ fun getUnitSelectionScreen(name: String): UnitSelectionScreen {
         UnitSelectionScreen.READ_AND_LISTEN_SENTENCE
     }
 }
-
-// ==============================
-// NAVIGATION MODEL
-// ==============================
-data class ChooseRightSentenceModel(
-    val id: String = UUID.randomUUID().toString(),
-    val title: String,
-    val subTitle: String,
-    val imageName: String,
-    val color: String,
-//    val route: AppRoute
-)
 
 // ==============================
 // SENTENCE UNIT
@@ -227,4 +217,22 @@ data class SentenceBuilderQuestion(
     val id: String,
     val imageName: String,
     val correctSentence: String
+)
+
+// ==============================
+// BASIC GRAMMAR
+// ==============================
+data class GrammarExampleModel(
+    val name: String,
+    val speakText: String,
+    val media: Int
+)
+// ==============================
+// BASIC GRAMMAR PRACTICE OF NOUN, VERB, ADJECTIVE
+// ==============================
+data class NounVerbAdjectiveCommonQuestionModel(
+    val question: String,
+    val imageName: String,
+    val correctAnswer: String,
+    val options: List<String>
 )

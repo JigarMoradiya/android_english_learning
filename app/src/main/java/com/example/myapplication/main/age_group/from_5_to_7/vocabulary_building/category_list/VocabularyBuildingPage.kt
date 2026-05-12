@@ -36,11 +36,9 @@ import com.example.myapplication.utils.AudioPlayerManager
 @Composable
 fun VocabularyBuildingPage(
     navController: NavController,
-    viewModel: VocabularyBuildingViewModel = hiltViewModel(),
     onDetailClick : (String,String) -> Unit
 ) {
 
-    val uiState = viewModel.uiState
     Box(modifier = Modifier.fillMaxSize()) {
 
         BackgroundUI()

@@ -39,12 +39,14 @@ fun ResultView(
     score: Int,
     total: Int,
     title : String = stringResource(R.string.lesson_completed),
+    firstBtnTxt : String = stringResource(R.string.lesson_completed),
+    modifier: Modifier = Modifier,
     onBack: () -> Unit,
     onContinue: (() -> Unit)? = null // 👈 nullable callback
 ){
     val percentage = score.toFloat() / maxOf(total, 1)
 
-    val (title, emoji, color) = when {
+    val (subTitle, emoji, color) = when {
         percentage >= 0.9f -> Triple("feedbackLetterImageMatchPhrases_8", "🌟", PrimaryGreen)
         percentage >= 0.7f -> Triple("great_job", "🎉", PrimaryOrange) // Orange
         percentage >= 0.5f -> Triple("good_try", "👍", PrimaryBlue)
@@ -52,7 +54,7 @@ fun ResultView(
     }
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(Dimens16),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -61,7 +63,7 @@ fun ResultView(
         Spacer(Modifier.weight(1f))
         // 🎉 Title
         Text(
-            text = stringResource(R.string.lesson_completed),
+            text = title,
             style = MaterialTheme.typography.headlineLarge.scaled(),
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center
@@ -85,7 +87,7 @@ fun ResultView(
 
             // 🎉 Dynamic Title
             Text(
-                text = "$emoji ${stringResource(getStringRes(title))}",
+                text = "$emoji ${stringResource(getStringRes(subTitle))}",
                 style = MaterialTheme.typography.displaySmall.scaled(),
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center
@@ -108,7 +110,7 @@ fun ResultView(
         Row {
 
             KidsActionButton(
-                text = stringResource(R.string.go_back_to_lesson),
+                text = firstBtnTxt,
                 type = ButtonType.ORANGE,
                 onClick = onBack
             )

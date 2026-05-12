@@ -44,4 +44,18 @@ object LessonLoader {
             emptyList()
         }
     }
+
+    fun loadAllUnits(
+        context: Context,
+        level: SentenceLevel
+    ): List<ReadSentenceItemNew> {
+
+        val allLessons = mutableListOf<ReadSentenceItemNew>()
+        SentenceUnit.entries.forEach { unit ->
+            val lessons = load(context, unit = unit,level = level)
+            allLessons.addAll(lessons)
+        }
+
+        return allLessons
+    }
 }

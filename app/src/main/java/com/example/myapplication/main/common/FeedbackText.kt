@@ -18,8 +18,8 @@ import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun FeedbackText(
-    title: String,
-    subtitle: String,
+    title: String?,
+    subtitle: String?,
     isSuccess: Boolean,
     isVisible: Boolean,
     modifier: Modifier = Modifier
@@ -29,23 +29,29 @@ fun FeedbackText(
         modifier = modifier
     ) {
 
-        Text(
-            text = title,
-            color = if (isSuccess) PrimaryGreen else Color.Red,
-            style = MaterialTheme.typography.titleMedium.scaled(),
-            fontWeight = FontWeight.ExtraBold,
-            modifier = Modifier.alpha(if (isVisible) 1f else 0f)
-        )
+        title?.let {
+            Text(
+                text = title,
+                color = if (isSuccess) PrimaryGreen else Color.Red,
+                style = MaterialTheme.typography.titleMedium.scaled(),
+                fontWeight = FontWeight.ExtraBold,
+                modifier = Modifier.alpha(if (isVisible) 1f else 0f)
+            )
+        }
 
-        Spacer(modifier = Modifier.height(AppDimens.Dimens4))
+        if (!title.isNullOrEmpty() && !subtitle.isNullOrEmpty()){
+            Spacer(modifier = Modifier.height(AppDimens.Dimens2))
+        }
 
-        Text(
-            text = subtitle,
-            color = Color.Black,
-            style = MaterialTheme.typography.bodyLarge.scaled(),
-            fontWeight = FontWeight.Medium,
-            modifier = Modifier.alpha(if (isVisible) 1f else 0f)
-        )
+        subtitle?.let{
+            Text(
+                text = subtitle,
+                color = Color.Black,
+                style = MaterialTheme.typography.bodyLarge.scaled(),
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier.alpha(if (isVisible) 1f else 0f)
+            )
+        }
 
         Spacer(modifier = Modifier.height(Dimens16))
     }

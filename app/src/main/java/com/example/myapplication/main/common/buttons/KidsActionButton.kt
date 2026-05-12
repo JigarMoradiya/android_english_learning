@@ -61,6 +61,7 @@ fun KidsActionButton(
     onClick: () -> Unit,
     isIconStart: Boolean = true,
     isSmall: Boolean = false,
+    disable: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     val colors = getButtonColors(type)
@@ -96,8 +97,10 @@ fun KidsActionButton(
                 interactionSource = interactionSource,
                 indication = null
             ) {
-                AudioPlayerManager.playSoundMenuClick()
-                onClick()
+                if (!disable){
+                    AudioPlayerManager.playSoundMenuClick()
+                    onClick()
+                }
             }
             .padding(horizontal = if (isSmall) Dimens8 else Dimens10, vertical = if (isSmall) Dimens4 else Dimens6)
     ) {
