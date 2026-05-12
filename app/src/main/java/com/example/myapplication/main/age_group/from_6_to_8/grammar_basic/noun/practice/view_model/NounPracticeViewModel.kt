@@ -48,7 +48,7 @@ class NounPracticeViewModel @Inject constructor(
     private fun loadInitialData() {
         val selectedQuestions = _uiState.value.questionsAll
             .shuffled()
-            .take(5)
+            .take(10)
 
         _uiState.update {
             it.copy(questions = selectedQuestions)

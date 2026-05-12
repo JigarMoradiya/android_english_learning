@@ -5,8 +5,7 @@ import com.example.myapplication.data.model.GrammarExampleModel
 data class NounLessonUiState(
     val explanationText: String =
     """
-        <font color='#EE0000'><b>A noun is a word that names</b></font> a person, an animal, a place, or a thing.<br><br>
-        
+        <font color='#EE0000'><b>A noun is a word that names</b></font> a person, an animal, a place, or a thing.<br>        
         👉 Nouns are also called <b>naming words</b> because they tell us what something is called.<br>
         
         📌 Without nouns, we would not know what to call people, places, animals, or things around us.<br><br>

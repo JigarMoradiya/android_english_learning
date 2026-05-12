@@ -52,8 +52,13 @@ import com.example.myapplication.main.age_group.from_6_to_8.common.lesson.Senten
 import com.example.myapplication.main.age_group.from_6_to_8.common.unit.SentenceUnitPage
 import com.example.myapplication.main.age_group.from_6_to_8.fill_the_missing_word.FillTheMissingWordPage
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.GrammarBasicPage
+import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.adjectives.lesson.AdjectivesLessonPage
+import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.adjectives.practice.AdjectivesPracticePage
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.noun.lesson.NounLessonPage
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.noun.practice.NounPracticePage
+import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.pronouns.lesson.PronounLessonPage
+import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.verb.lesson.VerbLessonPage
+import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.verb.practice.VerbPracticePage
 import com.example.myapplication.main.age_group.from_6_to_8.one_word_answer.OneWordAnswerPage
 import com.example.myapplication.main.age_group.from_6_to_8.read_listen.ReadAndListenPage
 import com.example.myapplication.main.age_group.from_6_to_8.sentence_builder.SentenceBuilderPage
@@ -349,13 +354,22 @@ fun AppNavGraph(navController: NavHostController) {
             NounPracticePage(navController)
         }
         composable(RouteNavigation.GrammarBasicVerb.route) {
-            NounLessonPage(navController)
+            VerbLessonPage(navController)
+        }
+        composable(RouteNavigation.GrammarBasicVerbPractice.route) {
+            VerbPracticePage(navController)
         }
         composable(RouteNavigation.GrammarBasicAdjectives.route) {
-            NounLessonPage(navController)
+            AdjectivesLessonPage(navController)
+        }
+        composable(RouteNavigation.GrammarBasicAdjectivesPractice.route) {
+            AdjectivesPracticePage(navController)
         }
         composable(RouteNavigation.GrammarBasicPronouns.route) {
-            NounLessonPage(navController)
+            PronounLessonPage(navController)
+        }
+        composable(RouteNavigation.GrammarBasicPronounsPractice.route) {
+//            PronounLessonPage(navController)
         }
     }
 }

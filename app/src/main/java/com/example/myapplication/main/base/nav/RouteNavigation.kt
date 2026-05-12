@@ -71,6 +71,9 @@ sealed class RouteNavigation(val route: String) {
     object GrammarBasicNoun : RouteNavigation("GrammarBasicNoun")
     object GrammarBasicNounPractice : RouteNavigation("GrammarBasicNounPractice")
     object GrammarBasicVerb : RouteNavigation("GrammarBasicVerb")
+    object GrammarBasicVerbPractice : RouteNavigation("GrammarBasicVerbPractice")
     object GrammarBasicAdjectives : RouteNavigation("GrammarBasicAdjectives")
+    object GrammarBasicAdjectivesPractice : RouteNavigation("GrammarBasicAdjectivesPractice")
     object GrammarBasicPronouns : RouteNavigation("GrammarBasicPronouns")
+    object GrammarBasicPronounsPractice : RouteNavigation("GrammarBasicPronounsPractice")
 }

@@ -74,7 +74,7 @@ fun NounLessonPage(
                 item {
                     GrammarExamplesSection(
                         examples = uiState.examples,
-                        cardColor = Color.Green.copy(alpha = 0.20f),
+                        cardColor = Color(0xFF237227),
                         size =  nounLessonImagesDimension,
                         padding = Dimens8,
                         onExampleClick = {

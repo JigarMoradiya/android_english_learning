@@ -62,7 +62,7 @@ fun GrammarExamplesSection(
                 Column(
                     modifier = Modifier
                         .clip(RoundedCornerShape(Dimens12))
-                        .background(cardColor)
+                        .background(cardColor.copy(alpha = 0.20f))
                         .padding(vertical = Dimens8), horizontalAlignment = Alignment.CenterHorizontally
                 ) {
 
