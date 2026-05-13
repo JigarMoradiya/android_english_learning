@@ -21,8 +21,7 @@ fun GrammarExplanationSection(
     Text(
         text = AnnotatedString.fromHtml(explanationText),
         modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = Dimens16),
+            .fillMaxWidth(),
         color = Color.Black,
         style = MaterialTheme.typography.bodyMedium.scaled(),
         textAlign = TextAlign.Start

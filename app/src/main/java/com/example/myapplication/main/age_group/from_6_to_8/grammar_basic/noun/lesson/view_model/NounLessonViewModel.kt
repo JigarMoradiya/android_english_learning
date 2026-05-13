@@ -33,7 +33,9 @@ class NounLessonViewModel @Inject constructor(
                 GrammarExampleModel("Cat", "The cat is so cute.", R.drawable.cat),
                 GrammarExampleModel("Girl", "The girl's eyes are so beautiful.", R.drawable.girl),
                 GrammarExampleModel("Apple", "The apple is red.", R.drawable.apple),
-                GrammarExampleModel("Ball", "The ball has two colors.", R.drawable.ball)
+                GrammarExampleModel("Ball", "The ball has two colors.", R.drawable.ball),
+                GrammarExampleModel("Bag", "I have a bag.", R.drawable.bag),
+                GrammarExampleModel("Car", "This car is blue.", R.drawable.car),
             )
         )
     }

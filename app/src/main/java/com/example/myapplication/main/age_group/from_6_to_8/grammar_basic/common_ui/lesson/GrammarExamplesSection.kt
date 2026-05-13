@@ -49,7 +49,7 @@ fun GrammarExamplesSection(
     onExampleClick: (GrammarExampleModel) -> Unit,
 ) {
     LazyRow(
-        contentPadding = PaddingValues(horizontal = Dimens16), horizontalArrangement = Arrangement.spacedBy(Dimens6)
+        horizontalArrangement = Arrangement.spacedBy(Dimens6)
     ) {
         items(examples) { example ->
             Box(

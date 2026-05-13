@@ -1,10 +1,14 @@
 package com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.adjectives.lesson
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
@@ -57,34 +61,50 @@ fun AdjectivesLessonPage(
                 }
             )
 
-            Spacer(modifier = Modifier.height(Dimens16))
-
             LazyColumn(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(Dimens16),
+                contentPadding = PaddingValues(start = Dimens16, end = Dimens16, bottom = Dimens16, top = Dimens8)
             ) {
 
-                // Explanation
+                // Explanation 1
                 item {
-                    GrammarExplanationSection(explanationText = uiState.explanationText)
+                    GrammarExplanationSection(explanationText = uiState.explanationText1)
                 }
-
-                item { Spacer(modifier = Modifier.height(Dimens16)) }
 
                 // Examples
                 item {
                     GrammarExamplesSection(
                         examples = uiState.examples,
                         cardColor = Color(0xFFFF9D00),
-                        size =  nounLessonImagesDimension,
-                        padding = Dimens8,
+                        size =  nounLessonImagesDimension * 0.8f,
+                        padding = Dimens8 * 0.8f,
                         onExampleClick = {
                             viewModel.onExampleTapped(it)
                         }
                     )
                 }
 
+                // Explanation 2
                 item {
-                    Spacer(modifier = Modifier.height(Dimens20))
+                    GrammarExplanationSection(explanationText = uiState.explanationText2)
+                }
+
+                // Explanation 3 and 4
+                item {
+                    Row(
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        GrammarExplanationSection(
+                            explanationText = uiState.explanationText3,
+                            modifier = Modifier.weight(1f)
+                        )
+
+                        GrammarExplanationSection(
+                            explanationText = uiState.explanationText4,
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
                 }
             }
         }
