@@ -236,3 +236,12 @@ data class NounVerbAdjectiveCommonQuestionModel(
     val correctAnswer: String,
     val options: List<String>
 )
+// ==============================
+// BASIC GRAMMAR PRACTICE OF PRONOUN
+// ==============================
+data class PronounPracticeQuestion(
+    val question: String,
+    val options: List<String>,
+    val correctAnswer: String,
+    val imageName: String? = null
+)

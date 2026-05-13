@@ -57,6 +57,7 @@ import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.adject
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.noun.lesson.NounLessonPage
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.noun.practice.NounPracticePage
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.pronouns.lesson.PronounLessonPage
+import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.pronouns.practice.PronounPracticePage
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.verb.lesson.VerbLessonPage
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.verb.practice.VerbPracticePage
 import com.example.myapplication.main.age_group.from_6_to_8.one_word_answer.OneWordAnswerPage
@@ -369,7 +370,7 @@ fun AppNavGraph(navController: NavHostController) {
             PronounLessonPage(navController)
         }
         composable(RouteNavigation.GrammarBasicPronounsPractice.route) {
-//            PronounLessonPage(navController)
+            PronounPracticePage(navController)
         }
     }
 }

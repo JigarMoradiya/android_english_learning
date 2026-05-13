@@ -1,0 +1,4122 @@
+[
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Ved. ___ is my friend."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Aarvi. ___ likes drawing."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The cat is sleeping. ___ is tired."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "He",
+      "We",
+      "It"
+    ],
+    "question" : "Sam and Leo are brothers. ___ play football."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I are classmates. ___ study together."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ love reading books."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Jack yesterday. I waved at ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Emma at school. I helped ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "The boys are waiting outside. Call ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "Mom called my sister and me. She called ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are my best friend. I trust ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "Please give the notebook to ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "You",
+      "It",
+      "They"
+    ],
+    "question" : "This is Ben. ___ runs fast."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Lily. ___ sings well."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "The dog is hungry. Feed ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "us"
+    ],
+    "question" : "The birds are flying. Look at ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Roma. ___ likes pizza."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Eva. ___ loves music."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The book is on the table. Pick ___ up."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "These children are happy. ___ are laughing."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "He",
+      "You"
+    ],
+    "question" : "My brother and I are ready. ___ can go now."
+  },
+  {
+    "correctAnswer" : "You",
+    "options" : [
+      "You",
+      "We",
+      "He",
+      "They"
+    ],
+    "question" : "Hello students! ___ are very smart."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "This is Zoe. I called ___ yesterday."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "This is Max. I saw ___ at the park."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The rabbit is small. ___ jumps high."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "She",
+      "It"
+    ],
+    "question" : "These girls are dancing. ___ are happy."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "Dad called me. He called ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Alex. ___ plays chess."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Ruby. ___ reads stories."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The fish is in the tank. ___ swims fast."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "My friends are here. I will play with ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "My mom hugged my brother and me. She hugged ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Finn. ___ likes soccer."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Ella. ___ likes painting."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The horse runs fast. ___ is strong."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are very kind. I like ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Luke. ___ loves basketball."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Nora. ___ likes singing."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The baby bird is hungry. ___ needs food."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "He",
+      "We",
+      "It"
+    ],
+    "question" : "Jake and Liam are friends. ___ ride bikes together."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I are on the same team. ___ can win."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ enjoy drawing."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Marry at school. I talked to ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Chloe at the library. I helped ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "The children are in the playground. Watch ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "My parents called my brother and me. They called ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are my classmate. I know ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "Please wait for ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "Me",
+      "It",
+      "They"
+    ],
+    "question" : "This is Mason. ___ plays tennis."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "Him",
+      "It",
+      "They"
+    ],
+    "question" : "This is Lucy. ___ likes dancing."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The puppy is sleeping. ___ is tired."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "The students are reading books. ___ are quiet."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My sister and I are hungry. ___ want lunch."
+  },
+  {
+    "correctAnswer" : "You",
+    "options" : [
+      "You",
+      "We",
+      "He",
+      "They"
+    ],
+    "question" : "Hello kids! ___ are amazing."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "This is Adam. I saw ___ at the mall."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "This is Grace. I invited ___ to dinner."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The apples are on the table. Eat ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "This is me. Please help ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "Us",
+      "It",
+      "They"
+    ],
+    "question" : "This is Owen. ___ loves science."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Bella. ___ writes poems."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The train is fast. ___ moves quickly."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "These boys are laughing. ___ are happy."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My cousin and I are late. ___ need to hurry."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are very helpful. I appreciate ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "This is Ella. I met ___ yesterday."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "This is Ryan. I called ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The turtle walks slowly. ___ is small."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "My classmates are here. I know ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "You",
+      "It",
+      "They"
+    ],
+    "question" : "This is Max. ___ likes baseball."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Hazel. ___ loves flowers."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The bus is yellow. ___ is big."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "He",
+      "You"
+    ],
+    "question" : "My brother and I cleaned the room. ___ worked hard."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Ravi. ___ likes mangoes."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Riya. ___ loves dancing."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Tom. ___ plays cricket."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Mia. ___ likes painting."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The puppy is cute. ___ is sleeping."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "The birds are flying. ___ are in the sky."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "He",
+      "We",
+      "It"
+    ],
+    "question" : "Aman and Leo are friends. ___ play football."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "She"
+    ],
+    "question" : "Riya and I are classmates. ___ study together."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ like cartoons."
+  },
+  {
+    "correctAnswer" : "You",
+    "options" : [
+      "You",
+      "We",
+      "He",
+      "They"
+    ],
+    "question" : "Hello children! ___ are very smart."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Raj at school. I talked to ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Emma yesterday. I helped ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "The kids are in the park. I can see ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "Mom called Arya and me. She called ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are my best friend. I trust ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "Please wait for ___."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Neha. ___ sings well."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Max. ___ runs fast."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "The cat is hungry. Feed ___."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "The students are laughing. ___ are happy."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "She"
+    ],
+    "question" : "Asha and I are ready. ___ can go now."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "This is Jack. I called ___ yesterday."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "This is Tara. I invited ___ to my party."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The rabbit is jumping. ___ is happy."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "It"
+    ],
+    "question" : "Ravi and Tom are teammates. ___ won the match."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "He",
+      "You"
+    ],
+    "question" : "My sister and I made a cake. ___ worked together."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Mona. ___ loves books."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Diana. ___ likes music."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The fish is small. ___ swims fast."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "The children are playing outside. Watch ___."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Anya. ___ likes apples."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Dev. ___ plays with blocks."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The kite is flying high. ___ looks colorful."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "She",
+      "He"
+    ],
+    "question" : "Sara and Nia are sisters. ___ share toys."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I are good friends. ___ laugh together."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ enjoy story books."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Ron today. I smiled at ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Nina in class. I sat beside ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "The children are singing on stage. Listen to ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "Dad called my brother and me. He called ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are very kind. I want to thank ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "Please come with ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "Her",
+      "It",
+      "They"
+    ],
+    "question" : "This is Sid. ___ loves math."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Anaya. ___ draws flowers."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The turtle is slow. ___ walks quietly."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "It"
+    ],
+    "question" : "Rohit and Sam are neighbors. ___ play every day."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My cousin and I love music. ___ sing together."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "This is Tara. I waved at ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "This is Neil. I helped ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The puppies are running. Catch ___."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Zoya. ___ loves cartoons."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Arun. ___ rides a bicycle."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The train is arriving. ___ is very long."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "The dancers are ready. ___ will perform now."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I made a drawing. ___ are proud."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ love chocolates."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Kabir at lunch. I shared food with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Elsa at the park. I played with ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "The birds are near the tree. Watch ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "Mom hugged my sister and me. She hugged ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are my teammate. I believe in ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "Please save a seat for ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "Them",
+      "It",
+      "They"
+    ],
+    "question" : "This is Ali. ___ likes puzzles."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Maya. ___ enjoys swimming."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The balloon popped. ___ was loud."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "Amit and Roy are classmates. ___ study hard."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My sister and I baked cookies. ___ had fun."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "This is Diya. I spoke to ___ after school."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "This is Adam. I invited ___ home."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The ducks are in the pond. Feed ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Veer. ___ loves football."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Siya. ___ likes drawing stars."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The monkey is climbing a tree. ___ is fast."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "She",
+      "He"
+    ],
+    "question" : "Ria and Emma are skipping rope. ___ are having fun."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I love games. ___ play every weekend."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ enjoy singing songs."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Aarav at lunch. I sat with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Rose after class. I talked to ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "The players are on the field. Cheer for ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "Grandma called my brother and me. She called ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are very helpful. I can count on ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "Please sit next to ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "Him",
+      "It",
+      "They"
+    ],
+    "question" : "This is Rohan. ___ likes science projects."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "I",
+      "It",
+      "They"
+    ],
+    "question" : "This is Nila. ___ loves painting trees."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The elephant is big. ___ drinks lots of water."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "It"
+    ],
+    "question" : "Ayan and Leo are building blocks. ___ are excited."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My friend and I cleaned our room. ___ worked hard."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "This is Sara. I smiled at ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "This is Ben. I played soccer with ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The kittens are sleeping. Do not wake ___."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Isha. ___ loves reading comics."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Mark. ___ rides a scooter."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The clock fell down. ___ is broken."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "The singers are on stage. ___ sound great."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I made lunch. ___ are hungry now."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ enjoy cartoons."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Krish in the library. I studied with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Anna in the garden. I helped ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "The students are in class. Teach ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "Mom hugged my sister and me. She hugged ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are my best buddy. I miss ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "Please wait outside for ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Jay. ___ enjoys swimming."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Ema. ___ likes baking cookies."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The bus stopped suddenly. ___ was noisy."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "Rohan and Alex are painting walls. ___ are messy."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My cousin and I planted flowers. ___ are happy."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "This is Tara. I called ___ after school."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "This is Noah. I ran with ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The frogs are near the pond. Watch ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Arjun. ___ likes toy cars."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Mia. ___ enjoys dancing."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The lion is sleeping. ___ looks calm."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "She",
+      "He"
+    ],
+    "question" : "Asha and Lily are making cards. ___ are creative."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I love puzzles. ___ solve them quickly."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ enjoy playing outside."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Kabir at the playground. I played with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Emma at the library. I read with ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "The children are in the bus. Wave at ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "Dad called my sister and me. He called ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are very funny. I laugh with ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "Please save some cake for ___."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Neil. ___ loves football."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Zara. ___ likes drawing animals."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The rabbit is eating carrots. ___ is hungry."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "It"
+    ],
+    "question" : "Ravi and Ben are riding bikes. ___ are fast."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My brother and I are cleaning toys. ___ are busy."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "This is Nina. I helped ___ with homework."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "This is Sam. I called ___ after class."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The ducks are swimming. Feed ___."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Diya. ___ loves painting."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Ryan. ___ likes cricket."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The airplane is flying high. ___ looks small."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "The dancers are ready. ___ will start now."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I baked cookies. ___ did a great job."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ enjoy music class."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Aman at lunch. I shared food with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Rose in the garden. I talked to ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "me"
+    ],
+    "question" : "The players are on the ground. Cheer for ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "Mom hugged my brother and me. She hugged ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are my classmate. I learn with ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "Please come to the park with ___."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Veena. ___ enjoys singing songs."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Luke. ___ loves basketball."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The clock is ticking loudly. ___ is old."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "Mira and Tom are planting trees. ___ are excited."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My cousin and I are packing bags. ___ are ready."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "This is Tara. I walked home with ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "This is Adam. I played chess with ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The frogs are jumping near the pond. Watch ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The sun is bright today. ___ shines in the sky."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The flowers are blooming. ___ look beautiful."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The tree is very tall. ___ gives us shade."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The clouds are dark. ___ may bring rain."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The moon is round tonight. ___ looks bright."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is my teacher, Ms. Ana. ___ teaches math."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Mr. Raj. ___ teaches science."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "The students are in class. ___ are reading books."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My friend and I are writing homework. ___ are busy."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You are in my class. I sit beside ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The swing is moving fast. ___ is fun."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "The children are running in the park. ___ are excited."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Aria at the park. I played with ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Dev on the slide. I waved at ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You came to the park with me. I had fun with ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The ball rolled away. Catch ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The toys are on the floor. Pick ___ up."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The robot is broken. Fix ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The books fell down. Pick ___ up."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The pencil is under the table. Find ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The dog is barking loudly. ___ wants food."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The cats are sleeping on the sofa. ___ are tired."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The bird is in the cage. ___ is singing."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The fish are in the pond. Feed ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The horse is running fast. ___ is strong."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "Mom baked cookies. She gave ___ to me."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "Dad called my sister and me for dinner. He called ___."
+  },
+  {
+    "correctAnswer" : "me",
+    "options" : [
+      "me",
+      "him",
+      "her",
+      "them"
+    ],
+    "question" : "I spilled juice on my shirt. Please help ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "My brother is hungry. I gave food to ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "My sister is drawing. I am helping ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The bus is here. ___ will take us to school."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The cars are on the road. ___ are moving fast."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The train is arriving now. ___ is very long."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The airplanes are in the sky. ___ are flying high."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Maya on the bus. I sat next to ___."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ love ice cream."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I are making sandwiches. ___ are hungry."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The apples are fresh. Eat ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The cake is delicious. ___ tastes sweet."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The bananas are on the table. Wash ___ first."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The rain is falling. ___ is very heavy today."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The stars are shining tonight. ___ look beautiful."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The wind is strong today. ___ is blowing hard."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The leaves are falling from the tree. ___ are everywhere."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The rainbow is colorful. ___ looks amazing."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Sara. ___ is answering the teacher."
+  },
+  {
+    "correctAnswer" : "He",
+    "options" : [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "question" : "This is Roma. ___ is solving a math problem."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The notebooks are on the desk. Open ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The chalk is on the floor. Pick ___ up."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My classmates and I are drawing maps. ___ are learning geography."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The football is near the goal. Kick ___."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "We",
+      "He",
+      "She"
+    ],
+    "question" : "The children are playing hide and seek. ___ are laughing."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Aryan at the playground. I raced with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Emma near the swings. I talked to ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You came to the playground with me. I played with ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The dishes are dirty. Wash ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The lamp is bright. Turn ___ off before sleeping."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "My sister baked cupcakes. I helped ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "My brother cleaned his room. I thanked ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "Mom and I are decorating the house. ___ are excited."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The pizza is hot. Eat ___ carefully."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The oranges are juicy. Peel ___."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ love strawberry milkshake."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I made noodles. ___ are hungry now."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The sandwiches are ready. Pack ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The taxi is waiting outside. ___ is yellow."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The bikes are parked outside. ___ belong to the students."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Nina on the train. I sat beside ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Jay at the airport. I waved at ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The suitcases are heavy. Carry ___."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The drums are loud. ___ are making noise."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The kite is stuck in the tree. Get ___ down."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The balloons are colorful. Pop ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "The clown is funny. ___ makes everyone laugh."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My cousins and I are dancing at the party. ___ are having fun."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The waves are big at the beach. ___ are crashing loudly."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The sandcastle is huge. ___ looks amazing."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Ryan at the beach. I played with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Tara collecting shells. I helped ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You came to the beach with me. I swam with ___."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The roses are blooming in the garden. ___ smell nice."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The butterfly is on the flower. ___ looks pretty."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My sister and I planted seeds. ___ are excited."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The carrots are ready in the garden. Pull ___ out."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The watering can is empty. Fill ___ with water."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The elephants are at the zoo. ___ are very big."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The panda is eating bamboo. ___ looks cute."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Arav at the zoo. I walked with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Lily near the giraffes. I talked to ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The monkeys are jumping around. Watch ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "The doctor is helping my brother. Thank ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "him",
+      "her",
+      "us"
+    ],
+    "question" : "The nurses are very kind. We thanked ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The medicine is on the table. Take ___ now."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My mom and I visited grandma. ___ brought flowers."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ feel much better now."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The toys are in the store. Buy ___ later."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The dress is beautiful. Buy ___ for the party."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Neha at the mall. I shopped with ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Tom near the toy shop. I waved at ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You went shopping with me. I had fun with ___."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The drums are on the stage. ___ sound loud."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The guitar is new. ___ sounds great."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My friend and I are painting pictures. ___ are creative."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The crayons are on the floor. Pick ___ up."
+  },
+  {
+    "correctAnswer" : "She",
+    "options" : [
+      "She",
+      "He",
+      "It",
+      "They"
+    ],
+    "question" : "This is Aarvi. ___ sings beautifully."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The football players are tired. ___ played well."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The basketball is under the chair. Find ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Kabir after practice. I ran with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Emma at the game. I cheered for ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "You and I won the race. ___ are happy."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The pillows are on the bed. Arrange ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The lamp is still on. Turn ___ off."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "Mom read me a story. I thanked ___."
+  },
+  {
+    "correctAnswer" : "us",
+    "options" : [
+      "us",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "Dad tucked my brother and me into bed. He tucked ___."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ am ready to sleep."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The books are in the library. Return ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "The librarian is helping Mia. Thank ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The storybook is interesting. Read ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Ron in the library. I studied with ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My sister and I borrowed books. ___ are excited to read."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The cows are on the farm. ___ are eating grass."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The tractor is big. ___ moves slowly."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Ravi on the farm. I helped ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Ava near the chickens. I laughed with ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The sheep are near the fence. Count ___."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The balloons are floating at the party. ___ look colorful."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The birthday cake is huge. ___ looks delicious."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I invited Zara to my party. I danced with ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Sam at my birthday party. I shared cake with ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You came to my birthday party. I celebrated with ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The paintings are in the museum. Look at ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The dinosaur model is huge. ___ looks scary."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Arya at the museum. I walked with ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Max near the space exhibit. I talked to ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My cousins and I visited the museum. ___ learned a lot."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The vegetables are on the table. Cut ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The soup is hot. Stir ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "Mom asked my brother and me to cook. ___ made pasta."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "Dad baked cookies. I helped ___."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ love pancakes for breakfast."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The tents are ready for camping. Set ___ up."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The campfire is warm. ___ keeps us cozy."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Neil at camp. I hiked with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Lily near the lake. I sat with ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My friends and I went camping. ___ slept in tents."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The whiteboard markers are dry. Replace ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The school bell is ringing. ___ is loud."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The classroom chairs are messy. Arrange ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The swimming pool is clean. ___ looks blue."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My brother and I wake up early. ___ brush our teeth first."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The airplanes are landing at the airport. ___ are very loud."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The suitcase is heavy. Carry ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Aryan at the airport. I traveled with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Emma near the gate. I waved at ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My parents and I reached early. ___ waited patiently."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The trains are arriving now. ___ are full of people."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The ticket is in my pocket. Keep ___ safe."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Dev at the station. I sat with ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Sara on the platform. I talked to ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My cousins and I boarded the train. ___ found our seats."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The fruits are fresh in the supermarket. Buy ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The shopping cart is full. Push ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Nina in the supermarket. I shopped with ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Tom near the toy section. I greeted ___."
+  },
+  {
+    "correctAnswer" : "you",
+    "options" : [
+      "you",
+      "me",
+      "him",
+      "them"
+    ],
+    "question" : "You came shopping with me. I thanked ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "The doctor checked my brother. Thank ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The medicines are on the shelf. Take ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The thermometer is broken. Replace ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Lily at the clinic. I waited with ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My mom and I visited the doctor. ___ arrived early."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The paint brushes are dirty. Wash ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The painting is beautiful. Frame ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I met Ava in art class. I painted with ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Leo drawing a lion. I praised ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My friends and I made posters. ___ worked hard."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The umbrellas are wet. Dry ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The raincoat is hanging outside. Bring ___ in."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The puddles are everywhere. Jump over ___."
+  },
+  {
+    "correctAnswer" : "It",
+    "options" : [
+      "It",
+      "They",
+      "He",
+      "She"
+    ],
+    "question" : "The thunder is loud. ___ scared my dog."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My sister and I stayed inside during rain. ___ played board games."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The parrots are hungry. Feed ___."
+  },
+  {
+    "correctAnswer" : "it",
+    "options" : [
+      "it",
+      "them",
+      "him",
+      "her"
+    ],
+    "question" : "The hamster is sleeping. Do not wake ___."
+  },
+  {
+    "correctAnswer" : "him",
+    "options" : [
+      "him",
+      "her",
+      "them",
+      "us"
+    ],
+    "question" : "I met Kiran at the pet store. I talked to ___."
+  },
+  {
+    "correctAnswer" : "her",
+    "options" : [
+      "her",
+      "him",
+      "them",
+      "us"
+    ],
+    "question" : "I saw Maya holding a puppy. I smiled at ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My brother and I cleaned the fish tank. ___ worked together."
+  },
+  {
+    "correctAnswer" : "They",
+    "options" : [
+      "They",
+      "It",
+      "He",
+      "She"
+    ],
+    "question" : "The lanterns are glowing at the festival. ___ look beautiful."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The fireworks are loud. Watch ___."
+  },
+  {
+    "correctAnswer" : "them",
+    "options" : [
+      "them",
+      "it",
+      "him",
+      "her"
+    ],
+    "question" : "The sweets are ready. Share ___."
+  },
+  {
+    "correctAnswer" : "We",
+    "options" : [
+      "We",
+      "They",
+      "You",
+      "He"
+    ],
+    "question" : "My cousins and I danced all night. ___ had fun."
+  },
+  {
+    "correctAnswer" : "I",
+    "options" : [
+      "I",
+      "He",
+      "She",
+      "They"
+    ],
+    "question" : "This is me. ___ love festivals."
+  }
+]

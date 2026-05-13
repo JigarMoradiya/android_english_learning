@@ -126,14 +126,9 @@ private fun RightSection(
     ) {
 
         Spacer(modifier = Modifier.weight(1f))
-        val formattedText = remember(instructionText) {
-            HtmlCompat.fromHtml(instructionText, HtmlCompat.FROM_HTML_MODE_LEGACY).toSpanned()
-        }
 
         Text(
-            text = AnnotatedString.fromHtml(
-                instructionText
-            ),
+            text = AnnotatedString.fromHtml(instructionText),
             style = MaterialTheme.typography.bodyLarge.scaled(),
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Medium,

@@ -56,7 +56,7 @@ fun PronounLessonPage(
                     navController.popBackStack()
                 },
                 onPracticeClick = {
-//                    navController.navigate(RouteNavigation.GrammarBasicPronounsPractice.route)
+                    navController.navigate(RouteNavigation.GrammarBasicPronounsPractice.route)
                 }
             )
 
