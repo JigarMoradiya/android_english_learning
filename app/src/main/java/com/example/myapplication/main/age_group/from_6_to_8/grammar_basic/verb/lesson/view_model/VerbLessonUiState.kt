@@ -22,15 +22,15 @@ data class VerbLessonUiState(
         <font color="#EE0000"><b>Types of Verbs:</b></font><br>
 
         <b>1. Action Verbs 🏃</b> (These show action)<br>        
-        Examples: run, jump, dance, swim, read, write, play<br>
+        Examples: run, jump, dance, swim, read, write, play, eat, drink, walk, talk, sing, draw, clap, laugh, sleep, cook, ride, throw, catch<br>
         Sentence: The boy <b>runs</b> fast.<br><br>
 
         <b>2. Speaking Verbs 🗣️</b> (These show speaking actions)<br>        
-        Examples: talk, speak, shout, sing<br>
+        Examples: talk, speak, shout, sing, whisper, ask, answer, tell, call, laugh, cry<br>
         Sentence: She <b>sings</b> a song.<br><br>
 
         <b>3. Being Verbs 😊</b> (These tell how someone or something is)<br>        
-        Examples: is, am, are<br>
+        Examples: is, am, are, was, were, be, being, been<br>
         Sentence: The cat <b>is</b> cute.
         """.trimIndent(),
 

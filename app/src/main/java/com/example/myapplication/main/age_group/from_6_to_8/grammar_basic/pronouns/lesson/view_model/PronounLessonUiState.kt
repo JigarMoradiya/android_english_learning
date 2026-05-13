@@ -22,15 +22,15 @@ data class PronounLessonUiState(
         <font color="#EE0000"><b>Types of Pronouns:</b></font><br>
         
         <b>1. Singular Pronouns 👦</b> (Used for one person/thing)<br>
-        Examples: he, she, it.<br>
+        Examples: he, she, it, him, her.<br>
         Sentence: Riya has a book. <b>She</b> is reading.<br><br>
         
         <b>2. Plural Pronouns 👨‍👩‍👧</b> (Used for more than one)<br>
-        Examples: we, they.<br>
+        Examples: we, they, us, them.<br>
         Sentence: Sam and I are friends. <b>We</b> play together.<br><br>
         
         <b>3. First Person 🙋</b> (Talking about yourself)<br>
-        Examples: I, we.<br>
+        Examples: I, me, we, us.<br>
         Sentence: <b>I</b> am happy today.<br><br>
         
         <b>4. Second Person 👉</b> (Talking to someone)<br>
