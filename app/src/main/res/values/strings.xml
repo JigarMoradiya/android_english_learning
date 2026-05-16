@@ -222,5 +222,8 @@
     <string name="choose_correct_opposite">Choose Correct Opposite</string>
     <string name="opposite_word_activities">Opposite Word Activities</string>
     <string name="match_opposite_words">Match Opposite Words</string>
+    <string name="match_singular_plural"><![CDATA[Match\nSingular & Plural]]></string>
+    <string name="choose_correct_form">Choose\nCorrect Form</string>
+    <string name="match_singular_plural_"><![CDATA[Match Singular & Plural]]></string>
 
 </resources>

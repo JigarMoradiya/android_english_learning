@@ -118,15 +118,6 @@ fun MatchOppositesPage(
 
                 // ── Canvas: all lines in root-local coordinates ───────────────
                 Canvas(modifier = Modifier.matchParentSize()) {
-                    // ✅ Matched lines
-//                    drawMatchedConnections(
-//                        matchedOrder = uiState.matchedOrder,
-//                        letterPositions = wordFrames,
-//                        imagePositions = uiState.imagePositions,
-//                        getColor = viewModel::getLineColor
-//                    )
-
-
                     // Confirmed match lines
                     uiState.matchedOrder.forEachIndexed { idx, word ->
                         val pair      = uiState.leftWords.find { it.word == word } ?: return@forEachIndexed
@@ -326,7 +317,11 @@ fun MatchOppositesPage(
                 positiveButtonText = stringResource(R.string.continue_to_play),
                 negativeButtonText = stringResource(R.string.no_i_want_to_close),
                 icon = R.drawable.ic_complete,
-                onPositiveTapped = { viewModel.generateNewBatch() },
+                onPositiveTapped = {
+                    wordFrames.clear()
+                    oppositeFrames.clear()
+                    viewModel.generateNewBatch()
+                },
                 onNegativeTapped = {
                     viewModel.closePopup()
                     navController.popBackStack()

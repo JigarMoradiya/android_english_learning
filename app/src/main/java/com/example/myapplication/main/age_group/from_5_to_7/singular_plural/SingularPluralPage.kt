@@ -7,101 +7,101 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.R
+import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.common_ui.lesson.GrammarExamplesSection
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.common_ui.lesson.GrammarExplanationSection
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.common_ui.lesson.GrammarLessonHeader
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.nounLessonImagesDimension
 
-private val explanationText0 = """
-<font color='#EE0000'><b>Singular &amp; Plural</b></font>
-Singular = ONE thing. Plural = MORE than one.
-👉 Most words just add -s or -es!
-""".trimIndent()
-
-private val explanationText1 = """
-<font color='#EE0000'><b>Add -s rule:</b></font>
-dog → dogs
-cat → cats
-book → books
-bird → birds
-""".trimIndent()
-
-private val explanationText2 = """
-<font color='#EE0000'><b>Add -es rule:</b></font>
-Words ending in s, x, z, ch, sh:
-bus → buses
-box → boxes
-bunch → bunches
-""".trimIndent()
-
-private val explanationText3 = """
-<font color='#EE0000'><b>Irregular Plurals:</b></font>
-Some words change completely!
-child → children
-man → men
-woman → women
-mouse → mice
-foot → feet
-tooth → teeth
-""".trimIndent()
-
-private val explanationText4 = """
-<font color='#EE0000'><b>Quick Quiz:</b></font>
-cat → ? <b>cats</b>
-church → ? <b>churches</b>
-child → ? <b>children</b>
-man → ? <b>men</b>
-""".trimIndent()
 
 @Composable
-fun SingularPluralPage(navController: NavController) {
+fun SingularPluralPage(
+    navController: NavController,
+    viewModel: SingularPluralWordViewModel = hiltViewModel()
+) {
+    val uiState by viewModel.uiState.collectAsState()
+
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+
+        BackgroundUI(false)
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
+
+            // Header
             GrammarLessonHeader(
-                title = "Singular & Plural",
-                onBackClick = { navController.popBackStack() },
-                onPracticeClick = { navController.navigate(RouteNavigation.SingularPluralActivities.route) }
+                title = stringResource(R.string.singular_plural),
+                onBackClick = {
+                    navController.popBackStack()
+                },
+                onPracticeClick = {
+                    navController.navigate(RouteNavigation.SingularPluralActivities.route)
+                }
             )
 
-            Row(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = Dimens16),
-                horizontalArrangement = Arrangement.spacedBy(Dimens16)
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(Dimens16),
+                contentPadding = PaddingValues(start = Dimens16, end = Dimens16, bottom = Dimens16, top = Dimens8)
             ) {
-                // Left column — 40%
-                LazyColumn(
-                    modifier = Modifier.weight(0.4f),
-                    verticalArrangement = Arrangement.spacedBy(Dimens16),
-                    contentPadding = PaddingValues(vertical = Dimens8)
-                ) {
-                    item { GrammarExplanationSection(explanationText = explanationText0) }
-                    item { GrammarExplanationSection(explanationText = explanationText1) }
-                    item { GrammarExplanationSection(explanationText = explanationText2) }
+
+                // Explanation 0
+                item {
+                    GrammarExplanationSection(explanationText = uiState.explanationText0)
                 }
 
-                // Right column — 60%
-                LazyColumn(
-                    modifier = Modifier.weight(0.6f),
-                    verticalArrangement = Arrangement.spacedBy(Dimens16),
-                    contentPadding = PaddingValues(vertical = Dimens8)
-                ) {
-                    item { GrammarExplanationSection(explanationText = explanationText3) }
-                    item { GrammarExplanationSection(explanationText = explanationText4) }
+                // Explanation 1
+                item {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(Dimens16),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column(modifier = Modifier.weight(0.4f), verticalArrangement = Arrangement.spacedBy(Dimens16)) {
+                            GrammarExplanationSection(explanationText = uiState.explanationText1)
+                            GrammarExplanationSection(explanationText = uiState.explanationText2)
+                        }
+
+                        GrammarExamplesSection(
+                            examples = uiState.examples,
+                            cardColor = Color(0xFFFF9D00),
+                            size = nounLessonImagesDimension * 1.2f,
+                            padding = Dimens8,
+                            isSmallText = true,
+                            onExampleClick = {
+                                viewModel.onExampleTapped(it)
+                            },
+                            modifier = Modifier.weight(0.6f)
+                        )
+                    }
+                }
+                item{
+                    Row(modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
+                        GrammarExplanationSection(modifier = Modifier.weight(0.5f),explanationText = uiState.explanationText3)
+                        GrammarExplanationSection(modifier = Modifier.weight(0.5f),explanationText = uiState.explanationText4)
+                    }
+
                 }
             }
         }

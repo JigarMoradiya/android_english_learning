@@ -1,5 +1,16 @@
 package com.example.myapplication.main.age_group.from_5_to_7.singular_plural.choose_form
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
+import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,39 +22,41 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.choose_form.view_model.ChooseSingularPluralFormViewModel
-import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.choose_form.view_model.FormQuestion
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
-import com.example.myapplication.main.common.FeedbackText
-import com.example.myapplication.main.common.buttons.KidsActionButton
-import com.example.myapplication.main.common.buttons.KidsLabel
+import com.example.myapplication.main.common.ColoredFeedbackView
 import com.example.myapplication.main.common.buttons.KidsOptionButton
-import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsHeight
+import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsWidth
 import com.example.myapplication.ui.theme.ButtonType
-import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun ChooseSingularPluralFormPage(
@@ -51,101 +64,186 @@ fun ChooseSingularPluralFormPage(
     viewModel: ChooseSingularPluralFormViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val context = LocalContext.current
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    // Image size per count: fewer = bigger
+    val imageSize = when (uiState.currentCount) {
+        1    -> 130.dp
+        2    -> 100.dp
+        3    -> 80.dp
+        else -> 70.dp
+    }
+
+    Box(Modifier.fillMaxSize()) {
         BackgroundUI(isGreenGrassShow = false)
-        Column(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)) {
 
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.safeDrawing)
+        ) {
+            // ── Header ────────────────────────────────────────────────────────
             Row(verticalAlignment = Alignment.CenterVertically) {
                 BackButtonWithText(
                     title = "Choose Correct Form",
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
-                KidsLabel(
-                    txt = "Q ${uiState.currentIndex + 1} / ${uiState.allPairs.size}",
-                    type = ButtonType.PURPLE
-                )
-                if (!uiState.isCompleted) {
-                    KidsActionButton(
-                        text = if (viewModel.isLastQuestion) stringResource(R.string.check_result)
-                               else stringResource(R.string.next),
-                        icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                        isIconStart = false,
-                        isSmall = true,
-                        type = if (!uiState.showFeedback) ButtonType.DISABLE
-                               else if (viewModel.isLastQuestion) ButtonType.POSITIVE
-                               else ButtonType.ORANGE,
-                        disable = !uiState.showFeedback,
-                        onClick = { if (uiState.showFeedback) viewModel.next() },
-                        modifier = Modifier.padding(end = Dimens16)
-                    )
-                }
-            }
 
-            if (uiState.isCompleted) {
-                ResultView(
-                    score = uiState.score,
-                    total = uiState.allPairs.size,
-                    title = "Singular & Plural",
-                    firstBtnTxt = stringResource(R.string.go_back),
-                    onBack = { navController.popBackStack() },
-                    onContinue = { viewModel.generateQuestions() },
-                    modifier = Modifier.padding(horizontal = Dimens16)
-                )
-            } else {
-                Spacer(Modifier.weight(1f))
-
-                Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-                    val promptText = if (uiState.questionType == FormQuestion.GIVE_PLURAL)
-                        "What is the plural of…" else "What is the singular of…"
-                    Text(text = promptText, style = MaterialTheme.typography.titleSmall.scaled(), fontWeight = FontWeight.SemiBold)
-                    Spacer(Modifier.height(Dimens8))
-                    Text(
-                        text = uiState.prompt,
-                        style = MaterialTheme.typography.displayMedium.scaled(),
-                        fontWeight = FontWeight.Black,
-                        textAlign = TextAlign.Center
-                    )
-                }
-
-                Spacer(Modifier.height(Dimens24))
-
-                Column(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = Dimens24),
-                    verticalArrangement = Arrangement.spacedBy(Dimens12),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                // Countdown: "Next image in 3"
+                AnimatedVisibility(
+                    visible = uiState.countdown != null,
+                    enter = fadeIn() + scaleIn(initialScale = 0.8f),
+                    exit  = fadeOut() + scaleOut(targetScale = 0.8f)
                 ) {
-                    uiState.options.chunked(2).forEach { rowOpts ->
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens12), modifier = Modifier.fillMaxWidth()) {
-                            rowOpts.forEach { opt ->
-                                KidsOptionButton(
-                                    text = opt,
-                                    type = viewModel.optionButtonType(opt),
-                                    fontSize = (grammarBasicOptionsHeight.value * 0.55f).sp,
-                                    enabled = !uiState.showFeedback,
-                                    onClick = { viewModel.selectAnswer(opt) },
-                                    modifier = Modifier.weight(1f).height(grammarBasicOptionsHeight)
-                                )
-                            }
-                            if (rowOpts.size == 1) Spacer(Modifier.weight(1f))
+                    uiState.countdown?.let { n ->
+                        AnimatedContent(
+                            targetState = n,
+                            transitionSpec = {
+                                (fadeIn(tween(200)) + scaleIn(tween(200), initialScale = 0.85f))
+                                    .togetherWith(fadeOut(tween(150)) + scaleOut(tween(150), targetScale = 1.1f))
+                            },
+                            label = "countdown"
+                        ) { count ->
+                            Text(
+                                text = "Next image in $count",
+                                style = MaterialTheme.typography.labelLarge,
+                                fontWeight = FontWeight.Bold,
+                                color = when (count) {
+                                    3    -> Color(0xFF2E7D32)
+                                    2    -> Color(0xFFF57F17)
+                                    else -> Color(0xFFC62828)
+                                },
+                                modifier = Modifier.padding(end = Dimens16, top = 8.dp)
+                            )
                         }
                     }
                 }
+            }
 
-                Spacer(Modifier.height(Dimens16))
+            Spacer(Modifier.weight(1f))
 
-                FeedbackText(
-                    title = uiState.feedbackTitleRes?.let { stringResource(it) },
-                    subtitle = if (uiState.showFeedback && !uiState.isAnswerCorrect)
-                        "Correct answer: '${uiState.correctAnswer}'" else null,
-                    isSuccess = uiState.isAnswerCorrect,
-                    isVisible = uiState.showFeedback,
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 48.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(Dimens24)
+            ) {
+                // ── Image Card ────────────────────────────────────────────────
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .shadow(8.dp, RoundedCornerShape(Dimens24))
+                        .background(Color.White, RoundedCornerShape(Dimens24))
+                        .border(2.dp, Color(0xFF6A5AE0).copy(alpha = 0.25f), RoundedCornerShape(Dimens24))
+                        .padding(horizontal = 32.dp, vertical = Dimens24),
+                    contentAlignment = Alignment.Center
+                ) {
+                    AnimatedContent(
+                        targetState = uiState.currentCount,
+                        transitionSpec = {
+                            (fadeIn(tween(300)) + scaleIn(tween(300), initialScale = 0.9f))
+                                .togetherWith(fadeOut(tween(200)))
+                        },
+                        label = "imageCount"
+                    ) { count ->
+                        getImageResFromWord(uiState.currentImageName)?.let { imageRes ->
+                            if (count == 1) {
+                                // Single image
+                                if (imageRes != 0) {
+                                    Image(
+                                        painter = painterResource(imageRes),
+                                        contentDescription = uiState.currentImageName,
+                                        contentScale = ContentScale.Fit,
+                                        modifier = Modifier.size(imageSize)
+                                    )
+                                } else {
+                                    ImagePlaceholder(uiState.currentImageName, imageSize.value.toInt())
+                                }
+                            } else {
+                                // Multiple images side by side
+                                Row(
+                                    horizontalArrangement = Arrangement.spacedBy(Dimens16),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    repeat(count) {
+                                        if (imageRes != 0) {
+                                            Image(
+                                                painter = painterResource(imageRes),
+                                                contentDescription = uiState.currentImageName,
+                                                contentScale = ContentScale.Fit,
+                                                modifier = Modifier.size(imageSize)
+                                            )
+                                        } else {
+                                            ImagePlaceholder(uiState.currentImageName, imageSize.value.toInt())
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                // ── Prompt ────────────────────────────────────────────────────
+                Text(
+                    text = if (uiState.currentCount == 1) "What is this called?"
+                           else "What are these called?",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.Gray,
+                    textAlign = TextAlign.Center
                 )
 
-                Spacer(Modifier.weight(1f))
+                // ── 2 Option Buttons ──────────────────────────────────────────
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(Dimens16)
+                ) {
+                    uiState.options.forEach { option ->
+                        KidsOptionButton(
+                            text = option,
+                            type = viewModel.optionButtonType(option),
+                            fontSize = (grammarBasicOptionsHeight.value * 0.45f).sp,
+                            enabled = uiState.selectedAnswer == null,
+                            onClick = { viewModel.checkAnswer(option) },
+                            modifier = Modifier
+                                .width(grammarBasicOptionsWidth)
+                                .height(grammarBasicOptionsHeight)
+                        )
+                    }
+                }
             }
+
+            Spacer(Modifier.weight(1f))
+
+            // ── Feedback ──────────────────────────────────────────────────────
+            ColoredFeedbackView(
+                feedbackText    = uiState.feedbackText,
+                isAnswerCorrect = uiState.isAnswerCorrect,
+                correctAnswer   = uiState.correctAnswer
+            )
+            Spacer(Modifier.height(Dimens24))
         }
+    }
+}
+
+// ── Placeholder when drawable not found ───────────────────────────────────────
+
+@Composable
+private fun ImagePlaceholder(name: String, sizeDp: Int) {
+    Box(
+        modifier = Modifier
+            .size(sizeDp.dp)
+            .background(Color(0xFFF3F0FF), RoundedCornerShape(Dimens8)),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = name.take(1).uppercase(),
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF6A5AE0)
+        )
     }
 }

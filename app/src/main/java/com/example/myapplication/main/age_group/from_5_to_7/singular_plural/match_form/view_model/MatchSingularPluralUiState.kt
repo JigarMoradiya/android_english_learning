@@ -3,13 +3,11 @@ package com.example.myapplication.main.age_group.from_5_to_7.singular_plural.mat
 import com.example.myapplication.data.generation.loader.SingularPluralPair
 
 data class MatchSingularPluralUiState(
-    val pairs: List<SingularPluralPair> = emptyList(),
-    val leftWords: List<String> = emptyList(),
-    val rightWords: List<String> = emptyList(),
-    val selectedLeft: String? = null,
-    val selectedRight: String? = null,
-    val matchedKeys: Set<String> = emptySet(),
-    val wrongFlashLeft: String? = null,
-    val wrongFlashRight: String? = null,
-    val isCompleted: Boolean = false
+    val leftWords: List<SingularPluralPair> = emptyList(),    // words row (top)
+    val rightWords: List<SingularPluralPair> = emptyList(),   // shuffled row (bottom)
+    val matchedWords: Set<String> = emptySet(),             // matched "word" keys
+    val matchedOrder: List<String> = emptyList(),           // ordered list for color index
+    val showPopup: Boolean = false,
+    val feedbackTitleRes: Int = 0,
+    val feedbackSubTitleRes: Int = 0
 )

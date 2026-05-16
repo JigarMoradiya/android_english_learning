@@ -1,10 +1,16 @@
 package com.example.myapplication.main.age_group.from_5_to_7.singular_plural.match_form.view_model
 
 import android.content.Context
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.geometry.Offset
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.data.generation.loader.SingularPluralData
+import com.example.myapplication.R
+import com.example.myapplication.data.generation.loader.singularPluralWords
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.delay
@@ -23,72 +29,105 @@ class MatchSingularPluralViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(MatchSingularPluralUiState())
     val uiState: StateFlow<MatchSingularPluralUiState> = _uiState.asStateFlow()
 
+    // ── Drag state — mutableStateOf so Canvas redraws without full recomposition ──
+    var dragStart by mutableStateOf<Offset?>(null)
+        private set
+    var dragEnd by mutableStateOf<Offset?>(null)
+        private set
+    var draggingWord by mutableStateOf<String?>(null)
+        private set
+    private var totalDrag = Offset.Zero
+
     init { loadPairs() }
 
     fun loadPairs() {
-        val pairs = SingularPluralData.allPairs.shuffled().take(6)
+        val pairs = singularPluralWords.shuffled().take(5)
         _uiState.update {
             it.copy(
-                pairs = pairs,
-                leftWords = pairs.map { p -> p.singular },
-                rightWords = pairs.map { p -> p.plural }.shuffled(),
-                selectedLeft = null,
-                selectedRight = null,
-                matchedKeys = emptySet(),
-                wrongFlashLeft = null,
-                wrongFlashRight = null,
-                isCompleted = false
+                leftWords = pairs,
+                rightWords = pairs.shuffled(),
+                matchedWords = emptySet(),
+                matchedOrder = emptyList(),
+                showPopup = false
             )
         }
     }
 
-    fun selectLeft(word: String) {
-        if (_uiState.value.matchedKeys.contains(word)) return
-        _uiState.update { it.copy(selectedLeft = word) }
-        checkMatch()
+    // ── Drag API ─────────────────────────────────────────────────────────────────
+
+    fun startDrag(word: String, start: Offset) {
+        if (_uiState.value.matchedWords.contains(word)) return
+        totalDrag = Offset.Zero
+        draggingWord = word
+        dragStart = start
+        dragEnd = start
     }
 
-    fun selectRight(word: String) {
-        val alreadyMatched = _uiState.value.matchedKeys.any { key ->
-            _uiState.value.pairs.find { p -> p.singular == key }?.plural == word
-        }
-        if (alreadyMatched) return
-        _uiState.update { it.copy(selectedRight = word) }
-        checkMatch()
+    fun updateDrag(delta: Offset) {
+        totalDrag += delta
+        dragEnd = dragStart!! + totalDrag
     }
 
-    private fun checkMatch() {
-        val state = _uiState.value
-        val left = state.selectedLeft ?: return
-        val right = state.selectedRight ?: return
-        val pair = state.pairs.find { it.singular == left }
-        val isMatch = pair?.plural == right
-
-        if (isMatch) {
-            AudioPlayerManager.playSoundCorrectAnswer()
-            val newMatched = state.matchedKeys + left
-            _uiState.update {
-                it.copy(
-                    matchedKeys = newMatched,
-                    selectedLeft = null,
-                    selectedRight = null,
-                    isCompleted = newMatched.size == state.pairs.size
-                )
+    /** Call with the opposite key that the drag ended over, or null if missed */
+    fun endDrag(target: String?) {
+        val word = draggingWord
+        if (word != null && target != null && !isOppositeMatched(target)) {
+            if (isCorrectMatch(word, target)) {
+                markWordAsMatched(word)
+            } else {
+                AudioPlayerManager.playSoundWrongAnswer()
             }
-        } else {
-            AudioPlayerManager.playSoundWrongAnswer()
-            _uiState.update { it.copy(wrongFlashLeft = left, wrongFlashRight = right) }
+        }
+        draggingWord = null
+        dragStart = null
+        dragEnd = null
+        totalDrag = Offset.Zero
+    }
+
+    /** Returns true if the given word and opposite are a correct pair */
+    fun isCorrectMatch(word: String, opposite: String): Boolean {
+        val pair = _uiState.value.leftWords.find { it.singular == word }
+        return pair?.plural == opposite
+    }
+
+    /** Returns true if this opposite has already been matched */
+    fun isOppositeMatched(opposite: String): Boolean {
+        val state = _uiState.value
+        return state.matchedWords.any { key ->
+            state.leftWords.find { it.singular == key }?.plural == opposite
+        }
+    }
+
+    /** Marks a word as successfully matched; triggers popup when all done */
+    fun markWordAsMatched(word: String) {
+        val state = _uiState.value
+        if (state.matchedWords.contains(word)) return
+        val newMatched = state.matchedWords + word
+        val newOrder = state.matchedOrder + word
+        _uiState.update {
+            it.copy(
+                matchedWords = newMatched,
+                matchedOrder = newOrder
+            )
+        }
+        if (newMatched.size == state.leftWords.size) {
             viewModelScope.launch {
-                delay(600)
+                delay(300)
+                AudioPlayerManager.playSoundClap()
                 _uiState.update {
                     it.copy(
-                        selectedLeft = null,
-                        selectedRight = null,
-                        wrongFlashLeft = null,
-                        wrongFlashRight = null
+                        showPopup = true,
+                        feedbackTitleRes = feedbackTitles.random(),
+                        feedbackSubTitleRes = R.string.you_matched_all_pairs
                     )
                 }
             }
+        } else {
+            AudioPlayerManager.playSoundCorrectAnswer()
         }
+    }
+
+    fun closePopup() {
+        _uiState.update { it.copy(showPopup = false) }
     }
 }
