@@ -19,8 +19,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -47,15 +49,20 @@ import com.example.myapplication.data.generation.loader.OppositeDifficulty
 import com.example.myapplication.main.age_group.from_5_to_7.opposite_words.choose_opposite.view_model.ChooseCorrectOppositeViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.common.ColoredFeedbackView
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsOptionButton
+import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens28
 import com.example.myapplication.ui.theme.AppDimens.Dimens40
+import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsHeight
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsWidth
+import com.example.myapplication.utils.extensions.appScale
 import com.example.myapplication.utils.extensions.scaled
 
 @Composable
@@ -76,7 +83,8 @@ fun ChooseCorrectOppositePage(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .windowInsetsPadding(WindowInsets.safeDrawing)
+                .windowInsetsPadding(WindowInsets.safeDrawing),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // ── Header: back button + "Next word in X" text ───────────────────
             Row(
@@ -91,25 +99,51 @@ fun ChooseCorrectOppositePage(
 
                 // "Next word in 3 / 2 / 1" — text only, no circle badge
                 uiState.countdown?.let { count ->
-                    AnimatedContent(
-                        targetState = count,
-                        transitionSpec = {
-                            (fadeIn() + scaleIn(initialScale = 0.8f)) togetherWith
-                                (fadeOut() + scaleOut(targetScale = 0.8f))
-                        },
-                        label = "nextWordCountdown",
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier.padding(end = Dimens16)
-                    ) { n ->
+                    ) {
                         Text(
-                            text = "Next word in $n",
+                            text = "Next word in ",
                             style = MaterialTheme.typography.bodyMedium.scaled(),
                             fontWeight = FontWeight.SemiBold,
-                            color = when (n) {
-                                3    -> Color(0xFF2E7D32)   // green
-                                2    -> Color(0xFFE65100)   // amber
-                                else -> Color(0xFFB71C1C)   // red
+                            color = when (count) {
+                                3 -> Color(0xFF2E7D32)    // green
+                                2 -> Color(0xFFE65100)    // orange
+                                else -> Color(0xFFB71C1C) // red
                             }
                         )
+
+                        AnimatedContent(
+                            targetState = count,
+                            transitionSpec = {
+                                (fadeIn() + scaleIn(initialScale = 0.8f)) togetherWith
+                                        (fadeOut() + scaleOut(targetScale = 0.8f))
+                            },
+                            label = "nextWordCountdown"
+                        ) { n ->
+
+                            Box(
+                                modifier = Modifier
+                                    .size(Dimens40)
+                                    .clip(CircleShape)
+                                    .background(
+                                        when (n) {
+                                            3 -> Color(0xFF2E7D32)    // green
+                                            2 -> Color(0xFFE65100)    // orange
+                                            else -> Color(0xFFB71C1C) // red
+                                        }
+                                    ),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = "$n",
+                                    style = MaterialTheme.typography.titleLarge.scaled(),
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -147,12 +181,12 @@ fun ChooseCorrectOppositePage(
                                 color = Color(0xFF0074D5).copy(alpha = 0.25f),
                                 shape = RoundedCornerShape(Dimens24)
                             )
-                            .padding(horizontal = Dimens40, vertical = Dimens24),
+                            .padding(horizontal = Dimens50, vertical = Dimens28),
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
                             text = word,
-                            style = MaterialTheme.typography.displaySmall.scaled(),
+                            style = MaterialTheme.typography.displayLarge.scaled().copy(fontSize = 40.sp * appScale()),
                             fontWeight = FontWeight.Black,
                             textAlign = TextAlign.Center,
                             color = Color.Black
@@ -164,7 +198,7 @@ fun ChooseCorrectOppositePage(
                 Text(
                     text = AnnotatedString.fromHtml(stringResource(R.string.what_is_the_opposite_of, uiState.currentWord)),
                     style = MaterialTheme.typography.titleSmall.scaled(),
-                    fontWeight = FontWeight.SemiBold,
+                    fontWeight = FontWeight.Medium,
                     textAlign = TextAlign.Center,
                     color = Color.Gray
                 )
@@ -189,14 +223,15 @@ fun ChooseCorrectOppositePage(
                 }
             }
 
-            Spacer(Modifier.weight(1f))
+            Spacer(Modifier.height(Dimens10))
 
-            FeedbackText(
-                title = uiState.feedbackText,
-                subtitle = null,
-                isSuccess = uiState.isAnswerCorrect,
-                isVisible = true
+            ColoredFeedbackView(
+                feedbackText = uiState.feedbackText,
+                isAnswerCorrect = uiState.isAnswerCorrect,
+                correctAnswer = uiState.correctAnswer
             )
+
+            Spacer(Modifier.weight(1f))
         }
     }
 }

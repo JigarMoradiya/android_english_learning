@@ -54,6 +54,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.generation.loader.OppositeDifficulty
+import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawDragConnection
+import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawMatchedConnections
 import com.example.myapplication.main.age_group.from_5_to_7.opposite_words.match_opposites.view_model.MatchOppositesViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
@@ -64,6 +66,8 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens40
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.MatchWordBoxHeight
 import com.example.myapplication.ui.theme.AppDimens.MatchWordBoxWidth
+import com.example.myapplication.ui.theme.AppDimens.isLargeTablet
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.colorList
 import com.example.myapplication.utils.extensions.scaled
 
@@ -95,7 +99,7 @@ fun MatchOppositesPage(
                 .windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
             BackButtonWithText(
-                title = "Match Opposite Words",
+                title = stringResource(R.string.match_opposite_words),
                 onBackClick = { navController.popBackStack() }
             )
 
@@ -104,14 +108,25 @@ fun MatchOppositesPage(
             // ── Main match area ──────────────────────────────────────────────
             // 🔥 rootCoords must be on THIS Box — Canvas is a direct child here,
             //    so Canvas coordinate space == this Box's local space
+            val padding = if(isLargeTablet) 100.dp else if (isTablet) 60.dp else 0.dp
             Box(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxSize()
+                    .padding(top = padding, bottom = padding + Dimens12)
                     .onGloballyPositioned { rootCoords = it }
             ) {
 
                 // ── Canvas: all lines in root-local coordinates ───────────────
                 Canvas(modifier = Modifier.matchParentSize()) {
+                    // ✅ Matched lines
+//                    drawMatchedConnections(
+//                        matchedOrder = uiState.matchedOrder,
+//                        letterPositions = wordFrames,
+//                        imagePositions = uiState.imagePositions,
+//                        getColor = viewModel::getLineColor
+//                    )
+
+
                     // Confirmed match lines
                     uiState.matchedOrder.forEachIndexed { idx, word ->
                         val pair      = uiState.leftWords.find { it.word == word } ?: return@forEachIndexed
@@ -126,36 +141,24 @@ fun MatchOppositesPage(
                         drawLine(
                             color = lineColor.copy(alpha = 0.25f),
                             start = start, end = end,
-                            strokeWidth = 14.dp.toPx(),
+                            strokeWidth = 14f,
                             cap = StrokeCap.Round
                         )
                         // Main line
                         drawLine(
                             color = lineColor,
                             start = start, end = end,
-                            strokeWidth = 5.dp.toPx(),
+                            strokeWidth = 6f,
                             cap = StrokeCap.Round
                         )
                     }
 
-                    // Dashed drag-in-progress line
-                    val ds = viewModel.dragStart
-                    val de = viewModel.dragEnd
-                    if (ds != null && de != null) {
-                        drawLine(
-                            color = Color.DarkGray.copy(alpha = 0.20f),
-                            start = ds, end = de,
-                            strokeWidth = 12.dp.toPx(),
-                            cap = StrokeCap.Round
-                        )
-                        drawLine(
-                            color = Color.DarkGray,
-                            start = ds, end = de,
-                            strokeWidth = 3.dp.toPx(),
-                            pathEffect = PathEffect.dashPathEffect(floatArrayOf(12f, 8f))
-                        )
-                        drawCircle(color = Color.DarkGray, radius = 10f, center = de)
-                    }
+                    // ✅ Drag line
+                    drawDragConnection(
+                        start = viewModel.dragStart,
+                        end = viewModel.dragEnd,
+                        color = Color.Black
+                    )
                 }
 
                 Column(modifier = Modifier.fillMaxWidth()) {
@@ -189,12 +192,12 @@ fun MatchOppositesPage(
                                         // 🔥 FIX: root-local coords instead of boundsInWindow
                                         .onGloballyPositioned { coords ->
                                             val root = rootCoords ?: return@onGloballyPositioned
-                                            val pos  = root.localPositionOf(coords, Offset.Zero)
-                                            val sz   = coords.size
+                                            val pos = root.localPositionOf(coords, Offset.Zero)
+                                            val sz = coords.size
                                             wordFrames[word] = Rect(
-                                                left   = pos.x,
-                                                top    = pos.y,
-                                                right  = pos.x + sz.width,
+                                                left = pos.x,
+                                                top = pos.y,
+                                                right = pos.x + sz.width,
                                                 bottom = pos.y + sz.height
                                             )
                                         }
@@ -243,7 +246,7 @@ fun MatchOppositesPage(
                         }
                     }
 
-                    Spacer(Modifier.height(Dimens40))
+                    Spacer(Modifier.weight(1f))
 
                     // ── BOTTOM ROW: opposite drop targets ─────────────────────
                     Row(
@@ -285,12 +288,12 @@ fun MatchOppositesPage(
                                         // 🔥 FIX: root-local coords
                                         .onGloballyPositioned { coords ->
                                             val root = rootCoords ?: return@onGloballyPositioned
-                                            val pos  = root.localPositionOf(coords, Offset.Zero)
-                                            val sz   = coords.size
+                                            val pos = root.localPositionOf(coords, Offset.Zero)
+                                            val sz = coords.size
                                             oppositeFrames[opp] = Rect(
-                                                left   = pos.x,
-                                                top    = pos.y,
-                                                right  = pos.x + sz.width,
+                                                left = pos.x,
+                                                top = pos.y,
+                                                right = pos.x + sz.width,
                                                 bottom = pos.y + sz.height
                                             )
                                         }

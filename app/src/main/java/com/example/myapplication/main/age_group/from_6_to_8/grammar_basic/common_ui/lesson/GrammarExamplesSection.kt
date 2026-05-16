@@ -46,9 +46,12 @@ fun GrammarExamplesSection(
     cardColor: Color,
     size: Dp,
     padding: Dp,
+    isSmallText: Boolean = false,
+    modifier : Modifier = Modifier,
     onExampleClick: (GrammarExampleModel) -> Unit,
 ) {
     LazyRow(
+        modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(Dimens6)
     ) {
         items(examples) { example ->
@@ -75,7 +78,7 @@ fun GrammarExamplesSection(
                     Spacer(modifier = Modifier.height(Dimens8))
 
                     Text(
-                        text = example.name, style = MaterialTheme.typography.titleMedium.scaled(), fontWeight = FontWeight.Bold
+                        text = example.name, style = if (isSmallText)MaterialTheme.typography.bodyMedium.scaled() else MaterialTheme.typography.titleMedium.scaled(), fontWeight = FontWeight.Bold
                     )
                 }
 

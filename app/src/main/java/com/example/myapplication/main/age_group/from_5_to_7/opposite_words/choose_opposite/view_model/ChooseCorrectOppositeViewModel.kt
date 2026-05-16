@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.loader.OppositeDifficulty
+import com.example.myapplication.data.generation.loader.OppositeWordPair
 import com.example.myapplication.data.generation.loader.OppositeWordsData
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
@@ -26,7 +27,7 @@ class ChooseCorrectOppositeViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(ChooseCorrectOppositeUiState())
     val uiState: StateFlow<ChooseCorrectOppositeUiState> = _uiState.asStateFlow()
 
-    private var wordPool: List<com.example.myapplication.data.generation.loader.OppositeWordPair> = emptyList()
+    private var wordPool: List<OppositeWordPair> = emptyList()
     private val usedIndices = mutableSetOf<Int>()
 
     fun loadDifficulty(difficulty: OppositeDifficulty) {

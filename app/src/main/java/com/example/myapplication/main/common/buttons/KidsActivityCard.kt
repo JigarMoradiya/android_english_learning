@@ -49,7 +49,7 @@ fun KidsActivityCard(
             }
             .padding(vertical = Dimens20, horizontal = Dimens16),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Dimens12)
+        verticalArrangement = Arrangement.spacedBy(Dimens12,Alignment.CenterVertically)
     ) {
         Icon(
             imageVector = icon,

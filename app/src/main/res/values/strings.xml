@@ -220,5 +220,7 @@
     <string name="force_update_positive">Update Now</string>
     <string name="what_is_the_opposite_of"><![CDATA[What is the opposite of <b>%1$s</b>?]]></string>
     <string name="choose_correct_opposite">Choose Correct Opposite</string>
+    <string name="opposite_word_activities">Opposite Word Activities</string>
+    <string name="match_opposite_words">Match Opposite Words</string>
 
 </resources>
