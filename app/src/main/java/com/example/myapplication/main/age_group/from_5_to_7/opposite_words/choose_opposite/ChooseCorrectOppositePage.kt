@@ -50,6 +50,7 @@ import com.example.myapplication.main.age_group.from_5_to_7.opposite_words.choos
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.ColoredFeedbackView
+import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
@@ -99,52 +100,10 @@ fun ChooseCorrectOppositePage(
 
                 // "Next word in 3 / 2 / 1" — text only, no circle badge
                 uiState.countdown?.let { count ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
+                    CountdownBadge(
+                        count = count,
                         modifier = Modifier.padding(end = Dimens16)
-                    ) {
-                        Text(
-                            text = "Next word in ",
-                            style = MaterialTheme.typography.bodyMedium.scaled(),
-                            fontWeight = FontWeight.SemiBold,
-                            color = when (count) {
-                                3 -> Color(0xFF2E7D32)    // green
-                                2 -> Color(0xFFE65100)    // orange
-                                else -> Color(0xFFB71C1C) // red
-                            }
-                        )
-
-                        AnimatedContent(
-                            targetState = count,
-                            transitionSpec = {
-                                (fadeIn() + scaleIn(initialScale = 0.8f)) togetherWith
-                                        (fadeOut() + scaleOut(targetScale = 0.8f))
-                            },
-                            label = "nextWordCountdown"
-                        ) { n ->
-
-                            Box(
-                                modifier = Modifier
-                                    .size(Dimens40)
-                                    .clip(CircleShape)
-                                    .background(
-                                        when (n) {
-                                            3 -> Color(0xFF2E7D32)    // green
-                                            2 -> Color(0xFFE65100)    // orange
-                                            else -> Color(0xFFB71C1C) // red
-                                        }
-                                    ),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(
-                                    text = "$n",
-                                    style = MaterialTheme.typography.titleLarge.scaled(),
-                                    fontWeight = FontWeight.Bold,
-                                    color = Color.White
-                                )
-                            }
-                        }
-                    }
+                    )
                 }
             }
 
@@ -221,6 +180,8 @@ fun ChooseCorrectOppositePage(
                         )
                     }
                 }
+
+
             }
 
             Spacer(Modifier.height(Dimens10))
