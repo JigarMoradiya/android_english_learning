@@ -58,6 +58,7 @@ import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
@@ -155,7 +156,7 @@ fun TapTheWordPage(
                                     modifier = Modifier
                                         .fillMaxWidth(0.85f)
                                         .aspectRatio(1f)
-                                        .shadow(6.dp, RoundedCornerShape(Dimens12))
+                                        .shadow(Dimens6, RoundedCornerShape(Dimens12))
                                         .clip(RoundedCornerShape(Dimens12))
                                 )
                             }

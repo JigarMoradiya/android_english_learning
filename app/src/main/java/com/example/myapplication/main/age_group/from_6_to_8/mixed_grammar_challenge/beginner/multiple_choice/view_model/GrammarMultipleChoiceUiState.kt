@@ -9,6 +9,7 @@ data class GrammarMultipleChoiceUiState(
     val selectedWord: String? = null,   // lowercased selected option
     val isAnswerCorrect: Boolean = false,
     val feedbackTitleRes: Int? = null,
+    val feedbackSubTitle: Int? = null,
     val showNext: Boolean = false,
     val score: Int = 0,
     val isCompleted: Boolean = false

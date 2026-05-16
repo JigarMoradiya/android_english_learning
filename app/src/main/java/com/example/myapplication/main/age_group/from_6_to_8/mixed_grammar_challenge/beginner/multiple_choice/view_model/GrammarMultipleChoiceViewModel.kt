@@ -15,7 +15,9 @@ import com.example.myapplication.data.generation.loader.MixedGrammarBeginnerQues
 import com.example.myapplication.data.model.WordType
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
+import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -67,7 +69,8 @@ class GrammarMultipleChoiceViewModel @Inject constructor(
             it.copy(
                 selectedWord = selected,
                 isAnswerCorrect = isCorrect,
-                feedbackTitleRes = if (isCorrect) feedbackTitles.random() else R.string.its_wrong,
+                feedbackTitleRes = if (isCorrect) feedbackTitles.random() else feedbackWrong.random(),
+                feedbackSubTitle = if (isCorrect) feedbackGiveAnswerSubTitleCorrect.random() else null,
                 showNext = true,
                 score = if (isCorrect) it.score + 1 else it.score
             )
@@ -83,6 +86,7 @@ class GrammarMultipleChoiceViewModel @Inject constructor(
                     selectedWord = null,
                     isAnswerCorrect = false,
                     feedbackTitleRes = null,
+                    feedbackSubTitle = null,
                     showNext = false
                 )
             }

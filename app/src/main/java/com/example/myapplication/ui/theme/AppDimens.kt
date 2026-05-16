@@ -46,6 +46,8 @@ object AppDimens {
     val VocabularyImageHeight = if(isLargeTablet) 150.dp else if (isTablet) 120.dp else 80.dp
     val nounLessonImagesDimension = if(isLargeTablet) 180.dp else if (isTablet) 140.dp else 100.dp
     val nounLessonImagesDimensionNoPadding = if(isLargeTablet) 212.dp else if (isTablet) 164.dp else 116.dp
+    val grammarBasicBeginnerMultipleChoiceOptionsHeight = if(isLargeTablet) 84.dp else if (isTablet) 60.dp else 40.dp
+    val grammarBasicBeginnerMultipleChoiceOptionsWidth = if(isLargeTablet) 360.dp else if (isTablet) 280.dp else 220.dp
     val grammarBasicOptionsHeight = if(isLargeTablet) 94.dp else if (isTablet) 68.dp else 48.dp
     val grammarBasicOptionsWidth = if(isLargeTablet) 320.dp else if (isTablet) 240.dp else 180.dp
     val grammarBasicPronounOptionsWidth = if(isLargeTablet) 360.dp else if (isTablet) 330.dp else 240.dp

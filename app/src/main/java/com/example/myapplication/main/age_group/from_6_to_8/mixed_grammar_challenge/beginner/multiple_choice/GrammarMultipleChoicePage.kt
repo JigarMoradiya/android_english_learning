@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -51,7 +53,6 @@ import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.buttons.KidsOptionButton
-import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -59,6 +60,11 @@ import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsHeight
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.main.common.getImageResForSentence
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
+import com.example.myapplication.ui.theme.AppDimens.grammarBasicBeginnerMultipleChoiceOptionsHeight
+import com.example.myapplication.ui.theme.AppDimens.grammarBasicBeginnerMultipleChoiceOptionsWidth
+import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsWidth
 
 @Composable
 fun GrammarMultipleChoicePage(
@@ -86,7 +92,7 @@ fun GrammarMultipleChoicePage(
                 )
 
                 KidsLabel(
-                    txt = "Q ${uiState.currentIndex + 1} / ${uiState.questions.size}",
+                    txt = "Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",
                     type = ButtonType.PURPLE
                 )
 
@@ -126,9 +132,6 @@ fun GrammarMultipleChoicePage(
             } else {
                 uiState.currentQuestion?.let { q ->
 
-                    val imageRes = remember(q.imageName) {
-                        context.resources.getIdentifier(q.imageName, "drawable", context.packageName)
-                    }
                     val typeColor = viewModel.typeColor(q.targetType)
                     val typeLabel = viewModel.typeLabel(q.targetType)
                     val typeIcon  = viewModel.typeIcon(q.targetType)
@@ -151,15 +154,15 @@ fun GrammarMultipleChoicePage(
                         ) {
                             Spacer(Modifier.weight(1f))
 
-                            if (imageRes != 0) {
+                            getImageResForSentence(q.imageName)?.let {
                                 Image(
-                                    painter = painterResource(imageRes),
+                                    painter = painterResource(it),
                                     contentDescription = q.imageName,
-                                    contentScale = ContentScale.Fit,
+                                    contentScale = ContentScale.Crop,
                                     modifier = Modifier
-                                        .fillMaxWidth()
                                         .fillMaxHeight(0.7f)
-                                        .shadow(6.dp, RoundedCornerShape(Dimens12))
+                                        .aspectRatio(1f)
+                                        .shadow(Dimens6, RoundedCornerShape(Dimens12))
                                         .clip(RoundedCornerShape(Dimens12))
                                 )
                             }
@@ -203,24 +206,34 @@ fun GrammarMultipleChoicePage(
                                     KidsOptionButton(
                                         text = option,
                                         type = viewModel.optionType(option),
-                                        fontSize = (grammarBasicOptionsHeight.value * 0.45f).sp,
+                                        fontSize = (grammarBasicBeginnerMultipleChoiceOptionsHeight.value * 0.45f).sp,
                                         enabled = !uiState.showNext,
                                         onClick = { viewModel.selectAnswer(option) },
                                         modifier = Modifier
-                                            .height(grammarBasicOptionsHeight)
+                                            .width(grammarBasicBeginnerMultipleChoiceOptionsWidth)
+                                            .height(grammarBasicBeginnerMultipleChoiceOptionsHeight)
                                     )
                                 }
                             }
 
                             Spacer(Modifier.weight(1f))
 
-                            // Feedback at bottom of right section
+                            // Feedback overlay pinned to bottom of right section
+                            val subtitle = if (uiState.showNext){
+                                if (uiState.isAnswerCorrect){
+                                    uiState.feedbackSubTitle?.let { stringResource(it) }
+                                }else{
+                                    stringResource(R.string.the_was_font_color_2e7d32_b_b_font, typeLabel.lowercase(), q.correctWord)
+                                }
+                            }else{
+                                ""
+                            }
+
                             FeedbackText(
-                                title = uiState.feedbackTitleRes?.let { stringResource(it) },
-                                subtitle = if (uiState.showNext && !uiState.isAnswerCorrect)
-                                    "The correct answer was \"${q.correctWord}\"" else null,
+                                title = uiState.feedbackTitleRes?.let { stringResource(it) }?:"",
+                                subtitle = subtitle,
                                 isSuccess = uiState.isAnswerCorrect,
-                                isVisible = uiState.showNext
+                                isVisible = uiState.showNext,
                             )
                         }
                     }
