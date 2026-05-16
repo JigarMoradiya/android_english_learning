@@ -32,6 +32,8 @@ val activities_age_3_5 = listOf(
 
 val activities_age_5_7 = listOf(
     LearningActivityModel(R.string.vocabulary_building,R.drawable.age_5_7_vocabulary_building, RouteNavigation.VocabularyBuilding.route,Color(0xFF3674B5)),
+    LearningActivityModel(R.string.opposite_words, R.drawable.age_5_7_match_word_image, RouteNavigation.OppositeWords.route, Color(0xFF9929EA)),
+    LearningActivityModel(R.string.singular_plural, R.drawable.age_5_7_word_jigsaw, RouteNavigation.SingularPlural.route, Color(0xFFF97A00)),
 //    LearningActivityModel(R.string.coloring_word, R.drawable.age_5_7_coloring_word,RouteNavigation.ColoringWord.route,Color(0xFF3E5F44)),
     LearningActivityModel(R.string.word_match_picture, R.drawable.age_5_7_match_word_image,RouteNavigation.WordMatchImage.route,Color(0xFF9929EA)),
     LearningActivityModel(R.string.listen_and_select_answer, R.drawable.age_5_7_listen_and_select,RouteNavigation.ListenAndSelectWord.route,Color(0xFFA53860)),
@@ -74,5 +76,4 @@ val activities_age_6_8_grammar_basics = listOf(
     LearningActivityModel(R.string.verbs,R.drawable.age_6_8_grammar_basic_verb, RouteNavigation.GrammarBasicVerb.route,Color(0xFF85479D).copy(alpha = 0.20f)),
     LearningActivityModel(R.string.adjectives,R.drawable.age_6_8_grammar_basic_adjective, RouteNavigation.GrammarBasicAdjectives.route,Color(0xFFFF9D00).copy(alpha = 0.20f)),
     LearningActivityModel(R.string.pronouns,R.drawable.age_6_8_grammar_basic_pronoun, RouteNavigation.GrammarBasicPronouns.route,Color(0xFFD62828).copy(alpha = 0.20f)),
-
 )

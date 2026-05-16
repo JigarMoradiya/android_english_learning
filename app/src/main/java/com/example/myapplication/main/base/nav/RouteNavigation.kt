@@ -76,4 +76,35 @@ sealed class RouteNavigation(val route: String) {
     object GrammarBasicAdjectivesPractice : RouteNavigation("GrammarBasicAdjectivesPractice")
     object GrammarBasicPronouns : RouteNavigation("GrammarBasicPronouns")
     object GrammarBasicPronounsPractice : RouteNavigation("GrammarBasicPronounsPractice")
+
+    // ── AgeGroup 5–7: Opposite Words ────────────────────────────────────────
+    object OppositeWords : RouteNavigation("OppositeWords")
+    object OppositeWordActivities : RouteNavigation("OppositeWordActivities")
+    object MatchOpposites : RouteNavigation("MatchOpposites/{difficulty}") {
+        fun matchOpposites(difficulty: String): String = "MatchOpposites/$difficulty"
+    }
+    object ChooseOpposite : RouteNavigation("ChooseOpposite/{difficulty}") {
+        fun chooseOpposite(difficulty: String): String = "ChooseOpposite/$difficulty"
+    }
+
+    // ── AgeGroup 5–7: Singular & Plural ─────────────────────────────────────
+    object SingularPlural : RouteNavigation("SingularPlural")   // lesson page
+    object SingularPluralActivities : RouteNavigation("SingularPluralActivities")
+    object MatchSingularPlural : RouteNavigation("MatchSingularPlural")
+    object ChooseSingularPluralForm : RouteNavigation("ChooseSingularPluralForm")
+
+    // ── AgeGroup 6–8: Mixed Grammar Challenge ───────────────────────────────
+    object MixedGrammarChallenge : RouteNavigation("MixedGrammarChallenge")
+    // Beginner sub-menu
+    object MixedGrammarBeginner : RouteNavigation("MixedGrammarBeginner")
+    object TapTheWord : RouteNavigation("TapTheWord")
+    object GrammarMultipleChoice : RouteNavigation("GrammarMultipleChoice")
+    // Medium
+    object DragToGrammarBucket : RouteNavigation("DragToGrammarBucket")
+    // Advanced sub-menu
+    object MixedGrammarAdvanced : RouteNavigation("MixedGrammarAdvanced")
+    object FixTheSentence : RouteNavigation("FixTheSentence")
+    object GrammarSentenceBuilder : RouteNavigation("GrammarSentenceBuilder")
+    object GrammarMatch : RouteNavigation("GrammarMatch")
+    object GrammarFillTheBlanks : RouteNavigation("GrammarFillTheBlanks")
 }

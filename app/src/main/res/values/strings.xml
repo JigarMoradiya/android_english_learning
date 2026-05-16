@@ -206,8 +206,19 @@
     <string name="its_wrong">It\'s Wrong</string>
     <string name="correct_sentence_is">"Correct Sentence is : "</string>
 
+    <string name="you_matched_all_pairs">You matched all pairs! 🎉</string>
+
+    <!-- New activities for AgeGroup 5–7 -->
+    <string name="opposite_words">Opposite Words</string>
+    <string name="singular_plural">Singular &amp; Plural</string>
+
+    <!-- New activities for AgeGroup 6–8 -->
+    <string name="mixed_grammar_challenge">Mixed Grammar Challenge</string>
+
     <string name="force_update_title">Update Available</string>
     <string name="force_update_description">A new version is available on Play Store. Please update to continue.</string>
     <string name="force_update_positive">Update Now</string>
+    <string name="what_is_the_opposite_of"><![CDATA[What is the opposite of <b>%1$s</b>?]]></string>
+    <string name="choose_correct_opposite">Choose Correct Opposite</string>
 
 </resources>
