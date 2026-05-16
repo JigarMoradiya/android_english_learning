@@ -25,6 +25,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
 
@@ -57,21 +58,23 @@ fun KidsActivityCard(
             tint = accentColor,
             modifier = Modifier.size(size * 0.42f)
         )
-        Text(
-            text = title,
-            fontWeight = FontWeight.ExtraBold,
-            color = Color.Black.copy(alpha = 0.85f),
-            style = MaterialTheme.typography.titleMedium.scaled(),
-            textAlign = TextAlign.Center
-        )
-
-        subtitle?.let{
+        Column(verticalArrangement = Arrangement.spacedBy(Dimens4,Alignment.CenterVertically), horizontalAlignment = Alignment.CenterHorizontally) {
             Text(
-                text = subtitle,
-                color = Color.Gray,
-                style = MaterialTheme.typography.bodySmall.scaled(),
+                text = title,
+                fontWeight = FontWeight.ExtraBold,
+                color = Color.Black.copy(alpha = 0.85f),
+                style = MaterialTheme.typography.titleMedium.scaled(),
                 textAlign = TextAlign.Center
             )
+
+            subtitle?.let{
+                Text(
+                    text = subtitle,
+                    color = Color.DarkGray.copy(alpha = 0.8f),
+                    style = MaterialTheme.typography.bodyMedium.scaled(),
+                    textAlign = TextAlign.Center
+                )
+            }
         }
     }
 }

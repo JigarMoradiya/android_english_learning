@@ -9,6 +9,7 @@ data class TapTheWordUiState(
     val selectedWord: String? = null,   // lowercased tapped word
     val isAnswerCorrect: Boolean = false,
     val feedbackTitleRes: Int? = null,
+    val feedbackSubTitle: Int? = null,
     val showNext: Boolean = false,
     val score: Int = 0,
     val isCompleted: Boolean = false

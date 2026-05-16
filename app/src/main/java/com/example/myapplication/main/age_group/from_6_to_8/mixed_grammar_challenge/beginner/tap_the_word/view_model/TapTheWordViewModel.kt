@@ -16,7 +16,9 @@ import com.example.myapplication.data.generation.loader.MixedGrammarBeginnerQues
 import com.example.myapplication.data.model.WordType
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
+import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -68,7 +70,8 @@ class TapTheWordViewModel @Inject constructor(
             it.copy(
                 selectedWord = tapped,
                 isAnswerCorrect = isCorrect,
-                feedbackTitleRes = if (isCorrect) feedbackTitles.random() else R.string.its_wrong,
+                feedbackTitleRes = if (isCorrect) feedbackTitles.random() else feedbackWrong.random(),
+                feedbackSubTitle = if (isCorrect) feedbackGiveAnswerSubTitleCorrect.random() else null,
                 showNext = true,
                 score = if (isCorrect) it.score + 1 else it.score
             )
@@ -116,10 +119,10 @@ class TapTheWordViewModel @Inject constructor(
     }
 
     fun typeColor(type: WordType): Color = when (type) {
-        WordType.NOUN      -> Color(0xFF4CAF50)  // green
-        WordType.VERB      -> Color(0xFF9C27B0)  // purple
-        WordType.ADJECTIVE -> Color(0xFFFF9800)  // orange
-        WordType.PRONOUN   -> Color(0xFFF44336)  // red
+        WordType.NOUN      -> Color(0xFF237227)  // green
+        WordType.VERB      -> Color(0xFF85479D)  // purple
+        WordType.ADJECTIVE -> Color(0xFFFF9D00)  // orange
+        WordType.PRONOUN   -> Color(0xFFD62828)  // red
     }
 
     // For TapWord badge: "hand tap" icon (iOS: hand.point.up.fill)

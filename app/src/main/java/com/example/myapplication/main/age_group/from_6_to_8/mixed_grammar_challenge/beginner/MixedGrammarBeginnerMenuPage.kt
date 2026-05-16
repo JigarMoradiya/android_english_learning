@@ -1,8 +1,5 @@
 package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.beginner
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -11,42 +8,25 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.TouchApp
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.min
 import androidx.navigation.NavController
+import com.example.myapplication.R
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
-import com.example.myapplication.main.common.buttons.KidsActionButton
-import com.example.myapplication.ui.theme.AppDimens.Dimens12
-import com.example.myapplication.ui.theme.AppDimens.Dimens20
-import com.example.myapplication.ui.theme.AppDimens.Dimens24
-import com.example.myapplication.ui.theme.AppDimens.Dimens40
-import com.example.myapplication.ui.theme.ButtonType
-import com.example.myapplication.utils.AudioPlayerManager
-import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.buttons.KidsActivityCard
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
 
 @Composable
 fun MixedGrammarBeginnerMenuPage(navController: NavController) {
@@ -59,90 +39,44 @@ fun MixedGrammarBeginnerMenuPage(navController: NavController) {
         ) {
             BackButtonWithText("Beginner", onBackClick = { navController.popBackStack() })
 
-            Spacer(Modifier.weight(0.5f))
-
             BoxWithConstraints(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
+                    .fillMaxSize()
             ) {
-                val cardSize: Dp = maxHeight * 0.85f
+                val spacing = Dimens16
+                val cardWidth = (maxWidth - spacing * 8) / 3
+                val cardHeight = maxHeight * 0.7f
+                val size = min(cardWidth,cardHeight)
                 Row(
                     modifier = Modifier.fillMaxSize(),
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Spacer(Modifier.weight(1f))
-                    BeginnerActivityCard(
-                        size = cardSize,
-                        title = "Tap the\nWord",
+                    KidsActivityCard(
+                        size = size,
+                        title = stringResource(R.string.tap_the_word_),
+                        subtitle = stringResource(R.string.tap_the_right_word_in_the_sentence),
                         icon = Icons.Filled.TouchApp,
                         accentColor = Color(0xFF2E7D32)
                     ) {
-                        AudioPlayerManager.playSoundMenuClick()
                         navController.navigate(RouteNavigation.TapTheWord.route)
                     }
-                    Spacer(Modifier.width(Dimens40))
-                    BeginnerActivityCard(
-                        size = cardSize,
-                        title = "Multiple\nChoice",
+                    Spacer(Modifier.width(spacing))
+                    KidsActivityCard(
+                        size = size,
+                        title = stringResource(R.string.multiple_choice),
+                        subtitle = stringResource(R.string.pick_the_correct_option),
                         icon = Icons.Filled.CheckCircle,
                         accentColor = Color(0xFF1565C0)
                     ) {
-                        AudioPlayerManager.playSoundMenuClick()
                         navController.navigate(RouteNavigation.GrammarMultipleChoice.route)
                     }
                     Spacer(Modifier.weight(1f))
                 }
             }
 
-            Spacer(Modifier.weight(0.5f))
         }
     }
 }
 
-@Composable
-private fun BeginnerActivityCard(
-    size: Dp,
-    title: String,
-    icon: ImageVector,
-    accentColor: Color,
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .size(size)
-            .shadow(elevation = 4.dp, shape = RoundedCornerShape(Dimens24))
-            .clip(RoundedCornerShape(Dimens24))
-            .background(accentColor.copy(alpha = 0.12f))
-            .border(2.dp, accentColor.copy(alpha = 0.3f), RoundedCornerShape(Dimens24))
-            .padding(vertical = Dimens20),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Spacer(Modifier.weight(1f))
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            tint = accentColor,
-            modifier = Modifier.size(size * 0.30f)
-        )
-        Spacer(Modifier.weight(0.2f))
-        Text(
-            text = title,
-            style = MaterialTheme.typography.titleMedium.scaled(),
-            fontWeight = FontWeight.ExtraBold,
-            color = Color.Black.copy(alpha = 0.85f),
-            textAlign = TextAlign.Center,
-            maxLines = 2
-        )
-        Spacer(Modifier.weight(0.3f))
-        KidsActionButton(
-            text = "Start",
-            type = ButtonType.POSITIVE,
-            isSmall = true,
-            onClick = onClick
-        )
-        Spacer(Modifier.weight(1f))
-    }
-}

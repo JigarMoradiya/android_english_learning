@@ -10,14 +10,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.fromHtml
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.utils.extensions.scaled
 
 @Composable
-fun FeedbackText(
+fun     FeedbackText(
     title: String?,
     subtitle: String?,
     isSuccess: Boolean,
@@ -33,8 +35,8 @@ fun FeedbackText(
             Text(
                 text = title,
                 color = if (isSuccess) PrimaryGreen else Color.Red,
-                style = MaterialTheme.typography.titleMedium.scaled(),
-                fontWeight = FontWeight.ExtraBold,
+                style = MaterialTheme.typography.titleSmall.scaled(),
+                fontWeight = FontWeight.Bold,
                 modifier = Modifier.alpha(if (isVisible) 1f else 0f)
             )
         }
@@ -45,9 +47,9 @@ fun FeedbackText(
 
         subtitle?.let{
             Text(
-                text = subtitle,
+                text = AnnotatedString.fromHtml(subtitle),
                 color = Color.Black,
-                style = MaterialTheme.typography.bodyLarge.scaled(),
+                style = MaterialTheme.typography.bodyMedium.scaled(),
                 fontWeight = FontWeight.Medium,
                 modifier = Modifier.alpha(if (isVisible) 1f else 0f)
             )

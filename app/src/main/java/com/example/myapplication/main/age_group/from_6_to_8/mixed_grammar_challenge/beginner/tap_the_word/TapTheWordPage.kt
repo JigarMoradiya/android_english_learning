@@ -54,6 +54,7 @@ import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
+import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -82,13 +83,13 @@ fun TapTheWordPage(
             // ── Header ────────────────────────────────────────────────────────
             Row(verticalAlignment = Alignment.CenterVertically) {
                 BackButtonWithText(
-                    title = "Tap the Word",
+                    title = stringResource(R.string.tap_the_word_),
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
 
                 KidsLabel(
-                    txt = "Q ${uiState.currentIndex + 1} / ${uiState.questions.size}",
+                    txt = "Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",
                     type = ButtonType.PURPLE
                 )
 
@@ -128,9 +129,6 @@ fun TapTheWordPage(
             } else {
                 uiState.currentQuestion?.let { q ->
 
-                    val imageRes = remember(q.imageName) {
-                        context.resources.getIdentifier(q.imageName, "drawable", context.packageName)
-                    }
                     val typeColor = viewModel.typeColor(q.targetType)
                     val typeLabel = viewModel.typeLabel(q.targetType)
 
@@ -144,14 +142,14 @@ fun TapTheWordPage(
                         // ── Left section: Image (30%) ─────────────────────────
                         Column(
                             modifier = Modifier
-                                .weight(0.3f)
+                                .weight(0.35f)
                                 .fillMaxHeight(),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ) {
-                            if (imageRes != 0) {
+                            getImageResForSentence(q.imageName)?.let {
                                 Image(
-                                    painter = painterResource(imageRes),
+                                    painter = painterResource(it),
                                     contentDescription = q.imageName,
                                     contentScale = ContentScale.Crop,
                                     modifier = Modifier
@@ -166,7 +164,7 @@ fun TapTheWordPage(
                         // ── Right section: Sentence + Badge + Word Chips (70%) ─
                         Box(
                             modifier = Modifier
-                                .weight(0.7f)
+                                .weight(0.65f)
                                 .fillMaxHeight()
                         ) {
                             Column(
@@ -217,19 +215,25 @@ fun TapTheWordPage(
                                 }
 
                                 Spacer(Modifier.weight(1f))
-                            }
 
-                            // Feedback overlay pinned to bottom of right section
-                            FeedbackText(
-                                title = uiState.feedbackTitleRes?.let { stringResource(it) },
-                                subtitle = if (uiState.showNext && !uiState.isAnswerCorrect)
-                                    "The ${typeLabel.lowercase()} was \"${q.correctWord}\"" else null,
-                                isSuccess = uiState.isAnswerCorrect,
-                                isVisible = uiState.showNext,
-                                modifier = Modifier
-                                    .align(Alignment.BottomCenter)
-                                    .padding(bottom = Dimens16)
-                            )
+                                // Feedback overlay pinned to bottom of right section
+                                val subtitle = if (uiState.showNext){
+                                    if (uiState.isAnswerCorrect){
+                                        uiState.feedbackSubTitle?.let { stringResource(it) }?:""
+                                    }else{
+                                        stringResource(R.string.the_was_font_color_2e7d32_b_b_font, typeLabel.lowercase(), q.correctWord)
+                                    }
+                                }else{
+                                    ""
+                                }
+                                FeedbackText(
+                                    title = uiState.feedbackTitleRes?.let { stringResource(it) }?:"",
+                                    subtitle = subtitle,
+                                    isSuccess = uiState.isAnswerCorrect,
+                                    isVisible = uiState.showNext,
+                                    modifier = Modifier
+                                )
+                            }
                         }
                     }
                 }

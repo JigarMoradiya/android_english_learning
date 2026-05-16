@@ -225,5 +225,12 @@
     <string name="match_singular_plural"><![CDATA[Match\nSingular & Plural]]></string>
     <string name="choose_correct_form">Choose\nCorrect Form</string>
     <string name="match_singular_plural_"><![CDATA[Match Singular & Plural]]></string>
+    <string name="beginner_medium_advanced">Beginner · Medium · Advanced</string>
+    <string name="grammar_challenge">Grammar Challenge</string>
+    <string name="multiple_choice">Multiple\nChoice</string>
+    <string name="tap_the_word_">Tap the Word</string>
+    <string name="pick_the_correct_option">Pick the correct option</string>
+    <string name="tap_the_right_word_in_the_sentence">Tap the right word in the sentence</string>
+    <string name="the_was_font_color_2e7d32_b_b_font"><![CDATA[The %1$s was <font color=\"#2E7D32\"><b>%2$s</b></font>]]></string>
 
 </resources>
