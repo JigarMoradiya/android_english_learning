@@ -1,17 +1,18 @@
 package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.beginner.tap_the_word.view_model
 
-import com.example.myapplication.data.generation.loader.GrammarWordQuestion
-import com.example.myapplication.data.model.WordType
+import com.example.myapplication.data.generation.loader.MixedBeginnerQuestion
 
 data class TapTheWordUiState(
-    val questions: List<GrammarWordQuestion> = emptyList(),
+    val questionsAll: List<MixedBeginnerQuestion> = emptyList(),
+    val questions: List<MixedBeginnerQuestion> = emptyList(),
     val currentIndex: Int = 0,
-    val tappedWord: String? = null,
+    val selectedWord: String? = null,   // lowercased tapped word
     val isAnswerCorrect: Boolean = false,
     val feedbackTitleRes: Int? = null,
-    val showFeedback: Boolean = false,
+    val showNext: Boolean = false,
     val score: Int = 0,
     val isCompleted: Boolean = false
 ) {
-    val currentQuestion: GrammarWordQuestion? get() = questions.getOrNull(currentIndex)
+    val currentQuestion: MixedBeginnerQuestion? get() = questions.getOrNull(currentIndex)
+    val isLastIndex: Boolean get() = currentIndex == questions.size - 1
 }

@@ -1,10 +1,13 @@
 package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.sentence_builder.view_model
 
 import android.content.Context
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
-import com.example.myapplication.data.generation.loader.MixedGrammarData
+import com.example.myapplication.data.generation.loader.AdvBuildWord
+import com.example.myapplication.data.generation.loader.AdvSentenceBuilderFactory
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
+import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,91 +24,119 @@ class GrammarSentenceBuilderViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(GrammarSentenceBuilderUiState())
     val uiState: StateFlow<GrammarSentenceBuilderUiState> = _uiState.asStateFlow()
 
-    init { load() }
+    init { loadInitialData() }
 
-    fun load() {
-        val questions = MixedGrammarData.sentenceBuilderItems.shuffled()
-        _uiState.update {
-            it.copy(
-                questions = questions,
-                currentIndex = 0,
-                score = 0,
-                isCompleted = false
-            )
-        }
-        prepareCurrentQuestion()
+    fun loadInitialData() {
+        val all = AdvSentenceBuilderFactory.generateQuestions(context)
+        val questions = all.take(10)
+        _uiState.value = GrammarSentenceBuilderUiState(questionsAll = all, questions = questions)
+        setupCurrentQuestion()
     }
 
-    private fun prepareCurrentQuestion() {
+    fun restart() {
+        val all = _uiState.value.questionsAll
+        _uiState.value = GrammarSentenceBuilderUiState(
+            questionsAll = all,
+            questions = all.shuffled().take(10)
+        )
+        setupCurrentQuestion()
+    }
+
+    private fun setupCurrentQuestion() {
         val q = _uiState.value.currentQuestion ?: return
         _uiState.update {
             it.copy(
-                shuffledWords = q.words.shuffled(),
-                arrangedWords = emptyList(),
-                isCorrect = null
+                availableWords = q.shuffledWords,
+                placedWords = emptyList(),
+                isAnswerSubmitted = false,
+                isAnswerCorrect = false,
+                feedbackTitleRes = null,
+                feedbackSubTitleRes = null
             )
         }
     }
 
-    fun addWord(word: String) {
-        val state = _uiState.value
-        val shuffled = state.shuffledWords.toMutableList()
-        val arranged = state.arrangedWords.toMutableList()
-        val index = shuffled.indexOf(word)
-        if (index == -1) return
-        arranged.add(word)
-        shuffled.removeAt(index)
-        AudioPlayerManager.playSoundMenuClick()
-        _uiState.update { it.copy(arrangedWords = arranged, shuffledWords = shuffled) }
-        checkIfComplete()
+    // ── Word interaction (mirrors iOS placeWord / removeWord) ─────────────────
+
+    /** User taps a word from pool → move to placed area */
+    fun placeWord(word: AdvBuildWord) {
+        if (_uiState.value.isAnswerSubmitted) return
+        _uiState.update {
+            it.copy(
+                availableWords = it.availableWords.filter { w -> w.id != word.id },
+                placedWords = it.placedWords + word
+            )
+        }
+        AudioPlayerManager.playSoundDragItem()
+        // Auto-check once all words are placed (mirrors iOS)
+        if (_uiState.value.availableWords.isEmpty()) checkAnswer()
     }
 
-    fun removeWord(word: String) {
-        val state = _uiState.value
-        val shuffled = state.shuffledWords.toMutableList()
-        val arranged = state.arrangedWords.toMutableList()
-        val index = arranged.indexOf(word)
-        if (index == -1) return
-        shuffled.add(word)
-        arranged.removeAt(index)
-        AudioPlayerManager.playSoundMenuClick()
-        _uiState.update { it.copy(arrangedWords = arranged, shuffledWords = shuffled, isCorrect = null) }
+    /** User taps a placed word → return it to pool */
+    fun removeWord(word: AdvBuildWord) {
+        if (_uiState.value.isAnswerSubmitted) return
+        _uiState.update {
+            it.copy(
+                placedWords = it.placedWords.filter { w -> w.id != word.id },
+                availableWords = it.availableWords + word
+            )
+        }
     }
 
-    private fun checkIfComplete() {
-        val state = _uiState.value
-        val correct = state.currentQuestion?.correctSentence
-            ?.replace(".", "")?.replace("?", "")?.replace("!", "")
-            ?.lowercase() ?: return
-        val correctWords = correct.split(" ")
-        if (state.arrangedWords.size != correctWords.size) return
-        val userSentence = state.arrangedWords.joinToString(" ") { it.lowercase() }
-        if (userSentence == correct) {
+    // ── Evaluation (auto-called when all words placed) ────────────────────────
+
+    private fun checkAnswer() {
+        val q = _uiState.value.currentQuestion ?: return
+        val placed = _uiState.value.placedWords.map { it.text.lowercase() }
+        val correct = q.correctWords.map { it.lowercase() }
+        val isCorrect = placed == correct
+
+        if (isCorrect) {
             AudioPlayerManager.playSoundCorrectAnswer()
             _uiState.update {
-                it.copy(isCorrect = true, score = it.score + 1, feedbackTextRes = feedbackTitles.random())
+                it.copy(
+                    isAnswerSubmitted = true,
+                    isAnswerCorrect = true,
+                    feedbackTitleRes = feedbackTitles.random(),
+                    feedbackSubTitleRes = feedbackGiveAnswerSubTitleCorrect.random(),
+                    score = it.score + 1
+                )
             }
         } else {
             AudioPlayerManager.playSoundWrongAnswer()
-            _uiState.update { it.copy(isCorrect = false) }
+            _uiState.update {
+                it.copy(
+                    isAnswerSubmitted = true,
+                    isAnswerCorrect = false,
+                    feedbackTitleRes = null,
+                    feedbackSubTitleRes = null
+                )
+            }
         }
     }
 
-    fun next() {
-        val nextIndex = _uiState.value.currentIndex + 1
-        if (nextIndex >= _uiState.value.questions.size) {
+    // ── Navigation ────────────────────────────────────────────────────────────
+
+    fun moveToNextQuestion() {
+        val state = _uiState.value
+        if (state.currentIndex < state.questions.size - 1) {
+            _uiState.update { it.copy(currentIndex = it.currentIndex + 1) }
+            setupCurrentQuestion()
+        } else {
             _uiState.update { it.copy(isCompleted = true) }
-            return
         }
-        _uiState.update { it.copy(currentIndex = nextIndex) }
-        prepareCurrentQuestion()
     }
 
-    val isLastQuestion: Boolean get() = _uiState.value.currentIndex >= _uiState.value.questions.lastIndex
+    // ── Chip color helper (mirrors iOS placedChipColor) ───────────────────────
+    // Returns the color for a placed chip based on whether its position is correct
 
-    fun formattedSentence(): String {
-        val words = _uiState.value.arrangedWords
-        if (words.isEmpty()) return ""
-        return words.joinToString(" ").replaceFirstChar { it.uppercase() } + "."
+    fun placedChipColor(index: Int): Color {
+        val state = _uiState.value
+        if (!state.isAnswerSubmitted) return Color(0xFF1565C0) // blue default
+        val q = state.currentQuestion ?: return Color.Red
+        val correct = q.correctWords.map { it.lowercase() }
+        val placed = state.placedWords.map { it.text.lowercase() }
+        if (index >= placed.size || index >= correct.size) return Color.Red
+        return if (placed[index] == correct[index]) Color(0xFF388E3C) else Color.Red
     }
 }

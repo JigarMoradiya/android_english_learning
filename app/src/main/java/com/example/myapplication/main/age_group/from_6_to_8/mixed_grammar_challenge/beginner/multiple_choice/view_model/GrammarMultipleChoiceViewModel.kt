@@ -1,9 +1,17 @@
 package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.beginner.multiple_choice.view_model
 
 import android.content.Context
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bolt
+import androidx.compose.material.icons.filled.Image
+import androidx.compose.material.icons.filled.Palette
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.R
-import com.example.myapplication.data.generation.loader.MixedGrammarData
+import com.example.myapplication.data.generation.loader.BeginnerActivityType
+import com.example.myapplication.data.generation.loader.MixedGrammarBeginnerQuestionFactory
 import com.example.myapplication.data.model.WordType
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
@@ -27,48 +35,95 @@ class GrammarMultipleChoiceViewModel @Inject constructor(
     init { load() }
 
     fun load() {
-        val questions = MixedGrammarData.multipleChoiceQuestions.shuffled()
-        _uiState.update {
-            it.copy(questions = questions, currentIndex = 0, score = 0,
-                selectedAnswer = null, feedbackTitleRes = null,
-                showFeedback = false, isAnswerCorrect = false, isCompleted = false)
-        }
+        val all = MixedGrammarBeginnerQuestionFactory.generateQuestions(context, BeginnerActivityType.MULTIPLE_CHOICE)
+        val questions = all.shuffled().take(10)
+        _uiState.value = GrammarMultipleChoiceUiState(
+            questionsAll = all,
+            questions = questions
+        )
     }
 
-    fun selectAnswer(type: WordType) {
+    fun restart() {
+        val all = _uiState.value.questionsAll
+        _uiState.value = GrammarMultipleChoiceUiState(
+            questionsAll = all,
+            questions = all.shuffled().take(10)
+        )
+    }
+
+    fun selectAnswer(option: String) {
         val state = _uiState.value
-        if (state.showFeedback) return
-        val isCorrect = type == state.currentQuestion?.correctType
-        if (isCorrect) AudioPlayerManager.playSoundCorrectAnswer() else AudioPlayerManager.playSoundWrongAnswer()
+        if (state.selectedWord != null) return
+        val q = state.currentQuestion ?: return
+
+        val selected = option.lowercase()
+        // Accept any word of the correct type (mirrors iOS allCorrectWords check)
+        val isCorrect = q.allCorrectWords.contains(selected)
+
+        if (isCorrect) AudioPlayerManager.playSoundCorrectAnswer()
+        else AudioPlayerManager.playSoundWrongAnswer()
+
         _uiState.update {
             it.copy(
-                selectedAnswer = type,
+                selectedWord = selected,
                 isAnswerCorrect = isCorrect,
                 feedbackTitleRes = if (isCorrect) feedbackTitles.random() else R.string.its_wrong,
-                showFeedback = true,
+                showNext = true,
                 score = if (isCorrect) it.score + 1 else it.score
             )
         }
     }
 
-    fun next() {
-        val nextIndex = _uiState.value.currentIndex + 1
-        if (nextIndex >= _uiState.value.questions.size) { _uiState.update { it.copy(isCompleted = true) }; return }
-        _uiState.update {
-            it.copy(currentIndex = nextIndex, selectedAnswer = null,
-                feedbackTitleRes = null, showFeedback = false, isAnswerCorrect = false)
+    fun moveToNextQuestion() {
+        val state = _uiState.value
+        if (state.currentIndex < state.questions.size - 1) {
+            _uiState.update {
+                it.copy(
+                    currentIndex = it.currentIndex + 1,
+                    selectedWord = null,
+                    isAnswerCorrect = false,
+                    feedbackTitleRes = null,
+                    showNext = false
+                )
+            }
+        } else {
+            _uiState.update { it.copy(isCompleted = true) }
         }
     }
 
-    val isLastQuestion: Boolean get() = _uiState.value.currentIndex >= _uiState.value.questions.lastIndex
+    // ── Button type for option chips ─────────────────────────────────────────
 
-    fun optionButtonType(type: WordType): ButtonType {
+    fun optionType(option: String): ButtonType {
         val state = _uiState.value
-        if (!state.showFeedback) return ButtonType.OPTIONS
-        return when (type) {
-            state.currentQuestion?.correctType -> ButtonType.GREEN
-            state.selectedAnswer               -> ButtonType.RED
-            else                               -> ButtonType.OPTIONS
+        val selected = state.selectedWord ?: return ButtonType.OPTIONS
+        val q = state.currentQuestion ?: return ButtonType.OPTIONS
+        return when {
+            q.allCorrectWords.contains(option.lowercase()) -> ButtonType.GREEN
+            option.lowercase() == selected                 -> ButtonType.RED
+            else                                           -> ButtonType.OPTIONS
         }
+    }
+
+    // ── Type label / color / icon ────────────────────────────────────────────
+
+    fun typeLabel(type: WordType): String = when (type) {
+        WordType.NOUN      -> "Noun"
+        WordType.VERB      -> "Verb"
+        WordType.ADJECTIVE -> "Adjective"
+        WordType.PRONOUN   -> "Pronoun"
+    }
+
+    fun typeColor(type: WordType): Color = when (type) {
+        WordType.NOUN      -> Color(0xFF4CAF50)  // green
+        WordType.VERB      -> Color(0xFF9C27B0)  // purple
+        WordType.ADJECTIVE -> Color(0xFFFF9800)  // orange
+        WordType.PRONOUN   -> Color(0xFFF44336)  // red
+    }
+
+    fun typeIcon(type: WordType): ImageVector = when (type) {
+        WordType.NOUN      -> Icons.Filled.Image
+        WordType.VERB      -> Icons.Filled.Bolt
+        WordType.ADJECTIVE -> Icons.Filled.Palette
+        WordType.PRONOUN   -> Icons.Filled.Person
     }
 }
