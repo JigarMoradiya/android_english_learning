@@ -21,6 +21,7 @@ import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.data.auth.AuthManager
 import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AudioPlayerManager
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -37,6 +38,13 @@ class AgeCategoryActivity : BaseActivity() {
 
         // Restore previous login/subscription session on every launch
         authManager.restoreSession()
+
+        // Safety net: if Android killed this activity while the Apple Sign-In browser
+        // was open, Firebase may have a pending result waiting. Pick it up so the
+        // user doesn't have to start over.
+        FirebaseAuth.getInstance().pendingAuthResult
+            ?.addOnSuccessListener { /* session restored by restoreSession() above */ }
+            ?.addOnFailureListener { /* silently ignore — user can try again */ }
 
         // Hide Status Bar
         WindowCompat.setDecorFitsSystemWindows(window, false)

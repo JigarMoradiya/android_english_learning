@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.AccessManager
 import com.example.myapplication.data.access.AccessResult
+import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.data.auth.AuthManager
 import com.example.myapplication.data.auth.AuthResult
 import com.example.myapplication.data.purchase.PurchaseManager
@@ -19,7 +20,9 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 private const val TAG = "AccessSheetVM"
+
 @HiltViewModel
 class AccessSheetViewModel @Inject constructor(
     private val accessManager: AccessManager,
@@ -31,6 +34,40 @@ class AccessSheetViewModel @Inject constructor(
 
     private val _sheetState = MutableStateFlow<AccessSheetState>(AccessSheetState.Hidden)
     val sheetState: StateFlow<AccessSheetState> = _sheetState.asStateFlow()
+
+    // ── Parental gate ─────────────────────────────────────────────────
+
+    private val _showParentalGate = MutableStateFlow(false)
+    val showParentalGate: StateFlow<Boolean> = _showParentalGate.asStateFlow()
+
+    /** State waiting to be applied after parental gate passes. */
+    private var pendingStateAfterGate: AccessSheetState = AccessSheetState.Hidden
+
+    /**
+     * Use this instead of setting _sheetState directly for Login and Paywall.
+     * Intercepts with the parental gate; other states set directly.
+     */
+    fun requestState(newState: AccessSheetState) {
+        when (newState) {
+            is AccessSheetState.Login, is AccessSheetState.Paywall -> {
+                pendingStateAfterGate = newState
+                _showParentalGate.value = true
+            }
+            else -> _sheetState.value = newState
+        }
+    }
+
+    fun parentalGatePassed() {
+        _showParentalGate.value = false
+        _sheetState.value = pendingStateAfterGate
+        if (pendingStateAfterGate is AccessSheetState.Paywall) loadOfferings()
+        pendingStateAfterGate = AccessSheetState.Hidden
+    }
+
+    fun parentalGateCancelled() {
+        _showParentalGate.value = false
+        pendingStateAfterGate = AccessSheetState.Hidden
+    }
 
     // ── Loading (purchase / sign-in in progress) ──────────────────────
 
@@ -47,65 +84,59 @@ class AccessSheetViewModel @Inject constructor(
     private val _packages = MutableStateFlow<List<Package>>(emptyList())
     val packages: StateFlow<List<Package>> = _packages.asStateFlow()
 
+    // ── Pending purchase (set when guest taps Subscribe) ──────────────
+
+    private var pendingPurchasePackage: Package? = null
+    private var pendingPurchaseModuleId: String = ""
+
     // ── Access check entry point ──────────────────────────────────────
 
     /**
      * Called before navigating to a module.
-     * Returns true if the module is allowed (caller should proceed with navigation).
+     * Returns true if allowed (caller should navigate).
      * Returns false if a sheet was shown (caller should NOT navigate).
      */
     suspend fun checkAccess(moduleId: String): Boolean {
-        Log.d(TAG, "checkAccess called → moduleId='$moduleId'")
+        Log.d(TAG, "checkAccess → moduleId='$moduleId'")
         return when (val result = accessManager.checkAccess(moduleId)) {
             is AccessResult.Allowed -> {
-                Log.d(TAG, "checkAccess → Allowed, recording attempt and proceeding to navigate")
-                accessManager.recordAttempt(moduleId)   // ← increment daily counter
+                accessManager.recordAttempt(moduleId)
                 true
             }
-
             is AccessResult.DailyLimitReached -> {
-                Log.d(TAG, "checkAccess → DailyLimitReached | canUnlockWithLogin=${result.canUnlockWithLogin}")
                 _sheetState.value = AccessSheetState.DailyLimit(
                     moduleId = moduleId,
                     canUnlockWithLogin = result.canUnlockWithLogin
                 )
                 false
             }
-
             is AccessResult.LoginRequired -> {
-                Log.d(TAG, "checkAccess → LoginRequired, showing Login sheet")
-                _sheetState.value = AccessSheetState.Login(moduleId)
+                requestState(AccessSheetState.Login(moduleId))
                 false
             }
-
             is AccessResult.SubscribeRequired -> {
-                Log.d(TAG, "checkAccess → SubscribeRequired, showing Paywall sheet")
-                _sheetState.value = AccessSheetState.Paywall(moduleId)
-                loadOfferings()
+                requestState(AccessSheetState.Paywall(moduleId))
                 false
             }
         }
     }
 
     fun dismiss() {
-        Log.d(TAG, "dismiss → hiding sheet")
         _sheetState.value = AccessSheetState.Hidden
+        pendingPurchasePackage = null
     }
 
     // ── Google Sign-In ────────────────────────────────────────────────
 
     fun signInWithGoogle(activity: Activity) {
         viewModelScope.launch {
-            Log.d(TAG, "signInWithGoogle → starting")
             _isLoading.value = true
             when (val result = authManager.signInWithGoogle(activity)) {
-                is AuthResult.Success  -> { Log.d(TAG, "signInWithGoogle → SUCCESS uid=${result.userId}"); onSignInSuccess() }
-                is AuthResult.Cancelled -> Log.d(TAG, "signInWithGoogle → Cancelled by user")
-                is AuthResult.Error    -> { Log.e(TAG, "signInWithGoogle → Error: ${result.message}"); _message.emit(result.message) }
-                is AuthResult.NeedsAccountLinking -> {
-                    Log.w(TAG, "signInWithGoogle → NeedsAccountLinking with ${result.existingProvider}")
+                is AuthResult.Success  -> onSignInSuccess()
+                is AuthResult.Cancelled -> Unit
+                is AuthResult.Error    -> _message.emit(result.message)
+                is AuthResult.NeedsAccountLinking ->
                     _message.emit("Account already exists with ${result.existingProvider}. Please use that to sign in.")
-                }
             }
             _isLoading.value = false
         }
@@ -115,16 +146,13 @@ class AccessSheetViewModel @Inject constructor(
 
     fun signInWithApple(activity: Activity) {
         viewModelScope.launch {
-            Log.d(TAG, "signInWithApple → starting")
             _isLoading.value = true
             when (val result = authManager.signInWithApple(activity)) {
-                is AuthResult.Success  -> { Log.d(TAG, "signInWithApple → SUCCESS uid=${result.userId}"); onSignInSuccess() }
-                is AuthResult.Cancelled -> Log.d(TAG, "signInWithApple → Cancelled by user")
-                is AuthResult.Error    -> { Log.e(TAG, "signInWithApple → Error: ${result.message}"); _message.emit(result.message) }
-                is AuthResult.NeedsAccountLinking -> {
-                    Log.w(TAG, "signInWithApple → NeedsAccountLinking with ${result.existingProvider}")
+                is AuthResult.Success  -> onSignInSuccess()
+                is AuthResult.Cancelled -> Unit
+                is AuthResult.Error    -> _message.emit(result.message)
+                is AuthResult.NeedsAccountLinking ->
                     _message.emit("Account already exists with ${result.existingProvider}. Please use that to sign in.")
-                }
             }
             _isLoading.value = false
         }
@@ -132,14 +160,31 @@ class AccessSheetViewModel @Inject constructor(
 
     // ── Purchase ──────────────────────────────────────────────────────
 
+    /**
+     * If the user is a guest, save the package and show Login first.
+     * After login succeeds [onSignInSuccess] will transition to the paywall.
+     * If already logged in, proceed with purchase directly.
+     */
     fun purchase(activity: Activity, packageToPurchase: Package) {
+        if (accessManager.userState.value is UserAccessState.Guest) {
+            Log.d(TAG, "purchase → guest detected, requiring login first")
+            pendingPurchasePackage = packageToPurchase
+            val moduleId = (_sheetState.value as? AccessSheetState.Paywall)?.moduleId ?: pendingPurchaseModuleId
+            pendingPurchaseModuleId = moduleId
+            requestState(AccessSheetState.Login(moduleId))
+            return
+        }
+        doPurchase(activity, packageToPurchase)
+    }
+
+    private fun doPurchase(activity: Activity, packageToPurchase: Package) {
         viewModelScope.launch {
-            Log.d(TAG, "purchase → starting | package=${packageToPurchase.identifier}")
+            Log.d(TAG, "doPurchase → package=${packageToPurchase.identifier}")
             _isLoading.value = true
             when (val result = purchaseManager.purchase(activity, packageToPurchase)) {
-                is PurchaseManager.PurchaseResult.Success   -> { Log.d(TAG, "purchase → SUCCESS"); dismiss() }
-                is PurchaseManager.PurchaseResult.Cancelled -> Log.d(TAG, "purchase → Cancelled by user")
-                is PurchaseManager.PurchaseResult.Error     -> { Log.e(TAG, "purchase → Error: ${result.message}"); _message.emit(result.message) }
+                is PurchaseManager.PurchaseResult.Success   -> dismiss()
+                is PurchaseManager.PurchaseResult.Cancelled -> Unit
+                is PurchaseManager.PurchaseResult.Error     -> _message.emit(result.message)
             }
             _isLoading.value = false
         }
@@ -149,12 +194,9 @@ class AccessSheetViewModel @Inject constructor(
 
     fun restorePurchases() {
         viewModelScope.launch {
-            Log.d(TAG, "restorePurchases → starting")
             _isLoading.value = true
             val restored = purchaseManager.restorePurchases()
-            Log.d(TAG, "restorePurchases → restored=$restored")
-            if (restored) dismiss()
-            else _message.emit("No previous purchases found.")
+            if (restored) dismiss() else _message.emit("No previous purchases found.")
             _isLoading.value = false
         }
     }
@@ -162,11 +204,20 @@ class AccessSheetViewModel @Inject constructor(
     // ── Private helpers ───────────────────────────────────────────────
 
     /**
-     * After sign-in succeeds, re-check the original module.
-     * If access is now allowed → dismiss the sheet.
-     * If premium is still required → transition to the Paywall sheet.
+     * After sign-in succeeds:
+     * - If there is a pending purchase → go back to paywall (user taps Subscribe again).
+     * - Otherwise re-check the original module.
      */
     private suspend fun onSignInSuccess() {
+        // Pending purchase flow: show paywall so user can tap Subscribe
+        val pending = pendingPurchasePackage
+        if (pending != null) {
+            pendingPurchasePackage = null
+            _sheetState.value = AccessSheetState.Paywall(pendingPurchaseModuleId)
+            loadOfferings()
+            return
+        }
+
         val currentState = _sheetState.value
         val moduleId = when (currentState) {
             is AccessSheetState.Login      -> currentState.moduleId

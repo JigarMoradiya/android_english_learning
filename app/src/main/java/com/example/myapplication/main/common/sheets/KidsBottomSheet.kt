@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -29,6 +30,11 @@ import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.DragHandleHeight
+import com.example.myapplication.ui.theme.AppDimens.DragHandleWidth
+import com.example.myapplication.ui.theme.AppDimens.SheetHeightFraction
+import com.example.myapplication.ui.theme.AppDimens.SheetMaxWidth
+import com.example.myapplication.ui.theme.AppDimens.SheetWidthFraction
 
 /**
  * Reusable animated bottom sheet container for the kids app.
@@ -42,6 +48,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 fun KidsBottomSheet(
     visible: Boolean,
     onDismiss: () -> Unit,
+    heightFraction: Float = SheetHeightFraction,
     content: @Composable () -> Unit
 ) {
     AnimatedVisibility(
@@ -74,8 +81,9 @@ fun KidsBottomSheet(
             ) {
                 Box(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxHeight(0.82f)
+                        .widthIn(max = SheetMaxWidth)          // ← constrain first
+                        .fillMaxWidth(SheetWidthFraction)       // ← then fill (94% on phone, 100% on tablet)
+                        .fillMaxHeight(heightFraction)
                         .clip(RoundedCornerShape(topStart = Dimens24, topEnd = Dimens24))
                         .background(Color.White)
                         // Consume clicks so they don't fall through to the scrim
@@ -92,8 +100,8 @@ fun KidsBottomSheet(
                         Spacer(modifier = Modifier.height(Dimens8))
                         Box(
                             modifier = Modifier
-                                .width(40.dp)
-                                .height(4.dp)
+                                .width(DragHandleWidth)
+                                .height(DragHandleHeight)
                                 .clip(RoundedCornerShape(100f))
                                 .background(Color(0xFFDDDDDD))
                         )

@@ -113,19 +113,28 @@ class AuthManager @Inject constructor(
      * @param activity  The current Activity (required by Firebase for web-based OAuth)
      */
     suspend fun signInWithApple(activity: Activity): AuthResult {
+        Log.d(TAG, "signInWithApple → starting")
         return try {
             val provider = OAuthProvider.newBuilder("apple.com")
                 .setScopes(listOf("email", "name"))
                 .build()
+            val pending = firebaseAuth.pendingAuthResult
+            val task = if (pending != null) {
+                Log.d(TAG, "Using pending auth result")
+                pending
+            } else {
+                Log.d(TAG, "Starting new Apple auth flow")
+                firebaseAuth.startActivityForSignInWithProvider(activity, provider)
+            }
 
-            val result = firebaseAuth
-                .startActivityForSignInWithProvider(activity, provider)
-                .await()
-
+            val result = task.await()
+            Log.d(TAG, "signInWithApple → launching OAuthProvider browser flow")
             val uid = result.user?.uid ?: return AuthResult.Error("No UID returned")
+            Log.d(TAG, "signInWithApple → SUCCESS uid=$uid")
             onAuthSuccess(uid)
             AuthResult.Success(uid)
         } catch (e: Exception) {
+            Log.e(TAG, "signInWithApple → EXCEPTION type=${e::class.java.simpleName} message=${e.message}", e)
             handleAuthException(e, provider = "apple")
         }
     }
@@ -266,6 +275,8 @@ class AuthManager @Inject constructor(
         val errorCode =
             (e as? com.google.firebase.auth.FirebaseAuthUserCollisionException)?.errorCode
 
+        Log.e(TAG, "handleAuthException → provider=$provider errorCode=$errorCode exceptionClass=${e::class.java.name} message=${e.message}")
+
         return if (errorCode == "ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL") {
             val email =
                 (e as com.google.firebase.auth.FirebaseAuthUserCollisionException).email
@@ -273,14 +284,17 @@ class AuthManager @Inject constructor(
 
             // Infer the existing provider from whichever one we just tried
             val existingProvider = if (provider == "google") "apple.com" else "google.com"
+            Log.d(TAG, "handleAuthException → NeedsAccountLinking existingProvider=$existingProvider email=$email")
             AuthResult.NeedsAccountLinking(existingProvider, email)
         } else {
             val msg = e.message ?: ""
-            when {
+            val result = when {
                 msg.contains("CANCELLED", ignoreCase = true) -> AuthResult.Cancelled
                 msg.contains("sign_in_cancelled", ignoreCase = true) -> AuthResult.Cancelled
                 else -> AuthResult.Error(msg.ifBlank { "Sign-in failed" })
             }
+            Log.e(TAG, "handleAuthException → returning result=$result msg='$msg'")
+            result
         }
     }
 }

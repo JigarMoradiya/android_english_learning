@@ -58,4 +58,24 @@ object AppDimens {
     val ABCDWithImagesBigTextSize = if(isLargeTablet) 210.sp else if (isTablet) 180.sp else 120.sp
     val FontExtraLarge36 = if(isLargeTablet) 72.sp else if (isTablet) 54.sp else 36.sp
     val SightWordFont = if(isLargeTablet) 180.sp else if (isTablet) 144.sp else 96.sp
+
+    // ── Bottom sheet constants ───────────────────────────────────────────
+    /** Height as a fraction of screen height (same as iOS sheetHeightMultiplier). */
+    val SheetHeightFraction = if(isLargeTablet) 0.52f else if (isTablet) 0.55f else 0.58f
+    /** Max width cap so sheets don't stretch edge-to-edge on tablets. */
+    val SheetMaxWidth = if(isLargeTablet) 660.dp else if (isTablet) 560.dp else 9999.dp
+    /** Width fraction — phones get 94% so there's a visible side margin. */
+    val SheetWidthFraction = if(isLargeTablet || isTablet) 1f else 0.75f
+    /** Circle background behind the main sheet icon. */
+    val SheetIconCircle = if(isLargeTablet) 88.dp else if (isTablet) 72.dp else 56.dp
+    /** Size of the icon inside the circle. */
+    val SheetIconSizeLg = if(isLargeTablet) 42.sp else if (isTablet) 34.sp else 26.sp
+    /** Height of the vertical divider between left and right columns. */
+    val SheetDividerHeight = if(isLargeTablet) 140.dp else if (isTablet) 120.dp else 100.dp
+    /** Width of the vertical divider. */
+    val SheetDividerWidth = 1.dp
+    /** Drag handle width. */
+    val DragHandleWidth = 40.dp
+    /** Drag handle height. */
+    val DragHandleHeight = 4.dp
 }

@@ -21,7 +21,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -34,26 +33,24 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.R
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens2
-import com.example.myapplication.ui.theme.AppDimens.Dimens20
-import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.SheetDividerHeight
+import com.example.myapplication.ui.theme.AppDimens.SheetDividerWidth
+import com.example.myapplication.ui.theme.AppDimens.SheetIconCircle
+import com.example.myapplication.ui.theme.AppDimens.SheetIconSizeLg
 import com.example.myapplication.ui.theme.AppDimens.ShadowOffsetText
-import com.example.myapplication.ui.theme.ButtonType
-import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.utils.extensions.scaled
 
 /**
  * Bottom sheet for sign-in.
- * Landscape layout: left = branding / title, right = sign-in buttons.
+ * Landscape layout: left = branding, divider, right = sign-in buttons.
  */
 @Composable
 fun LoginSheet(
@@ -90,26 +87,34 @@ fun LoginSheet(
         Row(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = Dimens24, vertical = Dimens8),
-            horizontalArrangement = Arrangement.spacedBy(Dimens24),
+                .padding(horizontal = Dimens16, vertical = Dimens8),
+            horizontalArrangement = Arrangement.spacedBy(Dimens16),
             verticalAlignment = Alignment.CenterVertically
         ) {
 
             // ── Left: branding ───────────────────────────────────────
             Column(
-                modifier = Modifier.weight(0.4f),
+                modifier = Modifier.weight(0.35f),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Text(text = "🌟", fontSize = 52.sp)
+                Box(
+                    modifier = Modifier
+                        .size(SheetIconCircle)
+                        .clip(CircleShape)
+                        .background(Color(0xFFEFF6FF)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(text = "🎓", fontSize = SheetIconSizeLg)
+                }
 
-                Spacer(modifier = Modifier.height(Dimens8))
+                Spacer(modifier = Modifier.height(Dimens6))
 
                 Box {
                     Text(
                         text = "Join the Fun!",
                         color = Color.Black.copy(alpha = 0.2f),
-                        style = MaterialTheme.typography.headlineMedium.scaled(),
+                        style = MaterialTheme.typography.titleLarge.scaled(),
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
@@ -117,36 +122,36 @@ fun LoginSheet(
                     Text(
                         text = "Join the Fun!",
                         color = Color(0xFF0074D5),
-                        style = MaterialTheme.typography.headlineMedium.scaled(),
+                        style = MaterialTheme.typography.titleLarge.scaled(),
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center
                     )
                 }
 
-                Spacer(modifier = Modifier.height(Dimens8))
+                Spacer(modifier = Modifier.height(Dimens6))
 
                 Text(
-                    text = "Sign in to unlock more\nactivities and track your\nlearning progress! 🚀",
+                    text = "Sign in to unlock more\nactivities and track\nlearning progress!",
                     color = Color(0xFF666666),
-                    style = MaterialTheme.typography.bodyMedium.scaled(),
+                    style = MaterialTheme.typography.bodySmall.scaled(),
                     textAlign = TextAlign.Center,
-                    lineHeight = 20.sp
+                    lineHeight = 18.sp
                 )
             }
 
             // Vertical divider
             Box(
                 modifier = Modifier
-                    .width(1.dp)
-                    .height(160.dp)
+                    .width(SheetDividerWidth)
+                    .height(SheetDividerHeight)
                     .background(Color(0xFFEEEEEE))
             )
 
             // ── Right: sign-in buttons ───────────────────────────────
             Column(
-                modifier = Modifier.weight(0.6f),
+                modifier = Modifier.weight(0.65f),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterVertically)
             ) {
                 if (isLoading) {
                     CircularProgressIndicator(
@@ -154,7 +159,6 @@ fun LoginSheet(
                         modifier = Modifier.size(40.dp)
                     )
                 } else {
-                    // Google Sign-In button
                     SignInProviderButton(
                         text = "Continue with Google",
                         emoji = "G",
@@ -162,40 +166,12 @@ fun LoginSheet(
                         onClick = onGoogleSignIn
                     )
 
-                    Spacer(modifier = Modifier.height(Dimens12))
-
-                    // Apple Sign-In button
                     SignInProviderButton(
                         text = "Continue with Apple",
                         emoji = "",
                         emojiBackground = Color(0xFF1C1C1C),
                         onClick = onAppleSignIn,
                         isDark = true
-                    )
-
-                    Spacer(modifier = Modifier.height(Dimens16))
-
-                    // Divider with OR
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(0.75f)
-                    ) {
-                        Box(Modifier.weight(1f).height(1.dp).background(Color(0xFFDDDDDD)))
-                        Text(
-                            text = "  or  ",
-                            color = Color(0xFF999999),
-                            style = MaterialTheme.typography.labelMedium.scaled()
-                        )
-                        Box(Modifier.weight(1f).height(1.dp).background(Color(0xFFDDDDDD)))
-                    }
-
-                    Spacer(modifier = Modifier.height(Dimens12))
-
-                    Text(
-                        text = "Privacy protected · No spam",
-                        color = Color(0xFFAAAAAA),
-                        style = MaterialTheme.typography.labelSmall.scaled(),
-                        textAlign = TextAlign.Center
                     )
                 }
             }

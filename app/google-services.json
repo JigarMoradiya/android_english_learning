@@ -37,6 +37,13 @@
             {
               "client_id": "650587239957-9c4v3tmo8ibcgcfhja81fuj3cgalfv7s.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "650587239957-ja3j7s3kmtf0frlgsjrc5u3l4nk7jkqn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vedaavi.english.learning"
+              }
             }
           ]
         }

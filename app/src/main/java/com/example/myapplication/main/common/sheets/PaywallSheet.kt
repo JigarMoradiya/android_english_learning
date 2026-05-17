@@ -25,10 +25,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -41,22 +38,25 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens2
-import com.example.myapplication.ui.theme.AppDimens.Dimens20
-import com.example.myapplication.ui.theme.AppDimens.Dimens24
-import com.example.myapplication.ui.theme.AppDimens.Dimens4
-import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.SheetDividerHeight
+import com.example.myapplication.ui.theme.AppDimens.SheetDividerWidth
+import com.example.myapplication.ui.theme.AppDimens.SheetIconCircle
+import com.example.myapplication.ui.theme.AppDimens.SheetIconSizeLg
 import com.example.myapplication.ui.theme.AppDimens.ShadowOffsetText
-import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.ui.theme.ButtonType
 import com.revenuecat.purchases.Package
 import com.example.myapplication.utils.extensions.scaled
 
 /**
- * Paywall bottom sheet — shows monthly and yearly subscription options.
- * Landscape layout: two plan cards side by side.
+ * Paywall bottom sheet — landscape layout.
+ * Left: branding (crown icon + title + subtitle).
+ * Right: vertical plan rows (monthly + yearly).
  */
 @Composable
 fun PaywallSheet(
@@ -66,7 +66,6 @@ fun PaywallSheet(
     onRestore: () -> Unit,
     onDismiss: () -> Unit
 ) {
-    // Find monthly and yearly packages from RevenueCat offerings
     val monthlyPackage = packages.firstOrNull {
         it.identifier.contains("monthly", ignoreCase = true) ||
         it.packageType.name.contains("MONTHLY", ignoreCase = true)
@@ -101,182 +100,179 @@ fun PaywallSheet(
             )
         }
 
-        Column(
+        // ── Main landscape layout ────────────────────────────────────
+        Row(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = Dimens24, vertical = Dimens4),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .padding(horizontal = Dimens16, vertical = Dimens8),
+            horizontalArrangement = Arrangement.spacedBy(Dimens16),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
-            // ── Header ───────────────────────────────────────────────
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(text = "⭐", fontSize = 22.sp)
-                Spacer(modifier = Modifier.width(Dimens8))
+            // ── Left: branding ───────────────────────────────────────
+            Column(
+                modifier = Modifier.weight(0.32f),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(SheetIconCircle)
+                        .clip(CircleShape)
+                        .background(Color(0xFFFFF8F0)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(text = "👑", fontSize = SheetIconSizeLg)
+                }
+
+                Spacer(modifier = Modifier.height(Dimens6))
+
                 Box {
                     Text(
                         text = "Go Premium!",
                         color = Color.Black.copy(alpha = 0.2f),
-                        style = MaterialTheme.typography.headlineSmall.scaled(),
+                        style = MaterialTheme.typography.titleLarge.scaled(),
                         fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center,
                         modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
                     )
                     Text(
                         text = "Go Premium!",
-                        color = Color(0xFF0074D5),
-                        style = MaterialTheme.typography.headlineSmall.scaled(),
-                        fontWeight = FontWeight.Bold
+                        color = Color(0xFFE65100),
+                        style = MaterialTheme.typography.titleLarge.scaled(),
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center
                     )
                 }
-                Spacer(modifier = Modifier.width(Dimens8))
-                Text(text = "⭐", fontSize = 22.sp)
+
+                Spacer(modifier = Modifier.height(Dimens6))
+
+                Text(
+                    text = "Unlock ALL activities\nNo daily limits\nLearn without limits!",
+                    color = Color(0xFF666666),
+                    style = MaterialTheme.typography.bodySmall.scaled(),
+                    textAlign = TextAlign.Center,
+                    lineHeight = 18.sp
+                )
             }
 
-            Text(
-                text = "Unlock ALL activities · No daily limits · Learn without limits! 🚀",
-                color = Color(0xFF666666),
-                style = MaterialTheme.typography.bodySmall.scaled(),
-                textAlign = TextAlign.Center
+            // Vertical divider
+            Box(
+                modifier = Modifier
+                    .width(SheetDividerWidth)
+                    .height(SheetDividerHeight)
+                    .background(Color(0xFFEEEEEE))
             )
 
-            Spacer(modifier = Modifier.height(Dimens12))
-
-            if (isLoading) {
-                Box(
-                    modifier = Modifier.weight(1f),
-                    contentAlignment = Alignment.Center
-                ) {
+            // ── Right: plan rows + restore ───────────────────────────
+            Column(
+                modifier = Modifier.weight(0.68f),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                if (isLoading) {
                     CircularProgressIndicator(
                         color = Color(0xFF0074D5),
-                        modifier = Modifier.size(48.dp)
+                        modifier = Modifier.size(40.dp)
                     )
-                }
-            } else {
-                // ── Plan cards ───────────────────────────────────────
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f),
-                    horizontalArrangement = Arrangement.spacedBy(Dimens16),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    // Monthly card
-                    PlanCard(
-                        modifier = Modifier.weight(1f),
+                } else {
+                    PlanRowCard(
                         emoji = "📅",
                         title = "Monthly",
                         price = monthlyPackage?.product?.price?.formatted ?: "--",
-                        period = "per month",
-                        badge = null,
+                        period = "/ month",
                         isHighlighted = false,
+                        badge = null,
                         pkg = monthlyPackage,
                         onPurchase = onPurchase
                     )
 
-                    // Yearly card — highlighted as best value
-                    PlanCard(
-                        modifier = Modifier.weight(1f),
+                    Spacer(modifier = Modifier.height(Dimens10))
+
+                    PlanRowCard(
                         emoji = "🏆",
                         title = "Yearly",
                         price = yearlyPackage?.product?.price?.formatted ?: "--",
-                        period = "per year",
-                        badge = "Best Value!",
+                        period = "/ year",
                         isHighlighted = true,
+                        badge = "Best Value!",
                         pkg = yearlyPackage,
                         onPurchase = onPurchase
                     )
+
+                    Spacer(modifier = Modifier.height(Dimens8))
+
+                    Text(
+                        text = "Restore Purchases",
+                        color = Color(0xFF0074D5),
+                        style = MaterialTheme.typography.bodySmall.scaled(),
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier
+                            .clickable(
+                                indication = null,
+                                interactionSource = remember { MutableInteractionSource() }
+                            ) { onRestore() }
+                            .padding(Dimens8)
+                    )
                 }
             }
-
-            Spacer(modifier = Modifier.height(Dimens8))
-
-            // ── Restore purchases ────────────────────────────────────
-            Text(
-                text = "Restore Purchases",
-                color = Color(0xFF0074D5),
-                style = MaterialTheme.typography.bodySmall.scaled(),
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier
-                    .clickable(
-                        indication = null,
-                        interactionSource = remember { MutableInteractionSource() }
-                    ) { onRestore() }
-                    .padding(Dimens8)
-            )
-
-            Spacer(modifier = Modifier.height(Dimens4))
         }
     }
 }
 
-// ── Plan card ─────────────────────────────────────────────────────────
+// ── Horizontal plan row card ──────────────────────────────────────────
 
 @Composable
-private fun PlanCard(
-    modifier: Modifier = Modifier,
+private fun PlanRowCard(
     emoji: String,
     title: String,
     price: String,
     period: String,
-    badge: String?,
     isHighlighted: Boolean,
+    badge: String?,
     pkg: Package?,
     onPurchase: (Package) -> Unit
 ) {
     val borderColor = if (isHighlighted) Color(0xFFFF8400) else Color(0xFFDDDDDD)
     val bgColor     = if (isHighlighted) Color(0xFFFFF8F0) else Color(0xFFFAFAFA)
 
-    Box(modifier = modifier) {
-        Column(
+    Box {
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(20.dp))
+                .clip(RoundedCornerShape(16.dp))
                 .background(bgColor)
                 .border(
                     width = if (isHighlighted) 2.dp else 1.dp,
                     color = borderColor,
-                    shape = RoundedCornerShape(20.dp)
+                    shape = RoundedCornerShape(16.dp)
                 )
-                .padding(Dimens16),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                .padding(horizontal = Dimens12, vertical = Dimens10),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(Dimens8)
         ) {
-            Text(text = emoji, fontSize = 28.sp)
+            Text(text = emoji, fontSize = 22.sp)
 
-            Box {
-                Text(
-                    text = title,
-                    color = Color.Black.copy(alpha = 0.15f),
-                    style = MaterialTheme.typography.titleMedium.scaled(),
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
-                )
+            Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = title,
                     color = if (isHighlighted) Color(0xFFE65100) else Color(0xFF333333),
-                    style = MaterialTheme.typography.titleMedium.scaled(),
+                    style = MaterialTheme.typography.titleSmall.scaled(),
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = price + " " + period,
+                    color = Color(0xFF0074D5),
+                    style = MaterialTheme.typography.bodyMedium.scaled(),
                     fontWeight = FontWeight.Bold
                 )
             }
-
-            // Price
-            Text(
-                text = price,
-                color = Color(0xFF0074D5),
-                style = MaterialTheme.typography.headlineMedium.scaled(),
-                fontWeight = FontWeight.Bold
-            )
-            Text(
-                text = period,
-                color = Color(0xFF999999),
-                style = MaterialTheme.typography.labelMedium.scaled()
-            )
 
             KidsActionButton(
                 text = "Subscribe",
                 type = if (isHighlighted) ButtonType.ORANGE else ButtonType.BLUE,
                 onClick = { pkg?.let { onPurchase(it) } },
-                disable = pkg == null,
-                modifier = Modifier.fillMaxWidth()
+                disable = pkg == null
             )
         }
 
@@ -285,14 +281,14 @@ private fun PlanCard(
             Box(
                 modifier = Modifier
                     .align(Alignment.TopEnd)
-                    .offset(x = 8.dp, y = (-10).dp)
+                    .offset(x = (-8).dp, y = (-10).dp)
                     .clip(RoundedCornerShape(100f))
                     .background(
                         Brush.horizontalGradient(
                             listOf(Color(0xFFEEAA47), Color(0xFFFB8C00))
                         )
                     )
-                    .padding(horizontal = Dimens8, vertical = Dimens4),
+                    .padding(horizontal = Dimens8, vertical = 3.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
