@@ -1,0 +1,326 @@
+package com.example.myapplication.main.settings
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
+import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.ui.theme.AppDimens
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.ui.theme.getButtonColors
+
+// ── Data model ───────────────────────────────────────────────────────────────
+
+private sealed class TierAccess {
+    object Full : TierAccess()
+    data class Limited(val perDay: Int) : TierAccess()
+    object LoginRequired : TierAccess()
+    object Premium : TierAccess()
+}
+
+private data class PlanRow(
+    val icon: ImageVector,
+    val title: String,
+    val guest: TierAccess,
+    val free: TierAccess,
+    // premium is always Full
+)
+
+private data class PlanSection(
+    val icon: ImageVector,
+    val title: String,
+    val type: ButtonType,
+    val rows: List<PlanRow>,
+)
+
+private val planSections = listOf(
+    PlanSection(
+        icon = Icons.Filled.Stars,
+        title = "Ages 3-5 · Little Explorers",
+        type = ButtonType.ORANGE,
+        rows = listOf(
+            PlanRow(Icons.Filled.TextFields,   "ABCD with Images",         TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.TextFormat,   "Letter Recognition",       TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.Edit,         "Alphabet Tracing (A-M)",   TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.EditOff,      "Alphabet Tracing (N-Z)",   TierAccess.LoginRequired, TierAccess.Full),
+            PlanRow(Icons.Filled.Palette,      "Colouring Alphabets",      TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.SwapVert,     "Match Upper / Lower",      TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.Image,        "Match Letter + Image",     TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.CropSquare,   "Fill the Blank Letter",    TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Sort,         "Arrange Letter Sequence",  TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Help,         "Missing Letter",           TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.TouchApp,     "Drag & Drop Letters",      TierAccess.Premium,       TierAccess.Premium),
+        )
+    ),
+    PlanSection(
+        icon = Icons.Filled.MenuBook,
+        title = "Ages 5-7 · Word Adventure",
+        type = ButtonType.BLUE,
+        rows = listOf(
+            PlanRow(Icons.Filled.Book,         "Vocabulary - Animals",     TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.LocalFlorist, "Vocabulary - Fruits",      TierAccess.LoginRequired, TierAccess.Full),
+            PlanRow(Icons.Filled.Pets,         "Vocabulary - Others",      TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Article,      "Articles A / An",          TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.Visibility,   "Sight Words",              TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.SwapHoriz,    "Opposite Words",           TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.PhotoAlbum,   "Match Word + Picture",     TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.Description,  "Articles Choice",          TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.RemoveRedEye, "Sight Word Choice",        TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.HelpOutline,  "Missing Letter (5-7)",     TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.LooksOne,     "Singular / Plural",        TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Brush,        "Colouring Words",          TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Headphones,   "Listen & Select",          TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Extension,    "Word Jigsaw",              TierAccess.Premium,       TierAccess.Premium),
+        )
+    ),
+    PlanSection(
+        icon = Icons.Filled.Assignment,
+        title = "Ages 6-8 · Sentence Builder",
+        type = ButtonType.GREEN,
+        rows = listOf(
+            PlanRow(Icons.Filled.Book,              "Read & Listen (Unit 1)",   TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.LibraryBooks,      "Read & Listen (All)",      TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Spellcheck,        "Grammar - Nouns",          TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.Star,              "Grammar - Others",         TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Chat,              "One Word Answer",          TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.BorderColor,       "Fill Missing Word",        TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.CheckCircle,       "Choose Right Sentence",    TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.Search,            "Sentence Check",           TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.School,            "Grammar Challenge (Bgn)",  TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.Build,             "Build the Sentence",       TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Photo,             "Match the Picture",        TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Adjust,            "Which Sentence is Right",  TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Create,            "Find Correct Writing",     TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.FormatListBulleted,"Fill the Blanks",          TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.EmojiEvents,       "Grammar Challenge (Med+)", TierAccess.Premium,       TierAccess.Premium),
+        )
+    )
+)
+
+// ── Screen ───────────────────────────────────────────────────────────────────
+
+@Composable
+fun AccessPlanScreen(navController: NavController) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        BackgroundUI()
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.safeDrawing)
+        ) {
+            // ── Back button ──────────────────────────────────────────────
+            BackButtonWithText(
+                title = "Access Plan",
+                onBackClick = { navController.popBackStack() }
+            )
+
+            // ── Scrollable content ───────────────────────────────────────
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(horizontal = Dimens16)
+                    .padding(bottom = Dimens16),
+                verticalArrangement = Arrangement.spacedBy(Dimens12)
+            ) {
+                Spacer(Modifier.height(Dimens8))
+                planSections.forEach { section ->
+                    SectionBlock(section)
+                }
+            }
+        }
+    }
+}
+
+// ── Section block ─────────────────────────────────────────────────────────────
+
+private val tierColWidth = 80.dp
+
+@Composable
+private fun SectionBlock(section: PlanSection) {
+    val colors = getButtonColors(section.type)
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(4.dp, RoundedCornerShape(12.dp))
+    ) {
+        // Header — title left, tier labels right
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))
+                .background(brush = colors.gradient)
+                .padding(horizontal = Dimens12, vertical = Dimens8),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                imageVector = section.icon,
+                contentDescription = null,
+                tint = Color.White,
+                modifier = Modifier.size(18.dp)
+            )
+            Spacer(Modifier.width(Dimens8))
+            Text(
+                text = section.title,
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp,
+                modifier = Modifier.weight(1f),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            Spacer(Modifier.width(Dimens8))
+            // Tier column labels
+            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                TierLabel(icon = Icons.Filled.AccountCircle, text = "Guest")
+                TierLabel(icon = Icons.Filled.Person,        text = "Free")
+                TierLabel(icon = Icons.Filled.Star,          text = "Premium")
+            }
+        }
+
+        // Rows
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(bottomStart = 12.dp, bottomEnd = 12.dp))
+                .background(Color.White.copy(alpha = 0.92f))
+        ) {
+            section.rows.forEachIndexed { idx, row ->
+                PlanRowItem(row, isEven = idx % 2 == 0)
+                if (idx < section.rows.size - 1) {
+                    Divider(color = Color.Gray.copy(alpha = 0.2f), thickness = 0.5.dp)
+                }
+            }
+        }
+    }
+}
+
+// ── Tier label (inside section header) ───────────────────────────────────────
+
+@Composable
+private fun TierLabel(icon: ImageVector, text: String) {
+    Column(
+        modifier = Modifier.width(tierColWidth),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            tint = Color.White.copy(alpha = 0.9f),
+            modifier = Modifier.size(12.dp)
+        )
+        Text(
+            text = text,
+            color = Color.White.copy(alpha = 0.9f),
+            fontWeight = FontWeight.Bold,
+            fontSize = 10.sp,
+            textAlign = TextAlign.Center,
+            maxLines = 1
+        )
+    }
+}
+
+// ── Plan row ──────────────────────────────────────────────────────────────────
+
+@Composable
+private fun PlanRowItem(row: PlanRow, isEven: Boolean) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(if (isEven) Color.Transparent else Color.Gray.copy(alpha = 0.04f))
+            .padding(vertical = Dimens6, horizontal = Dimens8),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        // Activity label
+        Row(
+            modifier = Modifier.weight(1f),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                imageVector = row.icon,
+                contentDescription = null,
+                tint = Color.Black.copy(alpha = 0.55f),
+                modifier = Modifier.size(16.dp)
+            )
+            Spacer(Modifier.width(AppDimens.Dimens6))
+            Text(
+                text = row.title,
+                fontSize = 13.sp,
+                fontWeight = FontWeight.Medium,
+                color = Color.Black.copy(alpha = 0.85f),
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
+
+        Spacer(Modifier.width(4.dp))
+        AccessBadge(row.guest,        Modifier.width(tierColWidth))
+        Spacer(Modifier.width(4.dp))
+        AccessBadge(row.free,         Modifier.width(tierColWidth))
+        Spacer(Modifier.width(4.dp))
+        AccessBadge(TierAccess.Full,  Modifier.width(tierColWidth))
+    }
+}
+
+// ── Access badge (horizontal) ─────────────────────────────────────────────────
+
+@Composable
+private fun AccessBadge(access: TierAccess, modifier: Modifier = Modifier) {
+    val (icon, label, bg, fg) = when (access) {
+        TierAccess.Full           -> Quad(Icons.Filled.CheckCircle, "Full",     Color(0xFFE8F5E9), Color(0xFF2E7D32))
+        is TierAccess.Limited     -> Quad(Icons.Filled.AccessTime,  "${access.perDay}/day", Color(0xFFFFF3E0), Color(0xFFE65100))
+        TierAccess.LoginRequired  -> Quad(Icons.Filled.Lock,        "Login",    Color(0xFFE3F2FD), Color(0xFF1565C0))
+        TierAccess.Premium        -> Quad(Icons.Filled.Star,        "Premium",  Color(0xFFFFF8E1), Color(0xFFF57F17))
+    }
+    Row(
+        modifier = modifier
+            .clip(RoundedCornerShape(8.dp))
+            .background(bg)
+            .padding(horizontal = 4.dp, vertical = 4.dp),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            tint = fg,
+            modifier = Modifier.size(9.dp)
+        )
+        Spacer(Modifier.width(3.dp))
+        Text(
+            text = label,
+            color = fg,
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis
+        )
+    }
+}

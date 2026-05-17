@@ -10,6 +10,13 @@ import javax.inject.Singleton
 private const val TAG = "AccessManager"
 
 /**
+ * ⚠️ DEVELOPER MODE — set to true to bypass all access gates during development.
+ * Every module behaves as if the user has an active premium subscription.
+ * MUST be false before releasing to production.
+ */
+private const val DEV_MODE = true
+
+/**
  * The single source of truth for access control.
  *
  * Every ViewModel calls [checkAccess] — no screen ever talks to
@@ -57,6 +64,12 @@ class AccessManager @Inject constructor(
 
         val state = _userState.value
         Log.d(TAG, "checkAccess → moduleId='$moduleId' | level=${config.accessLevel} | userState=$state")
+
+        // Developer mode — treat everything as premium
+        if (DEV_MODE) {
+            Log.w(TAG, "checkAccess → ALLOWED (DEV_MODE is ON — disable before release!)")
+            return AccessResult.Allowed
+        }
 
         // Premium users bypass all restrictions
         if (state.isPremium) {

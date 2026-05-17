@@ -29,29 +29,31 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.R
 import com.example.myapplication.main.common.buttons.KidsActionButton
-import com.example.myapplication.ui.theme.AppDimens.Dimens6
-import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens18
+import com.example.myapplication.ui.theme.AppDimens.Dimens32
+import com.example.myapplication.ui.theme.AppDimens.Dimens40
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.ShadowOffsetText
 import com.example.myapplication.ui.theme.AppDimens.SheetDividerHeight
 import com.example.myapplication.ui.theme.AppDimens.SheetDividerWidth
 import com.example.myapplication.ui.theme.AppDimens.SheetIconCircle
 import com.example.myapplication.ui.theme.AppDimens.SheetIconSizeLg
-import com.example.myapplication.ui.theme.AppDimens.ShadowOffsetText
 import com.example.myapplication.ui.theme.ButtonType
-import com.revenuecat.purchases.Package
 import com.example.myapplication.utils.extensions.scaled
+import com.revenuecat.purchases.Package
 
 /**
  * Paywall bottom sheet — landscape layout.
@@ -76,28 +78,35 @@ fun PaywallSheet(
         it.packageType.name.contains("ANNUAL", ignoreCase = true)
     }
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Column (modifier = Modifier.fillMaxSize()) {
 
         // ── Close button ─────────────────────────────────────────────
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(Dimens12)
-                .size(32.dp)
-                .clip(CircleShape)
-                .background(Color(0xFFF0F0F0))
-                .clickable(
-                    indication = null,
-                    interactionSource = remember { MutableInteractionSource() }
-                ) { onDismiss() },
-            contentAlignment = Alignment.Center
+        Row(
+            modifier = Modifier.fillMaxWidth()
         ) {
-            Icon(
-                imageVector = Icons.Default.Close,
-                contentDescription = "Close",
-                tint = Color(0xFF666666),
-                modifier = Modifier.size(18.dp)
-            )
+            Spacer(modifier = Modifier.weight(1f))
+
+            Box(
+                modifier = Modifier
+                    .padding(end = Dimens12)
+                    .size(Dimens32)
+                    .clip(CircleShape)
+                    .background(Color(0xFFF0F0F0))
+                    .clickable(
+                        indication = null,
+                        interactionSource = remember { MutableInteractionSource() }
+                    ) {
+                        onDismiss()
+                    },
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Close,
+                    contentDescription = "Close",
+                    tint = Color(0xFF666666),
+                    modifier = Modifier.size(Dimens18)
+                )
+            }
         }
 
         // ── Main landscape layout ────────────────────────────────────
@@ -173,7 +182,7 @@ fun PaywallSheet(
                 if (isLoading) {
                     CircularProgressIndicator(
                         color = Color(0xFF0074D5),
-                        modifier = Modifier.size(40.dp)
+                        modifier = Modifier.size(Dimens40)
                     )
                 } else {
                     PlanRowCard(
@@ -187,7 +196,7 @@ fun PaywallSheet(
                         onPurchase = onPurchase
                     )
 
-                    Spacer(modifier = Modifier.height(Dimens10))
+                    Spacer(modifier = Modifier.height(Dimens16))
 
                     PlanRowCard(
                         emoji = "🏆",
@@ -203,7 +212,7 @@ fun PaywallSheet(
                     Spacer(modifier = Modifier.height(Dimens8))
 
                     Text(
-                        text = "Restore Purchases",
+                        text = stringResource(R.string.restore_purchases),
                         color = Color(0xFF0074D5),
                         style = MaterialTheme.typography.bodySmall.scaled(),
                         fontWeight = FontWeight.SemiBold,
@@ -285,7 +294,7 @@ private fun PlanRowCard(
                     .clip(RoundedCornerShape(100f))
                     .background(
                         Brush.horizontalGradient(
-                            listOf(Color(0xFFEEAA47), Color(0xFFFB8C00))
+                            listOf(Color(0xFF22A927), Color(0xFF049D06))
                         )
                     )
                     .padding(horizontal = Dimens8, vertical = 3.dp),

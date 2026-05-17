@@ -23,9 +23,11 @@ object AppDimens {
     val Dimens10 = if(isLargeTablet) 20.dp else if (isTablet) 13.dp else 10.dp
     val Dimens12 = if(isLargeTablet) 24.dp else if (isTablet) 16.dp else 12.dp
     val Dimens16 = if(isLargeTablet) 30.dp else if (isTablet) 22.dp else 16.dp
+    val Dimens18 = if(isLargeTablet) 36.dp else if (isTablet) 26.dp else 18.dp
     val Dimens20 = if(isLargeTablet) 40.dp else if (isTablet) 30.dp else 20.dp
     val Dimens24 = if(isLargeTablet) 48.dp else if (isTablet) 36.dp else 24.dp
     val Dimens28 = if(isLargeTablet) 56.dp else if (isTablet) 36.dp else 28.dp
+    val Dimens32 = if(isLargeTablet) 64.dp else if (isTablet) 40.dp else 32.dp
     val Dimens40 = if(isLargeTablet) 80.dp else if (isTablet) 48.dp else 40.dp
     val Dimens50 = if(isLargeTablet) 100.dp else if (isTablet) 72.dp else 50.dp
     val DimensColorCircles = if(isLargeTablet) 56.dp else if (isTablet) 48.dp else 36.dp

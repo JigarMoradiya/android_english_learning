@@ -232,5 +232,6 @@
     <string name="pick_the_correct_option">Pick the correct option</string>
     <string name="tap_the_right_word_in_the_sentence">Tap the right word in the sentence</string>
     <string name="the_was_font_color_2e7d32_b_b_font"><![CDATA[The %1$s was <font color=\"#2E7D32\"><b>%2$s</b></font>]]></string>
+    <string name="restore_purchases">Restore Purchases</string>
 
 </resources>

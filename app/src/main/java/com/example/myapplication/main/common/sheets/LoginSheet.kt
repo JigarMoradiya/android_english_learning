@@ -39,6 +39,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens18
+import com.example.myapplication.ui.theme.AppDimens.Dimens32
+import com.example.myapplication.ui.theme.AppDimens.Dimens40
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.SheetDividerHeight
@@ -66,7 +69,7 @@ fun LoginSheet(
             modifier = Modifier
                 .align(Alignment.TopEnd)
                 .padding(Dimens12)
-                .size(32.dp)
+                .size(Dimens32)
                 .clip(CircleShape)
                 .background(Color(0xFFF0F0F0))
                 .clickable(
@@ -79,7 +82,7 @@ fun LoginSheet(
                 imageVector = Icons.Default.Close,
                 contentDescription = "Close",
                 tint = Color(0xFF666666),
-                modifier = Modifier.size(18.dp)
+                modifier = Modifier.size(Dimens18)
             )
         }
 
@@ -156,7 +159,7 @@ fun LoginSheet(
                 if (isLoading) {
                     CircularProgressIndicator(
                         color = Color(0xFF0074D5),
-                        modifier = Modifier.size(40.dp)
+                        modifier = Modifier.size(Dimens40)
                     )
                 } else {
                     SignInProviderButton(
