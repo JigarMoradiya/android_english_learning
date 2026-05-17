@@ -16,13 +16,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -39,7 +40,10 @@ import com.example.myapplication.main.age_group.from_6_to_8.common.StyledColumn
 import com.example.myapplication.main.age_group.from_6_to_8.common.unit.view_model.SentenceUnitViewModel
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
+import kotlinx.coroutines.launch
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
@@ -56,6 +60,8 @@ fun SentenceUnitPage(
     navController: NavController,
     viewModel: SentenceUnitViewModel = hiltViewModel()
 ) {
+    val accessVM = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
@@ -103,13 +109,25 @@ fun SentenceUnitPage(
                 verticalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
 
-                items(uiState.sentenceUnitsList) { item ->
+                val unit1OnlyScreens = setOf(
+                    UnitSelectionScreen.READ_AND_LISTEN_SENTENCE,
+                    UnitSelectionScreen.ONE_WORD_ANSWER,
+                    UnitSelectionScreen.FILL_THE_MISSING_WORD
+                )
+
+                itemsIndexed(uiState.sentenceUnitsList) { index, item ->
+
                     StyledColumn(
                         unlocked = true,
                         modifier = Modifier
                             .clip(RoundedCornerShape(Dimens12)) // 👈 IMPORTANT
                             .clickable {
                                 AudioPlayerManager.playSoundMenuClick()
+                                // Unit 1 (index 0) is free for all; units 2+ require premium
+                                if (index > 0 && screenType in unit1OnlyScreens) {
+                                    scope.launch { accessVM.checkAccess(ModuleID.READ_LISTEN_ALL) }
+                                    return@clickable
+                                }
                                 when (screenType) {
                                     UnitSelectionScreen.MATCH_THE_PICTURE -> {
                                         navController.navigate(RouteNavigation.MatchThePicture.matchThePicture(item.unit.name, uiState.level.name))

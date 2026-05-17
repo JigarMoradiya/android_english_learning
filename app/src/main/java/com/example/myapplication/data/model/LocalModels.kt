@@ -7,12 +7,14 @@ data class LearningActivityModel(
     @StringRes val titleRes: Int,
     val img: Int,
     val destination: String,
-    val txtColor : Color = Color(0xFF000000)
+    val txtColor: Color = Color(0xFF000000),
+    val moduleId: String = ""   // Empty = freely accessible, no access check needed
 )
 
 data class VocabularyCategoryData(
     val type: String,
     @StringRes val titleRes: Int,
     val imageName: Int,
-    val words: List<String>
+    val words: List<String>,
+    val moduleId: String = ""    // Empty = freely accessible, no access check needed
 )

@@ -56,8 +56,8 @@ android {
             resValue("string","app_name", "English Learning")
             dimension = "variant"
             applicationId = "com.vedaavi.english.learning"
-            versionCode = 4
-            versionName = "1.0.1"
+            versionCode = 5
+            versionName = "1.0.2"
         }
     }
 
@@ -113,4 +113,19 @@ dependencies {
     implementation(libs.firebase.crashlytics.ndk)
     implementation(libs.firebase.config)
     implementation(libs.onesignal)
+
+    // DataStore — for daily limit tracking
+    implementation(libs.datastore.preferences)
+
+    // Firebase Auth
+    implementation(libs.firebase.auth)
+
+    // Credential Manager (modern Google Sign-In — replaces deprecated GoogleSignInClient)
+    implementation(libs.credentials)
+    implementation(libs.credentials.play.services.auth)
+    implementation(libs.googleid)
+
+    // RevenueCat — subscription management
+    implementation(libs.revenuecat)
+    implementation(libs.revenuecat.ui)
 }

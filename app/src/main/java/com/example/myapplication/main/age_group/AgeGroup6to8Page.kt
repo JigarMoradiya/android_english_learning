@@ -17,7 +17,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -43,6 +46,9 @@ import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun AgeGroup6to8Page(navController: NavController) {
+    val accessVM = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
+
     Box(modifier = Modifier.fillMaxSize()) {
         BackgroundUI()
         Column(
@@ -77,7 +83,12 @@ fun AgeGroup6to8Page(navController: NavController) {
                             modifier = Modifier
                                 .clickable {
                                     AudioPlayerManager.playSoundMenuClick()
-                                    navController.navigate(activity.destination)
+                                    scope.launch {
+                                        val allowed = if (activity.moduleId.isNotEmpty())
+                                            accessVM.checkAccess(activity.moduleId)
+                                        else true
+                                        if (allowed) navController.navigate(activity.destination)
+                                    }
                                 }
                         ) {
 

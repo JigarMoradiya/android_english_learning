@@ -15,7 +15,10 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
+import kotlinx.coroutines.launch
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
@@ -32,6 +35,9 @@ import com.example.myapplication.utils.AudioPlayerManager
 
 @Composable
 fun AgeGroup3to5Page(navController: NavController) {
+    val accessVM = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
+
     Box(modifier = Modifier.fillMaxSize()) {
         BackgroundUI()
         Column(
@@ -67,7 +73,12 @@ fun AgeGroup3to5Page(navController: NavController) {
                             .fillMaxSize()
                             .clickable {
                                 AudioPlayerManager.playSoundMenuClick()
-                                navController.navigate(activity.destination)
+                                scope.launch {
+                                    val allowed = if (activity.moduleId.isNotEmpty())
+                                        accessVM.checkAccess(activity.moduleId)
+                                    else true
+                                    if (allowed) navController.navigate(activity.destination)
+                                }
                             }
                     ) {
 

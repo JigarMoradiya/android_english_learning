@@ -16,7 +16,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.base.nav.AppNavGraph
 import com.example.myapplication.main.base.BaseActivity
+import com.example.myapplication.main.common.sheets.AccessBottomSheetHost
 import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.example.myapplication.data.auth.AuthManager
 import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,8 +29,14 @@ class AgeCategoryActivity : BaseActivity() {
     @Inject
     lateinit var ttsManager: TextToSpeechManager
 
+    @Inject
+    lateinit var authManager: AuthManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Restore previous login/subscription session on every launch
+        authManager.restoreSession()
 
         // Hide Status Bar
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -55,9 +63,11 @@ class AgeCategoryActivity : BaseActivity() {
                 MyApplicationTheme {
                     Surface(
                         modifier = Modifier.fillMaxSize(),
-                        color = MaterialTheme.colorScheme.background // will be white if you set it in LightColors
+                        color = MaterialTheme.colorScheme.background
                     ) {
-                        AppNavGraph(navController = navController)
+                        AccessBottomSheetHost {
+                            AppNavGraph(navController = navController)
+                        }
                     }
                 }
             }

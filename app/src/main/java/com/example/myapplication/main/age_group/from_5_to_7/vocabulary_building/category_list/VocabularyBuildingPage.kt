@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
@@ -29,8 +30,10 @@ import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.
 import com.example.myapplication.main.age_group.presentation.model.vocabularyCategoryDataList
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.utils.AudioPlayerManager
+import kotlinx.coroutines.launch
 
 
 @Composable
@@ -38,6 +41,8 @@ fun VocabularyBuildingPage(
     navController: NavController,
     onDetailClick : (String,String) -> Unit
 ) {
+    val accessVM = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
 
     Box(modifier = Modifier.fillMaxSize()) {
 
@@ -72,7 +77,12 @@ fun VocabularyBuildingPage(
                             .fillMaxSize()
                             .clickable {
                                 AudioPlayerManager.playSoundMenuClick()
-                                onDetailClick(category.type, str)
+                                scope.launch {
+                                    val allowed = if (category.moduleId.isNotEmpty())
+                                        accessVM.checkAccess(category.moduleId)
+                                    else true
+                                    if (allowed) onDetailClick(category.type, str)
+                                }
                             }
                     ) {
 

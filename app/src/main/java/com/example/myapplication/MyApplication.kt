@@ -9,6 +9,7 @@ import com.example.myapplication.data.model.NotificationData
 import com.example.myapplication.main.base.notification.NotificationCommand
 import com.example.myapplication.main.base.notification.NotificationRouteMapper
 import com.example.myapplication.main.base.notification.PendingNotificationRoute
+import com.example.myapplication.data.purchase.RevenueCatManager
 import com.example.myapplication.utils.AppConstants
 import com.google.firebase.crashlytics.internal.common.CommonUtils
 import com.google.gson.Gson
@@ -32,12 +33,17 @@ import com.onesignal.notifications.INotificationWillDisplayEvent
 import com.onesignal.user.state.IUserStateObserver
 import com.onesignal.user.state.UserChangedState
 import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 import kotlin.jvm.java
 
 @HiltAndroidApp
 class MyApplication : Application(){
+
+    @Inject lateinit var revenueCatManager: RevenueCatManager
+
     override fun onCreate() {
         super.onCreate()
+        revenueCatManager.initialize()
         oneSignal()
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
             override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {

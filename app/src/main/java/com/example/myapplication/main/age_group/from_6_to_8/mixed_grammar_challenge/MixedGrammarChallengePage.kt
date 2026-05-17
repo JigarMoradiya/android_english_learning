@@ -35,11 +35,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.min
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavController
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActivityCard
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
+import kotlinx.coroutines.launch
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
@@ -49,6 +53,9 @@ import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun MixedGrammarChallengePage(navController: NavController) {
+    val accessVM = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
+
     Box(Modifier.fillMaxSize()) {
         BackgroundUI(isGreenGrassShow = false)
         Column(
@@ -69,6 +76,7 @@ fun MixedGrammarChallengePage(navController: NavController) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Spacer(Modifier.weight(1f))
+                    // Beginner: FREE_LIMITED — 3/day guest, 5/day login, unlimited premium
                     KidsActivityCard(
                         size = size,
                         title = "Beginner",
@@ -76,9 +84,13 @@ fun MixedGrammarChallengePage(navController: NavController) {
                         icon = Icons.Filled.Star,
                         accentColor = Color(0xFF2E7D32)
                     ) {
-                        navController.navigate(RouteNavigation.MixedGrammarBeginner.route)
+                        scope.launch {
+                            val allowed = accessVM.checkAccess(ModuleID.GRAMMAR_CHALLENGE_BEGINNER)
+                            if (allowed) navController.navigate(RouteNavigation.MixedGrammarBeginner.route)
+                        }
                     }
                     Spacer(Modifier.width(spacing))
+                    // Medium: PREMIUM
                     KidsActivityCard(
                         size = size,
                         title = "Medium",
@@ -86,9 +98,13 @@ fun MixedGrammarChallengePage(navController: NavController) {
                         icon = Icons.Filled.Whatshot,
                         accentColor = Color(0xFFE65100)
                     ) {
-                        navController.navigate(RouteNavigation.DragToGrammarBucket.route)
+                        scope.launch {
+                            val allowed = accessVM.checkAccess(ModuleID.GRAMMAR_CHALLENGE_MEDIUM)
+                            if (allowed) navController.navigate(RouteNavigation.DragToGrammarBucket.route)
+                        }
                     }
                     Spacer(Modifier.width(spacing))
+                    // Advanced: PREMIUM
                     KidsActivityCard(
                         size = size,
                         title = "Advanced",
@@ -96,7 +112,10 @@ fun MixedGrammarChallengePage(navController: NavController) {
                         icon = Icons.Filled.EmojiEvents,
                         accentColor = Color(0xFF6A1B9A)
                     ) {
-                        navController.navigate(RouteNavigation.MixedGrammarAdvanced.route)
+                        scope.launch {
+                            val allowed = accessVM.checkAccess(ModuleID.GRAMMAR_CHALLENGE_ADVANCED)
+                            if (allowed) navController.navigate(RouteNavigation.MixedGrammarAdvanced.route)
+                        }
                     }
                     Spacer(Modifier.weight(1f))
                 }

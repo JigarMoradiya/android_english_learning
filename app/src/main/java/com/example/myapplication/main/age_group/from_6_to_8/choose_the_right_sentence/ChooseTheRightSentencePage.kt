@@ -21,6 +21,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -39,6 +40,8 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.presentation.model.activities_age_6_8_right_sentence
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
+import kotlinx.coroutines.launch
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens40
 import com.example.myapplication.ui.theme.AppDimens.Dimens50
@@ -51,6 +54,8 @@ import com.example.myapplication.utils.extensions.scaled
 fun ChooseTheRightSentencePage(
     navController: NavController
 ) {
+    val accessVM = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
 
     Box(modifier = Modifier.fillMaxSize()) {
         BackgroundUI()
@@ -90,7 +95,12 @@ fun ChooseTheRightSentencePage(
                                     .fillMaxWidth()
                                     .clickable {
                                         AudioPlayerManager.playSoundMenuClick()
-                                        navController.navigate(activity.destination)
+                                        scope.launch {
+                                            val allowed = if (activity.moduleId.isNotEmpty())
+                                                accessVM.checkAccess(activity.moduleId)
+                                            else true
+                                            if (allowed) navController.navigate(activity.destination)
+                                        }
                                     }
                             ) {
                                 Image(

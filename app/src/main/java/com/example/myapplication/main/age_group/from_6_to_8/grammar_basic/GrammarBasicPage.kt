@@ -48,6 +48,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
@@ -55,6 +56,8 @@ import com.example.myapplication.main.age_group.presentation.model.activities_ag
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
+import kotlinx.coroutines.launch
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
@@ -69,6 +72,9 @@ import com.example.myapplication.utils.extensions.scaled
 fun GrammarBasicPage(
     navController: NavController
 ) {
+    val accessVM = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
+
     Box(modifier = Modifier.fillMaxSize()) {
         BackgroundUI(isGreenGrassShow = false)
 
@@ -116,7 +122,12 @@ fun GrammarBasicPage(
                                     .background(activity.txtColor.copy(alpha = 0.15f))
                                     .clickable {
                                         AudioPlayerManager.playSoundMenuClick()
-                                        navController.navigate(activity.destination)
+                                        scope.launch {
+                                            val allowed = if (activity.moduleId.isNotEmpty())
+                                                accessVM.checkAccess(activity.moduleId)
+                                            else true
+                                            if (allowed) navController.navigate(activity.destination)
+                                        }
                                     }
                                     .padding(vertical = Dimens16),
                                 horizontalAlignment = Alignment.CenterHorizontally
