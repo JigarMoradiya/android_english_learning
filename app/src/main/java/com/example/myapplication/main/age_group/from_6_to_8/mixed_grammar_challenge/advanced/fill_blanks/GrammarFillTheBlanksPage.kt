@@ -167,7 +167,7 @@ fun GrammarFillTheBlanksPage(
                                     contentDescription = q.imageName,
                                     contentScale = ContentScale.Fit,
                                     modifier = Modifier
-                                        .fillMaxHeight(0.65f)
+                                        .fillMaxHeight(0.6f)
                                         .aspectRatio(1f)
                                         .shadow(Dimens8, RoundedCornerShape(Dimens16))
                                         .clip(RoundedCornerShape(Dimens16))

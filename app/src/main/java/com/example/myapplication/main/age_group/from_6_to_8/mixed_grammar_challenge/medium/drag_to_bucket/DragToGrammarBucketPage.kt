@@ -20,7 +20,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -31,12 +30,10 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Brush
 import androidx.compose.material.icons.filled.Cancel
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Person
@@ -68,13 +65,13 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.generation.loader.WordDragItem
 import com.example.myapplication.data.generation.loader.WrongCorrection
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.data.model.WordType
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.medium.drag_to_bucket.view_model.DragToGrammarBucketViewModel
@@ -86,7 +83,6 @@ import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.MatchWordBoxHeight
@@ -141,26 +137,45 @@ fun DragToGrammarBucketPage(
                     onBackClick = { navController.popBackStack() }
                 )
                 KidsLabel("Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",)
-                AnimatedVisibility(visible = uiState.showNext) {
-                    KidsActionButton(
-                        text = if (uiState.isLastIndex) stringResource(R.string.check_result) else stringResource(R.string.next),
-                        icon = if (uiState.isLastIndex) null else Icons.AutoMirrored.Filled.KeyboardArrowRight,
-                        isIconStart = false,
-                        type = if (uiState.isLastIndex) ButtonType.POSITIVE else ButtonType.ORANGE,
-                        isSmall = true,
-                        modifier = Modifier.padding(end = Dimens16),
-                        onClick = { viewModel.moveToNext() }
-                    )
-                }
+
+                KidsActionButton(
+                    text = if (uiState.isLastIndex) stringResource(R.string.check_result) else stringResource(R.string.next),
+                    icon = if (uiState.isLastIndex) null else Icons.AutoMirrored.Rounded.KeyboardArrowRight,
+                    isIconStart = false,
+                    isSmall = true,
+                    type = when {
+                        !uiState.showNext  -> ButtonType.DISABLE
+                        uiState.isLastIndex -> ButtonType.POSITIVE
+                        else               -> ButtonType.ORANGE
+                    },
+                    disable = !uiState.showNext,
+                    onClick = { viewModel.moveToNext() },
+                    modifier = Modifier.padding(end = Dimens16)
+                )
             }
 
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(horizontal = Dimens16),
-                verticalArrangement = Arrangement.spacedBy(Dimens12)
+                verticalArrangement = Arrangement.spacedBy(Dimens12),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Spacer(Modifier.weight(0.5f))
+
+                if (DeviceInfo.isTablet){
+                    getImageResForSentence(question.imageName)?.let { resId ->
+                        Image(
+                            painter = painterResource(resId),
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier
+                                .size(mixGrammarMediumImageSize * 1.6f)
+                                .clip(RoundedCornerShape(Dimens8))
+                                .shadow(Dimens4, RoundedCornerShape(Dimens8))
+                        )
+                    }
+                }
 
                 // ── Image + Sentence + Instruction ────────────────────────────
                 Row(
@@ -169,26 +184,39 @@ fun DragToGrammarBucketPage(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Spacer(Modifier.weight(1f))
-                    getImageResForSentence(question.imageName)?.let { resId ->
-                        Image(
-                            painter = painterResource(resId),
-                            contentDescription = null,
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .size(mixGrammarMediumImageSize)
-                                .clip(RoundedCornerShape(Dimens8))
-                                .shadow(Dimens4, RoundedCornerShape(Dimens8))
-                        )
+                    if (!DeviceInfo.isTablet){
+                        getImageResForSentence(question.imageName)?.let { resId ->
+                            Image(
+                                painter = painterResource(resId),
+                                contentDescription = null,
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier
+                                    .size(mixGrammarMediumImageSize)
+                                    .clip(RoundedCornerShape(Dimens8))
+                                    .shadow(Dimens4, RoundedCornerShape(Dimens8))
+                            )
+                        }
                     }
-                    Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
+
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(Dimens8),
+                        horizontalAlignment = if (DeviceInfo.isTablet) {
+                            Alignment.CenterHorizontally
+                        } else {
+                            Alignment.Start
+                        }
+                    ) {
+
                         Text(
                             text = question.sentence,
                             style = MaterialTheme.typography.bodyLarge.scaled(),
                             fontWeight = FontWeight.Bold,
                             color = Color.Black.copy(alpha = 0.85f)
                         )
+
                         InstructionBadge()
                     }
+
                     Spacer(Modifier.weight(1f))
                 }
 

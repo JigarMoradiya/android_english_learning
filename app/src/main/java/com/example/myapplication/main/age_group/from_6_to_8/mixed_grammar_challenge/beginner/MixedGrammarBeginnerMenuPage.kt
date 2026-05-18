@@ -37,7 +37,7 @@ fun MixedGrammarBeginnerMenuPage(navController: NavController) {
                 .fillMaxSize()
                 .windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
-            BackButtonWithText("Beginner", onBackClick = { navController.popBackStack() })
+            BackButtonWithText(stringResource(R.string.grammar_challenge_beginner), onBackClick = { navController.popBackStack() })
 
             BoxWithConstraints(
                 modifier = Modifier

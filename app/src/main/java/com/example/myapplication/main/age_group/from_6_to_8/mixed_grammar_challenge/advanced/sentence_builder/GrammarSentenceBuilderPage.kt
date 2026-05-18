@@ -26,17 +26,14 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.FormatListBulleted
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Cancel
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.FormatListBulleted
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -64,14 +61,15 @@ import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.getImageResForSentence
-import com.example.myapplication.ui.theme.AppDimens.Dimens4
-import com.example.myapplication.ui.theme.AppDimens.Dimens6
-import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
+import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.mixGrammarMediumBucketMinHeight
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
@@ -300,7 +298,7 @@ private fun AnswerArea(
                 .heightIn(min = mixGrammarMediumBucketMinHeight)
                 .background(Color.White.copy(alpha = 0.7f), RoundedCornerShape(Dimens12))
                 .border(Dimens2, borderColor, RoundedCornerShape(Dimens12))
-                .padding(Dimens8),
+                .padding(Dimens20),
             contentAlignment = Alignment.Center
         ) {
             if (placedWords.isEmpty()) {
@@ -373,17 +371,17 @@ private fun PlacedWordChip(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Dimens4),
         modifier = Modifier
-            .clip(RoundedCornerShape(8.dp))
+            .clip(RoundedCornerShape(Dimens8))
             .background(color)
             .clickable(enabled = !isSubmitted) { onRemove(word) }
             .padding(horizontal = Dimens10, vertical = Dimens6)
     ) {
         if (isSubmitted) {
             Icon(
-                imageVector = if (color == Color(0xFF388E3C)) Icons.Filled.CheckCircle else Icons.Filled.Close,
+                imageVector = if (color == Color(0xFF388E3C)) Icons.Filled.CheckCircle else Icons.Filled.Cancel,
                 contentDescription = null,
                 tint = Color.White,
-                modifier = Modifier.size(14.dp)
+                modifier = Modifier.size(Dimens12)
             )
         }
         Text(

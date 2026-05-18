@@ -55,6 +55,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.fix_sentence.view_model.FixOptionState
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.fix_sentence.view_model.FixTheSentenceViewModel
@@ -142,6 +143,22 @@ fun FixTheSentencePage(
                     ) {
                         Spacer(Modifier.weight(1f))
 
+                        if (DeviceInfo.isTablet){
+                            getImageResForSentence(q.imageName)?.let { resId ->
+                                Image(
+                                    painter = painterResource(id = resId),
+                                    contentDescription = null,
+                                    contentScale = ContentScale.Crop,
+                                    modifier = Modifier
+                                        .size(mixGrammarAdvanceFixSentenceImageSize * 1.6f)
+                                        .shadow(Dimens8, RoundedCornerShape(Dimens16))
+                                        .clip(RoundedCornerShape(Dimens16))
+                                )
+                            }
+
+                            Spacer(Modifier.height(Dimens16))
+                        }
+
                         // ── Image + instruction panel ─────────────────────────
                         Row(
                             modifier = Modifier.fillMaxWidth(),
@@ -149,23 +166,30 @@ fun FixTheSentencePage(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             // Image
-                            getImageResForSentence(q.imageName)?.let { resId ->
-                                Image(
-                                    painter = painterResource(id = resId),
-                                    contentDescription = null,
-                                    contentScale = ContentScale.Crop,
-                                    modifier = Modifier
-                                        .size(mixGrammarAdvanceFixSentenceImageSize)
-                                        .shadow(Dimens8, RoundedCornerShape(Dimens16))
-                                        .clip(RoundedCornerShape(Dimens16))
-                                )
+                            if (!DeviceInfo.isTablet){
+                                getImageResForSentence(q.imageName)?.let { resId ->
+                                    Image(
+                                        painter = painterResource(id = resId),
+                                        contentDescription = null,
+                                        contentScale = ContentScale.Crop,
+                                        modifier = Modifier
+                                            .size(mixGrammarAdvanceFixSentenceImageSize)
+                                            .shadow(Dimens8, RoundedCornerShape(Dimens16))
+                                            .clip(RoundedCornerShape(Dimens16))
+                                    )
+                                }
                             }
 
                             Spacer(Modifier.width(Dimens16))
 
                             // Instruction badge + hint line
                             Column(
-                                verticalArrangement = Arrangement.spacedBy(Dimens8)
+                                verticalArrangement = Arrangement.spacedBy(Dimens8),
+                                horizontalAlignment = if (DeviceInfo.isTablet) {
+                                    Alignment.CenterHorizontally
+                                } else {
+                                    Alignment.Start
+                                }
                             ) {
                                 // Instruction badge (scissors)
                                 Row(
@@ -252,9 +276,7 @@ fun FixTheSentencePage(
                                 } else {
                                     Text(
                                         text = displayText,
-                                        style = MaterialTheme.typography.titleMedium.copy(
-                                            fontWeight = FontWeight.Bold
-                                        ),
+                                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                                         color = Color.Black.copy(alpha = 0.85f),
                                         modifier = Modifier.padding(horizontal = 3.dp, vertical = 4.dp)
                                     )

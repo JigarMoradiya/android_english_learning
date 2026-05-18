@@ -143,7 +143,7 @@ fun TapTheWordPage(
                         // ── Left section: Image (30%) ─────────────────────────
                         Column(
                             modifier = Modifier
-                                .weight(0.35f)
+                                .weight(0.5f)
                                 .fillMaxHeight(),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
@@ -154,7 +154,7 @@ fun TapTheWordPage(
                                     contentDescription = q.imageName,
                                     contentScale = ContentScale.Crop,
                                     modifier = Modifier
-                                        .fillMaxWidth(0.85f)
+                                        .fillMaxHeight(0.7f)
                                         .aspectRatio(1f)
                                         .shadow(Dimens6, RoundedCornerShape(Dimens12))
                                         .clip(RoundedCornerShape(Dimens12))
@@ -165,7 +165,7 @@ fun TapTheWordPage(
                         // ── Right section: Sentence + Badge + Word Chips (70%) ─
                         Box(
                             modifier = Modifier
-                                .weight(0.65f)
+                                .weight(0.5f)
                                 .fillMaxHeight()
                         ) {
                             Column(

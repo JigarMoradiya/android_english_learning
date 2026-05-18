@@ -66,11 +66,13 @@ object AppDimens {
 
     // ── Bottom sheet constants ───────────────────────────────────────────
     /** Height as a fraction of screen height (same as iOS sheetHeightMultiplier). */
-    val SheetHeightFraction = if(isLargeTablet) 0.52f else if (isTablet) 0.55f else 0.58f
+    val SheetHeightFraction = if(isLargeTablet) 0.4f else if (isTablet) 0.45f else 0.58f
+    val PaywallSheetHeightFraction = if(isLargeTablet) 0.4f else if (isTablet) 0.45f else 0.65f
     /** Max width cap so sheets don't stretch edge-to-edge on tablets. */
-    val SheetMaxWidth = if(isLargeTablet) 660.dp else if (isTablet) 560.dp else 9999.dp
+//    val SheetMaxWidth = if(isLargeTablet) 660.dp else if (isTablet) 560.dp else 9999.dp
+    val SheetMaxWidth = 9999.dp
     /** Width fraction — phones get 94% so there's a visible side margin. */
-    val SheetWidthFraction = if(isLargeTablet || isTablet) 1f else 0.75f
+    val SheetWidthFraction = if(isLargeTablet || isTablet) 0.75f else 0.75f
     /** Circle background behind the main sheet icon. */
     val SheetIconCircle = if(isLargeTablet) 88.dp else if (isTablet) 72.dp else 56.dp
     /** Size of the icon inside the circle. */

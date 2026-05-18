@@ -43,7 +43,7 @@ fun AgeGroup5to7Page(navController: NavController) {
     }
     val headerHeight = DeviceInfo.screenTopPadding() + Dimens8 + ToolbarIconSize
     val gridOverhead = Dimens16 + Dimens12
-    val tileHeight = (screenHeight - headerHeight - gridOverhead) * 0.45f
+    val tileHeight = (screenHeight - headerHeight - gridOverhead) * if (DeviceInfo.isTablet) 0.33f else 0.45f
 
     Box(modifier = Modifier.fillMaxSize()) {
         BackgroundUI(isGreenGrassShow = false)

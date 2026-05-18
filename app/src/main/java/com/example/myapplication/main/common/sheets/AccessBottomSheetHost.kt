@@ -17,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.myapplication.ui.theme.AppDimens.PaywallSheetHeightFraction
 import com.example.myapplication.utils.extensions.findActivity
 
 /**
@@ -114,7 +115,7 @@ fun AccessBottomSheetHost(
         KidsBottomSheet(
             visible = sheetState is AccessSheetState.Paywall,
             onDismiss = { viewModel.dismiss() },
-            heightFraction = 0.65f
+            heightFraction = PaywallSheetHeightFraction
         ) {
             PaywallSheet(
                 packages  = packages,
