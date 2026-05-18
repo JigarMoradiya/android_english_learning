@@ -2,6 +2,7 @@ package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_chall
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.R
 import com.example.myapplication.data.generation.loader.BlankSlot
 import com.example.myapplication.data.generation.loader.FillBlankWord
 import com.example.myapplication.data.generation.loader.FillBlanksFactory
@@ -128,7 +129,7 @@ class GrammarFillTheBlanksViewModel @Inject constructor(
                 it.copy(
                     isAnswerSubmitted = true,
                     isAnswerCorrect = false,
-                    feedbackTitleRes = null,
+                    feedbackTitleRes = R.string.its_wrong,
                     feedbackSubTitleRes = null,
                     correctSentence = buildCorrectSentence(q)
                 )

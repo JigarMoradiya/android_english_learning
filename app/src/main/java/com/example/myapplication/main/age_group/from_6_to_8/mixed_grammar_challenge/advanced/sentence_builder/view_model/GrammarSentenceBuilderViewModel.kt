@@ -3,6 +3,7 @@ package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_chall
 import android.content.Context
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.R
 import com.example.myapplication.data.generation.loader.AdvBuildWord
 import com.example.myapplication.data.generation.loader.AdvSentenceBuilderFactory
 import com.example.myapplication.utils.AudioPlayerManager
@@ -108,7 +109,7 @@ class GrammarSentenceBuilderViewModel @Inject constructor(
                 it.copy(
                     isAnswerSubmitted = true,
                     isAnswerCorrect = false,
-                    feedbackTitleRes = null,
+                    feedbackTitleRes = R.string.its_wrong,
                     feedbackSubTitleRes = null
                 )
             }

@@ -81,7 +81,6 @@ import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challe
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.MixedGrammarAdvancedMenuPage
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.fix_sentence.FixTheSentencePage
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.sentence_builder.GrammarSentenceBuilderPage
-import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.grammar_match.GrammarMatchPage
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.fill_blanks.GrammarFillTheBlanksPage
 import com.google.gson.Gson
 
@@ -477,9 +476,6 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.GrammarSentenceBuilder.route) {
             GrammarSentenceBuilderPage(navController)
-        }
-        composable(RouteNavigation.GrammarMatch.route) {
-            GrammarMatchPage(navController)
         }
         composable(RouteNavigation.GrammarFillTheBlanks.route) {
             GrammarFillTheBlanksPage(navController)

@@ -13,6 +13,7 @@ import com.example.myapplication.R
 import com.example.myapplication.data.generation.loader.FixSentenceFactory
 import com.example.myapplication.data.model.WordType
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -59,6 +60,7 @@ class FixTheSentenceViewModel @Inject constructor(
                 isAnswerSubmitted = true,
                 isAnswerCorrect   = correct,
                 feedbackTitleRes  = if (correct) feedbackTitles.random() else R.string.its_wrong,
+                feedbackSubTitleRes  = if (correct) feedbackGiveAnswerSubTitleCorrect.random() else null,
                 score             = if (correct) it.score + 1 else it.score
             )
         }

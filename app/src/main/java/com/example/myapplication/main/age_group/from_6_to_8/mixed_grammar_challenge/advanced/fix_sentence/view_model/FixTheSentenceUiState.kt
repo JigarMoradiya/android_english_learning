@@ -11,6 +11,7 @@ data class FixTheSentenceUiState(
     val isAnswerSubmitted: Boolean = false,
     val isAnswerCorrect: Boolean = false,
     val feedbackTitleRes: Int? = null,
+    val feedbackSubTitleRes: Int? = null,
     val score: Int = 0,
     val isCompleted: Boolean = false
 ) {

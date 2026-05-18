@@ -10,7 +10,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.text.style.TextAlign
-import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.utils.extensions.scaled
 
 @Composable

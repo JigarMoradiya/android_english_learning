@@ -96,53 +96,33 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="setting page">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_opposite_words.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_singular_plural.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_grammar_challenge.png" afterDir="false" />
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="changed menu UI">
+      <change beforePath="$PROJECT_DIR$/.claude/worktrees/silly-tharp-c6a9af" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/worktrees/silly-tharp-c6a9af" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/AgeGroup3to5Page.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/AgeGroup3to5Page.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/AgeGroup5to7Page.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/AgeGroup5to7Page.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/AgeGroup6to8Page.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/AgeGroup6to8Page.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/components/ActivityTileCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/components/ActivityTileCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/common_ui/lesson/GrammarExplanationSection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/common_ui/lesson/GrammarExplanationSection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fill_blanks/GrammarFillTheBlanksPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fill_blanks/GrammarFillTheBlanksPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fill_blanks/view_model/GrammarFillTheBlanksViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fill_blanks/view_model/GrammarFillTheBlanksViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fix_sentence/FixTheSentencePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fix_sentence/FixTheSentencePage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fix_sentence/view_model/FixTheSentenceUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fix_sentence/view_model/FixTheSentenceUiState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fix_sentence/view_model/FixTheSentenceViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fix_sentence/view_model/FixTheSentenceViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/grammar_match/GrammarMatchPage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/grammar_match/view_model/GrammarMatchUiState.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/grammar_match/view_model/GrammarMatchViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/sentence_builder/GrammarSentenceBuilderPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/sentence_builder/GrammarSentenceBuilderPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/sentence_builder/view_model/GrammarSentenceBuilderViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/sentence_builder/view_model/GrammarSentenceBuilderViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/medium/drag_to_bucket/DragToGrammarBucketPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/medium/drag_to_bucket/DragToGrammarBucketPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/medium/drag_to_bucket/view_model/DragToGrammarBucketUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/medium/drag_to_bucket/view_model/DragToGrammarBucketUiState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/medium/drag_to_bucket/view_model/DragToGrammarBucketViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/medium/drag_to_bucket/view_model/DragToGrammarBucketViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/FeedbackText.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/FeedbackText.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/theme/AppDimens.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/theme/AppDimens.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_abcd_images_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_abcd_images_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_alphabet_tracing_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_alphabet_tracing_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_arrange_letters_in_sequence_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_arrange_letters_in_sequence_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_coloring_alphabets_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_coloring_alphabets_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_drag_drop_word_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_drag_drop_word_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_fill_the_blank_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_fill_the_blank_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_letter_recognition_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_letter_recognition_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_match_letter_image_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_match_letter_image_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_match_letters_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_match_letters_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_missing_letter_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_3_5_missing_letter_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_article_choice.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_article_choice.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_articles_a_an.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_articles_a_an.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_coloring_word.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_coloring_word.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_listen_and_select.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_listen_and_select.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_match_word_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_match_word_image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_missing_letter.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_missing_letter.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_sight_word_choice.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_sight_word_choice.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_sight_words_title.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_sight_words.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_vocabulary_building.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_vocabulary_building.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_word_jigsaw.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_5_7_word_jigsaw.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_build_the_sentence.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_build_the_sentence.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_choose_the_right_sentence.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_choose_the_right_sentence.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_fill_the_missing_word.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_fill_the_missing_word.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_grammer_basics.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_grammer_basics.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_one_word_answer.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_one_word_answer.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_read_sentences.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_read_sentences.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_sentence_check.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/age_6_8_sentence_check.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -267,38 +247,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Android App.app.executor": "Run",
-    "ApkExportedModule": "My_Application.app",
-    "BundleExportedModule": "My_Application.app",
-    "DEBUGGABLE_DEVICE": "samsung-sm_m127g-RZ8RC0C1F6B",
-    "DEBUGGABLE_PROCESS": "com.vedaavi.english.learning",
-    "DEBUGGER_ID": "Auto",
-    "ExportApk.ApkPathForMy_Application.app": "/Users/jigarmoradiya/Documents/newProjects/MyApplication/app",
-    "ExportBundle.BundlePathForMy_Application.app": "/Users/jigarmoradiya/Documents/newProjects/MyApplication/app",
-    "Gradle.MyApplication [signingReport].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHOW_ALL_PROCESSES": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "com.google.services.firebase.aqiPopupShown": "true",
-    "git-widget-placeholder": "login__and__inapp",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jigarmoradiya/Documents/newProjects/MyApplication/app/src/main/res/drawable",
-    "settings.editor.selected.configurable": "com.android.studio.ml.bot.mainConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;ApkExportedModule&quot;: &quot;My_Application.app&quot;,
+    &quot;BundleExportedModule&quot;: &quot;My_Application.app&quot;,
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;samsung-sm_m127g-RZ8RC0C1F6B&quot;,
+    &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.vedaavi.english.learning&quot;,
+    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
+    &quot;ExportApk.ApkPathForMy_Application.app&quot;: &quot;/Users/jigarmoradiya/Documents/newProjects/MyApplication/app&quot;,
+    &quot;ExportBundle.BundlePathForMy_Application.app&quot;: &quot;/Users/jigarmoradiya/Documents/newProjects/MyApplication/app&quot;,
+    &quot;Gradle.MyApplication [signingReport].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;login__and__inapp&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jigarmoradiya/Documents/newProjects/MyApplication/app/src/main/res/drawable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.android.studio.ml.bot.mainConfigurable&quot;
   },
-  "keyToStringList": {
-    "ExportApk.BuildVariants": [
-      "dev1Release"
+  &quot;keyToStringList&quot;: {
+    &quot;ExportApk.BuildVariants&quot;: [
+      &quot;dev1Release&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
@@ -405,9 +385,10 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="${TEAM_ID}" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <embedded_app_extension_list />
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="MyApplication [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -460,14 +441,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00069" summary="changes logo">
-      <option name="closed" value="true" />
-      <created>1776248689162</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1776248689162</updated>
     </task>
     <task id="LOCAL-00070" summary="gradient in coloring alphabets">
       <option name="closed" value="true" />
@@ -853,11 +826,18 @@
       <option name="project" value="LOCAL" />
       <updated>1779072195846</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="changed menu UI">
+      <option name="closed" value="true" />
+      <created>1779081355601</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1779081355601</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sentence builder completed" />
     <MESSAGE value="chnages" />
     <MESSAGE value="ages 6-8 done same as iOS" />
     <MESSAGE value="working on one signal notification" />
@@ -882,7 +862,8 @@
     <MESSAGE value="setup for user access and revenue cut in-app" />
     <MESSAGE value="parental gate" />
     <MESSAGE value="setting page" />
-    <option name="LAST_COMMIT_MESSAGE" value="setting page" />
+    <MESSAGE value="changed menu UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed menu UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

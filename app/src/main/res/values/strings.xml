@@ -235,5 +235,16 @@
     <string name="the_was_font_color_2e7d32_b_b_font"><![CDATA[The %1$s was <font color=\"#2E7D32\"><b>%2$s</b></font>]]></string>
     <string name="restore_purchases">Restore Purchases</string>
     <string name="grammar_challenge_medium">Grammar Challenge - Medium</string>
+    <string name="fix_the_sentence">Fix the Sentence</string>
+    <string name="tap_the_correct_word_to_replace_wrong_word"><![CDATA[Tap the correct word to <font color=\"#C62828\"><b>replace wrong word</b></font>]]></string>
+    <string name="drag_each_word_to_the_correct_category"><![CDATA[Drag each word to the <font color=\"#5C6BC0\"><b>correct category</b></font>]]></string>
+    <string name="correct_sentence">Correct Sentence</string>
+    <string name="tap_words_below_to_build_your_sentence">Tap words below to build your sentence…</string>
+    <string name="your_sentence">Your Sentence</string>
+    <string name="word_pool">Word Pool</string>
+    <string name="sentence_builder">Sentence Builder</string>
+    <string name="tap_words_to_build_the_sentence"><![CDATA[Tap words to <font color=\"#1565C0\"><b>build the sentence</b></font>]]></string>
+    <string name="fill_the_blanks">Fill the Blanks</string>
+    <string name="tap_a_word_to_place_it_in_the_blank"><![CDATA[Tap a word to <font color=\"#6A1B9A\"><b>Place it in the blank</b></font>]]></string>
 
 </resources>

@@ -324,7 +324,9 @@ private fun BucketCard(
             Text(text = label, style = MaterialTheme.typography.bodySmall.scaled(), fontWeight = FontWeight.Bold, color = Color.White)
         }
         // Placed words
-        Box(modifier = Modifier.fillMaxWidth().heightIn(min = MatchWordBoxHeight), contentAlignment = Alignment.Center) {
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(min = MatchWordBoxHeight), contentAlignment = Alignment.Center) {
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(Dimens4, Alignment.CenterHorizontally),
                 verticalArrangement = Arrangement.spacedBy(Dimens4)
@@ -424,8 +426,8 @@ private fun InstructionBadge() {
         horizontalArrangement = Arrangement.spacedBy(Dimens8),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Icon(imageVector = Icons.Default.Edit, contentDescription = null, tint = Color(0xFF5C6BC0), modifier = Modifier.size(16.dp))
-        Text(AnnotatedString.fromHtml("Drag each word to the <b>correct category</b>"), style = MaterialTheme.typography.bodySmall.scaled(), color = Color.Black.copy(alpha = 0.75f))
+        Icon(imageVector = Icons.Default.Edit, contentDescription = null, tint = Color(0xFF5C6BC0), modifier = Modifier.size(Dimens16))
+        Text(AnnotatedString.fromHtml(stringResource(R.string.drag_each_word_to_the_correct_category)), style = MaterialTheme.typography.bodySmall.scaled(), color = Color.Black.copy(alpha = 0.75f))
     }
 }
 

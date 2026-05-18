@@ -106,6 +106,5 @@ sealed class RouteNavigation(val route: String) {
     object MixedGrammarAdvanced : RouteNavigation("MixedGrammarAdvanced")
     object FixTheSentence : RouteNavigation("FixTheSentence")
     object GrammarSentenceBuilder : RouteNavigation("GrammarSentenceBuilder")
-    object GrammarMatch : RouteNavigation("GrammarMatch")
     object GrammarFillTheBlanks : RouteNavigation("GrammarFillTheBlanks")
 }

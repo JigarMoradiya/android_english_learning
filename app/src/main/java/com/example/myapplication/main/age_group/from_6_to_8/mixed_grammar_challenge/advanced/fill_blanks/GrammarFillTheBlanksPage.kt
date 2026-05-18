@@ -27,6 +27,7 @@ import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.TextFormat
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -43,7 +44,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -61,14 +64,17 @@ import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
+import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.utils.extensions.scaled
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -92,13 +98,13 @@ fun GrammarFillTheBlanksPage(
             // ── Header ────────────────────────────────────────────────────────
             Row(verticalAlignment = Alignment.CenterVertically) {
                 BackButtonWithText(
-                    title = "Fill the Blanks",
+                    title = stringResource(R.string.fill_the_blanks),
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
 
                 KidsLabel(
-                    txt = "Q ${uiState.currentIndex + 1} / ${uiState.questions.size}",
+                    txt = "Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",
                     type = ButtonType.PURPLE
                 )
 
@@ -128,7 +134,7 @@ fun GrammarFillTheBlanksPage(
                 ResultView(
                     score = uiState.score,
                     total = uiState.questions.size,
-                    title = "Fill the Blanks",
+                    title = stringResource(R.string.your_result),
                     firstBtnTxt = stringResource(R.string.go_back),
                     onBack = { navController.popBackStack() },
                     onContinue = { viewModel.restart() },
@@ -137,11 +143,6 @@ fun GrammarFillTheBlanksPage(
                 Spacer(Modifier.weight(1f))
             } else {
                 uiState.currentQuestion?.let { q ->
-
-                    val imageRes = remember(q.imageName) {
-                        context.resources.getIdentifier(q.imageName, "drawable", context.packageName)
-                    }
-
                     // HStack: Left 40% | Right 60% (mirrors iOS)
                     Row(
                         modifier = Modifier
@@ -152,7 +153,7 @@ fun GrammarFillTheBlanksPage(
                         // ── Left Panel: Image + Instruction Badge (40%) ───────
                         Column(
                             modifier = Modifier
-                                .weight(0.4f)
+                                .weight(0.35f)
                                 .fillMaxHeight(),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
@@ -160,15 +161,15 @@ fun GrammarFillTheBlanksPage(
                             Spacer(Modifier.weight(1f))
 
                             // Image
-                            if (imageRes != 0) {
+                            getImageResForSentence(q.imageName)?.let { resId ->
                                 Image(
-                                    painter = painterResource(imageRes),
+                                    painter = painterResource(resId),
                                     contentDescription = q.imageName,
                                     contentScale = ContentScale.Fit,
                                     modifier = Modifier
-                                        .fillMaxWidth(0.8f)
+                                        .fillMaxHeight(0.65f)
                                         .aspectRatio(1f)
-                                        .shadow(8.dp, RoundedCornerShape(Dimens16))
+                                        .shadow(Dimens8, RoundedCornerShape(Dimens16))
                                         .clip(RoundedCornerShape(Dimens16))
                                 )
                             }
@@ -184,7 +185,7 @@ fun GrammarFillTheBlanksPage(
                         // ── Right Panel: Sentence + Word Pool + Feedback (60%) ─
                         Column(
                             modifier = Modifier
-                                .weight(0.6f)
+                                .weight(0.65f)
                                 .fillMaxHeight()
                                 .padding(horizontal = Dimens16),
                             horizontalAlignment = Alignment.CenterHorizontally,
@@ -219,7 +220,6 @@ fun GrammarFillTheBlanksPage(
                                             val placed = uiState.slotAnswers[slot.id]
                                             val slotState = viewModel.slotState(slot)
                                             BlankSlotChip(
-                                                slot = slot,
                                                 index = index,
                                                 placed = placed,
                                                 slotState = slotState,
@@ -232,20 +232,19 @@ fun GrammarFillTheBlanksPage(
                             }
 
                             // Correct sentence shown when answer is wrong (mirrors iOS)
-                            if (uiState.isAnswerSubmitted && !uiState.isAnswerCorrect
-                                && uiState.correctSentence.isNotEmpty()
+                            if (uiState.isAnswerSubmitted && uiState.correctSentence.isNotEmpty()
                             ) {
                                 Column(
                                     horizontalAlignment = Alignment.CenterHorizontally,
                                     verticalArrangement = Arrangement.spacedBy(Dimens4)
                                 ) {
                                     Text(
-                                        text = "Correct Sentence",
-                                        style = MaterialTheme.typography.labelMedium.scaled(),
-                                        color = Color(0xFF388E3C),
+                                        text = stringResource(R.string.correct_sentence),
+                                        style = MaterialTheme.typography.labelLarge.scaled(),
+                                        color = PrimaryGreen,
                                         fontWeight = FontWeight.Bold,
-                                        textAlign = TextAlign.Center,
-                                        modifier = Modifier.fillMaxWidth()
+                                        modifier = Modifier.fillMaxWidth(),
+                                        textAlign = TextAlign.Center
                                     )
                                     Text(
                                         text = uiState.correctSentence.replaceFirstChar { it.uppercase() },
@@ -268,7 +267,6 @@ fun GrammarFillTheBlanksPage(
 
                                 WordPoolSection(
                                     availableWords = uiState.availableWords,
-                                    isSubmitted = uiState.isAnswerSubmitted,
                                     onPlace = { word -> viewModel.placeWord(word) }
                                 )
                             }
@@ -297,21 +295,21 @@ private fun FbInstructionBadge() {
     val purple = Color(0xFF6A1B9A)
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        horizontalArrangement = Arrangement.spacedBy(Dimens6),
         modifier = Modifier
             .padding(horizontal = Dimens16)
-            .background(purple.copy(alpha = 0.10f), RoundedCornerShape(12.dp))
-            .border(1.5.dp, purple.copy(alpha = 0.3f), RoundedCornerShape(12.dp))
-            .padding(horizontal = 12.dp, vertical = 8.dp)
+            .background(purple.copy(alpha = 0.10f), RoundedCornerShape(Dimens12))
+            .border(1.5.dp, purple.copy(alpha = 0.3f), RoundedCornerShape(Dimens12))
+            .padding(horizontal = Dimens12, vertical = Dimens8)
     ) {
         Icon(
-            imageVector = Icons.Filled.Edit,
+            imageVector = Icons.Filled.TextFormat,
             contentDescription = null,
             tint = purple,
-            modifier = Modifier.size(16.dp)
+            modifier = Modifier.size(Dimens16)
         )
         Text(
-            text = "Tap a word to fill each blank",
+            text = AnnotatedString.fromHtml(stringResource(R.string.tap_a_word_to_place_it_in_the_blank)),
             style = MaterialTheme.typography.bodySmall.scaled(),
             color = Color.Black.copy(alpha = 0.75f),
             textAlign = TextAlign.Center
@@ -323,7 +321,6 @@ private fun FbInstructionBadge() {
 
 @Composable
 private fun BlankSlotChip(
-    slot: BlankSlot,
     index: Int,
     placed: FillBlankWord?,
     slotState: FillSlotState,
@@ -354,9 +351,9 @@ private fun BlankSlotChip(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Dimens4),
         modifier = Modifier
-            .clip(RoundedCornerShape(8.dp))
+            .clip(RoundedCornerShape(Dimens8))
             .background(bgColor)
-            .border(2.dp, borderColor, RoundedCornerShape(8.dp))
+            .border(Dimens2, borderColor, RoundedCornerShape(Dimens8))
             .clickable(enabled = placed != null && !isSubmitted) { onRemove() }
             .padding(horizontal = Dimens10, vertical = Dimens4)
     ) {
@@ -368,7 +365,7 @@ private fun BlankSlotChip(
                         Icons.Filled.CheckCircle else Icons.Filled.Close,
                     contentDescription = null,
                     tint = textColor,
-                    modifier = Modifier.size(14.dp)
+                    modifier = Modifier.size(Dimens12)
                 )
             }
             Text(
@@ -396,7 +393,6 @@ private fun BlankSlotChip(
 @Composable
 private fun WordPoolSection(
     availableWords: List<FillBlankWord>,
-    isSubmitted: Boolean,
     onPlace: (FillBlankWord) -> Unit
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
@@ -409,7 +405,7 @@ private fun WordPoolSection(
             modifier = Modifier.fillMaxWidth()
         )
 
-        if (availableWords.isEmpty() && !isSubmitted) {
+        if (availableWords.isEmpty()) {
             Text(
                 text = "✓ All words placed!",
                 style = MaterialTheme.typography.bodyMedium.scaled(),

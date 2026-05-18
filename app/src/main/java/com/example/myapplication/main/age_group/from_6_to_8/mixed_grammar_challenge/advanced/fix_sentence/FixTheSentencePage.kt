@@ -44,9 +44,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -61,10 +63,13 @@ import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
+import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.mixGrammarAdvanceFixSentenceImageSize
 import com.example.myapplication.ui.theme.ButtonType
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -87,12 +92,12 @@ fun FixTheSentencePage(
             // ── Header ────────────────────────────────────────────────────────
             Row(verticalAlignment = Alignment.CenterVertically) {
                 BackButtonWithText(
-                    title = "Fix the Sentence",
+                    title = stringResource(R.string.fix_the_sentence),
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
                 KidsLabel(
-                    txt = "Q ${uiState.currentIndex + 1} / ${uiState.questions.size}",
+                    txt = "Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",
                     type = ButtonType.PURPLE
                 )
                 if (!uiState.isCompleted) {
@@ -119,7 +124,7 @@ fun FixTheSentencePage(
                 ResultView(
                     score = uiState.score,
                     total = uiState.questions.size,
-                    title = "Fix the Sentence",
+                    title = stringResource(R.string.your_result),
                     firstBtnTxt = stringResource(R.string.go_back),
                     onBack = { navController.popBackStack() },
                     onContinue = { viewModel.restart() },
@@ -127,9 +132,6 @@ fun FixTheSentencePage(
                 )
             } else {
                 uiState.currentQuestion?.let { q ->
-                    val imageRes = remember(q.imageName) {
-                        context.resources.getIdentifier(q.imageName, "drawable", context.packageName)
-                    }
                     val typeColor = viewModel.typeColor(q.targetType)
 
                     Column(
@@ -147,14 +149,14 @@ fun FixTheSentencePage(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             // Image
-                            if (imageRes != 0) {
+                            getImageResForSentence(q.imageName)?.let { resId ->
                                 Image(
-                                    painter = painterResource(id = imageRes),
+                                    painter = painterResource(id = resId),
                                     contentDescription = null,
                                     contentScale = ContentScale.Crop,
                                     modifier = Modifier
-                                        .size(100.dp)
-                                        .shadow(8.dp, RoundedCornerShape(Dimens16))
+                                        .size(mixGrammarAdvanceFixSentenceImageSize)
+                                        .shadow(Dimens8, RoundedCornerShape(Dimens16))
                                         .clip(RoundedCornerShape(Dimens16))
                                 )
                             }
@@ -177,16 +179,16 @@ fun FixTheSentencePage(
                                         )
                                         .padding(horizontal = Dimens12, vertical = Dimens8),
                                     verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                                    horizontalArrangement = Arrangement.spacedBy(Dimens6)
                                 ) {
                                     Icon(
                                         imageVector = Icons.Filled.ContentCut,
                                         contentDescription = null,
                                         tint = Color(0xFFC62828),
-                                        modifier = Modifier.size(16.dp)
+                                        modifier = Modifier.size(Dimens16)
                                     )
                                     Text(
-                                        text = "Find the wrong word and fix it!",
+                                        text = AnnotatedString.fromHtml(stringResource(R.string.tap_the_correct_word_to_replace_wrong_word)),
                                         style = MaterialTheme.typography.bodyMedium,
                                         color = Color.Black.copy(alpha = 0.75f)
                                     )
@@ -195,13 +197,13 @@ fun FixTheSentencePage(
                                 // Hint line: "Pick the correct [noun/verb/...]"
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                                    horizontalArrangement = Arrangement.spacedBy(Dimens6)
                                 ) {
                                     Icon(
                                         imageVector = viewModel.typeIcon(q.targetType),
                                         contentDescription = null,
                                         tint = typeColor,
-                                        modifier = Modifier.size(16.dp)
+                                        modifier = Modifier.size(Dimens16)
                                     )
                                     Text(
                                         text = buildAnnotatedString {
@@ -224,7 +226,8 @@ fun FixTheSentencePage(
                         // ── Sentence word chips ───────────────────────────────
                         FlowRow(
                             modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.Center
+                            horizontalArrangement = Arrangement.Center,
+                            itemVerticalAlignment = Alignment.CenterVertically
                         ) {
                             q.displayWords.forEachIndexed { index, fixWord ->
                                 val displayText = if (index == 0)
@@ -282,8 +285,8 @@ fun FixTheSentencePage(
 
                         // ── Feedback ──────────────────────────────────────────
                         FeedbackText(
-                            title = uiState.feedbackTitleRes?.let { stringResource(it) },
-                            subtitle = null,
+                            title = uiState.feedbackTitleRes?.let { stringResource(it) }?:"",
+                            subtitle = uiState.feedbackTitleRes?.let { stringResource(it) }?:"",
                             isSuccess = uiState.isAnswerCorrect,
                             isVisible = uiState.isAnswerSubmitted,
                             modifier = Modifier.align(Alignment.CenterHorizontally)

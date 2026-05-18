@@ -17,16 +17,19 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.FormatListBulleted
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.FormatListBulleted
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -43,7 +46,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -58,14 +63,18 @@ import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
+import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.mixGrammarMediumBucketMinHeight
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.utils.extensions.scaled
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -89,13 +98,13 @@ fun GrammarSentenceBuilderPage(
             // ── Header ────────────────────────────────────────────────────────
             Row(verticalAlignment = Alignment.CenterVertically) {
                 BackButtonWithText(
-                    title = "Sentence Builder",
+                    title = stringResource(R.string.sentence_builder),
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
 
                 KidsLabel(
-                    txt = "Q ${uiState.currentIndex + 1} / ${uiState.questions.size}",
+                    txt = "Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",
                     type = ButtonType.PURPLE
                 )
 
@@ -125,7 +134,7 @@ fun GrammarSentenceBuilderPage(
                 ResultView(
                     score = uiState.score,
                     total = uiState.questions.size,
-                    title = "Sentence Builder",
+                    title = stringResource(R.string.your_result),
                     firstBtnTxt = stringResource(R.string.go_back),
                     onBack = { navController.popBackStack() },
                     onContinue = { viewModel.restart() },
@@ -134,10 +143,6 @@ fun GrammarSentenceBuilderPage(
                 Spacer(Modifier.weight(1f))
             } else {
                 uiState.currentQuestion?.let { q ->
-
-                    val imageRes = remember(q.imageName) {
-                        context.resources.getIdentifier(q.imageName, "drawable", context.packageName)
-                    }
 
                     // HStack: Left 40% | Right 60% (mirrors iOS)
                     Row(
@@ -157,15 +162,15 @@ fun GrammarSentenceBuilderPage(
                             Spacer(Modifier.weight(1f))
 
                             // Image
-                            if (imageRes != 0) {
+                            getImageResForSentence(q.imageName)?.let { resId ->
                                 Image(
-                                    painter = painterResource(imageRes),
+                                    painter = painterResource(resId),
                                     contentDescription = q.imageName,
                                     contentScale = ContentScale.Fit,
                                     modifier = Modifier
-                                        .fillMaxWidth(0.8f)
+                                        .fillMaxHeight(0.65f)
                                         .aspectRatio(1f)
-                                        .shadow(8.dp, RoundedCornerShape(Dimens16))
+                                        .shadow(Dimens8, RoundedCornerShape(Dimens16))
                                         .clip(RoundedCornerShape(Dimens16))
                                 )
                             }
@@ -222,7 +227,7 @@ fun GrammarSentenceBuilderPage(
                                 title = uiState.feedbackTitleRes?.let { stringResource(it) },
                                 subtitle = uiState.feedbackSubTitleRes?.let { stringResource(it) },
                                 isSuccess = uiState.isAnswerCorrect,
-                                isVisible = uiState.isAnswerSubmitted && uiState.isAnswerCorrect
+                                isVisible = uiState.isAnswerSubmitted
                             )
                         }
                     }
@@ -242,18 +247,18 @@ private fun SbInstructionBadge() {
         horizontalArrangement = Arrangement.spacedBy(6.dp),
         modifier = Modifier
             .padding(horizontal = Dimens16)
-            .background(blue.copy(alpha = 0.10f), RoundedCornerShape(12.dp))
-            .border(1.5.dp, blue.copy(alpha = 0.3f), RoundedCornerShape(12.dp))
-            .padding(horizontal = 12.dp, vertical = 8.dp)
+            .background(blue.copy(alpha = 0.10f), RoundedCornerShape(Dimens12))
+            .border(1.5.dp, blue.copy(alpha = 0.3f), RoundedCornerShape(Dimens12))
+            .padding(horizontal = Dimens12, vertical = Dimens8)
     ) {
         Icon(
-            imageVector = Icons.Filled.Edit,
+            imageVector = Icons.AutoMirrored.Filled.FormatListBulleted,
             contentDescription = null,
             tint = blue,
-            modifier = Modifier.size(16.dp)
+            modifier = Modifier.size(Dimens16)
         )
         Text(
-            text = "Arrange the words to build a sentence",
+            text = AnnotatedString.fromHtml(stringResource(R.string.tap_words_to_build_the_sentence)),
             style = MaterialTheme.typography.bodySmall.scaled(),
             color = Color.Black.copy(alpha = 0.75f),
             textAlign = TextAlign.Center
@@ -281,7 +286,7 @@ private fun AnswerArea(
 
     Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
         Text(
-            text = "Your Sentence",
+            text = stringResource(R.string.your_sentence),
             style = MaterialTheme.typography.labelMedium.scaled(),
             color = Color.Black.copy(alpha = 0.5f),
             fontWeight = FontWeight.SemiBold,
@@ -292,13 +297,15 @@ private fun AnswerArea(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
+                .heightIn(min = mixGrammarMediumBucketMinHeight)
                 .background(Color.White.copy(alpha = 0.7f), RoundedCornerShape(Dimens12))
-                .border(2.dp, borderColor, RoundedCornerShape(Dimens12))
-                .padding(Dimens8)
+                .border(Dimens2, borderColor, RoundedCornerShape(Dimens12))
+                .padding(Dimens8),
+            contentAlignment = Alignment.Center
         ) {
             if (placedWords.isEmpty()) {
                 Text(
-                    text = "Tap words below to build your sentence…",
+                    text = stringResource(R.string.tap_words_below_to_build_your_sentence),
                     style = MaterialTheme.typography.bodyMedium.scaled(),
                     color = Color.Gray.copy(alpha = 0.5f),
                     modifier = Modifier
@@ -307,9 +314,10 @@ private fun AnswerArea(
                     textAlign = TextAlign.Center
                 )
             } else {
-                Column(verticalArrangement = Arrangement.spacedBy(Dimens6)) {
+                Column(verticalArrangement = Arrangement.spacedBy(Dimens16), horizontalAlignment = Alignment.CenterHorizontally) {
                     FlowRow(
-                        horizontalArrangement = Arrangement.spacedBy(Dimens6),
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(Dimens6,Alignment.CenterHorizontally),
                         verticalArrangement = Arrangement.spacedBy(Dimens6)
                     ) {
                         placedWords.forEachIndexed { index, word ->
@@ -325,23 +333,25 @@ private fun AnswerArea(
 
                     // Show correct sentence when wrong (mirrors iOS)
                     if (!correctSentence.isNullOrEmpty()) {
-                        Text(
-                            text = "Correct Sentence",
-                            style = MaterialTheme.typography.labelSmall.scaled(),
-                            color = Color(0xFF388E3C),
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.fillMaxWidth(),
-                            textAlign = TextAlign.Center
-                        )
-                        Text(
-                            text = correctSentence,
-                            style = MaterialTheme.typography.bodyMedium.scaled(),
-                            color = Color.Black,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = Dimens12),
-                            textAlign = TextAlign.Center
-                        )
+                        Column {
+                            Text(
+                                text = stringResource(R.string.correct_sentence),
+                                style = MaterialTheme.typography.labelLarge.scaled(),
+                                color = PrimaryGreen,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.fillMaxWidth(),
+                                textAlign = TextAlign.Center
+                            )
+                            Text(
+                                text = correctSentence,
+                                style = MaterialTheme.typography.bodyMedium.scaled(),
+                                color = Color.Black,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = Dimens12),
+                                textAlign = TextAlign.Center
+                            )
+                        }
                     }
                 }
             }
@@ -397,7 +407,7 @@ private fun WordPool(
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
         Text(
-            text = "Word Pool",
+            text = stringResource(R.string.word_pool),
             style = MaterialTheme.typography.labelMedium.scaled(),
             color = Color.Black.copy(alpha = 0.5f),
             fontWeight = FontWeight.SemiBold,

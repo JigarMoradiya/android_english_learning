@@ -43,6 +43,7 @@ val activities_age_5_7 = listOf(
     LearningActivityModel(R.string.listen_and_select_answer,R.drawable.age_5_7_listen_and_select,  RouteNavigation.ListenAndSelectWord.route,      Color(0xFFA53860), moduleId = ModuleID.LISTEN_AND_SELECT),
     LearningActivityModel(R.string.sight_word_choice,      R.drawable.age_5_7_sight_word_choice,    RouteNavigation.SightWordChoice.route,          Color(0xFFB45253), moduleId = ModuleID.SIGHT_WORD_CHOICE),
     LearningActivityModel(R.string.missing_letter,          R.drawable.age_5_7_missing_letter,       RouteNavigation.MissingLetterMedium.route,      Color(0xFFF97A00), moduleId = ModuleID.MISSING_LETTER_57),
+//    LearningActivityModel(R.string.missing_letter,          R.drawable.age_5_7_coloring_word,       RouteNavigation.MissingLetterMedium.route,      Color(0xFFE91E63), moduleId = ModuleID.MISSING_LETTER_57),
 
 )
 
@@ -62,9 +63,9 @@ val activities_age_6_8 = listOf(
     LearningActivityModel(R.string.oneWordAnswer,         R.drawable.age_6_8_one_word_answer,          RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.ONE_WORD_ANSWER.name),          Color(0xFFFF4400), moduleId = ModuleID.ONE_WORD_ANSWER),
     LearningActivityModel(R.string.sentenceBuilder,       R.drawable.age_6_8_build_the_sentence,       RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.BUILD_THE_SENTENCE.name),       Color(0xFF237227), moduleId = ModuleID.SENTENCE_BUILDER),
     LearningActivityModel(R.string.fillTheMissingWord,    R.drawable.age_6_8_fill_the_missing_word,    RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.FILL_THE_MISSING_WORD.name),    Color(0xFF85479D), moduleId = ModuleID.FILL_MISSING_WORD),
-    LearningActivityModel(R.string.grammarBasics,         R.drawable.age_6_8_grammer_basics,           RouteNavigation.GrammarBasic.route,                                                                   Color(0xFF7315B7), moduleId = ModuleID.GRAMMAR_NOUNS),
-    LearningActivityModel(R.string.chooseTheRightSentence,R.drawable.age_6_8_choose_the_right_sentence,RouteNavigation.ChooseTheRightSentence.route,                                                         Color(0xFF3265D3), moduleId = ""),  // FREE entry; inner pages gate themselves
-    LearningActivityModel(R.string.grammar_challenge,         R.drawable.age_6_8_grammar_challenge,           RouteNavigation.MixedGrammarChallenge.route,                                                                   Color(0xFFD5074E), moduleId = ModuleID.GRAMMAR_NOUNS),
+    LearningActivityModel(R.string.grammarBasics,         R.drawable.age_6_8_grammer_basics,           RouteNavigation.GrammarBasic.route,  Color(0xFF7315B7), moduleId = ModuleID.GRAMMAR_NOUNS),
+    LearningActivityModel(R.string.chooseTheRightSentence,R.drawable.age_6_8_choose_the_right_sentence,RouteNavigation.ChooseTheRightSentence.route,Color(0xFF3265D3), moduleId = ""),  // FREE entry; inner pages gate themselves
+    LearningActivityModel(R.string.grammar_challenge,         R.drawable.age_6_8_grammar_challenge,           RouteNavigation.MixedGrammarChallenge.route,Color(0xFFD5074E), moduleId = ModuleID.GRAMMAR_NOUNS),
 )
 
 val activities_age_6_8_right_sentence = listOf(
