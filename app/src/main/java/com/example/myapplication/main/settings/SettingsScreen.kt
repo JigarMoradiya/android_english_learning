@@ -22,7 +22,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.main.common.buttons.KidsActionButton
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.data.access.UserAccessState
@@ -34,11 +33,14 @@ import com.example.myapplication.main.common.sheets.AccessSheetState
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.main.common.sheets.ParentalGateDialog
 import com.example.myapplication.ui.theme.AppDimens
+import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
+import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
 import com.example.myapplication.utils.AudioPlayerManager
@@ -105,7 +107,7 @@ fun SettingsScreen(
                             viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Restore)
                         }
                         if (userState.isLoggedIn) {
-                            Divider(color = Color.Gray.copy(alpha = 0.2f), thickness = 0.5.dp)
+                            Divider(color = Color.Gray.copy(alpha = 0.2f), thickness = AppDimens.Dimens1)
                             SettingsRow(
                                 icon = Icons.AutoMirrored.Filled.ExitToApp,
                                 title = "Log Out",
@@ -147,8 +149,8 @@ private fun UserStatusCard(state: UserAccessState, onUpgrade: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .shadow(4.dp, RoundedCornerShape(16.dp))
-            .clip(RoundedCornerShape(16.dp))
+            .shadow(Dimens4, RoundedCornerShape(Dimens16))
+            .clip(RoundedCornerShape(Dimens16))
             .background(Color.White.copy(alpha = 0.92f))
             .padding(Dimens16),
         verticalAlignment = Alignment.CenterVertically
@@ -157,7 +159,7 @@ private fun UserStatusCard(state: UserAccessState, onUpgrade: () -> Unit) {
         Box(
             modifier = Modifier
                 .size(AppDimens.Dimens50)
-                .shadow(4.dp, CircleShape)
+                .shadow(Dimens4, CircleShape)
                 .clip(CircleShape)
                 .background(brush = colors.gradient),
             contentAlignment = Alignment.Center
@@ -166,7 +168,7 @@ private fun UserStatusCard(state: UserAccessState, onUpgrade: () -> Unit) {
                 imageVector = icon,
                 contentDescription = null,
                 tint = Color.White,
-                modifier = Modifier.size(24.dp)
+                modifier = Modifier.size(Dimens24)
             )
         }
 
@@ -206,8 +208,8 @@ private fun SettingsCard(content: @Composable () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .shadow(4.dp, RoundedCornerShape(16.dp))
-            .clip(RoundedCornerShape(16.dp))
+            .shadow(Dimens4, RoundedCornerShape(Dimens16))
+            .clip(RoundedCornerShape(Dimens16))
             .background(Color.White.copy(alpha = 0.92f))
     ) {
         content()
@@ -239,9 +241,9 @@ private fun SettingsRow(
         // Gradient icon box
         Box(
             modifier = Modifier
-                .size(42.dp)
-                .shadow(4.dp, RoundedCornerShape(10.dp))
-                .clip(RoundedCornerShape(10.dp))
+                .size(AppDimens.ToolbarIconSize)
+                .shadow(Dimens4, RoundedCornerShape(Dimens10))
+                .clip(RoundedCornerShape(Dimens10))
                 .background(brush = colors.gradient),
             contentAlignment = Alignment.Center
         ) {
@@ -249,7 +251,7 @@ private fun SettingsRow(
                 imageVector = icon,
                 contentDescription = null,
                 tint = Color.White,
-                modifier = Modifier.size(20.dp)
+                modifier = Modifier.size(Dimens20)
             )
         }
 
@@ -264,7 +266,7 @@ private fun SettingsRow(
             imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
             contentDescription = null,
             tint = Color.Gray.copy(alpha = 0.5f),
-            modifier = Modifier.size(20.dp)
+            modifier = Modifier.size(Dimens20)
         )
     }
 }

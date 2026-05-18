@@ -26,10 +26,14 @@ import androidx.navigation.NavController
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens
+import com.example.myapplication.ui.theme.AppDimens.Dimens1
+import com.example.myapplication.ui.theme.AppDimens.Dimens3
+import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens18
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
 
@@ -159,31 +163,31 @@ fun AccessPlanScreen(navController: NavController) {
 
 // ── Section block ─────────────────────────────────────────────────────────────
 
-private val tierColWidth = 80.dp
-
 @Composable
 private fun SectionBlock(section: PlanSection) {
     val colors = getButtonColors(section.type)
+    val tierColWidth = AppDimens.PlanTierColWidth
 
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .shadow(4.dp, RoundedCornerShape(12.dp))
+            .shadow(Dimens4, RoundedCornerShape(Dimens12))
     ) {
         // Header — title left, tier labels right
+        // padding(horizontal = Dimens12) so tier labels align with badges below
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))
+                .clip(RoundedCornerShape(topStart = Dimens12, topEnd = Dimens12))
                 .background(brush = colors.gradient)
-                .padding(horizontal = Dimens12, vertical = Dimens8),
+                .padding(horizontal = Dimens12, vertical = Dimens4),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
                 imageVector = section.icon,
                 contentDescription = null,
                 tint = Color.White,
-                modifier = Modifier.size(18.dp)
+                modifier = Modifier.size(Dimens18)
             )
             Spacer(Modifier.width(Dimens8))
             Text(
@@ -196,25 +200,24 @@ private fun SectionBlock(section: PlanSection) {
                 overflow = TextOverflow.Ellipsis
             )
             Spacer(Modifier.width(Dimens8))
-            // Tier column labels
-            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                TierLabel(icon = Icons.Filled.AccountCircle, text = "Guest")
-                TierLabel(icon = Icons.Filled.Person,        text = "Free")
-                TierLabel(icon = Icons.Filled.Star,          text = "Premium")
+            Row(horizontalArrangement = Arrangement.spacedBy(Dimens4)) {
+                TierLabel(icon = Icons.Filled.AccountCircle, text = "Guest",   colWidth = tierColWidth)
+                TierLabel(icon = Icons.Filled.Person,        text = "Free",    colWidth = tierColWidth)
+                TierLabel(icon = Icons.Filled.Star,          text = "Premium", colWidth = tierColWidth)
             }
         }
 
-        // Rows
+        // Rows — same horizontal = Dimens12 so badges stay aligned with header labels
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(bottomStart = 12.dp, bottomEnd = 12.dp))
+                .clip(RoundedCornerShape(bottomStart = Dimens12, bottomEnd = Dimens12))
                 .background(Color.White.copy(alpha = 0.92f))
         ) {
             section.rows.forEachIndexed { idx, row ->
-                PlanRowItem(row, isEven = idx % 2 == 0)
+                PlanRowItem(row, isEven = idx % 2 == 0, tierColWidth = tierColWidth)
                 if (idx < section.rows.size - 1) {
-                    Divider(color = Color.Gray.copy(alpha = 0.2f), thickness = 0.5.dp)
+                    Divider(color = Color.Gray.copy(alpha = 0.2f), thickness = Dimens1)
                 }
             }
         }
@@ -224,22 +227,28 @@ private fun SectionBlock(section: PlanSection) {
 // ── Tier label (inside section header) ───────────────────────────────────────
 
 @Composable
-private fun TierLabel(icon: ImageVector, text: String) {
+private fun TierLabel(icon: ImageVector, text: String, colWidth: androidx.compose.ui.unit.Dp) {
     Column(
-        modifier = Modifier.width(tierColWidth),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier
+            .width(colWidth)
+            .clip(RoundedCornerShape(Dimens8))
+            .background(Color.White.copy(alpha = 0.18f))
+            .padding(top = Dimens3, bottom = Dimens1, start = Dimens4, end = Dimens4),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(Dimens1)
     ) {
         Icon(
             imageVector = icon,
             contentDescription = null,
-            tint = Color.White.copy(alpha = 0.9f),
-            modifier = Modifier.size(12.dp)
+            tint = Color.White,
+            modifier = Modifier.size(Dimens12)
         )
         Text(
             text = text,
-            color = Color.White.copy(alpha = 0.9f),
+            color = Color.White,
             fontWeight = FontWeight.Bold,
             fontSize = 10.sp,
+            lineHeight = 10.sp,
             textAlign = TextAlign.Center,
             maxLines = 1
         )
@@ -249,15 +258,15 @@ private fun TierLabel(icon: ImageVector, text: String) {
 // ── Plan row ──────────────────────────────────────────────────────────────────
 
 @Composable
-private fun PlanRowItem(row: PlanRow, isEven: Boolean) {
+private fun PlanRowItem(row: PlanRow, isEven: Boolean, tierColWidth: androidx.compose.ui.unit.Dp) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .background(if (isEven) Color.Transparent else Color.Gray.copy(alpha = 0.04f))
-            .padding(vertical = Dimens6, horizontal = Dimens8),
+            // Same horizontal = Dimens12 as the header → columns align perfectly
+            .padding(horizontal = Dimens12, vertical = Dimens6),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Activity label
         Row(
             modifier = Modifier.weight(1f),
             verticalAlignment = Alignment.CenterVertically
@@ -266,9 +275,9 @@ private fun PlanRowItem(row: PlanRow, isEven: Boolean) {
                 imageVector = row.icon,
                 contentDescription = null,
                 tint = Color.Black.copy(alpha = 0.55f),
-                modifier = Modifier.size(16.dp)
+                modifier = Modifier.size(Dimens16)
             )
-            Spacer(Modifier.width(AppDimens.Dimens6))
+            Spacer(Modifier.width(Dimens6))
             Text(
                 text = row.title,
                 fontSize = 13.sp,
@@ -279,12 +288,12 @@ private fun PlanRowItem(row: PlanRow, isEven: Boolean) {
             )
         }
 
-        Spacer(Modifier.width(4.dp))
-        AccessBadge(row.guest,        Modifier.width(tierColWidth))
-        Spacer(Modifier.width(4.dp))
-        AccessBadge(row.free,         Modifier.width(tierColWidth))
-        Spacer(Modifier.width(4.dp))
-        AccessBadge(TierAccess.Full,  Modifier.width(tierColWidth))
+        Spacer(Modifier.width(Dimens4))
+        AccessBadge(row.guest,       Modifier.width(tierColWidth))
+        Spacer(Modifier.width(Dimens4))
+        AccessBadge(row.free,        Modifier.width(tierColWidth))
+        Spacer(Modifier.width(Dimens4))
+        AccessBadge(TierAccess.Full, Modifier.width(tierColWidth))
     }
 }
 
@@ -293,16 +302,16 @@ private fun PlanRowItem(row: PlanRow, isEven: Boolean) {
 @Composable
 private fun AccessBadge(access: TierAccess, modifier: Modifier = Modifier) {
     val (icon, label, bg, fg) = when (access) {
-        TierAccess.Full           -> Quad(Icons.Filled.CheckCircle, "Full",     Color(0xFFE8F5E9), Color(0xFF2E7D32))
-        is TierAccess.Limited     -> Quad(Icons.Filled.AccessTime,  "${access.perDay}/day", Color(0xFFFFF3E0), Color(0xFFE65100))
-        TierAccess.LoginRequired  -> Quad(Icons.Filled.Lock,        "Login",    Color(0xFFE3F2FD), Color(0xFF1565C0))
-        TierAccess.Premium        -> Quad(Icons.Filled.Star,        "Premium",  Color(0xFFFFF8E1), Color(0xFFF57F17))
+        TierAccess.Full          -> Quad(Icons.Filled.CheckCircle, "Full",              Color(0xFFE8F5E9), Color(0xFF2E7D32))
+        is TierAccess.Limited    -> Quad(Icons.Filled.AccessTime,  "${access.perDay}/day", Color(0xFFFFF3E0), Color(0xFFE65100))
+        TierAccess.LoginRequired -> Quad(Icons.Filled.Lock,        "Login",             Color(0xFFE3F2FD), Color(0xFF1565C0))
+        TierAccess.Premium       -> Quad(Icons.Filled.Star,        "Premium",           Color(0xFFFFF8E1), Color(0xFFF57F17))
     }
     Row(
         modifier = modifier
-            .clip(RoundedCornerShape(8.dp))
+            .clip(RoundedCornerShape(Dimens8))
             .background(bg)
-            .padding(horizontal = 4.dp, vertical = 4.dp),
+            .padding(horizontal = Dimens4, vertical = Dimens4),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -310,9 +319,9 @@ private fun AccessBadge(access: TierAccess, modifier: Modifier = Modifier) {
             imageVector = icon,
             contentDescription = null,
             tint = fg,
-            modifier = Modifier.size(9.dp)
+            modifier = Modifier.size(Dimens12)
         )
-        Spacer(Modifier.width(3.dp))
+        Spacer(Modifier.width(Dimens3))
         Text(
             text = label,
             color = fg,

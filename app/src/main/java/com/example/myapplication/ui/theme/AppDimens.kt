@@ -80,4 +80,8 @@ object AppDimens {
     val DragHandleWidth = 40.dp
     /** Drag handle height. */
     val DragHandleHeight = 4.dp
+
+    // ── Access Plan ──────────────────────────────────────────────────────
+    /** Width of each Guest / Free / Premium column in the Access Plan table. */
+    val PlanTierColWidth = if(isLargeTablet) 140.dp else if (isTablet) 110.dp else 86.dp
 }
