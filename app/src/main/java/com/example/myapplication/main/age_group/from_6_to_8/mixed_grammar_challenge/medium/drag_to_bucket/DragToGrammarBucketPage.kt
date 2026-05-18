@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
@@ -29,8 +30,13 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Brush
+import androidx.compose.material.icons.filled.Cancel
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Person
@@ -55,28 +61,37 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.example.myapplication.R
 import com.example.myapplication.data.generation.loader.WordDragItem
 import com.example.myapplication.data.generation.loader.WrongCorrection
 import com.example.myapplication.data.model.WordType
+import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.medium.drag_to_bucket.view_model.DragToGrammarBucketViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.main.common.buttons.KidsLabel
+import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.MatchWordBoxHeight
+import com.example.myapplication.ui.theme.AppDimens.mixGrammarMediumBucketMinHeight
+import com.example.myapplication.ui.theme.AppDimens.mixGrammarMediumImageSize
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 
@@ -98,22 +113,13 @@ fun DragToGrammarBucketPage(
 
         // ── Result screen ─────────────────────────────────────────────────────
         if (uiState.isCompleted) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .windowInsetsPadding(WindowInsets.safeDrawing),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Text("🎉 All Done!", style = MaterialTheme.typography.headlineMedium.scaled(), fontWeight = FontWeight.Black)
-                Spacer(Modifier.height(Dimens8))
-                Text("Score: ${uiState.score} / ${uiState.questions.size}", style = MaterialTheme.typography.titleLarge.scaled(), fontWeight = FontWeight.Bold)
-                Spacer(Modifier.height(Dimens24))
-                Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
-                    KidsActionButton(text = "Play Again", type = ButtonType.POSITIVE, onClick = { viewModel.restart() })
-                    KidsActionButton(text = "Go Back", type = ButtonType.NEGATIVE, onClick = { navController.popBackStack() })
-                }
-            }
+            ResultView(uiState.score,uiState.questions.size, title = stringResource(R.string.completed),
+                onBack = {
+                    navController.popBackStack()
+                },onContinue = {
+                    viewModel.restart()
+                })
+
             return@Box
         }
 
@@ -130,27 +136,14 @@ fun DragToGrammarBucketPage(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 BackButtonWithText(
-                    title = "Grammar Challenge",
+                    title = stringResource(R.string.grammar_challenge_medium),
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
-                Box(
-                    modifier = Modifier
-                        .padding(end = Dimens8)
-                        .clip(RoundedCornerShape(20.dp))
-                        .background(Color(0xFF7B2D8B).copy(alpha = 0.15f))
-                        .padding(horizontal = Dimens12, vertical = Dimens4)
-                ) {
-                    Text(
-                        text = "Q ${uiState.currentIndex + 1} / ${uiState.questions.size}",
-                        style = MaterialTheme.typography.bodyMedium.scaled(),
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF7B2D8B)
-                    )
-                }
+                KidsLabel("Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",)
                 AnimatedVisibility(visible = uiState.showNext) {
                     KidsActionButton(
-                        text = if (uiState.isLastIndex) "Check Result" else "Next",
+                        text = if (uiState.isLastIndex) stringResource(R.string.check_result) else stringResource(R.string.next),
                         icon = if (uiState.isLastIndex) null else Icons.AutoMirrored.Filled.KeyboardArrowRight,
                         isIconStart = false,
                         type = if (uiState.isLastIndex) ButtonType.POSITIVE else ButtonType.ORANGE,
@@ -176,17 +169,15 @@ fun DragToGrammarBucketPage(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Spacer(Modifier.weight(1f))
-                    val context = LocalContext.current
-                    val resId = context.resources.getIdentifier(question.imageName, "drawable", context.packageName)
-                    if (resId != 0) {
+                    getImageResForSentence(question.imageName)?.let { resId ->
                         Image(
                             painter = painterResource(resId),
                             contentDescription = null,
                             contentScale = ContentScale.Crop,
                             modifier = Modifier
-                                .size(110.dp)
+                                .size(mixGrammarMediumImageSize)
                                 .clip(RoundedCornerShape(Dimens8))
-                                .shadow(4.dp, RoundedCornerShape(Dimens8))
+                                .shadow(Dimens4, RoundedCornerShape(Dimens8))
                         )
                     }
                     Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
@@ -258,25 +249,14 @@ fun DragToGrammarBucketPage(
                     Column(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        verticalArrangement = Arrangement.spacedBy(Dimens4)
                     ) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clip(RoundedCornerShape(Dimens12))
-                                .background(if (uiState.isAnswerCorrect) Color(0xFF2E7D32).copy(alpha = 0.12f) else Color(0xFFB71C1C).copy(alpha = 0.12f))
-                                .border(1.dp, if (uiState.isAnswerCorrect) Color(0xFF2E7D32).copy(alpha = 0.4f) else Color(0xFFB71C1C).copy(alpha = 0.4f), RoundedCornerShape(Dimens12))
-                                .padding(Dimens12),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(
-                                text = if (uiState.isAnswerCorrect) "⭐ Excellent! All correct!" else "❌ Some words are in the wrong bucket",
-                                style = MaterialTheme.typography.bodyMedium.scaled(),
-                                fontWeight = FontWeight.Bold,
-                                color = if (uiState.isAnswerCorrect) Color(0xFF2E7D32) else Color(0xFFB71C1C),
-                                textAlign = TextAlign.Center
-                            )
-                        }
+                        FeedbackText(
+                            title = uiState.feedbackTextRes?.let { stringResource(it) }?:"",
+                            subtitle = uiState.feedbackSubTextRes?.let { stringResource(it) },
+                            isSuccess = uiState.isAnswerCorrect,
+                            isVisible = uiState.isQuestionComplete
+                        )
                         if (!uiState.isAnswerCorrect && uiState.wrongCorrections.isNotEmpty()) {
                             CorrectionsRow(
                                 corrections = uiState.wrongCorrections,
@@ -322,7 +302,7 @@ private fun BucketCard(
 ) {
     Column(
         modifier = modifier
-            .shadow(2.dp, RoundedCornerShape(Dimens16))
+            .heightIn(min = mixGrammarMediumBucketMinHeight)
             .clip(RoundedCornerShape(Dimens16))
             .background(color.copy(alpha = 0.07f))
             .border(2.dp, color.copy(alpha = 0.4f), RoundedCornerShape(Dimens16))
@@ -344,20 +324,34 @@ private fun BucketCard(
             Text(text = label, style = MaterialTheme.typography.bodySmall.scaled(), fontWeight = FontWeight.Bold, color = Color.White)
         }
         // Placed words
-        Box(modifier = Modifier.fillMaxWidth().height(50.dp), contentAlignment = Alignment.Center) {
+        Box(modifier = Modifier.fillMaxWidth().heightIn(min = MatchWordBoxHeight), contentAlignment = Alignment.Center) {
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(Dimens4, Alignment.CenterHorizontally),
                 verticalArrangement = Arrangement.spacedBy(Dimens4)
             ) {
                 placedWords.forEach { item ->
                     val correct = isCorrectlyPlaced(item, type)
-                    val chipColor = if (isComplete) (if (correct) Color(0xFF2E7D32) else Color(0xFFB71C1C)) else color
+                    val chipColor = if (isComplete) (if (correct) Color(0xFF2E7D32) else Color.Red.copy(alpha = 0.85f)) else color
                     Row(
-                        modifier = Modifier.clip(RoundedCornerShape(Dimens8)).background(chipColor.copy(alpha = 0.85f)).padding(horizontal = Dimens8, vertical = Dimens4),
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(Dimens8))
+                            .background(chipColor.copy(alpha = 0.85f))
+                            .padding(horizontal = Dimens8, vertical = Dimens4),
                         horizontalArrangement = Arrangement.spacedBy(Dimens4),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        if (isComplete) Text(if (correct) "✓" else "✗", color = Color.White, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                        if (isComplete) {
+                            Icon(
+                                imageVector = if (correct) {
+                                    Icons.Default.CheckCircle
+                                } else {
+                                    Icons.Default.Cancel
+                                },
+                                contentDescription = null,
+                                tint = Color.White,
+                                modifier = Modifier.size(Dimens12)
+                            )
+                        }
                         Text(item.word.replaceFirstChar { it.uppercase() }, style = MaterialTheme.typography.bodySmall.scaled(), fontWeight = FontWeight.SemiBold, color = Color.White)
                     }
                 }
@@ -431,7 +425,7 @@ private fun InstructionBadge() {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(imageVector = Icons.Default.Edit, contentDescription = null, tint = Color(0xFF5C6BC0), modifier = Modifier.size(16.dp))
-        Text("Drag each word to the correct category", style = MaterialTheme.typography.bodySmall.scaled(), color = Color.Black.copy(alpha = 0.75f))
+        Text(AnnotatedString.fromHtml("Drag each word to the <b>correct category</b>"), style = MaterialTheme.typography.bodySmall.scaled(), color = Color.Black.copy(alpha = 0.75f))
     }
 }
 
@@ -450,7 +444,7 @@ private fun CorrectionsRow(
             .clip(RoundedCornerShape(10.dp))
             .background(Color.White.copy(alpha = 0.95f))
             .padding(horizontal = Dimens12, vertical = Dimens8),
-        horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
+        horizontalArrangement = Arrangement.spacedBy(Dimens4, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically
     ) {
         corrections.forEach { correction ->
@@ -459,12 +453,23 @@ private fun CorrectionsRow(
                 style = MaterialTheme.typography.bodySmall.scaled(),
                 fontWeight = FontWeight.SemiBold,
                 color = Color.White,
-                modifier = Modifier.clip(RoundedCornerShape(50)).background(Color.Red.copy(alpha = 0.85f)).padding(horizontal = Dimens8, vertical = 2.dp)
+                modifier = Modifier
+                    .clip(RoundedCornerShape(50))
+                    .background(Color.Red.copy(alpha = 0.85f))
+                    .padding(horizontal = Dimens8, vertical = 2.dp)
             )
-            Text("→", color = Color.Black.copy(alpha = 0.4f), fontSize = 12.sp)
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                contentDescription = null,
+                tint = Color.Black.copy(alpha = 0.4f),
+                modifier = Modifier.size(Dimens12)
+            )
             val color = typeColor(correction.correctType)
             Row(
-                modifier = Modifier.clip(RoundedCornerShape(50)).background(color).padding(horizontal = Dimens8, vertical = 2.dp),
+                modifier = Modifier
+                    .clip(RoundedCornerShape(50))
+                    .background(color)
+                    .padding(horizontal = Dimens8, vertical = 2.dp),
                 horizontalArrangement = Arrangement.spacedBy(Dimens4),
                 verticalAlignment = Alignment.CenterVertically
             ) {

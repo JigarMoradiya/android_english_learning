@@ -3,11 +3,13 @@ package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_chall
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.R
 import com.example.myapplication.data.generation.loader.MixedGrammarMediumQuestions
 import com.example.myapplication.data.generation.loader.WordDragItem
 import com.example.myapplication.data.generation.loader.WrongCorrection
 import com.example.myapplication.data.model.WordType
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -40,7 +42,8 @@ class DragToGrammarBucketViewModel @Inject constructor() : ViewModel() {
                 isQuestionComplete = false,
                 isAnswerCorrect = false,
                 wrongCorrections = emptyList(),
-                feedback = null,
+                feedbackTextRes = null,
+                feedbackSubTextRes = null,
                 itemFrames = emptyMap(),
                 bucketFrames = emptyMap(),
                 draggingItem = null,
@@ -132,8 +135,9 @@ class DragToGrammarBucketViewModel @Inject constructor() : ViewModel() {
                 isQuestionComplete = true,
                 isAnswerCorrect = allCorrect,
                 wrongCorrections = corrections,
-                feedback = if (allCorrect) null else "Try Again!",
-                score = if (allCorrect) it.score + 1 else it.score
+                score = if (allCorrect) it.score + 1 else it.score,
+                feedbackTextRes = if (allCorrect) feedbackTitles.random() else R.string.some_word_wrong_bucket,
+                feedbackSubTextRes = if (allCorrect) feedbackGiveAnswerSubTitleCorrect.random() else null,
             )
         }
     }

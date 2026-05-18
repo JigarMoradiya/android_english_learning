@@ -19,7 +19,7 @@ import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.utils.extensions.scaled
 
 @Composable
-fun     FeedbackText(
+fun FeedbackText(
     title: String?,
     subtitle: String?,
     isSuccess: Boolean,

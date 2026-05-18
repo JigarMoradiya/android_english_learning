@@ -1,48 +1,58 @@
 package com.example.myapplication.main.age_group
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
-import kotlinx.coroutines.launch
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
+import com.example.myapplication.main.age_group.components.ActivityTileCard
 import com.example.myapplication.main.age_group.presentation.model.activities_age_3_5
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.ToolbarIconSize
 import com.example.myapplication.utils.AudioPlayerManager
+import kotlinx.coroutines.launch
 
 @Composable
 fun AgeGroup3to5Page(navController: NavController) {
     val accessVM = LocalAccessSheetViewModel.current
     val scope = rememberCoroutineScope()
 
+    val screenHeight = with(LocalDensity.current) {
+        LocalWindowInfo.current.containerSize.height.toDp()
+    }
+    // Subtract: header (screenTopPadding + Dimens8 bottom pad + ToolbarIconSize)
+    //         + grid overhead (top padding + bottom padding + gap between 2 rows)
+    val headerHeight = DeviceInfo.screenTopPadding() + Dimens8 + ToolbarIconSize
+    val gridOverhead = Dimens16 + Dimens12
+    val tileHeight = (screenHeight - headerHeight - gridOverhead) * 0.45f
+
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI()
+        BackgroundUI(isGreenGrassShow = false)
         Column(
             modifier = Modifier
-                .fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)
+                .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
             BackButtonWithText(
                 title = stringResource(R.string.level1_title),
@@ -50,45 +60,31 @@ fun AgeGroup3to5Page(navController: NavController) {
                 modifier = Modifier
             )
 
-            // Grid of activities
-            val screenHeight = with(LocalDensity.current) {
-                LocalWindowInfo.current.containerSize.height.toDp()
-            }
-
-            LazyRow(
+            LazyHorizontalGrid(
+                rows = GridCells.Fixed(2),
                 contentPadding = PaddingValues(
                     start = DeviceInfo.screenHorizontalPadding(),
-                    end = DeviceInfo.screenHorizontalPadding(), top = Dimens16
+                    end = DeviceInfo.screenHorizontalPadding(),
+                    bottom = Dimens16
                 ),
-                horizontalArrangement = Arrangement.spacedBy(Dimens16),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(screenHeight * 0.6f)
+                horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
+                verticalArrangement = Arrangement.spacedBy(Dimens12),
+                modifier = Modifier.fillMaxSize()
             ) {
-
                 items(activities_age_3_5) { activity ->
-
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .clickable {
-                                AudioPlayerManager.playSoundMenuClick()
-                                scope.launch {
-                                    val allowed = if (activity.moduleId.isNotEmpty())
-                                        accessVM.checkAccess(activity.moduleId)
-                                    else true
-                                    if (allowed) navController.navigate(activity.destination)
-                                }
+                    ActivityTileCard(
+                        activity = activity,
+                        tileHeight = tileHeight,
+                        onClick = {
+                            AudioPlayerManager.playSoundMenuClick()
+                            scope.launch {
+                                val allowed = if (activity.moduleId.isNotEmpty())
+                                    accessVM.checkAccess(activity.moduleId)
+                                else true
+                                if (allowed) navController.navigate(activity.destination)
                             }
-                    ) {
-
-                        Image(
-                            painter = painterResource(id = activity.img),
-                            contentDescription = null,
-                            contentScale = ContentScale.Fit,
-                            modifier = Modifier.fillMaxSize()
-                        )
-                    }
+                        }
+                    )
                 }
             }
         }

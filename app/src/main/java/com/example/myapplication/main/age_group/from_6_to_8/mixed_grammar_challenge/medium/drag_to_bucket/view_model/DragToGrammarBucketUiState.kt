@@ -2,6 +2,7 @@ package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_chall
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
+import com.example.myapplication.R
 import com.example.myapplication.data.generation.loader.MixedMediumQuestion
 import com.example.myapplication.data.generation.loader.WordDragItem
 import com.example.myapplication.data.generation.loader.WrongCorrection
@@ -21,18 +22,19 @@ data class DragToGrammarBucketUiState(
     val isQuestionComplete: Boolean = false,
     val isAnswerCorrect: Boolean = false,
     val wrongCorrections: List<WrongCorrection> = emptyList(),
-    val feedback: String? = null,
     val score: Int = 0,
 
     // ── Completion ───────────────────────────────────────────────────────────
     val isCompleted: Boolean = false,
+    val feedbackTextRes: Int? = R.string.feedbackPhrases_1,
+    val feedbackSubTextRes: Int? = R.string.feedbackGiveAnswerSubTitleCorrect_1,
 
     // ── Drag state (frame positions stored here, updated from Page) ──────────
     val itemFrames: Map<UUID, Rect> = emptyMap(),
     val bucketFrames: Map<WordType, Rect> = emptyMap(),
     val draggingItem: WordDragItem? = null,
     val dragStartCenter: Offset? = null,
-    val dragOffset: Offset = Offset.Zero
+    val dragOffset: Offset = Offset.Zero,
 ) {
     val currentQuestion: MixedMediumQuestion?
         get() = questions.getOrNull(currentIndex)

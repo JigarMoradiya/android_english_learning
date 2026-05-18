@@ -53,6 +53,8 @@ object AppDimens {
     val grammarBasicOptionsHeight = if(isLargeTablet) 94.dp else if (isTablet) 68.dp else 48.dp
     val grammarBasicOptionsWidth = if(isLargeTablet) 320.dp else if (isTablet) 240.dp else 180.dp
     val grammarBasicPronounOptionsWidth = if(isLargeTablet) 360.dp else if (isTablet) 330.dp else 240.dp
+    val mixGrammarMediumImageSize = if(isLargeTablet) 136.dp else if (isTablet) 100.dp else 66.dp
+    val mixGrammarMediumBucketMinHeight = if(isLargeTablet) 200.dp else if (isTablet) 150.dp else 100.dp
 
     val AlphabetTracingLetterSize = if(isLargeTablet) 140.sp else if (isTablet) 120.sp else 90.sp
     val LetterRecognitionLetterSize = if(isLargeTablet) 80.sp else if (isTablet) 60.sp else 40.sp
