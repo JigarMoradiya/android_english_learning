@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
@@ -51,6 +52,7 @@ fun SettingsScreen(
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
     val userState by viewModel.userState.collectAsState()
+    val musicVolume = viewModel.musicVolume
     val showParentalGate by viewModel.showParentalGate.collectAsState()
     val sheetViewModel = LocalAccessSheetViewModel.current
 
@@ -81,6 +83,14 @@ fun SettingsScreen(
                 // ── User status card ─────────────────────────────────────
                 UserStatusCard(userState) {
                     sheetViewModel.requestState(AccessSheetState.Paywall(moduleId = "upgrade_from_settings"))
+                }
+
+                // ── Background music volume ──────────────────────────────
+                SettingsCard {
+                    MusicVolumeRow(
+                        volume = musicVolume,
+                        onVolumeChange = { viewModel.updateMusicVolume(it) }
+                    )
                 }
 
                 // ── Access Plan ──────────────────────────────────────────
@@ -267,6 +277,87 @@ private fun SettingsRow(
             contentDescription = null,
             tint = Color.Gray.copy(alpha = 0.5f),
             modifier = Modifier.size(Dimens20)
+        )
+    }
+}
+
+// ── Music volume row ──────────────────────────────────────────────────────────
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun MusicVolumeRow(volume: Float, onVolumeChange: (Float) -> Unit) {
+    // iOS system purple — matches SwiftUI Color.purple in light mode
+    val purple = Color(0xFFBF5AF2)
+
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(Dimens12),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(AppDimens.ToolbarIconSize)
+                    .shadow(Dimens4, RoundedCornerShape(Dimens10))
+                    .clip(RoundedCornerShape(Dimens10))
+                    .background(purple),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.MusicNote,
+                    contentDescription = null,
+                    tint = Color.White,
+                    modifier = Modifier.size(Dimens20)
+                )
+            }
+
+            Spacer(Modifier.width(Dimens12))
+
+            Column(modifier = Modifier.weight(1f)) {
+                Text("Background Music", fontWeight = FontWeight.Bold, fontSize = 15.sp, color = Color.Black)
+                Text("Adjust music volume", fontSize = 12.sp, color = Color.Gray)
+            }
+
+            Icon(
+                imageVector = if (volume == 0f) Icons.Filled.VolumeOff else Icons.Filled.VolumeUp,
+                contentDescription = null,
+                tint = purple.copy(alpha = 0.7f),
+                modifier = Modifier.size(Dimens20)
+            )
+        }
+
+        Slider(
+            value = volume,
+            onValueChange = onVolumeChange,
+            valueRange = 0f..1f,
+            thumb = {
+                Box(
+                    modifier = Modifier
+                        .size(Dimens20)
+                        .graphicsLayer(
+                            shadowElevation = 12f,
+                            shape = CircleShape,
+                            clip = true
+                        )
+                        .background(purple, CircleShape)
+                )
+            },
+            track = { sliderState ->
+                SliderDefaults.Track(
+                    sliderState = sliderState,
+                    modifier = Modifier.height(Dimens4),
+                    colors = SliderDefaults.colors(
+                        activeTrackColor = purple,
+                        inactiveTrackColor = purple.copy(alpha = 0.2f),
+                        thumbColor = purple,
+                    )
+                )
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = Dimens16)
+                .padding(bottom = Dimens12)
         )
     }
 }

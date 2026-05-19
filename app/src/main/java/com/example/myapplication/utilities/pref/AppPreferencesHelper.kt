@@ -17,6 +17,8 @@ class AppPreferencesHelper @Inject constructor(
 
         const val KEY_DEFAULT_TTS_PITCH = "KEY_DEFAULT_TTS_PITCH"
         const val KEY_DEFAULT_TTS_SPEECH = "KEY_DEFAULT_TTS_SPEECH"
+
+        const val KEY_BG_MUSIC_VOLUME = "KEY_BG_MUSIC_VOLUME"
     }
 
     private val mPrefs: SharedPreferences =
@@ -51,6 +53,9 @@ class AppPreferencesHelper @Inject constructor(
         putFloat(paramName, paramValue)
     }
 
+
+    fun getMusicVolume(): Float = getCustomParamFloat(KEY_BG_MUSIC_VOLUME, 0.05f)
+    fun setMusicVolume(volume: Float) = setCustomParamFloat(KEY_BG_MUSIC_VOLUME, volume)
 
     fun getDefaultTTSPitch(): Float {
         return getCustomParamFloat(KEY_DEFAULT_TTS_PITCH, 10f)

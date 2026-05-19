@@ -19,6 +19,7 @@ import com.example.myapplication.main.base.BaseActivity
 import com.example.myapplication.main.common.sheets.AccessBottomSheetHost
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.data.auth.AuthManager
+import com.example.myapplication.utilities.BGMusicManager
 import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AudioPlayerManager
 import com.google.firebase.auth.FirebaseAuth
@@ -29,6 +30,9 @@ import javax.inject.Inject
 class AgeCategoryActivity : BaseActivity() {
     @Inject
     lateinit var ttsManager: TextToSpeechManager
+
+    @Inject
+    lateinit var bgMusicManager: BGMusicManager
 
     @Inject
     lateinit var authManager: AuthManager
@@ -88,10 +92,17 @@ class AgeCategoryActivity : BaseActivity() {
         WindowInsetsControllerCompat(window, window.decorView).apply {
             hide(WindowInsetsCompat.Type.systemBars())
         }
+        bgMusicManager.start()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        bgMusicManager.pause()
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        bgMusicManager.stop()
         ttsManager.shutdown()
     }
 }
