@@ -56,7 +56,7 @@ android {
             resValue("string","app_name", "English Learning")
             dimension = "variant"
             applicationId = "com.vedaavi.english.learning"
-            versionCode = 6
+            versionCode = 7
             versionName = "1.0.2"
         }
     }
