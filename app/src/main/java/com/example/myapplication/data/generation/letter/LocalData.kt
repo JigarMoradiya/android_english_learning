@@ -6,6 +6,7 @@ data class LetterData(
     val letter: String,
     val mainWord: String,
     val altWords: List<String>,
-    val soundFile: String,
-    val id: String = UUID.randomUUID().toString(), // same as UUID()
+    val phonicsSound: String,
+    val highlightTimings: List<Double>? = null,
+    val id: String = UUID.randomUUID().toString(),
 )

@@ -25,5 +25,4 @@ object AppModule {
     @Provides
     fun providePreferencesHelper(@ApplicationContext context: Context) = AppPreferencesHelper(context, AppConstants.PREF_NAME)
 
-
 }

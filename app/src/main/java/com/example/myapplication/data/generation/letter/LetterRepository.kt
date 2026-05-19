@@ -4,33 +4,32 @@ import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.v
 
 object LetterRepository {
     val all: List<LetterData> = listOf(
-
-        LetterData("A", "Ant", listOf("Apple", "Airplane", "Axe", "Alligator", "Arrow"), "a_sound.mp3"),
-        LetterData("B", "Bat", listOf("Bee", "Ball", "Butterfly", "Boy", "Banana", "Balloon"), "b_sound.mp3"),
-        LetterData("C", "Cat", listOf("Car", "Cake", "Candle", "Cow", "Carrot"), "c_sound.mp3"),
-        LetterData("D", "Drum", listOf( "Dog", "Duck", "Door", "Deer", "Doll"), "d_sound.mp3"),
-        LetterData("E", "Elephant", listOf("Egg", "Eagle", "Ear", "Envelope", "Eye"), "e_sound.mp3"),
-        LetterData("F", "Fish", listOf("Fan", "Frog", "Fox", "Flower"), "f_sound.mp3"),
-        LetterData("G", "Grapes", listOf("Goat", "Giraffe", "Gift", "Girl", "Guitar"), "g_sound.mp3"),
-        LetterData("H", "Hen", listOf("Horse", "Hat", "House", "Hand", "Hammer"), "h_sound.mp3"),
-        LetterData("I", "Icecream", listOf("Igloo", "Island", "Ice"), "i_sound.mp3"),
-        LetterData("J", "Joker", listOf("Jug", "Jellyfish", "Jam", "Jet", "Jar"), "j_sound.mp3"),
-        LetterData("K", "Kiwi", listOf("King", "Kite", "Key", "Knife", "Kangaroo"), "k_sound.mp3"),
-        LetterData("L", "Lion", listOf("Lamp", "Leaf", "Leg", "Ladder", "Lock"), "l_sound.mp3"),
-        LetterData("M", "Monkey", listOf("Moon", "Mango", "Mushroom", "Mouse", "Mitten"), "m_sound.mp3"),
-        LetterData("N", "Nose", listOf("Nurse", "Net", "Nest", "Neck"), "n_sound.mp3"),
-        LetterData("O", "Owl", listOf("Orange", "Ox", "Octopus", "Onion", "Ostrich"), "o_sound.mp3"),
-        LetterData("P", "Parrot", listOf("Pig", "Pen", "Penguin", "Pot", "Pumpkin"), "p_sound.mp3"),
-        LetterData("Q", "Queen", listOf("Quill", "Quilt", "Question Mark", "Quiet"), "q_sound.mp3"),
-        LetterData("R", "Rose", listOf("Rabbit", "Road", "Rope", "Rocket"), "r_sound.mp3"),
-        LetterData("S", "Sun", listOf("Star", "Ship", "Snake", "Spoon", "Soap"), "s_sound.mp3"),
-        LetterData("T", "Tiger", listOf("Tree", "Train", "Table", "Teeth", "Tomato"), "t_sound.mp3"),
-        LetterData("U", "Umbrella", listOf("Unicorn", "Uniform", "Utensil", "UFO"), "u_sound.mp3"),
-        LetterData("V", "Van", listOf("Vase", "Volcano", "Violin", "Vegetable", "Vulture"), "v_sound.mp3"),
-        LetterData("W", "Watermelon", listOf("Wall", "Wolf", "Wheel", "Watch", "Window"), "w_sound.mp3"),
-        LetterData("X", "Xylophone", listOf("X-ray", "Xmas-tree", "Xenops"), "x_sound.mp3"),
-        LetterData("Y", "Yoga", listOf("Yak", "Yacht", "Yarn", "Yo-Yo"), "y_sound.mp3"),
-        LetterData("Z", "Zebra", listOf("Zoo", "Zero", "Zip", "Zigzag", "Zucchini"), "z_sound.mp3")
+        LetterData("A", "Ant",        listOf("Apple", "Airplane", "Axe", "Alligator", "Arrow"),       phonicsSound = "Aah Aah Aah",      highlightTimings = listOf(0.20, 0.75, 1.35, 1.90, 2.40, 3.40, 3.95, 4.20)),
+        LetterData("B", "Bat",        listOf("Bee", "Ball", "Butterfly", "Boy", "Banana", "Balloon"), phonicsSound = "Buh Buh Buh",      highlightTimings = listOf(0.20, 0.65, 1.15, 1.60, 2.00, 3.05, 3.70, 3.95)),
+        LetterData("C", "Cat",        listOf("Car", "Cake", "Candle", "Cow", "Carrot"),               phonicsSound = "Kuh Kuh Kuh",      highlightTimings = listOf(0.15, 0.70, 1.35, 1.80, 2.10, 3.25, 3.75, 4.00)),
+        LetterData("D", "Drum",       listOf("Dog", "Duck", "Door", "Deer", "Doll"),                  phonicsSound = "Duh Duh Duh",      highlightTimings = listOf(0.20, 0.70, 1.25, 1.65, 2.05, 3.20, 3.85, 4.10)),
+        LetterData("E", "Elephant",   listOf("Egg", "Eagle", "Ear", "Envelope", "Eye"),               phonicsSound = "Eh Eh Eh",         highlightTimings = listOf(0.35, 0.90, 1.60, 2.10, 2.55, 3.60, 4.30, 4.65)),
+        LetterData("F", "Fish",       listOf("Fan", "Frog", "Fox", "Flower"),                         phonicsSound = "Fuh Fuh Fuh",      highlightTimings = listOf(0.20, 0.70, 1.45, 1.85, 2.25, 3.50, 4.10, 4.60)),
+        LetterData("G", "Goat",       listOf("Grapes", "Giraffe", "Gift", "Girl", "Guitar"),          phonicsSound = "Guh Guh Guh",      highlightTimings = listOf(0.20, 0.70, 1.50, 1.90, 2.30, 3.35, 4.05, 4.30)),
+        LetterData("H", "Hat",        listOf("Horse", "Hen", "House", "Hand", "Hammer"),              phonicsSound = "Huh Huh Huh",      highlightTimings = listOf(0.20, 0.70, 1.50, 1.90, 2.30, 3.35, 4.05, 4.30)),
+        LetterData("I", "Icecream",   listOf("Igloo", "Island", "Ice"),                               phonicsSound = "Ih Ih Ih",         highlightTimings = listOf(0.25, 0.80, 1.35, 1.80, 2.25, 3.45, 4.20, 4.60)),
+        LetterData("J", "Joker",      listOf("Jug", "Jellyfish", "Jam", "Jet", "Jar"),                phonicsSound = "Juh Juh Juh",      highlightTimings = listOf(0.20, 0.75, 1.55, 1.95, 2.35, 3.45, 4.10, 4.45)),
+        LetterData("K", "Kiwi",       listOf("King", "Kite", "Key", "Knife", "Kangaroo"),             phonicsSound = "Kuh Kuh Kuh",      highlightTimings = listOf(0.20, 0.75, 1.50, 1.95, 2.50, 3.45, 4.10, 4.35)),
+        LetterData("L", "Lion",       listOf("Lamp", "Leaf", "Leg", "Ladder", "Lock"),                phonicsSound = "Luh Luh Luh",      highlightTimings = listOf(0.20, 0.75, 1.50, 2.00, 2.65, 3.85, 4.65, 4.95)),
+        LetterData("M", "Monkey",     listOf("Moon", "Mango", "Mushroom", "Mouse", "Mitten"),         phonicsSound = "Muh Muh Muh",      highlightTimings = listOf(0.20, 0.75, 1.60, 2.10, 2.70, 3.80, 4.45, 4.70)),
+        LetterData("N", "Nest",       listOf("Nose", "Nurse", "Net", "Neck"),                         phonicsSound = "Nuh Nuh Nuh",      highlightTimings = listOf(0.20, 0.75, 1.60, 2.15, 2.70, 3.65, 4.25, 4.50)),
+        LetterData("O", "Orange",     listOf("Owl", "Ox", "Octopus", "Onion", "Ostrich"),             phonicsSound = "Oh Oh Oh",         highlightTimings = listOf(0.25, 0.85, 1.40, 1.80, 2.35, 3.50, 4.00, 4.50)),
+        LetterData("P", "Parrot",     listOf("Pig", "Pen", "Penguin", "Pot", "Pumpkin"),              phonicsSound = "Puh Puh Puh",      highlightTimings = listOf(0.20, 0.75, 1.40, 1.80, 2.20, 3.45, 4.00, 4.45)),
+        LetterData("Q", "Queen",      listOf("Quill", "Quilt", "Question Mark", "Quiet"),             phonicsSound = "Kwuh Kwuh Kwuh",   highlightTimings = listOf(0.25, 0.85, 1.55, 2.00, 2.45, 3.50, 4.30, 4.65)),
+        LetterData("R", "Rose",       listOf("Rabbit", "Road", "Rope", "Rocket"),                     phonicsSound = "Ruh Ruh Ruh",      highlightTimings = listOf(0.20, 0.75, 1.25, 1.60, 2.10, 3.20, 3.90, 4.30)),
+        LetterData("S", "Sun",        listOf("Star", "Ship", "Snake", "Spoon", "Soap"),               phonicsSound = "Sss Sss Sss",      highlightTimings = listOf(0.20, 0.75, 1.65, 2.35, 2.90, 4.10, 4.70, 5.00)),
+        LetterData("T", "Tiger",      listOf("Tree", "Train", "Table", "Teeth", "Tomato"),            phonicsSound = "Tuh Tuh Tuh",      highlightTimings = listOf(0.20, 0.75, 1.30, 1.70, 2.10, 3.05, 3.70, 4.05)),
+        LetterData("U", "Umbrella",   listOf("Unicorn", "Uniform", "Utensil", "UFO"),                 phonicsSound = "Uh Uh Uh",         highlightTimings = listOf(0.25, 0.85, 1.70, 2.15, 2.60, 3.75, 4.65, 4.90)),
+        LetterData("V", "Van",        listOf("Vase", "Volcano", "Violin", "Vegetable", "Vulture"),    phonicsSound = "Vuh Vuh Vuh",      highlightTimings = listOf(0.20, 0.75, 1.45, 1.95, 2.35, 3.40, 4.10, 4.35)),
+        LetterData("W", "Watermelon", listOf("Wall", "Wolf", "Wheel", "Watch", "Window"),             phonicsSound = "Wuh Wuh Wuh",      highlightTimings = listOf(0.25, 0.85, 1.65, 2.20, 2.65, 3.85, 4.40, 4.95)),
+        LetterData("X", "Xylophone",  listOf("X-ray", "Xmas-tree", "Xenops"),                         phonicsSound = "Ks Ks Ks",         highlightTimings = listOf(0.30, 0.95, 1.45, 1.90, 2.35, 3.60, 4.20, 4.70)),
+        LetterData("Y", "Yoga",       listOf("Yak", "Yacht", "Yarn", "Yo-Yo"),                        phonicsSound = "Yuh Yuh Yuh",      highlightTimings = listOf(0.20, 0.80, 1.50, 1.95, 2.40, 3.70, 4.50, 4.75)),
+        LetterData("Z", "Zebra",      listOf("Zoo", "Zero", "Zip", "Zigzag", "Zucchini"),             phonicsSound = "Zuh Zuh Zuh",      highlightTimings = listOf(0.20, 0.80, 1.65, 2.10, 2.55, 3.70, 4.50, 4.75)),
     )
 
     val missingLetterEasyWords4Basic = listOf(
@@ -89,7 +88,7 @@ object LetterRepository {
                 word = chosenWord,
                 outlineImageName = "${data.letter.lowercase()}_outline_c",
 //                outlineImageName = "a_outline_circle",
-                audioName = data.soundFile
+                audioName = null
             )
         }
 }
