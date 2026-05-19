@@ -30,6 +30,7 @@ val activities_age_3_5 = listOf(
     LearningActivityModel(R.string.match_letters,             R.drawable.age_3_5_match_letters_icon,              RouteNavigation.MatchLetters.route,             Color(0xFF7A4481), moduleId = ModuleID.MATCH_UPPER_LOWER),
     LearningActivityModel(R.string.drag_drop_words,           R.drawable.age_3_5_drag_drop_word_icon,             RouteNavigation.DragDropWord.route,             Color(0xFF0567BD), moduleId = ModuleID.DRAG_DROP_LETTERS),
     LearningActivityModel(R.string.menu_letter_phonics_sound,        R.drawable.age_3_5_letter_recognition_icon,         RouteNavigation.LetterPhonicsSoundRoute.route,        Color(0xFF3674B5), moduleId = ModuleID.LETTER_RECOGNITION),
+    LearningActivityModel(R.string.phonics_reading,                  R.drawable.age_3_5_letter_recognition_icon,         RouteNavigation.PhonicsReadingLevels.route,           Color(0xFFFF6F00), moduleId = ""),
 )
 
 val activities_age_5_7 = listOf(

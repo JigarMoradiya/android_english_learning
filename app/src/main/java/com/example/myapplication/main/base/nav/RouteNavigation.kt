@@ -17,6 +17,7 @@ sealed class RouteNavigation(val route: String) {
     object DragDropWord : RouteNavigation("DragDropWord")
     object ColoringAlphabets : RouteNavigation("ColoringAlphabets")
     object LetterPhonicsSoundRoute : RouteNavigation("LetterPhonicsSoundRoute")
+    object PhonicsReadingLevels : RouteNavigation("PhonicsReadingLevels")
 
 
 

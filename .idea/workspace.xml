@@ -96,45 +96,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="policy url and change and release">
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/a_ant_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/b_bat_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/c_cat_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/d_drum_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/e_elephant_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/f_fish_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/g_goat_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/h_hat_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/i_icecream_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/j_joker_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/k_kiwi_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/l_lion_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/m_monkey_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/n_nest_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/o_orange_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/p_parrot_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/q_queen_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/r_rose_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/s_sun_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/t_tiger_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/u_umbrella_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/v_van_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/w_watermelon_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/x_xylophone_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/y_yoga_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/z_zebra_sound.mp3" afterDir="false" />
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="background music">
       <change beforePath="$PROJECT_DIR$/.claude/worktrees/silly-tharp-c6a9af" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/worktrees/silly-tharp-c6a9af" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/letter/LetterRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/letter/LetterRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/letter/LocalData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/letter/LocalData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/di/SingletonComponentModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/di/SingletonComponentModule.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -452,22 +421,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00074" summary="working on tablet sizes">
-      <option name="closed" value="true" />
-      <created>1776323033744</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1776323033744</updated>
-    </task>
-    <task id="LOCAL-00075" summary="working on tablet sizes">
-      <option name="closed" value="true" />
-      <created>1776326893684</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1776326893684</updated>
     </task>
     <task id="LOCAL-00076" summary="working on tablet sizes">
       <option name="closed" value="true" />
@@ -845,12 +798,26 @@
       <option name="project" value="LOCAL" />
       <updated>1779165908141</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="phonics letter sound module added">
+      <option name="closed" value="true" />
+      <created>1779200629508</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1779200629508</updated>
+    </task>
+    <task id="LOCAL-00124" summary="background music">
+      <option name="closed" value="true" />
+      <created>1779205476905</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1779205476905</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="one signal notification done" />
-    <MESSAGE value="force update popup done" />
     <MESSAGE value="version 3 release" />
     <MESSAGE value="version 4 release&#10;proguard rule issue" />
     <MESSAGE value="working on grammar, noun done" />
@@ -874,7 +841,9 @@
     <MESSAGE value="changed on UI for grammar challenge" />
     <MESSAGE value="tested in tablet" />
     <MESSAGE value="policy url and change and release" />
-    <option name="LAST_COMMIT_MESSAGE" value="policy url and change and release" />
+    <MESSAGE value="phonics letter sound module added" />
+    <MESSAGE value="background music" />
+    <option name="LAST_COMMIT_MESSAGE" value="background music" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

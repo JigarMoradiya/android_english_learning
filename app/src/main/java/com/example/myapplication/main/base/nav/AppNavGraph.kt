@@ -28,6 +28,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.Alp
 import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.ArrangeLetterInSequencePage
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.ColoringAlphabetsPage
 import com.example.myapplication.main.age_group.from_3_to_5.letter_phonics_sound.LetterPhonicsSoundPage
+import com.example.myapplication.main.age_group.from_3_to_5.phonics_reading.PhonicsReadingLevelsPage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
 import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.LetterRecognitionPage
@@ -164,6 +165,9 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.LetterPhonicsSoundRoute.route) {
             LetterPhonicsSoundPage(navController)
+        }
+        composable(RouteNavigation.PhonicsReadingLevels.route) {
+            PhonicsReadingLevelsPage(navController)
         }
 
         // Age Category 5 to 7
