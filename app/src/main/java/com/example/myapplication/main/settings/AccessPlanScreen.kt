@@ -6,6 +6,13 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Article
+import androidx.compose.material.icons.automirrored.filled.Assignment
+import androidx.compose.material.icons.automirrored.filled.FormatListBulleted
+import androidx.compose.material.icons.automirrored.filled.Help
+import androidx.compose.material.icons.automirrored.filled.HelpOutline
+import androidx.compose.material.icons.automirrored.filled.LibraryBooks
+import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
@@ -75,8 +82,8 @@ private val planSections = listOf(
             PlanRow(Icons.Filled.SwapVert,     "Match Upper / Lower",      TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.Filled.Image,        "Match Letter + Image",     TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.Filled.CropSquare,   "Fill the Blank Letter",    TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.Sort,         "Arrange Letter Sequence",  TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.Help,         "Missing Letter",           TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.AutoMirrored.Filled.Sort,         "Arrange Letter Sequence",  TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.AutoMirrored.Filled.Help,         "Missing Letter",           TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.TouchApp,     "Drag & Drop Letters",      TierAccess.Premium,       TierAccess.Premium),
         )
     ),
@@ -88,13 +95,13 @@ private val planSections = listOf(
             PlanRow(Icons.Filled.Book,         "Vocabulary - Animals",     TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.LocalFlorist, "Vocabulary - Fruits",      TierAccess.LoginRequired, TierAccess.Full),
             PlanRow(Icons.Filled.Pets,         "Vocabulary - Others",      TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.Article,      "Articles A / An",          TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.AutoMirrored.Filled.Article,      "Articles A / An",          TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.Visibility,   "Sight Words",              TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.SwapHoriz,    "Opposite Words",           TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.Filled.PhotoAlbum,   "Match Word + Picture",     TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.Filled.Description,  "Articles Choice",          TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.Filled.RemoveRedEye, "Sight Word Choice",        TierAccess.Limited(3),    TierAccess.Limited(5)),
-            PlanRow(Icons.Filled.HelpOutline,  "Missing Letter (5-7)",     TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.AutoMirrored.Filled.HelpOutline,  "Missing Letter (5-7)",     TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.Filled.LooksOne,     "Singular / Plural",        TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.Brush,        "Colouring Words",          TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.Headphones,   "Listen & Select",          TierAccess.Premium,       TierAccess.Premium),
@@ -102,12 +109,12 @@ private val planSections = listOf(
         )
     ),
     PlanSection(
-        icon = Icons.Filled.Assignment,
+        icon = Icons.AutoMirrored.Filled.Assignment,
         title = "Ages 6-8 · Sentence Builder",
         type = ButtonType.GREEN,
         rows = listOf(
             PlanRow(Icons.Filled.Book,              "Read & Listen (Unit 1)",   TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.Filled.LibraryBooks,      "Read & Listen (All)",      TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.AutoMirrored.Filled.LibraryBooks,      "Read & Listen (All)",      TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.Spellcheck,        "Grammar - Nouns",          TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.Star,              "Grammar - Others",         TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.Chat,              "One Word Answer",          TierAccess.Full,          TierAccess.Full),
@@ -119,7 +126,7 @@ private val planSections = listOf(
             PlanRow(Icons.Filled.Photo,             "Match the Picture",        TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.Adjust,            "Which Sentence is Right",  TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.Create,            "Find Correct Writing",     TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.FormatListBulleted,"Fill the Blanks",          TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.AutoMirrored.Filled.FormatListBulleted,"Fill the Blanks",          TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.EmojiEvents,       "Grammar Challenge (Med+)", TierAccess.Premium,       TierAccess.Premium),
         )
     )
