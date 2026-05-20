@@ -7,8 +7,8 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.vie
 data class FillBlankLetterUiState(
     val feedbackTextRes: Int = R.string.feedbackPhrases_1,
     val feedbackSubTextRes: Int = R.string.feedbackMissingLetter_1,
-    val showError: Boolean = false,
-    val showSuccess: Boolean = false,
+    val showNext: Boolean = false,
+    val isAnswerCorrect: Boolean = false,
 
     val mode: LetterMode = LetterMode.UPPERCASE,
     val round: Int = 1,
@@ -19,5 +19,5 @@ data class FillBlankLetterUiState(
     val fixedIndices: Set<Int> = emptySet(),
 
     val selectedLetter: String? = null,
-
+    val countdown: Int = 3,
 )

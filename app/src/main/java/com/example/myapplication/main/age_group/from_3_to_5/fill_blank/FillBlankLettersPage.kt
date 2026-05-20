@@ -12,16 +12,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.rounded.TouchApp
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
@@ -31,16 +26,12 @@ import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.component
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.components.TopLetterSlots
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.view_model.FillBlankLettersViewModel
 import com.example.myapplication.main.common.BackgroundUI
+import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
+import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.animations.ConfettiRainEffect
-import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens4
-import com.example.myapplication.ui.theme.AppDimens.Dimens40
-import com.example.myapplication.ui.theme.AppDimens.Dimens50
-import com.example.myapplication.ui.theme.ButtonType
-import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.utils.extensions.scaled
 
 
@@ -78,16 +69,11 @@ fun FillBlankLettersPage(
 
                 KidsLabel("🎯  Round ${viewModel.uiState.round}")
 
-                if (viewModel.uiState.showSuccess) {
-                    KidsActionButton(
+                if (viewModel.uiState.showNext) {
+                    CountdownBadge(
+                        count = viewModel.uiState.countdown,
                         modifier = Modifier.padding(end = Dimens16),
-                        text = stringResource(R.string.next),
-                        icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                        type = ButtonType.GREEN,
-                        isIconStart = false,
-                        onClick = {
-                            viewModel.next()
-                        }
+                        text = stringResource(R.string.next_letter_in)
                     )
                 }
             }
@@ -96,7 +82,11 @@ fun FillBlankLettersPage(
 
             TopLetterSlots(viewModel)
 
-            Spacer(modifier = Modifier.height(Dimens50.scaled()))
+            Spacer(modifier = Modifier.height(Dimens16.scaled()))
+
+            InstructionBadge(text = stringResource(R.string.fill_blank_tap_instruction), icon = Icons.Rounded.TouchApp)
+
+            Spacer(modifier = Modifier.height(Dimens16.scaled()))
 
             BottomLetterOptions(viewModel)
 
@@ -105,13 +95,9 @@ fun FillBlankLettersPage(
             FeedbackText(
                 title = stringResource(viewModel.uiState.feedbackTextRes),
                 subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
-                isSuccess = viewModel.uiState.showSuccess,
-                isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
+                isSuccess = viewModel.uiState.isAnswerCorrect,
+                isVisible = viewModel.uiState.showNext
             )
-        }
-
-        if (viewModel.uiState.showSuccess) {
-            ConfettiRainEffect()
         }
     }
 }

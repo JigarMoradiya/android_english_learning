@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlank
@@ -11,6 +12,9 @@ import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlankSubtitl
 import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,6 +22,8 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
 
     var uiState by mutableStateOf(FillBlankLetterUiState())
         private set
+
+    private var countdownJob: Job? = null
 
     init {
         generateGame()
@@ -31,6 +37,8 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
     }
 
     fun generateGame() {
+        countdownJob?.cancel()
+        countdownJob = null
         val alphabets = getAlphabet()
         // ✅ 1. Pick random 5–6 sequence
         val size = (2..3).random()
@@ -78,15 +86,15 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
             bottomOptions = options.shuffled(),
             fullSequence = sequence,
             fixedIndices = fixedIndices,
-            showSuccess = false,
-            showError = false
+            isAnswerCorrect = false,
+            showNext = false
         )
 
     }
 
     // ✅ Tap bottom → fill first empty
     fun onBottomLetterClick(letter: String) {
-        if (uiState.showSuccess) return
+        if (uiState.isAnswerCorrect) return
         val slots = uiState.topSlots.toMutableList()
         val firstEmpty = slots.indexOfFirst { it == null }
 
@@ -104,7 +112,7 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
 
     // ✅ Tap top → remove back
     fun onTopLetterClick(index: Int) {
-        if (uiState.showSuccess) return
+        if (uiState.showNext) return
 
         val isFixed = uiState.fixedIndices.contains(index)
         if (isFixed) return
@@ -122,40 +130,48 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
         uiState = uiState.copy(
             topSlots = slots,
             bottomOptions = updatedBottom,
-            showError = false
+            showNext = false
         )
     }
 
-    // ✅ VALIDATE (same concept as your VM) :contentReference[oaicite:0]{index=0}
     private fun validate() {
-
         if (!uiState.topSlots.contains(null)) {
-
             val formed = uiState.topSlots.joinToString("")
             val correct = uiState.fullSequence.joinToString("")
 
-            uiState = if (formed == correct) {
+            if (formed == correct) {
                 AudioPlayerManager.playSoundCorrectAnswer()
-                val randomTitle = feedbackTitles.random()
-                val randomSub = feedbackFillBlank.random()
-                uiState.copy(
-                    showSuccess = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
-                    showError = false
+                uiState = uiState.copy(
+                    showNext = true,
+                    isAnswerCorrect = true,
+                    feedbackTextRes = feedbackTitles.random(),
+                    feedbackSubTextRes = feedbackFillBlank.random(),
                 )
             } else {
                 AudioPlayerManager.playSoundWrongAnswer()
-                val randomTitle = feedbackWrong.random()
-                val randomSub = feedbackFillBlankSubtitleWrong.random()
-                uiState.copy(
-                    showError = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
+                uiState = uiState.copy(
+                    showNext = true,
+                    isAnswerCorrect = false,
+                    feedbackTextRes = feedbackWrong.random(),
+                    feedbackSubTextRes = feedbackFillBlankSubtitleWrong.random(),
                 )
             }
-        }else{
+            startCountdown()
+        } else {
             AudioPlayerManager.playSoundMenuClick()
+        }
+    }
+
+    private fun startCountdown() {
+        countdownJob?.cancel()
+        countdownJob = viewModelScope.launch {
+            uiState = uiState.copy(countdown = 3)
+            delay(1000L)
+            uiState = uiState.copy(countdown = 2)
+            delay(1000L)
+            uiState = uiState.copy(countdown = 1)
+            delay(1000L)
+            next()
         }
     }
 
@@ -165,7 +181,7 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
     }
 
     fun changeMode(mode: LetterMode) {
-        val round = if (uiState.showSuccess){
+        val round = if (uiState.isAnswerCorrect){
             uiState.round + 1
         }else{
             uiState.round
