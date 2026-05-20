@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlank
@@ -11,6 +12,9 @@ import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlankSubtitl
 import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,6 +22,8 @@ class ArrangeLetterInSequenceViewModel @Inject constructor() : ViewModel() {
 
     var uiState by mutableStateOf(ArrangeLetterInSequenceUiState())
         private set
+
+    private var countdownJob: Job? = null
 
     init {
         generateGame()
@@ -31,129 +37,109 @@ class ArrangeLetterInSequenceViewModel @Inject constructor() : ViewModel() {
     }
 
     fun generateGame() {
-
         val alphabets = getAlphabet()
-
-        // ✅ 1. Pick random 5–6 sequence
         val size = (5..6).random()
         val startIndex = (0..(26 - size)).random()
-
         val sequence = alphabets.subList(startIndex, startIndex + size)
 
-        // ✅ 2. ALL slots empty
-        val topSlots = List<String?>(size) { null }
-
-        // ✅ 3. Bottom = ALL letters shuffled
-        val options = sequence.shuffled()
-
         uiState = uiState.copy(
-            topSlots = topSlots,
-            bottomOptions = options,
+            topSlots = List<String?>(size) { null },
+            bottomOptions = sequence.shuffled(),
             fullSequence = sequence,
             showSuccess = false,
-            showError = false
+            showError = false,
+            showNext = false,
         )
     }
 
-    // ✅ Tap bottom → fill first empty
     fun onBottomLetterClick(letter: String) {
-
-        if (uiState.showSuccess) return
-
+        if (uiState.showNext) return
         val slots = uiState.topSlots.toMutableList()
         val firstEmpty = slots.indexOfFirst { it == null }
-
         if (firstEmpty != -1) {
             slots[firstEmpty] = letter
-
             val updatedBottom = uiState.bottomOptions.toMutableList()
             updatedBottom.remove(letter)
-
-            uiState = uiState.copy(
-                topSlots = slots,
-                bottomOptions = updatedBottom
-            )
-
+            uiState = uiState.copy(topSlots = slots, bottomOptions = updatedBottom)
             validate()
         }
     }
 
-    // ✅ Tap top → remove back
     fun onTopLetterClick(index: Int) {
-
-        if (uiState.showSuccess) return
-
+        if (uiState.showNext) return
         val slots = uiState.topSlots.toMutableList()
         val letter = slots[index] ?: return
-
         slots[index] = null
-
         val updatedBottom = uiState.bottomOptions.toMutableList()
         updatedBottom.add(letter)
-
         AudioPlayerManager.playSoundMenuClick()
-
-        uiState = uiState.copy(
-            topSlots = slots,
-            bottomOptions = updatedBottom,
-            showError = false
-        )
+        uiState = uiState.copy(topSlots = slots, bottomOptions = updatedBottom, showError = false)
     }
 
-    // ✅ VALIDATE (same concept as your VM) :contentReference[oaicite:0]{index=0}
     private fun validate() {
-
-        if (!uiState.topSlots.contains(null)) {
-
-            val formed = uiState.topSlots.joinToString("")
-            val correct = uiState.fullSequence.joinToString("")
-
-            uiState = if (formed == correct) {
-
-                AudioPlayerManager.playSoundClap()
-
-                val randomTitle = feedbackTitles.random()
-                val randomSub = feedbackFillBlank.random()
-
-                uiState.copy(
-                    showSuccess = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
-                    showError = false
-                )
-
-            } else {
-
-                AudioPlayerManager.playSoundWrongAnswer()
-
-                val randomTitle = feedbackWrong.random()
-                val randomSub = feedbackFillBlankSubtitleWrong.random()
-
-                uiState.copy(
-                    showError = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub
-                )
-            }
-
-        } else {
+        if (uiState.topSlots.contains(null)) {
             AudioPlayerManager.playSoundMenuClick()
+            return
+        }
+
+        val formed = uiState.topSlots.joinToString("")
+        val correct = uiState.fullSequence.joinToString("")
+
+        if (formed == correct) {
+            AudioPlayerManager.playSoundClap()
+            uiState = uiState.copy(
+                showSuccess = true,
+                showError = false,
+                showNext = true,
+                correctCount = uiState.correctCount + 1,
+                feedbackTextRes = feedbackTitles.random(),
+                feedbackSubTextRes = feedbackFillBlank.random(),
+            )
+            startCountdown()
+        } else {
+            AudioPlayerManager.playSoundWrongAnswer()
+            uiState = uiState.copy(
+                showError = true,
+                showSuccess = false,
+                feedbackTextRes = feedbackWrong.random(),
+                feedbackSubTextRes = feedbackFillBlankSubtitleWrong.random(),
+            )
+        }
+    }
+
+    private fun startCountdown() {
+        countdownJob?.cancel()
+        countdownJob = viewModelScope.launch {
+            uiState = uiState.copy(countdown = 3)
+            delay(1000L)
+            uiState = uiState.copy(countdown = 2)
+            delay(1000L)
+            uiState = uiState.copy(countdown = 1)
+            delay(1000L)
+            next()
         }
     }
 
     fun next() {
-        uiState = uiState.copy(round = uiState.round + 1)
+        if (uiState.round >= uiState.totalRounds) {
+            countdownJob?.cancel()
+            countdownJob = null
+            uiState = uiState.copy(showResult = true)
+        } else {
+            uiState = uiState.copy(round = uiState.round + 1)
+            generateGame()
+        }
+    }
+
+    fun restartGame() {
+        uiState = uiState.copy(round = 1, correctCount = 0, showResult = false)
         generateGame()
     }
 
     fun changeMode(mode: LetterMode) {
-        val round = if (uiState.showSuccess){
-            uiState.round + 1
-        }else{
-            uiState.round
-        }
-        uiState = uiState.copy(mode = mode,round = round)
+        countdownJob?.cancel()
+        countdownJob = null
+        uiState = uiState.copy(mode = mode, round = 1, correctCount = 0, showResult = false)
         generateGame()
     }
-
 }

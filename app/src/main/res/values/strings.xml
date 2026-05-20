@@ -17,6 +17,7 @@
     <string name="fill_the_blank">Fill the Blank</string>
     <string name="fill_blank_tap_instruction"><![CDATA[<b>Tap the missing letter</b> to fill the blank! 👇]]></string>
     <string name="arrange_letter_in_sequence">Arrange in Sequence</string>
+    <string name="arrange_letter_tap_instruction"><![CDATA[<b>Tap letters below</b> to arrange them in the correct order! ✨]]></string>
     <string name="abcd_with_images">ABCD with Images</string>
     <string name="menu_letter_phonics_sound">Letter Phonics Sound</string>
     <string name="phonics_reading">Phonics Reading</string>
