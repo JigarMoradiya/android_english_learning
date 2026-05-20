@@ -45,6 +45,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -52,6 +53,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.choose_form.view_model.ChooseSingularPluralFormViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
@@ -93,7 +95,7 @@ fun ChooseSingularPluralFormPage(
             // ── Header ────────────────────────────────────────────────────────
             Row(verticalAlignment = Alignment.CenterVertically) {
                 BackButtonWithText(
-                    title = "Choose Correct Form",
+                    title = stringResource(R.string.choose_correct_form),
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )

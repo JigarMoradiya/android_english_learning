@@ -14,6 +14,8 @@ val customFonts = FontFamily(
     Font(R.font.font_medium, FontWeight.Medium),
     Font(R.font.font_semi_bold, FontWeight.SemiBold),
     Font(R.font.font_bold, FontWeight.Bold),
+    Font(R.font.font_extra_bold, FontWeight.ExtraBold),
+    Font(R.font.font_black, FontWeight.Black),
 )
 
 // Step 2: Define Typography using that font

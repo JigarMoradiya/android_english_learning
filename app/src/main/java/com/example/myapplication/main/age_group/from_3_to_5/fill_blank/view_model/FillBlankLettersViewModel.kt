@@ -45,13 +45,6 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
         val startIndex = (0..(26 - size)).random()
 
         val sequence = alphabets.subList(startIndex, startIndex + size)
-
-        // ✅ 2. Create blanks
-//        val blankCount = when (size) {
-//            5 -> (2..3).random()
-//            6 -> 3
-//            else -> 2
-//        }
         val blankCount = 1
         val blankIndices = mutableSetOf<Int>()
 
@@ -144,6 +137,7 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
                 uiState = uiState.copy(
                     showNext = true,
                     isAnswerCorrect = true,
+                    correctCount = uiState.correctCount + 1,
                     feedbackTextRes = feedbackTitles.random(),
                     feedbackSubTextRes = feedbackFillBlank.random(),
                 )
@@ -176,17 +170,23 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
     }
 
     fun next() {
-        uiState = uiState.copy(round = uiState.round + 1)
+        if (uiState.round >= uiState.totalRounds) {
+            countdownJob?.cancel()
+            countdownJob = null
+            uiState = uiState.copy(showResult = true)
+        } else {
+            uiState = uiState.copy(round = uiState.round + 1)
+            generateGame()
+        }
+    }
+
+    fun restartGame() {
+        uiState = uiState.copy(round = 1, correctCount = 0, showResult = false)
         generateGame()
     }
 
     fun changeMode(mode: LetterMode) {
-        val round = if (uiState.isAnswerCorrect){
-            uiState.round + 1
-        }else{
-            uiState.round
-        }
-        uiState = uiState.copy(mode = mode,round = round)
+        uiState = uiState.copy(mode = mode, round = 1, correctCount = 0, showResult = false)
         generateGame()
     }
 }

@@ -27,7 +27,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -56,7 +55,6 @@ import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsHeight
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 import androidx.compose.ui.unit.sp
@@ -64,7 +62,6 @@ import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicBeginnerMultipleChoiceOptionsHeight
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicBeginnerMultipleChoiceOptionsWidth
-import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsWidth
 
 @Composable
 fun GrammarMultipleChoicePage(
@@ -122,10 +119,11 @@ fun GrammarMultipleChoicePage(
                 ResultView(
                     score = uiState.score,
                     total = uiState.questions.size,
-                    title = "Multiple Choice",
-                    firstBtnTxt = stringResource(R.string.go_back),
-                    onBack = { navController.popBackStack() },
-                    onContinue = { viewModel.restart() },
+                    title = stringResource(R.string.your_result),
+                    primaryButtonText = stringResource(R.string.want_to_continue),
+                    secondaryButtonText = stringResource(R.string.go_back),
+                    onSecondaryTap = { navController.popBackStack() },
+                    onPrimaryTap = { viewModel.restart() },
                     modifier = Modifier.padding(horizontal = Dimens16)
                 )
                 Spacer(Modifier.weight(1f))

@@ -80,9 +80,12 @@ fun WhichSentenceSoundRightPage(
             ) {
 
                 if (uiState.showResult){
-                    ResultView(uiState.score,uiState.questions.size, onBack = {
+                    ResultView(uiState.score,uiState.questions.size,
+                        primaryButtonText = stringResource(R.string.want_to_continue),
+                        secondaryButtonText = stringResource(R.string.go_back),
+                    onSecondaryTap = {
                         navController.popBackStack()
-                    },onContinue = {
+                    },onPrimaryTap = {
                         viewModel.restart()
                     })
                 }else{

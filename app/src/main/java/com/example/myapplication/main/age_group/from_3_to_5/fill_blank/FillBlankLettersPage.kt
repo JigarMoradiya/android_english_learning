@@ -29,7 +29,7 @@ import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.InstructionBadge
-import com.example.myapplication.main.common.animations.ConfettiRainEffect
+import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.utils.extensions.scaled
@@ -67,9 +67,9 @@ fun FillBlankLettersPage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                KidsLabel("🎯  Round ${viewModel.uiState.round}")
+                KidsLabel("${viewModel.uiState.round}/${viewModel.uiState.totalRounds}")
 
-                if (viewModel.uiState.showNext) {
+                if (viewModel.uiState.showNext && !viewModel.uiState.showResult) {
                     CountdownBadge(
                         count = viewModel.uiState.countdown,
                         modifier = Modifier.padding(end = Dimens16),
@@ -80,24 +80,39 @@ fun FillBlankLettersPage(
 
             Spacer(Modifier.weight(1f))
 
-            TopLetterSlots(viewModel)
+            if (viewModel.uiState.showResult) {
+                ResultView(
+                    modifier = Modifier.padding(horizontal = Dimens16),
+                    score = viewModel.uiState.correctCount,
+                    total = viewModel.uiState.totalRounds,
+                    title = stringResource(R.string.your_result),
+                    primaryButtonText = stringResource(R.string.practice_again),
+                    secondaryButtonText = stringResource(R.string.go_back),
+                    onPrimaryTap = { viewModel.restartGame() },
+                    onSecondaryTap = { navController.popBackStack() }
+                )
+            }else{
+                TopLetterSlots(viewModel)
 
-            Spacer(modifier = Modifier.height(Dimens16.scaled()))
+                Spacer(modifier = Modifier.height(Dimens16.scaled()))
 
-            InstructionBadge(text = stringResource(R.string.fill_blank_tap_instruction), icon = Icons.Rounded.TouchApp)
+                InstructionBadge(text = stringResource(R.string.fill_blank_tap_instruction), icon = Icons.Rounded.TouchApp)
 
-            Spacer(modifier = Modifier.height(Dimens16.scaled()))
+                Spacer(modifier = Modifier.height(Dimens16.scaled()))
 
-            BottomLetterOptions(viewModel)
+                BottomLetterOptions(viewModel)
 
-            Spacer(Modifier.weight(1f))
+                Spacer(Modifier.weight(1f))
 
-            FeedbackText(
-                title = stringResource(viewModel.uiState.feedbackTextRes),
-                subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
-                isSuccess = viewModel.uiState.isAnswerCorrect,
-                isVisible = viewModel.uiState.showNext
-            )
+                FeedbackText(
+                    title = stringResource(viewModel.uiState.feedbackTextRes),
+                    subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
+                    isSuccess = viewModel.uiState.isAnswerCorrect,
+                    isVisible = viewModel.uiState.showNext
+                )
+            }
+
         }
+
     }
 }

@@ -109,12 +109,13 @@ fun DragToGrammarBucketPage(
 
         // ── Result screen ─────────────────────────────────────────────────────
         if (uiState.isCompleted) {
-            ResultView(uiState.score,uiState.questions.size, title = stringResource(R.string.completed),
-                onBack = {
-                    navController.popBackStack()
-                },onContinue = {
-                    viewModel.restart()
-                })
+            ResultView(uiState.score,uiState.questions.size,
+                title = stringResource(R.string.your_result),
+                primaryButtonText = stringResource(R.string.want_to_continue),
+                secondaryButtonText = stringResource(R.string.go_back),
+                onSecondaryTap = { navController.popBackStack() },
+                onPrimaryTap = { viewModel.restart() }
+            )
 
             return@Box
         }

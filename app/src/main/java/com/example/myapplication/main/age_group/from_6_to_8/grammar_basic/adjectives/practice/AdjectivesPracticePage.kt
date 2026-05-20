@@ -120,15 +120,12 @@ fun AdjectivesPracticePage(
                 ResultView(
                     score = uiState.score,
                     total = uiState.questions.size,
-                    firstBtnTxt = stringResource(R.string.go_back),
+                    primaryButtonText = stringResource(R.string.want_to_continue),
+                    secondaryButtonText = stringResource(R.string.go_back),
                     title = stringResource(R.string.your_result),
                     modifier = Modifier.padding(horizontal = Dimens16),
-                    onBack = {
-                        navController.popBackStack()
-                    },
-                    onContinue = {
-                        viewModel.restart()
-                    }
+                    onSecondaryTap = { navController.popBackStack() },
+                    onPrimaryTap = { viewModel.restart() }
                 )
             }
         }

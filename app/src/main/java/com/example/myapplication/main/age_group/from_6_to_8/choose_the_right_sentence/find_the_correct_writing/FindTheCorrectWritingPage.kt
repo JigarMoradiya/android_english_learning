@@ -38,7 +38,6 @@ import com.example.myapplication.R
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
 import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.find_the_correct_writing.view_model.FindTheCorrectWritingViewModel
-import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.match_the_picture.view_model.MatchThePictureViewModel
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
@@ -119,10 +118,13 @@ fun FindTheCorrectWritingPage(
                     }
 
                     if (uiState.showResult){
-                        ResultView(uiState.score,uiState.questions.size, title = stringResource(R.string.completed),
-                            onBack = {
+                        ResultView(uiState.score,uiState.questions.size,
+                            title = stringResource(R.string.completed),
+                            primaryButtonText = stringResource(R.string.want_to_continue),
+                            secondaryButtonText = stringResource(R.string.go_back),
+                            onSecondaryTap = {
                                 navController.popBackStack()
-                            },onContinue = {
+                            },onPrimaryTap = {
                                 viewModel.restart()
                             })
                     }else{

@@ -26,7 +26,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.TextFormat
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -34,7 +33,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -53,7 +51,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.data.generation.loader.BlankSlot
 import com.example.myapplication.data.generation.loader.FillBlankWord
 import com.example.myapplication.data.generation.loader.FillSlotState
 import com.example.myapplication.data.generation.loader.SentenceSegment
@@ -135,9 +132,10 @@ fun GrammarFillTheBlanksPage(
                     score = uiState.score,
                     total = uiState.questions.size,
                     title = stringResource(R.string.your_result),
-                    firstBtnTxt = stringResource(R.string.go_back),
-                    onBack = { navController.popBackStack() },
-                    onContinue = { viewModel.restart() },
+                    primaryButtonText = stringResource(R.string.want_to_continue),
+                    secondaryButtonText = stringResource(R.string.go_back),
+                    onSecondaryTap = { navController.popBackStack() },
+                    onPrimaryTap = { viewModel.restart() },
                     modifier = Modifier.padding(horizontal = Dimens16)
                 )
                 Spacer(Modifier.weight(1f))

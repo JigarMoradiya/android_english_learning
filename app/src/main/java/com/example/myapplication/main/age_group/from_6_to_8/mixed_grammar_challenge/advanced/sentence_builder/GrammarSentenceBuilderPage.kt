@@ -133,9 +133,10 @@ fun GrammarSentenceBuilderPage(
                     score = uiState.score,
                     total = uiState.questions.size,
                     title = stringResource(R.string.your_result),
-                    firstBtnTxt = stringResource(R.string.go_back),
-                    onBack = { navController.popBackStack() },
-                    onContinue = { viewModel.restart() },
+                    primaryButtonText = stringResource(R.string.want_to_continue),
+                    secondaryButtonText = stringResource(R.string.go_back),
+                    onSecondaryTap = { navController.popBackStack() },
+                    onPrimaryTap = { viewModel.restart() },
                     modifier = Modifier.padding(horizontal = Dimens16)
                 )
                 Spacer(Modifier.weight(1f))

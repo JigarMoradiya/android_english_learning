@@ -123,9 +123,11 @@ fun FillTheMissingWordPage(
                     }
 
                     if (uiState.showResult){
-                        ResultView(uiState.score,uiState.questions.size, onBack = {
-                            navController.popBackStack()
-                        })
+                        ResultView(uiState.score,uiState.questions.size,
+                            title = stringResource(R.string.your_result),
+                            secondaryButtonText = stringResource(R.string.go_back),
+                            onSecondaryTap = { navController.popBackStack() }
+                        )
                     }else{
                         Column(modifier = Modifier.weight(1f),verticalArrangement = Arrangement.spacedBy(Dimens16)) {
                             uiState.currentQuestion?.let{ currentQuestion ->

@@ -118,11 +118,14 @@ fun MatchThePicturePage(
                     }
 
                     if (uiState.showResult){
-                        ResultView(uiState.score,uiState.questions.size, title = stringResource(R.string.completed),
-                        onBack = {
-                            navController.popBackStack()
-                        },onContinue = {
+                        ResultView(uiState.score,uiState.questions.size,
+                            title = stringResource(R.string.completed),
+                            primaryButtonText = stringResource(R.string.want_to_continue),
+                            secondaryButtonText = stringResource(R.string.go_back),
+                        onSecondaryTap = {
                             viewModel.restart()
+                        },onPrimaryTap = {
+                            navController.popBackStack()
                         })
                     }else{
                         Column(

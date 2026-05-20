@@ -123,12 +123,13 @@ fun SentenceCheckPage(
                     }
 
                     if (uiState.showResult){
-                        ResultView(uiState.score,uiState.questions.size, title = stringResource(R.string.completed),
-                            onBack = {
-                                navController.popBackStack()
-                            },onContinue = {
-                                viewModel.restart()
-                            })
+                        ResultView(uiState.score,uiState.questions.size,
+                            title = stringResource(R.string.your_result),
+                            primaryButtonText = stringResource(R.string.want_to_continue),
+                            secondaryButtonText = stringResource(R.string.go_back),
+                            onSecondaryTap = { navController.popBackStack() },
+                            onPrimaryTap = { viewModel.restart() }
+                        )
                     }else{
                         Column(modifier = Modifier.weight(1f),verticalArrangement = Arrangement.spacedBy(Dimens16)) {
                             uiState.currentQuestion?.let{ currentQuestion ->

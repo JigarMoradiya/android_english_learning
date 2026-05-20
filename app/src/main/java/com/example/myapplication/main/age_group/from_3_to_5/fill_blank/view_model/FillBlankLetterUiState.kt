@@ -20,4 +20,8 @@ data class FillBlankLetterUiState(
 
     val selectedLetter: String? = null,
     val countdown: Int = 3,
+
+    val totalRounds: Int = 5,
+    val correctCount: Int = 0,
+    val showResult: Boolean = false,
 )

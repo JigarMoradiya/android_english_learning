@@ -28,13 +28,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -126,9 +124,10 @@ fun OneWordAnswerPage(
                     }
 
                     if (uiState.showResult){
-                        ResultView(uiState.score,uiState.questions.size, onBack = {
-                            navController.popBackStack()
-                        })
+                        ResultView(uiState.score,uiState.questions.size,
+                            secondaryButtonText = stringResource(R.string.go_back_to_lesson),
+                            onSecondaryTap = { navController.popBackStack() }
+                        )
                     }else{
                         Column(modifier = Modifier.weight(1f),verticalArrangement = Arrangement.spacedBy(Dimens16)) {
                             uiState.currentQuestion?.let{ currentQuestion ->

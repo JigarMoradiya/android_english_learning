@@ -24,11 +24,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.view_model.FillBlankLettersViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.FillBlankLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryBlue
+import com.example.myapplication.ui.theme.customFonts
 import com.example.myapplication.utils.extensions.scaled
 
-private val slotCornerRadius = 14.dp
+private val slotCornerRadius = Dimens16
 
 @Composable
 fun TopLetterSlots(viewModel: FillBlankLettersViewModel) {
@@ -84,7 +86,7 @@ fun TopLetterSlots(viewModel: FillBlankLettersViewModel) {
 
                 // Layer 3 — letter text
                 Text(
-                    text = if (isEmpty) "?" else letter!!,
+                    text = if (isEmpty) "?" else letter,
                     fontSize = (FillBlankLetterBoxSize.value * 0.75).sp,
                     fontWeight = FontWeight.Bold,
                     color = when {

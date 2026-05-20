@@ -39,10 +39,11 @@ fun ResultView(
     score: Int,
     total: Int,
     title : String = stringResource(R.string.lesson_completed),
-    firstBtnTxt : String = stringResource(R.string.lesson_completed),
     modifier: Modifier = Modifier,
-    onBack: () -> Unit,
-    onContinue: (() -> Unit)? = null // 👈 nullable callback
+    primaryButtonText : String = stringResource(R.string.lesson_completed),
+    secondaryButtonText : String? = null,
+    onPrimaryTap: (() -> Unit)? = null, // 👈 nullable callback
+    onSecondaryTap: (() -> Unit)? = null // 👈 nullable callback
 ){
     val percentage = score.toFloat() / maxOf(total, 1)
 
@@ -109,19 +110,21 @@ fun ResultView(
         // 👉 Button
         Row {
 
-            KidsActionButton(
-                text = firstBtnTxt,
-                type = ButtonType.ORANGE,
-                onClick = onBack
-            )
+            onPrimaryTap?.let {
+                KidsActionButton(
+                    text = primaryButtonText,
+                    type = ButtonType.GREEN,
+                    onClick = it
+                )
+            }
 
-            if (onContinue != null){
+            if (onSecondaryTap != null && secondaryButtonText != null){
                 Spacer(Modifier.width(Dimens8))
 
                 KidsActionButton(
-                    text = stringResource(R.string.want_to_continue),
-                    type = ButtonType.GREEN,
-                    onClick = onContinue
+                    text = secondaryButtonText,
+                    type = ButtonType.ORANGE,
+                    onClick = onSecondaryTap
                 )
             }
         }

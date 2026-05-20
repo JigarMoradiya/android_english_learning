@@ -32,8 +32,6 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_6_to_8.common.BlankSentenceView
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
-import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.common_ui.practice.GrammarPracticeQuestionLayout
-import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.noun.practice.view_model.NounPracticeViewModel
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.pronouns.practice.view_model.PronounPracticeViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.BackgroundUI
@@ -41,18 +39,14 @@ import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.buttons.KidsOptionButton
-import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsHeight
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicPronounOptionsWidth
-import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsHeight
-import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsWidth
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 import kotlin.collections.chunked
 import kotlin.collections.forEach
-import kotlin.text.replaceFirstChar
 
 @Composable
 fun PronounPracticePage(
@@ -195,15 +189,12 @@ fun PronounPracticePage(
                 ResultView(
                     score = uiState.score,
                     total = uiState.questions.size,
-                    firstBtnTxt = stringResource(R.string.go_back),
+                    primaryButtonText = stringResource(R.string.want_to_continue),
+                    secondaryButtonText = stringResource(R.string.go_back),
                     title = stringResource(R.string.your_result),
                     modifier = Modifier.padding(horizontal = Dimens16),
-                    onBack = {
-                        navController.popBackStack()
-                    },
-                    onContinue = {
-                        viewModel.restart()
-                    }
+                    onSecondaryTap = { navController.popBackStack() },
+                    onPrimaryTap = { viewModel.restart() }
                 )
             }
         }

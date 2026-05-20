@@ -21,7 +21,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.view_model.FillBlankLettersViewModel
+import com.example.myapplication.ui.theme.customFonts
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.FillBlankLetterBoxSize
 import com.example.myapplication.utils.extensions.scaled
 
@@ -47,8 +50,8 @@ fun BottomLetterOptions(viewModel: FillBlankLettersViewModel) {
             Box(
                 modifier = Modifier
                     .size(FillBlankLetterBoxSize)
-                    .shadow(elevation = 6.dp, shape = RoundedCornerShape(16.dp))
-                    .clip(RoundedCornerShape(16.dp))
+                    .shadow(elevation = Dimens6, shape = RoundedCornerShape(Dimens16))
+                    .clip(RoundedCornerShape(Dimens16))
                     .background(tileColor)
                     .clickable { viewModel.onBottomLetterClick(letter) },
                 contentAlignment = Alignment.Center
