@@ -96,19 +96,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="working on fill the blank UI">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="change UI in arrange letter in sequence">
       <change beforePath="$PROJECT_DIR$/.claude/worktrees/silly-tharp-c6a9af" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/worktrees/silly-tharp-c6a9af" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/fill_blank/components/FillBlankBottomLetterOptions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/fill_blank/components/FillBlankBottomLetterOptions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/fill_blank/components/FillBlankTopLetterSlots.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/fill_blank/components/FillBlankTopLetterSlots.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/CustomPopupView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/CustomPopupView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/font/font_black.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/font/font_bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/font/font_extra_bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/font/font_medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/font/font_regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/font/font_semi_bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/arrange_letter_sequence/ArrangeLetterInSequencePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/arrange_letter_sequence/ArrangeLetterInSequencePage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/fill_blank/FillBlankLettersPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/fill_blank/FillBlankLettersPage.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -425,22 +418,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00079" summary="sentence unit and lesson list complete">
-      <option name="closed" value="true" />
-      <created>1776653882290</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1776653882290</updated>
-    </task>
-    <task id="LOCAL-00080" summary="working on read and listen">
-      <option name="closed" value="true" />
-      <created>1776661284875</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1776661284875</updated>
     </task>
     <task id="LOCAL-00081" summary="read and listen completed">
       <option name="closed" value="true" />
@@ -818,12 +795,26 @@
       <option name="project" value="LOCAL" />
       <updated>1779283462965</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="font finalize">
+      <option name="closed" value="true" />
+      <created>1779285652253</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1779285652253</updated>
+    </task>
+    <task id="LOCAL-00129" summary="change UI in arrange letter in sequence">
+      <option name="closed" value="true" />
+      <created>1779288189641</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1779288189641</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working on grammar, noun done" />
-    <MESSAGE value="working on grammar, noun,verb,adjective done" />
     <MESSAGE value="basic grammar complete. noun, verb, adjective, pronoun" />
     <MESSAGE value="basic grammar change explanation" />
     <MESSAGE value="change grammar basic explanation" />
@@ -847,7 +838,9 @@
     <MESSAGE value="background music" />
     <MESSAGE value="phonics levels list" />
     <MESSAGE value="working on fill the blank UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on fill the blank UI" />
+    <MESSAGE value="font finalize" />
+    <MESSAGE value="change UI in arrange letter in sequence" />
+    <option name="LAST_COMMIT_MESSAGE" value="change UI in arrange letter in sequence" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
