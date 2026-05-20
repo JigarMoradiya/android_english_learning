@@ -44,7 +44,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.content.res.ResourcesCompat
+import android.graphics.Typeface
 import androidx.core.graphics.toColorInt
 import com.example.myapplication.R
 import com.example.myapplication.main.common.animations.ConfettiRainEffect
@@ -205,7 +205,7 @@ fun CustomPopupView(
                                 textSize = 15f * appScale()
                                 setTextColor("#2E2E2E".toColorInt())
                                 textAlignment = TextView.TEXT_ALIGNMENT_CENTER
-                                typeface = ResourcesCompat.getFont(context, R.font.font_medium)
+                                typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
                             }
                         },
                         update = { textView ->

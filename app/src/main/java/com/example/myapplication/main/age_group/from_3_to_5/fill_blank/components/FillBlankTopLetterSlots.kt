@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,6 +20,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,7 +29,6 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.FillBlankLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryBlue
-import com.example.myapplication.ui.theme.customFonts
 import com.example.myapplication.utils.extensions.scaled
 
 private val slotCornerRadius = Dimens16
@@ -87,6 +88,7 @@ fun TopLetterSlots(viewModel: FillBlankLettersViewModel) {
                 // Layer 3 — letter text
                 Text(
                     text = if (isEmpty) "?" else letter,
+                    style = MaterialTheme.typography.titleLarge.scaled(),
                     fontSize = (FillBlankLetterBoxSize.value * 0.75).sp,
                     fontWeight = FontWeight.Bold,
                     color = when {
