@@ -22,7 +22,8 @@ object AppDimens {
     val Dimens8 = if(isLargeTablet) 16.dp else if (isTablet) 12.dp else 8.dp
     val Dimens10 = if(isLargeTablet) 20.dp else if (isTablet) 13.dp else 10.dp
     val Dimens12 = if(isLargeTablet) 24.dp else if (isTablet) 16.dp else 12.dp
-    val Dimens16 = if(isLargeTablet) 30.dp else if (isTablet) 22.dp else 16.dp
+    val Dimens14 = if(isLargeTablet) 30.dp else if (isTablet) 18.dp else 14.dp
+    val Dimens16 = if(isLargeTablet) 32.dp else if (isTablet) 20.dp else 16.dp
     val Dimens18 = if(isLargeTablet) 36.dp else if (isTablet) 26.dp else 18.dp
     val Dimens20 = if(isLargeTablet) 40.dp else if (isTablet) 30.dp else 20.dp
     val Dimens24 = if(isLargeTablet) 48.dp else if (isTablet) 36.dp else 24.dp
@@ -33,7 +34,7 @@ object AppDimens {
     val DimensColorCircles = if(isLargeTablet) 56.dp else if (isTablet) 48.dp else 36.dp
     val CommonPopupImageSize = if(isLargeTablet) 120.dp else if (isTablet) 96.dp else 72.dp
     val ABCDWithImagesSmallImageSize = if(isLargeTablet) 120.dp else if (isTablet) 100.dp else 80.dp
-    val MatchLetterBoxSize = if(isLargeTablet) 180.dp else if (isTablet) 150.dp else 100.dp
+    val MatchLetterBoxSize = if(isLargeTablet) 160.dp else if (isTablet) 135.dp else 80.dp
     val FillBlankLetterBoxSize = if(isLargeTablet) 180.dp else if (isTablet) 144.dp else 72.dp
     val ArrangeLetterInSequenceBoxSize = if(isLargeTablet) 160.dp else if (isTablet) 124.dp else 72.dp
     val DragLetterBoxSize = if(isLargeTablet) 180.dp else if (isTablet) 144.dp else 72.dp

@@ -98,6 +98,8 @@ fun BackButtonWithText(
                     Text(
                         text = title,
                         color = Color.White,
+                        maxLines = 1,
+                        softWrap = false,
                         style = MaterialTheme.typography.titleSmall.scaled(),
                         fontWeight = FontWeight.Black
                     )

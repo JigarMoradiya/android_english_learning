@@ -10,24 +10,26 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.MatchContent
-import com.example.myapplication.main.age_group.from_5_to_7.coloring_word.view_model.ColoringWordViewModel
 import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.view_model.WordMatchImageViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CustomPopupView
+import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
 
 
 @Composable
@@ -60,7 +62,14 @@ fun WordMatchImagePage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                KidsLabel("🎯  Round ${uiState.round}")
+                Row {
+                    InstructionBadge(
+                        text = stringResource(R.string.drag_word_to_connect_letters),
+                        isSmall = true,
+                        modifier = Modifier.padding(horizontal = Dimens12)
+                    )
+                    KidsLabel("🎯 Round ${uiState.round}")
+                }
             }
 
             // CENTER CONTENT

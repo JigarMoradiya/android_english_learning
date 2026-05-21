@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -41,6 +42,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_im
 import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.view_model.WordMatchImageViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens3
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
@@ -104,14 +106,14 @@ fun MatchWordWithImageContent(
             // -------------------------
             // LETTERS
             // -------------------------
-            Row(horizontalArrangement = Arrangement.spacedBy(Dimens12)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(Dimens12),modifier = Modifier.fillMaxWidth().padding(horizontal = Dimens20)) {
 
                 uiState.batchLetters.forEach { (letter, _) ->
 
                     val isMatched = uiState.matchedLetters.contains(letter)
 
                     Box(
-                        modifier = Modifier.width(MatchWordBoxWidth).height(MatchWordBoxHeight),
+                        modifier = Modifier.weight(1f).height(MatchWordBoxHeight),
                         contentAlignment = Alignment.Center
                     ) {
 
@@ -119,7 +121,7 @@ fun MatchWordWithImageContent(
                         Box(
                             modifier = Modifier
                                 .matchParentSize()
-                                .clip(RoundedCornerShape(Dimens16))
+                                .clip(RoundedCornerShape(Dimens12))
                                 .background(viewModel.getLetterColor(letter).copy(alpha = 0.4f))
                                 .graphicsLayer {
                                     alpha = if (isMatched) 0.4f else 1f

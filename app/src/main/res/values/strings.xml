@@ -23,6 +23,8 @@
     <string name="phonics_reading">Phonics Reading</string>
     <string name="match_letters">Match Letters</string>
     <string name="match_letter_image">Match with Image</string>
+    <string name="drag_to_connect_letters"><![CDATA[Drag each letter to its <font color="#5C6BC0"><b>matching image</b></font> below]]></string>
+    <string name="drag_word_to_connect_letters"><![CDATA[Drag each word to its <font color="#5C6BC0"><b>matching image</b></font> below]]></string>
     <string name="coloring_alphabet">Coloring Alphabet</string>
     <string name="missing_letter">Missing Letter</string>
     <string name="drag_drop_words">Drag &amp; Drop Words</string>

@@ -22,8 +22,10 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.utils.extensions.scaled
 
@@ -32,26 +34,27 @@ fun InstructionBadge(
     text: String,
     modifier: Modifier = Modifier,
     icon: ImageVector = Icons.Rounded.TouchApp,
-    color: Color = Color(0xFF5C6BC0)
+    color: Color = Color(0xFF5C6BC0),
+    isSmall : Boolean = false
 ) {
     Row(
         modifier = modifier
             .clip(RoundedCornerShape(Dimens12))
             .background(color.copy(alpha = 0.10f))
             .border(1.5.dp, color.copy(alpha = 0.3f), RoundedCornerShape(Dimens12))
-            .padding(horizontal = Dimens12, vertical = Dimens4),
-        horizontalArrangement = Arrangement.spacedBy(Dimens8),
+            .padding(horizontal = if (isSmall)Dimens8 else Dimens12, vertical = Dimens4),
+        horizontalArrangement = Arrangement.spacedBy(if (isSmall)Dimens6 else Dimens8),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
             imageVector = icon,
             contentDescription = null,
             tint = color,
-            modifier = Modifier.size(Dimens16)
+            modifier = Modifier.size(if (isSmall) Dimens14 else Dimens16)
         )
         Text(
             text = AnnotatedString.fromHtml(text),
-            style = MaterialTheme.typography.bodySmall.scaled(),
+            style = if (isSmall) MaterialTheme.typography.labelMedium.scaled() else MaterialTheme.typography.bodySmall.scaled(),
             color = Color.Black.copy(alpha = 0.75f)
         )
     }
