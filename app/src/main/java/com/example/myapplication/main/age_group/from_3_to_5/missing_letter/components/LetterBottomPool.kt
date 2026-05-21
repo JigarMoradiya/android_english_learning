@@ -90,7 +90,6 @@ fun LetterBottomPool(viewModel: MissingLetterViewModel) {
                             },
 
                             onDragEnd = {
-                                AudioPlayerManager.playSoundDragItem()
                                 val end = viewModel.dragPosition ?: Offset.Zero
 
                                 val targetIndex =

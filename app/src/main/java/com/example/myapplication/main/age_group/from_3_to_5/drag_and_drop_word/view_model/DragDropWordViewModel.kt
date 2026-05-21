@@ -170,20 +170,17 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
         if (!dropped.contains(null)) {
 
             if (word == targetWord) {
-                viewModelScope.launch {
-                    delay(100)
-                    AudioPlayerManager.playSoundClap()
+                AudioPlayerManager.playSoundCorrectAnswer()
 
-                    val randomTitle = feedbackTitles.random()
-                    val randomSub = feedbackMissingLetter.random()
+                val randomTitle = feedbackTitles.random()
+                val randomSub = feedbackMissingLetter.random()
 
-                    uiState = uiState.copy(
-                        showSuccess = true,
-                        feedbackTextRes = randomTitle,
-                        feedbackSubTextRes = randomSub,
-                        showError = false
-                    )
-                }
+                uiState = uiState.copy(
+                    showSuccess = true,
+                    feedbackTextRes = randomTitle,
+                    feedbackSubTextRes = randomSub,
+                    showError = false
+                )
 
             } else {
                 // ❌ WRONG ANSWER
@@ -196,6 +193,8 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
                     feedbackSubTextRes = randomSub,
                 )
             }
+        }else{
+            AudioPlayerManager.playSoundDragItem()
         }
     }
 

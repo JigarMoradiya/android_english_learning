@@ -33,7 +33,7 @@ import androidx.compose.ui.zIndex
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.MissingLetterViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
-import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
+import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSizeTop
 import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.ui.theme.PrimaryGreenLight
 import com.example.myapplication.utils.AudioPlayerManager
@@ -141,13 +141,13 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                             }
                         }
                         .background(if (isFixed) PrimaryGreenLight else Color.Transparent, RoundedCornerShape(Dimens12))
-                        .size(DragLetterBoxSize)
+                        .size(DragLetterBoxSizeTop)
                 ) {
 
                     // 🔤 LETTER
                     Text(
                         text = item?.letter ?: "",
-                        fontSize = (DragLetterBoxSize.value * 0.75).sp,
+                        fontSize = (DragLetterBoxSizeTop.value * 0.75).sp,
                         fontWeight = FontWeight.Bold,
                         color = if (isFixed) Color.DarkGray else PrimaryBlue
                     )
@@ -160,7 +160,7 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                 if (!isFixed){
                     Box(
                         modifier = Modifier
-                            .width(DragLetterBoxSize)
+                            .width(DragLetterBoxSizeTop)
                             .height(Dimens2)
                             .background(Color.Black)
                     )

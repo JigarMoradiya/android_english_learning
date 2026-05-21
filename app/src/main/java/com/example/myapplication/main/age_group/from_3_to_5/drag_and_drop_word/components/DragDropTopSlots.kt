@@ -132,7 +132,6 @@ fun DragDropTopSlots(viewModel: DragDropWordViewModel) {
 
                                             if (targetIndex != null && targetIndex != index) {
                                                 // ❌ TARGET FILLED → RETURN BACK
-                                                Log.e("jigarDragNDrop","viewModel.dropped[targetIndex] = "+viewModel.dropped[targetIndex])
                                                 if (viewModel.dropped[targetIndex] != null) {
 
                                                     val fromIndex = viewModel.dragFromIndex

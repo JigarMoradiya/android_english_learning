@@ -37,6 +37,7 @@ object AppDimens {
     val MatchLetterBoxSize = if(isLargeTablet) 160.dp else if (isTablet) 135.dp else 80.dp
     val FillBlankLetterBoxSize = if(isLargeTablet) 180.dp else if (isTablet) 144.dp else 72.dp
     val ArrangeLetterInSequenceBoxSize = if(isLargeTablet) 160.dp else if (isTablet) 124.dp else 72.dp
+    val DragLetterBoxSizeTop = (if(isLargeTablet) 180.dp else if (isTablet) 144.dp else 72.dp) * 0.85f
     val DragLetterBoxSize = if(isLargeTablet) 180.dp else if (isTablet) 144.dp else 72.dp
     val MatchWordBoxWidth = if(isLargeTablet) 240.dp else if (isTablet) 190.dp else 124.dp
     val MatchWordBoxHeight = if(isLargeTablet) 72.dp else if (isTablet) 56.dp else 40.dp

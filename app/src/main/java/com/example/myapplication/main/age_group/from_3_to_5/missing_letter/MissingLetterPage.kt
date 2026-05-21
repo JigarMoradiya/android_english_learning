@@ -63,8 +63,9 @@ fun MissingLetterPage(
                         modifier = Modifier.padding(end = Dimens16),
                         text = stringResource(R.string.next),
                         icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                        type = ButtonType.GREEN,
+                        type = ButtonType.POSITIVE,
                         isIconStart = false,
+                        isSmall = true,
                         onClick = {
                             viewModel.loadNextWord()
                         }

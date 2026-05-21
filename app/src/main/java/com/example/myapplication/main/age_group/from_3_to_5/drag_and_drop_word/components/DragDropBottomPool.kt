@@ -89,7 +89,6 @@ fun DragDropBottomPool(viewModel: DragDropWordViewModel) {
                             },
 
                             onDragEnd = {
-                                AudioPlayerManager.playSoundDragItem()
                                 val end = viewModel.dragPosition ?: Offset.Zero
 
                                 val targetIndex =

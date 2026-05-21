@@ -6,18 +6,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetter
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterSubTitleForWrong
-import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
+import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.math.min
 import kotlin.random.Random
@@ -141,12 +138,18 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         }
 
         // ⭐ ADD RANDOM UNIQUE LETTERS
-        val extraLetter = if (difficulty.value == DifficultyLevel.EASY){
-            2
-        }else{
-            3
+        val extraLetter = when (blankCount) {
+            1 -> {
+                3
+            }
+            2 -> {
+                4
+            }
+            else -> {
+                5
+            }
         }
-        while (pool.size < (missingLetters.size + extraLetter)) {
+        while (pool.size < extraLetter) {
 
             val r = ('A'..'Z').random().toString()
 
@@ -228,20 +231,15 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
         if (!dropped.contains(null)) {
 
             if (word == targetWord) {
-                viewModelScope.launch {
-                    delay(100)
-                    AudioPlayerManager.playSoundClap()
-
-                    val randomTitle = feedbackTitles.random()
-                    val randomSub = feedbackMissingLetter.random()
-
-                    uiState = uiState.copy(
-                        showSuccess = true,
-                        feedbackTextRes = randomTitle,
-                        feedbackSubTextRes = randomSub,
-                        showError = false
-                    )
-                }
+                AudioPlayerManager.playSoundCorrectAnswer()
+                val randomTitle = feedbackTitles.random()
+                val randomSub = feedbackMissingLetter.random()
+                uiState = uiState.copy(
+                    showSuccess = true,
+                    feedbackTextRes = randomTitle,
+                    feedbackSubTextRes = randomSub,
+                    showError = false
+                )
 
             } else {
                 // ❌ WRONG ANSWER
@@ -254,6 +252,8 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
                     feedbackSubTextRes = randomSub,
                 )
             }
+        }else{
+            AudioPlayerManager.playSoundDragItem()
         }
     }
 

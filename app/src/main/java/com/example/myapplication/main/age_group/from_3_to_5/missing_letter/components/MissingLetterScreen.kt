@@ -1,11 +1,14 @@
 package com.example.myapplication.main.age_group.from_3_to_5.missing_letter.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,6 +19,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.utils.extensions.scaled
 
@@ -24,49 +28,68 @@ fun MissingLetterScreen(
     viewModel: MissingLetterViewModel,
     modifier: Modifier = Modifier
 ) {
-    val uiState = viewModel.uiState
     Box(modifier = modifier.fillMaxSize()) {
 
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
+        Row(
+            modifier = Modifier.fillMaxSize()
         ) {
 
-            Spacer(Modifier.weight(1f))
-
-            getImageResFromWord(viewModel.targetWord)?.let {
-                Image(
-                    painter = painterResource(it),
-                    contentDescription = null,
-                    modifier = Modifier.fillMaxHeight(0.17f)
-                )
-
-                Spacer(modifier = Modifier.height(Dimens16.scaled()))
+            // ── Left section: Image + Sentence (50%) ─────────────
+            val image = getImageResFromWord(viewModel.targetWord)
+            Column(
+                modifier =
+                    if (image == null) {
+                        Modifier.fillMaxHeight()
+                    } else {
+                        Modifier.weight(0.3f).fillMaxHeight()
+                    },
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Spacer(Modifier.height(Dimens20))
+                image?.let {
+                    Image(
+                        painter = painterResource(it),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxHeight(0.6f)
+                    )
+                }
             }
 
-            // -------------------------
-            // WORD SLOTS
-            // -------------------------
-            WordTopSlots(viewModel)
+            Column(
+                modifier =
+                    if (image == null) {
+                        Modifier.weight(1f).fillMaxHeight()
+                    } else {
+                        Modifier.weight(0.7f).fillMaxHeight()
+                    },
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ){
+                Spacer(Modifier.weight(1f))
 
-            Spacer(modifier = Modifier.height(Dimens50))
+                // -------------------------
+                // WORD SLOTS
+                // -------------------------
+                WordTopSlots(viewModel)
 
-            // -------------------------
-            // LETTER POOL
-            // -------------------------
-            LetterBottomPool(viewModel)
+                Spacer(modifier = Modifier.height(Dimens50))
 
-            Spacer(Modifier.weight(1f))
+                // -------------------------
+                // LETTER POOL
+                // -------------------------
+                LetterBottomPool(viewModel)
 
-            FeedbackText(
-                title = stringResource(viewModel.uiState.feedbackTextRes),
-                subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
-                isSuccess = viewModel.uiState.showSuccess,
-                isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
-            )
+                Spacer(Modifier.weight(1f))
 
+                FeedbackText(
+                    title = stringResource(viewModel.uiState.feedbackTextRes),
+                    subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
+                    isSuccess = viewModel.uiState.showSuccess,
+                    isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
+                )
+            }
         }
-
 
     }
 }
