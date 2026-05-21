@@ -23,14 +23,16 @@ import androidx.compose.ui.unit.min
 import androidx.navigation.NavController
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActivityCard
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun MixedGrammarAdvancedMenuPage(navController: NavController) {
     Box(Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.aquaGreen, shape = KidsFloatingShape.leaves)
         Column(
             Modifier
                 .fillMaxSize()

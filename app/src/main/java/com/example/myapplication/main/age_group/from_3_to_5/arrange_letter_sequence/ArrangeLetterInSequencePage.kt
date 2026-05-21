@@ -25,7 +25,8 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.vie
 import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.components.BottomArrangeLetterOptions
 import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.components.TopArrangeLetterSlots
 import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.view_model.ArrangeLetterInSequenceViewModel
-import com.example.myapplication.main.common.KidsBackgroundScheme
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
@@ -43,7 +44,7 @@ fun ArrangeLetterInSequencePage(
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
 
-        KidsGradientBackground(scheme = KidsBackgroundScheme.ArrangeLetters)
+        KidsGradientBackground(gradient = KidsGradient.peachYellow, shape = KidsFloatingShape.bubbles)
 
         Column(
             modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing),

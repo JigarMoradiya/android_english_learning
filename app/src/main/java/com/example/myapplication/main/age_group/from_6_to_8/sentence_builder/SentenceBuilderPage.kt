@@ -43,7 +43,6 @@ import com.example.myapplication.data.model.SentenceUnit
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.sentence_builder.view_model.SentenceBuilderViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens1
@@ -54,6 +53,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -71,7 +73,7 @@ fun SentenceBuilderPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.mintLime, shape = KidsFloatingShape.musicNotes)
 
         Column(
             modifier = Modifier

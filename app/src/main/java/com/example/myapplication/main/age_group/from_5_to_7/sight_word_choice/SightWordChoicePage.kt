@@ -30,7 +30,6 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.sight_word_choice.view_model.SightWordChoiceViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -43,6 +42,9 @@ import com.example.myapplication.ui.theme.AppDimens.articleChoiceWidth
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -56,7 +58,7 @@ fun SightWordChoicePage(
     )
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.mintLime, shape = KidsFloatingShape.musicNotes)
 
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
             BackButtonWithText(

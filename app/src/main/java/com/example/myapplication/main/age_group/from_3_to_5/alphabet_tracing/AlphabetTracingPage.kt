@@ -21,10 +21,12 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.pre
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.CenterLearningLayout
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import kotlinx.coroutines.launch
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 // Letters N–Z start at index 13 (A=0, B=1, … M=12, N=13, … Z=25)
@@ -55,7 +57,7 @@ fun AlphabetTracingPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.pinkPeach, shape = KidsFloatingShape.sparkles)
 
         Column(
             modifier = Modifier.fillMaxSize()

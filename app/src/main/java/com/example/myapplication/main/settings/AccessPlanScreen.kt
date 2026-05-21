@@ -31,7 +31,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens1
 import com.example.myapplication.ui.theme.AppDimens.Dimens3
@@ -43,6 +42,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens18
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 // ── Data model ───────────────────────────────────────────────────────────────
 
@@ -137,7 +139,7 @@ private val planSections = listOf(
 @Composable
 fun AccessPlanScreen(navController: NavController) {
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI()
+        KidsGradientBackground(gradient = KidsGradient.grayBlue, shape = KidsFloatingShape.dots)
 
         Column(
             modifier = Modifier

@@ -57,7 +57,6 @@ import com.example.myapplication.data.generation.loader.SentenceSegment
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.fill_blanks.view_model.GrammarFillTheBlanksViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -73,6 +72,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -84,7 +86,7 @@ fun GrammarFillTheBlanksPage(
     val context = LocalContext.current
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.pinkPeach, shape = KidsFloatingShape.sparkles)
 
         Column(
             modifier = Modifier

@@ -56,7 +56,6 @@ import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawDragConnection
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.match_form.view_model.MatchSingularPluralViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.CustomPopupView
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
@@ -73,6 +72,9 @@ import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.ui.theme.colorList
 import com.example.myapplication.utils.extensions.scaled
 import kotlin.collections.set
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun MatchSingularPluralPage(
@@ -89,7 +91,7 @@ fun MatchSingularPluralPage(
     val oppositeFrames = remember { mutableStateMapOf<String, Rect>() }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.skyLavender, shape = KidsFloatingShape.diamonds)
 
         Column(
             modifier = Modifier

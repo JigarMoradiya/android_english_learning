@@ -56,7 +56,6 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.choose_form.view_model.ChooseSingularPluralFormViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.ColoredFeedbackView
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.buttons.KidsOptionButton
@@ -69,6 +68,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsHeight
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsWidth
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun ChooseSingularPluralFormPage(
@@ -83,7 +85,7 @@ fun ChooseSingularPluralFormPage(
     // Image size per count: fewer = bigger
 
     Box(Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.mintLime, shape = KidsFloatingShape.musicNotes)
 
         Column(
             modifier = Modifier

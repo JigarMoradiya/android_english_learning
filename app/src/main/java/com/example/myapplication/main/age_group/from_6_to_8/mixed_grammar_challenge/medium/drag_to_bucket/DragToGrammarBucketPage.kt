@@ -76,7 +76,6 @@ import com.example.myapplication.data.model.WordType
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.medium.drag_to_bucket.view_model.DragToGrammarBucketViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -90,6 +89,9 @@ import com.example.myapplication.ui.theme.AppDimens.mixGrammarMediumBucketMinHei
 import com.example.myapplication.ui.theme.AppDimens.mixGrammarMediumImageSize
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -105,7 +107,7 @@ fun DragToGrammarBucketPage(
             .fillMaxSize()
             .onGloballyPositioned { rootCoords = it }
     ) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.grayBlue, shape = KidsFloatingShape.dots)
 
         // ── Result screen ─────────────────────────────────────────────────────
         if (uiState.isCompleted) {

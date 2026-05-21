@@ -28,7 +28,6 @@ import androidx.navigation.NavController
 import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.sheets.AccessSheetState
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
@@ -45,6 +44,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun SettingsScreen(
@@ -57,7 +59,7 @@ fun SettingsScreen(
     val sheetViewModel = LocalAccessSheetViewModel.current
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI()
+        KidsGradientBackground(gradient = KidsGradient.indigoPurple, shape = KidsFloatingShape.curveLines)
 
         Column(
             modifier = Modifier

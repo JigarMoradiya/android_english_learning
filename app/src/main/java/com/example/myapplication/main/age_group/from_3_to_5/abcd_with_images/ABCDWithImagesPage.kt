@@ -47,7 +47,6 @@ import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.abcd_with_images.view_model.ABCDWithImagesViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsIconButton
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.ABCDWithImagesBigTextSize
@@ -62,6 +61,9 @@ import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.Gray
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -75,7 +77,7 @@ fun ABCDWithImagesPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.skyLavender, shape = KidsFloatingShape.diamonds)
 
         Row(
             modifier = Modifier

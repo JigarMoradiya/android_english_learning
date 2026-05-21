@@ -21,9 +21,11 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.view_model.MatchLetterWithImageViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.CustomPopupView
 import com.example.myapplication.main.common.buttons.KidsLabel
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -36,7 +38,7 @@ fun MatchLetterWithImagePage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.tealCyan, shape = KidsFloatingShape.musicNotes)
 
         Column(
             modifier = Modifier

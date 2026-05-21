@@ -40,7 +40,6 @@ import androidx.navigation.NavController
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActivityCard
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import kotlinx.coroutines.launch
@@ -50,6 +49,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun MixedGrammarChallengePage(navController: NavController) {
@@ -57,7 +59,7 @@ fun MixedGrammarChallengePage(navController: NavController) {
     val scope = rememberCoroutineScope()
 
     Box(Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.indigoPurple, shape = KidsFloatingShape.curveLines)
         Column(
             Modifier
                 .fillMaxSize()

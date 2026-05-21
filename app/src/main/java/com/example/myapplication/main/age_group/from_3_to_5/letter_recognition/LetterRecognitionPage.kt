@@ -45,7 +45,6 @@ import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.view_model.LetterRecognitionViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -56,6 +55,9 @@ import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.ui.theme.PrimaryOrange
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -71,7 +73,7 @@ fun LetterRecognitionPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.tealCyan, shape = KidsFloatingShape.musicNotes)
         Row(
             modifier = Modifier
                 .windowInsetsPadding(WindowInsets.safeDrawing)

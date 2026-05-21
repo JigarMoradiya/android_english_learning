@@ -29,11 +29,13 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_list.view_model.VocabularyBuildingViewModel
 import com.example.myapplication.main.age_group.presentation.model.vocabularyCategoryDataList
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.utils.AudioPlayerManager
 import kotlinx.coroutines.launch
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -46,7 +48,7 @@ fun VocabularyBuildingPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI()
+        KidsGradientBackground(gradient = KidsGradient.purpleBlue, shape = KidsFloatingShape.stars)
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
             BackButtonWithText(
                 modifier = Modifier,

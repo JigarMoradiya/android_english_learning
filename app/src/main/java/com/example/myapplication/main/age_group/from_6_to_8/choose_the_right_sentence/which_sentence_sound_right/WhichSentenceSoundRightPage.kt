@@ -31,7 +31,6 @@ import com.example.myapplication.data.model.SentenceUnit
 import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.which_sentence_sound_right.view_model.WhichSentenceSoundRightViewModel
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.buttons.KidsOptionButton
@@ -39,6 +38,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsHeight
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -54,7 +56,7 @@ fun WhichSentenceSoundRightPage(
     }
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.tealCyan, shape = KidsFloatingShape.musicNotes)
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
             // HEADER
             Row(

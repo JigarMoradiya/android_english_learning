@@ -48,7 +48,6 @@ import com.example.myapplication.R
 import com.example.myapplication.data.generation.loader.OppositeDifficulty
 import com.example.myapplication.main.age_group.from_5_to_7.opposite_words.choose_opposite.view_model.ChooseCorrectOppositeViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.ColoredFeedbackView
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
@@ -65,6 +64,9 @@ import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsHeight
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicOptionsWidth
 import com.example.myapplication.utils.extensions.appScale
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun ChooseCorrectOppositePage(
@@ -79,7 +81,7 @@ fun ChooseCorrectOppositePage(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.peachCoral, shape = KidsFloatingShape.diamonds)
 
         Column(
             modifier = Modifier

@@ -23,9 +23,11 @@ import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_im
 import com.example.myapplication.main.age_group.from_5_to_7.coloring_word.view_model.ColoringWordViewModel
 import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.view_model.WordMatchImageViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.CustomPopupView
 import com.example.myapplication.main.common.buttons.KidsLabel
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -38,7 +40,7 @@ fun WordMatchImagePage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.mintLime, shape = KidsFloatingShape.leaves)
 
         Column(
             modifier = Modifier

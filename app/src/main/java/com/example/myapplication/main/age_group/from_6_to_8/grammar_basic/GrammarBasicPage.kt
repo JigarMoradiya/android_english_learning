@@ -55,7 +55,6 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.presentation.model.activities_age_6_8_grammar_basics
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import kotlinx.coroutines.launch
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
@@ -67,6 +66,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.KidsIconSize
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun GrammarBasicPage(
@@ -76,7 +78,7 @@ fun GrammarBasicPage(
     val scope = rememberCoroutineScope()
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.mintLime, shape = KidsFloatingShape.musicNotes)
 
         Column(
             modifier = Modifier

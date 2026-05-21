@@ -59,7 +59,6 @@ import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.fix_sentence.view_model.FixOptionState
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.fix_sentence.view_model.FixTheSentenceViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -71,6 +70,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.mixGrammarAdvanceFixSentenceImageSize
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -82,7 +84,7 @@ fun FixTheSentencePage(
     val context = LocalContext.current
 
     Box(Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.pinkPeach, shape = KidsFloatingShape.sparkles)
 
         Column(
             modifier = Modifier

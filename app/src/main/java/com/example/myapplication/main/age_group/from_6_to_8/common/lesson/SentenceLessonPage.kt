@@ -52,7 +52,6 @@ import com.example.myapplication.main.age_group.from_6_to_8.common.StyledRow
 import com.example.myapplication.main.age_group.from_6_to_8.common.lesson.view_model.SentenceLessonViewModel
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
@@ -61,6 +60,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 import com.google.gson.Gson
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -78,7 +80,7 @@ fun SentenceLessonPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.peachYellow, shape = KidsFloatingShape.curveLines)
 
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
 

@@ -47,7 +47,6 @@ import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.beginner.multiple_choice.view_model.GrammarMultipleChoiceViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -62,6 +61,9 @@ import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicBeginnerMultipleChoiceOptionsHeight
 import com.example.myapplication.ui.theme.AppDimens.grammarBasicBeginnerMultipleChoiceOptionsWidth
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun GrammarMultipleChoicePage(
@@ -72,7 +74,7 @@ fun GrammarMultipleChoicePage(
     val context = LocalContext.current
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.skyLavender, shape = KidsFloatingShape.diamonds)
 
         Column(
             modifier = Modifier

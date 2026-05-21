@@ -25,7 +25,8 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.vie
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.components.BottomLetterOptions
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.components.TopLetterSlots
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.view_model.FillBlankLettersViewModel
-import com.example.myapplication.main.common.KidsBackgroundScheme
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
@@ -43,7 +44,7 @@ fun FillBlankLettersPage(
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
 
-        KidsGradientBackground(scheme = KidsBackgroundScheme.FillBlank)
+        KidsGradientBackground(gradient = KidsGradient.purpleBlue, shape = KidsFloatingShape.stars)
 
         Column(
             modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing),

@@ -21,9 +21,11 @@ import com.example.myapplication.data.model.VocabularyCategoryType
 import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_detail.components.WordCard
 import com.example.myapplication.main.age_group.from_5_to_7.vocabulary_building.category_detail.view_model.VocabularyBuildingDetailViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -39,7 +41,7 @@ fun VocabularyBuildingDetailPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.grayBlue, shape = KidsFloatingShape.dots)
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
             BackButtonWithText(
                 title = title,

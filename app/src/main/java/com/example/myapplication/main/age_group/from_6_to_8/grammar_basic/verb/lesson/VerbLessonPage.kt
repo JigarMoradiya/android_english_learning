@@ -28,11 +28,13 @@ import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.common
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.noun.lesson.view_model.NounLessonViewModel
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.verb.lesson.view_model.VerbLessonViewModel
 import com.example.myapplication.main.base.nav.RouteNavigation
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.nounLessonImagesDimension
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun VerbLessonPage(
@@ -43,7 +45,7 @@ fun VerbLessonPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(false)
+        KidsGradientBackground(gradient = KidsGradient.pinkVanilla, shape = KidsFloatingShape.stars)
 
         Column(
             modifier = Modifier

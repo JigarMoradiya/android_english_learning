@@ -21,12 +21,14 @@ import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.common_ui.practice.GrammarPracticeQuestionLayout
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.verb.practice.view_model.VerbPracticeViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun VerbPracticePage(
@@ -38,7 +40,7 @@ fun VerbPracticePage(
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        BackgroundUI(false)
+        KidsGradientBackground(gradient = KidsGradient.softBlue, shape = KidsFloatingShape.bubbles)
 
         Column(
             modifier = Modifier

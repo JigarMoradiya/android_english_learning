@@ -58,7 +58,6 @@ import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_im
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawMatchedConnections
 import com.example.myapplication.main.age_group.from_5_to_7.opposite_words.match_opposites.view_model.MatchOppositesViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.CustomPopupView
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
@@ -70,6 +69,9 @@ import com.example.myapplication.ui.theme.AppDimens.isLargeTablet
 import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.colorList
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun MatchOppositesPage(
@@ -91,7 +93,7 @@ fun MatchOppositesPage(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.pinkPeach, shape = KidsFloatingShape.sparkles)
 
         Column(
             modifier = Modifier

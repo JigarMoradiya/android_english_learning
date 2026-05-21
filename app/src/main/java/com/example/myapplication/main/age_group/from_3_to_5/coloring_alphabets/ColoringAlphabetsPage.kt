@@ -42,7 +42,6 @@ import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.c
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.components.ColoringCanvas
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.view_model.ColoringAlphabetsViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.getImageResForAlphabet
 import com.example.myapplication.main.common.getImageResFromWord
@@ -54,6 +53,9 @@ import com.example.myapplication.ui.theme.AppDimens.isLargeTablet
 import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -67,7 +69,7 @@ fun ColoringAlphabetsPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.lilacPink, shape = KidsFloatingShape.sparkles)
 
         Column(modifier = Modifier
             .fillMaxSize()

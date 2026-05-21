@@ -34,7 +34,6 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.listen_and_select_answer.view_model.ListenAndSelectWordViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.buttons.KidsActionButton
@@ -45,6 +44,9 @@ import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsHeight
 import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsWidth
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -57,7 +59,7 @@ fun ListenAndSelectWordPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.aquaGreen, shape = KidsFloatingShape.leaves)
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing),
             horizontalAlignment = Alignment.CenterHorizontally) {
             Row(

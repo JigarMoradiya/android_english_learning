@@ -39,7 +39,6 @@ import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.presentation.model.activities_age_6_8_right_sentence
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import kotlinx.coroutines.launch
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -48,6 +47,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -58,7 +60,7 @@ fun ChooseTheRightSentencePage(
     val scope = rememberCoroutineScope()
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI()
+        KidsGradientBackground(gradient = KidsGradient.indigoPurple, shape = KidsFloatingShape.curveLines)
         Column(
             modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)
         ) {

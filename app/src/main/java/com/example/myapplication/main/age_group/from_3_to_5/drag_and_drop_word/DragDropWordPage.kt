@@ -22,11 +22,13 @@ import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.c
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
@@ -42,7 +44,7 @@ fun DragDropWordPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.mintLime, shape = KidsFloatingShape.musicNotes)
 
         Box(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)){
             // HEADER

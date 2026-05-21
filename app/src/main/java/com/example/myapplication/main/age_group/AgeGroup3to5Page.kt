@@ -24,7 +24,6 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.components.ActivityTileCard
 import com.example.myapplication.main.age_group.presentation.model.activities_age_3_5
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -32,6 +31,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.ToolbarIconSize
 import com.example.myapplication.utils.AudioPlayerManager
 import kotlinx.coroutines.launch
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun AgeGroup3to5Page(navController: NavController) {
@@ -48,7 +50,7 @@ fun AgeGroup3to5Page(navController: NavController) {
     val tileHeight = (screenHeight - headerHeight - gridOverhead) * if (DeviceInfo.isTablet) 0.33f else 0.45f
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.pinkVanilla, shape = KidsFloatingShape.stars)
         Column(
             modifier = Modifier
                 .fillMaxSize()

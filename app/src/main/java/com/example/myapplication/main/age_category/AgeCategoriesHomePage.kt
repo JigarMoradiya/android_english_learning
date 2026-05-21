@@ -16,7 +16,6 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_category.presentation.CategoriesHorizontalList
 import com.example.myapplication.main.age_category.view_model.AgeCategoriesViewModel
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.base.force_update.ForceUpdateHandler
 import com.example.myapplication.main.base.notification.OneSignalSubscriptionWatcher
 import com.example.myapplication.main.common.permission.NotificationPermissionHandler
@@ -44,6 +43,9 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.core.net.toUri
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.utils.AppConstants
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 // --- UI Screen ---
 @Composable
@@ -59,7 +61,7 @@ fun MainLearningAgesCategoriesScreen(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = true)
+        KidsGradientBackground(gradient = KidsGradient.rosePink, shape = KidsFloatingShape.hearts)
 
         Column(
             modifier = Modifier

@@ -55,7 +55,6 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.letter_phonics_sound.view_model.LetterPhonicsSoundItem
 import com.example.myapplication.main.age_group.from_3_to_5.letter_phonics_sound.view_model.LetterPhonicsSoundViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
@@ -67,6 +66,9 @@ import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.ui.theme.PrimaryOrange
 import com.example.myapplication.utils.extensions.scaled
 import kotlinx.coroutines.delay
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun LetterPhonicsSoundPage(
@@ -81,7 +83,7 @@ fun LetterPhonicsSoundPage(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.mintLime, shape = KidsFloatingShape.musicNotes)
 
         Row(
             modifier = Modifier

@@ -56,7 +56,6 @@ import com.example.myapplication.data.generation.loader.AdvBuildWord
 import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.advanced.sentence_builder.view_model.GrammarSentenceBuilderViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -74,6 +73,9 @@ import com.example.myapplication.ui.theme.AppDimens.mixGrammarMediumBucketMinHei
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -85,7 +87,7 @@ fun GrammarSentenceBuilderPage(
     val context = LocalContext.current
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.periwinkleBlue, shape = KidsFloatingShape.stars)
 
         Column(
             modifier = Modifier

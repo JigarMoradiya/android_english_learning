@@ -41,7 +41,6 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.BackgroundUI
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens3
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
@@ -54,6 +53,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens28
 import com.example.myapplication.ui.theme.AppDimens.LetterRecognitionLetterSize
 import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 
@@ -96,7 +98,7 @@ val phonicsLevelItems = listOf(
 @Composable
 fun PhonicsReadingLevelsPage(navController: NavController) {
     Box(modifier = Modifier.fillMaxSize()) {
-        BackgroundUI(isGreenGrassShow = false)
+        KidsGradientBackground(gradient = KidsGradient.aquaGreen, shape = KidsFloatingShape.leaves)
 
         Row(
             modifier = Modifier
