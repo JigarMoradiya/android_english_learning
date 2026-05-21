@@ -179,8 +179,17 @@ class DragDropWordViewModel @Inject constructor() : ViewModel() {
                     showSuccess = true,
                     feedbackTextRes = randomTitle,
                     feedbackSubTextRes = randomSub,
-                    showError = false
+                    showError = false,
+                    countdownValue = 3
                 )
+                viewModelScope.launch {
+                    delay(1000)
+                    uiState = uiState.copy(countdownValue = 2)
+                    delay(1000)
+                    uiState = uiState.copy(countdownValue = 1)
+                    delay(1000)
+                    loadNextWord()
+                }
 
             } else {
                 // ❌ WRONG ANSWER

@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -22,10 +20,11 @@ import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.c
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
 import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.CountdownBadge
+import com.example.myapplication.main.common.FeedbackText
+import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.animations.ConfettiRainEffect
-import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
@@ -33,7 +32,7 @@ import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun DragDropWordPage(
-    navController: NavController,difficultyLevel : DifficultyLevel,
+    navController: NavController, difficultyLevel: DifficultyLevel,
     viewModel: DragDropWordViewModel = hiltViewModel()
 ) {
     LaunchedEffect(Unit) {
@@ -46,7 +45,10 @@ fun DragDropWordPage(
 
         KidsGradientBackground(gradient = KidsGradient.mintLime, shape = KidsFloatingShape.musicNotes)
 
-        Box(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)){
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .windowInsetsPadding(WindowInsets.safeDrawing)
+        ) {
             // HEADER
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -54,20 +56,20 @@ fun DragDropWordPage(
             ) {
                 BackButtonWithText(
                     modifier = Modifier.weight(1f),
-                    title = if (difficultyLevel == DifficultyLevel.EASY) stringResource(R.string.drag_drop_words) else stringResource(R.string.word_jigsaw) ,
+                    title = if (difficultyLevel == DifficultyLevel.EASY) stringResource(R.string.drag_drop_words) else stringResource(R.string.word_jigsaw),
                     onBackClick = { navController.popBackStack() }
                 )
 
                 if (uiState.showSuccess) {
-                    KidsActionButton(
+                    CountdownBadge(
+                        count = uiState.countdownValue,
                         modifier = Modifier.padding(end = Dimens16),
-                        text = stringResource(R.string.next),
-                        icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                        type = ButtonType.GREEN,
-                        isIconStart = false,
-                        onClick = {
-                            viewModel.loadNextWord()
-                        }
+                        text = stringResource(R.string.next_word_in)
+                    )
+                } else {
+                    InstructionBadge(
+                        text = stringResource(R.string.drag_to_build_word),
+                        modifier = Modifier.padding(end = Dimens16)
                     )
                 }
             }
@@ -77,10 +79,19 @@ fun DragDropWordPage(
                 viewModel,
                 modifier = Modifier.fillMaxSize()
             )
-        }
 
-        if (viewModel.uiState.showSuccess) {
-            ConfettiRainEffect()
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
+            ) {
+
+                FeedbackText(
+                    title = stringResource(viewModel.uiState.feedbackTextRes),
+                    subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
+                    isSuccess = viewModel.uiState.showSuccess,
+                    isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
+                )
+            }
         }
     }
 }

@@ -87,7 +87,7 @@ fun TopLetterSlots(viewModel: FillBlankLettersViewModel) {
 
                 // Layer 3 — letter text
                 Text(
-                    text = if (isEmpty) "?" else letter,
+                    text = if (isEmpty) "" else letter,
                     fontSize = (FillBlankLetterBoxSize.value * 0.75).sp,
                     fontWeight = FontWeight.Bold,
                     color = when {

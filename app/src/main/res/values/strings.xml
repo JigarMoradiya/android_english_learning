@@ -25,6 +25,7 @@
     <string name="match_letter_image">Match with Image</string>
     <string name="drag_to_connect_letters"><![CDATA[Drag each letter to its <font color="#5C6BC0"><b>matching image</b></font> below]]></string>
     <string name="drag_letters_to_complete_word"><![CDATA[Drag the letters to <font color="#5C6BC0"><b>complete the word</b></font>]]></string>
+    <string name="drag_to_build_word"><![CDATA[Drag the letters to <font color="#5C6BC0"><b>build the word</b></font>]]></string>
     <string name="next_word_in">Next word in</string>
     <string name="drag_word_to_connect_letters"><![CDATA[Drag each word to its <font color="#5C6BC0"><b>matching image</b></font> below]]></string>
     <string name="coloring_alphabet">Coloring Alphabet</string>

@@ -32,7 +32,6 @@ fun DragDropScreen(
     viewModel: DragDropWordViewModel,
     modifier: Modifier = Modifier
 ) {
-    val uiState = viewModel.uiState
     Box(modifier = modifier.fillMaxSize()) {
 
         Column(
@@ -65,13 +64,6 @@ fun DragDropScreen(
             DragDropBottomPool(viewModel)
 
             Spacer(Modifier.weight(1f))
-
-            FeedbackText(
-                title = stringResource(viewModel.uiState.feedbackTextRes),
-                subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
-                isSuccess = viewModel.uiState.showSuccess,
-                isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
-            )
         }
 
 

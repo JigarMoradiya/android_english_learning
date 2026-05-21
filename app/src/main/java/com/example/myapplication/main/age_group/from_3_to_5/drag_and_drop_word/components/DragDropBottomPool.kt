@@ -6,6 +6,7 @@ import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -40,7 +41,10 @@ fun DragDropBottomPool(viewModel: DragDropWordViewModel) {
     val dragging = viewModel.dragging
     val dragPos = viewModel.dragPosition
 
-    Row(horizontalArrangement = Arrangement.spacedBy(Dimens12)) {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(Dimens12),
+        modifier = Modifier.height(DragLetterBoxSize)
+    ) {
 
         letters.forEach { item ->
 
