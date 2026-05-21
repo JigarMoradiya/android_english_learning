@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,26 +26,20 @@ import com.example.myapplication.ui.theme.AppDimens.ArrangeLetterInSequenceBoxSi
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
+import com.example.myapplication.ui.theme.kidsColors
 import com.example.myapplication.utils.extensions.scaled
-
-private val kidsColors = listOf(
-    Color(0xFFFF8C42),
-    Color(0xFF5B9BD5),
-    Color(0xFFC86DD7),
-    Color(0xFF4CAF78),
-    Color(0xFFFF6B8A),
-)
 
 @Composable
 fun BottomArrangeLetterOptions(viewModel: ArrangeLetterInSequenceViewModel) {
 
     val uiState = viewModel.uiState
+    val shuffledColors = remember(uiState.bottomOptions) { kidsColors.shuffled() }
 
     Row(horizontalArrangement = Arrangement.spacedBy(Dimens12.scaled())) {
 
         uiState.bottomOptions.forEachIndexed { index, letter ->
 
-            val tileColor = kidsColors[index % kidsColors.size]
+            val tileColor = shuffledColors[index % shuffledColors.size]
 
             Box(
                 modifier = Modifier

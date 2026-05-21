@@ -38,14 +38,15 @@ import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_im
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawDragConnection
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawMatchedConnections
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.view_model.MatchLetterWithImageViewModel
-import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens3
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import androidx.compose.ui.draw.shadow
 import com.example.myapplication.ui.theme.AppDimens.MatchLetterBoxSize
 import com.example.myapplication.ui.theme.AppDimens.isLargeTablet
 import com.example.myapplication.ui.theme.AppDimens.isTablet
+import com.example.myapplication.ui.theme.kidsColors
 
 @Composable
 fun MatchContent(
@@ -57,6 +58,7 @@ fun MatchContent(
 
     // ✅ ROOT COORDINATE HOLDER
     var rootCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
+    val shuffledColors = remember(uiState.batchLetters) { kidsColors.shuffled() }
 
     Box(
         modifier = modifier
@@ -103,8 +105,9 @@ fun MatchContent(
             // -------------------------
             Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
 
-                uiState.batchLetters.forEach { (letter, _) ->
+                uiState.batchLetters.forEachIndexed { index, (letter, _) ->
 
+                    val tileColor = shuffledColors[index % shuffledColors.size]
                     val isMatched = uiState.matchedLetters.contains(letter)
 
                     Box(
@@ -116,8 +119,9 @@ fun MatchContent(
                         Box(
                             modifier = Modifier
                                 .matchParentSize()
-                                .clip(RoundedCornerShape(Dimens12))
-                                .background(viewModel.getLetterColor(letter))
+                                .shadow(elevation = Dimens6, shape = RoundedCornerShape(Dimens16))
+                                .clip(RoundedCornerShape(Dimens16))
+                                .background(tileColor)
                                 .graphicsLayer {
                                     alpha = if (isMatched) 0.4f else 1f
                                 }
@@ -162,9 +166,9 @@ fun MatchContent(
                                 fontWeight = FontWeight.Bold,
                                 style = TextStyle(
                                     shadow = Shadow(
-                                        color = if (isMatched) Color.Transparent else Color.Black.copy(alpha = 0.4f),
-                                        offset = Offset(2f, 2f),
-                                        blurRadius = 4f
+                                        color = if (isMatched) Color.Transparent else Color.Black.copy(alpha = 0.25f),
+                                        offset = Offset(1f, 1f),
+                                        blurRadius = 2f
                                     )
                                 )
                             )
