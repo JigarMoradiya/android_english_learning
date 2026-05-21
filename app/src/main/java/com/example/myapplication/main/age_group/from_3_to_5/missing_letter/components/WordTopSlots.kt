@@ -1,5 +1,7 @@
 package com.example.myapplication.main.age_group.from_3_to_5.missing_letter.components
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -14,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -56,6 +59,19 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
 
             var boxPos by remember { mutableStateOf(Offset.Zero) }
             val isDragging = viewModel.dragging == item
+            val showError = viewModel.uiState.showError
+            val isWrongSlot = viewModel.uiState.wrongSlots.contains(index)
+
+            val shakeAnim = remember { Animatable(0f) }
+            LaunchedEffect(showError) {
+                if (showError && isWrongSlot && item != null) {
+                    repeat(3) {
+                        shakeAnim.animateTo(8f, animationSpec = tween(65))
+                        shakeAnim.animateTo(-8f, animationSpec = tween(65))
+                    }
+                }
+                shakeAnim.snapTo(0f)
+            }
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -63,6 +79,7 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
+                        .offset { IntOffset(shakeAnim.value.toInt(), 0) }
 
                         // ⭐ keep position tracking
                         .onGloballyPositioned {
@@ -149,7 +166,11 @@ fun WordTopSlots(viewModel: MissingLetterViewModel) {
                         text = item?.letter ?: "",
                         fontSize = (DragLetterBoxSizeTop.value * 0.75).sp,
                         fontWeight = FontWeight.Bold,
-                        color = if (isFixed) Color.DarkGray else PrimaryBlue
+                        color = when {
+                            isFixed -> Color.DarkGray
+                            isWrongSlot && item != null -> Color.Red
+                            else -> PrimaryBlue
+                        }
                     )
 
                 }

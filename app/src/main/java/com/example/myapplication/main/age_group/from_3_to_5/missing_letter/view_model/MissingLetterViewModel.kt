@@ -6,7 +6,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.letter.LetterRepository
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetter
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterSubTitleForWrong
@@ -238,11 +241,29 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
                     showSuccess = true,
                     feedbackTextRes = randomTitle,
                     feedbackSubTextRes = randomSub,
-                    showError = false
+                    showError = false,
+                    countdownValue = 3
                 )
+                viewModelScope.launch {
+                    delay(1000)
+                    uiState = uiState.copy(countdownValue = 2)
+                    delay(1000)
+                    uiState = uiState.copy(countdownValue = 1)
+                    delay(1000)
+                    loadNextWord()
+                }
 
             } else {
-                // ❌ WRONG ANSWER
+                // ❌ WRONG ANSWER — find only the incorrectly placed slots
+                val badSlots = mutableSetOf<Int>()
+                targetWord.forEachIndexed { i, ch ->
+                    if (!fixedIndices.contains(i)) {
+                        val placed = dropped.getOrNull(i)
+                        if (placed != null && placed.letter != ch.toString()) {
+                            badSlots.add(i)
+                        }
+                    }
+                }
                 AudioPlayerManager.playSoundWrongAnswer()
                 val randomTitle = feedbackWrong.random()
                 val randomSub = feedbackMissingLetterSubTitleForWrong.random()
@@ -250,6 +271,7 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
                     showError = true,
                     feedbackTextRes = randomTitle,
                     feedbackSubTextRes = randomSub,
+                    wrongSlots = badSlots,
                 )
             }
         }else{
@@ -262,6 +284,6 @@ class MissingLetterViewModel @Inject constructor() : ViewModel() {
     }
 
     fun removeError() {
-        uiState = uiState.copy(showError = false)
+        uiState = uiState.copy(showError = false, wrongSlots = emptySet())
     }
 }

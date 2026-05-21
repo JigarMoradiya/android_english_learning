@@ -8,8 +8,9 @@ data class MissingLetterUiState(
     val showSuccess: Boolean = false,
     val feedbackTextRes: Int = R.string.feedbackPhrases_1,
     val feedbackSubTextRes: Int = R.string.feedbackMissingLetter_1,
-
     val showError: Boolean = false,
+    val countdownValue: Int = 3,
+    val wrongSlots: Set<Int> = emptySet(),
 )
 
 data class LetterItem(
