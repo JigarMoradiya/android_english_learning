@@ -14,7 +14,7 @@ private const val TAG = "AccessManager"
  * Every module behaves as if the user has an active premium subscription.
  * MUST be false before releasing to production.
  */
-private const val DEV_MODE = true
+private const val DEV_MODE = false
 
 /**
  * The single source of truth for access control.

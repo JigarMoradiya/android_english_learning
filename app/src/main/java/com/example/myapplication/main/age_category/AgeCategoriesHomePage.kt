@@ -46,6 +46,7 @@ import com.example.myapplication.utils.AppConstants
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.ui.theme.AppDimens.Dimens32
 
 // --- UI Screen ---
 @Composable
@@ -105,13 +106,13 @@ fun MainLearningAgesCategoriesScreen(
                     Icon(
                         imageVector = Icons.Default.Settings,
                         contentDescription = "Settings",
-                        tint = androidx.compose.ui.graphics.Color.Black.copy(alpha = 0.75f),
+                        tint = Color.Black.copy(alpha = 0.75f),
                         modifier = Modifier.size(AppDimens.ToolbarIconSize / 1.8f)
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.height(Dimens16))
+            Spacer(modifier = Modifier.height(Dimens32))
 
             CategoriesHorizontalList(categories, {
                 AudioPlayerManager.playSoundMenuClick()

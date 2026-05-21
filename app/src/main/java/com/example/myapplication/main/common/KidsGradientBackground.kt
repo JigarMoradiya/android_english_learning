@@ -217,22 +217,24 @@ fun KidsGradientBackground(gradient: KidsGradient, shape: KidsFloatingShape) {
         }
     }
 
-    val shapes = remember(shape) {
-        when (shape) {
-            KidsFloatingShape.none          -> emptyList()
-            KidsFloatingShape.hearts        -> heartShapes
-            KidsFloatingShape.mixShapes     -> mixShapesSet
-            KidsFloatingShape.stars         -> starShapes
-            KidsFloatingShape.bubbles       -> bubbleShapes
-            KidsFloatingShape.dots          -> posSetA
-            KidsFloatingShape.sparkles      -> posSetA
-            KidsFloatingShape.musicNotes    -> posSetB
-            KidsFloatingShape.diamonds      -> posSetB
-            KidsFloatingShape.leaves        -> posSetC
-            KidsFloatingShape.speechBubbles -> posSetC
-            KidsFloatingShape.curveLines    -> posSetD
-        }
-    }
+//    val shapes = remember(shape) {
+//        when (shape) {
+//            KidsFloatingShape.none          -> emptyList()
+//            KidsFloatingShape.hearts        -> heartShapes
+//            KidsFloatingShape.mixShapes     -> mixShapesSet
+//            KidsFloatingShape.stars         -> starShapes
+//            KidsFloatingShape.bubbles       -> bubbleShapes
+//            KidsFloatingShape.dots          -> posSetA
+//            KidsFloatingShape.sparkles      -> posSetA
+//            KidsFloatingShape.musicNotes    -> posSetB
+//            KidsFloatingShape.diamonds      -> posSetB
+//            KidsFloatingShape.leaves        -> posSetC
+//            KidsFloatingShape.speechBubbles -> posSetC
+//            KidsFloatingShape.curveLines    -> posSetD
+//        }
+//    }
+
+    val shapes: List<ShapeData> = emptyList()
 
     val mixColors = remember {
         listOf(

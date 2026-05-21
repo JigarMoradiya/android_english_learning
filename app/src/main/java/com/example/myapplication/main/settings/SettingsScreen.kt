@@ -56,6 +56,7 @@ fun SettingsScreen(
     val userState by viewModel.userState.collectAsState()
     val musicVolume = viewModel.musicVolume
     val showParentalGate by viewModel.showParentalGate.collectAsState()
+    val subscriptionInfo by viewModel.subscriptionInfo.collectAsState()
     val sheetViewModel = LocalAccessSheetViewModel.current
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -83,7 +84,7 @@ fun SettingsScreen(
                 Spacer(Modifier.height(Dimens8))
 
                 // ── User status card ─────────────────────────────────────
-                UserStatusCard(userState) {
+                UserStatusCard(userState, subscriptionInfo) {
                     sheetViewModel.requestState(AccessSheetState.Paywall(moduleId = "upgrade_from_settings"))
                 }
 
@@ -149,7 +150,11 @@ fun SettingsScreen(
 // ── User status card ──────────────────────────────────────────────────────────
 
 @Composable
-private fun UserStatusCard(state: UserAccessState, onUpgrade: () -> Unit) {
+private fun UserStatusCard(
+    state: UserAccessState,
+    subscriptionInfo: SubscriptionInfo?,
+    onUpgrade: () -> Unit
+) {
     val tierInfo = when {
         state.isPremium  -> Quad(Icons.Filled.Star,          "Premium",      ButtonType.ORANGE,   "Full access to all activities")
         state.isLoggedIn -> Quad(Icons.Filled.Person,        "Free Account", ButtonType.BLUE,     "5 plays/day on limited activities")
@@ -193,11 +198,36 @@ private fun UserStatusCard(state: UserAccessState, onUpgrade: () -> Unit) {
                 fontSize = 18.sp,
                 color = colors.base
             )
-            Text(
-                text = desc,
-                fontSize = 13.sp,
-                color = Color.Gray
-            )
+            // Show plan + renewal date for premium, otherwise standard desc
+            if (state.isPremium && subscriptionInfo != null) {
+                Row(horizontalArrangement = Arrangement.spacedBy(Dimens6)) {
+                    Text(
+                        text = subscriptionInfo.planName,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color.Black.copy(alpha = 0.75f)
+                    )
+                    if (subscriptionInfo.price.isNotEmpty()) {
+                        Text(
+                            text = "· ${subscriptionInfo.price}",
+                            fontSize = 13.sp,
+                            fontWeight = FontWeight.Medium,
+                            color = Color.Black.copy(alpha = 0.75f)
+                        )
+                    }
+                }
+                Text(
+                    text = subscriptionInfo.renewalDate,
+                    fontSize = 12.sp,
+                    color = Color.Gray
+                )
+            } else {
+                Text(
+                    text = desc,
+                    fontSize = 13.sp,
+                    color = Color.Gray
+                )
+            }
         }
 
         if (!state.isPremium) {

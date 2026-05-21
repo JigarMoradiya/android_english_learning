@@ -4,6 +4,7 @@ import android.app.Activity
 import com.example.myapplication.data.access.AccessManager
 import com.example.myapplication.data.access.UserAccessState
 import com.revenuecat.purchases.Purchases
+import com.revenuecat.purchases.getCustomerInfoWith
 import com.revenuecat.purchases.getOfferingsWith
 import com.revenuecat.purchases.purchaseWith
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -72,12 +73,20 @@ class PurchaseManager @Inject constructor(
                 if (userCancelled) cont.resume(PurchaseResult.Cancelled)
                 else cont.resume(PurchaseResult.Error(error.message))
             },
-            onSuccess = { _, customerInfo ->
-                val uid = accessManager.userState.value.userId
-                if (customerInfo.entitlements[RevenueCatManager.ENTITLEMENT_ID]?.isActive == true && uid != null) {
-                    accessManager.updateUserState(UserAccessState.PremiumUser(uid))
-                }
-                cont.resume(PurchaseResult.Success)
+            onSuccess = { _, _ ->
+                // Always fetch fresh customer info from server after purchase.
+                // The callback's customerInfo can be stale if the entitlement
+                // was just configured — a server fetch guarantees accuracy.
+                Purchases.sharedInstance.getCustomerInfoWith(
+                    onError = { cont.resume(PurchaseResult.Success) },
+                    onSuccess = { freshInfo ->
+                        val uid = accessManager.userState.value.userId
+                        if (freshInfo.entitlements[RevenueCatManager.ENTITLEMENT_ID]?.isActive == true && uid != null) {
+                            accessManager.updateUserState(UserAccessState.PremiumUser(uid))
+                        }
+                        cont.resume(PurchaseResult.Success)
+                    }
+                )
             }
         )
     }
