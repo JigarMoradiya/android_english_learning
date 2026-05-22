@@ -5,5 +5,7 @@ data class ArticleChoiceUiState(
     val currentImageName: String? = null,
     val selectedAnswer: String? = null,
     val isAnswerCorrect: Boolean = false,
-    val feedbackText: String? = null
+    val feedbackTextCorrect: Int? = null,
+    val feedbackTextWrong: String? = null,
+    val countdown: Int = 3
 )

@@ -15,8 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,6 +31,10 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.article_choice.view_model.ArticleChoiceViewModel
 import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.ColoredFeedbackView
+import com.example.myapplication.main.common.CountdownBadge
+import com.example.myapplication.main.common.FeedbackText
+import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.main.common.getImageResFromWord
@@ -62,149 +64,136 @@ fun ArticleChoicePage(
     val style = MaterialTheme.typography.titleLarge.scaled().copy(
         fontSize = articleChoiceHeight.value.sp * 0.8
     )
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
 
         KidsGradientBackground(gradient = KidsGradient.blueIndigo, shape = KidsFloatingShape.speechBubbles)
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
-            BackButtonWithText(
-                title = stringResource(R.string.article_choice),
-                onBackClick = { navController.popBackStack() }
-            )
-
-            Spacer(modifier = Modifier.weight(1f))
-
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = Dimens24),
+                modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-
-                Spacer(modifier = Modifier.weight(1f))
-
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(Dimens16)
-                ) {
-
-                    // 🔹 IMAGE
-                    state.currentImageName?.let { rawName ->
-                        val imageName = rawName.replace(" ", "")
-
-                        val res = getImageResFromWord(imageName)
-
-                        res?.let {
-                            Image(
-                                painter = painterResource(id = res),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .height(articleChoiceImageHeight)
-                            )
-                        }
-                    }
-
-                    // 🔹 ARTICLE + WORD
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(Dimens8)
-                    ) {
-
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-
-                            // Selected OR Placeholder
-                            Text(
-                                text = state.selectedAnswer?.replaceFirstChar { it.lowercase() } ?: "an",
-                                style = style,
-                                color = when {
-                                    state.selectedAnswer == null -> Color.Transparent
-                                    state.isAnswerCorrect -> PrimaryGreen
-                                    else -> Color.Red
-                                },
-                                fontWeight = FontWeight.Bold
-                            )
-
-                            // Underline
-                            Box(
-                                modifier = Modifier
-                                    .width(articleChoiceWidth * 0.75f)
-                                    .height(Dimens2)
-                                    .background(Color.Black)
-                            )
-                        }
-
-                        Spacer(Modifier.width(Dimens4))
-
-                        Text(
-                            text = state.currentWord.lowercase(),
-                            style = style,
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
-
-                    // 🔹 OPTIONS
-                    Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
-
-                        KidsOptionButton(
-                            text = "a",
-                            type = ButtonType.OPTIONS,
-                            fontSize = articleChoiceHeight.value.sp * 0.6,
-                            onClick = {
-                                viewModel.checkAnswer("a")
-                            },
-                            enabled = state.selectedAnswer == null,
-                            modifier = Modifier
-                                .width(articleChoiceWidth)
-                                .height(articleChoiceHeight),
-
-                        )
-                        KidsOptionButton(
-                            text = "an",
-                            type = ButtonType.OPTIONS,
-                            fontSize = articleChoiceHeight.value.sp * 0.6,
-                            onClick = {
-                                viewModel.checkAnswer("an")
-                            },
-                            enabled = state.selectedAnswer == null,
-                            modifier = Modifier
-                                .width(articleChoiceWidth)
-                                .height(articleChoiceHeight),
-
-                        )
-                    }
-
-                    // 🔹 FEEDBACK
-                    Text(
-                        text = state.feedbackText ?: " ",
-                        color = when {
-                            state.feedbackText == null -> Color.Transparent
-                            state.isAnswerCorrect -> PrimaryGreen
-                            else -> Color.Red
-                        },
-                        style = MaterialTheme.typography.titleLarge.scaled(),
-                        fontWeight = FontWeight.ExtraBold
+                BackButtonWithText(
+                    title = stringResource(R.string.article_choice),
+                    modifier = Modifier.weight(1f),
+                    onBackClick = { navController.popBackStack() }
+                )
+                if (state.selectedAnswer != null) {
+                    CountdownBadge(
+                        count = state.countdown,
+                        modifier = Modifier.padding(end = Dimens16)
+                    )
+                } else {
+                    InstructionBadge(
+                        text = stringResource(R.string.pick_the_correct_option),
+                        isSmall = true,
+                        modifier = Modifier.padding(end = Dimens16)
                     )
                 }
-
-                Spacer(modifier = Modifier.weight(1f))
-
-                KidsActionButton(
-                    text = stringResource(R.string.next),
-                    icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                    type = if (state.selectedAnswer == null) ButtonType.DISABLE else ButtonType.ORANGE,
-                    isIconStart = false,
-                    onClick = {
-                        if (state.selectedAnswer != null){
-                            viewModel.loadNextWord()
-                        }
-                    }
-                )
-
-                Spacer(modifier = Modifier.weight(1f))
             }
 
             Spacer(modifier = Modifier.weight(1f))
+
+        }
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(Dimens16)
+        ) {
+
+            // 🔹 IMAGE
+            state.currentImageName?.let { rawName ->
+                val imageName = rawName.replace(" ", "")
+
+                val res = getImageResFromWord(imageName)
+
+                res?.let {
+                    Image(
+                        painter = painterResource(id = res),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .height(articleChoiceImageHeight)
+                    )
+                }
+            }
+
+            // 🔹 ARTICLE + WORD
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(Dimens8)
+            ) {
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+
+                    // Selected OR Placeholder
+                    Text(
+                        text = state.selectedAnswer?.replaceFirstChar { it.lowercase() } ?: "an",
+                        style = style,
+                        color = when {
+                            state.selectedAnswer == null -> Color.Transparent
+                            state.isAnswerCorrect -> PrimaryGreen
+                            else -> Color.Red
+                        },
+                        fontWeight = FontWeight.Bold
+                    )
+
+                    // Underline
+                    Box(
+                        modifier = Modifier
+                            .width(articleChoiceWidth * 0.75f)
+                            .height(Dimens2)
+                            .background(Color.Black)
+                    )
+                }
+
+                Spacer(Modifier.width(Dimens4))
+
+                Text(
+                    text = state.currentWord.lowercase(),
+                    style = style,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+
+            // 🔹 OPTIONS
+            Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
+
+                KidsOptionButton(
+                    text = "a",
+                    type = ButtonType.OPTIONS,
+                    fontSize = articleChoiceHeight.value.sp * 0.6,
+                    onClick = {
+                        viewModel.checkAnswer("a")
+                    },
+                    enabled = state.selectedAnswer == null,
+                    modifier = Modifier
+                        .width(articleChoiceWidth)
+                        .height(articleChoiceHeight),
+
+                    )
+                KidsOptionButton(
+                    text = "an",
+                    type = ButtonType.OPTIONS,
+                    fontSize = articleChoiceHeight.value.sp * 0.6,
+                    onClick = {
+                        viewModel.checkAnswer("an")
+                    },
+                    enabled = state.selectedAnswer == null,
+                    modifier = Modifier
+                        .width(articleChoiceWidth)
+                        .height(articleChoiceHeight),
+
+                    )
+            }
+
+
+            val str = if (state.isAnswerCorrect && state.feedbackTextCorrect != null) stringResource(state.feedbackTextCorrect) else state.feedbackTextWrong
+            ColoredFeedbackView(
+                feedbackText = str ?:"",
+                isAnswerCorrect = state.isAnswerCorrect,
+                correctAnswer = viewModel.articleFor()
+            )
         }
     }
 }

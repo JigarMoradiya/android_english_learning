@@ -66,30 +66,23 @@ fun ColoredFeedbackView(
                             append(feedback)
                         }
                     } else {
-                        if (feedback.contains(correctAnswer, ignoreCase = true)) {
+                        val regex = Regex(
+                            "\\b${Regex.escape(correctAnswer)}\\b",
+                            RegexOption.IGNORE_CASE
+                        )
 
-                            val startIndex = feedback.indexOf(
-                                correctAnswer,
-                                ignoreCase = true
-                            )
+                        val match = regex.find(feedback)
+                        if (match != null) {
 
-                            val beforeText =
-                                feedback.substring(0, startIndex)
+                            val beforeText = feedback.substring(0, match.range.first)
+                            val afterText = feedback.substring(match.range.last + 1)
 
-                            val afterText =
-                                feedback.substring(
-                                    startIndex + correctAnswer.length
-                                )
-
-                            appendRainbowText(
-                                beforeText,
-                                warmColors
-                            )
+                            appendRainbowText(beforeText, warmColors)
 
                             withStyle(
                                 SpanStyle(
                                     color = Color(0xFF2E7D32),
-                                    fontWeight = FontWeight.Bold,
+                                    fontWeight = FontWeight.ExtraBold,
                                     textDecoration = TextDecoration.Underline
                                 )
                             ) {
