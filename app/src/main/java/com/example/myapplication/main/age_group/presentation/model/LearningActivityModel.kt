@@ -34,7 +34,7 @@ val activities_age_3_5 = listOf(
 )
 
 val activities_age_5_7 = listOf(
-    LearningActivityModel(R.string.vocabulary_building,    R.drawable.age_5_7_vocabulary_building,  RouteNavigation.VocabularyBuilding.route,       Color(0xFF3674B5), moduleId = ModuleID.VOCABULARY_ANIMALS),
+    LearningActivityModel(R.string.vocabulary_building,    R.drawable.age_5_7_vocabulary_building,  RouteNavigation.VocabularyBuilding.route,       Color(0xFF3674B5)),
     LearningActivityModel(R.string.word_jigsaw,            R.drawable.age_5_7_word_jigsaw,          RouteNavigation.WordJigsaw.route,               Color(0xFF143D60), moduleId = ModuleID.WORD_JIGSAW),
     LearningActivityModel(R.string.opposite_words,         R.drawable.age_5_7_opposite_words,     RouteNavigation.OppositeWords.route,            Color(0xFF2F7D32), moduleId = ModuleID.OPPOSITES_WORD),
     LearningActivityModel(R.string.articles_a_an,          R.drawable.age_5_7_articles_a_an,        RouteNavigation.ArticlesAAn.route,              Color(0xFFB22222), moduleId = ModuleID.ARTICLES_A_AN),
@@ -50,8 +50,8 @@ val activities_age_5_7 = listOf(
 )
 
 val vocabularyCategoryDataList = listOf(
+    VocabularyCategoryData(VocabularyCategoryType.SHAPES.name, R.string.shapes, R.drawable.age_5_7_vocabulary_category_shapes, vocabularyCategoryShape),
     VocabularyCategoryData(VocabularyCategoryType.COLORS.name, R.string.colors, R.drawable.age_5_7_vocabulary_category_colors, vocabularyCategoryColor, moduleId = ModuleID.VOCABULARY_COLORS),
-    VocabularyCategoryData(VocabularyCategoryType.SHAPES.name, R.string.shapes, R.drawable.age_5_7_vocabulary_category_shapes, vocabularyCategoryShape, moduleId = ModuleID.VOCABULARY_SHAPES),
     VocabularyCategoryData(VocabularyCategoryType.ANIMALS.name, R.string.animals, R.drawable.age_5_7_vocabulary_category_animals, vocabularyCategoryAnimals, moduleId = ModuleID.VOCABULARY_ANIMALS),
     VocabularyCategoryData(VocabularyCategoryType.FRUITS.name, R.string.fruits, R.drawable.age_5_7_vocabulary_category_fruits, vocabularyCategoryFruits, moduleId = ModuleID.VOCABULARY_FRUITS),
     VocabularyCategoryData(VocabularyCategoryType.BIRDS.name, R.string.birds, R.drawable.age_5_7_vocabulary_category_birds, vocabularyCategoryBirds, moduleId = ModuleID.VOCABULARY_BIRDS),
@@ -61,12 +61,12 @@ val vocabularyCategoryDataList = listOf(
 
 val activities_age_6_8 = listOf(
     LearningActivityModel(R.string.readListen,            R.drawable.age_6_8_read_sentences,          RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name), Color(0xFFD62828), moduleId = ""),  // FREE for all users
-    LearningActivityModel(R.string.sentenceCheck,         R.drawable.age_6_8_sentence_check,           RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.SENTENCE_CHECK.name),           Color(0xFFBC6900), moduleId = ModuleID.SENTENCE_CHECK),
+    LearningActivityModel(R.string.chooseTheRightSentence,R.drawable.age_6_8_choose_the_right_sentence,RouteNavigation.ChooseTheRightSentence.route,Color(0xFF3265D3), moduleId = ""),  // FREE entry; inner pages gate themselves
     LearningActivityModel(R.string.oneWordAnswer,         R.drawable.age_6_8_one_word_answer,          RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.ONE_WORD_ANSWER.name),          Color(0xFFFF4400), moduleId = ModuleID.ONE_WORD_ANSWER),
     LearningActivityModel(R.string.sentenceBuilder,       R.drawable.age_6_8_build_the_sentence,       RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.BUILD_THE_SENTENCE.name),       Color(0xFF237227), moduleId = ModuleID.SENTENCE_BUILDER),
     LearningActivityModel(R.string.fillTheMissingWord,    R.drawable.age_6_8_fill_the_missing_word,    RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.FILL_THE_MISSING_WORD.name),    Color(0xFF85479D), moduleId = ModuleID.FILL_MISSING_WORD),
     LearningActivityModel(R.string.grammarBasics,         R.drawable.age_6_8_grammer_basics,           RouteNavigation.GrammarBasic.route,  Color(0xFF7315B7), moduleId = ModuleID.GRAMMAR_NOUNS),
-    LearningActivityModel(R.string.chooseTheRightSentence,R.drawable.age_6_8_choose_the_right_sentence,RouteNavigation.ChooseTheRightSentence.route,Color(0xFF3265D3), moduleId = ""),  // FREE entry; inner pages gate themselves
+    LearningActivityModel(R.string.sentenceCheck,         R.drawable.age_6_8_sentence_check,           RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.SENTENCE_CHECK.name),           Color(0xFFBC6900), moduleId = ModuleID.SENTENCE_CHECK),
     LearningActivityModel(R.string.grammar_challenge,         R.drawable.age_6_8_grammar_challenge,           RouteNavigation.MixedGrammarChallenge.route,Color(0xFFD5074E), moduleId = ModuleID.GRAMMAR_NOUNS),
 )
 

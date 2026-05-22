@@ -1,23 +1,71 @@
 package com.example.myapplication.main.settings
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Article
 import androidx.compose.material.icons.automirrored.filled.Assignment
-import androidx.compose.material.icons.automirrored.filled.FormatListBulleted
+import androidx.compose.material.icons.automirrored.filled.Chat
 import androidx.compose.material.icons.automirrored.filled.Help
 import androidx.compose.material.icons.automirrored.filled.HelpOutline
-import androidx.compose.material.icons.automirrored.filled.LibraryBooks
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.automirrored.filled.Sort
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.AccessTime
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Adjust
+import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.BorderColor
+import androidx.compose.material.icons.filled.Build
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Create
+import androidx.compose.material.icons.filled.CropSquare
+import androidx.compose.material.icons.filled.Description
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.EditOff
+import androidx.compose.material.icons.filled.EmojiEvents
+import androidx.compose.material.icons.filled.Extension
+import androidx.compose.material.icons.filled.Headphones
+import androidx.compose.material.icons.filled.Image
+import androidx.compose.material.icons.filled.Interests
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.LooksOne
+import androidx.compose.material.icons.filled.Palette
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Pets
+import androidx.compose.material.icons.filled.Photo
+import androidx.compose.material.icons.filled.PhotoAlbum
+import androidx.compose.material.icons.filled.RemoveRedEye
+import androidx.compose.material.icons.filled.School
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Spellcheck
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.Stars
+import androidx.compose.material.icons.filled.SwapHoriz
+import androidx.compose.material.icons.filled.SwapVert
+import androidx.compose.material.icons.filled.TextFields
+import androidx.compose.material.icons.filled.TextFormat
+import androidx.compose.material.icons.filled.TouchApp
+import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -27,24 +75,23 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens1
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens18
 import com.example.myapplication.ui.theme.AppDimens.Dimens3
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
-import com.example.myapplication.ui.theme.AppDimens.Dimens12
-import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens18
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
-import com.example.myapplication.main.common.KidsFloatingShape
-import com.example.myapplication.main.common.KidsGradient
-import com.example.myapplication.main.common.KidsGradientBackground
 
 // ── Data model ───────────────────────────────────────────────────────────────
 
@@ -76,38 +123,37 @@ private val planSections = listOf(
         title = "Ages 3-5 · Little Explorers",
         type = ButtonType.ORANGE,
         rows = listOf(
-            PlanRow(Icons.Filled.TextFields,   "ABCD with Images",         TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.Filled.TextFormat,   "Letter Recognition",       TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.Edit,         "Alphabet Tracing (A-M)",   TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.EditOff,      "Alphabet Tracing (N-Z)",   TierAccess.LoginRequired, TierAccess.Full),
+            PlanRow(Icons.Filled.TextFormat,   "Letter Recognition",       TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.TextFields,   "ABCD with Images",         TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.Palette,      "Colouring Alphabets",      TierAccess.Limited(3),    TierAccess.Limited(5)),
-            PlanRow(Icons.Filled.SwapVert,     "Match Upper / Lower",      TierAccess.Limited(3),    TierAccess.Limited(5)),
-            PlanRow(Icons.Filled.Image,        "Match Letter + Image",     TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.SwapVert,     "Match Letter (Uppercase -> Lowercase)",      TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.Filled.CropSquare,   "Fill the Blank Letter",    TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.AutoMirrored.Filled.Sort,         "Arrange Letter Sequence",  TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Image,        "Match Letter with Image",     TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.AutoMirrored.Filled.Help,         "Missing Letter",           TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.TouchApp,     "Drag & Drop Letters",      TierAccess.Premium,       TierAccess.Premium),
         )
     ),
     PlanSection(
-        icon = Icons.Filled.MenuBook,
+        icon = Icons.AutoMirrored.Filled.MenuBook,
         title = "Ages 5-7 · Word Adventure",
         type = ButtonType.BLUE,
         rows = listOf(
-            PlanRow(Icons.Filled.Book,         "Vocabulary - Animals",     TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.Filled.LocalFlorist, "Vocabulary - Fruits",      TierAccess.LoginRequired, TierAccess.Full),
+            PlanRow(Icons.Filled.Interests,    "Vocabulary - Shapes",      TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.Palette,      "Vocabulary - Colors",      TierAccess.LoginRequired, TierAccess.Full),
             PlanRow(Icons.Filled.Pets,         "Vocabulary - Others",      TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.SwapHoriz,    "Opposite Words",           TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.LooksOne,     "Singular / Plural",        TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.PhotoAlbum,   "Match Word with Picture",     TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.Headphones,   "Listen & Select Answer",          TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.AutoMirrored.Filled.HelpOutline,  "Missing Letter",     TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Extension,    "Word Jigsaw",              TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.AutoMirrored.Filled.Article,      "Articles A / An",          TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.Visibility,   "Sight Words",              TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.Filled.SwapHoriz,    "Opposite Words",           TierAccess.Limited(3),    TierAccess.Limited(5)),
-            PlanRow(Icons.Filled.PhotoAlbum,   "Match Word + Picture",     TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.Filled.Description,  "Articles Choice",          TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.Filled.RemoveRedEye, "Sight Word Choice",        TierAccess.Limited(3),    TierAccess.Limited(5)),
-            PlanRow(Icons.AutoMirrored.Filled.HelpOutline,  "Missing Letter (5-7)",     TierAccess.Limited(3),    TierAccess.Limited(5)),
-            PlanRow(Icons.Filled.LooksOne,     "Singular / Plural",        TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.Brush,        "Colouring Words",          TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.Headphones,   "Listen & Select",          TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.Extension,    "Word Jigsaw",              TierAccess.Premium,       TierAccess.Premium),
         )
     ),
     PlanSection(
@@ -116,20 +162,17 @@ private val planSections = listOf(
         type = ButtonType.GREEN,
         rows = listOf(
             PlanRow(Icons.Filled.Book,              "Read & Listen (Unit 1)",   TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.AutoMirrored.Filled.LibraryBooks,      "Read & Listen (All)",      TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.Spellcheck,        "Grammar - Nouns",          TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.Filled.Star,              "Grammar - Others",         TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.Chat,              "One Word Answer",          TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.Filled.BorderColor,       "Fill Missing Word",        TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.Filled.CheckCircle,       "Choose Right Sentence",    TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.Filled.Search,            "Sentence Check",           TierAccess.Limited(3),    TierAccess.Limited(5)),
-            PlanRow(Icons.Filled.School,            "Grammar Challenge (Bgn)",  TierAccess.Limited(3),    TierAccess.Limited(5)),
-            PlanRow(Icons.Filled.Build,             "Build the Sentence",       TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.AutoMirrored.Filled.Chat, "One Word Answer (Unit 1)",          TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.BorderColor,       "Fill the Missing Word (Unit 1)",        TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.Search,            "Sentence Check (True/False) (Unit 1)",           TierAccess.Full,    TierAccess.Full),
             PlanRow(Icons.Filled.Photo,             "Match the Picture",        TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.Adjust,            "Which Sentence is Right",  TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Adjust,            "Which Sentence is Right?",  TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.Create,            "Find Correct Writing",     TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.AutoMirrored.Filled.FormatListBulleted,"Fill the Blanks",          TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.EmojiEvents,       "Grammar Challenge (Med+)", TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Build,             "Build the Sentence",       TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.Spellcheck,        "Grammar - Nouns",          TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.Star,              "Grammar - Verbs, Adjectives, Pronouns",         TierAccess.Premium,       TierAccess.Premium),
+            PlanRow(Icons.Filled.School,            "Grammar Challenge (Beginner)",  TierAccess.Limited(3),    TierAccess.Limited(5)),
+            PlanRow(Icons.Filled.EmojiEvents,       "Grammar Challenge (Medium & Advanced)", TierAccess.Premium,       TierAccess.Premium),
         )
     )
 )

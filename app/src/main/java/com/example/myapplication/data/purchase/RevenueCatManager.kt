@@ -68,13 +68,15 @@ class RevenueCatManager @Inject constructor(
     /**
      * Links the Firebase UID to RevenueCat so purchases sync across
      * devices and platforms. Call after every successful sign-in.
+     * Returns fresh CustomerInfo from the logIn response — use it directly
+     * to avoid a second network round-trip.
      */
-    suspend fun identify(userId: String): Boolean =
+    suspend fun identify(userId: String): CustomerInfo? =
         suspendCancellableCoroutine { cont ->
             Purchases.sharedInstance.logInWith(
                 appUserID = userId,
-                onError   = { cont.resume(false) },
-                onSuccess = { _, _ -> cont.resume(true) }
+                onError   = { cont.resume(null) },
+                onSuccess = { customerInfo, _ -> cont.resume(customerInfo) }
             )
         }
 

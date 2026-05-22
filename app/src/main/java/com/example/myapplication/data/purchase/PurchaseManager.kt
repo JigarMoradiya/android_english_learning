@@ -3,6 +3,7 @@ package com.example.myapplication.data.purchase
 import android.app.Activity
 import com.example.myapplication.data.access.AccessManager
 import com.example.myapplication.data.access.UserAccessState
+import com.google.firebase.auth.FirebaseAuth
 import com.revenuecat.purchases.Purchases
 import com.revenuecat.purchases.getCustomerInfoWith
 import com.revenuecat.purchases.getOfferingsWith
@@ -75,12 +76,12 @@ class PurchaseManager @Inject constructor(
             },
             onSuccess = { _, _ ->
                 // Always fetch fresh customer info from server after purchase.
-                // The callback's customerInfo can be stale if the entitlement
-                // was just configured — a server fetch guarantees accuracy.
                 Purchases.sharedInstance.getCustomerInfoWith(
                     onError = { cont.resume(PurchaseResult.Success) },
                     onSuccess = { freshInfo ->
+                        // Prefer uid from local state, fall back to Firebase Auth
                         val uid = accessManager.userState.value.userId
+                            ?: FirebaseAuth.getInstance().currentUser?.uid
                         if (freshInfo.entitlements[RevenueCatManager.ENTITLEMENT_ID]?.isActive == true && uid != null) {
                             accessManager.updateUserState(UserAccessState.PremiumUser(uid))
                         }
@@ -100,7 +101,9 @@ class PurchaseManager @Inject constructor(
     suspend fun restorePurchases(): Boolean {
         val restored = revenueCatManager.restorePurchases()
         if (restored) {
+            // Prefer uid from local state, fall back to Firebase Auth
             val uid = accessManager.userState.value.userId
+                ?: FirebaseAuth.getInstance().currentUser?.uid
             if (uid != null) {
                 accessManager.updateUserState(UserAccessState.PremiumUser(uid))
             }

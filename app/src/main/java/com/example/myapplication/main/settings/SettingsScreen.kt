@@ -57,6 +57,8 @@ fun SettingsScreen(
     val musicVolume = viewModel.musicVolume
     val showParentalGate by viewModel.showParentalGate.collectAsState()
     val subscriptionInfo by viewModel.subscriptionInfo.collectAsState()
+    val isRestoring by viewModel.isRestoring.collectAsState()
+    val restoreMessage by viewModel.restoreMessage.collectAsState()
     val sheetViewModel = LocalAccessSheetViewModel.current
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -84,9 +86,16 @@ fun SettingsScreen(
                 Spacer(Modifier.height(Dimens8))
 
                 // ── User status card ─────────────────────────────────────
-                UserStatusCard(userState, subscriptionInfo) {
-                    sheetViewModel.requestState(AccessSheetState.Paywall(moduleId = "upgrade_from_settings"))
-                }
+                UserStatusCard(
+                    state = userState,
+                    subscriptionInfo = subscriptionInfo,
+                    onSignIn = {
+                        sheetViewModel.requestState(AccessSheetState.Login(moduleId = "signin_from_settings"))
+                    },
+                    onUpgrade = {
+                        sheetViewModel.requestState(AccessSheetState.Paywall(moduleId = "upgrade_from_settings"))
+                    }
+                )
 
                 // ── Background music volume ──────────────────────────────
                 SettingsCard {
@@ -113,11 +122,11 @@ fun SettingsScreen(
                     Column {
                         SettingsRow(
                             icon = Icons.Filled.Refresh,
-                            title = "Restore Purchases",
-                            subtitle = "Already subscribed? Tap to restore",
-                            type = ButtonType.GREEN
+                            title = if (isRestoring) "Restoring…" else "Restore Purchases",
+                            subtitle = restoreMessage ?: "Already subscribed? Tap to restore",
+                            type = if (restoreMessage == "No active subscription found.") ButtonType.RED else ButtonType.GREEN
                         ) {
-                            viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Restore)
+                            if (!isRestoring) viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Restore)
                         }
                         if (userState.isLoggedIn) {
                             Divider(color = Color.Gray.copy(alpha = 0.2f), thickness = AppDimens.Dimens1)
@@ -153,14 +162,14 @@ fun SettingsScreen(
 private fun UserStatusCard(
     state: UserAccessState,
     subscriptionInfo: SubscriptionInfo?,
+    onSignIn: () -> Unit,
     onUpgrade: () -> Unit
 ) {
-    val tierInfo = when {
+    val (icon, name, type, desc) = when {
         state.isPremium  -> Quad(Icons.Filled.Star,          "Premium",      ButtonType.ORANGE,   "Full access to all activities")
         state.isLoggedIn -> Quad(Icons.Filled.Person,        "Free Account", ButtonType.BLUE,     "5 plays/day on limited activities")
-        else             -> Quad(Icons.Filled.AccountCircle, "Guest",        ButtonType.NEGATIVE, "3 plays/day on limited activities")
+        else             -> Quad(Icons.Filled.AccountCircle, "Guest",        ButtonType.NEGATIVE, "Sign in to track your progress")
     }
-    val (icon, name, type, desc) = tierInfo
     val colors = getButtonColors(type)
 
     Row(
@@ -198,7 +207,7 @@ private fun UserStatusCard(
                 fontSize = 18.sp,
                 color = colors.base
             )
-            // Show plan + renewal date for premium, otherwise standard desc
+            // Premium: show plan name + price + renewal date
             if (state.isPremium && subscriptionInfo != null) {
                 Row(horizontalArrangement = Arrangement.spacedBy(Dimens6)) {
                     Text(
@@ -222,22 +231,27 @@ private fun UserStatusCard(
                     color = Color.Gray
                 )
             } else {
-                Text(
-                    text = desc,
-                    fontSize = 13.sp,
-                    color = Color.Gray
-                )
+                Text(text = desc, fontSize = 13.sp, color = Color.Gray)
             }
         }
 
-        if (!state.isPremium) {
-            Spacer(Modifier.width(Dimens8))
-            KidsActionButton(
+        // Guest → Sign In button; Free → Upgrade button; Premium → nothing
+        Spacer(Modifier.width(Dimens8))
+        when {
+            state.isPremium  -> { /* no button */ }
+            state.isLoggedIn -> KidsActionButton(
                 text = "Upgrade",
                 icon = Icons.Filled.Star,
                 type = ButtonType.ORANGE,
                 isSmall = true,
                 onClick = onUpgrade
+            )
+            else -> KidsActionButton(
+                text = "Sign In",
+                icon = Icons.Filled.Person,
+                type = ButtonType.BLUE,
+                isSmall = true,
+                onClick = onSignIn
             )
         }
     }

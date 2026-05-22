@@ -12,6 +12,7 @@ import com.example.myapplication.data.purchase.PurchaseManager
 import com.example.myapplication.data.purchase.RevenueCatManager
 import com.example.myapplication.utilities.BGMusicManager
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -97,11 +98,32 @@ class SettingsViewModel @Inject constructor(
         _showParentalGate.value = false
     }
 
+    // ── Restore feedback ──────────────────────────────────────────────────────
+
+    private val _isRestoring = MutableStateFlow(false)
+    val isRestoring: StateFlow<Boolean> = _isRestoring.asStateFlow()
+
+    private val _restoreMessage = MutableStateFlow<String?>(null)
+    val restoreMessage: StateFlow<String?> = _restoreMessage.asStateFlow()
+
     fun executeAction() {
         _showParentalGate.value = false
         when (pendingAction) {
-            ParentalAction.Logout  -> authManager.signOut()
-            ParentalAction.Restore -> viewModelScope.launch { purchaseManager.restorePurchases() }
+            ParentalAction.Logout -> authManager.signOut()
+            ParentalAction.Restore -> viewModelScope.launch {
+                _isRestoring.value = true
+                _restoreMessage.value = null
+                val restored = purchaseManager.restorePurchases()
+                _isRestoring.value = false
+                if (restored) {
+                    _restoreMessage.value = "Subscription restored!"
+                    loadSubscriptionInfo()
+                } else {
+                    _restoreMessage.value = "No active subscription found."
+                    delay(4000)
+                    _restoreMessage.value = null
+                }
+            }
         }
     }
 }

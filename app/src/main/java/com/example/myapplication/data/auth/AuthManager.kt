@@ -231,12 +231,7 @@ class AuthManager @Inject constructor(
         if (user != null) {
             Log.d(TAG, "restoreSession → found user uid=${user.uid}, checking premium...")
             CoroutineScope(Dispatchers.IO).launch {
-                revenueCatManager.identify(user.uid)
-                val isPremium = revenueCatManager.isPremium()
-                val state = if (isPremium) UserAccessState.PremiumUser(user.uid)
-                            else           UserAccessState.FreeUser(user.uid)
-                Log.d(TAG, "restoreSession → state=$state")
-                accessManager.updateUserState(state)
+                onAuthSuccess(user.uid)
             }
         } else {
             Log.d(TAG, "restoreSession → no user found, setting Guest")
@@ -255,17 +250,23 @@ class AuthManager @Inject constructor(
     // ── Private helpers ───────────────────────────────────────────────
 
     /**
-     * Called after every successful sign-in or link.
-     * Identifies the user in RevenueCat and sets the correct access state.
+     * Called after every successful sign-in, link, or session restore.
+     * Identifies the user in RevenueCat and updates AccessManager with the
+     * correct premium/free state. Always awaited — never fire-and-forget.
      */
-    private fun onAuthSuccess(uid: String) {
-        CoroutineScope(Dispatchers.IO).launch {
-            revenueCatManager.identify(uid)
-            val isPremium = revenueCatManager.isPremium()
-            val state = if (isPremium) UserAccessState.PremiumUser(uid)
-                        else           UserAccessState.FreeUser(uid)
-            accessManager.updateUserState(state)
+    private suspend fun onAuthSuccess(uid: String) {
+        // identify() calls RC logIn and returns fresh CustomerInfo in one round-trip.
+        val customerInfo = revenueCatManager.identify(uid)
+        val isPremium = if (customerInfo != null) {
+            customerInfo.entitlements[RevenueCatManager.ENTITLEMENT_ID]?.isActive == true
+        } else {
+            // logIn failed (network issue) — fall back to a direct server fetch.
+            revenueCatManager.isPremium()
         }
+        val state = if (isPremium) UserAccessState.PremiumUser(uid)
+                    else           UserAccessState.FreeUser(uid)
+        Log.d(TAG, "onAuthSuccess → uid=$uid isPremium=$isPremium state=$state")
+        accessManager.updateUserState(state)
     }
 
     private fun handleAuthException(

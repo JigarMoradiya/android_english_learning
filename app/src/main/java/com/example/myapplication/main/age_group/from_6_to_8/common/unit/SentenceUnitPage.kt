@@ -114,7 +114,7 @@ fun SentenceUnitPage(
                 val unit1OnlyScreens = setOf(
                     UnitSelectionScreen.READ_AND_LISTEN_SENTENCE,
                     UnitSelectionScreen.ONE_WORD_ANSWER,
-                    UnitSelectionScreen.FILL_THE_MISSING_WORD
+                    UnitSelectionScreen.FILL_THE_MISSING_WORD,
                 )
 
                 itemsIndexed(uiState.sentenceUnitsList) { index, item ->
@@ -127,7 +127,22 @@ fun SentenceUnitPage(
                                 AudioPlayerManager.playSoundMenuClick()
                                 // Unit 1 (index 0) is free for all; units 2+ require premium
                                 if (index > 0 && screenType in unit1OnlyScreens) {
-                                    scope.launch { accessVM.checkAccess(ModuleID.READ_LISTEN_ALL) }
+                                    scope.launch {
+                                        val hasAccess = accessVM.checkAccess(ModuleID.READ_LISTEN_ALL)
+                                        if (!hasAccess) return@launch
+                                        navController.navigate(
+                                            RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, uiState.level.name)
+                                        )
+                                    }
+                                    return@clickable
+                                }else if (index > 0 && screenType == UnitSelectionScreen.SENTENCE_CHECK) {
+                                    scope.launch {
+                                        val hasAccess = accessVM.checkAccess(ModuleID.READ_LISTEN_ALL)
+                                        if (!hasAccess) return@launch
+                                        navController.navigate(
+                                            navController.navigate(RouteNavigation.SentenceCheck.sentenceCheck(item.unit.name, uiState.level.name))
+                                        )
+                                    }
                                     return@clickable
                                 }
                                 when (screenType) {
