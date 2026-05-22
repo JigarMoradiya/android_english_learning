@@ -257,6 +257,7 @@
     <string name="tap_words_to_build_the_sentence"><![CDATA[Tap words to <font color=\"#1565C0\"><b>build the sentence</b></font>]]></string>
     <string name="fill_the_blanks">Fill the Blanks</string>
     <string name="tap_a_word_to_place_it_in_the_blank"><![CDATA[Tap a word to <font color=\"#6A1B9A\"><b>Place it in the blank</b></font>]]></string>
+    <string name="listen_tap_the_word_"><![CDATA[<font color=\"#5C6BC0\"><b>Listen carefully</b></font> and tap the correct Word]]></string>
     <string name="grammar_challenge_beginner">Grammar Challenge - Beginner</string>
     <string name="next_letter_in">Next letter in</string>
 

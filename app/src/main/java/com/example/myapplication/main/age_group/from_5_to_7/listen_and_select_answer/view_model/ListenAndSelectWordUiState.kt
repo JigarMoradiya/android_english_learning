@@ -13,4 +13,5 @@ data class ListenAndSelectWordUiState(
     val feedbackTextRes: Int = R.string.feedbackPhrases_1,
     val feedbackSubTextRes: Int = R.string.feedbackPhrasesSubtitle_1,
     val feedbackSubTextError: String = "",
+    val countdown: Int = 3,
 )

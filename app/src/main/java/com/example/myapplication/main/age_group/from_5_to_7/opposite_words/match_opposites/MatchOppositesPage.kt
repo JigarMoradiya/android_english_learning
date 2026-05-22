@@ -54,6 +54,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.generation.loader.OppositeDifficulty
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawDragConnection
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawMatchedConnections
 import com.example.myapplication.main.age_group.from_5_to_7.opposite_words.match_opposites.view_model.MatchOppositesViewModel
@@ -115,7 +116,7 @@ fun MatchOppositesPage(
                     InstructionBadge(
                         text = stringResource(R.string.drag_word_to_connect_opposite),
                         isSmall = true,
-                        modifier = Modifier.padding(horizontal = Dimens12)
+                        modifier = Modifier.padding(horizontal = Dimens12).padding(top = DeviceInfo.screenTopPadding())
                     )
                     KidsLabel("🎯 Round ${uiState.round}")
                 }

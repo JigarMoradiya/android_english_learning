@@ -16,6 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.components.DragDropScreen
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
@@ -63,13 +64,13 @@ fun DragDropWordPage(
                 if (uiState.showSuccess) {
                     CountdownBadge(
                         count = uiState.countdownValue,
-                        modifier = Modifier.padding(end = Dimens16),
+                        modifier = Modifier.padding(end = Dimens16,top = DeviceInfo.screenTopPadding()),
                         text = stringResource(R.string.next_word_in)
                     )
                 } else {
                     InstructionBadge(
                         text = stringResource(R.string.drag_to_build_word),
-                        modifier = Modifier.padding(end = Dimens16)
+                        modifier = Modifier.padding(end = Dimens16).padding(top = DeviceInfo.screenTopPadding())
                     )
                 }
             }

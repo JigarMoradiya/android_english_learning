@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.rounded.VolumeUp
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -32,9 +31,12 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_5_to_7.listen_and_select_answer.view_model.ListenAndSelectWordViewModel
 import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
+import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsOptionButton
@@ -71,17 +73,16 @@ fun ListenAndSelectWordPage(
                     title = stringResource(R.string.listen_and_select_answer),
                     onBackClick = { navController.popBackStack() }
                 )
-
                 if (uiState.showSuccess) {
-                    KidsActionButton(
-                        modifier = Modifier.padding(end = Dimens16),
-                        text = stringResource(R.string.next),
-                        icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                        type = ButtonType.GREEN,
-                        isIconStart = false,
-                        onClick = {
-                            viewModel.playAgain()
-                        }
+                    CountdownBadge(
+                        count = uiState.countdown,
+                        modifier = Modifier.padding(end = Dimens16,top = DeviceInfo.screenTopPadding())
+                    )
+                }else{
+                    InstructionBadge(
+                        text = stringResource(R.string.listen_tap_the_word_),
+                        isSmall = true,
+                        modifier = Modifier.padding(horizontal = Dimens16).padding(top = DeviceInfo.screenTopPadding())
                     )
                 }
             }
@@ -159,10 +160,6 @@ fun ListenAndSelectWordPage(
                 isSuccess = viewModel.uiState.showSuccess,
                 isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
             )
-        }
-
-        if (viewModel.uiState.showSuccess) {
-            ConfettiRainEffect()
         }
     }
 }

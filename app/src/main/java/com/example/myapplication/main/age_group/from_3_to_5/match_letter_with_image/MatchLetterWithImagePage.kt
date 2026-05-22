@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.view_model.MatchLetterWithImageViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CustomPopupView
@@ -65,7 +66,7 @@ fun MatchLetterWithImagePage(
                     InstructionBadge(
                         text = stringResource(R.string.drag_to_connect_letters),
                         isSmall = true,
-                        modifier = Modifier.padding(horizontal = Dimens12)
+                        modifier = Modifier.padding(horizontal = Dimens12).padding(top = DeviceInfo.screenTopPadding())
                     )
                     KidsLabel("🎯 Round ${uiState.round}")
                 }

@@ -53,6 +53,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawDragConnection
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.match_form.view_model.MatchSingularPluralViewModel
 import com.example.myapplication.main.common.BackButtonWithText
@@ -113,7 +114,7 @@ fun MatchSingularPluralPage(
                     InstructionBadge(
                         text = stringResource(R.string.drag_word_to_connect_plural),
                         isSmall = true,
-                        modifier = Modifier.padding(horizontal = Dimens12)
+                        modifier = Modifier.padding(horizontal = Dimens12).padding(top = DeviceInfo.screenTopPadding())
                     )
                     KidsLabel("🎯 Round ${uiState.round}")
                 }
