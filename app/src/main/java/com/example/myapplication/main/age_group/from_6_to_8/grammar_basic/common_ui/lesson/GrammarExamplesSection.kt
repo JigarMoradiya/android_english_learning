@@ -58,14 +58,14 @@ fun GrammarExamplesSection(
             Box(
                 modifier = Modifier
                     .padding(Dimens4)
-                    .clip(RoundedCornerShape(Dimens12))
+                    .clip(RoundedCornerShape(Dimens16))
                     .clickable {
                         onExampleClick(example)
                     }) {
                 Column(
                     modifier = Modifier
-                        .clip(RoundedCornerShape(Dimens12))
-                        .background(cardColor.copy(alpha = 0.20f))
+                        .clip(RoundedCornerShape(Dimens16))
+                        .background(cardColor.copy(alpha = 0.30f))
                         .padding(vertical = Dimens8), horizontalAlignment = Alignment.CenterHorizontally
                 ) {
 
@@ -93,11 +93,11 @@ fun GrammarExamplesSection(
                         )
                         .padding(Dimens8)
                         .clip(CircleShape)
-                        .background(Color.White.copy(alpha = 0.6f))
-                        .padding(Dimens4)
+                        .background(Color.White.copy(alpha = 0.8f))
+                        .padding(Dimens6)
                 ) {
                     Icon(
-                        imageVector = Icons.Default.PlayArrow, contentDescription = null, tint = Color.Black, modifier = Modifier.size(Dimens10)
+                        imageVector = Icons.Default.PlayArrow, contentDescription = null, tint = Color.Black, modifier = Modifier.size(Dimens16)
                     )
                 }
 

@@ -98,7 +98,8 @@ fun PronounLessonPage(
                 // Explanation 3 and 4
                 item {
                     Row(
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(Dimens16)
                     ) {
                         GrammarExplanationSection(
                             explanationText = uiState.explanationText3,
