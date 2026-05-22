@@ -50,6 +50,7 @@ class MatchOppositesViewModel @Inject constructor(
         val pairs = OppositeWordsData.getPairsForDifficulty(currentDifficulty).shuffled().take(5)
         _uiState.update {
             it.copy(
+                round = it.round + 1,
                 leftWords = pairs,
                 rightWords = pairs.shuffled(),
                 matchedWords = emptySet(),

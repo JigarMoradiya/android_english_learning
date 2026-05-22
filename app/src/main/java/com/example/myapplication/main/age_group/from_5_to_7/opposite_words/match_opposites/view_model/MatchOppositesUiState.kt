@@ -9,5 +9,6 @@ data class MatchOppositesUiState(
     val matchedOrder: List<String> = emptyList(),           // ordered list for color index
     val showPopup: Boolean = false,
     val feedbackTitleRes: Int = 0,
-    val feedbackSubTitleRes: Int = 0
+    val feedbackSubTitleRes: Int = 0,
+    val round: Int = 0
 )

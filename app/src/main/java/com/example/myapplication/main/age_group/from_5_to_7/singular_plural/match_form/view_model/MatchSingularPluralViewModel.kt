@@ -44,6 +44,7 @@ class MatchSingularPluralViewModel @Inject constructor(
         val pairs = singularPluralWords.shuffled().take(5)
         _uiState.update {
             it.copy(
+                round = it.round + 1,
                 leftWords = pairs,
                 rightWords = pairs.shuffled(),
                 matchedWords = emptySet(),

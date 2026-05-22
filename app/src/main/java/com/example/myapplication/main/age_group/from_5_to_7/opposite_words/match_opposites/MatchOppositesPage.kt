@@ -59,6 +59,8 @@ import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_im
 import com.example.myapplication.main.age_group.from_5_to_7.opposite_words.match_opposites.view_model.MatchOppositesViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CustomPopupView
+import com.example.myapplication.main.common.InstructionBadge
+import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens40
@@ -100,10 +102,24 @@ fun MatchOppositesPage(
                 .fillMaxSize()
                 .windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
-            BackButtonWithText(
-                title = stringResource(R.string.match_opposite_words),
-                onBackClick = { navController.popBackStack() }
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                BackButtonWithText(
+                    title = stringResource(R.string.match_opposite_words),
+                    modifier = Modifier.weight(1f),
+                    onBackClick = { navController.popBackStack() }
+                )
+                Row {
+                    InstructionBadge(
+                        text = stringResource(R.string.drag_word_to_connect_opposite),
+                        isSmall = true,
+                        modifier = Modifier.padding(horizontal = Dimens12)
+                    )
+                    KidsLabel("🎯 Round ${uiState.round}")
+                }
+            }
 
             Spacer(Modifier.weight(1f))
 
@@ -154,7 +170,7 @@ fun MatchOppositesPage(
                     )
                 }
 
-                Column(modifier = Modifier.fillMaxWidth()) {
+                Column(modifier = Modifier.fillMaxWidth().padding(horizontal = Dimens24)) {
                     // ── TOP ROW: draggable word chips ─────────────────────────
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -164,11 +180,11 @@ fun MatchOppositesPage(
                             val word      = pair.word
                             val isMatched = uiState.matchedWords.contains(word)
 
-                            Box(contentAlignment = Alignment.BottomCenter) {
+                            Box(contentAlignment = Alignment.BottomCenter, modifier = Modifier.weight(1f)) {
                                 Text(
                                     text = word,
                                     modifier = Modifier
-                                        .width(MatchWordBoxWidth)
+                                        .fillMaxWidth()
                                         .height(MatchWordBoxHeight)
                                         .clip(RoundedCornerShape(Dimens12))
                                         .background(
@@ -244,15 +260,14 @@ fun MatchOppositesPage(
                     // ── BOTTOM ROW: opposite drop targets ─────────────────────
                     Row(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = Dimens24),
+                            .fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally)
                     ) {
                         uiState.rightWords.forEachIndexed { index, pair ->
                             val opp       = pair.opposite
                             val isMatched = viewModel.isOppositeMatched(opp)
 
-                            Box(contentAlignment = Alignment.TopCenter) {
+                            Box(contentAlignment = Alignment.TopCenter,modifier = Modifier.weight(1f)) {
                                 // Top-centre dot connector anchor
                                 Box(
                                     Modifier
@@ -264,7 +279,7 @@ fun MatchOppositesPage(
                                 Text(
                                     text = opp,
                                     modifier = Modifier
-                                        .width(MatchWordBoxWidth)
+                                        .fillMaxWidth()
                                         .height(MatchWordBoxHeight)
                                         .clip(RoundedCornerShape(Dimens12))
                                         .background(
