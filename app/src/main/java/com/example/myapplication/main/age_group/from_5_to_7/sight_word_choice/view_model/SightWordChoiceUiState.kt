@@ -11,5 +11,7 @@ data class SightWordChoiceUiState(
     val options: List<String> = emptyList(),
     val selectedAnswer: String? = null,
     val isAnswerCorrect: Boolean = false,
-    val feedbackText: String? = null
+    val feedbackTextCorrect: Int? = null,
+    val feedbackTextWrong: String? = null,
+    val countdown: Int = 3
 )

@@ -63,7 +63,7 @@ class ArticleChoiceViewModel : ViewModel() {
                 feedbackTextWrong =  if (isCorrect) {
                     null
                 } else {
-                    "Wrong! Correct answer is $correct"
+                    "Wrong! Correct answer : $correct"
                 }
             )
         }

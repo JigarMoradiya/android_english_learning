@@ -10,11 +10,10 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,6 +29,9 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.sight_word_choice.view_model.SightWordChoiceViewModel
 import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.ColoredFeedbackView
+import com.example.myapplication.main.common.CountdownBadge
+import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -61,10 +63,28 @@ fun SightWordChoicePage(
         KidsGradientBackground(gradient = KidsGradient.mintLime, shape = KidsFloatingShape.musicNotes)
 
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
-            BackButtonWithText(
-                title = stringResource(R.string.choose_the_correct_word),
-                onBackClick = { navController.popBackStack() }
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                BackButtonWithText(
+                    title = stringResource(R.string.choose_the_correct_word),
+                    modifier = Modifier.weight(1f),
+                    onBackClick = { navController.popBackStack() }
+                )
+                if (uiState.selectedAnswer != null) {
+                    CountdownBadge(
+                        count = uiState.countdown,
+                        modifier = Modifier.padding(end = Dimens16)
+                    )
+                } else {
+                    InstructionBadge(
+                        text = stringResource(R.string.pick_the_correct_option),
+                        isSmall = true,
+                        modifier = Modifier.padding(end = Dimens16)
+                    )
+                }
+            }
 
             Spacer(modifier = Modifier.weight(1f))
 
@@ -127,32 +147,16 @@ fun SightWordChoicePage(
                     Spacer(modifier = Modifier.height(Dimens16))
 
                     // Feedback
-
-                    Text(
-                        text = uiState.feedbackText ?: " ",
-                        color = when {
-                            uiState.feedbackText == null -> Color.Transparent
-                            uiState.isAnswerCorrect -> PrimaryGreen
-                            else -> Color.Red
-                        },
-                        style = MaterialTheme.typography.titleLarge.scaled(),
-                        fontWeight = FontWeight.ExtraBold
+                    val str = if (uiState.isAnswerCorrect && uiState.feedbackTextCorrect != null) stringResource(uiState.feedbackTextCorrect) else uiState.feedbackTextWrong
+                    ColoredFeedbackView(
+                        feedbackText = str ?:"",
+                        isAnswerCorrect = uiState.isAnswerCorrect,
+                        correctAnswer = if (uiState.sentencePrefix.isEmpty())
+                            uiState.currentWord.word.replaceFirstChar { it.uppercase() }
+                        else
+                            uiState.currentWord.word.lowercase()
                     )
                 }
-
-                Spacer(modifier = Modifier.weight(1f))
-
-                KidsActionButton(
-                    text = stringResource(R.string.next),
-                    icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                    type = if (uiState.selectedAnswer == null) ButtonType.DISABLE else ButtonType.ORANGE,
-                    isIconStart = false,
-                    onClick = {
-                        if (uiState.selectedAnswer != null){
-                            viewModel.loadNextWord()
-                        }
-                    }
-                )
 
                 Spacer(modifier = Modifier.weight(1f))
             }

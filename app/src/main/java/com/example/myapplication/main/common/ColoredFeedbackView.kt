@@ -49,7 +49,7 @@ fun ColoredFeedbackView(
         if (feedback.isNullOrEmpty()) {
             Text(
                 text = " ",
-                style = MaterialTheme.typography.bodyMedium.scaled(),
+                style = MaterialTheme.typography.titleSmall.scaled(),
                 fontWeight = FontWeight.SemiBold,
                 color = Color.Transparent
             )
@@ -102,7 +102,7 @@ fun ColoredFeedbackView(
                         }
                     }
                 },
-                style = MaterialTheme.typography.bodyMedium.scaled(),
+                style = MaterialTheme.typography.titleSmall.scaled(),
                 fontWeight = FontWeight.SemiBold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = Dimens40)

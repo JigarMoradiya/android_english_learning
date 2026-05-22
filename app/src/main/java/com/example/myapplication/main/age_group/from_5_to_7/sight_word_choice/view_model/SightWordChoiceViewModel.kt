@@ -5,9 +5,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myapplication.main.age_group.from_5_to_7.sight_word_choice.data.sightWordsAgeGroup_5_7Example
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -50,23 +54,31 @@ class SightWordChoiceViewModel @Inject constructor() : ViewModel() {
             options = options,
             selectedAnswer = null,
             isAnswerCorrect = false,
-            feedbackText = null
+            feedbackTextCorrect = null,
+            feedbackTextWrong = null
         )
     }
 
     fun checkAnswer(choice: String) {
+        if (uiState.selectedAnswer != null) return
         val isCorrect = choice.equals(uiState.currentWord.word, true)
 
         uiState = uiState.copy(
             selectedAnswer = choice,
             isAnswerCorrect = isCorrect,
-            feedbackText = if (isCorrect) {
-                "Correct!"
+            countdown = 3,
+            feedbackTextCorrect =  if (isCorrect) {
+                feedbackTitles.random()
+            } else {
+                null
+            },
+            feedbackTextWrong = if (isCorrect) {
+                null
             } else {
                 if (uiState.sentencePrefix.isEmpty()) {
-                    "Wrong! Correct answer is '${uiState.currentWord.word.replaceFirstChar { it.uppercase() }}'"
+                    "Wrong! Correct answer : ${uiState.currentWord.word.replaceFirstChar { it.uppercase() }}"
                 } else {
-                    "Wrong! Correct answer is '${uiState.currentWord.word.lowercase()}'"
+                    "Wrong! Correct answer : ${uiState.currentWord.word.lowercase()}"
                 }
             }
         )
@@ -75,6 +87,18 @@ class SightWordChoiceViewModel @Inject constructor() : ViewModel() {
             AudioPlayerManager.playSoundCorrectAnswer()
         } else {
             AudioPlayerManager.playSoundWrongAnswer()
+        }
+        startCountdown()
+    }
+
+    private fun startCountdown() {
+        viewModelScope.launch {
+            for (i in 2 downTo 1) {
+                delay(1000)
+                uiState = uiState.copy(countdown = i)
+            }
+            delay(1000)
+            loadNextWord()
         }
     }
 
