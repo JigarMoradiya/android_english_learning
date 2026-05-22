@@ -155,7 +155,7 @@ fun ArticlesAAnPage(
 
                     Column(
                         modifier = Modifier
-                            .background(Color(0xFFCAE4F6), RoundedCornerShape(Dimens12))
+                            .background(Color(0xFFDBD3F3), RoundedCornerShape(Dimens12))
                             .padding(Dimens16)
                     ) {
 
@@ -263,7 +263,7 @@ fun ArticlesAAnPage(
                     KidsActionButton(
                         text = stringResource(R.string.see_more_examples),
                         icon = Icons.AutoMirrored.Filled.List,
-                        type = ButtonType.BLUE,
+                        type = ButtonType.PURPLE,
                         onClick = {
                             navController.navigate(RouteNavigation.ArticlesAAnExample.route)
                         }
