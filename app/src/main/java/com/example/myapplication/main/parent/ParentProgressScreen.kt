@@ -45,12 +45,15 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.R
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
@@ -75,45 +78,41 @@ fun ParentProgressScreen(
     Box(modifier = Modifier.fillMaxSize()) {
         KidsGradientBackground(gradient = KidsGradient.grayBlue, shape = KidsFloatingShape.dots)
 
-        Column(
+        Row(
             modifier = Modifier
-                .fillMaxSize()
                 .windowInsetsPadding(WindowInsets.safeDrawing)
+                .fillMaxSize()
+                .padding(horizontal = Dimens16)
+                .padding(bottom = Dimens16),
+            horizontalArrangement = Arrangement.spacedBy(Dimens16)
         ) {
-            BackButtonWithText(
-                title = "Parent Report",
-                onBackClick = { navController.popBackStack() }
-            )
-
-            Row(
+            // LEFT PANEL (35%)
+            Column(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = Dimens16)
-                    .padding(bottom = Dimens16),
-                horizontalArrangement = Arrangement.spacedBy(Dimens16)
+                    .fillMaxHeight()
+                    .weight(0.35f),
+                verticalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
-                // LEFT PANEL (35%)
-                Column(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .weight(0.35f),
-                    verticalArrangement = Arrangement.spacedBy(Dimens12)
-                ) {
-                    StreakCard(viewModel)
-                    WeekDotsCard(viewModel)
-                    Spacer(Modifier.weight(1f))
-                }
+                BackButtonWithText(
+                    title = stringResource(R.string.parent_report),
+                    onBackClick = { navController.popBackStack() }
+                )
+                Spacer(Modifier.weight(1f))
+                StreakCard(viewModel)
+                WeekDotsCard(viewModel)
+                Spacer(Modifier.weight(1f))
+            }
 
-                // RIGHT PANEL (65%)
-                Column(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .weight(0.65f),
-                    verticalArrangement = Arrangement.spacedBy(Dimens12)
-                ) {
-                    WeekSummaryRow(viewModel)
-                    ActivitySection(viewModel, navController)
-                }
+            // RIGHT PANEL (65%)
+            Column(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .padding(top = DeviceInfo.screenTopPadding() + Dimens8, bottom = Dimens8)
+                    .weight(0.65f),
+                verticalArrangement = Arrangement.spacedBy(Dimens12)
+            ) {
+                WeekSummaryRow(viewModel)
+                ActivitySection(viewModel, navController)
             }
         }
     }
@@ -358,7 +357,8 @@ private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) 
         .fillMaxWidth()
         .shadow(2.dp, RoundedCornerShape(Dimens8))
         .background(Color.White, RoundedCornerShape(Dimens8))
-        .padding(horizontal = Dimens12, vertical = Dimens6)
+        .padding(vertical = Dimens6)
+        .padding(start = Dimens12, end = Dimens8)
 
     val modifier = if (row.route != null) {
         baseModifier.clickable { navController.navigate(row.route) }
@@ -366,7 +366,7 @@ private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) 
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(Dimens12),
+        horizontalArrangement = Arrangement.spacedBy(Dimens8),
         modifier = modifier
     ) {
         // Age badge — no clip, use background(color, shape)
@@ -423,7 +423,7 @@ private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) 
         // Chevron icon (only when tappable)
         if (row.route != null) {
             Icon(
-                imageVector = Icons.Filled.KeyboardArrowRight,
+                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                 contentDescription = null,
                 tint = Color(0xFF9374EF).copy(alpha = 0.6f),
                 modifier = Modifier.size(Dimens20)

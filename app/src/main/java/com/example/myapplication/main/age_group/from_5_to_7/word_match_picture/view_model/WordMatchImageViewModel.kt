@@ -8,11 +8,17 @@ import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.data.generation.letter.LetterRepository.vocabularyCategoryAllForWordMatchImage
-import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.view_model.MatchLetterWithImageUiState
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.ModuleProgressRepository
+import com.example.myapplication.data.progress.SessionRepository
+import com.example.myapplication.data.progress.models.MatchLetterWithImageProgress
 import com.example.myapplication.ui.theme.colorList
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.utils.FeedbackConstant.feedbackMatchLetterSubtitles
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -23,6 +29,8 @@ import kotlin.math.abs
 
 @HiltViewModel
 class WordMatchImageViewModel @Inject constructor(
+    private val sessionRepository: SessionRepository,
+    private val moduleProgressRepository: ModuleProgressRepository
 ) : ViewModel() {
 
     private val batchSize = 5
@@ -35,6 +43,10 @@ class WordMatchImageViewModel @Inject constructor(
 
     var dragEnd by mutableStateOf<Offset?>(null)
         private set
+
+    private var wrongAttemptsInBatch = mutableSetOf<String>()
+    private var batchStartMs = System.currentTimeMillis()
+    private var totalDrag = Offset.Zero
 
     init {
         loadNewBatch()
@@ -62,6 +74,9 @@ class WordMatchImageViewModel @Inject constructor(
         val batch = uniqueWords.map { word ->
             word to word
         }
+
+        wrongAttemptsInBatch = mutableSetOf()
+        batchStartMs = System.currentTimeMillis()
         dragStart = null
         dragEnd = null
         uiState = uiState.copy(
@@ -79,9 +94,6 @@ class WordMatchImageViewModel @Inject constructor(
     // -----------------------------
     // DRAG
     // -----------------------------
-    // NEW VARIABLE
-    private var totalDrag = Offset.Zero
-
     fun startDrag(letter: String, start: Offset) {
         totalDrag = Offset.Zero
 
@@ -99,7 +111,7 @@ class WordMatchImageViewModel @Inject constructor(
 
         val start = dragStart ?: return
 
-        dragEnd = start + totalDrag // ✅ NO uiState update
+        dragEnd = start + totalDrag
     }
 
     fun endDrag() {
@@ -115,7 +127,10 @@ class WordMatchImageViewModel @Inject constructor(
 
         if (target == letter) {
             markLetterAsMatched(letter)
-        }else{
+        } else {
+            if (target != null) {
+                wrongAttemptsInBatch.add(letter)
+            }
             // WRONG MATCH
             AudioPlayerManager.playSoundWrongAnswer()
         }
@@ -135,25 +150,30 @@ class WordMatchImageViewModel @Inject constructor(
         val updatedSet = uiState.matchedLetters + letter
         val updatedOrder = uiState.matchedOrder + letter
 
-        uiState = uiState.copy(
-            matchedLetters = updatedSet,
-            matchedOrder = updatedOrder
-        )
-
-        // ✅ OPTIONAL: show popup when all matched
+        // show popup when all matched
         if (updatedSet.size == uiState.batchLetters.size) {
             // COMPLETE
             viewModelScope.launch {
-                delay(200)
+                delay(300)
+                val score = batchSize - wrongAttemptsInBatch.size
+                val stars = computeStars(score, batchSize)
+                recordSession(score)
                 AudioPlayerManager.playSoundClap()
                 uiState = uiState.copy(
-                    showPopup = true,
-                    feedbackTextRes = feedbackTitles.random()
+                    matchedLetters = updatedSet,
+                    matchedOrder = updatedOrder,
+                    batchScore = score,
+                    earnedStars = stars,
+                    scoreLabel = if (score == batchSize) "perfect! 🎯" else "first try 🎯",
+                    feedbackTextRes = feedbackTitles.random(),
+                    feedbackSubTextRes = feedbackMatchLetterSubtitles.random(),
+                    showPopup = true
                 )
             }
-        }else{
+        } else {
             // MATCH
             AudioPlayerManager.playSoundCorrectAnswer()
+            uiState = uiState.copy(matchedLetters = updatedSet, matchedOrder = updatedOrder)
         }
     }
 
@@ -175,13 +195,15 @@ class WordMatchImageViewModel @Inject constructor(
         uiState = uiState.copy(imagePositions = updated)
         recomputeFramesReady()
     }
+
     fun updateImageRect(letter: String, rect: Rect) {
         val updated = uiState.imageRects + (letter to rect)
         uiState = uiState.copy(imageRects = updated)
     }
+
     fun recomputeFramesReady() {
 
-        if (uiState.framesReady) return // ✅ avoid repeat work
+        if (uiState.framesReady) return
 
         val validLetters = uiState.batchLetters.map { it.first }.toSet()
 
@@ -192,6 +214,7 @@ class WordMatchImageViewModel @Inject constructor(
             uiState = uiState.copy(framesReady = true)
         }
     }
+
     // -----------------------------
     fun playAgain() {
         uiState = uiState.copy(
@@ -203,5 +226,52 @@ class WordMatchImageViewModel @Inject constructor(
 
     fun closePopup() {
         uiState = uiState.copy(showPopup = false)
+    }
+
+    // -----------------------------
+    // SESSION RECORDING
+    // -----------------------------
+    private fun recordSession(score: Int) {
+        val duration = ((System.currentTimeMillis() - batchStartMs) / 1000).toInt()
+        sessionRepository.record(
+            LearningSession(
+                moduleId = ModuleID.MATCH_WORD_WITH_PICTURE,
+                ageGroup = AgeGroup.FIVE_TO_SEVEN,
+                durationSeconds = duration,
+                score = score,
+                totalQuestions = batchSize
+            )
+        )
+
+        val progress = moduleProgressRepository.load(ModuleID.MATCH_WORD_WITH_PICTURE, MatchLetterWithImageProgress::class.java)
+            ?: MatchLetterWithImageProgress()
+
+        val alphabet = ('A'..'Z').toList()
+        val newWeakIndices = wrongAttemptsInBatch
+            .mapNotNull { word ->
+                val ch = word.firstOrNull()?.uppercaseChar() ?: return@mapNotNull null
+                alphabet.indexOf(ch).takeIf { it >= 0 }
+            }
+            .filter { it !in progress.weakLetterIndices }
+
+        moduleProgressRepository.save(
+            progress.copy(
+                totalRoundsCompleted = progress.totalRoundsCompleted + 1,
+                weakLetterIndices = progress.weakLetterIndices + newWeakIndices
+            ),
+            ModuleID.MATCH_WORD_WITH_PICTURE
+        )
+    }
+
+    // -----------------------------
+    // HELPERS
+    // -----------------------------
+    private fun computeStars(score: Int, total: Int): Int {
+        val ratio = score.toDouble() / total
+        return when {
+            ratio >= 1.0 -> 3
+            ratio >= 0.6 -> 2
+            else -> 1
+        }
     }
 }

@@ -273,5 +273,6 @@
     <string name="listen_tap_the_word_"><![CDATA[<font color=\"#5C6BC0\"><b>Listen carefully</b></font> and tap the correct Word]]></string>
     <string name="grammar_challenge_beginner">Grammar Challenge - Beginner</string>
     <string name="next_letter_in">Next letter in</string>
+    <string name="parent_report">Parent Report</string>
 
 </resources>

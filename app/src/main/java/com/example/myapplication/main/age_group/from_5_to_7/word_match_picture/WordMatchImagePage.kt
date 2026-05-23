@@ -6,7 +6,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,14 +16,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.view_model.WordMatchImageViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.CustomPopupView
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.KidsFloatingShape
@@ -63,11 +61,11 @@ fun WordMatchImagePage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                Row {
+                Row(verticalAlignment = Alignment.CenterVertically,modifier = Modifier.padding(top = DeviceInfo.screenTopPadding())) {
                     InstructionBadge(
                         text = stringResource(R.string.drag_word_to_connect_letters),
                         isSmall = true,
-                        modifier = Modifier.padding(horizontal = Dimens12).padding(top = DeviceInfo.screenTopPadding())
+                        modifier = Modifier.padding(horizontal = Dimens12)
                     )
                     KidsLabel("🎯 Round ${uiState.round}")
                 }
@@ -86,15 +84,15 @@ fun WordMatchImagePage(
             enter = fadeIn(),
             exit = fadeOut()
         ) {
-            CustomPopupView(
-                title = stringResource(viewModel.uiState.feedbackTextRes),
-                description = stringResource(viewModel.uiState.feedbackSubTextRes),
-                positiveButtonText = stringResource(R.string.continue_to_play),
-                negativeButtonText = stringResource(R.string.no_i_want_to_close),
-                icon = R.drawable.ic_complete,
-                widthMultiplier = 0.5f,
-                onPositiveTapped = { viewModel.playAgain() },
-                onNegativeTapped = {
+            ActivityCompletePopup(
+                stars = uiState.earnedStars,
+                score = uiState.batchScore,
+                total = 5,
+                scoreLabel = uiState.scoreLabel,
+                feedbackTextRes = uiState.feedbackTextRes,
+                feedbackSubTextRes = uiState.feedbackSubTextRes,
+                onNext = { viewModel.playAgain() },
+                onClose = {
                     viewModel.closePopup()
                     navController.popBackStack()
                 }

@@ -59,11 +59,11 @@ fun MatchLetterWithImagePage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                Row {
+                Row(verticalAlignment = Alignment.CenterVertically,modifier = Modifier.padding(top = DeviceInfo.screenTopPadding())) {
                     InstructionBadge(
                         text = stringResource(R.string.drag_to_connect_letters),
                         isSmall = true,
-                        modifier = Modifier.padding(horizontal = Dimens12).padding(top = DeviceInfo.screenTopPadding())
+                        modifier = Modifier.padding(horizontal = Dimens12)
                     )
                     KidsLabel("🎯 Round ${uiState.round}")
                 }

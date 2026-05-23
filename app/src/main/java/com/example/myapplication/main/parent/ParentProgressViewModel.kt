@@ -223,6 +223,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.OPPOSITES_WORD          to ("Opposite Words"       to "5–7"),
             ModuleID.SINGULAR_PLURAL         to ("Singular & Plural"    to "5–7"),
             ModuleID.LISTEN_AND_SELECT       to ("Listen & Select"      to "5–7"),
+            ModuleID.MATCH_WORD_WITH_PICTURE to ("Match Word & Image"   to "5–7"),
         )
 
         private val moduleRoutes = mapOf(
@@ -240,6 +241,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.OPPOSITES_WORD          to RouteNavigation.OppositeWords.route,
             ModuleID.SINGULAR_PLURAL         to RouteNavigation.SingularPlural.route,
             ModuleID.LISTEN_AND_SELECT       to RouteNavigation.ListenAndSelectWord.route,
+            ModuleID.MATCH_WORD_WITH_PICTURE to RouteNavigation.WordMatchImage.route,
         )
     }
 }

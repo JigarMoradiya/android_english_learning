@@ -22,5 +22,9 @@ data class WordMatchImageUiState(
     val round: Int = 1,
     val showPopup: Boolean = false,
     val feedbackTextRes: Int = R.string.feedbackPhrases_1,
-    val feedbackSubTextRes: Int = R.string.match_word_with_image_done
+    val feedbackSubTextRes: Int = R.string.feedbackMatchLetterSubtitle_1,
+
+    val batchScore: Int = 0,
+    val earnedStars: Int = 1,
+    val scoreLabel: String = ""
 )
