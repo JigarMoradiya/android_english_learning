@@ -12,6 +12,7 @@ import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -126,10 +127,16 @@ fun SettingsScreen(
                             subtitle = restoreMessage ?: "Already subscribed? Tap to restore",
                             type = if (restoreMessage == "No active subscription found.") ButtonType.RED else ButtonType.GREEN
                         ) {
-                            if (!isRestoring) viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Restore)
+                            if (!isRestoring) {
+                                if (!userState.isLoggedIn) {
+                                    sheetViewModel.requestLoginForRestore()
+                                } else {
+                                    viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Restore)
+                                }
+                            }
                         }
                         if (userState.isLoggedIn) {
-                            Divider(color = Color.Gray.copy(alpha = 0.2f), thickness = AppDimens.Dimens1)
+                            HorizontalDivider(Modifier, thickness = AppDimens.Dimens1, color = Color.Gray.copy(alpha = 0.2f))
                             SettingsRow(
                                 icon = Icons.AutoMirrored.Filled.ExitToApp,
                                 title = "Log Out",

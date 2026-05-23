@@ -97,17 +97,41 @@ class PurchaseManager @Inject constructor(
     /**
      * Restores previous purchases. Updates AccessManager if premium is found.
      * Returns true if premium entitlement was restored.
+     *
+     * Two-step approach:
+     * 1. Standard RevenueCat restore (posts Google Play tokens to RC server).
+     * 2. Fallback: re-identify with Firebase UID so RC syncs the correct user's
+     *    entitlements — handles the case where the RC session drifted to anonymous
+     *    (e.g., after sign-out/reset or a failed identify call at login time).
      */
     suspend fun restorePurchases(): Boolean {
+        // Step 1: standard Google Play restore
         val restored = revenueCatManager.restorePurchases()
         if (restored) {
-            // Prefer uid from local state, fall back to Firebase Auth
-            val uid = accessManager.userState.value.userId
-                ?: FirebaseAuth.getInstance().currentUser?.uid
-            if (uid != null) {
+            grantPremiumToCurrentUser()
+            return true
+        }
+
+        // Step 2: re-identify with Firebase UID and check entitlements directly.
+        // Covers cross-platform subscriptions (iOS purchase) and anonymous→identified
+        // user mismatches where the Play token was already attributed to another RC alias.
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+            ?: accessManager.userState.value.userId
+        if (uid != null) {
+            val customerInfo = revenueCatManager.identify(uid)
+            if (customerInfo?.entitlements?.get(RevenueCatManager.ENTITLEMENT_ID)?.isActive == true) {
                 accessManager.updateUserState(UserAccessState.PremiumUser(uid))
+                return true
             }
         }
-        return restored
+        return false
+    }
+
+    private fun grantPremiumToCurrentUser() {
+        val uid = accessManager.userState.value.userId
+            ?: FirebaseAuth.getInstance().currentUser?.uid
+        if (uid != null) {
+            accessManager.updateUserState(UserAccessState.PremiumUser(uid))
+        }
     }
 }

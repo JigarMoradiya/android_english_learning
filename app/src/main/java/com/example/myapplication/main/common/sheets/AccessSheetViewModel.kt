@@ -89,6 +89,15 @@ class AccessSheetViewModel @Inject constructor(
     private var pendingPurchasePackage: Package? = null
     private var pendingPurchaseModuleId: String = ""
 
+    // ── Pending restore (set when guest taps Restore) ─────────────────
+
+    private var pendingRestoreAfterLogin = false
+
+    fun requestLoginForRestore() {
+        pendingRestoreAfterLogin = true
+        requestState(AccessSheetState.Login("restore_from_settings"))
+    }
+
     // ── Access check entry point ──────────────────────────────────────
 
     /**
@@ -124,6 +133,7 @@ class AccessSheetViewModel @Inject constructor(
     fun dismiss() {
         _sheetState.value = AccessSheetState.Hidden
         pendingPurchasePackage = null
+        pendingRestoreAfterLogin = false
     }
 
     // ── Google Sign-In ────────────────────────────────────────────────
@@ -193,6 +203,11 @@ class AccessSheetViewModel @Inject constructor(
     // ── Restore purchases ─────────────────────────────────────────────
 
     fun restorePurchases() {
+        if (accessManager.userState.value is UserAccessState.Guest) {
+            pendingRestoreAfterLogin = true
+            requestState(AccessSheetState.Login("restore_from_paywall"))
+            return
+        }
         viewModelScope.launch {
             _isLoading.value = true
             val restored = purchaseManager.restorePurchases()
@@ -213,8 +228,23 @@ class AccessSheetViewModel @Inject constructor(
         val pending = pendingPurchasePackage
         if (pending != null) {
             pendingPurchasePackage = null
+            // User may already be premium (existing subscription detected by RevenueCat on login)
+            if (accessManager.userState.value is UserAccessState.PremiumUser) {
+                dismiss()
+                return
+            }
             _sheetState.value = AccessSheetState.Paywall(pendingPurchaseModuleId)
             loadOfferings()
+            return
+        }
+
+        // Pending restore flow: run restore now that user is logged in
+        if (pendingRestoreAfterLogin) {
+            pendingRestoreAfterLogin = false
+            _isLoading.value = true
+            val restored = purchaseManager.restorePurchases()
+            _isLoading.value = false
+            if (restored) dismiss() else _message.emit("No previous purchases found.")
             return
         }
 

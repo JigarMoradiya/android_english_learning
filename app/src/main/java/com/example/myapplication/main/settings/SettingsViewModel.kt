@@ -66,7 +66,7 @@ class SettingsViewModel @Inject constructor(
         val price = purchaseManager.getOfferings()
             ?.current?.availablePackages
             ?.firstOrNull { it.product.purchasingData.productId == productId }
-            ?.product?.price?.let { "$${"%.2f".format(it)}" }
+            ?.product?.price?.formatted
             ?: ""
 
         _subscriptionInfo.value = SubscriptionInfo(planName, renewalDate, price)
