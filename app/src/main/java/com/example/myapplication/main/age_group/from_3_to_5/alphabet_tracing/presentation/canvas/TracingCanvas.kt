@@ -1,5 +1,6 @@
 package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.canvas
 
+import android.graphics.BitmapFactory
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -7,22 +8,30 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.min
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.helper.drawArrow
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
+import com.example.myapplication.main.common.getImageResFromWord
 import kotlin.math.min
 
 @Composable
@@ -30,6 +39,13 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
 
     val uiState = viewModel.uiState
     val strokeColor = viewModel.getLetterColor()
+
+    val context = LocalContext.current
+    val currentWord = viewModel.lettersData.getOrNull(uiState.currentIndex)?.second
+    val imageRes = getImageResFromWord(currentWord)
+    val imageBitmap: ImageBitmap? = remember(imageRes) {
+        imageRes?.let { BitmapFactory.decodeResource(context.resources, it)?.asImageBitmap() }
+    }
 
     BoxWithConstraints(
         modifier = Modifier.fillMaxSize(),
@@ -60,6 +76,8 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
                     )
                 }
         ) {
+
+            val isCompleted = uiState.strokeIndex >= guides.size
 
             // -------------------------------
             // 1️⃣ BASE LETTER
@@ -141,6 +159,33 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
             }
 
             // -------------------------------
+            // 3b️⃣ FINISHED STROKE DECORATIONS
+            // -------------------------------
+            imageBitmap?.let { bitmap ->
+                val decorSize = sizePx * 0.06f
+                val decorStep = 8
+                val decorAlpha = if (isCompleted) 1f else 0.35f
+
+                uiState.finishedStrokes.forEachIndexed { idx, stroke ->
+                    stroke.filterIndexed { pidx, _ -> pidx % decorStep == 0 }
+                        .forEachIndexed { pidx, point ->
+                            val rotDeg = ((pidx * 47 + idx * 23) % 60 - 30).toFloat()
+                            withTransform({ rotate(degrees = rotDeg, pivot = point) }) {
+                                drawImage(
+                                    image = bitmap,
+                                    dstOffset = IntOffset(
+                                        (point.x - decorSize / 2).toInt(),
+                                        (point.y - decorSize / 2).toInt()
+                                    ),
+                                    dstSize = IntSize(decorSize.toInt(), decorSize.toInt()),
+                                    alpha = decorAlpha
+                                )
+                            }
+                        }
+                }
+            }
+
+            // -------------------------------
             // 4️⃣ CURRENT STROKE (SMOOTH + GLOW)
             // -------------------------------
             if (uiState.drawnPoints.size > 1) {
@@ -200,10 +245,32 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
             }
 
             // -------------------------------
+            // 4b️⃣ LIVE STROKE DECORATIONS
+            // -------------------------------
+            imageBitmap?.let { bitmap ->
+                val decorSize = sizePx * 0.06f
+                val decorStep = 8
+
+                uiState.drawnPoints.filterIndexed { pidx, _ -> pidx % decorStep == 0 }
+                    .forEachIndexed { pidx, point ->
+                        val rotDeg = ((pidx * 47) % 60 - 30).toFloat()
+                        withTransform({ rotate(degrees = rotDeg, pivot = point) }) {
+                            drawImage(
+                                image = bitmap,
+                                dstOffset = IntOffset(
+                                    (point.x - decorSize / 2).toInt(),
+                                    (point.y - decorSize / 2).toInt()
+                                ),
+                                dstSize = IntSize(decorSize.toInt(), decorSize.toInt()),
+                                alpha = 1f
+                            )
+                        }
+                    }
+            }
+
+            // -------------------------------
             // 5️⃣ START DOT + ARROW + PROGRESS DOT
             // -------------------------------
-            val isCompleted = uiState.strokeIndex >= guides.size
-
             if (!isCompleted) {
 
                 val currentStroke = guides.getOrNull(uiState.strokeIndex)
