@@ -122,6 +122,19 @@
 
     <string name="feedbackPhrasesSubtitle_1">You got the right answer!</string>
 
+    <!-- Match Letter Subtitles (used in MatchLetters + MatchLetterWithImage completion popup) -->
+    <string name="feedbackMatchLetterSubtitle_1">Keep going, you\'re learning fast!</string>
+    <string name="feedbackMatchLetterSubtitle_2">Letters are your friends!</string>
+    <string name="feedbackMatchLetterSubtitle_3">Every match makes you smarter!</string>
+    <string name="feedbackMatchLetterSubtitle_4">You\'re becoming an alphabet hero!</string>
+    <string name="feedbackMatchLetterSubtitle_5">Let\'s keep matching and have fun!</string>
+
+    <!-- Activity complete popup -->
+    <string name="next_round">Next Round</string>
+    <string name="close">Close</string>
+    <string name="score_label_perfect">perfect! 🎯</string>
+    <string name="score_label_first_try">first try 🎯</string>
+
     <!-- Feedback MissingLetter Subtitles Success -->
     <string name="feedbackMissingLetter_1">You built the word just right.</string>
     <string name="feedbackMissingLetter_2">That’s exactly how it’s spelled!</string>

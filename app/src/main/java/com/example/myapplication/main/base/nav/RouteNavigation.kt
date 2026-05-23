@@ -4,6 +4,7 @@ sealed class RouteNavigation(val route: String) {
 
     object AgeCategories : RouteNavigation("AgeCategories")
     object Settings : RouteNavigation("Settings")
+    object ParentProgress : RouteNavigation("ParentProgress")
     object AccessPlan : RouteNavigation("AccessPlan")
     object AgeGroup3to5 : RouteNavigation("AgeGroup3to5")
     object AlphabetTracing : RouteNavigation("AlphabetTracing")

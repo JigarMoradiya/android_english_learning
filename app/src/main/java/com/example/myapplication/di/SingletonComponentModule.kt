@@ -15,14 +15,15 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    // Context
     @Provides
     @Singleton
     internal fun provideContext(application: Application): Context = application
 
-    // Preferences
     @Singleton
     @Provides
-    fun providePreferencesHelper(@ApplicationContext context: Context) = AppPreferencesHelper(context, AppConstants.PREF_NAME)
+    fun providePreferencesHelper(@ApplicationContext context: Context) =
+        AppPreferencesHelper(context, AppConstants.PREF_NAME)
 
+    // SessionRepository and ModuleProgressRepository use @Inject constructor + @Singleton
+    // so Hilt wires them automatically — no @Provides needed here
 }

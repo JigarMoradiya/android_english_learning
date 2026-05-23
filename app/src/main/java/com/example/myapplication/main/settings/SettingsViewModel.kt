@@ -82,10 +82,15 @@ class SettingsViewModel @Inject constructor(
 
     // ── Parental gate ─────────────────────────────────────────────────────────
 
-    enum class ParentalAction { Logout, Restore }
+    enum class ParentalAction { Logout, Restore, ParentProgress }
 
     private val _showParentalGate = MutableStateFlow(false)
     val showParentalGate: StateFlow<Boolean> = _showParentalGate.asStateFlow()
+
+    private val _navigateToParentProgress = MutableStateFlow(false)
+    val navigateToParentProgress: StateFlow<Boolean> = _navigateToParentProgress.asStateFlow()
+
+    fun consumeParentProgressNavigation() { _navigateToParentProgress.value = false }
 
     private var pendingAction: ParentalAction = ParentalAction.Logout
 
@@ -109,6 +114,7 @@ class SettingsViewModel @Inject constructor(
     fun executeAction() {
         _showParentalGate.value = false
         when (pendingAction) {
+            ParentalAction.ParentProgress -> _navigateToParentProgress.value = true
             ParentalAction.Logout -> authManager.signOut()
             ParentalAction.Restore -> viewModelScope.launch {
                 _isRestoring.value = true

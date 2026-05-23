@@ -60,7 +60,15 @@ fun SettingsScreen(
     val subscriptionInfo by viewModel.subscriptionInfo.collectAsState()
     val isRestoring by viewModel.isRestoring.collectAsState()
     val restoreMessage by viewModel.restoreMessage.collectAsState()
+    val navigateToParentProgress by viewModel.navigateToParentProgress.collectAsState()
     val sheetViewModel = LocalAccessSheetViewModel.current
+
+    LaunchedEffect(navigateToParentProgress) {
+        if (navigateToParentProgress) {
+            viewModel.consumeParentProgressNavigation()
+            navController.navigate(com.example.myapplication.main.base.nav.RouteNavigation.ParentProgress.route)
+        }
+    }
 
     Box(modifier = Modifier.fillMaxSize()) {
         KidsGradientBackground(gradient = KidsGradient.indigoPurple, shape = KidsFloatingShape.curveLines)
@@ -104,6 +112,18 @@ fun SettingsScreen(
                         volume = musicVolume,
                         onVolumeChange = { viewModel.updateMusicVolume(it) }
                     )
+                }
+
+                // ── Parent Report ────────────────────────────────────────
+                SettingsCard {
+                    SettingsRow(
+                        icon = Icons.Filled.Person,
+                        title = "Parent Report",
+                        subtitle = "View your child's weekly progress",
+                        type = ButtonType.BLUE
+                    ) {
+                        viewModel.requestParentalGate(SettingsViewModel.ParentalAction.ParentProgress)
+                    }
                 }
 
                 // ── Access Plan ──────────────────────────────────────────

@@ -129,6 +129,9 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.AccessPlan.route) {
             com.example.myapplication.main.settings.AccessPlanScreen(navController)
         }
+        composable(RouteNavigation.ParentProgress.route) {
+            com.example.myapplication.main.parent.ParentProgressScreen(navController)
+        }
         // Age Category 3 to 5
         composable(RouteNavigation.AgeGroup3to5.route) {
             AgeGroup3to5Page(navController)

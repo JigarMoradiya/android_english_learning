@@ -22,15 +22,14 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.view_model.MatchLetterWithImageViewModel
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.CustomPopupView
 import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
-
 
 @Composable
 fun MatchLetterWithImagePage(
@@ -50,12 +49,10 @@ fun MatchLetterWithImagePage(
                 .windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
 
-            // HEADER
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-
                 BackButtonWithText(
                     title = stringResource(R.string.match_letter_image),
                     modifier = Modifier.weight(1f),
@@ -70,31 +67,28 @@ fun MatchLetterWithImagePage(
                     )
                     KidsLabel("🎯 Round ${uiState.round}")
                 }
-
             }
 
-            // CENTER CONTENT
             MatchContent(
                 viewModel,
                 modifier = Modifier.weight(1f)
             )
         }
 
-
         AnimatedVisibility(
             visible = uiState.showPopup,
             enter = fadeIn(),
             exit = fadeOut()
         ) {
-            CustomPopupView(
-                title = stringResource(viewModel.uiState.feedbackTextRes),
-                description = stringResource(viewModel.uiState.feedbackSubTextRes),
-                positiveButtonText = stringResource(R.string.continue_to_play),
-                negativeButtonText = stringResource(R.string.no_i_want_to_close),
-                icon = R.drawable.ic_complete,
-                widthMultiplier = 0.5f,
-                onPositiveTapped = { viewModel.playAgain() },
-                onNegativeTapped = {
+            ActivityCompletePopup(
+                stars = uiState.earnedStars,
+                score = uiState.batchScore,
+                total = 5,
+                scoreLabel = uiState.scoreLabel,
+                feedbackTextRes = uiState.feedbackTextRes,
+                feedbackSubTextRes = uiState.feedbackSubTextRes,
+                onNext = { viewModel.playAgain() },
+                onClose = {
                     viewModel.closePopup()
                     navController.popBackStack()
                 }

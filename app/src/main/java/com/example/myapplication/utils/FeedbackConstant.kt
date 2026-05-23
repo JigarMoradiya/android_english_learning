@@ -72,6 +72,14 @@ object FeedbackConstant {
         R.string.feedbackMissingLetterSubTitleForWrong_5
     )
 
+    val feedbackMatchLetterSubtitles = listOf(
+        R.string.feedbackMatchLetterSubtitle_1,
+        R.string.feedbackMatchLetterSubtitle_2,
+        R.string.feedbackMatchLetterSubtitle_3,
+        R.string.feedbackMatchLetterSubtitle_4,
+        R.string.feedbackMatchLetterSubtitle_5
+    )
+
     val feedbackGiveAnswerSubTitleCorrect = listOf(
         R.string.feedbackGiveAnswerSubTitleCorrect_1,
         R.string.feedbackGiveAnswerSubTitleCorrect_2,

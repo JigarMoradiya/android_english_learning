@@ -4,7 +4,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import com.example.myapplication.R
 
-
 data class MatchLetterWithImageUiState(
     val batchLetters: List<Pair<String, String>> = emptyList(),
     val shuffledImages: List<Pair<String, String>> = emptyList(),
@@ -22,5 +21,9 @@ data class MatchLetterWithImageUiState(
     val round: Int = 1,
     val showPopup: Boolean = false,
     val feedbackTextRes: Int = R.string.feedbackPhrases_1,
-    val feedbackSubTextRes: Int = R.string.match_letter_with_image_done
+    val feedbackSubTextRes: Int = R.string.feedbackMatchLetterSubtitle_1,
+
+    val batchScore: Int = 0,
+    val earnedStars: Int = 1,
+    val scoreLabel: String = ""
 )

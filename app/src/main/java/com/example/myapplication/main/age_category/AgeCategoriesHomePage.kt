@@ -33,9 +33,14 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import com.example.myapplication.main.common.sheets.ParentalGateDialog
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
@@ -56,6 +61,7 @@ fun MainLearningAgesCategoriesScreen(
 ) {
     val categories by viewModel.categories.collectAsState()
     val context = LocalContext.current
+    var showParentalGate by remember { mutableStateOf(false) }
 
     NotificationPermissionHandler()
     OneSignalSubscriptionWatcher()
@@ -82,6 +88,35 @@ fun MainLearningAgesCategoriesScreen(
                     fontSize = AppDimens.FontExtraLarge36,
                     fontWeight = FontWeight.Bold
                 )
+
+                // Parent report icon (left)
+                val parentInteraction = remember { MutableInteractionSource() }
+                val parentPressed by parentInteraction.collectIsPressedAsState()
+                val parentScale by animateFloatAsState(
+                    targetValue = if (parentPressed) 0.85f else 1f,
+                    animationSpec = spring(dampingRatio = 0.5f, stiffness = Spring.StiffnessMedium),
+                    label = ""
+                )
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.CenterStart)
+                        .size(AppDimens.ToolbarIconSize)
+                        .graphicsLayer { scaleX = parentScale; scaleY = parentScale }
+                        .clip(CircleShape)
+                        .background(Color.White.copy(alpha = 0.6f))
+                        .clickable(interactionSource = parentInteraction, indication = null) {
+                            AudioPlayerManager.playSoundMenuClick()
+                            showParentalGate = true
+                        },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Person,
+                        contentDescription = "Parent Report",
+                        tint = Color.Black.copy(alpha = 0.75f),
+                        modifier = Modifier.size(AppDimens.ToolbarIconSize / 1.8f)
+                    )
+                }
 
                 val settingsInteraction = remember { MutableInteractionSource() }
                 val settingsPressed by settingsInteraction.collectIsPressedAsState()
@@ -140,6 +175,16 @@ fun MainLearningAgesCategoriesScreen(
         )
 
         ForceUpdateHandler()
+
+        if (showParentalGate) {
+            ParentalGateDialog(
+                onPassed = {
+                    showParentalGate = false
+                    navController.navigate(RouteNavigation.ParentProgress.route)
+                },
+                onCancelled = { showParentalGate = false }
+            )
+        }
     }
 }
 

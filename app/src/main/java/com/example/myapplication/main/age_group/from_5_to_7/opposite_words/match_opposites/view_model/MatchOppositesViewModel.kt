@@ -8,8 +8,12 @@ import androidx.compose.ui.geometry.Offset
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.R
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.OppositeDifficulty
 import com.example.myapplication.data.generation.loader.OppositeWordsData
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,7 +28,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MatchOppositesViewModel @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(MatchOppositesUiState())

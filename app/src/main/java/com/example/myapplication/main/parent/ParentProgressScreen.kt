@@ -1,0 +1,558 @@
+package com.example.myapplication.main.parent
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.AccessTime
+import androidx.compose.material.icons.filled.Adjust
+import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.PlayCircle
+import androidx.compose.material.icons.filled.Replay
+import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.AppDimens.Dimens6
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens20
+import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.Dimens28
+import com.example.myapplication.utils.extensions.scaled
+
+@Composable
+fun ParentProgressScreen(
+    navController: NavController,
+    viewModel: ParentProgressViewModel = hiltViewModel()
+) {
+    LaunchedEffect(Unit) { viewModel.load() }
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        KidsGradientBackground(gradient = KidsGradient.grayBlue, shape = KidsFloatingShape.dots)
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.safeDrawing)
+        ) {
+            BackButtonWithText(
+                title = "Parent Report",
+                onBackClick = { navController.popBackStack() }
+            )
+
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = Dimens16)
+                    .padding(bottom = Dimens16),
+                horizontalArrangement = Arrangement.spacedBy(Dimens16)
+            ) {
+                // LEFT PANEL (35%)
+                Column(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .weight(0.35f),
+                    verticalArrangement = Arrangement.spacedBy(Dimens12)
+                ) {
+                    StreakCard(viewModel)
+                    WeekDotsCard(viewModel)
+                    Spacer(Modifier.weight(1f))
+                }
+
+                // RIGHT PANEL (65%)
+                Column(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .weight(0.65f),
+                    verticalArrangement = Arrangement.spacedBy(Dimens12)
+                ) {
+                    WeekSummaryRow(viewModel)
+                    ActivitySection(viewModel, navController)
+                }
+            }
+        }
+    }
+}
+
+// ── Left panel ───────────────────────────────────────────────────────────────
+
+@Composable
+private fun StreakCard(vm: ParentProgressViewModel) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(Dimens8, RoundedCornerShape(Dimens16))
+            .background(
+                Brush.linearGradient(listOf(Color(0xFF9374EF), Color(0xFF5532D2))),
+                RoundedCornerShape(Dimens16)
+            )
+            .padding(Dimens16)
+    ) {
+        Text("🔥", style = MaterialTheme.typography.displaySmall.scaled())
+        Text(
+            text = "${vm.currentStreak}",
+            style = MaterialTheme.typography.displayMedium.scaled(),
+            fontWeight = FontWeight.Black,
+            color = Color.White
+        )
+        Text(
+            text = "day streak",
+            style = MaterialTheme.typography.titleSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color.White.copy(alpha = 0.85f)
+        )
+        HorizontalDivider(
+            modifier = Modifier.padding(vertical = Dimens8),
+            color = Color.White.copy(alpha = 0.3f)
+        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(Dimens4)
+        ) {
+            Text("🏆", style = MaterialTheme.typography.labelLarge.scaled())
+            Text(
+                text = "Best: ${vm.bestStreak} days",
+                style = MaterialTheme.typography.labelMedium.scaled(),
+                color = Color.White.copy(alpha = 0.9f)
+            )
+        }
+    }
+}
+
+@Composable
+private fun WeekDotsCard(vm: ParentProgressViewModel) {
+    val dayLabels = listOf("M", "T", "W", "T", "F", "S", "S")
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(Dimens4, RoundedCornerShape(Dimens12))
+            .background(Color.White, RoundedCornerShape(Dimens12))
+            .padding(Dimens12)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            IconButton(
+                onClick = { vm.goToPreviousWeek() },
+                enabled = vm.canGoBack,
+                modifier = Modifier.size(Dimens28)
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
+                    contentDescription = null,
+                    tint = if (vm.canGoBack) Color(0xFF5532D2) else Color.Gray.copy(alpha = 0.3f)
+                )
+            }
+            Text(
+                text = vm.weekLabel,
+                style = MaterialTheme.typography.labelMedium.scaled(),
+                color = Color.Gray,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.weight(1f)
+            )
+            IconButton(
+                onClick = { vm.goToNextWeek() },
+                enabled = vm.canGoForward,
+                modifier = Modifier.size(Dimens28)
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    contentDescription = null,
+                    tint = if (vm.canGoForward) Color(0xFF5532D2) else Color.Gray.copy(alpha = 0.3f)
+                )
+            }
+        }
+
+        Spacer(Modifier.height(Dimens8))
+
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            dayLabels.forEachIndexed { i, label ->
+                val active = vm.activeDays.getOrElse(i) { false }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Box(
+                        modifier = Modifier
+                            .size(Dimens24)
+                            .background(
+                                if (active) Color(0xFF5532D2) else Color(0xFFD5D5D5),
+                                CircleShape
+                            ),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        if (active) {
+                            Text(
+                                "✓",
+                                style = MaterialTheme.typography.labelSmall.scaled(),
+                                color = Color.White,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+                    Text(
+                        label,
+                        style = MaterialTheme.typography.labelSmall.scaled(),
+                        color = Color.Gray
+                    )
+                }
+            }
+        }
+    }
+}
+
+// ── Right panel ──────────────────────────────────────────────────────────────
+
+@Composable
+private fun WeekSummaryRow(vm: ParentProgressViewModel) {
+    Row(horizontalArrangement = Arrangement.spacedBy(Dimens12)) {
+        StatCard(
+            icon = Icons.Filled.PlayCircle,
+            value = "${vm.weeklySessionCount}",
+            label = "Sessions",
+            color = Color(0xFF5532D2),
+            modifier = Modifier.weight(1f)
+        )
+        StatCard(
+            icon = Icons.Filled.AccessTime,
+            value = if (vm.weeklyDurationSeconds == 0) "—"
+                    else vm.formatDuration(vm.weeklyDurationSeconds),
+            label = "Time",
+            color = Color(0xFF2AA65C),
+            modifier = Modifier.weight(1f)
+        )
+        StatCard(
+            icon = Icons.Filled.Adjust,
+            value = if (vm.weeklySessionCount == 0) "—"
+                    else "${(vm.weeklyAccuracy * 100).toInt()}%",
+            label = "Accuracy",
+            color = Color(0xFFE8923A),
+            modifier = Modifier.weight(1f)
+        )
+    }
+}
+
+@Composable
+private fun StatCard(
+    icon: ImageVector,
+    value: String,
+    label: String,
+    color: Color,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = modifier
+            .shadow(Dimens4, RoundedCornerShape(Dimens12))
+            .background(Color.White, RoundedCornerShape(Dimens12))
+            .padding(Dimens12)
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            tint = color,
+            modifier = Modifier.size(Dimens24)
+        )
+        Spacer(Modifier.width(Dimens8))
+        Column {
+            Text(
+                value,
+                style = MaterialTheme.typography.titleMedium.scaled(),
+                fontWeight = FontWeight.Black,
+                color = color
+            )
+            Text(
+                label,
+                style = MaterialTheme.typography.labelMedium.scaled(),
+                color = Color.Gray
+            )
+        }
+        Spacer(Modifier.weight(1f))
+    }
+}
+
+// ── Activity section ─────────────────────────────────────────────────────────
+
+@Composable
+private fun ActivitySection(vm: ParentProgressViewModel, navController: NavController) {
+    Column(modifier = Modifier.fillMaxSize()) {
+        Text(
+            "Activity Breakdown",
+            style = MaterialTheme.typography.bodyMedium.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color.Black.copy(alpha = 0.75f)
+        )
+
+        Spacer(Modifier.height(Dimens8))
+
+        if (vm.moduleRows.isEmpty()) {
+            EmptyState()
+        } else {
+            Column(
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState())
+                    .padding(bottom = Dimens12),
+                verticalArrangement = Arrangement.spacedBy(Dimens8)
+            ) {
+                vm.moduleRows.forEach { row ->
+                    ModuleRowItem(row = row, navController = navController)
+                }
+                if (vm.weakLetters.isNotEmpty()) {
+                    WeakLettersCard(vm.weakLetters)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) {
+    val baseModifier = Modifier
+        .fillMaxWidth()
+        .shadow(2.dp, RoundedCornerShape(Dimens8))
+        .background(Color.White, RoundedCornerShape(Dimens8))
+        .padding(horizontal = Dimens12, vertical = Dimens6)
+
+    val modifier = if (row.route != null) {
+        baseModifier.clickable { navController.navigate(row.route) }
+    } else baseModifier
+
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Dimens12),
+        modifier = modifier
+    ) {
+        // Age badge — no clip, use background(color, shape)
+        Text(
+            text = row.ageGroupLabel,
+            style = MaterialTheme.typography.labelSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            modifier = Modifier
+                .background(Color(0xFF9374EF), RoundedCornerShape(50))
+                .padding(horizontal = Dimens6, vertical = Dimens4)
+        )
+
+        // Module name
+        Text(
+            text = row.displayName,
+            style = MaterialTheme.typography.bodyMedium.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color.Black,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.weight(1f)
+        )
+
+        // Rounds — icon + count
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(2.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Filled.Replay,
+                contentDescription = null,
+                tint = Color.Gray,
+                modifier = Modifier.size(Dimens20)
+            )
+            Text(
+                text = "${row.rounds}",
+                style = MaterialTheme.typography.labelMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color.Gray
+            )
+        }
+
+        // Stars
+        if (row.avgStars > 0) {
+            StarsRow(stars = row.avgStars)
+        }
+
+        // Accuracy bar — rounded corners, same as iOS
+        if (row.avgAccuracy > 0) {
+            AccuracyBar(accuracy = row.avgAccuracy)
+        }
+
+        // Chevron icon (only when tappable)
+        if (row.route != null) {
+            Icon(
+                imageVector = Icons.Filled.KeyboardArrowRight,
+                contentDescription = null,
+                tint = Color(0xFF9374EF).copy(alpha = 0.6f),
+                modifier = Modifier.size(Dimens20)
+            )
+        }
+    }
+}
+
+@Composable
+private fun StarsRow(stars: Double) {
+    Row(horizontalArrangement = Arrangement.spacedBy(1.dp)) {
+        repeat(3) { i ->
+            val filled = stars >= (i + 1)
+            val partial = !filled && stars > i
+            Text(
+                text = "★",
+                style = MaterialTheme.typography.headlineSmall.scaled(),
+                color = when {
+                    filled  -> Color(0xFFFFD700)
+                    partial -> Color(0xFFFFD700).copy(
+                        alpha = (stars - i).toFloat().coerceIn(0f, 1f)
+                    )
+                    else    -> Color(0xFFD5D5D5)
+                }
+            )
+        }
+    }
+}
+
+@Composable
+private fun AccuracyBar(accuracy: Double) {
+    Box(
+        modifier = Modifier
+            .width(60.dp)
+            .height(Dimens8)
+    ) {
+        // Track
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xFFEEE8FF), RoundedCornerShape(Dimens4))
+        )
+        // Fill
+        Box(
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth(accuracy.toFloat().coerceIn(0f, 1f))
+                .background(Color(0xFF5532D2), RoundedCornerShape(Dimens4))
+        )
+    }
+}
+
+// ── Weak letters card ─────────────────────────────────────────────────────────
+
+@Composable
+private fun WeakLettersCard(letters: List<Char>) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(Dimens4, RoundedCornerShape(Dimens12))
+            .background(Color.White, RoundedCornerShape(Dimens12))
+            .padding(Dimens12)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(Dimens6)
+        ) {
+            Icon(
+                imageVector = Icons.Filled.Warning,
+                contentDescription = null,
+                tint = Color(0xFFE8923A),
+                modifier = Modifier.size(Dimens20)
+            )
+            Text(
+                "Needs Practice",
+                style = MaterialTheme.typography.bodyMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color.Black.copy(alpha = 0.8f)
+            )
+        }
+        Spacer(Modifier.height(Dimens4))
+        Text(
+            "These letters had wrong matches — extra practice helps:",
+            style = MaterialTheme.typography.labelMedium.scaled(),
+            color = Color.Gray
+        )
+        Spacer(Modifier.height(Dimens8))
+        Row(
+            modifier = Modifier.horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.spacedBy(Dimens8)
+        ) {
+            letters.forEach { letter ->
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .size(Dimens28 + Dimens8)
+                        .background(Color(0xFFEEE8FF), RoundedCornerShape(Dimens8))
+                ) {
+                    Text(
+                        text = letter.toString(),
+                        style = MaterialTheme.typography.titleMedium.scaled(),
+                        fontWeight = FontWeight.Black,
+                        color = Color(0xFF5532D2)
+                    )
+                }
+            }
+        }
+    }
+}
+
+// ── Empty state ───────────────────────────────────────────────────────────────
+
+@Composable
+private fun EmptyState() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(Dimens4, RoundedCornerShape(Dimens12))
+            .background(Color.White, RoundedCornerShape(Dimens12))
+            .padding(Dimens20)
+    ) {
+        Text("📚", style = MaterialTheme.typography.displaySmall.scaled())
+        Spacer(Modifier.height(Dimens8))
+        Text(
+            "No activity yet this week.\nStart an activity to see progress here!",
+            style = MaterialTheme.typography.bodyLarge.scaled(),
+            color = Color.Gray,
+            textAlign = TextAlign.Center
+        )
+    }
+}

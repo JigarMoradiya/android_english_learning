@@ -12,11 +12,9 @@ import javax.inject.Singleton
 
 @Singleton
 class BGMusicManager @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val prefs: AppPreferencesHelper
 ) {
-
-    private val prefs: SharedPreferences =
-        context.getSharedPreferences("vedaaviEnglish", Context.MODE_PRIVATE)
 
     private var player: MediaPlayer? = null
 
@@ -58,9 +56,9 @@ class BGMusicManager @Inject constructor(
     }
 
     fun setVolume(volume: Float) {
-        prefs.edit { putFloat(AppPreferencesHelper.KEY_BG_MUSIC_VOLUME, volume) }
+        prefs.setMusicVolume(volume)
         player?.setVolume(volume, volume)
     }
 
-    fun getVolume(): Float = prefs.getFloat(AppPreferencesHelper.KEY_BG_MUSIC_VOLUME, 0.05f)
+    fun getVolume(): Float = prefs.getMusicVolume()
 }

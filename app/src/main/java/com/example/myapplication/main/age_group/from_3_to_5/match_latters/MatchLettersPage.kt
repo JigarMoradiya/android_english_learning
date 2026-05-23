@@ -29,26 +29,22 @@ import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_3_to_5.match_latters.view_model.MatchLettersViewModel
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.CustomPopupView
-import com.example.myapplication.main.common.buttons.KidsLabel
-import com.example.myapplication.ui.theme.AppDimens.Dimens12
-import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens24
-import com.example.myapplication.ui.theme.AppDimens.MatchLetterBoxSize
-import com.example.myapplication.ui.theme.ButtonType
-import com.example.myapplication.ui.theme.PrimaryBlue
-import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
-
+import com.example.myapplication.main.common.buttons.KidsLabel
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.AppDimens.MatchLetterBoxSize
+import com.example.myapplication.ui.theme.PrimaryBlue
+import com.example.myapplication.ui.theme.PrimaryGreen
 
 @Composable
 fun MatchLettersPage(
@@ -68,36 +64,28 @@ fun MatchLettersPage(
                 .windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
 
-            // HEADER
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-
                 BackButtonWithText(
                     title = stringResource(R.string.match_letters),
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
-
                 KidsLabel("🎯  Round ${uiState.round}")
             }
 
             Spacer(Modifier.weight(1f))
 
-            // CENTER CONTENT
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
-                // -------------------------
-                // UPPERCASE
-                // -------------------------
+                // Uppercase row
                 Row(horizontalArrangement = Arrangement.spacedBy(Dimens12)) {
-
                     uiState.currentBatch.forEach { letter ->
-
                         val isMatched = uiState.matchedPairs.contains(letter)
                         val isSelected = uiState.selectedUpper == letter
 
@@ -112,18 +100,13 @@ fun MatchLettersPage(
                                         else -> Color.Gray.copy(alpha = 0.3f)
                                     }
                                 )
-                                .clickable(enabled = !isMatched) {
-                                    viewModel.selectUpper(letter)
-                                },
+                                .clickable(enabled = !isMatched) { viewModel.selectUpper(letter) },
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
                                 text = letter.toString(),
                                 fontSize = (MatchLetterBoxSize.value * 0.75).sp,
-                                color = when {
-                                    isMatched -> Color.DarkGray.copy(alpha = 0.4f)
-                                    else -> PrimaryBlue
-                                },
+                                color = if (isMatched) Color.DarkGray.copy(alpha = 0.4f) else PrimaryBlue,
                                 style = TextStyle(
                                     shadow = Shadow(
                                         color = if (isMatched) Color.Transparent else Color.Black.copy(alpha = 0.6f),
@@ -139,13 +122,9 @@ fun MatchLettersPage(
 
                 Spacer(Modifier.height(Dimens24))
 
-                // -------------------------
-                // LOWERCASE
-                // -------------------------
+                // Lowercase row
                 Row(horizontalArrangement = Arrangement.spacedBy(Dimens12)) {
-
                     uiState.shuffledLowercase.forEach { letter ->
-
                         val isMatched = uiState.matchedPairs.contains(letter.uppercaseChar())
                         val isSelected = uiState.selectedLower == letter
 
@@ -160,18 +139,13 @@ fun MatchLettersPage(
                                         else -> Color.Gray.copy(alpha = 0.3f)
                                     }
                                 )
-                                .clickable(enabled = !isMatched) {
-                                    viewModel.selectLower(letter)
-                                },
+                                .clickable(enabled = !isMatched) { viewModel.selectLower(letter) },
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
                                 text = letter.lowercaseChar().toString(),
                                 fontSize = (MatchLetterBoxSize.value * 0.75).sp,
-                                color =  when {
-                                    isMatched -> Color.DarkGray.copy(alpha = 0.4f)
-                                    else -> PrimaryBlue
-                                },
+                                color = if (isMatched) Color.DarkGray.copy(alpha = 0.4f) else PrimaryBlue,
                                 style = TextStyle(
                                     shadow = Shadow(
                                         color = if (isMatched) Color.Transparent else Color.Black.copy(alpha = 0.6f),
@@ -189,21 +163,20 @@ fun MatchLettersPage(
             Spacer(Modifier.weight(1f))
         }
 
-
         AnimatedVisibility(
             visible = uiState.showPopup,
             enter = fadeIn(),
             exit = fadeOut()
         ) {
-            CustomPopupView(
-                title = stringResource(viewModel.uiState.feedbackTextRes),
-                description = stringResource(viewModel.uiState.feedbackSubTextRes),
-                positiveButtonText = stringResource(R.string.continue_to_play),
-                negativeButtonText = stringResource(R.string.no_i_want_to_close),
-                icon = R.drawable.ic_complete,
-                widthMultiplier = 0.5f,
-                onPositiveTapped = { viewModel.playAgain() },
-                onNegativeTapped = {
+            ActivityCompletePopup(
+                stars = uiState.earnedStars,
+                score = uiState.batchScore,
+                total = 5,
+                scoreLabel = uiState.scoreLabel,
+                feedbackTextRes = uiState.feedbackTextRes,
+                feedbackSubTextRes = uiState.feedbackSubTextRes,
+                onNext = { viewModel.playAgain() },
+                onClose = {
                     viewModel.closePopup()
                     navController.popBackStack()
                 }
