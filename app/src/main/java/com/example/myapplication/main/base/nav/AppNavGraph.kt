@@ -25,12 +25,15 @@ import com.example.myapplication.main.age_group.AgeGroup5to7Page
 import com.example.myapplication.main.age_group.AgeGroup6to8Page
 import com.example.myapplication.main.age_group.from_3_to_5.abcd_with_images.ABCDWithImagesPage
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.AlphabetTracingPage
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
 import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.ArrangeLetterInSequencePage
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.ColoringAlphabetsPage
 import com.example.myapplication.main.age_group.from_3_to_5.letter_phonics_sound.LetterPhonicsSoundPage
 import com.example.myapplication.main.age_group.from_3_to_5.phonics_reading.PhonicsReadingLevelsPage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage
+import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
+import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankSetupScreen
 import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.LetterRecognitionPage
 import com.example.myapplication.main.age_group.from_3_to_5.match_latters.MatchLettersPage
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.MatchLetterWithImagePage
@@ -149,7 +152,18 @@ fun AppNavGraph(navController: NavHostController) {
             MatchLettersPage(navController)
         }
         composable(RouteNavigation.FillTheBlankLetters.route) {
-            FillBlankLettersPage(navController)
+            FillBlankSetupScreen(navController)
+        }
+        composable(
+            route = RouteNavigation.FillTheBlankLettersPlay.route,
+            arguments = listOf(
+                navArgument("position") { type = NavType.StringType },
+                navArgument("mode")     { type = NavType.StringType }
+            )
+        ) { back ->
+            val position = BlankPosition.valueOf(back.arguments?.getString("position") ?: BlankPosition.RANDOM.name)
+            val mode     = LetterMode.valueOf(back.arguments?.getString("mode") ?: LetterMode.UPPERCASE.name)
+            FillBlankLettersPage(navController, position, mode)
         }
         composable(RouteNavigation.ArrangeLetterInSequence.route) {
             ArrangeLetterInSequencePage(navController)

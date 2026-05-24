@@ -16,6 +16,15 @@
     <string name="letter_recognition">Letter Recognition</string>
     <string name="fill_the_blank">Fill the Blank</string>
     <string name="fill_blank_tap_instruction"><![CDATA[<b>Tap the missing letter</b> to fill the blank! 👇]]></string>
+    <string name="fill_blank_where_blank">Where\'s the blank letter?</string>
+    <string name="fill_blank_letter_style">Letter Style</string>
+    <string name="lets_go">Let\'s Go!</string>
+    <string name="fill_blank_position_before">Before Letter</string>
+    <string name="fill_blank_position_between">Between Letter</string>
+    <string name="fill_blank_position_after">After Letter</string>
+    <string name="fill_blank_position_surprise">Surprise!</string>
+    <string name="fill_blank_uppercase">(Uppercase)</string>
+    <string name="fill_blank_lowercase">(Lowercase)</string>
     <string name="arrange_letter_in_sequence">Arrange in Sequence</string>
     <string name="arrange_letter_tap_instruction"><![CDATA[<b>Tap letters below</b> to arrange them in the correct order! ✨]]></string>
     <string name="abcd_with_images">ABCD with Images</string>

@@ -5,7 +5,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
+import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlank
 import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlankSubtitleWrong
@@ -18,14 +23,25 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
+class FillBlankLettersViewModel @Inject constructor(
+    private val sessionRepository: SessionRepository
+) : ViewModel() {
 
     var uiState by mutableStateOf(FillBlankLetterUiState())
         private set
 
     private var countdownJob: Job? = null
+    private var blankPosition: BlankPosition = BlankPosition.FIRST
+    private val wrongAttemptsInBatch = mutableSetOf<String>()
+    private var batchStartMs: Long = System.currentTimeMillis()
 
     init {
+        generateGame()
+    }
+
+    fun setConfig(position: BlankPosition, mode: LetterMode) {
+        blankPosition = position
+        uiState = uiState.copy(mode = mode)
         generateGame()
     }
 
@@ -45,12 +61,13 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
         val startIndex = (0..(26 - size)).random()
 
         val sequence = alphabets.subList(startIndex, startIndex + size)
-        val blankCount = 1
-        val blankIndices = mutableSetOf<Int>()
-
-        while (blankIndices.size < blankCount) {
-            blankIndices.add((0 until size).random())
+        val blankIndex = when (blankPosition) {
+            BlankPosition.FIRST  -> 0
+            BlankPosition.LAST   -> size - 1
+            BlankPosition.MIDDLE -> size / 2
+            BlankPosition.RANDOM -> (0 until size).random()
         }
+        val blankIndices = mutableSetOf(blankIndex)
 
         val topSlots = sequence.mapIndexed { index, letter ->
             if (blankIndices.contains(index)) null else letter
@@ -143,6 +160,7 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
                 )
             } else {
                 AudioPlayerManager.playSoundWrongAnswer()
+                wrongAttemptsInBatch.addAll(uiState.correctLetters)
                 uiState = uiState.copy(
                     showNext = true,
                     isAnswerCorrect = false,
@@ -173,6 +191,18 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
         if (uiState.round >= uiState.totalRounds) {
             countdownJob?.cancel()
             countdownJob = null
+            val duration = ((System.currentTimeMillis() - batchStartMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.FILL_THE_BLANK_LETTER,
+                    ageGroup = AgeGroup.THREE_TO_FIVE,
+                    durationSeconds = duration,
+                    score = uiState.correctCount,
+                    totalQuestions = uiState.totalRounds,
+                    wrongItems = wrongAttemptsInBatch.toList(),
+                    subConfig = "${blankPosition.subConfigName}|${uiState.mode.name}"
+                )
+            )
             uiState = uiState.copy(showResult = true)
         } else {
             uiState = uiState.copy(round = uiState.round + 1)
@@ -181,6 +211,8 @@ class FillBlankLettersViewModel @Inject constructor() : ViewModel() {
     }
 
     fun restartGame() {
+        wrongAttemptsInBatch.clear()
+        batchStartMs = System.currentTimeMillis()
         uiState = uiState.copy(round = 1, correctCount = 0, showResult = false)
         generateGame()
     }

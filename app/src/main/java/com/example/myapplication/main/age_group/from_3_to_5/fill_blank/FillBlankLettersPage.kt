@@ -20,8 +20,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.common.AppToolbarDropDownOnRight
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
+import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.components.BottomLetterOptions
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.components.TopLetterSlots
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.view_model.FillBlankLettersViewModel
@@ -40,8 +40,13 @@ import com.example.myapplication.utils.extensions.scaled
 @Composable
 fun FillBlankLettersPage(
     navController: NavController,
+    position: BlankPosition = BlankPosition.RANDOM,
+    mode: LetterMode = LetterMode.UPPERCASE,
     viewModel: FillBlankLettersViewModel = hiltViewModel()
 ) {
+    androidx.compose.runtime.LaunchedEffect(position, mode) {
+        viewModel.setConfig(position, mode)
+    }
     Box(modifier = Modifier.fillMaxSize()) {
 
         KidsGradientBackground(gradient = KidsGradient.purpleBlue, shape = KidsFloatingShape.stars)
@@ -57,17 +62,12 @@ fun FillBlankLettersPage(
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
-                AppToolbarDropDownOnRight(
-                    modifier = Modifier.weight(1f),
-                    title = stringResource(R.string.fill_the_blank),
-                    currentSelected = viewModel.uiState.mode.title,
-                    modes = LetterMode.entries.map { it.title },
-                    onItemChange = {
-                        val mode = LetterMode.entries.first { m -> m.title == it }
-                        viewModel.changeMode(mode)
-                    },
-                    onBackClick = { navController.popBackStack() }
-                )
+                Box(modifier = Modifier.weight(1f)) {
+                    BackButtonWithText(
+                        title = stringResource(R.string.fill_the_blank),
+                        onBackClick = { navController.popBackStack() }
+                    )
+                }
 
                 KidsLabel("${viewModel.uiState.round}/${viewModel.uiState.totalRounds}")
 

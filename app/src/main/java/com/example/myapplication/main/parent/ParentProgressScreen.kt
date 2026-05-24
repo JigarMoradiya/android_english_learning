@@ -50,6 +50,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
@@ -355,8 +356,8 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
                 vm.moduleRows.forEach { row ->
                     ModuleRowItem(row = row, navController = navController)
                 }
-                if (vm.weakLettersUL.isNotEmpty() || vm.weakLettersLI.isNotEmpty()) {
-                    WeakLettersCard(vm.weakLettersUL, vm.weakLettersLI)
+                if (vm.weakLetterRows.isNotEmpty()) {
+                    WeakLettersCard(vm.weakLetterRows)
                 }
             }
         }
@@ -392,16 +393,26 @@ private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) 
                 .padding(horizontal = Dimens6, vertical = Dimens4)
         )
 
-        // Module name
-        Text(
-            text = row.displayName,
-            style = MaterialTheme.typography.bodyMedium.scaled(),
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.weight(1f)
-        )
+        // Module name (+ optional subtitle for Fill the Blank variants)
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = row.displayName,
+                style = MaterialTheme.typography.bodyMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color.Black,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            if (row.subLabel != null) {
+                Text(
+                    text = row.subLabel,
+                    style = MaterialTheme.typography.labelSmall.scaled(),
+                    color = Color.Gray,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+        }
 
         // Rounds — icon + count
         Row(
@@ -419,6 +430,16 @@ private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) 
                 style = MaterialTheme.typography.labelMedium.scaled(),
                 fontWeight = FontWeight.Bold,
                 color = Color.Gray
+            )
+        }
+
+        // Score (Fill the Blank sub-rows only)
+        row.scoreText?.let { score ->
+            Text(
+                text = score,
+                style = MaterialTheme.typography.labelMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF5532D2)
             )
         }
 
@@ -491,7 +512,7 @@ private fun AccuracyBar(accuracy: Double) {
 // ── Weak letters card ─────────────────────────────────────────────────────────
 
 @Composable
-private fun WeakLettersCard(lettersUL: List<Char>, lettersLI: List<Char>) {
+private fun WeakLettersCard(rows: List<WeakLetterEntry>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -517,26 +538,37 @@ private fun WeakLettersCard(lettersUL: List<Char>, lettersLI: List<Char>) {
                 color = Color.Black.copy(alpha = 0.8f)
             )
         }
-        if (lettersUL.isNotEmpty()) WeakLetterRow("Letter Matching", lettersUL)
-        if (lettersLI.isNotEmpty()) WeakLetterRow("Letter + Image", lettersLI)
+        rows.forEach { entry ->
+            WeakLetterRow(entry.label, entry.subLabel, entry.letters)
+        }
     }
 }
 
 @Composable
-private fun WeakLetterRow(label: String, letters: List<Char>) {
+private fun WeakLetterRow(label: String, subLabel: String? = null, letters: List<Char>) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Dimens8)
     ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier
-                .background(Color(0xFF3D2B9E), RoundedCornerShape(50))
-                .padding(horizontal = Dimens8, vertical = Dimens4)
-        )
+        Column {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+                modifier = Modifier
+                    .background(Color(0xFF3D2B9E), RoundedCornerShape(50))
+                    .padding(horizontal = Dimens8, vertical = Dimens4)
+            )
+            if (subLabel != null) {
+                Text(
+                    text = subLabel,
+                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
+                    color = Color.Gray,
+                    modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
+                )
+            }
+        }
         Row(
             modifier = Modifier.horizontalScroll(rememberScrollState()),
             horizontalArrangement = Arrangement.spacedBy(Dimens8)

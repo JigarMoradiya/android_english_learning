@@ -14,14 +14,22 @@ import java.util.Calendar
 import java.util.Locale
 import javax.inject.Inject
 
+data class WeakLetterEntry(
+    val label: String,
+    val subLabel: String?,   // non-null for Fill the Blank variants
+    val letters: List<Char>
+)
+
 data class ModuleProgressRow(
     val moduleId: String,
     val displayName: String,
+    val subLabel: String? = null,   // e.g. "Before Letter · ABC" for Fill the Blank sub-rows
     val ageGroupLabel: String,
     val rounds: Int,
-    val avgAccuracy: Double,    // 0.0–1.0
-    val avgStars: Double,       // 0.0–3.0
-    val route: String?          // RouteNavigation route string, null = not tappable
+    val avgAccuracy: Double,        // 0.0–1.0
+    val avgStars: Double,           // 0.0–3.0
+    val route: String?,             // RouteNavigation route string, null = not tappable
+    val scoreText: String? = null   // e.g. "21/30 ×3" for Fill the Blank sub-rows
 )
 
 @HiltViewModel
@@ -50,9 +58,8 @@ class ParentProgressViewModel @Inject constructor(
         private set
     var moduleRows by mutableStateOf(emptyList<ModuleProgressRow>())
         private set
-    var weakLettersUL by mutableStateOf(emptyList<Char>())   // Match Upper & Lower
-        private set
-    var weakLettersLI by mutableStateOf(emptyList<Char>())   // Match Letter with Image
+    // Unified weak-letter rows sorted by most-recently-played first
+    var weakLetterRows by mutableStateOf(emptyList<WeakLetterEntry>())
         private set
 
     val canGoBack: Boolean
@@ -192,35 +199,98 @@ class ParentProgressViewModel @Inject constructor(
 
     private fun buildModuleRows(weekSessions: List<LearningSession>) {
         val grouped = weekSessions.groupBy { it.moduleId }
-        val rows = grouped.mapNotNull { (moduleId, sessions) ->
-            val info = moduleInfo[moduleId] ?: return@mapNotNull null
-            val quizSessions = sessions.filter { it.totalQuestions > 0 }
-            val avgAcc = if (quizSessions.isEmpty()) 0.0
-            else quizSessions.sumOf { it.accuracy } / quizSessions.size
-            val stars = if (quizSessions.isEmpty()) 0.0 else minOf(3.0, avgAcc * 3.0)
+        // (row, latestTimestampMs) — sorted by latestTimestampMs descending at end
+        val rowsWithTime = mutableListOf<Pair<ModuleProgressRow, Long>>()
 
-            ModuleProgressRow(
-                moduleId = moduleId,
-                displayName = info.first,
-                ageGroupLabel = info.second,
-                rounds = sessions.size,
-                avgAccuracy = avgAcc,
-                avgStars = stars,
-                route = moduleRoutes[moduleId]
-            )
-        }.sortedBy { it.ageGroupLabel }
-        moduleRows = rows
+        grouped.forEach { (moduleId, sessions) ->
+            val info = moduleInfo[moduleId] ?: return@forEach
+
+            if (moduleId == ModuleID.FILL_THE_BLANK_LETTER) {
+                val byConfig = sessions.groupBy { it.subConfig ?: "?" }
+                byConfig.forEach { (config, configSessions) ->
+                    val latest = configSessions.maxOf { it.timestampMs }
+                    val quizSessions = configSessions.filter { it.totalQuestions > 0 }
+                    val totalScore = quizSessions.sumOf { it.score }
+                    val totalQs    = quizSessions.sumOf { it.totalQuestions }
+                    val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                    val sessionCount = quizSessions.size
+                    val scoreStr = if (totalQs > 0)
+                        "$totalScore/$totalQs${if (sessionCount > 1) " ×$sessionCount" else ""}"
+                    else null
+                    rowsWithTime.add(ModuleProgressRow(
+                        moduleId = "$moduleId|$config",
+                        displayName = "Fill the Blank",
+                        subLabel = fillBlankSubLabel(config),
+                        ageGroupLabel = info.second,
+                        rounds = configSessions.size,
+                        avgAccuracy = avgAcc,
+                        avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                        route = moduleRoutes[moduleId],
+                        scoreText = scoreStr
+                    ) to latest)
+                }
+            } else {
+                val latest = sessions.maxOf { it.timestampMs }
+                val quizSessions = sessions.filter { it.totalQuestions > 0 }
+                val avgAcc = if (quizSessions.isEmpty()) 0.0
+                else quizSessions.sumOf { it.accuracy } / quizSessions.size
+                val stars = if (quizSessions.isEmpty()) 0.0 else minOf(3.0, avgAcc * 3.0)
+                rowsWithTime.add(ModuleProgressRow(
+                    moduleId = moduleId,
+                    displayName = info.first,
+                    ageGroupLabel = info.second,
+                    rounds = sessions.size,
+                    avgAccuracy = avgAcc,
+                    avgStars = stars,
+                    route = moduleRoutes[moduleId]
+                ) to latest)
+            }
+        }
+        moduleRows = rowsWithTime.sortedByDescending { it.second }.map { it.first }
+    }
+
+    private fun fillBlankSubLabel(config: String): String {
+        val parts = config.split("|")
+        val posLabel = when (parts.getOrNull(0)) {
+            "BEFORE"  -> "Before Letter"
+            "BETWEEN" -> "Between Letter"
+            "AFTER"   -> "After Letter"
+            "RANDOM"  -> "Surprise!"
+            else      -> parts.getOrNull(0) ?: config
+        }
+        val modeLabel = when (parts.getOrNull(1)) {
+            "UPPERCASE" -> "ABC"
+            "LOWERCASE" -> "abc"
+            else        -> parts.getOrNull(1) ?: ""
+        }
+        return "$posLabel · $modeLabel"
     }
 
     private fun loadWeakLetters(sessions: List<LearningSession>) {
-        fun extract(moduleId: String): List<Char> =
-            sessions.filter { it.moduleId == moduleId }
-                .flatMap { it.wrongItems.orEmpty() }
-                .mapNotNull { it.firstOrNull() }
-                .distinct()
-                .sorted()
-        weakLettersUL = extract(ModuleID.MATCH_UPPER_LOWER)
-        weakLettersLI = extract(ModuleID.MATCH_LETTER_WITH_IMAGE)
+        data class Entry(val label: String, val subLabel: String?, val letters: List<Char>, val latestMs: Long)
+        val entries = mutableListOf<Entry>()
+
+        fun addIfNeeded(moduleId: String, label: String) {
+            val matching = sessions.filter { it.moduleId == moduleId }
+            val chars = matching.flatMap { it.wrongItems.orEmpty() }
+                .mapNotNull { it.firstOrNull() }.distinct().sorted()
+            if (chars.isEmpty()) return
+            entries.add(Entry(label, null, chars, matching.maxOf { it.timestampMs }))
+        }
+
+        addIfNeeded(ModuleID.MATCH_UPPER_LOWER,       "Letter Matching")
+        addIfNeeded(ModuleID.MATCH_LETTER_WITH_IMAGE, "Letter + Image")
+
+        val fbSessions = sessions.filter { it.moduleId == ModuleID.FILL_THE_BLANK_LETTER }
+        fbSessions.groupBy { it.subConfig ?: "?" }.forEach { (config, cfgSessions) ->
+            val chars = cfgSessions.flatMap { it.wrongItems.orEmpty() }
+                .mapNotNull { it.firstOrNull() }.distinct().sorted()
+            if (chars.isEmpty()) return@forEach
+            entries.add(Entry("Fill the Blank", fillBlankSubLabel(config), chars, cfgSessions.maxOf { it.timestampMs }))
+        }
+
+        weakLetterRows = entries.sortedByDescending { it.latestMs }
+            .map { WeakLetterEntry(it.label, it.subLabel, it.letters) }
     }
 
     // MARK: - Duration formatting
