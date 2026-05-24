@@ -50,7 +50,9 @@ class ParentProgressViewModel @Inject constructor(
         private set
     var moduleRows by mutableStateOf(emptyList<ModuleProgressRow>())
         private set
-    var weakLetters by mutableStateOf(emptyList<Char>())
+    var weakLettersUL by mutableStateOf(emptyList<Char>())   // Match Upper & Lower
+        private set
+    var weakLettersLI by mutableStateOf(emptyList<Char>())   // Match Letter with Image
         private set
 
     val canGoBack: Boolean
@@ -211,12 +213,14 @@ class ParentProgressViewModel @Inject constructor(
     }
 
     private fun loadWeakLetters(sessions: List<LearningSession>) {
-        val matchSessions = sessions.filter { it.moduleId == ModuleID.MATCH_UPPER_LOWER }
-        weakLetters = matchSessions
-            .flatMap { it.wrongItems.orEmpty() }
-            .mapNotNull { it.firstOrNull() }
-            .distinct()
-            .sorted()
+        fun extract(moduleId: String): List<Char> =
+            sessions.filter { it.moduleId == moduleId }
+                .flatMap { it.wrongItems.orEmpty() }
+                .mapNotNull { it.firstOrNull() }
+                .distinct()
+                .sorted()
+        weakLettersUL = extract(ModuleID.MATCH_UPPER_LOWER)
+        weakLettersLI = extract(ModuleID.MATCH_LETTER_WITH_IMAGE)
     }
 
     // MARK: - Duration formatting

@@ -355,8 +355,8 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
                 vm.moduleRows.forEach { row ->
                     ModuleRowItem(row = row, navController = navController)
                 }
-                if (vm.weakLetters.isNotEmpty()) {
-                    WeakLettersCard(vm.weakLetters)
+                if (vm.weakLettersUL.isNotEmpty() || vm.weakLettersLI.isNotEmpty()) {
+                    WeakLettersCard(vm.weakLettersUL, vm.weakLettersLI)
                 }
             }
         }
@@ -491,13 +491,14 @@ private fun AccuracyBar(accuracy: Double) {
 // ── Weak letters card ─────────────────────────────────────────────────────────
 
 @Composable
-private fun WeakLettersCard(letters: List<Char>) {
+private fun WeakLettersCard(lettersUL: List<Char>, lettersLI: List<Char>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .shadow(Dimens4, RoundedCornerShape(Dimens12))
             .background(Color.White, RoundedCornerShape(Dimens12))
-            .padding(Dimens12)
+            .padding(Dimens12),
+        verticalArrangement = Arrangement.spacedBy(Dimens8)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -516,13 +517,26 @@ private fun WeakLettersCard(letters: List<Char>) {
                 color = Color.Black.copy(alpha = 0.8f)
             )
         }
-        Spacer(Modifier.height(Dimens4))
+        if (lettersUL.isNotEmpty()) WeakLetterRow("Letter Matching", lettersUL)
+        if (lettersLI.isNotEmpty()) WeakLetterRow("Letter + Image", lettersLI)
+    }
+}
+
+@Composable
+private fun WeakLetterRow(label: String, letters: List<Char>) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Dimens8)
+    ) {
         Text(
-            "These letters had wrong matches — extra practice helps:",
-            style = MaterialTheme.typography.labelMedium.scaled(),
-            color = Color.Gray
+            text = label,
+            style = MaterialTheme.typography.labelSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            modifier = Modifier
+                .background(Color(0xFF3D2B9E), RoundedCornerShape(50))
+                .padding(horizontal = Dimens8, vertical = Dimens4)
         )
-        Spacer(Modifier.height(Dimens8))
         Row(
             modifier = Modifier.horizontalScroll(rememberScrollState()),
             horizontalArrangement = Arrangement.spacedBy(Dimens8)

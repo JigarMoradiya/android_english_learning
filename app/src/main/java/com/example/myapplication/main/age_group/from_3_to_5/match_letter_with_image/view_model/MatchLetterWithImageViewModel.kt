@@ -197,7 +197,8 @@ class MatchLetterWithImageViewModel @Inject constructor(
                 ageGroup = AgeGroup.THREE_TO_FIVE,
                 durationSeconds = duration,
                 score = score,
-                totalQuestions = batchSize
+                totalQuestions = batchSize,
+                wrongItems = wrongAttemptsInBatch.toList()
             )
         )
 
