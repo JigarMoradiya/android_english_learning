@@ -217,17 +217,28 @@ private fun WeekDotsCard(vm: ParentProgressViewModel) {
         ) {
             dayLabels.forEachIndexed { i, label ->
                 val active = vm.activeDays.getOrElse(i) { false }
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                val selected = vm.selectedDayIndex == i
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.clickable { vm.selectDay(i) }
+                ) {
                     Box(
                         modifier = Modifier
                             .size(Dimens24)
+                            .then(
+                                if (selected) Modifier.shadow(Dimens4, CircleShape) else Modifier
+                            )
                             .background(
-                                if (active) Color(0xFF5532D2) else Color(0xFFD5D5D5),
+                                when {
+                                    selected -> Color(0xFF5532D2)
+                                    active   -> Color(0xFF9374EF)
+                                    else     -> Color(0xFFD5D5D5)
+                                },
                                 CircleShape
                             ),
                         contentAlignment = Alignment.Center
                     ) {
-                        if (active) {
+                        if (active || selected) {
                             Text(
                                 "✓",
                                 style = MaterialTheme.typography.labelSmall.scaled(),
@@ -239,7 +250,8 @@ private fun WeekDotsCard(vm: ParentProgressViewModel) {
                     Text(
                         label,
                         style = MaterialTheme.typography.labelSmall.scaled(),
-                        color = Color.Gray
+                        color = if (selected) Color(0xFF5532D2) else Color.Gray,
+                        fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal
                     )
                 }
             }

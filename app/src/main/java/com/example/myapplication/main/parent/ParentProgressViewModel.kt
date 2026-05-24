@@ -6,9 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.progress.LearningSession
-import com.example.myapplication.data.progress.ModuleProgressRepository
 import com.example.myapplication.data.progress.SessionRepository
-import com.example.myapplication.data.progress.models.MatchUpperLowerProgress
 import com.example.myapplication.main.base.nav.RouteNavigation
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.text.SimpleDateFormat
@@ -28,11 +26,14 @@ data class ModuleProgressRow(
 
 @HiltViewModel
 class ParentProgressViewModel @Inject constructor(
-    private val sessionRepository: SessionRepository,
-    private val moduleProgressRepository: ModuleProgressRepository
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
 
     var weekOffset by mutableStateOf(0)
+        private set
+
+    // null = whole week; 0–6 = Mon–Sun filter
+    var selectedDayIndex by mutableStateOf<Int?>(null)
         private set
 
     var currentStreak by mutableStateOf(0)
@@ -72,15 +73,22 @@ class ParentProgressViewModel @Inject constructor(
 
     // MARK: - Navigation
 
+    fun selectDay(index: Int) {
+        selectedDayIndex = if (selectedDayIndex == index) null else index
+        reloadStats()
+    }
+
     fun goToPreviousWeek() {
         if (!canGoBack) return
         weekOffset--
+        selectedDayIndex = null
         reload()
     }
 
     fun goToNextWeek() {
         if (!canGoForward) return
         weekOffset++
+        selectedDayIndex = null
         reload()
     }
 
@@ -88,27 +96,41 @@ class ParentProgressViewModel @Inject constructor(
 
     fun load() {
         weekOffset = 0
+        selectedDayIndex = null
         reload()
     }
 
+    private var cachedWeekSessions: List<LearningSession> = emptyList()
+
     private fun reload() {
         val allSessions = sessionRepository.allSessions()
-
         val weekStart = weekStartMs(weekOffset)
         val weekEnd = weekStart + 7L * 24 * 60 * 60 * 1000
-        val weekSessions = allSessions.filter { it.timestampMs in weekStart until weekEnd }
+        cachedWeekSessions = allSessions.filter { it.timestampMs in weekStart until weekEnd }
+        computeStreak(allSessions)
+        computeActiveDays(cachedWeekSessions, weekStart)
+        reloadStats()
+    }
 
-        weeklySessionCount = weekSessions.size
-        weeklyDurationSeconds = weekSessions.sumOf { it.durationSeconds }
+    // Re-filters stats/rows when day selection changes without re-fetching sessions
+    private fun reloadStats() {
+        val dayMs = 24L * 60 * 60 * 1000
+        val weekStart = weekStartMs(weekOffset)
+        val sessions = if (selectedDayIndex == null) {
+            cachedWeekSessions
+        } else {
+            val dayStart = weekStart + selectedDayIndex!! * dayMs
+            cachedWeekSessions.filter { it.timestampMs in dayStart until dayStart + dayMs }
+        }
 
-        val quizSessions = weekSessions.filter { it.totalQuestions > 0 }
+        weeklySessionCount = sessions.size
+        weeklyDurationSeconds = sessions.sumOf { it.durationSeconds }
+        val quizSessions = sessions.filter { it.totalQuestions > 0 }
         weeklyAccuracy = if (quizSessions.isEmpty()) 0.0
         else quizSessions.sumOf { it.accuracy } / quizSessions.size
 
-        computeStreak(allSessions)
-        computeActiveDays(weekSessions, weekStart)
-        buildModuleRows(weekSessions)
-        loadWeakLetters()
+        buildModuleRows(sessions)
+        loadWeakLetters(sessions)
     }
 
     // MARK: - Helpers
@@ -188,13 +210,13 @@ class ParentProgressViewModel @Inject constructor(
         moduleRows = rows
     }
 
-    private fun loadWeakLetters() {
-        val progress = moduleProgressRepository.load(ModuleID.MATCH_UPPER_LOWER, MatchUpperLowerProgress::class.java)
-            ?: return run { weakLetters = emptyList() }
-        val alphabet = ('A'..'Z').toList()
-        weakLetters = progress.weakPairIndices.mapNotNull { idx ->
-            alphabet.getOrNull(idx)
-        }
+    private fun loadWeakLetters(sessions: List<LearningSession>) {
+        val matchSessions = sessions.filter { it.moduleId == ModuleID.MATCH_UPPER_LOWER }
+        weakLetters = matchSessions
+            .flatMap { it.wrongItems.orEmpty() }
+            .mapNotNull { it.firstOrNull() }
+            .distinct()
+            .sorted()
     }
 
     // MARK: - Duration formatting
