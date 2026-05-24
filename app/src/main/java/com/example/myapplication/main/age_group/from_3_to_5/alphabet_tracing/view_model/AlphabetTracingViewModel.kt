@@ -1,25 +1,49 @@
 package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.R
+import com.example.myapplication.common.AppToolbarDropDownOnRight
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.helper.distance
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.helper.getStrokesForLetter
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.helper.sampleStroke
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.BottomTracingControls
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.CenterLearningLayout
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.getImageResFromWord
+import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.utils.extensions.OtherEx.safeAction
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+
 
 @HiltViewModel
 class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
 
     var uiState by mutableStateOf(LetterTracingUiState())
         private set
+
+    var isPreviewMode: Boolean = false
 
     private val letters = ('A'..'Z').toList()
     val lettersData: List<Pair<String, String>> =
@@ -35,23 +59,23 @@ class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
 
 
     // -------------------------------
-    // 🎨 COLORS
+    // 🎨 COLORS – 5 per letter, chosen to contrast with each letter's image
     // -------------------------------
-    private val shuffledColors: List<Color> = listOf(
-        Color(0xFFE53935),
-        Color(0xFFECC720),
-        Color(0xFF1E88E5),
-        Color(0xFF43A047),
-        Color(0xFF8E24AA),
-        Color(0xFF512DA8),
-        Color(0xFFFF7043),
-        Color(0xFF00ACC1),
-        Color(0xFFD81B60),
-        Color(0xFF028576)
-    ).shuffled()
+
+
+    private val selectedColors: List<Color> = letterPalettes.map { it.random() }
 
     fun getLetterColor(): Color {
-        return shuffledColors[uiState.currentIndex % shuffledColors.size]
+        return selectedColors[uiState.currentIndex % selectedColors.size]
+    }
+
+    fun previewAllStrokes(guides: List<List<Offset>>) {
+        if (uiState.finishedStrokes.isEmpty() && guides.isNotEmpty()) {
+            uiState = uiState.copy(
+                finishedStrokes = guides,
+                strokeIndex = guides.size
+            )
+        }
     }
 
     val currentLetter: Char
@@ -250,7 +274,7 @@ class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
     }
 
     fun clear() {
-        if (uiState.drawnPoints.isNotEmpty()){
+        if (uiState.drawnPoints.isNotEmpty() || uiState.finishedStrokes.isNotEmpty()) {
             resetState()
         }
     }

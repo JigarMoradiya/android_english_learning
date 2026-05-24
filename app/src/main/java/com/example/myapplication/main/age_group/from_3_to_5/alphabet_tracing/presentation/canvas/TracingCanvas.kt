@@ -78,6 +78,10 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
         ) {
 
             val isCompleted = uiState.strokeIndex >= guides.size
+            val showPreviewDrawing = viewModel.isPreviewMode &&
+                uiState.finishedStrokes.isEmpty() &&
+                uiState.drawnPoints.isEmpty() &&
+                guides.isNotEmpty()
 
             // -------------------------------
             // 1️⃣ BASE LETTER
@@ -103,7 +107,7 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
             // -------------------------------
             // 2️⃣ DASH GUIDE
             // -------------------------------
-            guides.getOrNull(uiState.strokeIndex)?.let { stroke ->
+            if (!showPreviewDrawing) guides.getOrNull(uiState.strokeIndex)?.let { stroke ->
 
                 val path = Path().apply {
                     moveTo(stroke.first().x, stroke.first().y)
@@ -182,6 +186,57 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
                                 )
                             }
                         }
+                }
+            }
+
+            // -------------------------------
+            // 🔍 PREVIEW – complete letter + decorations
+            // -------------------------------
+            if (showPreviewDrawing) {
+                guides.forEachIndexed { idx, stroke ->
+                    val path = Path().apply {
+                        moveTo(stroke.first().x, stroke.first().y)
+                        stroke.drop(1).forEach { lineTo(it.x, it.y) }
+                    }
+                    drawPath(
+                        path = path,
+                        color = strokeColor.copy(alpha = 0.25f),
+                        style = Stroke(
+                            width = strokeWidth * if (isLowercase) 1.35f else 1.4f,
+                            cap = StrokeCap.Round,
+                            join = StrokeJoin.Round
+                        )
+                    )
+                    drawPath(
+                        path = path,
+                        color = strokeColor,
+                        style = Stroke(
+                            width = strokeWidth,
+                            cap = StrokeCap.Round,
+                            join = StrokeJoin.Round
+                        )
+                    )
+                }
+                imageBitmap?.let { bitmap ->
+                    val decorSize = sizePx * 0.06f
+                    val decorStep = 8
+                    guides.forEachIndexed { idx, stroke ->
+                        stroke.filterIndexed { pidx, _ -> pidx % decorStep == 0 }
+                            .forEachIndexed { pidx, point ->
+                                val rotDeg = ((pidx * 47 + idx * 23) % 60 - 30).toFloat()
+                                withTransform({ rotate(degrees = rotDeg, pivot = point) }) {
+                                    drawImage(
+                                        image = bitmap,
+                                        dstOffset = IntOffset(
+                                            (point.x - decorSize / 2).toInt(),
+                                            (point.y - decorSize / 2).toInt()
+                                        ),
+                                        dstSize = IntSize(decorSize.toInt(), decorSize.toInt()),
+                                        alpha = 1f
+                                    )
+                                }
+                            }
+                    }
                 }
             }
 
@@ -271,7 +326,7 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
             // -------------------------------
             // 5️⃣ START DOT + ARROW + PROGRESS DOT
             // -------------------------------
-            if (!isCompleted) {
+            if (!isCompleted && !showPreviewDrawing) {
 
                 val currentStroke = guides.getOrNull(uiState.strokeIndex)
 
