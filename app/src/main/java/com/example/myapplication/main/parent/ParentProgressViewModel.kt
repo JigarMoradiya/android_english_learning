@@ -149,12 +149,6 @@ class ParentProgressViewModel @Inject constructor(
     }
 
     private fun computeStreak(allSessions: List<LearningSession>) {
-        val cal = Calendar.getInstance()
-        cal.set(Calendar.HOUR_OF_DAY, 0)
-        cal.set(Calendar.MINUTE, 0)
-        cal.set(Calendar.SECOND, 0)
-        cal.set(Calendar.MILLISECOND, 0)
-
         val daysWithSessions = allSessions.map { session ->
             val c = Calendar.getInstance()
             c.timeInMillis = session.timestampMs
@@ -163,8 +157,26 @@ class ParentProgressViewModel @Inject constructor(
             c.timeInMillis
         }.toSet()
 
+        val today = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, 0); set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0); set(Calendar.MILLISECOND, 0)
+        }
+        val yesterday = (today.clone() as Calendar).apply { add(Calendar.DAY_OF_YEAR, -1) }
+
+        // Start from today if played today, otherwise from yesterday.
+        // This keeps the streak alive on days when the user hasn't played yet.
+        val startCal = when {
+            daysWithSessions.contains(today.timeInMillis)     -> today.clone() as Calendar
+            daysWithSessions.contains(yesterday.timeInMillis) -> yesterday.clone() as Calendar
+            else -> {
+                currentStreak = 0
+                bestStreak = computeBestStreak(daysWithSessions)
+                return
+            }
+        }
+
         var streak = 0
-        val cursor = cal.clone() as Calendar
+        val cursor = startCal
         while (daysWithSessions.contains(cursor.timeInMillis)) {
             streak++
             cursor.add(Calendar.DAY_OF_YEAR, -1)
