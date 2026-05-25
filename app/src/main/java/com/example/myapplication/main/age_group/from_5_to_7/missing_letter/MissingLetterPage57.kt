@@ -21,6 +21,7 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.components.MissingLetterScreen
 import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model.DifficultyLevel
 import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model.MissingLetterViewModel57
+import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.InstructionBadge
@@ -29,6 +30,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.buttons.KidsLabel
 
 @Composable
 fun MissingLetterPage57(
@@ -52,20 +54,38 @@ fun MissingLetterPage57(
                     title = stringResource(R.string.missing_letter),
                     onBackClick = { navController.popBackStack() }
                 )
+
                 if (uiState.showSuccess) {
+                    KidsLabel("${uiState.round}/${uiState.totalRounds}")
+
                     CountdownBadge(
                         count = uiState.countdownValue,
-                        modifier = Modifier.padding(end = Dimens16, top = DeviceInfo.screenTopPadding()),
+                        modifier = Modifier.padding(end = Dimens16),
                         text = stringResource(R.string.next_word_in)
                     )
                 } else {
                     InstructionBadge(
                         text = stringResource(R.string.drag_letters_to_complete_word),
-                        modifier = Modifier.padding(end = Dimens16).padding(top = DeviceInfo.screenTopPadding())
-                    )
+                        modifier = Modifier.padding(end = Dimens16))
+
+                    KidsLabel("${uiState.round}/${uiState.totalRounds}")
                 }
             }
-            MissingLetterScreen(viewModel, modifier = Modifier.fillMaxSize())
+
+            if (uiState.showResult) {
+                ResultView(
+                    modifier = Modifier.weight(1f).padding(horizontal = Dimens16),
+                    score = uiState.correctCount,
+                    total = uiState.totalRounds,
+                    title = stringResource(R.string.your_result),
+                    primaryButtonText = stringResource(R.string.want_to_continue),
+                    secondaryButtonText = stringResource(R.string.go_back),
+                    onPrimaryTap = { viewModel.restartGame() },
+                    onSecondaryTap = { navController.popBackStack() }
+                )
+            } else {
+                MissingLetterScreen(viewModel, modifier = Modifier.fillMaxSize())
+            }
         }
         if (viewModel.uiState.showSuccess) { ConfettiRainEffect() }
     }

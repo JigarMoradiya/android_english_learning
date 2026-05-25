@@ -7,7 +7,11 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.letter.LetterRepository
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import com.example.myapplication.utils.AudioPlayerManager
@@ -23,7 +27,15 @@ import kotlin.math.min
 import kotlin.random.Random
 
 @HiltViewModel
-class MissingLetterViewModel35 @Inject constructor() : ViewModel() {
+class MissingLetterViewModel35 @Inject constructor(
+    private val sessionRepository: SessionRepository
+) : ViewModel() {
+
+    private val wrongAttemptsInBatch = mutableSetOf<String>()
+    private val correctAttemptsInBatch = mutableSetOf<String>()
+    private var currentRoundHadWrong = false
+    private var batchStartMs: Long = System.currentTimeMillis()
+    private var batchWords: List<String> = emptyList()
 
 
     private val allWordsEasy = LetterRepository.missingLetterEasyWords + LetterRepository.missingLetterEasyWords4Basic
@@ -57,22 +69,48 @@ class MissingLetterViewModel35 @Inject constructor() : ViewModel() {
     val difficulty = _difficulty.asStateFlow()
     fun setDifficulty(level: DifficultyLevel) {
         _difficulty.value = level
-        loadData()
+        pickBatch()
+        setupWord(batchWords.firstOrNull() ?: "CAT")
     }
 
+    private fun wordsForLevel(): List<String> =
+        if (difficulty.value == DifficultyLevel.EASY) allWordsEasy else allWordsMedium
 
-    private fun loadData() {
-        val list = if (difficulty.value == DifficultyLevel.EASY){
-            allWordsEasy
-        }else{
-            allWordsMedium
-        }
-        val first = list.randomOrNull() ?: "CAT"
-        setupWord(first)
+    private fun pickBatch() {
+        batchWords = wordsForLevel().shuffled().take(uiState.totalRounds)
     }
 
     fun loadNextWord() {
-        loadData()
+        if (uiState.round >= uiState.totalRounds) {
+            val duration = ((System.currentTimeMillis() - batchStartMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.MISSING_LETTER,
+                    ageGroup = AgeGroup.THREE_TO_FIVE,
+                    durationSeconds = duration,
+                    score = uiState.correctCount,
+                    totalQuestions = uiState.totalRounds,
+                    wrongItems = wrongAttemptsInBatch.toList(),
+                    correctItems = correctAttemptsInBatch.toList(),
+                    subConfig = difficulty.value.name
+                )
+            )
+            uiState = uiState.copy(showResult = true, showSuccess = false)
+        } else {
+            currentRoundHadWrong = false
+            uiState = uiState.copy(round = uiState.round + 1)
+            setupWord(batchWords[uiState.round - 1])
+        }
+    }
+
+    fun restartGame() {
+        wrongAttemptsInBatch.clear()
+        correctAttemptsInBatch.clear()
+        currentRoundHadWrong = false
+        batchStartMs = System.currentTimeMillis()
+        uiState = uiState.copy(round = 1, correctCount = 0, showResult = false)
+        pickBatch()
+        setupWord(batchWords.firstOrNull() ?: "CAT")
     }
 
     fun updateSlotRect(index: Int, rect: Rect) {
@@ -235,14 +273,17 @@ class MissingLetterViewModel35 @Inject constructor() : ViewModel() {
 
             if (word == targetWord) {
                 AudioPlayerManager.playSoundCorrectAnswer()
-                val randomTitle = feedbackTitles.random()
-                val randomSub = feedbackMissingLetter.random()
+                if (!currentRoundHadWrong) {
+                    correctAttemptsInBatch.add(targetWord)
+                }
+                val newCorrectCount = if (!currentRoundHadWrong) uiState.correctCount + 1 else uiState.correctCount
                 uiState = uiState.copy(
                     showSuccess = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
+                    feedbackTextRes = feedbackTitles.random(),
+                    feedbackSubTextRes = feedbackMissingLetter.random(),
                     showError = false,
-                    countdownValue = 3
+                    countdownValue = 3,
+                    correctCount = newCorrectCount
                 )
                 viewModelScope.launch {
                     delay(1000)
@@ -252,9 +293,9 @@ class MissingLetterViewModel35 @Inject constructor() : ViewModel() {
                     delay(1000)
                     loadNextWord()
                 }
-
             } else {
-                // ❌ WRONG ANSWER — find only the incorrectly placed slots
+                currentRoundHadWrong = true
+                wrongAttemptsInBatch.add(targetWord)
                 val badSlots = mutableSetOf<Int>()
                 targetWord.forEachIndexed { i, ch ->
                     if (!fixedIndices.contains(i)) {
@@ -265,12 +306,10 @@ class MissingLetterViewModel35 @Inject constructor() : ViewModel() {
                     }
                 }
                 AudioPlayerManager.playSoundWrongAnswer()
-                val randomTitle = feedbackWrong.random()
-                val randomSub = feedbackMissingLetterSubTitleForWrong.random()
                 uiState = uiState.copy(
                     showError = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
+                    feedbackTextRes = feedbackWrong.random(),
+                    feedbackSubTextRes = feedbackMissingLetterSubTitleForWrong.random(),
                     wrongSlots = badSlots,
                 )
             }

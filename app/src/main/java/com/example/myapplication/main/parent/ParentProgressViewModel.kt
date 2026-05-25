@@ -21,8 +21,9 @@ data class WeakLetterEntry(
 )
 
 data class WeakArrangeEntry(
-    val subLabel: String,    // "ABC" or "abc"
-    val sequences: List<String>  // wrong arrangements e.g. ["ABCDFE", "GHIJLK"]
+    val label: String,
+    val subLabel: String?,
+    val sequences: List<String>
 )
 
 data class ModuleProgressRow(
@@ -351,18 +352,38 @@ class ParentProgressViewModel @Inject constructor(
     }
 
     private fun loadMasteredSequences(sessions: List<LearningSession>) {
-        masteredSequenceRows = sessions
-            .filter { it.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE }
+        data class Entry(val label: String, val subLabel: String?, val sequences: List<String>, val latestMs: Long)
+        val result = mutableListOf<Entry>()
+
+        sessions.filter { it.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE }
             .groupBy { it.subConfig ?: "UPPERCASE" }
-            .mapNotNull { (config, cfgSessions) ->
+            .forEach { (config, cfgSessions) ->
                 val sequences = cfgSessions.flatMap { it.correctItems.orEmpty() }
                     .filter { it.isNotEmpty() }.distinct().sorted()
-                if (sequences.isEmpty()) null
-                else WeakArrangeEntry(
-                    subLabel = if (config == "UPPERCASE") "ABC" else "abc",
-                    sequences = sequences
-                )
+                if (sequences.isNotEmpty()) {
+                    result.add(Entry(
+                        label = "Arrange in Sequence",
+                        subLabel = if (config == "UPPERCASE") "ABC" else "abc",
+                        sequences = sequences,
+                        latestMs = cfgSessions.maxOf { it.timestampMs }
+                    ))
+                }
             }
+
+        val ml35Sessions = sessions.filter { it.moduleId == ModuleID.MISSING_LETTER }
+        val ml35Words = ml35Sessions.flatMap { it.correctItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (ml35Words.isNotEmpty()) {
+            result.add(Entry(label = "Missing Letter", subLabel = "Age 3-5", sequences = ml35Words, latestMs = ml35Sessions.maxOf { it.timestampMs }))
+        }
+
+        val ml57Sessions = sessions.filter { it.moduleId == ModuleID.MISSING_LETTER_57 }
+        val ml57Words = ml57Sessions.flatMap { it.correctItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (ml57Words.isNotEmpty()) {
+            result.add(Entry(label = "Missing Letter", subLabel = "Age 5-7", sequences = ml57Words, latestMs = ml57Sessions.maxOf { it.timestampMs }))
+        }
+
+        masteredSequenceRows = result.sortedByDescending { it.latestMs }
+            .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
 
     private fun loadWeakLetters(sessions: List<LearningSession>) {
@@ -393,18 +414,38 @@ class ParentProgressViewModel @Inject constructor(
     }
 
     private fun loadWeakArrange(sessions: List<LearningSession>) {
-        weakArrangeRows = sessions
-            .filter { it.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE }
+        data class Entry(val label: String, val subLabel: String?, val sequences: List<String>, val latestMs: Long)
+        val result = mutableListOf<Entry>()
+
+        sessions.filter { it.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE }
             .groupBy { it.subConfig ?: "UPPERCASE" }
-            .mapNotNull { (config, cfgSessions) ->
+            .forEach { (config, cfgSessions) ->
                 val sequences = cfgSessions.flatMap { it.wrongItems.orEmpty() }
                     .filter { it.isNotEmpty() }.distinct().sorted()
-                if (sequences.isEmpty()) null
-                else WeakArrangeEntry(
-                    subLabel = if (config == "UPPERCASE") "ABC" else "abc",
-                    sequences = sequences
-                )
+                if (sequences.isNotEmpty()) {
+                    result.add(Entry(
+                        label = "Arrange in Sequence",
+                        subLabel = if (config == "UPPERCASE") "ABC" else "abc",
+                        sequences = sequences,
+                        latestMs = cfgSessions.maxOf { it.timestampMs }
+                    ))
+                }
             }
+
+        val ml35Sessions = sessions.filter { it.moduleId == ModuleID.MISSING_LETTER }
+        val ml35Words = ml35Sessions.flatMap { it.wrongItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (ml35Words.isNotEmpty()) {
+            result.add(Entry(label = "Missing Letter", subLabel = "Age 3-5", sequences = ml35Words, latestMs = ml35Sessions.maxOf { it.timestampMs }))
+        }
+
+        val ml57Sessions = sessions.filter { it.moduleId == ModuleID.MISSING_LETTER_57 }
+        val ml57Words = ml57Sessions.flatMap { it.wrongItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (ml57Words.isNotEmpty()) {
+            result.add(Entry(label = "Missing Letter", subLabel = "Age 5-7", sequences = ml57Words, latestMs = ml57Sessions.maxOf { it.timestampMs }))
+        }
+
+        weakArrangeRows = result.sortedByDescending { it.latestMs }
+            .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
 
     // MARK: - Duration formatting
@@ -428,6 +469,9 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.FILL_THE_BLANK_LETTER   to ("Fill the Blank"       to "3–5"),
             ModuleID.ARRANGE_LETTER_SEQUENCE to ("Arrange in Sequence"  to "3–5"),
             ModuleID.DRAG_DROP_LETTERS       to ("Drag & Drop Word"     to "3–5"),
+            ModuleID.MISSING_LETTER          to ("Missing Letter"       to "3–5"),
+            ModuleID.MISSING_LETTER_57       to ("Missing Letter"       to "5–7"),
+            ModuleID.WORD_JIGSAW             to ("Word Jigsaw"          to "5–7"),
             ModuleID.SIGHT_WORDS             to ("Sight Words"          to "5–7"),
             ModuleID.ARTICLES_A_AN           to ("Articles A / An"      to "5–7"),
             ModuleID.OPPOSITES_WORD          to ("Opposite Words"       to "5–7"),

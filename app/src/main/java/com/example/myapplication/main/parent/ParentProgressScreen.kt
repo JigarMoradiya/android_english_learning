@@ -547,7 +547,7 @@ private fun WeakLettersCard(rows: List<WeakLetterEntry>, arrangeRows: List<WeakA
             WeakLetterRow(entry.label, entry.subLabel, entry.letters)
         }
         arrangeRows.forEach { entry ->
-            WeakArrangeRow(entry.subLabel, entry.sequences)
+            WeakArrangeRow(entry.label, entry.subLabel, entry.sequences, highlightLetters = entry.label != "Missing Letter")
         }
     }
 }
@@ -592,7 +592,7 @@ private fun WeakLetterRow(label: String, subLabel: String? = null, letters: List
                     Text(
                         text = letter.toString(),
                         style = MaterialTheme.typography.titleMedium.scaled(),
-                        fontWeight = FontWeight.Black,
+                        fontWeight = FontWeight.Normal,
                         color = Color(0xFF5532D2)
                     )
                 }
@@ -602,14 +602,14 @@ private fun WeakLetterRow(label: String, subLabel: String? = null, letters: List
 }
 
 @Composable
-private fun WeakArrangeRow(subLabel: String, sequences: List<String>) {
+private fun WeakArrangeRow(label: String, subLabel: String?, sequences: List<String>, highlightLetters: Boolean = true) {
     Row(
         verticalAlignment = Alignment.Top,
         horizontalArrangement = Arrangement.spacedBy(Dimens8)
     ) {
         Column {
             Text(
-                text = "Arrange Sequence",
+                text = label,
                 style = MaterialTheme.typography.labelSmall.scaled(),
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
@@ -617,19 +617,38 @@ private fun WeakArrangeRow(subLabel: String, sequences: List<String>) {
                     .background(Color(0xFF3D2B9E), RoundedCornerShape(50))
                     .padding(horizontal = Dimens8, vertical = Dimens4)
             )
-            Text(
-                text = subLabel,
-                style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
-                color = Color.Gray,
-                modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
-            )
+            if (subLabel != null) {
+                Text(
+                    text = subLabel,
+                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
+                    color = Color.Gray,
+                    modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
+                )
+            }
         }
         Row(
             modifier = Modifier.horizontalScroll(rememberScrollState()),
             horizontalArrangement = Arrangement.spacedBy(Dimens6)
         ) {
             sequences.forEach { sequence ->
-                WrongSequenceBox(sequence)
+                if (highlightLetters) {
+                    WrongSequenceBox(sequence)
+                } else {
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier
+                            .background(Color(0xFFEEE8FF), RoundedCornerShape(Dimens8))
+                            .height(Dimens30)
+                            .padding(horizontal = Dimens8)
+                    ) {
+                        Text(
+                            text = sequence,
+                            style = MaterialTheme.typography.titleMedium.scaled(),
+                            fontWeight = FontWeight.Normal,
+                            color = Color(0xFF5532D2)
+                        )
+                    }
+                }
             }
         }
     }
@@ -650,7 +669,7 @@ private fun WrongSequenceBox(sequence: String) {
             Text(
                 text = letter.toString(),
                 style = MaterialTheme.typography.titleMedium.scaled(),
-                fontWeight = FontWeight.Black,
+                fontWeight = FontWeight.Normal,
                 color = if (isWrong) Color.Red else Color(0xFF5532D2)
             )
         }
@@ -688,7 +707,7 @@ private fun MasteredCard(rows: List<WeakLetterEntry>, arrangeRows: List<WeakArra
             MasteredLetterRow(entry.label, entry.subLabel, entry.letters)
         }
         arrangeRows.forEach { entry ->
-            MasteredSequenceRow(entry.subLabel, entry.sequences)
+            MasteredSequenceRow(entry.label, entry.subLabel, entry.sequences, highlightLetters = entry.label != "Missing Letter")
         }
     }
 }
@@ -733,7 +752,7 @@ private fun MasteredLetterRow(label: String, subLabel: String? = null, letters: 
                     Text(
                         text = letter.toString(),
                         style = MaterialTheme.typography.titleMedium.scaled(),
-                        fontWeight = FontWeight.Black,
+                        fontWeight = FontWeight.Normal,
                         color = Color(0xFF2E7D32)
                     )
                 }
@@ -743,14 +762,14 @@ private fun MasteredLetterRow(label: String, subLabel: String? = null, letters: 
 }
 
 @Composable
-private fun MasteredSequenceRow(subLabel: String, sequences: List<String>) {
+private fun MasteredSequenceRow(label: String, subLabel: String?, sequences: List<String>, highlightLetters: Boolean = true) {
     Row(
-        verticalAlignment = Alignment.Top,
+        verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Dimens8)
     ) {
         Column {
             Text(
-                text = "Arrange Sequence",
+                text = label,
                 style = MaterialTheme.typography.labelSmall.scaled(),
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
@@ -758,30 +777,43 @@ private fun MasteredSequenceRow(subLabel: String, sequences: List<String>) {
                     .background(Color(0xFF2E7D32), RoundedCornerShape(50))
                     .padding(horizontal = Dimens8, vertical = Dimens4)
             )
-            Text(
-                text = subLabel,
-                style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
-                color = Color.Gray,
-                modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
-            )
+            if (subLabel != null) {
+                Text(
+                    text = subLabel,
+                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
+                    color = Color.Gray,
+                    modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
+                )
+            }
         }
         Row(
             modifier = Modifier.horizontalScroll(rememberScrollState()),
             horizontalArrangement = Arrangement.spacedBy(Dimens6)
         ) {
             sequences.forEach { sequence ->
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
+                Box(
+                    contentAlignment = Alignment.Center,
                     modifier = Modifier
                         .background(Color(0xFFA5D6A7), RoundedCornerShape(Dimens8))
                         .height(Dimens30)
                         .padding(horizontal = Dimens8)
                 ) {
-                    sequence.forEach { letter ->
+                    if (highlightLetters) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            sequence.forEach { letter ->
+                                Text(
+                                    text = letter.toString(),
+                                    style = MaterialTheme.typography.titleMedium.scaled(),
+                                    fontWeight = FontWeight.Normal,
+                                    color = Color(0xFF2E7D32)
+                                )
+                            }
+                        }
+                    } else {
                         Text(
-                            text = letter.toString(),
+                            text = sequence,
                             style = MaterialTheme.typography.titleMedium.scaled(),
-                            fontWeight = FontWeight.Black,
+                            fontWeight = FontWeight.Normal,
                             color = Color(0xFF2E7D32)
                         )
                     }
