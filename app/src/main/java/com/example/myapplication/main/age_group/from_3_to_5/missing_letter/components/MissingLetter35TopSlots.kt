@@ -43,7 +43,7 @@ import com.example.myapplication.utils.AudioPlayerManager
 
 
 @Composable
-fun WordTopSlots(viewModel: MissingLetterViewModel35) {
+fun MissingLetter35TopSlots(viewModel: MissingLetterViewModel35) {
 
     val dropped = viewModel.dropped
     val fixed = viewModel.fixedIndices

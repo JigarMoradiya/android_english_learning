@@ -1,7 +1,6 @@
-package com.example.myapplication.main.age_group.from_5_to_7.drag_and_drop_word.components
+package com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.components
 
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectDragGestures
@@ -31,10 +30,9 @@ import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
-import com.example.myapplication.main.age_group.from_5_to_7.drag_and_drop_word.view_model.DragDropWordViewModel57
+import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel35
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
@@ -43,7 +41,7 @@ import com.example.myapplication.utils.AudioPlayerManager
 
 
 @Composable
-fun DragDropTopSlots(viewModel: DragDropWordViewModel57) {
+fun DragDropTopSlots(viewModel: DragDropWordViewModel35) {
 
     val dropped = viewModel.dropped
     val fixed = viewModel.fixedIndices

@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.missing_letter.components
+package com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.components
 
 
 import androidx.compose.foundation.background
@@ -6,6 +6,7 @@ import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,24 +25,24 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
-import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.MissingLetterViewModel35
+import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel35
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
-import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryOrangeLight
-import com.example.myapplication.utils.AudioPlayerManager
 
 @Composable
-fun LetterBottomPool(viewModel: MissingLetterViewModel35) {
+fun DragDropBottomPool(viewModel: DragDropWordViewModel35) {
 
     val letters = viewModel.letters
     val dragging = viewModel.dragging
     val dragPos = viewModel.dragPosition
 
-    Row(horizontalArrangement = Arrangement.spacedBy(Dimens12)) {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(Dimens12),
+        modifier = Modifier.height(DragLetterBoxSize)
+    ) {
 
         letters.forEach { item ->
 
