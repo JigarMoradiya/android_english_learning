@@ -16,8 +16,13 @@ import javax.inject.Inject
 
 data class WeakLetterEntry(
     val label: String,
-    val subLabel: String?,   // non-null for Fill the Blank variants
+    val subLabel: String?,
     val letters: List<Char>
+)
+
+data class WeakArrangeEntry(
+    val subLabel: String,    // "ABC" or "abc"
+    val sequences: List<String>  // wrong arrangements e.g. ["ABCDFE", "GHIJLK"]
 )
 
 data class ModuleProgressRow(
@@ -28,6 +33,7 @@ data class ModuleProgressRow(
     val rounds: Int,
     val avgAccuracy: Double,        // 0.0–1.0
     val avgStars: Double,           // 0.0–3.0
+    val hasQuiz: Boolean = false,   // true = show stars + accuracy bar even when value is 0
     val route: String?,             // RouteNavigation route string, null = not tappable
     val scoreText: String? = null   // e.g. "21/30 ×3" for Fill the Blank sub-rows
 )
@@ -60,6 +66,8 @@ class ParentProgressViewModel @Inject constructor(
         private set
     // Unified weak-letter rows sorted by most-recently-played first
     var weakLetterRows by mutableStateOf(emptyList<WeakLetterEntry>())
+        private set
+    var weakArrangeRows by mutableStateOf(emptyList<WeakArrangeEntry>())
         private set
 
     val canGoBack: Boolean
@@ -140,6 +148,7 @@ class ParentProgressViewModel @Inject constructor(
 
         buildModuleRows(sessions)
         loadWeakLetters(sessions)
+        loadWeakArrange(sessions)
     }
 
     // MARK: - Helpers
@@ -217,7 +226,31 @@ class ParentProgressViewModel @Inject constructor(
         grouped.forEach { (moduleId, sessions) ->
             val info = moduleInfo[moduleId] ?: return@forEach
 
-            if (moduleId == ModuleID.FILL_THE_BLANK_LETTER) {
+            if (moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE) {
+                val byConfig = sessions.groupBy { it.subConfig ?: "UPPERCASE" }
+                byConfig.forEach { (config, configSessions) ->
+                    val latest = configSessions.maxOf { it.timestampMs }
+                    val quizSessions = configSessions.filter { it.totalQuestions > 0 }
+                    val totalScore = quizSessions.sumOf { it.score }
+                    val totalQs    = quizSessions.sumOf { it.totalQuestions }
+                    val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                    val subLabel = if (config == "UPPERCASE") "ABC" else "abc"
+                    val modeRoute = RouteNavigation.ArrangeLetterInSequence.createRoute(config)
+                    val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
+                    rowsWithTime.add(ModuleProgressRow(
+                        moduleId = "$moduleId|$config",
+                        displayName = info.first,
+                        subLabel = subLabel,
+                        ageGroupLabel = info.second,
+                        rounds = configSessions.size,
+                        avgAccuracy = avgAcc,
+                        avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                        hasQuiz = quizSessions.isNotEmpty(),
+                        route = modeRoute,
+                        scoreText = scoreStr
+                    ) to latest)
+                }
+            } else if (moduleId == ModuleID.FILL_THE_BLANK_LETTER) {
                 val byConfig = sessions.groupBy { it.subConfig ?: "?" }
                 byConfig.forEach { (config, configSessions) ->
                     val latest = configSessions.maxOf { it.timestampMs }
@@ -237,6 +270,7 @@ class ParentProgressViewModel @Inject constructor(
                         rounds = configSessions.size,
                         avgAccuracy = avgAcc,
                         avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                        hasQuiz = totalQs > 0,
                         route = moduleRoutes[moduleId],
                         scoreText = scoreStr
                     ) to latest)
@@ -244,9 +278,11 @@ class ParentProgressViewModel @Inject constructor(
             } else {
                 val latest = sessions.maxOf { it.timestampMs }
                 val quizSessions = sessions.filter { it.totalQuestions > 0 }
-                val avgAcc = if (quizSessions.isEmpty()) 0.0
-                else quizSessions.sumOf { it.accuracy } / quizSessions.size
-                val stars = if (quizSessions.isEmpty()) 0.0 else minOf(3.0, avgAcc * 3.0)
+                val totalScore = quizSessions.sumOf { it.score }
+                val totalQs    = quizSessions.sumOf { it.totalQuestions }
+                val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                val stars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0
+                val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
                 rowsWithTime.add(ModuleProgressRow(
                     moduleId = moduleId,
                     displayName = info.first,
@@ -254,7 +290,9 @@ class ParentProgressViewModel @Inject constructor(
                     rounds = sessions.size,
                     avgAccuracy = avgAcc,
                     avgStars = stars,
-                    route = moduleRoutes[moduleId]
+                    hasQuiz = totalQs > 0,
+                    route = moduleRoutes[moduleId],
+                    scoreText = scoreStr
                 ) to latest)
             }
         }
@@ -305,6 +343,21 @@ class ParentProgressViewModel @Inject constructor(
             .map { WeakLetterEntry(it.label, it.subLabel, it.letters) }
     }
 
+    private fun loadWeakArrange(sessions: List<LearningSession>) {
+        weakArrangeRows = sessions
+            .filter { it.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE }
+            .groupBy { it.subConfig ?: "UPPERCASE" }
+            .mapNotNull { (config, cfgSessions) ->
+                val sequences = cfgSessions.flatMap { it.wrongItems.orEmpty() }
+                    .filter { it.isNotEmpty() }.distinct().sorted()
+                if (sequences.isEmpty()) null
+                else WeakArrangeEntry(
+                    subLabel = if (config == "UPPERCASE") "ABC" else "abc",
+                    sequences = sequences
+                )
+            }
+    }
+
     // MARK: - Duration formatting
 
     fun formatDuration(seconds: Int): String = when {
@@ -342,7 +395,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.COLORING_ALPHABETS      to RouteNavigation.ColoringAlphabets.route,
             ModuleID.ABCD_WITH_IMAGES        to RouteNavigation.ABCDWithImages.route,
             ModuleID.FILL_THE_BLANK_LETTER   to RouteNavigation.FillTheBlankLetters.route,
-            ModuleID.ARRANGE_LETTER_SEQUENCE to RouteNavigation.ArrangeLetterInSequence.route,
+            // ARRANGE_LETTER_SEQUENCE handled inline in buildModuleRows (mode-specific routes)
             ModuleID.DRAG_DROP_LETTERS       to RouteNavigation.DragDropWord.route,
             ModuleID.SIGHT_WORDS             to RouteNavigation.SightWords.route,
             ModuleID.ARTICLES_A_AN           to RouteNavigation.ArticlesAAn.route,

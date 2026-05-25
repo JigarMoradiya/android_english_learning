@@ -165,8 +165,12 @@ fun AppNavGraph(navController: NavHostController) {
             val mode     = LetterMode.valueOf(back.arguments?.getString("mode") ?: LetterMode.UPPERCASE.name)
             FillBlankLettersPage(navController, position, mode)
         }
-        composable(RouteNavigation.ArrangeLetterInSequence.route) {
-            ArrangeLetterInSequencePage(navController)
+        composable(
+            RouteNavigation.ArrangeLetterInSequence.route,
+            arguments = listOf(navArgument("mode") { type = NavType.StringType })
+        ) { back ->
+            val mode = LetterMode.valueOf(back.arguments?.getString("mode") ?: LetterMode.UPPERCASE.name)
+            ArrangeLetterInSequencePage(navController, mode)
         }
         composable(RouteNavigation.MatchLetterWithImage.route) {
             MatchLetterWithImagePage(navController)

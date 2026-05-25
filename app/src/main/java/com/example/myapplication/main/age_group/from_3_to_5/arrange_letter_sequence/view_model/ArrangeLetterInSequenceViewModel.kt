@@ -5,6 +5,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackFillBlank
@@ -18,15 +22,26 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ArrangeLetterInSequenceViewModel @Inject constructor() : ViewModel() {
+class ArrangeLetterInSequenceViewModel @Inject constructor(
+    private val sessionRepository: SessionRepository
+) : ViewModel() {
 
     var uiState by mutableStateOf(ArrangeLetterInSequenceUiState())
         private set
 
     private var countdownJob: Job? = null
+    private val wrongAttemptsInBatch = mutableSetOf<String>()
+    private var batchStartMs: Long = System.currentTimeMillis()
+    private var currentRoundHadWrong = false
 
     init {
         generateGame()
+    }
+
+    fun setMode(mode: LetterMode) {
+        uiState = uiState.copy(mode = mode)
+        generateGame()
+        batchStartMs = System.currentTimeMillis()
     }
 
     private fun getAlphabet(): List<String> {
@@ -42,6 +57,7 @@ class ArrangeLetterInSequenceViewModel @Inject constructor() : ViewModel() {
         val startIndex = (0..(26 - size)).random()
         val sequence = alphabets.subList(startIndex, startIndex + size)
 
+        currentRoundHadWrong = false
         uiState = uiState.copy(
             topSlots = List<String?>(size) { null },
             bottomOptions = sequence.shuffled(),
@@ -91,13 +107,15 @@ class ArrangeLetterInSequenceViewModel @Inject constructor() : ViewModel() {
                 showSuccess = true,
                 showError = false,
                 showNext = true,
-                correctCount = uiState.correctCount + 1,
+                correctCount = if (!currentRoundHadWrong) uiState.correctCount + 1 else uiState.correctCount,
                 feedbackTextRes = feedbackTitles.random(),
                 feedbackSubTextRes = feedbackFillBlank.random(),
             )
             startCountdown()
         } else {
+            currentRoundHadWrong = true
             AudioPlayerManager.playSoundWrongAnswer()
+            wrongAttemptsInBatch.add(formed)
             uiState = uiState.copy(
                 showError = true,
                 showSuccess = false,
@@ -124,6 +142,18 @@ class ArrangeLetterInSequenceViewModel @Inject constructor() : ViewModel() {
         if (uiState.round >= uiState.totalRounds) {
             countdownJob?.cancel()
             countdownJob = null
+            val duration = ((System.currentTimeMillis() - batchStartMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.ARRANGE_LETTER_SEQUENCE,
+                    ageGroup = AgeGroup.THREE_TO_FIVE,
+                    durationSeconds = duration,
+                    score = uiState.correctCount,
+                    totalQuestions = uiState.totalRounds,
+                    wrongItems = wrongAttemptsInBatch.toList(),
+                    subConfig = uiState.mode.name
+                )
+            )
             uiState = uiState.copy(showResult = true)
         } else {
             uiState = uiState.copy(round = uiState.round + 1)
@@ -132,14 +162,10 @@ class ArrangeLetterInSequenceViewModel @Inject constructor() : ViewModel() {
     }
 
     fun restartGame() {
+        wrongAttemptsInBatch.clear()
+        currentRoundHadWrong = false
+        batchStartMs = System.currentTimeMillis()
         uiState = uiState.copy(round = 1, correctCount = 0, showResult = false)
-        generateGame()
-    }
-
-    fun changeMode(mode: LetterMode) {
-        countdownJob?.cancel()
-        countdownJob = null
-        uiState = uiState.copy(mode = mode, round = 1, correctCount = 0, showResult = false)
         generateGame()
     }
 }

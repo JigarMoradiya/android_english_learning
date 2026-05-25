@@ -36,6 +36,11 @@ class SessionRepository @Inject constructor(
 
     fun allSessions(): List<LearningSession> = cache.toList()
 
+    fun removeSessions(moduleId: String) {
+        cache.removeAll { it.moduleId == moduleId }
+        save()
+    }
+
     fun earliestSessionDate(): Long? = cache.minOfOrNull { it.timestampMs }
 
     // MARK: - Monday calculation (locale-safe)

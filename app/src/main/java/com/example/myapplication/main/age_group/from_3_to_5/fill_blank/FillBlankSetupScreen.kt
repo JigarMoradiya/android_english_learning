@@ -4,7 +4,6 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,6 +23,7 @@ import androidx.compose.material.icons.rounded.Shuffle
 import androidx.compose.material.icons.rounded.SwapHoriz
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -33,7 +33,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
@@ -152,7 +151,7 @@ fun FillBlankSetupScreen(navController: NavController) {
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 @Composable
-private fun SectionLabel(text: String) {
+fun SectionLabel(text: String) {
     Text(
         text = text,
         style = MaterialTheme.typography.bodyMedium.scaled(),
@@ -178,45 +177,51 @@ private fun PositionCard(
 ) {
     val accent = Color(position.accentHex.toColorInt())
     val bgColor by animateColorAsState(
-        targetValue = if (isSelected) accent else Color.White.copy(alpha = 0.92f),
+        targetValue = if (isSelected) accent else Color.White,
         animationSpec = spring(), label = "posBg"
     )
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Dimens8),
-        modifier = modifier
-            .shadow(if (isSelected) Dimens8 else Dimens4, RoundedCornerShape(Dimens12))
-            .background(bgColor, RoundedCornerShape(Dimens12))
-            .clickable { onClick() }
-            .padding(vertical = Dimens12)
+    Surface(
+        onClick = onClick,
+        modifier = modifier,
+        shape = RoundedCornerShape(Dimens12),
+        color = bgColor,
+        shadowElevation = if (isSelected) Dimens8 else Dimens4,
+        tonalElevation = 0.dp
     ) {
-        Icon(
-            imageVector = position.icon(),
-            contentDescription = position.name,
-            tint = if (isSelected) Color.White else accent,
-            modifier = Modifier.size(Dimens24)
-        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(Dimens8),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = Dimens12)
+        ) {
+            Icon(
+                imageVector = position.icon(),
+                contentDescription = position.name,
+                tint = if (isSelected) Color.White else accent,
+                modifier = Modifier.size(Dimens24)
+            )
 
-        // Mini letter boxes
-        Row(horizontalArrangement = Arrangement.spacedBy(Dimens4)) {
-            position.preview.forEach { slot ->
-                MiniLetterBox(
-                    letter = slot,
-                    isRandom = position == BlankPosition.RANDOM,
-                    isSelected = isSelected,
-                    accent = accent
-                )
+            Row(horizontalArrangement = Arrangement.spacedBy(Dimens4)) {
+                position.preview.forEach { slot ->
+                    MiniLetterBox(
+                        letter = slot,
+                        isRandom = position == BlankPosition.RANDOM,
+                        isSelected = isSelected,
+                        accent = accent
+                    )
+                }
             }
-        }
 
-        Text(
-            text = stringResource(position.displayNameRes),
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            fontWeight = FontWeight.Bold,
-            color = if (isSelected) Color.White.copy(alpha = 0.9f) else Color.Gray,
-            textAlign = TextAlign.Center
-        )
+            Text(
+                text = stringResource(position.displayNameRes),
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = if (isSelected) Color.White.copy(alpha = 0.9f) else Color.Gray,
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
 
@@ -249,7 +254,7 @@ private fun MiniLetterBox(
         val displayText = when {
             isBlank  -> ""
             isRandom -> "?"
-            else     -> letter ?: ""
+            else     -> letter
         }
         if (displayText.isNotEmpty()) {
             Text(
@@ -266,7 +271,7 @@ private fun MiniLetterBox(
 }
 
 @Composable
-private fun CaseCard(
+fun CaseCard(
     mode: LetterMode,
     isSelected: Boolean,
     modifier: Modifier = Modifier,
@@ -274,32 +279,39 @@ private fun CaseCard(
 ) {
     val color = Color(0xFF5532D2)
     val bgColor by animateColorAsState(
-        targetValue = if (isSelected) color else Color.White.copy(alpha = 0.92f),
+        targetValue = if (isSelected) color else Color.White,
         animationSpec = spring(), label = "caseBg"
     )
     val letters   = if (mode == LetterMode.UPPERCASE) "A B C" else "a b c"
     val sublabel  = if (mode == LetterMode.UPPERCASE) stringResource(R.string.fill_blank_uppercase)
                    else stringResource(R.string.fill_blank_lowercase)
 
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(Dimens8, Alignment.CenterHorizontally),
-        modifier = modifier
-            .shadow(if (isSelected) Dimens8 else Dimens4, RoundedCornerShape(Dimens12))
-            .background(bgColor, RoundedCornerShape(Dimens12))
-            .clickable { onClick() }
-            .padding(vertical = Dimens8, horizontal = Dimens12)
+    Surface(
+        onClick = onClick,
+        modifier = modifier,
+        shape = RoundedCornerShape(Dimens12),
+        color = bgColor,
+        shadowElevation = if (isSelected) Dimens8 else Dimens4,
+        tonalElevation = 0.dp
     ) {
-        Text(
-            text = letters,
-            style = MaterialTheme.typography.titleLarge.scaled(),
-            fontWeight = FontWeight.Black,
-            color = if (isSelected) Color.White else color
-        )
-        Text(
-            text = sublabel,
-            style = MaterialTheme.typography.labelMedium.scaled(),
-            color = if (isSelected) Color.White.copy(0.85f) else Color.Gray
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(Dimens8, Alignment.CenterHorizontally),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = Dimens8, horizontal = Dimens12)
+        ) {
+            Text(
+                text = letters,
+                style = MaterialTheme.typography.titleLarge.scaled(),
+                fontWeight = FontWeight.Black,
+                color = if (isSelected) Color.White else color
+            )
+            Text(
+                text = sublabel,
+                style = MaterialTheme.typography.labelMedium.scaled(),
+                color = if (isSelected) Color.White.copy(0.85f) else Color.Gray
+            )
+        }
     }
 }

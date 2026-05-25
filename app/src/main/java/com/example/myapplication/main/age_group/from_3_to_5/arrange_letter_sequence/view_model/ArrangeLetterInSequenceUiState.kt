@@ -18,7 +18,7 @@ data class ArrangeLetterInSequenceUiState(
 
     val selectedLetter: String? = null,
     val countdown: Int = 3,
-    val totalRounds: Int = 5,
+    val totalRounds: Int = 2,
     val correctCount: Int = 0,
     val showResult: Boolean = false,
 )

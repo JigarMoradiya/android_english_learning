@@ -64,9 +64,11 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens28
+import com.example.myapplication.ui.theme.AppDimens.Dimens30
 import com.example.myapplication.utils.extensions.scaled
 
 @Composable
@@ -356,8 +358,8 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
                 vm.moduleRows.forEach { row ->
                     ModuleRowItem(row = row, navController = navController)
                 }
-                if (vm.weakLetterRows.isNotEmpty()) {
-                    WeakLettersCard(vm.weakLetterRows)
+                if (vm.weakLetterRows.isNotEmpty() || vm.weakArrangeRows.isNotEmpty()) {
+                    WeakLettersCard(vm.weakLetterRows, vm.weakArrangeRows)
                 }
             }
         }
@@ -444,12 +446,12 @@ private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) 
         }
 
         // Stars
-        if (row.avgStars > 0) {
+        if (row.hasQuiz) {
             StarsRow(stars = row.avgStars)
         }
 
         // Accuracy bar — rounded corners, same as iOS
-        if (row.avgAccuracy > 0) {
+        if (row.hasQuiz) {
             AccuracyBar(accuracy = row.avgAccuracy)
         }
 
@@ -512,7 +514,7 @@ private fun AccuracyBar(accuracy: Double) {
 // ── Weak letters card ─────────────────────────────────────────────────────────
 
 @Composable
-private fun WeakLettersCard(rows: List<WeakLetterEntry>) {
+private fun WeakLettersCard(rows: List<WeakLetterEntry>, arrangeRows: List<WeakArrangeEntry> = emptyList()) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -540,6 +542,9 @@ private fun WeakLettersCard(rows: List<WeakLetterEntry>) {
         }
         rows.forEach { entry ->
             WeakLetterRow(entry.label, entry.subLabel, entry.letters)
+        }
+        arrangeRows.forEach { entry ->
+            WeakArrangeRow(entry.subLabel, entry.sequences)
         }
     }
 }
@@ -577,7 +582,8 @@ private fun WeakLetterRow(label: String, subLabel: String? = null, letters: List
                 Box(
                     contentAlignment = Alignment.Center,
                     modifier = Modifier
-                        .size(Dimens28 + Dimens8)
+                        .width(Dimens28 + Dimens8)
+                        .height(Dimens30)
                         .background(Color(0xFFEEE8FF), RoundedCornerShape(Dimens8))
                 ) {
                     Text(
@@ -588,6 +594,63 @@ private fun WeakLetterRow(label: String, subLabel: String? = null, letters: List
                     )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun WeakArrangeRow(subLabel: String, sequences: List<String>) {
+    Row(
+        verticalAlignment = Alignment.Top,
+        horizontalArrangement = Arrangement.spacedBy(Dimens8)
+    ) {
+        Column {
+            Text(
+                text = "Arrange Sequence",
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+                modifier = Modifier
+                    .background(Color(0xFF3D2B9E), RoundedCornerShape(50))
+                    .padding(horizontal = Dimens8, vertical = Dimens4)
+            )
+            Text(
+                text = subLabel,
+                style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
+                color = Color.Gray,
+                modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
+            )
+        }
+        Row(
+            modifier = Modifier.horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.spacedBy(Dimens6)
+        ) {
+            sequences.forEach { sequence ->
+                WrongSequenceBox(sequence)
+            }
+        }
+    }
+}
+
+@Composable
+private fun WrongSequenceBox(sequence: String) {
+    val correct = sequence.toList().sorted()
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(Dimens2),
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .background(Color(0xFFEEE8FF), RoundedCornerShape(Dimens8))
+            .height(Dimens30)
+            .padding(horizontal = Dimens8)
+    ) {
+        sequence.forEachIndexed { i, letter ->
+            val isWrong = i < correct.size && letter != correct[i]
+            Text(
+                text = letter.toString(),
+                style = MaterialTheme.typography.titleMedium.scaled(),
+                fontWeight = FontWeight.Black,
+                color = if (isWrong) Color.Red else Color(0xFF5532D2)
+            )
         }
     }
 }

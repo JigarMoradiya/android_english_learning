@@ -15,7 +15,9 @@ sealed class RouteNavigation(val route: String) {
     object FillTheBlankLettersPlay : RouteNavigation("FillTheBlankLettersPlay/{position}/{mode}") {
         fun createRoute(position: String, mode: String) = "FillTheBlankLettersPlay/$position/$mode"
     }
-    object ArrangeLetterInSequence : RouteNavigation("ArrangeLetterInSequence")
+    object ArrangeLetterInSequence : RouteNavigation("ArrangeLetterInSequence/{mode}") {
+        fun createRoute(mode: String) = "ArrangeLetterInSequence/$mode"
+    }
     object MatchLetterWithImage : RouteNavigation("MatchLetterWithImage")
     object MissingLetterEasy : RouteNavigation("MissingLetterEasy")
     object DragDropWord : RouteNavigation("DragDropWord")
