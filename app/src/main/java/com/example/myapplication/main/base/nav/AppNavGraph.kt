@@ -30,15 +30,18 @@ import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_seque
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.ColoringAlphabetsPage
 import com.example.myapplication.main.age_group.from_3_to_5.letter_phonics_sound.LetterPhonicsSoundPage
 import com.example.myapplication.main.age_group.from_3_to_5.phonics_reading.PhonicsReadingLevelsPage
-import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage
+import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankSetupScreen
 import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.LetterRecognitionPage
 import com.example.myapplication.main.age_group.from_3_to_5.match_latters.MatchLettersPage
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.MatchLetterWithImagePage
-import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.MissingLetterPage
+import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.MissingLetterPage35
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
+import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.MissingLetterPage57
+import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model.DifficultyLevel as DifficultyLevel57
+import com.example.myapplication.main.age_group.from_5_to_7.drag_and_drop_word.DragDropWordPage57
 import com.example.myapplication.main.age_group.from_5_to_7.article_choice.ArticleChoicePage
 import com.example.myapplication.main.age_group.from_5_to_7.articles_a_an.example.ArticlesAAnExamplePage
 import com.example.myapplication.main.age_group.from_5_to_7.articles_a_an.info.ArticlesAAnPage
@@ -176,10 +179,10 @@ fun AppNavGraph(navController: NavHostController) {
             MatchLetterWithImagePage(navController)
         }
         composable(RouteNavigation.MissingLetterEasy.route) {
-            MissingLetterPage(navController, DifficultyLevel.EASY)
+            MissingLetterPage35(navController, DifficultyLevel.EASY)
         }
         composable(RouteNavigation.DragDropWord.route) {
-            DragDropWordPage(navController, DifficultyLevel.EASY)
+            DragDropWordPage35(navController, DifficultyLevel.EASY)
         }
         composable(RouteNavigation.ColoringAlphabets.route) {
             ColoringAlphabetsPage(navController)
@@ -227,10 +230,10 @@ fun AppNavGraph(navController: NavHostController) {
             ListenAndSelectWordPage(navController)
         }
         composable(RouteNavigation.MissingLetterMedium.route) {
-            MissingLetterPage(navController, DifficultyLevel.MEDIUM)
+            MissingLetterPage57(navController, DifficultyLevel57.MEDIUM)
         }
         composable(RouteNavigation.WordJigsaw.route) {
-            DragDropWordPage(navController, DifficultyLevel.MEDIUM)
+            DragDropWordPage57(navController, DifficultyLevel57.MEDIUM)
         }
         composable(RouteNavigation.ArticlesAAn.route) {
             ArticlesAAnPage(navController)

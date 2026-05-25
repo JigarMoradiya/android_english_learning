@@ -27,7 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
-import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel
+import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel35
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
@@ -35,7 +35,7 @@ import com.example.myapplication.ui.theme.PrimaryOrangeLight
 import com.example.myapplication.utils.AudioPlayerManager
 
 @Composable
-fun DragDropBottomPool(viewModel: DragDropWordViewModel) {
+fun DragDropBottomPool(viewModel: DragDropWordViewModel35) {
 
     val letters = viewModel.letters
     val dragging = viewModel.dragging

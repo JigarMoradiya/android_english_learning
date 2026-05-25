@@ -18,7 +18,7 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.components.DragDropScreen
-import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel
+import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel35
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CountdownBadge
@@ -32,9 +32,9 @@ import com.example.myapplication.main.common.KidsGradientBackground
 
 
 @Composable
-fun DragDropWordPage(
+fun DragDropWordPage35(
     navController: NavController, difficultyLevel: DifficultyLevel,
-    viewModel: DragDropWordViewModel = hiltViewModel()
+    viewModel: DragDropWordViewModel35 = hiltViewModel()
 ) {
     LaunchedEffect(Unit) {
         viewModel.setDifficulty(difficultyLevel)

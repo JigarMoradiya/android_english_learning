@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.components
+package com.example.myapplication.main.age_group.from_5_to_7.drag_and_drop_word.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel35
+import com.example.myapplication.main.age_group.from_5_to_7.drag_and_drop_word.view_model.DragDropWordViewModel57
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -29,7 +29,7 @@ import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun DragDropScreen(
-    viewModel: DragDropWordViewModel35,
+    viewModel: DragDropWordViewModel57,
     modifier: Modifier = Modifier
 ) {
     Box(modifier = modifier.fillMaxSize()) {

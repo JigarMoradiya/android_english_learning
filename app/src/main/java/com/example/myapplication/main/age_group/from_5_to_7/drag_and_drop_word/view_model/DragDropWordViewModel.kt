@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model
+package com.example.myapplication.main.age_group.from_5_to_7.drag_and_drop_word.view_model
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -8,8 +8,8 @@ import androidx.compose.ui.geometry.Rect
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.generation.letter.LetterRepository
-import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
-import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.LetterItem
+import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model.DifficultyLevel
+import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model.LetterItem
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetter
 import com.example.myapplication.utils.FeedbackConstant.feedbackMissingLetterSubTitleForWrong
@@ -23,12 +23,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DragDropWordViewModel35 @Inject constructor() : ViewModel() {
+class DragDropWordViewModel57 @Inject constructor() : ViewModel() {
 
     private val allWordsEasy = LetterRepository.missingLetterEasyWords + LetterRepository.missingLetterEasyWords4Basic
     private val allWordsMedium = LetterRepository.missingLetterMediumWords + LetterRepository.missingLetterEasyWords4Basic
 
-    var uiState by mutableStateOf(DragDropWordUiState35())
+    var uiState by mutableStateOf(DragDropWordUiState57())
         private set
 
     var targetWord by mutableStateOf("")
@@ -43,13 +43,12 @@ class DragDropWordViewModel35 @Inject constructor() : ViewModel() {
     var fixedIndices by mutableStateOf<Set<Int>>(emptySet())
         private set
 
-    // ✅ DRAG STATE (FINAL)
     var dragging by mutableStateOf<LetterItem?>(null)
     var dragPosition by mutableStateOf<Offset?>(null)
 
-    // ✅ SLOT RECTS
     var slotRects by mutableStateOf<Map<Int, Rect>>(emptyMap())
         private set
+
     var dragFromIndex by mutableStateOf<Int?>(null)
     private val _difficulty = MutableStateFlow(DifficultyLevel.EASY)
     val difficulty = _difficulty.asStateFlow()
@@ -60,158 +59,79 @@ class DragDropWordViewModel35 @Inject constructor() : ViewModel() {
     }
 
     private fun loadData() {
-        val list = if (difficulty.value == DifficultyLevel.EASY){
-            allWordsEasy
-        }else{
-            allWordsMedium
-        }
+        val list = if (difficulty.value == DifficultyLevel.EASY) allWordsEasy else allWordsMedium
         val first = list.randomOrNull() ?: "CAT"
         setupWord(first)
     }
 
-    fun loadNextWord() {
-        loadData()
-    }
+    fun loadNextWord() { loadData() }
 
     fun updateSlotRect(index: Int, rect: Rect) {
         slotRects = slotRects + (index to rect)
     }
 
-
-    // -------------------------
-    // WORD SETUP
-    // -------------------------
     fun setupWord(word: String) {
-
         val upper = word.uppercase().replace("-", "")
         targetWord = upper
-
-        val length = upper.length
-
-        // ----------------------------
-        // 1. ALL SLOTS EMPTY
-        // ----------------------------
-        dropped = MutableList(length) { null }
-
-        // ❌ NO FIXED LETTERS
+        dropped = MutableList(upper.length) { null }
         fixedIndices = emptySet()
-
-        // ----------------------------
-        // 2. LETTER POOL = EXACT WORD LETTERS ONLY
-        // ----------------------------
-        letters = upper.map { ch ->
-            LetterItem(ch.toString())
-        }.shuffled()
-
-        // ----------------------------
-        // 3. RESET STATE
-        // ----------------------------
+        letters = upper.map { ch -> LetterItem(ch.toString()) }.shuffled()
         clearDrag()
-
-        uiState = uiState.copy(
-            showError = false,
-            showSuccess = false
-        )
+        uiState = uiState.copy(showError = false, showSuccess = false)
     }
 
-    fun clearDrag() {
-        dragging = null
-        dragPosition = null
-    }
-    fun clearSlot(index: Int) {
-        dropped = dropped.toMutableList().apply {
-            set(index, null)
-        }
-    }
-    // -------------------------
-    // PLACE
-    // -------------------------
+    fun clearDrag() { dragging = null; dragPosition = null }
+    fun clearSlot(index: Int) { dropped = dropped.toMutableList().apply { set(index, null) } }
+
     fun place(item: LetterItem, index: Int) {
-
         if (fixedIndices.contains(index)) return
-
         letters = letters.toMutableList().apply { remove(item) }
-
-        dropped = dropped.toMutableList().apply {
-            set(index, item)
-        }
+        dropped = dropped.toMutableList().apply { set(index, item) }
     }
+
     fun restoreToSlot(item: LetterItem, index: Int) {
-        dropped = dropped.toMutableList().apply {
-            set(index, item)
-        }
+        dropped = dropped.toMutableList().apply { set(index, item) }
     }
+
     fun returnToPool(item: LetterItem, index: Int) {
-
-        // remove from slot
-        dropped = dropped.toMutableList().apply {
-            set(index, null)
-
-        }
-
-        // add back to pool
-        if (!letters.contains(item)) {
-            letters = letters + item
-        }
+        dropped = dropped.toMutableList().apply { set(index, null) }
+        if (!letters.contains(item)) { letters = letters + item }
     }
+
     fun fallbackReturn(item: LetterItem) {
-        if (!letters.contains(item)) {
-            letters = letters + item
-        }
+        if (!letters.contains(item)) { letters = letters + item }
     }
 
-    // -------------------------
-    // VALIDATE
-    // -------------------------
     fun validate() {
-
         val word = dropped.mapNotNull { it?.letter }.joinToString("")
-
         if (!dropped.contains(null)) {
-
             if (word == targetWord) {
                 AudioPlayerManager.playSoundCorrectAnswer()
-
-                val randomTitle = feedbackTitles.random()
-                val randomSub = feedbackMissingLetter.random()
-
                 uiState = uiState.copy(
                     showSuccess = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
+                    feedbackTextRes = feedbackTitles.random(),
+                    feedbackSubTextRes = feedbackMissingLetter.random(),
                     showError = false,
                     countdownValue = 3
                 )
                 viewModelScope.launch {
-                    delay(1000)
-                    uiState = uiState.copy(countdownValue = 2)
-                    delay(1000)
-                    uiState = uiState.copy(countdownValue = 1)
-                    delay(1000)
-                    loadNextWord()
+                    delay(1000); uiState = uiState.copy(countdownValue = 2)
+                    delay(1000); uiState = uiState.copy(countdownValue = 1)
+                    delay(1000); loadNextWord()
                 }
-
             } else {
-                // ❌ WRONG ANSWER
                 AudioPlayerManager.playSoundWrongAnswer()
-                val randomTitle = feedbackWrong.random()
-                val randomSub = feedbackMissingLetterSubTitleForWrong.random()
                 uiState = uiState.copy(
                     showError = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
+                    feedbackTextRes = feedbackWrong.random(),
+                    feedbackSubTextRes = feedbackMissingLetterSubTitleForWrong.random()
                 )
             }
-        }else{
+        } else {
             AudioPlayerManager.playSoundDragItem()
         }
     }
 
-    fun closePopup() {
-        uiState = uiState.copy(showSuccess = false)
-    }
-
-    fun removeError() {
-        uiState = uiState.copy(showError = false)
-    }
+    fun closePopup() { uiState = uiState.copy(showSuccess = false) }
+    fun removeError() { uiState = uiState.copy(showError = false) }
 }

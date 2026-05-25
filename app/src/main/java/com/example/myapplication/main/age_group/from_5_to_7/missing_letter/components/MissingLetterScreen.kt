@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.missing_letter.components
+package com.example.myapplication.main.age_group.from_5_to_7.missing_letter.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.example.myapplication.R
-import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.MissingLetterViewModel35
+import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model.MissingLetterViewModel57
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.getImageResFromWord
@@ -29,7 +29,7 @@ import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun MissingLetterScreen(
-    viewModel: MissingLetterViewModel35,
+    viewModel: MissingLetterViewModel57,
     modifier: Modifier = Modifier
 ) {
     Box(modifier = modifier.fillMaxSize()) {

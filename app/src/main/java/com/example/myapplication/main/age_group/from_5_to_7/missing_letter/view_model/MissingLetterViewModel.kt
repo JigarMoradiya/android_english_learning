@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model
+package com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -23,13 +23,12 @@ import kotlin.math.min
 import kotlin.random.Random
 
 @HiltViewModel
-class MissingLetterViewModel35 @Inject constructor() : ViewModel() {
-
+class MissingLetterViewModel57 @Inject constructor() : ViewModel() {
 
     private val allWordsEasy = LetterRepository.missingLetterEasyWords + LetterRepository.missingLetterEasyWords4Basic
     private val allWordsMedium = LetterRepository.missingLetterMediumWords + LetterRepository.missingLetterEasyWords4Basic
 
-    var uiState by mutableStateOf(MissingLetterUiState35())
+    var uiState by mutableStateOf(MissingLetterUiState57())
         private set
 
     var targetWord by mutableStateOf("")
@@ -44,58 +43,41 @@ class MissingLetterViewModel35 @Inject constructor() : ViewModel() {
     var fixedIndices by mutableStateOf<Set<Int>>(emptySet())
         private set
 
-    // ✅ DRAG STATE (FINAL)
     var dragging by mutableStateOf<LetterItem?>(null)
     var dragPosition by mutableStateOf<Offset?>(null)
 
-    // ✅ SLOT RECTS
     var slotRects by mutableStateOf<Map<Int, Rect>>(emptyMap())
         private set
 
     var dragFromIndex by mutableStateOf<Int?>(null)
     private val _difficulty = MutableStateFlow(DifficultyLevel.EASY)
     val difficulty = _difficulty.asStateFlow()
+
     fun setDifficulty(level: DifficultyLevel) {
         _difficulty.value = level
         loadData()
     }
 
-
     private fun loadData() {
-        val list = if (difficulty.value == DifficultyLevel.EASY){
-            allWordsEasy
-        }else{
-            allWordsMedium
-        }
+        val list = if (difficulty.value == DifficultyLevel.EASY) allWordsEasy else allWordsMedium
         val first = list.randomOrNull() ?: "CAT"
         setupWord(first)
     }
 
-    fun loadNextWord() {
-        loadData()
-    }
+    fun loadNextWord() { loadData() }
 
     fun updateSlotRect(index: Int, rect: Rect) {
         slotRects = slotRects + (index to rect)
     }
 
-
-    // -------------------------
-    // WORD SETUP
-    // -------------------------
     fun setupWord(word: String) {
-
         val upper = word.uppercase().replace("-", "")
         targetWord = upper
-
         val length = upper.length
 
-        // ----------------------------
-        // 1. DECIDE HOW MANY BLANKS
-        // ----------------------------
-        val blankCount = if (difficulty.value == DifficultyLevel.EASY){
+        val blankCount = if (difficulty.value == DifficultyLevel.EASY) {
             1
-        }else{
+        } else {
             when (length) {
                 4 -> if (Random.nextBoolean()) 1 else 2
                 5 -> 2
@@ -105,16 +87,10 @@ class MissingLetterViewModel35 @Inject constructor() : ViewModel() {
         }
 
         val blanks = mutableSetOf<Int>()
-        while (blanks.size < blankCount) {
-            blanks.add(Random.nextInt(length))
-        }
+        while (blanks.size < blankCount) { blanks.add(Random.nextInt(length)) }
 
-        // ----------------------------
-        // 2. BUILD DROPPED + FIXED
-        // ----------------------------
         val tempDropped = MutableList<LetterItem?>(length) { null }
         val tempFixed = mutableSetOf<Int>()
-
         upper.forEachIndexed { i, ch ->
             if (blanks.contains(i)) {
                 tempDropped[i] = null
@@ -123,167 +99,83 @@ class MissingLetterViewModel35 @Inject constructor() : ViewModel() {
                 tempFixed.add(i)
             }
         }
-
         dropped = tempDropped
         fixedIndices = tempFixed
 
-        // ----------------------------
-        // 3. BUILD LETTER POOL
-        // ----------------------------
-
         val pool = mutableListOf<LetterItem>()
+        blanks.map { upper[it].toString() }.forEach { pool.add(LetterItem(it)) }
 
-        // ⭐ ADD EXACT MISSING LETTERS (INCLUDING DUPLICATES)
-        val missingLetters = blanks.map { upper[it].toString() }
-
-        missingLetters.forEach {
-            pool.add(LetterItem(it))
-        }
-
-        // ⭐ ADD RANDOM UNIQUE LETTERS
-        val extraLetter = when (blankCount) {
-            1 -> {
-                3
-            }
-            2 -> {
-                4
-            }
-            else -> {
-                5
-            }
-        }
+        val extraLetter = when (blankCount) { 1 -> 3; 2 -> 4; else -> 5 }
         while (pool.size < extraLetter) {
-
             val r = ('A'..'Z').random().toString()
-
-            if (
-                !upper.contains(r) && // not part of word
-                pool.none { it.letter == r } // no duplicate random
-            ) {
-                pool.add(LetterItem(r))
-            }
+            if (!upper.contains(r) && pool.none { it.letter == r }) { pool.add(LetterItem(r)) }
         }
 
         letters = pool.shuffled()
-
-        // ----------------------------
-        // 4. RESET STATE
-        // ----------------------------
         clearDrag()
-
-        uiState = uiState.copy(
-            showError = false,
-            showSuccess = false
-        )
+        uiState = uiState.copy(showError = false, showSuccess = false)
     }
 
-    fun clearDrag() {
-        dragging = null
-        dragPosition = null
-        dragFromIndex = null
+    fun clearDrag() { dragging = null; dragPosition = null; dragFromIndex = null }
+    fun clearSlot(index: Int) { dropped = dropped.toMutableList().apply { set(index, null) } }
 
-    }
-    fun clearSlot(index: Int) {
-        dropped = dropped.toMutableList().apply {
-            set(index, null)
-        }
-    }
-    // -------------------------
-    // PLACE
-    // -------------------------
     fun place(item: LetterItem, index: Int) {
-
         if (fixedIndices.contains(index)) return
-
         letters = letters.toMutableList().apply { remove(item) }
-
-        dropped = dropped.toMutableList().apply {
-            set(index, item)
-        }
+        dropped = dropped.toMutableList().apply { set(index, item) }
     }
+
     fun restoreToSlot(item: LetterItem, index: Int) {
-        dropped = dropped.toMutableList().apply {
-            set(index, item)
-        }
+        dropped = dropped.toMutableList().apply { set(index, item) }
     }
+
     fun returnToPool(item: LetterItem, index: Int) {
-
-        // remove from slot
-        dropped = dropped.toMutableList().apply {
-            set(index, null)
-        }
-
-        // add back to pool
-        if (!letters.contains(item)) {
-            letters = letters + item
-        }
+        dropped = dropped.toMutableList().apply { set(index, null) }
+        if (!letters.contains(item)) { letters = letters + item }
     }
+
     fun fallbackReturn(item: LetterItem) {
-        if (!letters.contains(item)) {
-            letters = letters + item
-        }
+        if (!letters.contains(item)) { letters = letters + item }
     }
 
-    // -------------------------
-    // VALIDATE
-    // -------------------------
     fun validate() {
-
         val word = dropped.mapNotNull { it?.letter }.joinToString("")
-
         if (!dropped.contains(null)) {
-
             if (word == targetWord) {
                 AudioPlayerManager.playSoundCorrectAnswer()
-                val randomTitle = feedbackTitles.random()
-                val randomSub = feedbackMissingLetter.random()
                 uiState = uiState.copy(
                     showSuccess = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
+                    feedbackTextRes = feedbackTitles.random(),
+                    feedbackSubTextRes = feedbackMissingLetter.random(),
                     showError = false,
                     countdownValue = 3
                 )
                 viewModelScope.launch {
-                    delay(1000)
-                    uiState = uiState.copy(countdownValue = 2)
-                    delay(1000)
-                    uiState = uiState.copy(countdownValue = 1)
-                    delay(1000)
-                    loadNextWord()
+                    delay(1000); uiState = uiState.copy(countdownValue = 2)
+                    delay(1000); uiState = uiState.copy(countdownValue = 1)
+                    delay(1000); loadNextWord()
                 }
-
             } else {
-                // ❌ WRONG ANSWER — find only the incorrectly placed slots
                 val badSlots = mutableSetOf<Int>()
                 targetWord.forEachIndexed { i, ch ->
                     if (!fixedIndices.contains(i)) {
                         val placed = dropped.getOrNull(i)
-                        if (placed != null && placed.letter != ch.toString()) {
-                            badSlots.add(i)
-                        }
+                        if (placed != null && placed.letter != ch.toString()) { badSlots.add(i) }
                     }
                 }
                 AudioPlayerManager.playSoundWrongAnswer()
-                val randomTitle = feedbackWrong.random()
-                val randomSub = feedbackMissingLetterSubTitleForWrong.random()
                 uiState = uiState.copy(
                     showError = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
-                    wrongSlots = badSlots,
+                    feedbackTextRes = feedbackWrong.random(),
+                    feedbackSubTextRes = feedbackMissingLetterSubTitleForWrong.random(),
+                    wrongSlots = badSlots
                 )
             }
-        }else{
+        } else {
             AudioPlayerManager.playSoundDragItem()
         }
     }
 
-    fun closePopup() {
-        uiState = uiState.copy(showSuccess = false)
-    }
-
-    fun removeError() {
-        uiState = uiState.copy(showError = false, wrongSlots = emptySet())
-    }
+    fun closePopup() { uiState = uiState.copy(showSuccess = false) }
+    fun removeError() { uiState = uiState.copy(showError = false, wrongSlots = emptySet()) }
 }

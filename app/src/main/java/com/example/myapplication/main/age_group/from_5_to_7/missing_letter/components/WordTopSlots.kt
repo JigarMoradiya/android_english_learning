@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.from_3_to_5.missing_letter.components
+package com.example.myapplication.main.age_group.from_5_to_7.missing_letter.components
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
@@ -33,7 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
-import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.MissingLetterViewModel35
+import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model.MissingLetterViewModel57
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSizeTop
@@ -43,7 +43,7 @@ import com.example.myapplication.utils.AudioPlayerManager
 
 
 @Composable
-fun WordTopSlots(viewModel: MissingLetterViewModel35) {
+fun WordTopSlots(viewModel: MissingLetterViewModel57) {
 
     val dropped = viewModel.dropped
     val fixed = viewModel.fixedIndices

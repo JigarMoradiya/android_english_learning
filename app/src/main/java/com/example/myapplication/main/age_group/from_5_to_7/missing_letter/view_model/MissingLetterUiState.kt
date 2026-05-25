@@ -1,10 +1,9 @@
-package com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model
+package com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model
 
 import com.example.myapplication.R
 import java.util.UUID
 
-
-data class MissingLetterUiState35(
+data class MissingLetterUiState57(
     val showSuccess: Boolean = false,
     val feedbackTextRes: Int = R.string.feedbackPhrases_1,
     val feedbackSubTextRes: Int = R.string.feedbackMissingLetter_1,
