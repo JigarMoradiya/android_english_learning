@@ -137,6 +137,9 @@ class MatchLettersViewModel @Inject constructor(
 
     private fun recordSession(score: Int) {
         val duration = ((System.currentTimeMillis() - batchStartMs) / 1000).toInt()
+        val correctItems = uiState.currentBatch
+            .filter { it !in wrongAttemptsInBatch }
+            .map { it.toString() }
         sessionRepository.record(
             LearningSession(
                 moduleId = ModuleID.MATCH_UPPER_LOWER,
@@ -144,7 +147,8 @@ class MatchLettersViewModel @Inject constructor(
                 durationSeconds = duration,
                 score = score,
                 totalQuestions = batchSize,
-                wrongItems = wrongAttemptsInBatch.map { it.toString() }
+                wrongItems = wrongAttemptsInBatch.map { it.toString() },
+                correctItems = correctItems
             )
         )
 

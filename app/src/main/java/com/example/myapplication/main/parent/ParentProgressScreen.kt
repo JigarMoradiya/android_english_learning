@@ -358,6 +358,9 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
                 vm.moduleRows.forEach { row ->
                     ModuleRowItem(row = row, navController = navController)
                 }
+                if (vm.masteredLetterRows.isNotEmpty() || vm.masteredSequenceRows.isNotEmpty()) {
+                    MasteredCard(vm.masteredLetterRows, vm.masteredSequenceRows)
+                }
                 if (vm.weakLetterRows.isNotEmpty() || vm.weakArrangeRows.isNotEmpty()) {
                     WeakLettersCard(vm.weakLetterRows, vm.weakArrangeRows)
                 }
@@ -636,7 +639,6 @@ private fun WeakArrangeRow(subLabel: String, sequences: List<String>) {
 private fun WrongSequenceBox(sequence: String) {
     val correct = sequence.toList().sorted()
     Row(
-        horizontalArrangement = Arrangement.spacedBy(Dimens2),
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .background(Color(0xFFEEE8FF), RoundedCornerShape(Dimens8))
@@ -651,6 +653,140 @@ private fun WrongSequenceBox(sequence: String) {
                 fontWeight = FontWeight.Black,
                 color = if (isWrong) Color.Red else Color(0xFF5532D2)
             )
+        }
+    }
+}
+
+// ── Mastered card ─────────────────────────────────────────────────────────────
+
+@Composable
+private fun MasteredCard(rows: List<WeakLetterEntry>, arrangeRows: List<WeakArrangeEntry> = emptyList()) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(Dimens4, RoundedCornerShape(Dimens12))
+            .background(Color(0xFFE8F5E9), RoundedCornerShape(Dimens12))
+            .padding(Dimens12),
+        verticalArrangement = Arrangement.spacedBy(Dimens8)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(Dimens6)
+        ) {
+            Text(
+                "⭐",
+                style = MaterialTheme.typography.bodyMedium.scaled()
+            )
+            Text(
+                "What Kids Learned",
+                style = MaterialTheme.typography.bodyMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF2E7D32)
+            )
+        }
+        rows.forEach { entry ->
+            MasteredLetterRow(entry.label, entry.subLabel, entry.letters)
+        }
+        arrangeRows.forEach { entry ->
+            MasteredSequenceRow(entry.subLabel, entry.sequences)
+        }
+    }
+}
+
+@Composable
+private fun MasteredLetterRow(label: String, subLabel: String? = null, letters: List<Char>) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Dimens8)
+    ) {
+        Column {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+                modifier = Modifier
+                    .background(Color(0xFF2E7D32), RoundedCornerShape(50))
+                    .padding(horizontal = Dimens8, vertical = Dimens4)
+            )
+            if (subLabel != null) {
+                Text(
+                    text = subLabel,
+                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
+                    color = Color.Gray,
+                    modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
+                )
+            }
+        }
+        Row(
+            modifier = Modifier.horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.spacedBy(Dimens8)
+        ) {
+            letters.forEach { letter ->
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .width(Dimens28 + Dimens8)
+                        .height(Dimens30)
+                        .background(Color(0xFFA5D6A7), RoundedCornerShape(Dimens8))
+                ) {
+                    Text(
+                        text = letter.toString(),
+                        style = MaterialTheme.typography.titleMedium.scaled(),
+                        fontWeight = FontWeight.Black,
+                        color = Color(0xFF2E7D32)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MasteredSequenceRow(subLabel: String, sequences: List<String>) {
+    Row(
+        verticalAlignment = Alignment.Top,
+        horizontalArrangement = Arrangement.spacedBy(Dimens8)
+    ) {
+        Column {
+            Text(
+                text = "Arrange Sequence",
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+                modifier = Modifier
+                    .background(Color(0xFF2E7D32), RoundedCornerShape(50))
+                    .padding(horizontal = Dimens8, vertical = Dimens4)
+            )
+            Text(
+                text = subLabel,
+                style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
+                color = Color.Gray,
+                modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
+            )
+        }
+        Row(
+            modifier = Modifier.horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.spacedBy(Dimens6)
+        ) {
+            sequences.forEach { sequence ->
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .background(Color(0xFFA5D6A7), RoundedCornerShape(Dimens8))
+                        .height(Dimens30)
+                        .padding(horizontal = Dimens8)
+                ) {
+                    sequence.forEach { letter ->
+                        Text(
+                            text = letter.toString(),
+                            style = MaterialTheme.typography.titleMedium.scaled(),
+                            fontWeight = FontWeight.Black,
+                            color = Color(0xFF2E7D32)
+                        )
+                    }
+                }
+            }
         }
     }
 }

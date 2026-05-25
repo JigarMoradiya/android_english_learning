@@ -33,6 +33,7 @@ class FillBlankLettersViewModel @Inject constructor(
     private var countdownJob: Job? = null
     private var blankPosition: BlankPosition = BlankPosition.FIRST
     private val wrongAttemptsInBatch = mutableSetOf<String>()
+    private val correctAttemptsInBatch = mutableSetOf<String>()
     private var batchStartMs: Long = System.currentTimeMillis()
 
     init {
@@ -151,6 +152,7 @@ class FillBlankLettersViewModel @Inject constructor(
 
             if (formed == correct) {
                 AudioPlayerManager.playSoundCorrectAnswer()
+                correctAttemptsInBatch.addAll(uiState.correctLetters)
                 uiState = uiState.copy(
                     showNext = true,
                     isAnswerCorrect = true,
@@ -200,6 +202,7 @@ class FillBlankLettersViewModel @Inject constructor(
                     score = uiState.correctCount,
                     totalQuestions = uiState.totalRounds,
                     wrongItems = wrongAttemptsInBatch.toList(),
+                    correctItems = correctAttemptsInBatch.toList(),
                     subConfig = "${blankPosition.subConfigName}|${uiState.mode.name}"
                 )
             )
@@ -212,6 +215,7 @@ class FillBlankLettersViewModel @Inject constructor(
 
     fun restartGame() {
         wrongAttemptsInBatch.clear()
+        correctAttemptsInBatch.clear()
         batchStartMs = System.currentTimeMillis()
         uiState = uiState.copy(round = 1, correctCount = 0, showResult = false)
         generateGame()

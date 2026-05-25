@@ -191,6 +191,9 @@ class MatchLetterWithImageViewModel @Inject constructor(
 
     private fun recordSession(score: Int) {
         val duration = ((System.currentTimeMillis() - batchStartMs) / 1000).toInt()
+        val correctItems = uiState.batchLetters
+            .map { it.first }
+            .filter { it !in wrongAttemptsInBatch }
         sessionRepository.record(
             LearningSession(
                 moduleId = ModuleID.MATCH_LETTER_WITH_IMAGE,
@@ -198,7 +201,8 @@ class MatchLetterWithImageViewModel @Inject constructor(
                 durationSeconds = duration,
                 score = score,
                 totalQuestions = batchSize,
-                wrongItems = wrongAttemptsInBatch.toList()
+                wrongItems = wrongAttemptsInBatch.toList(),
+                correctItems = correctItems
             )
         )
 

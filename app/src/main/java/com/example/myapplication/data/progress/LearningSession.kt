@@ -8,6 +8,7 @@ data class LearningSession(
     val totalQuestions: Int,
     val timestampMs: Long = System.currentTimeMillis(),
     val wrongItems: List<String>? = null,
+    val correctItems: List<String>? = null,
     val subConfig: String? = null
 ) {
     val accuracy: Double

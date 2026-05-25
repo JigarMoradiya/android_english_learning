@@ -69,6 +69,10 @@ class ParentProgressViewModel @Inject constructor(
         private set
     var weakArrangeRows by mutableStateOf(emptyList<WeakArrangeEntry>())
         private set
+    var masteredLetterRows by mutableStateOf(emptyList<WeakLetterEntry>())
+        private set
+    var masteredSequenceRows by mutableStateOf(emptyList<WeakArrangeEntry>())
+        private set
 
     val canGoBack: Boolean
         get() {
@@ -149,6 +153,8 @@ class ParentProgressViewModel @Inject constructor(
         buildModuleRows(sessions)
         loadWeakLetters(sessions)
         loadWeakArrange(sessions)
+        loadMasteredLetters(sessions)
+        loadMasteredSequences(sessions)
     }
 
     // MARK: - Helpers
@@ -282,7 +288,8 @@ class ParentProgressViewModel @Inject constructor(
                 val totalQs    = quizSessions.sumOf { it.totalQuestions }
                 val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
                 val stars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0
-                val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
+                val scoreModules = setOf(ModuleID.MISSING_LETTER, ModuleID.DRAG_DROP_LETTERS, ModuleID.MISSING_LETTER_57, ModuleID.WORD_JIGSAW)
+                val scoreStr = if (moduleId in scoreModules && totalQs > 0) "$totalScore/$totalQs" else null
                 rowsWithTime.add(ModuleProgressRow(
                     moduleId = moduleId,
                     displayName = info.first,
@@ -316,6 +323,48 @@ class ParentProgressViewModel @Inject constructor(
         return "$posLabel · $modeLabel"
     }
 
+    private fun loadMasteredLetters(sessions: List<LearningSession>) {
+        data class Entry(val label: String, val subLabel: String?, val letters: List<Char>, val latestMs: Long)
+        val entries = mutableListOf<Entry>()
+
+        fun addIfNeeded(moduleId: String, label: String) {
+            val matching = sessions.filter { it.moduleId == moduleId }
+            val chars = matching.flatMap { it.correctItems.orEmpty() }
+                .mapNotNull { it.firstOrNull() }.distinct().sorted()
+            if (chars.isEmpty()) return
+            entries.add(Entry(label, null, chars, matching.maxOf { it.timestampMs }))
+        }
+
+        addIfNeeded(ModuleID.MATCH_UPPER_LOWER,       "Match Letters")
+        addIfNeeded(ModuleID.MATCH_LETTER_WITH_IMAGE, "Match with Image")
+
+        val fbSessions = sessions.filter { it.moduleId == ModuleID.FILL_THE_BLANK_LETTER }
+        fbSessions.groupBy { it.subConfig ?: "?" }.forEach { (config, cfgSessions) ->
+            val chars = cfgSessions.flatMap { it.correctItems.orEmpty() }
+                .mapNotNull { it.firstOrNull() }.distinct().sorted()
+            if (chars.isEmpty()) return@forEach
+            entries.add(Entry("Fill the Blank", fillBlankSubLabel(config), chars, cfgSessions.maxOf { it.timestampMs }))
+        }
+
+        masteredLetterRows = entries.sortedByDescending { it.latestMs }
+            .map { WeakLetterEntry(it.label, it.subLabel, it.letters) }
+    }
+
+    private fun loadMasteredSequences(sessions: List<LearningSession>) {
+        masteredSequenceRows = sessions
+            .filter { it.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE }
+            .groupBy { it.subConfig ?: "UPPERCASE" }
+            .mapNotNull { (config, cfgSessions) ->
+                val sequences = cfgSessions.flatMap { it.correctItems.orEmpty() }
+                    .filter { it.isNotEmpty() }.distinct().sorted()
+                if (sequences.isEmpty()) null
+                else WeakArrangeEntry(
+                    subLabel = if (config == "UPPERCASE") "ABC" else "abc",
+                    sequences = sequences
+                )
+            }
+    }
+
     private fun loadWeakLetters(sessions: List<LearningSession>) {
         data class Entry(val label: String, val subLabel: String?, val letters: List<Char>, val latestMs: Long)
         val entries = mutableListOf<Entry>()
@@ -328,8 +377,8 @@ class ParentProgressViewModel @Inject constructor(
             entries.add(Entry(label, null, chars, matching.maxOf { it.timestampMs }))
         }
 
-        addIfNeeded(ModuleID.MATCH_UPPER_LOWER,       "Letter Matching")
-        addIfNeeded(ModuleID.MATCH_LETTER_WITH_IMAGE, "Letter + Image")
+        addIfNeeded(ModuleID.MATCH_UPPER_LOWER,       "Match Letters")
+        addIfNeeded(ModuleID.MATCH_LETTER_WITH_IMAGE, "Match with Image")
 
         val fbSessions = sessions.filter { it.moduleId == ModuleID.FILL_THE_BLANK_LETTER }
         fbSessions.groupBy { it.subConfig ?: "?" }.forEach { (config, cfgSessions) ->
@@ -374,11 +423,11 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.ABCD_WITH_IMAGES        to ("ABCD with Images"     to "3–5"),
             ModuleID.COLORING_ALPHABETS      to ("Coloring Alphabets"   to "3–5"),
             ModuleID.LETTER_RECOGNITION      to ("Letter Recognition"   to "3–5"),
-            ModuleID.MATCH_UPPER_LOWER       to ("Match Upper & Lower"  to "3–5"),
-            ModuleID.MATCH_LETTER_WITH_IMAGE to ("Match Letter & Image" to "3–5"),
+            ModuleID.MATCH_UPPER_LOWER       to ("Match Letters"        to "3–5"),
+            ModuleID.MATCH_LETTER_WITH_IMAGE to ("Match with Image"     to "3–5"),
             ModuleID.FILL_THE_BLANK_LETTER   to ("Fill the Blank"       to "3–5"),
-            ModuleID.ARRANGE_LETTER_SEQUENCE to ("Arrange Sequence"     to "3–5"),
-            ModuleID.DRAG_DROP_LETTERS       to ("Drag & Drop Letters"  to "3–5"),
+            ModuleID.ARRANGE_LETTER_SEQUENCE to ("Arrange in Sequence"  to "3–5"),
+            ModuleID.DRAG_DROP_LETTERS       to ("Drag & Drop Word"     to "3–5"),
             ModuleID.SIGHT_WORDS             to ("Sight Words"          to "5–7"),
             ModuleID.ARTICLES_A_AN           to ("Articles A / An"      to "5–7"),
             ModuleID.OPPOSITES_WORD          to ("Opposite Words"       to "5–7"),

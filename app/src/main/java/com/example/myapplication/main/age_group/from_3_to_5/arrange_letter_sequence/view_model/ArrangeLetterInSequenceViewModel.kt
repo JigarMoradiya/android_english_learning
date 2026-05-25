@@ -31,6 +31,7 @@ class ArrangeLetterInSequenceViewModel @Inject constructor(
 
     private var countdownJob: Job? = null
     private val wrongAttemptsInBatch = mutableSetOf<String>()
+    private val correctSequencesInBatch = mutableSetOf<String>()
     private var batchStartMs: Long = System.currentTimeMillis()
     private var currentRoundHadWrong = false
 
@@ -103,6 +104,7 @@ class ArrangeLetterInSequenceViewModel @Inject constructor(
 
         if (formed == correct) {
             AudioPlayerManager.playSoundClap()
+            if (!currentRoundHadWrong) correctSequencesInBatch.add(correct)
             uiState = uiState.copy(
                 showSuccess = true,
                 showError = false,
@@ -151,6 +153,7 @@ class ArrangeLetterInSequenceViewModel @Inject constructor(
                     score = uiState.correctCount,
                     totalQuestions = uiState.totalRounds,
                     wrongItems = wrongAttemptsInBatch.toList(),
+                    correctItems = correctSequencesInBatch.toList(),
                     subConfig = uiState.mode.name
                 )
             )
@@ -163,6 +166,7 @@ class ArrangeLetterInSequenceViewModel @Inject constructor(
 
     fun restartGame() {
         wrongAttemptsInBatch.clear()
+        correctSequencesInBatch.clear()
         currentRoundHadWrong = false
         batchStartMs = System.currentTimeMillis()
         uiState = uiState.copy(round = 1, correctCount = 0, showResult = false)
