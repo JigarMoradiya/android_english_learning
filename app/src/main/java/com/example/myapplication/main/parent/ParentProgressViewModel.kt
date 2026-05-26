@@ -341,6 +341,7 @@ class ParentProgressViewModel @Inject constructor(
         addIfNeeded(ModuleID.ABCD_WITH_IMAGES,        "ABCD with Images")
         addIfNeeded(ModuleID.COLORING_ALPHABETS,      "Coloring Alphabets")
         addIfNeeded(ModuleID.LETTER_RECOGNITION,      "Letter Recognition")
+        addIfNeeded(ModuleID.LETTER_PHONICS,          "Letter Phonics")
 
         sessions.filter { it.moduleId == ModuleID.ALPHABET_TRACING }
             .groupBy { it.subConfig ?: "UPPERCASE" }
@@ -501,6 +502,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.ABCD_WITH_IMAGES        to ("ABCD with Images"     to "3–5"),
             ModuleID.COLORING_ALPHABETS      to ("Coloring Alphabets"   to "3–5"),
             ModuleID.LETTER_RECOGNITION      to ("Letter Recognition"   to "3–5"),
+            ModuleID.LETTER_PHONICS          to ("Letter Phonics Sound" to "3–5"),
             ModuleID.MATCH_UPPER_LOWER       to ("Match Letters"        to "3–5"),
             ModuleID.MATCH_LETTER_WITH_IMAGE to ("Match with Image"     to "3–5"),
             ModuleID.FILL_THE_BLANK_LETTER   to ("Fill the Blank"       to "3–5"),
@@ -522,6 +524,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.MATCH_LETTER_WITH_IMAGE to RouteNavigation.MatchLetterWithImage.route,
             ModuleID.ALPHABET_TRACING        to RouteNavigation.AlphabetTracing.route,
             ModuleID.LETTER_RECOGNITION      to RouteNavigation.LetterRecognition.route,
+            ModuleID.LETTER_PHONICS          to RouteNavigation.LetterPhonicsSoundRoute.route,
             ModuleID.COLORING_ALPHABETS      to RouteNavigation.ColoringAlphabets.route,
             ModuleID.ABCD_WITH_IMAGES        to RouteNavigation.ABCDWithImages.route,
             ModuleID.FILL_THE_BLANK_LETTER   to RouteNavigation.FillTheBlankLetters.route,
