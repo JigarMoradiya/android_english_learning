@@ -338,6 +338,19 @@ class ParentProgressViewModel @Inject constructor(
 
         addIfNeeded(ModuleID.MATCH_UPPER_LOWER,       "Match Letters")
         addIfNeeded(ModuleID.MATCH_LETTER_WITH_IMAGE, "Match with Image")
+        addIfNeeded(ModuleID.ABCD_WITH_IMAGES,        "ABCD with Images")
+        addIfNeeded(ModuleID.COLORING_ALPHABETS,      "Coloring Alphabets")
+        addIfNeeded(ModuleID.LETTER_RECOGNITION,      "Letter Recognition")
+
+        sessions.filter { it.moduleId == ModuleID.ALPHABET_TRACING }
+            .groupBy { it.subConfig ?: "UPPERCASE" }
+            .forEach { (config, cfgSessions) ->
+                val chars = cfgSessions.flatMap { it.correctItems.orEmpty() }
+                    .mapNotNull { it.firstOrNull() }.distinct().sorted()
+                if (chars.isEmpty()) return@forEach
+                val subLabel = if (config == "UPPERCASE") "ABC" else "abc"
+                entries.add(Entry("Alphabet Tracing", subLabel, chars, cfgSessions.maxOf { it.timestampMs }))
+            }
 
         val fbSessions = sessions.filter { it.moduleId == ModuleID.FILL_THE_BLANK_LETTER }
         fbSessions.groupBy { it.subConfig ?: "?" }.forEach { (config, cfgSessions) ->

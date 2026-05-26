@@ -5,6 +5,7 @@ object ModuleID {
     // ── Age 3–5: Little Explorers ─────────────────────────────────────
     const val ABCD_WITH_IMAGES          = "abcd_with_images"
     const val LETTER_RECOGNITION        = "letter_recognition"
+    const val LETTER_PHONICS        = "letter_phonics"
     const val ALPHABET_TRACING          = "alphabet_tracing"
     const val ALPHABET_TRACING_NZ       = "alphabet_tracing_nz"  // letters N–Z, login-gated
     const val COLORING_ALPHABETS        = "coloring_alphabets"
@@ -16,6 +17,7 @@ object ModuleID {
     const val DRAG_DROP_LETTERS         = "drag_drop_letters"
 
     // ── Age 5–7: Word Adventure ───────────────────────────────────────
+    const val PHONICS_READING        = "phonics_reading"
     const val VOCABULARY_ANIMALS        = "vocabulary_animals"
     const val VOCABULARY_FRUITS         = "vocabulary_fruits"
     const val VOCABULARY_BIRDS          = "vocabulary_birds"

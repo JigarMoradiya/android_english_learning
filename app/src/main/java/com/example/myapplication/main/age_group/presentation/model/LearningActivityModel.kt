@@ -28,9 +28,8 @@ val activities_age_3_5 = listOf(
     LearningActivityModel(R.string.coloring_alphabet,         R.drawable.age_3_5_coloring_alphabets_icon,         RouteNavigation.ColoringAlphabets.route,        Color(0xFFFF3872), moduleId = ModuleID.COLORING_ALPHABETS),
     LearningActivityModel(R.string.missing_letter,            R.drawable.age_3_5_missing_letter_icon,             RouteNavigation.MissingLetterEasy.route,        Color(0xFF943256), moduleId = ModuleID.MISSING_LETTER),
     LearningActivityModel(R.string.match_letters,             R.drawable.age_3_5_match_letters_icon,              RouteNavigation.MatchLetters.route,             Color(0xFF7A4481), moduleId = ModuleID.MATCH_UPPER_LOWER),
-    LearningActivityModel(R.string.drag_drop_words,           R.drawable.age_3_5_drag_drop_word_icon,             RouteNavigation.DragDropWord.route,             Color(0xFF0567BD), moduleId = ModuleID.DRAG_DROP_LETTERS),
-//    LearningActivityModel(R.string.menu_letter_phonics_sound,        R.drawable.age_3_5_letter_recognition_icon,         RouteNavigation.LetterPhonicsSoundRoute.route,        Color(0xFF3674B5), moduleId = ModuleID.LETTER_RECOGNITION),
-//    LearningActivityModel(R.string.phonics_reading,                  R.drawable.age_3_5_letter_recognition_icon,         RouteNavigation.PhonicsReadingLevels.route,           Color(0xFFFF6F00), moduleId = ""),
+//    LearningActivityModel(R.string.drag_drop_words,           R.drawable.age_3_5_drag_drop_word_icon,             RouteNavigation.DragDropWord.route,             Color(0xFF0567BD), moduleId = ModuleID.DRAG_DROP_LETTERS),
+    LearningActivityModel(R.string.menu_letter_phonics_sound,        R.drawable.age_3_5_letter_phonics_icon,         RouteNavigation.LetterPhonicsSoundRoute.route,        Color(0xFF6F3300), moduleId = ModuleID.LETTER_PHONICS),
 )
 
 val activities_age_5_7 = listOf(
@@ -45,6 +44,7 @@ val activities_age_5_7 = listOf(
     LearningActivityModel(R.string.listen_and_select_answer,R.drawable.age_5_7_listen_and_select,  RouteNavigation.ListenAndSelectWord.route,      Color(0xFFA53860), moduleId = ModuleID.LISTEN_AND_SELECT),
     LearningActivityModel(R.string.sight_word_choice,      R.drawable.age_5_7_sight_word_choice,    RouteNavigation.SightWordChoice.route,          Color(0xFFB45253), moduleId = ModuleID.SIGHT_WORD_CHOICE),
     LearningActivityModel(R.string.missing_letter,          R.drawable.age_5_7_missing_letter,       RouteNavigation.MissingLetterMedium.route,      Color(0xFFF97A00), moduleId = ModuleID.MISSING_LETTER_57),
+    LearningActivityModel(R.string.phonics_reading,                  R.drawable.age_5_7_phonics_reading_icon,         RouteNavigation.PhonicsReadingLevels.route,           Color(0xFF2C2EB9), moduleId = ModuleID.PHONICS_READING),
 //    LearningActivityModel(R.string.missing_letter,          R.drawable.age_5_7_coloring_word,       RouteNavigation.MissingLetterMedium.route,      Color(0xFFE91E63), moduleId = ModuleID.MISSING_LETTER_57),
 
 )

@@ -101,49 +101,48 @@ fun AlphabetTracingPage(
         }
     }
 }
-@Preview(
-    showBackground = true,
-    showSystemUi = true,
-    device = "spec:width=1280dp,height=720dp,dpi=240"
-)
-@Composable
-private fun AlphabetTracingLandscapePreview() {
-    AlphabetTracingPreviewContent()
-}
-
-@Composable
-private fun AlphabetTracingPreviewContent() {
-    val fakeViewModel = remember { AlphabetTracingViewModel().also { it.isPreviewMode = true } }
-    val previewWord = fakeViewModel.lettersData.getOrNull(fakeViewModel.uiState.currentIndex)?.second
-    val previewImageRes = getImageResFromWord(previewWord)
-    MyApplicationTheme {
-        Box(modifier = Modifier.fillMaxSize()) {
-            KidsGradientBackground(gradient = KidsGradient.pinkPeach, shape = KidsFloatingShape.sparkles)
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .windowInsetsPadding(WindowInsets.safeDrawing)
-            ) {
-                AppToolbarDropDownOnRight(
-                    modifier = Modifier.fillMaxWidth(),
-                    title = stringResource(R.string.alphabet_tracing),
-                    currentSelected = fakeViewModel.uiState.mode.title,
-                    modes = LetterMode.entries.map { it.title },
-                    onItemChange = {},
-                    onBackClick = {}
-                )
-                CenterLearningLayout(
-                    modifier = Modifier.weight(1f),
-                    viewModel = fakeViewModel,
-                    imageRes = previewImageRes,
-                    word = previewWord
-                )
-                BottomTracingControls(
-                    onClear = {},
-                    onPrevious = {},
-                    onNext = {}
-                )
-            }
-        }
-    }
-}
+//@Preview(
+//    showBackground = true,
+//    showSystemUi = true,
+//    device = "spec:width=1280dp,height=720dp,dpi=240"
+//)
+//@Composable
+//private fun AlphabetTracingLandscapePreview() {
+//    AlphabetTracingPreviewContent()
+//}
+//@Composable
+//private fun AlphabetTracingPreviewContent() {
+//    val fakeViewModel = remember { AlphabetTracingViewModel().also { it.isPreviewMode = true } }
+//    val previewWord = fakeViewModel.lettersData.getOrNull(fakeViewModel.uiState.currentIndex)?.second
+//    val previewImageRes = getImageResFromWord(previewWord)
+//    MyApplicationTheme {
+//        Box(modifier = Modifier.fillMaxSize()) {
+//            KidsGradientBackground(gradient = KidsGradient.pinkPeach, shape = KidsFloatingShape.sparkles)
+//            Column(
+//                modifier = Modifier
+//                    .fillMaxSize()
+//                    .windowInsetsPadding(WindowInsets.safeDrawing)
+//            ) {
+//                AppToolbarDropDownOnRight(
+//                    modifier = Modifier.fillMaxWidth(),
+//                    title = stringResource(R.string.alphabet_tracing),
+//                    currentSelected = fakeViewModel.uiState.mode.title,
+//                    modes = LetterMode.entries.map { it.title },
+//                    onItemChange = {},
+//                    onBackClick = {}
+//                )
+//                CenterLearningLayout(
+//                    modifier = Modifier.weight(1f),
+//                    viewModel = fakeViewModel,
+//                    imageRes = previewImageRes,
+//                    word = previewWord
+//                )
+//                BottomTracingControls(
+//                    onClear = {},
+//                    onPrevious = {},
+//                    onNext = {}
+//                )
+//            }
+//        }
+//    }
+//}

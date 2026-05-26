@@ -21,7 +21,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.R
 import com.example.myapplication.common.AppToolbarDropDownOnRight
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.letter.LetterRepository
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.helper.distance
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.helper.getStrokesForLetter
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.helper.sampleStroke
@@ -32,13 +36,17 @@ import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.example.myapplication.utils.extensions.OtherEx.safeAction
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 
 @HiltViewModel
-class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
+class AlphabetTracingViewModel @Inject constructor(
+    private val sessionRepository: SessionRepository,
+    private val prefs: AppPreferencesHelper
+) : ViewModel() {
 
     var uiState by mutableStateOf(LetterTracingUiState())
         private set
@@ -56,6 +64,16 @@ class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
 
     private var cachedGuides: List<List<Offset>> = emptyList()
     private var cachedFrame: Rect? = null
+
+    private var completedLettersInSession = mutableSetOf<String>()
+    private var startTimeMs: Long = System.currentTimeMillis()
+
+    init {
+        val savedModeStr = prefs.getCustomParam("alphabetTracing_mode", LetterMode.UPPERCASE.name)
+        val savedMode = runCatching { LetterMode.valueOf(savedModeStr) }.getOrDefault(LetterMode.UPPERCASE)
+        val savedIndex = prefs.getCustomParamInt("alphabetTracing_index_${savedMode.name.lowercase()}", 0).coerceIn(0, letters.lastIndex)
+        uiState = uiState.copy(mode = savedMode, currentIndex = savedIndex)
+    }
 
 
     // -------------------------------
@@ -146,6 +164,11 @@ class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
             isOnStroke = false,
             isWaitingForNextStroke = true
         )
+        if (uiState.strokeIndex >= cachedGuides.size) markCurrentLetterCompleted()
+    }
+
+    private fun markCurrentLetterCompleted() {
+        completedLettersInSession.add(currentLetter.toString())
     }
 
     // -------------------------------
@@ -244,6 +267,8 @@ class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
                 isWaitingForNextStroke = true
             )
 
+            if (nextStrokeIndex >= cachedGuides.size) markCurrentLetterCompleted()
+
         } else {
 
             uiState = uiState.copy(
@@ -258,19 +283,45 @@ class AlphabetTracingViewModel @Inject constructor() : ViewModel() {
     // -------------------------------
     fun next() {
         val nextIndex = (uiState.currentIndex + 1) % letters.size
+        prefs.setCustomParamInt("alphabetTracing_index_${uiState.mode.name.lowercase()}", nextIndex)
         resetForIndex(nextIndex)
     }
 
     fun previous() {
-        val prevIndex =
-            if (uiState.currentIndex == 0) letters.lastIndex
-            else uiState.currentIndex - 1
+        val prevIndex = if (uiState.currentIndex == 0) letters.lastIndex else uiState.currentIndex - 1
+        prefs.setCustomParamInt("alphabetTracing_index_${uiState.mode.name.lowercase()}", prevIndex)
         resetForIndex(prevIndex)
     }
 
     fun changeMode(mode: LetterMode) {
-        uiState = uiState.copy(mode = mode)
+        if (mode == uiState.mode) return
+        recordSession()
+        prefs.setCustomParamInt("alphabetTracing_index_${uiState.mode.name.lowercase()}", uiState.currentIndex)
+        val savedIndex = prefs.getCustomParamInt("alphabetTracing_index_${mode.name.lowercase()}", 0).coerceIn(0, letters.lastIndex)
+        prefs.setCustomParam("alphabetTracing_mode", mode.name)
+        uiState = uiState.copy(mode = mode, currentIndex = savedIndex)
         resetState()
+    }
+
+    private fun recordSession() {
+        if (completedLettersInSession.isEmpty()) return
+        val duration = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+        sessionRepository.record(LearningSession(
+            moduleId = ModuleID.ALPHABET_TRACING,
+            ageGroup = AgeGroup.THREE_TO_FIVE,
+            durationSeconds = duration,
+            score = completedLettersInSession.size,
+            totalQuestions = 0,
+            correctItems = completedLettersInSession.sorted(),
+            subConfig = uiState.mode.name
+        ))
+        completedLettersInSession = mutableSetOf()
+        startTimeMs = System.currentTimeMillis()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        recordSession()
     }
 
     fun clear() {
