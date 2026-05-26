@@ -7,7 +7,11 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.letter.LetterRepository
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.LetterItem
 import com.example.myapplication.utils.AudioPlayerManager
@@ -23,10 +27,18 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DragDropWordViewModel35 @Inject constructor() : ViewModel() {
+class DragDropWordViewModel35 @Inject constructor(
+    private val sessionRepository: SessionRepository
+) : ViewModel() {
 
     private val allWordsEasy = LetterRepository.missingLetterEasyWords + LetterRepository.missingLetterEasyWords4Basic
     private val allWordsMedium = LetterRepository.missingLetterMediumWords + LetterRepository.missingLetterEasyWords4Basic
+
+    private val wrongAttemptsInBatch = mutableSetOf<String>()
+    private val correctAttemptsInBatch = mutableSetOf<String>()
+    private var currentRoundHadWrong = false
+    private var batchStartMs: Long = System.currentTimeMillis()
+    private var batchWords: List<String> = emptyList()
 
     var uiState by mutableStateOf(DragDropWordUiState35())
         private set
@@ -56,21 +68,45 @@ class DragDropWordViewModel35 @Inject constructor() : ViewModel() {
 
     fun setDifficulty(level: DifficultyLevel) {
         _difficulty.value = level
-        loadData()
+        pickBatch()
+        setupWord(batchWords.firstOrNull() ?: "CAT")
     }
 
-    private fun loadData() {
-        val list = if (difficulty.value == DifficultyLevel.EASY){
-            allWordsEasy
-        }else{
-            allWordsMedium
-        }
-        val first = list.randomOrNull() ?: "CAT"
-        setupWord(first)
+    private fun wordsForLevel() = if (difficulty.value == DifficultyLevel.EASY) allWordsEasy else allWordsMedium
+
+    private fun pickBatch() {
+        batchWords = wordsForLevel().shuffled().take(uiState.totalRounds)
     }
 
     fun loadNextWord() {
-        loadData()
+        if (uiState.round >= uiState.totalRounds) {
+            val duration = ((System.currentTimeMillis() - batchStartMs) / 1000).toInt()
+            sessionRepository.record(LearningSession(
+                moduleId = ModuleID.DRAG_DROP_LETTERS,
+                ageGroup = AgeGroup.THREE_TO_FIVE,
+                durationSeconds = duration,
+                score = uiState.correctCount,
+                totalQuestions = uiState.totalRounds,
+                wrongItems = wrongAttemptsInBatch.toList(),
+                correctItems = correctAttemptsInBatch.toList(),
+                subConfig = difficulty.value.name
+            ))
+            uiState = uiState.copy(showResult = true, showSuccess = false)
+        } else {
+            currentRoundHadWrong = false
+            uiState = uiState.copy(round = uiState.round + 1)
+            setupWord(batchWords[uiState.round - 1])
+        }
+    }
+
+    fun restartGame() {
+        wrongAttemptsInBatch.clear()
+        correctAttemptsInBatch.clear()
+        currentRoundHadWrong = false
+        batchStartMs = System.currentTimeMillis()
+        uiState = uiState.copy(round = 1, correctCount = 0, showResult = false)
+        pickBatch()
+        setupWord(batchWords.firstOrNull() ?: "CAT")
     }
 
     fun updateSlotRect(index: Int, rect: Rect) {
@@ -170,17 +206,18 @@ class DragDropWordViewModel35 @Inject constructor() : ViewModel() {
         if (!dropped.contains(null)) {
 
             if (word == targetWord) {
+                if (!currentRoundHadWrong) {
+                    correctAttemptsInBatch.add(targetWord)
+                }
+                val newCorrectCount = if (!currentRoundHadWrong) uiState.correctCount + 1 else uiState.correctCount
                 AudioPlayerManager.playSoundCorrectAnswer()
-
-                val randomTitle = feedbackTitles.random()
-                val randomSub = feedbackMissingLetter.random()
-
                 uiState = uiState.copy(
                     showSuccess = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
+                    feedbackTextRes = feedbackTitles.random(),
+                    feedbackSubTextRes = feedbackMissingLetter.random(),
                     showError = false,
-                    countdownValue = 3
+                    countdownValue = 3,
+                    correctCount = newCorrectCount
                 )
                 viewModelScope.launch {
                     delay(1000)
@@ -190,16 +227,14 @@ class DragDropWordViewModel35 @Inject constructor() : ViewModel() {
                     delay(1000)
                     loadNextWord()
                 }
-
             } else {
-                // ❌ WRONG ANSWER
+                currentRoundHadWrong = true
+                wrongAttemptsInBatch.add(targetWord)
                 AudioPlayerManager.playSoundWrongAnswer()
-                val randomTitle = feedbackWrong.random()
-                val randomSub = feedbackMissingLetterSubTitleForWrong.random()
                 uiState = uiState.copy(
                     showError = true,
-                    feedbackTextRes = randomTitle,
-                    feedbackSubTextRes = randomSub,
+                    feedbackTextRes = feedbackWrong.random(),
+                    feedbackSubTextRes = feedbackMissingLetterSubTitleForWrong.random(),
                 )
             }
         }else{

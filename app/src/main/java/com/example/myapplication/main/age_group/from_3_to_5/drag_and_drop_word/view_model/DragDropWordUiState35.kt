@@ -9,4 +9,8 @@ data class DragDropWordUiState35(
     val feedbackSubTextRes: Int = R.string.feedbackMissingLetter_1,
     val showError: Boolean = false,
     val countdownValue: Int = 3,
+    val round: Int = 1,
+    val totalRounds: Int = 5,
+    val correctCount: Int = 0,
+    val showResult: Boolean = false,
 )

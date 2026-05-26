@@ -382,6 +382,18 @@ class ParentProgressViewModel @Inject constructor(
             result.add(Entry(label = "Missing Letter", subLabel = "Age 5-7", sequences = ml57Words, latestMs = ml57Sessions.maxOf { it.timestampMs }))
         }
 
+        val dd35Sessions = sessions.filter { it.moduleId == ModuleID.DRAG_DROP_LETTERS }
+        val dd35Words = dd35Sessions.flatMap { it.correctItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (dd35Words.isNotEmpty()) {
+            result.add(Entry(label = "Drag & Drop", subLabel = "Age 3-5", sequences = dd35Words, latestMs = dd35Sessions.maxOf { it.timestampMs }))
+        }
+
+        val wj57Sessions = sessions.filter { it.moduleId == ModuleID.WORD_JIGSAW }
+        val wj57Words = wj57Sessions.flatMap { it.correctItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (wj57Words.isNotEmpty()) {
+            result.add(Entry(label = "Word Jigsaw", subLabel = "Age 5-7", sequences = wj57Words, latestMs = wj57Sessions.maxOf { it.timestampMs }))
+        }
+
         masteredSequenceRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
@@ -442,6 +454,18 @@ class ParentProgressViewModel @Inject constructor(
         val ml57Words = ml57Sessions.flatMap { it.wrongItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
         if (ml57Words.isNotEmpty()) {
             result.add(Entry(label = "Missing Letter", subLabel = "Age 5-7", sequences = ml57Words, latestMs = ml57Sessions.maxOf { it.timestampMs }))
+        }
+
+        val dd35Sessions = sessions.filter { it.moduleId == ModuleID.DRAG_DROP_LETTERS }
+        val dd35Words = dd35Sessions.flatMap { it.wrongItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (dd35Words.isNotEmpty()) {
+            result.add(Entry(label = "Drag & Drop", subLabel = "Age 3-5", sequences = dd35Words, latestMs = dd35Sessions.maxOf { it.timestampMs }))
+        }
+
+        val wj57Sessions = sessions.filter { it.moduleId == ModuleID.WORD_JIGSAW }
+        val wj57Words = wj57Sessions.flatMap { it.wrongItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (wj57Words.isNotEmpty()) {
+            result.add(Entry(label = "Word Jigsaw", subLabel = "Age 5-7", sequences = wj57Words, latestMs = wj57Sessions.maxOf { it.timestampMs }))
         }
 
         weakArrangeRows = result.sortedByDescending { it.latestMs }

@@ -20,10 +20,12 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.components.DragDropScreen35
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel35
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
+import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.InstructionBadge
+import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
@@ -61,9 +63,10 @@ fun DragDropWordPage35(
                 )
 
                 if (uiState.showSuccess) {
+                    KidsLabel("${uiState.round}/${uiState.totalRounds}")
                     CountdownBadge(
                         count = uiState.countdownValue,
-                        modifier = Modifier.padding(end = Dimens16,top = DeviceInfo.screenTopPadding()),
+                        modifier = Modifier.padding(end = Dimens16, top = DeviceInfo.screenTopPadding()),
                         text = stringResource(R.string.next_word_in)
                     )
                 } else {
@@ -71,26 +74,34 @@ fun DragDropWordPage35(
                         text = stringResource(R.string.drag_to_build_word),
                         modifier = Modifier.padding(end = Dimens16).padding(top = DeviceInfo.screenTopPadding())
                     )
+                    KidsLabel("${uiState.round}/${uiState.totalRounds}")
                 }
             }
 
-            // CONTENT
-            DragDropScreen35(
-                viewModel,
-                modifier = Modifier.fillMaxSize()
-            )
-
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.BottomCenter
-            ) {
-
-                FeedbackText(
-                    title = stringResource(viewModel.uiState.feedbackTextRes),
-                    subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
-                    isSuccess = viewModel.uiState.showSuccess,
-                    isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
+            if (uiState.showResult) {
+                ResultView(
+                    modifier = Modifier.fillMaxSize().padding(horizontal = Dimens16),
+                    score = uiState.correctCount,
+                    total = uiState.totalRounds,
+                    title = stringResource(R.string.your_result),
+                    primaryButtonText = stringResource(R.string.want_to_continue),
+                    secondaryButtonText = stringResource(R.string.go_back),
+                    onPrimaryTap = { viewModel.restartGame() },
+                    onSecondaryTap = { navController.popBackStack() }
                 )
+            } else {
+                DragDropScreen35(viewModel, modifier = Modifier.fillMaxSize())
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.BottomCenter
+                ) {
+                    FeedbackText(
+                        title = stringResource(viewModel.uiState.feedbackTextRes),
+                        subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
+                        isSuccess = viewModel.uiState.showSuccess,
+                        isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
+                    )
+                }
             }
         }
     }
