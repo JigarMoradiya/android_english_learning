@@ -85,7 +85,6 @@ fun ParentProgressScreen(
             modifier = Modifier
                 .windowInsetsPadding(WindowInsets.safeDrawing)
                 .fillMaxSize()
-                .padding(horizontal = Dimens16)
                 .padding(bottom = Dimens16),
             horizontalArrangement = Arrangement.spacedBy(Dimens16)
         ) {
@@ -110,7 +109,7 @@ fun ParentProgressScreen(
             Column(
                 modifier = Modifier
                     .fillMaxHeight()
-                    .padding(top = DeviceInfo.screenTopPadding() + Dimens8, bottom = Dimens8)
+                    .padding(top = DeviceInfo.screenTopPadding() + Dimens8, bottom = Dimens8, end = Dimens16)
                     .weight(0.65f),
                 verticalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
@@ -129,6 +128,7 @@ private fun StreakCard(vm: ParentProgressViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxWidth()
+            .padding(start = Dimens16)
             .shadow(Dimens8, RoundedCornerShape(Dimens16))
             .background(
                 Brush.linearGradient(listOf(Color(0xFF9374EF), Color(0xFF5532D2))),
@@ -173,6 +173,7 @@ private fun WeekDotsCard(vm: ParentProgressViewModel) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .padding(start = Dimens16)
             .shadow(Dimens4, RoundedCornerShape(Dimens12))
             .background(Color.White, RoundedCornerShape(Dimens12))
             .padding(Dimens12)

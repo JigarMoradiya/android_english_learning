@@ -56,6 +56,7 @@ class ColoringAlphabetsViewModel @Inject constructor(
 
     fun endStroke() {
         if (currentPoints.isNotEmpty()) {
+            visitedLetters.add(letterForIndex(uiState.currentIndex))
 
             undoStack.add(uiState.strokes)
             redoStack.clear()
@@ -104,7 +105,6 @@ class ColoringAlphabetsViewModel @Inject constructor(
         uiState = uiState.copy(strokes = emptyList())
     }
     fun next() {
-        visitedLetters.add(letterForIndex(uiState.currentIndex))
         val next = (uiState.currentIndex + 1) % items.size
         undoStack.clear()
         redoStack.clear()
@@ -113,7 +113,6 @@ class ColoringAlphabetsViewModel @Inject constructor(
     }
 
     fun previous() {
-        visitedLetters.add(letterForIndex(uiState.currentIndex))
         val prev = if (uiState.currentIndex == 0) items.lastIndex else uiState.currentIndex - 1
         undoStack.clear()
         redoStack.clear()
