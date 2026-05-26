@@ -110,12 +110,11 @@ fun MatchSingularPluralPage(
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
-                Row {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     InstructionBadge(
                         text = stringResource(R.string.drag_word_to_connect_plural),
                         isSmall = true,
-                        modifier = Modifier.padding(horizontal = Dimens12).padding(top = DeviceInfo.screenTopPadding())
-                    )
+                        modifier = Modifier.padding(horizontal = Dimens12))
                     KidsLabel("🎯 Round ${uiState.round}")
                 }
             }

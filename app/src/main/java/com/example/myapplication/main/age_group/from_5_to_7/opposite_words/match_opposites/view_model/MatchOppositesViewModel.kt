@@ -46,12 +46,20 @@ class MatchOppositesViewModel @Inject constructor(
 
     private var currentDifficulty = OppositeDifficulty.EASY
 
+    private val sessionCorrect = mutableSetOf<String>()
+    private val sessionWrong = mutableSetOf<String>()
+    private var roundsPlayed = 0
+    private var startTimeMs = System.currentTimeMillis()
+
+    private val difficultySubConfig get() = "MATCH_${currentDifficulty.name}"
+
     fun loadDifficulty(difficulty: OppositeDifficulty) {
         currentDifficulty = difficulty
         generateNewBatch()
     }
 
     fun generateNewBatch() {
+        roundsPlayed++
         val pairs = OppositeWordsData.getPairsForDifficulty(currentDifficulty).shuffled().take(5)
         _uiState.update {
             it.copy(
@@ -87,6 +95,7 @@ class MatchOppositesViewModel @Inject constructor(
             if (isCorrectMatch(word, target)) {
                 markWordAsMatched(word)
             } else {
+                sessionWrong.add(word)
                 AudioPlayerManager.playSoundWrongAnswer()
             }
         }
@@ -114,6 +123,7 @@ class MatchOppositesViewModel @Inject constructor(
     fun markWordAsMatched(word: String) {
         val state = _uiState.value
         if (state.matchedWords.contains(word)) return
+        sessionCorrect.add(word)
         val newMatched = state.matchedWords + word
         val newOrder = state.matchedOrder + word
         _uiState.update {
@@ -141,5 +151,28 @@ class MatchOppositesViewModel @Inject constructor(
 
     fun closePopup() {
         _uiState.update { it.copy(showPopup = false) }
+    }
+
+    private fun recordSession() {
+        if (sessionCorrect.isEmpty()) return
+        val duration = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+        val firstTryCorrect = sessionCorrect.subtract(sessionWrong).size
+        sessionRepository.record(
+            LearningSession(
+                moduleId = ModuleID.OPPOSITES_WORD,
+                ageGroup = AgeGroup.FIVE_TO_SEVEN,
+                durationSeconds = duration,
+                score = firstTryCorrect,
+                totalQuestions = 5 * roundsPlayed,
+                wrongItems = sessionWrong.sorted(),
+                correctItems = sessionCorrect.sorted(),
+                subConfig = difficultySubConfig
+            )
+        )
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        recordSession()
     }
 }

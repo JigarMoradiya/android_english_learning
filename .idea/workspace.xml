@@ -96,10 +96,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="parent report for letter phonics">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="age group 3-5 parent tracking done">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/coloring_alphabets/view_model/ColoringAlphabetsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/coloring_alphabets/view_model/ColoringAlphabetsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/opposite_words/choose_opposite/ChooseCorrectOppositePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/opposite_words/choose_opposite/ChooseCorrectOppositePage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/opposite_words/choose_opposite/view_model/ChooseCorrectOppositeUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/opposite_words/choose_opposite/view_model/ChooseCorrectOppositeUiState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/opposite_words/choose_opposite/view_model/ChooseCorrectOppositeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/opposite_words/choose_opposite/view_model/ChooseCorrectOppositeViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/opposite_words/match_opposites/MatchOppositesPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/opposite_words/match_opposites/MatchOppositesPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/opposite_words/match_opposites/view_model/MatchOppositesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/opposite_words/match_opposites/view_model/MatchOppositesViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -486,14 +491,6 @@
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
     </task>
-    <task id="LOCAL-00112" summary="working on grammar challenge beginner">
-      <option name="closed" value="true" />
-      <created>1778934072164</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1778934072164</updated>
-    </task>
     <task id="LOCAL-00113" summary="create new branch for sign in and inApp purchases">
       <option name="closed" value="true" />
       <created>1778935381357</created>
@@ -878,11 +875,18 @@
       <option name="project" value="LOCAL" />
       <updated>1779802589351</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="age group 3-5 parent tracking done">
+      <option name="closed" value="true" />
+      <created>1779803374561</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1779803374561</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="missing letter UI changes" />
     <MESSAGE value="ui changes for matching" />
     <MESSAGE value="changes ui in explnation pages" />
     <MESSAGE value="changes ui in practice of oppsite and plural pages" />
@@ -907,7 +911,8 @@
     <MESSAGE value="parent report done for drag n drop" />
     <MESSAGE value="parent report for letter tracing, abcd with images, recognition and for coloring" />
     <MESSAGE value="parent report for letter phonics" />
-    <option name="LAST_COMMIT_MESSAGE" value="parent report for letter phonics" />
+    <MESSAGE value="age group 3-5 parent tracking done" />
+    <option name="LAST_COMMIT_MESSAGE" value="age group 3-5 parent tracking done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

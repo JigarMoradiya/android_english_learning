@@ -3,9 +3,13 @@ package com.example.myapplication.main.age_group.from_5_to_7.opposite_words.choo
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.OppositeDifficulty
 import com.example.myapplication.data.generation.loader.OppositeWordPair
 import com.example.myapplication.data.generation.loader.OppositeWordsData
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
@@ -21,55 +25,62 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ChooseCorrectOppositeViewModel @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ChooseCorrectOppositeUiState())
     val uiState: StateFlow<ChooseCorrectOppositeUiState> = _uiState.asStateFlow()
 
-    private var wordPool: List<OppositeWordPair> = emptyList()
-    private val usedIndices = mutableSetOf<Int>()
+    private var fullWordPool: List<OppositeWordPair> = emptyList()
+    private var questionSet: List<OppositeWordPair> = emptyList()
+    private var currentDifficulty = OppositeDifficulty.EASY
+
+    private val sessionCorrect = mutableListOf<String>()
+    private val sessionWrong = mutableListOf<String>()
+    private var startTimeMs = System.currentTimeMillis()
+    private var sessionRecorded = false
+
+    private val difficultySubConfig get() = "CHOOSE_${currentDifficulty.name}"
 
     fun loadDifficulty(difficulty: OppositeDifficulty) {
-        wordPool = OppositeWordsData.getPairsForDifficulty(difficulty)
-        usedIndices.clear()
+        currentDifficulty = difficulty
+        fullWordPool = OppositeWordsData.getPairsForDifficulty(difficulty)
+        startNewRound()
+    }
+
+    fun startNewRound() {
+        questionSet = fullWordPool.shuffled().take(10)
+        sessionCorrect.clear()
+        sessionWrong.clear()
+        startTimeMs = System.currentTimeMillis()
+        sessionRecorded = false
+        _uiState.update {
+            it.copy(questionIndex = 0, score = 0, showCompletePopup = false)
+        }
         loadNextQuestion()
     }
 
     fun loadNextQuestion() {
-        if (wordPool.isEmpty()) return
+        val index = _uiState.value.questionIndex
+        if (index >= questionSet.size) return
+        val pair = questionSet[index]
 
-        // Reset used pool when all pairs have been shown
-        if (usedIndices.size >= wordPool.size) {
-            usedIndices.clear()
-        }
-
-        // Pick a random unused index
-        var index: Int
-        do { index = wordPool.indices.random() } while (usedIndices.contains(index))
-        usedIndices.add(index)
-
-        val pair = wordPool[index]
-
-        // Randomly decide which side is the "question" — word or opposite
         val showWordAsQuestion = (0..1).random() == 0
         val questionWord = if (showWordAsQuestion) pair.word else pair.opposite
         val correctAnswer = if (showWordAsQuestion) pair.opposite else pair.word
 
-        // Pick 2 wrong distractors from the same side
-        val wrongOptions = wordPool
+        val wrongOptions = fullWordPool
             .filter { it != pair }
             .shuffled()
             .take(2)
             .map { if (showWordAsQuestion) it.opposite else it.word }
 
-        val options = (wrongOptions + correctAnswer).shuffled()
-
         _uiState.update {
             it.copy(
                 currentWord = questionWord,
                 correctAnswer = correctAnswer,
-                options = options,
+                options = (wrongOptions + correctAnswer).shuffled(),
                 selectedAnswer = null,
                 isAnswerCorrect = false,
                 feedbackText = null,
@@ -79,36 +90,46 @@ class ChooseCorrectOppositeViewModel @Inject constructor(
     }
 
     fun checkAnswer(answer: String) {
-        if (_uiState.value.selectedAnswer != null) return  // already answered
+        if (_uiState.value.selectedAnswer != null) return
 
-        val isCorrect = answer == _uiState.value.correctAnswer
+        val state = _uiState.value
+        val isCorrect = answer == state.correctAnswer
 
-        if (isCorrect) AudioPlayerManager.playSoundCorrectAnswer()
-        else AudioPlayerManager.playSoundWrongAnswer()
-
-        val feedbackText = if (isCorrect) {
-            context.getString(feedbackTitles.random())
+        if (isCorrect) {
+            AudioPlayerManager.playSoundCorrectAnswer()
+            sessionCorrect.add(state.currentWord)
         } else {
-            wrongFeedback(_uiState.value.correctAnswer)
+            AudioPlayerManager.playSoundWrongAnswer()
+            sessionWrong.add(state.currentWord)
         }
+
+        val feedbackText = if (isCorrect) context.getString(feedbackTitles.random())
+                           else wrongFeedback(state.correctAnswer)
+        val nextIndex = state.questionIndex + 1
+        val isLast = nextIndex >= state.totalQuestions
 
         _uiState.update {
             it.copy(
                 selectedAnswer = answer,
                 isAnswerCorrect = isCorrect,
                 feedbackText = feedbackText,
-                countdown = 3
+                countdown = 3,
+                questionIndex = nextIndex,
+                score = if (isCorrect) it.score + 1 else it.score
             )
         }
 
-        // 3 → 2 → 1 → next question
         viewModelScope.launch {
+            delay(1_000); _uiState.update { it.copy(countdown = 2) }
+            delay(1_000); _uiState.update { it.copy(countdown = 1) }
             delay(1_000)
-            _uiState.update { it.copy(countdown = 2) }
-            delay(1_000)
-            _uiState.update { it.copy(countdown = 1) }
-            delay(1_000)
-            loadNextQuestion()
+            if (isLast) {
+                recordSession()
+                AudioPlayerManager.playSoundClap()
+                _uiState.update { it.copy(showCompletePopup = true, countdown = null) }
+            } else {
+                loadNextQuestion()
+            }
         }
     }
 
@@ -120,6 +141,30 @@ class ChooseCorrectOppositeViewModel @Inject constructor(
             selected            -> ButtonType.RED
             else                -> ButtonType.OPTIONS
         }
+    }
+
+    private fun recordSession() {
+        if (sessionRecorded) return
+        if (_uiState.value.questionIndex < _uiState.value.totalQuestions) return
+        sessionRecorded = true
+        val duration = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+        sessionRepository.record(
+            LearningSession(
+                moduleId = ModuleID.OPPOSITES_WORD,
+                ageGroup = AgeGroup.FIVE_TO_SEVEN,
+                durationSeconds = duration,
+                score = sessionCorrect.size,
+                totalQuestions = _uiState.value.totalQuestions,
+                wrongItems = sessionWrong.toList(),
+                correctItems = sessionCorrect.toList(),
+                subConfig = difficultySubConfig
+            )
+        )
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        recordSession()
     }
 
     private fun wrongFeedback(correctAnswer: String): String {

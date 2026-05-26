@@ -257,6 +257,29 @@ class ParentProgressViewModel @Inject constructor(
                         scoreText = scoreStr
                     ) to latest)
                 }
+            } else if (moduleId == ModuleID.OPPOSITES_WORD) {
+                val byConfig = sessions.groupBy { it.subConfig ?: "MATCH_EASY" }
+                byConfig.forEach { (config, configSessions) ->
+                    val latest = configSessions.maxOf { it.timestampMs }
+                    val quizSessions = configSessions.filter { it.totalQuestions > 0 }
+                    val totalScore = quizSessions.sumOf { it.score }
+                    val totalQs    = quizSessions.sumOf { it.totalQuestions }
+                    val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                    val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
+                    val subLabel = oppositeWordSubLabel(config)
+                    rowsWithTime.add(ModuleProgressRow(
+                        moduleId = "$moduleId|$config",
+                        displayName = info.first,
+                        subLabel = subLabel,
+                        ageGroupLabel = info.second,
+                        rounds = configSessions.size,
+                        avgAccuracy = avgAcc,
+                        avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                        hasQuiz = quizSessions.isNotEmpty(),
+                        route = moduleRoutes[moduleId],
+                        scoreText = scoreStr
+                    ) to latest)
+                }
             } else if (moduleId == ModuleID.FILL_THE_BLANK_LETTER) {
                 val byConfig = sessions.groupBy { it.subConfig ?: "?" }
                 byConfig.forEach { (config, configSessions) ->
@@ -305,6 +328,16 @@ class ParentProgressViewModel @Inject constructor(
             }
         }
         moduleRows = rowsWithTime.sortedByDescending { it.second }.map { it.first }
+    }
+
+    private fun oppositeWordSubLabel(config: String): String = when (config) {
+        "MATCH_EASY"    -> "Match · Easy"
+        "MATCH_MEDIUM"  -> "Match · Medium"
+        "MATCH_HARD"    -> "Match · Hard"
+        "CHOOSE_EASY"   -> "Choose · Easy"
+        "CHOOSE_MEDIUM" -> "Choose · Medium"
+        "CHOOSE_HARD"   -> "Choose · Hard"
+        else            -> config
     }
 
     private fun fillBlankSubLabel(config: String): String {
@@ -408,6 +441,24 @@ class ParentProgressViewModel @Inject constructor(
             result.add(Entry(label = "Word Jigsaw", subLabel = "Age 5-7", sequences = wj57Words, latestMs = wj57Sessions.maxOf { it.timestampMs }))
         }
 
+        // Opposite Words — grouped by activity (Match / Choose) and difficulty
+        // Only words answered correctly with NO wrong attempt go to "what kids learn"
+        sessions.filter { it.moduleId == ModuleID.OPPOSITES_WORD }
+            .groupBy { it.subConfig ?: "MATCH_EASY" }
+            .forEach { (config, cfgSessions) ->
+                val allWrong = cfgSessions.flatMap { it.wrongItems.orEmpty() }.toSet()
+                val words = cfgSessions.flatMap { it.correctItems.orEmpty() }
+                    .filter { it.isNotEmpty() }.toSet().subtract(allWrong).sorted()
+                if (words.isNotEmpty()) {
+                    result.add(Entry(
+                        label = "Opposite Words",
+                        subLabel = oppositeWordSubLabel(config),
+                        sequences = words,
+                        latestMs = cfgSessions.maxOf { it.timestampMs }
+                    ))
+                }
+            }
+
         masteredSequenceRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
@@ -481,6 +532,22 @@ class ParentProgressViewModel @Inject constructor(
         if (wj57Words.isNotEmpty()) {
             result.add(Entry(label = "Word Jigsaw", subLabel = "Age 5-7", sequences = wj57Words, latestMs = wj57Sessions.maxOf { it.timestampMs }))
         }
+
+        // Opposite Words — wrong items grouped by activity (Match / Choose) and difficulty
+        sessions.filter { it.moduleId == ModuleID.OPPOSITES_WORD }
+            .groupBy { it.subConfig ?: "MATCH_EASY" }
+            .forEach { (config, cfgSessions) ->
+                val sequences = cfgSessions.flatMap { it.wrongItems.orEmpty() }
+                    .filter { it.isNotEmpty() }.distinct().sorted()
+                if (sequences.isNotEmpty()) {
+                    result.add(Entry(
+                        label = "Opposite Words",
+                        subLabel = oppositeWordSubLabel(config),
+                        sequences = sequences,
+                        latestMs = cfgSessions.maxOf { it.timestampMs }
+                    ))
+                }
+            }
 
         weakArrangeRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }

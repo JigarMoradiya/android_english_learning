@@ -548,7 +548,7 @@ private fun WeakLettersCard(rows: List<WeakLetterEntry>, arrangeRows: List<WeakA
             WeakLetterRow(entry.label, entry.subLabel, entry.letters)
         }
         arrangeRows.forEach { entry ->
-            WeakArrangeRow(entry.label, entry.subLabel, entry.sequences, highlightLetters = entry.label != "Missing Letter")
+            WeakArrangeRow(entry.label, entry.subLabel, entry.sequences, highlightLetters = entry.label != "Missing Letter" && entry.label != "Opposite Words")
         }
     }
 }
