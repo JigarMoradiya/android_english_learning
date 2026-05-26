@@ -8,7 +8,11 @@ import androidx.compose.ui.geometry.Offset
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.R
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.singularPluralWords
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,7 +27,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MatchSingularPluralViewModel @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(MatchSingularPluralUiState())
@@ -37,6 +42,11 @@ class MatchSingularPluralViewModel @Inject constructor(
     var draggingWord by mutableStateOf<String?>(null)
         private set
     private var totalDrag = Offset.Zero
+
+    private val sessionCorrect = mutableSetOf<String>()
+    private val sessionWrong = mutableSetOf<String>()
+    private var completedRounds = 0
+    private var startTimeMs = System.currentTimeMillis()
 
     init { loadPairs() }
 
@@ -54,6 +64,33 @@ class MatchSingularPluralViewModel @Inject constructor(
         }
     }
 
+    private fun recordSession() {
+        if (completedRounds == 0) return
+        val duration = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+        val firstTryCorrect = sessionCorrect.subtract(sessionWrong).size
+        sessionRepository.record(
+            LearningSession(
+                moduleId = ModuleID.SINGULAR_PLURAL,
+                ageGroup = AgeGroup.FIVE_TO_SEVEN,
+                durationSeconds = duration,
+                score = firstTryCorrect,
+                totalQuestions = 5 * completedRounds,
+                wrongItems = sessionWrong.toList(),
+                correctItems = sessionCorrect.toList(),
+                subConfig = "MATCH_FORM"
+            )
+        )
+        sessionCorrect.clear()
+        sessionWrong.clear()
+        completedRounds = 0
+        startTimeMs = System.currentTimeMillis()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        recordSession()
+    }
+
     // ── Drag API ─────────────────────────────────────────────────────────────────
 
     fun startDrag(word: String, start: Offset) {
@@ -69,7 +106,7 @@ class MatchSingularPluralViewModel @Inject constructor(
         dragEnd = dragStart!! + totalDrag
     }
 
-    /** Call with the opposite key that the drag ended over, or null if missed */
+    /** Call with the plural key that the drag ended over, or null if missed */
     fun endDrag(target: String?) {
         val word = draggingWord
         if (word != null && target != null && !isOppositeMatched(target)) {
@@ -77,6 +114,7 @@ class MatchSingularPluralViewModel @Inject constructor(
                 markWordAsMatched(word)
             } else {
                 AudioPlayerManager.playSoundWrongAnswer()
+                sessionWrong.add(word)
             }
         }
         draggingWord = null
@@ -103,6 +141,7 @@ class MatchSingularPluralViewModel @Inject constructor(
     fun markWordAsMatched(word: String) {
         val state = _uiState.value
         if (state.matchedWords.contains(word)) return
+        sessionCorrect.add(word)
         val newMatched = state.matchedWords + word
         val newOrder = state.matchedOrder + word
         _uiState.update {
@@ -112,6 +151,7 @@ class MatchSingularPluralViewModel @Inject constructor(
             )
         }
         if (newMatched.size == state.leftWords.size) {
+            completedRounds++
             viewModelScope.launch {
                 delay(300)
                 AudioPlayerManager.playSoundClap()

@@ -55,6 +55,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.choose_form.view_model.ChooseSingularPluralFormViewModel
+import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.ColoredFeedbackView
 import com.example.myapplication.main.common.CountdownBadge
@@ -71,6 +72,7 @@ import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.buttons.KidsLabel
 
 @Composable
 fun ChooseSingularPluralFormPage(
@@ -97,12 +99,15 @@ fun ChooseSingularPluralFormPage(
             // ── Header ────────────────────────────────────────────────────────
             Row(verticalAlignment = Alignment.CenterVertically) {
                 BackButtonWithText(
-                    title = stringResource(R.string.choose_correct_form),
+                    title = stringResource(R.string.choose_correct_form_),
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
 
-                // Countdown: "Next image in 3"
+                KidsLabel(
+                    txt = "${minOf(uiState.questionIndex, uiState.totalQuestions)}/${uiState.totalQuestions}",
+                )
+
                 uiState.countdown?.let { count ->
                     CountdownBadge(
                         count = count,
@@ -111,116 +116,118 @@ fun ChooseSingularPluralFormPage(
                 }
             }
 
-            Spacer(Modifier.weight(1f))
+            if (uiState.showCompletePopup) {
+                ResultView(
+                    modifier = Modifier.weight(1f).padding(horizontal = Dimens16),
+                    score = uiState.score,
+                    total = uiState.totalQuestions,
+                    title = stringResource(R.string.your_result),
+                    primaryButtonText = stringResource(R.string.want_to_continue),
+                    secondaryButtonText = stringResource(R.string.go_back),
+                    onPrimaryTap = { viewModel.startNewRound() },
+                    onSecondaryTap = { navController.popBackStack() }
+                )
+            } else {
+                Spacer(Modifier.weight(1f))
 
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = Dimens40),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(Dimens24)
-            ) {
-                // ── Image Card ────────────────────────────────────────────────
-                Box(
+                Column(
                     modifier = Modifier
-                        .height(with(density) { (outerColumnHeightPx * 0.3f).toDp() })
-                        .shadow(8.dp, RoundedCornerShape(Dimens24))
-                        .background(Color.White, RoundedCornerShape(Dimens24))
-                        .border(2.dp, Color(0xFF6A5AE0).copy(alpha = 0.25f), RoundedCornerShape(Dimens24))
-                        .padding(horizontal = Dimens40, vertical = Dimens24),
-                    contentAlignment = Alignment.Center
+                        .fillMaxWidth()
+                        .padding(horizontal = Dimens40),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(Dimens24)
                 ) {
-                    AnimatedContent(
-                        targetState = uiState.currentCount,
-                        transitionSpec = {
-                            (fadeIn(tween(300)) + scaleIn(tween(300), initialScale = 0.9f))
-                                .togetherWith(fadeOut(tween(200)))
-                        },
-                        label = "imageCount"
-                    ) { count ->
-                        getImageResFromWord(uiState.currentImageName)?.let { imageRes ->
-                            if (count == 1) {
-                                // Single image
-                                if (imageRes != 0) {
-                                    Image(
-                                        painter = painterResource(imageRes),
-                                        contentDescription = uiState.currentImageName,
-                                        contentScale = ContentScale.Fit,
-                                        modifier = Modifier
-                                            .fillMaxHeight()
-                                            .aspectRatio(1f)
-                                    )
+                    // ── Image Card ────────────────────────────────────────────────
+                    Box(
+                        modifier = Modifier
+                            .height(with(density) { (outerColumnHeightPx * 0.3f).toDp() })
+                            .shadow(8.dp, RoundedCornerShape(Dimens24))
+                            .background(Color.White, RoundedCornerShape(Dimens24))
+                            .border(2.dp, Color(0xFF6A5AE0).copy(alpha = 0.25f), RoundedCornerShape(Dimens24))
+                            .padding(horizontal = Dimens40, vertical = Dimens24),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        AnimatedContent(
+                            targetState = uiState.currentCount,
+                            transitionSpec = {
+                                (fadeIn(tween(300)) + scaleIn(tween(300), initialScale = 0.9f))
+                                    .togetherWith(fadeOut(tween(200)))
+                            },
+                            label = "imageCount"
+                        ) { count ->
+                            getImageResFromWord(uiState.currentImageName)?.let { imageRes ->
+                                if (count == 1) {
+                                    if (imageRes != 0) {
+                                        Image(
+                                            painter = painterResource(imageRes),
+                                            contentDescription = uiState.currentImageName,
+                                            contentScale = ContentScale.Fit,
+                                            modifier = Modifier.fillMaxHeight().aspectRatio(1f)
+                                        )
+                                    } else {
+                                        ImagePlaceholder(uiState.currentImageName, modifier = Modifier.fillMaxHeight().aspectRatio(1f))
+                                    }
                                 } else {
-                                    ImagePlaceholder(uiState.currentImageName,  modifier = Modifier
-                                        .fillMaxHeight()
-                                        .aspectRatio(1f))
-                                }
-                            } else {
-                                // Multiple images side by side
-                                Row(
-                                    horizontalArrangement = Arrangement.spacedBy(Dimens16),
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    repeat(count) {
-                                        if (imageRes != 0) {
-                                            Image(
-                                                painter = painterResource(imageRes),
-                                                contentDescription = uiState.currentImageName,
-                                                contentScale = ContentScale.Fit,
-                                                modifier = Modifier.fillMaxHeight()
-                                                    .aspectRatio(1f)
-                                            )
-                                        } else {
-                                            ImagePlaceholder(uiState.currentImageName, modifier = Modifier.fillMaxHeight()
-                                                .aspectRatio(1f))
+                                    Row(
+                                        horizontalArrangement = Arrangement.spacedBy(Dimens16),
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        repeat(count) {
+                                            if (imageRes != 0) {
+                                                Image(
+                                                    painter = painterResource(imageRes),
+                                                    contentDescription = uiState.currentImageName,
+                                                    contentScale = ContentScale.Fit,
+                                                    modifier = Modifier.fillMaxHeight().aspectRatio(1f)
+                                                )
+                                            } else {
+                                                ImagePlaceholder(uiState.currentImageName, modifier = Modifier.fillMaxHeight().aspectRatio(1f))
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                }
 
-                // ── Prompt ────────────────────────────────────────────────────
-                Text(
-                    text = if (uiState.currentCount == 1) "What is this called?"
-                           else "What are these called?",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color = Color.Gray,
-                    textAlign = TextAlign.Center
-                )
+                    Text(
+                        text = if (uiState.currentCount == 1) "What is this called?"
+                               else "What are these called?",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color.Gray,
+                        textAlign = TextAlign.Center
+                    )
 
-                // ── 2 Option Buttons ──────────────────────────────────────────
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(Dimens16,Alignment.CenterHorizontally)
-                ) {
-                    uiState.options.forEach { option ->
-                        KidsOptionButton(
-                            text = option,
-                            type = viewModel.optionButtonType(option),
-                            fontSize = (grammarBasicOptionsHeight.value * 0.45f).sp,
-                            enabled = uiState.selectedAnswer == null,
-                            onClick = { viewModel.checkAnswer(option) },
-                            modifier = Modifier
-                                .width(grammarBasicOptionsWidth)
-                                .height(grammarBasicOptionsHeight)
-                        )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(Dimens16, Alignment.CenterHorizontally)
+                    ) {
+                        uiState.options.forEach { option ->
+                            KidsOptionButton(
+                                text = option,
+                                type = viewModel.optionButtonType(option),
+                                fontSize = (grammarBasicOptionsHeight.value * 0.45f).sp,
+                                enabled = uiState.selectedAnswer == null,
+                                onClick = { viewModel.checkAnswer(option) },
+                                modifier = Modifier
+                                    .width(grammarBasicOptionsWidth)
+                                    .height(grammarBasicOptionsHeight)
+                            )
+                        }
                     }
                 }
 
+                Spacer(Modifier.height(Dimens10))
+
+                ColoredFeedbackView(
+                    feedbackText = uiState.feedbackText,
+                    isAnswerCorrect = uiState.isAnswerCorrect,
+                    correctAnswer = uiState.correctAnswer
+                )
+
+                Spacer(Modifier.weight(1f))
             }
-
-            Spacer(Modifier.height(Dimens10))
-
-            ColoredFeedbackView(
-                feedbackText = uiState.feedbackText,
-                isAnswerCorrect = uiState.isAnswerCorrect,
-                correctAnswer = uiState.correctAnswer
-            )
-
-            Spacer(Modifier.weight(1f))
         }
     }
 }

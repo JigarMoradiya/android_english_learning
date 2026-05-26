@@ -8,5 +8,9 @@ data class ChooseSingularPluralFormUiState(
     val selectedAnswer: String? = null,
     val isAnswerCorrect: Boolean = false,
     val feedbackText: String? = null,
-    val countdown: Int? = null
+    val countdown: Int? = null,
+    val questionIndex: Int = 0,
+    val totalQuestions: Int = 5,
+    val score: Int = 0,
+    val showCompletePopup: Boolean = false
 )

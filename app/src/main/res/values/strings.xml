@@ -97,8 +97,8 @@
     <string name="next_verb">Next Verb</string>
     <string name="next_adjective">Next Adjective</string>
     <string name="next_sentence">Next Sentence</string>
-    <string name="check_result">Check Result</string>
-    <string name="your_result">Your Result</string>
+    <string name="check_result">Check Results</string>
+    <string name="your_result">Your Results</string>
     <string name="go_back">Go Back</string>
     <string name="tap_the_correct_noun"><![CDATA[Tap the correct <font color="#0074D5"><b>noun</b></font>]]></string>
     <string name="tap_the_correct_verb"><![CDATA[Tap the correct <font color="#0074D5"><b>verb</b></font>]]></string>
@@ -258,6 +258,7 @@
     <string name="match_opposite_words">Match Opposite Words</string>
     <string name="match_singular_plural"><![CDATA[Match\nSingular & Plural]]></string>
     <string name="choose_correct_form">Choose\nCorrect Form</string>
+    <string name="choose_correct_form_">Choose Correct Form</string>
     <string name="match_singular_plural_"><![CDATA[Match Singular & Plural]]></string>
     <string name="beginner_medium_advanced">Beginner · Medium · Advanced</string>
     <string name="grammar_challenge">Grammar Challenge</string>

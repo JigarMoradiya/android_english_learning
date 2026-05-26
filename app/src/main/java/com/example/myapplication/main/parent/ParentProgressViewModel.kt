@@ -257,6 +257,29 @@ class ParentProgressViewModel @Inject constructor(
                         scoreText = scoreStr
                     ) to latest)
                 }
+            } else if (moduleId == ModuleID.SINGULAR_PLURAL) {
+                val byConfig = sessions.groupBy { it.subConfig ?: "MATCH_FORM" }
+                byConfig.forEach { (config, configSessions) ->
+                    val latest = configSessions.maxOf { it.timestampMs }
+                    val quizSessions = configSessions.filter { it.totalQuestions > 0 }
+                    val totalScore = quizSessions.sumOf { it.score }
+                    val totalQs    = quizSessions.sumOf { it.totalQuestions }
+                    val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                    val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
+                    val subLabel = singularPluralSubLabel(config)
+                    rowsWithTime.add(ModuleProgressRow(
+                        moduleId = "$moduleId|$config",
+                        displayName = info.first,
+                        subLabel = subLabel,
+                        ageGroupLabel = info.second,
+                        rounds = configSessions.size,
+                        avgAccuracy = avgAcc,
+                        avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                        hasQuiz = quizSessions.isNotEmpty(),
+                        route = moduleRoutes[moduleId],
+                        scoreText = scoreStr
+                    ) to latest)
+                }
             } else if (moduleId == ModuleID.OPPOSITES_WORD) {
                 val byConfig = sessions.groupBy { it.subConfig ?: "MATCH_EASY" }
                 byConfig.forEach { (config, configSessions) ->
@@ -328,6 +351,12 @@ class ParentProgressViewModel @Inject constructor(
             }
         }
         moduleRows = rowsWithTime.sortedByDescending { it.second }.map { it.first }
+    }
+
+    private fun singularPluralSubLabel(config: String): String = when (config) {
+        "MATCH_FORM"  -> "Match"
+        "CHOOSE_FORM" -> "Choose Form"
+        else          -> config
     }
 
     private fun oppositeWordSubLabel(config: String): String = when (config) {
@@ -459,6 +488,23 @@ class ParentProgressViewModel @Inject constructor(
                 }
             }
 
+        // Singular & Plural — only words correct with NO wrong attempt go to "what kids learn"
+        sessions.filter { it.moduleId == ModuleID.SINGULAR_PLURAL }
+            .groupBy { it.subConfig ?: "MATCH_FORM" }
+            .forEach { (config, cfgSessions) ->
+                val allWrong = cfgSessions.flatMap { it.wrongItems.orEmpty() }.toSet()
+                val words = cfgSessions.flatMap { it.correctItems.orEmpty() }
+                    .filter { it.isNotEmpty() }.toSet().subtract(allWrong).sorted()
+                if (words.isNotEmpty()) {
+                    result.add(Entry(
+                        label = "Singular & Plural",
+                        subLabel = singularPluralSubLabel(config),
+                        sequences = words,
+                        latestMs = cfgSessions.maxOf { it.timestampMs }
+                    ))
+                }
+            }
+
         masteredSequenceRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
@@ -543,6 +589,22 @@ class ParentProgressViewModel @Inject constructor(
                     result.add(Entry(
                         label = "Opposite Words",
                         subLabel = oppositeWordSubLabel(config),
+                        sequences = sequences,
+                        latestMs = cfgSessions.maxOf { it.timestampMs }
+                    ))
+                }
+            }
+
+        // Singular & Plural — wrong items grouped by activity (Match / Choose Form)
+        sessions.filter { it.moduleId == ModuleID.SINGULAR_PLURAL }
+            .groupBy { it.subConfig ?: "MATCH_FORM" }
+            .forEach { (config, cfgSessions) ->
+                val sequences = cfgSessions.flatMap { it.wrongItems.orEmpty() }
+                    .filter { it.isNotEmpty() }.distinct().sorted()
+                if (sequences.isNotEmpty()) {
+                    result.add(Entry(
+                        label = "Singular & Plural",
+                        subLabel = singularPluralSubLabel(config),
                         sequences = sequences,
                         latestMs = cfgSessions.maxOf { it.timestampMs }
                     ))

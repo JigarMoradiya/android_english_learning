@@ -97,7 +97,6 @@ fun ChooseCorrectOppositePage(
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
-
                 KidsLabel(
                     txt = "${minOf(uiState.questionIndex, uiState.totalQuestions)}/${uiState.totalQuestions}",
                 )

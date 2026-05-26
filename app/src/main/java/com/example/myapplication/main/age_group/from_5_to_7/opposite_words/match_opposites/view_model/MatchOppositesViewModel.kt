@@ -48,7 +48,7 @@ class MatchOppositesViewModel @Inject constructor(
 
     private val sessionCorrect = mutableSetOf<String>()
     private val sessionWrong = mutableSetOf<String>()
-    private var roundsPlayed = 0
+    private var completedRounds = 0
     private var startTimeMs = System.currentTimeMillis()
 
     private val difficultySubConfig get() = "MATCH_${currentDifficulty.name}"
@@ -59,7 +59,6 @@ class MatchOppositesViewModel @Inject constructor(
     }
 
     fun generateNewBatch() {
-        roundsPlayed++
         val pairs = OppositeWordsData.getPairsForDifficulty(currentDifficulty).shuffled().take(5)
         _uiState.update {
             it.copy(
@@ -133,6 +132,7 @@ class MatchOppositesViewModel @Inject constructor(
             )
         }
         if (newMatched.size == state.leftWords.size) {
+            completedRounds++
             viewModelScope.launch {
                 delay(300)
                 AudioPlayerManager.playSoundClap()
@@ -154,7 +154,7 @@ class MatchOppositesViewModel @Inject constructor(
     }
 
     private fun recordSession() {
-        if (sessionCorrect.isEmpty()) return
+        if (completedRounds == 0) return
         val duration = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
         val firstTryCorrect = sessionCorrect.subtract(sessionWrong).size
         sessionRepository.record(
@@ -163,7 +163,7 @@ class MatchOppositesViewModel @Inject constructor(
                 ageGroup = AgeGroup.FIVE_TO_SEVEN,
                 durationSeconds = duration,
                 score = firstTryCorrect,
-                totalQuestions = 5 * roundsPlayed,
+                totalQuestions = 5 * completedRounds,
                 wrongItems = sessionWrong.sorted(),
                 correctItems = sessionCorrect.sorted(),
                 subConfig = difficultySubConfig
