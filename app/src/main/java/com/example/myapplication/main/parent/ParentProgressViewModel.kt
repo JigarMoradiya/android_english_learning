@@ -558,6 +558,24 @@ class ParentProgressViewModel @Inject constructor(
             result.add(Entry(label = "Sight Word Choice", subLabel = "Age 5-7", sequences = swcCorrect, latestMs = swcSessions.maxOf { it.timestampMs }))
         }
 
+        // Vocabulary Categories — words the kid tapped (heard) go to "what kids learn"
+        mapOf(
+            ModuleID.VOCABULARY_ANIMALS    to "Vocabulary - Animals",
+            ModuleID.VOCABULARY_FRUITS     to "Vocabulary - Fruits",
+            ModuleID.VOCABULARY_BIRDS      to "Vocabulary - Birds",
+            ModuleID.VOCABULARY_VEGETABLES to "Vocabulary - Vegetables",
+            ModuleID.VOCABULARY_COLORS     to "Vocabulary - Colors",
+            ModuleID.VOCABULARY_SHAPES     to "Vocabulary - Shapes",
+            ModuleID.VOCABULARY_VEHICLES   to "Vocabulary - Vehicles",
+        ).forEach { (moduleId, label) ->
+            val vocabSessions = sessions.filter { it.moduleId == moduleId }
+            val words = vocabSessions.flatMap { it.correctItems.orEmpty() }
+                .filter { it.isNotEmpty() }.distinct().sorted()
+            if (words.isNotEmpty()) {
+                result.add(Entry(label = label, subLabel = "Age 5-7", sequences = words, latestMs = vocabSessions.maxOf { it.timestampMs }))
+            }
+        }
+
         masteredSequenceRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
@@ -712,6 +730,7 @@ class ParentProgressViewModel @Inject constructor(
 
     private fun ageGroupForEntry(label: String, subLabel: String?): String {
         if (label == "Missing Letter") return if (subLabel == "Age 5-7") "5–7" else "3–5"
+        if (label.startsWith("Vocabulary")) return "5–7"
         return when (label) {
             "Word Jigsaw", "Opposite Words", "Singular & Plural", "Match Word & Image", "Listen & Select",
             "Article Choice", "Sight Word Choice" -> "5–7"
@@ -775,6 +794,13 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.MATCH_WORD_WITH_PICTURE to ("Match Word & Image"   to "5–7"),
             ModuleID.ARTICLES_CHOICE         to ("Article Choice"       to "5–7"),
             ModuleID.SIGHT_WORD_CHOICE       to ("Sight Word Choice"    to "5–7"),
+            ModuleID.VOCABULARY_ANIMALS      to ("Vocabulary - Animals"    to "5–7"),
+            ModuleID.VOCABULARY_FRUITS       to ("Vocabulary - Fruits"     to "5–7"),
+            ModuleID.VOCABULARY_BIRDS        to ("Vocabulary - Birds"      to "5–7"),
+            ModuleID.VOCABULARY_VEGETABLES   to ("Vocabulary - Vegetables" to "5–7"),
+            ModuleID.VOCABULARY_COLORS       to ("Vocabulary - Colors"     to "5–7"),
+            ModuleID.VOCABULARY_SHAPES       to ("Vocabulary - Shapes"     to "5–7"),
+            ModuleID.VOCABULARY_VEHICLES     to ("Vocabulary - Vehicles"   to "5–7"),
         )
 
         private val moduleRoutes = mapOf(
