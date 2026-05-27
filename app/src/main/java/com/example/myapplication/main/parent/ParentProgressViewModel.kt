@@ -540,6 +540,24 @@ class ParentProgressViewModel @Inject constructor(
             result.add(Entry(label = "Listen & Select", subLabel = "Age 5-7", sequences = lasCorrect, latestMs = lasSessions.maxOf { it.timestampMs }))
         }
 
+        // Article Choice — first-try correct words
+        val acSessions = sessions.filter { it.moduleId == ModuleID.ARTICLES_CHOICE }
+        val acAllWrong = acSessions.flatMap { it.wrongItems.orEmpty() }.toSet()
+        val acCorrect = acSessions.flatMap { it.correctItems.orEmpty() }
+            .filter { it.isNotEmpty() }.toSet().subtract(acAllWrong).sorted()
+        if (acCorrect.isNotEmpty()) {
+            result.add(Entry(label = "Article Choice", subLabel = "Age 5-7", sequences = acCorrect, latestMs = acSessions.maxOf { it.timestampMs }))
+        }
+
+        // Sight Word Choice — first-try correct sight words
+        val swcSessions = sessions.filter { it.moduleId == ModuleID.SIGHT_WORD_CHOICE }
+        val swcAllWrong = swcSessions.flatMap { it.wrongItems.orEmpty() }.toSet()
+        val swcCorrect = swcSessions.flatMap { it.correctItems.orEmpty() }
+            .filter { it.isNotEmpty() }.toSet().subtract(swcAllWrong).sorted()
+        if (swcCorrect.isNotEmpty()) {
+            result.add(Entry(label = "Sight Word Choice", subLabel = "Age 5-7", sequences = swcCorrect, latestMs = swcSessions.maxOf { it.timestampMs }))
+        }
+
         masteredSequenceRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
@@ -660,6 +678,20 @@ class ParentProgressViewModel @Inject constructor(
             result.add(Entry(label = "Listen & Select", subLabel = "Age 5-7", sequences = lasWrong, latestMs = lasSessions.maxOf { it.timestampMs }))
         }
 
+        // Article Choice — words where wrong article was picked
+        val acSessions = sessions.filter { it.moduleId == ModuleID.ARTICLES_CHOICE }
+        val acWrong = acSessions.flatMap { it.wrongItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (acWrong.isNotEmpty()) {
+            result.add(Entry(label = "Article Choice", subLabel = "Age 5-7", sequences = acWrong, latestMs = acSessions.maxOf { it.timestampMs }))
+        }
+
+        // Sight Word Choice — sight words answered wrong
+        val swcSessions = sessions.filter { it.moduleId == ModuleID.SIGHT_WORD_CHOICE }
+        val swcWrong = swcSessions.flatMap { it.wrongItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (swcWrong.isNotEmpty()) {
+            result.add(Entry(label = "Sight Word Choice", subLabel = "Age 5-7", sequences = swcWrong, latestMs = swcSessions.maxOf { it.timestampMs }))
+        }
+
         weakArrangeRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
@@ -681,7 +713,8 @@ class ParentProgressViewModel @Inject constructor(
     private fun ageGroupForEntry(label: String, subLabel: String?): String {
         if (label == "Missing Letter") return if (subLabel == "Age 5-7") "5–7" else "3–5"
         return when (label) {
-            "Word Jigsaw", "Opposite Words", "Singular & Plural", "Match Word & Image", "Listen & Select" -> "5–7"
+            "Word Jigsaw", "Opposite Words", "Singular & Plural", "Match Word & Image", "Listen & Select",
+            "Article Choice", "Sight Word Choice" -> "5–7"
             else -> "3–5"
         }
     }
@@ -740,6 +773,8 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.SINGULAR_PLURAL         to ("Singular & Plural"    to "5–7"),
             ModuleID.LISTEN_AND_SELECT       to ("Listen & Select"      to "5–7"),
             ModuleID.MATCH_WORD_WITH_PICTURE to ("Match Word & Image"   to "5–7"),
+            ModuleID.ARTICLES_CHOICE         to ("Article Choice"       to "5–7"),
+            ModuleID.SIGHT_WORD_CHOICE       to ("Sight Word Choice"    to "5–7"),
         )
 
         private val moduleRoutes = mapOf(
@@ -759,6 +794,8 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.SINGULAR_PLURAL         to RouteNavigation.SingularPlural.route,
             ModuleID.LISTEN_AND_SELECT       to RouteNavigation.ListenAndSelectWord.route,
             ModuleID.MATCH_WORD_WITH_PICTURE to RouteNavigation.WordMatchImage.route,
+            ModuleID.ARTICLES_CHOICE         to RouteNavigation.ArticleChoice.route,
+            ModuleID.SIGHT_WORD_CHOICE       to RouteNavigation.SightWordChoice.route,
         )
     }
 }

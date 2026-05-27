@@ -587,7 +587,7 @@ private fun WeakLettersCard(rows: List<WeakLetterEntry>, arrangeRows: List<WeakA
             WeakLetterRow(entry.label, entry.subLabel, entry.letters)
         }
         arrangeRows.forEach { entry ->
-            val plainLabels = setOf("Opposite Words", "Drag & Drop", "Word Jigsaw", "Singular & Plural", "Match Word & Image", "Listen & Select")
+            val plainLabels = setOf("Opposite Words", "Drag & Drop", "Word Jigsaw", "Singular & Plural", "Match Word & Image", "Listen & Select", "Article Choice", "Sight Word Choice")
             WeakArrangeRow(
                 label = entry.label,
                 subLabel = entry.subLabel,

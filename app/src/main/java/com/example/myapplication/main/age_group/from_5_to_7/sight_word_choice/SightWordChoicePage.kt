@@ -28,15 +28,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.sight_word_choice.view_model.SightWordChoiceViewModel
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.ColoredFeedbackView
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.InstructionBadge
-import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
-import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.AppDimens.articleChoiceHeight
@@ -58,6 +58,7 @@ fun SightWordChoicePage(
     val style = MaterialTheme.typography.titleLarge.scaled().copy(
         fontSize = articleChoiceHeight.value.sp * 0.6
     )
+
     Box(modifier = Modifier.fillMaxSize()) {
 
         KidsGradientBackground(gradient = KidsGradient.mintLime, shape = KidsFloatingShape.musicNotes)
@@ -73,6 +74,7 @@ fun SightWordChoicePage(
                     onBackClick = { navController.popBackStack() }
                 )
                 if (uiState.selectedAnswer != null) {
+                    KidsLabel("${uiState.questionIndex + 1}/${uiState.totalQuestions}")
                     CountdownBadge(
                         count = uiState.countdown,
                         modifier = Modifier.padding(end = Dimens16)
@@ -83,13 +85,16 @@ fun SightWordChoicePage(
                         isSmall = true,
                         modifier = Modifier.padding(end = Dimens16)
                     )
+                    KidsLabel("${uiState.questionIndex + 1}/${uiState.totalQuestions}")
                 }
             }
 
             Spacer(modifier = Modifier.weight(1f))
 
             Row(
-                modifier = Modifier.fillMaxWidth().windowInsetsPadding(WindowInsets.safeDrawing),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .windowInsetsPadding(WindowInsets.safeDrawing),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
 
@@ -101,7 +106,6 @@ fun SightWordChoicePage(
 
                     // Sentence
                     Row(verticalAlignment = Alignment.CenterVertically) {
-
                         Text(
                             text = uiState.sentencePrefix,
                             style = style,
@@ -128,28 +132,28 @@ fun SightWordChoicePage(
                     // Options
                     Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
                         uiState.options.forEach { option ->
-
                             KidsOptionButton(
                                 text = if (uiState.sentencePrefix.isEmpty()) option.replaceFirstChar { it.uppercase() } else option.lowercase(),
                                 type = ButtonType.OPTIONS,
                                 fontSize = articleChoiceHeight.value.sp * 0.6,
-                                onClick = {
-                                    viewModel.checkAnswer(option)
-                                },
+                                onClick = { viewModel.checkAnswer(option) },
                                 enabled = uiState.selectedAnswer == null,
                                 modifier = Modifier
                                     .width(articleChoiceWidth)
-                                    .height(articleChoiceHeight),
-                                )
+                                    .height(articleChoiceHeight)
+                            )
                         }
                     }
 
                     Spacer(modifier = Modifier.height(Dimens16))
 
                     // Feedback
-                    val str = if (uiState.isAnswerCorrect && uiState.feedbackTextCorrect != null) stringResource(uiState.feedbackTextCorrect) else uiState.feedbackTextWrong
+                    val str = if (uiState.isAnswerCorrect && uiState.feedbackTextCorrect != null)
+                        stringResource(uiState.feedbackTextCorrect)
+                    else
+                        uiState.feedbackTextWrong
                     ColoredFeedbackView(
-                        feedbackText = str ?:"",
+                        feedbackText = str ?: "",
                         isAnswerCorrect = uiState.isAnswerCorrect,
                         correctAnswer = if (uiState.sentencePrefix.isEmpty())
                             uiState.currentWord.word.replaceFirstChar { it.uppercase() }
@@ -163,6 +167,23 @@ fun SightWordChoicePage(
 
             Spacer(modifier = Modifier.weight(1f))
         }
+
+        if (uiState.showBatchPopup) {
+            ActivityCompletePopup(
+                stars = when {
+                    uiState.lastScore.toFloat() / uiState.totalQuestions >= 0.8f -> 3
+                    uiState.lastScore.toFloat() / uiState.totalQuestions >= 0.5f -> 2
+                    else -> 1
+                },
+                score = uiState.lastScore,
+                total = uiState.totalQuestions,
+                scoreLabel = uiState.scoreLabel,
+                feedbackTextRes = uiState.feedbackBatchTextRes,
+                feedbackSubTextRes = uiState.feedbackBatchSubTextRes,
+                onNext = { viewModel.loadNewBatch() },
+                onClose = { navController.popBackStack() }
+            )
+        }
     }
 }
 
@@ -174,7 +195,6 @@ fun AnswerSlot(
     sentencePrefix: String,
     style: TextStyle
 ) {
-
     val maxOption = options.maxByOrNull { it.length } ?: "____"
 
     val displayAnswer = selected?.let {
@@ -185,8 +205,7 @@ fun AnswerSlot(
         }
     }
 
-    Box(contentAlignment = Alignment.BottomCenter){
-
+    Box(contentAlignment = Alignment.BottomCenter) {
         Text(
             text = maxOption,
             color = Color.Transparent,

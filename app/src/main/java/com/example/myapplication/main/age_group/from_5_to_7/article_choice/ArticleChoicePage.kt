@@ -18,7 +18,6 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,17 +29,16 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.article_choice.view_model.ArticleChoiceViewModel
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.ColoredFeedbackView
 import com.example.myapplication.main.common.CountdownBadge
-import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.InstructionBadge
-import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
-import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.articleChoiceHeight
@@ -60,13 +58,15 @@ fun ArticleChoicePage(
     viewModel: ArticleChoiceViewModel = hiltViewModel()
 ) {
 
-    val state = viewModel.uiState.collectAsState().value
+    val state = viewModel.uiState
     val style = MaterialTheme.typography.titleLarge.scaled().copy(
         fontSize = articleChoiceHeight.value.sp * 0.8
     )
+
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
 
         KidsGradientBackground(gradient = KidsGradient.blueIndigo, shape = KidsFloatingShape.speechBubbles)
+
         Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -78,6 +78,7 @@ fun ArticleChoicePage(
                     onBackClick = { navController.popBackStack() }
                 )
                 if (state.selectedAnswer != null) {
+                    KidsLabel("${state.questionIndex + 1}/${state.totalQuestions}")
                     CountdownBadge(
                         count = state.countdown,
                         modifier = Modifier.padding(end = Dimens16)
@@ -88,11 +89,11 @@ fun ArticleChoicePage(
                         isSmall = true,
                         modifier = Modifier.padding(end = Dimens16)
                     )
+                    KidsLabel("${state.questionIndex + 1}/${state.totalQuestions}")
                 }
             }
 
             Spacer(modifier = Modifier.weight(1f))
-
         }
 
         Column(
@@ -100,33 +101,25 @@ fun ArticleChoicePage(
             verticalArrangement = Arrangement.spacedBy(Dimens16)
         ) {
 
-            // 🔹 IMAGE
+            // IMAGE
             state.currentImageName?.let { rawName ->
                 val imageName = rawName.replace(" ", "")
-
                 val res = getImageResFromWord(imageName)
-
                 res?.let {
                     Image(
                         painter = painterResource(id = res),
                         contentDescription = null,
-                        modifier = Modifier
-                            .height(articleChoiceImageHeight)
+                        modifier = Modifier.height(articleChoiceImageHeight)
                     )
                 }
             }
 
-            // 🔹 ARTICLE + WORD
+            // ARTICLE + WORD
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(Dimens8)
             ) {
-
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-
-                    // Selected OR Placeholder
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
                         text = state.selectedAnswer?.replaceFirstChar { it.lowercase() } ?: "an",
                         style = style,
@@ -137,8 +130,6 @@ fun ArticleChoicePage(
                         },
                         fontWeight = FontWeight.Bold
                     )
-
-                    // Underline
                     Box(
                         modifier = Modifier
                             .width(articleChoiceWidth * 0.75f)
@@ -156,43 +147,55 @@ fun ArticleChoicePage(
                 )
             }
 
-            // 🔹 OPTIONS
+            // OPTIONS
             Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
-
                 KidsOptionButton(
                     text = "a",
                     type = ButtonType.OPTIONS,
                     fontSize = articleChoiceHeight.value.sp * 0.6,
-                    onClick = {
-                        viewModel.checkAnswer("a")
-                    },
+                    onClick = { viewModel.checkAnswer("a") },
                     enabled = state.selectedAnswer == null,
                     modifier = Modifier
                         .width(articleChoiceWidth)
-                        .height(articleChoiceHeight),
-
-                    )
+                        .height(articleChoiceHeight)
+                )
                 KidsOptionButton(
                     text = "an",
                     type = ButtonType.OPTIONS,
                     fontSize = articleChoiceHeight.value.sp * 0.6,
-                    onClick = {
-                        viewModel.checkAnswer("an")
-                    },
+                    onClick = { viewModel.checkAnswer("an") },
                     enabled = state.selectedAnswer == null,
                     modifier = Modifier
                         .width(articleChoiceWidth)
-                        .height(articleChoiceHeight),
-
-                    )
+                        .height(articleChoiceHeight)
+                )
             }
 
-
-            val str = if (state.isAnswerCorrect && state.feedbackTextCorrect != null) stringResource(state.feedbackTextCorrect) else state.feedbackTextWrong
+            val str = if (state.isAnswerCorrect && state.feedbackTextCorrect != null)
+                stringResource(state.feedbackTextCorrect)
+            else
+                state.feedbackTextWrong
             ColoredFeedbackView(
-                feedbackText = str ?:"",
+                feedbackText = str ?: "",
                 isAnswerCorrect = state.isAnswerCorrect,
                 correctAnswer = viewModel.articleFor()
+            )
+        }
+
+        if (state.showBatchPopup) {
+            ActivityCompletePopup(
+                stars = when {
+                    state.lastScore.toFloat() / state.totalQuestions >= 0.8f -> 3
+                    state.lastScore.toFloat() / state.totalQuestions >= 0.5f -> 2
+                    else -> 1
+                },
+                score = state.lastScore,
+                total = state.totalQuestions,
+                scoreLabel = state.scoreLabel,
+                feedbackTextRes = state.feedbackBatchTextRes,
+                feedbackSubTextRes = state.feedbackBatchSubTextRes,
+                onNext = { viewModel.loadNewBatch() },
+                onClose = { navController.popBackStack() }
             )
         }
     }
