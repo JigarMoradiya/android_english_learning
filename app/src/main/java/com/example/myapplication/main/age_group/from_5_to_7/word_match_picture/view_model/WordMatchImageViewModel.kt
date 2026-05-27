@@ -45,6 +45,7 @@ class WordMatchImageViewModel @Inject constructor(
         private set
 
     private var wrongAttemptsInBatch = mutableSetOf<String>()
+    private var correctAttemptsInBatch = mutableSetOf<String>()
     private var batchStartMs = System.currentTimeMillis()
     private var totalDrag = Offset.Zero
 
@@ -76,6 +77,7 @@ class WordMatchImageViewModel @Inject constructor(
         }
 
         wrongAttemptsInBatch = mutableSetOf()
+        correctAttemptsInBatch = mutableSetOf()
         batchStartMs = System.currentTimeMillis()
         dragStart = null
         dragEnd = null
@@ -146,6 +148,10 @@ class WordMatchImageViewModel @Inject constructor(
     fun markLetterAsMatched(letter: String) {
 
         if (uiState.matchedLetters.contains(letter)) return
+
+        if (!wrongAttemptsInBatch.contains(letter)) {
+            correctAttemptsInBatch.add(letter)
+        }
 
         val updatedSet = uiState.matchedLetters + letter
         val updatedOrder = uiState.matchedOrder + letter
@@ -239,7 +245,9 @@ class WordMatchImageViewModel @Inject constructor(
                 ageGroup = AgeGroup.FIVE_TO_SEVEN,
                 durationSeconds = duration,
                 score = score,
-                totalQuestions = batchSize
+                totalQuestions = batchSize,
+                wrongItems = wrongAttemptsInBatch.sorted(),
+                correctItems = correctAttemptsInBatch.sorted()
             )
         )
 

@@ -522,6 +522,15 @@ class ParentProgressViewModel @Inject constructor(
                 }
             }
 
+        // Match Word & Image — only clean first-try wins go to "what kids learn"
+        val wmiSessions = sessions.filter { it.moduleId == ModuleID.MATCH_WORD_WITH_PICTURE }
+        val wmiAllWrong = wmiSessions.flatMap { it.wrongItems.orEmpty() }.toSet()
+        val wmiCorrect = wmiSessions.flatMap { it.correctItems.orEmpty() }
+            .filter { it.isNotEmpty() }.toSet().subtract(wmiAllWrong).sorted()
+        if (wmiCorrect.isNotEmpty()) {
+            result.add(Entry(label = "Match Word & Image", subLabel = "Age 5-7", sequences = wmiCorrect, latestMs = wmiSessions.maxOf { it.timestampMs }))
+        }
+
         masteredSequenceRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
@@ -628,6 +637,13 @@ class ParentProgressViewModel @Inject constructor(
                 }
             }
 
+        // Match Word & Image — wrong words
+        val wmiSessions = sessions.filter { it.moduleId == ModuleID.MATCH_WORD_WITH_PICTURE }
+        val wmiWrong = wmiSessions.flatMap { it.wrongItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (wmiWrong.isNotEmpty()) {
+            result.add(Entry(label = "Match Word & Image", subLabel = "Age 5-7", sequences = wmiWrong, latestMs = wmiSessions.maxOf { it.timestampMs }))
+        }
+
         weakArrangeRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
@@ -649,7 +665,7 @@ class ParentProgressViewModel @Inject constructor(
     private fun ageGroupForEntry(label: String, subLabel: String?): String {
         if (label == "Missing Letter") return if (subLabel == "Age 5-7") "5–7" else "3–5"
         return when (label) {
-            "Word Jigsaw", "Opposite Words", "Singular & Plural" -> "5–7"
+            "Word Jigsaw", "Opposite Words", "Singular & Plural", "Match Word & Image" -> "5–7"
             else -> "3–5"
         }
     }
