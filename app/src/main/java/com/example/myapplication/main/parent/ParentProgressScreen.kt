@@ -1,6 +1,7 @@
 package com.example.myapplication.main.parent
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -41,6 +42,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -84,8 +86,7 @@ fun ParentProgressScreen(
         Row(
             modifier = Modifier
                 .windowInsetsPadding(WindowInsets.safeDrawing)
-                .fillMaxSize()
-                .padding(bottom = Dimens16),
+                .fillMaxSize(),
             horizontalArrangement = Arrangement.spacedBy(Dimens16)
         ) {
             // LEFT PANEL (35%)
@@ -99,19 +100,17 @@ fun ParentProgressScreen(
                     title = stringResource(R.string.parent_report),
                     onBackClick = { navController.popBackStack() }
                 )
-                Spacer(Modifier.weight(1f))
                 StreakCard(viewModel)
                 WeekDotsCard(viewModel)
-                Spacer(Modifier.weight(1f))
             }
 
             // RIGHT PANEL (65%)
             Column(
                 modifier = Modifier
                     .fillMaxHeight()
-                    .padding(top = DeviceInfo.screenTopPadding() + Dimens8, bottom = Dimens8, end = Dimens16)
+                    .padding(top = DeviceInfo.screenTopPadding() + Dimens8, end = Dimens16)
                     .weight(0.65f),
-                verticalArrangement = Arrangement.spacedBy(Dimens12)
+                verticalArrangement = Arrangement.spacedBy(Dimens8)
             ) {
                 WeekSummaryRow(viewModel)
                 ActivitySection(viewModel, navController)
@@ -307,7 +306,7 @@ private fun StatCard(
         modifier = modifier
             .shadow(Dimens4, RoundedCornerShape(Dimens12))
             .background(Color.White, RoundedCornerShape(Dimens12))
-            .padding(Dimens12)
+            .padding(horizontal = Dimens12, vertical = Dimens8)
     ) {
         Icon(
             imageVector = icon,
@@ -335,36 +334,76 @@ private fun StatCard(
 
 // ── Activity section ─────────────────────────────────────────────────────────
 
+private val ageFilters = listOf("All", "Age 3-5", "Age 5-7", "Age 6-8")
+
 @Composable
 private fun ActivitySection(vm: ParentProgressViewModel, navController: NavController) {
-    Column(modifier = Modifier.fillMaxSize()) {
-        Text(
-            "Activity Breakdown",
-            style = MaterialTheme.typography.bodyMedium.scaled(),
-            fontWeight = FontWeight.Bold,
-            color = Color.Black.copy(alpha = 0.75f)
-        )
+    Column(modifier = Modifier.fillMaxSize(),verticalArrangement = Arrangement.spacedBy(Dimens8)) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                "Activity Breakdown",
+                style = MaterialTheme.typography.bodyMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color.Black.copy(alpha = 0.75f)
+            )
+            Spacer(Modifier.weight(1f))
+            ageFilters.forEach { filter ->
+                val isSelected = vm.selectedAgeFilter == filter
+                Spacer(Modifier.width(Dimens6))
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(50))
+                        .background(
+                            if (isSelected) Color(0xFF5532D2) else Color.Transparent,
+                            RoundedCornerShape(50)
+                        )
+                        .then(
+                            if (!isSelected)
+                                Modifier.border(
+                                    0.5.dp,
+                                    Color.Gray.copy(alpha = 0.3f),
+                                    RoundedCornerShape(50)
+                                )
+                            else Modifier
+                        )
+                        .clickable { vm.selectAgeFilter(filter) }
+                        .padding(horizontal = Dimens8, vertical = Dimens4)
+                ) {
+                    Text(
+                        text = filter,
+                        style = MaterialTheme.typography.labelSmall.scaled(),
+                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
+                        color = if (isSelected) Color.White else Color.Gray
+                    )
+                }
+            }
+        }
 
-        Spacer(Modifier.height(Dimens8))
+        val scrollState = rememberScrollState()
+        LaunchedEffect(vm.selectedAgeFilter) { scrollState.animateScrollTo(0) }
 
-        if (vm.moduleRows.isEmpty()) {
+        if (vm.filteredModuleRows.isEmpty()) {
             EmptyState()
         } else {
             Column(
                 modifier = Modifier
-                    .verticalScroll(rememberScrollState())
-                    .padding(bottom = Dimens12),
+                    .verticalScroll(scrollState),
                 verticalArrangement = Arrangement.spacedBy(Dimens8)
             ) {
-                vm.moduleRows.forEach { row ->
+                vm.filteredModuleRows.forEach { row ->
                     ModuleRowItem(row = row, navController = navController)
                 }
-                if (vm.masteredLetterRows.isNotEmpty() || vm.masteredSequenceRows.isNotEmpty()) {
-                    MasteredCard(vm.masteredLetterRows, vm.masteredSequenceRows)
+                if (vm.filteredMasteredLetterRows.isNotEmpty() || vm.filteredMasteredSequenceRows.isNotEmpty()) {
+                    MasteredCard(vm.filteredMasteredLetterRows, vm.filteredMasteredSequenceRows)
                 }
-                if (vm.weakLetterRows.isNotEmpty() || vm.weakArrangeRows.isNotEmpty()) {
-                    WeakLettersCard(vm.weakLetterRows, vm.weakArrangeRows)
+                if (vm.filteredWeakLetterRows.isNotEmpty() || vm.filteredWeakArrangeRows.isNotEmpty()) {
+                    WeakLettersCard(vm.filteredWeakLetterRows, vm.filteredWeakArrangeRows)
                 }
+                Spacer(modifier = Modifier.height(Dimens8))
             }
         }
     }

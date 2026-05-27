@@ -65,6 +65,10 @@ class ParentProgressViewModel @Inject constructor(
         private set
     var moduleRows by mutableStateOf(emptyList<ModuleProgressRow>())
         private set
+    var filteredModuleRows by mutableStateOf(emptyList<ModuleProgressRow>())
+        private set
+    var selectedAgeFilter by mutableStateOf("All")
+        private set
     // Unified weak-letter rows sorted by most-recently-played first
     var weakLetterRows by mutableStateOf(emptyList<WeakLetterEntry>())
         private set
@@ -73,6 +77,14 @@ class ParentProgressViewModel @Inject constructor(
     var masteredLetterRows by mutableStateOf(emptyList<WeakLetterEntry>())
         private set
     var masteredSequenceRows by mutableStateOf(emptyList<WeakArrangeEntry>())
+        private set
+    var filteredWeakLetterRows by mutableStateOf(emptyList<WeakLetterEntry>())
+        private set
+    var filteredWeakArrangeRows by mutableStateOf(emptyList<WeakArrangeEntry>())
+        private set
+    var filteredMasteredLetterRows by mutableStateOf(emptyList<WeakLetterEntry>())
+        private set
+    var filteredMasteredSequenceRows by mutableStateOf(emptyList<WeakArrangeEntry>())
         private set
 
     val canGoBack: Boolean
@@ -94,6 +106,11 @@ class ParentProgressViewModel @Inject constructor(
         }
 
     // MARK: - Navigation
+
+    fun selectAgeFilter(filter: String) {
+        selectedAgeFilter = filter
+        applyAgeFilter()
+    }
 
     fun selectDay(index: Int) {
         selectedDayIndex = if (selectedDayIndex == index) null else index
@@ -132,6 +149,7 @@ class ParentProgressViewModel @Inject constructor(
         computeStreak(allSessions)
         computeActiveDays(cachedWeekSessions, weekStart)
         reloadStats()
+        setDefaultAgeFilter()
     }
 
     // Re-filters stats/rows when day selection changes without re-fetching sessions
@@ -156,6 +174,7 @@ class ParentProgressViewModel @Inject constructor(
         loadWeakArrange(sessions)
         loadMasteredLetters(sessions)
         loadMasteredSequences(sessions)
+        applyAgeFilter()
     }
 
     // MARK: - Helpers
@@ -613,6 +632,51 @@ class ParentProgressViewModel @Inject constructor(
 
         weakArrangeRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
+    }
+
+    private fun filterLabel(ageGroup: String): String = when (ageGroup) {
+        "3–5" -> "Age 3-5"
+        "5–7" -> "Age 5-7"
+        "6–8" -> "Age 6-8"
+        else  -> "All"
+    }
+
+    private fun ageGroupForFilter(filter: String): String? = when (filter) {
+        "Age 3-5" -> "3–5"
+        "Age 5-7" -> "5–7"
+        "Age 6-8" -> "6–8"
+        else      -> null
+    }
+
+    private fun ageGroupForEntry(label: String, subLabel: String?): String {
+        if (label == "Missing Letter") return if (subLabel == "Age 5-7") "5–7" else "3–5"
+        return when (label) {
+            "Word Jigsaw", "Opposite Words", "Singular & Plural" -> "5–7"
+            else -> "3–5"
+        }
+    }
+
+    private fun applyAgeFilter() {
+        val group = ageGroupForFilter(selectedAgeFilter)
+        if (group != null) {
+            filteredModuleRows           = moduleRows.filter { it.ageGroupLabel == group }
+            filteredWeakLetterRows       = weakLetterRows.filter { ageGroupForEntry(it.label, it.subLabel) == group }
+            filteredWeakArrangeRows      = weakArrangeRows.filter { ageGroupForEntry(it.label, it.subLabel) == group }
+            filteredMasteredLetterRows   = masteredLetterRows.filter { ageGroupForEntry(it.label, it.subLabel) == group }
+            filteredMasteredSequenceRows = masteredSequenceRows.filter { ageGroupForEntry(it.label, it.subLabel) == group }
+        } else {
+            filteredModuleRows           = moduleRows
+            filteredWeakLetterRows       = weakLetterRows
+            filteredWeakArrangeRows      = weakArrangeRows
+            filteredMasteredLetterRows   = masteredLetterRows
+            filteredMasteredSequenceRows = masteredSequenceRows
+        }
+    }
+
+    private fun setDefaultAgeFilter() {
+        val firstGroup = moduleRows.firstOrNull()?.ageGroupLabel
+        selectedAgeFilter = if (firstGroup != null) filterLabel(firstGroup) else "All"
+        applyAgeFilter()
     }
 
     // MARK: - Duration formatting
