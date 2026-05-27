@@ -48,6 +48,7 @@ class MatchOppositesViewModel @Inject constructor(
 
     private val sessionCorrect = mutableSetOf<String>()
     private val sessionWrong = mutableSetOf<String>()
+    private val batchWrong = mutableSetOf<String>()
     private var completedRounds = 0
     private var startTimeMs = System.currentTimeMillis()
 
@@ -59,6 +60,7 @@ class MatchOppositesViewModel @Inject constructor(
     }
 
     fun generateNewBatch() {
+        batchWrong.clear()
         val pairs = OppositeWordsData.getPairsForDifficulty(currentDifficulty).shuffled().take(5)
         _uiState.update {
             it.copy(
@@ -95,6 +97,7 @@ class MatchOppositesViewModel @Inject constructor(
                 markWordAsMatched(word)
             } else {
                 sessionWrong.add(word)
+                batchWrong.add(word)
                 AudioPlayerManager.playSoundWrongAnswer()
             }
         }
@@ -133,6 +136,7 @@ class MatchOppositesViewModel @Inject constructor(
         }
         if (newMatched.size == state.leftWords.size) {
             completedRounds++
+            val batchScore = maxOf(0, state.leftWords.size - batchWrong.size)
             viewModelScope.launch {
                 delay(300)
                 AudioPlayerManager.playSoundClap()
@@ -140,7 +144,9 @@ class MatchOppositesViewModel @Inject constructor(
                     it.copy(
                         showPopup = true,
                         feedbackTitleRes = feedbackTitles.random(),
-                        feedbackSubTitleRes = R.string.you_matched_all_pairs
+                        feedbackSubTitleRes = R.string.you_matched_all_pairs,
+                        lastScore = batchScore,
+                        lastTotal = state.leftWords.size
                     )
                 }
             }

@@ -45,12 +45,14 @@ class MatchSingularPluralViewModel @Inject constructor(
 
     private val sessionCorrect = mutableSetOf<String>()
     private val sessionWrong = mutableSetOf<String>()
+    private val batchWrong = mutableSetOf<String>()
     private var completedRounds = 0
     private var startTimeMs = System.currentTimeMillis()
 
     init { loadPairs() }
 
     fun loadPairs() {
+        batchWrong.clear()
         val pairs = singularPluralWords.shuffled().take(5)
         _uiState.update {
             it.copy(
@@ -115,6 +117,7 @@ class MatchSingularPluralViewModel @Inject constructor(
             } else {
                 AudioPlayerManager.playSoundWrongAnswer()
                 sessionWrong.add(word)
+                batchWrong.add(word)
             }
         }
         draggingWord = null
@@ -152,6 +155,7 @@ class MatchSingularPluralViewModel @Inject constructor(
         }
         if (newMatched.size == state.leftWords.size) {
             completedRounds++
+            val batchScore = maxOf(0, state.leftWords.size - batchWrong.size)
             viewModelScope.launch {
                 delay(300)
                 AudioPlayerManager.playSoundClap()
@@ -159,7 +163,9 @@ class MatchSingularPluralViewModel @Inject constructor(
                     it.copy(
                         showPopup = true,
                         feedbackTitleRes = feedbackTitles.random(),
-                        feedbackSubTitleRes = R.string.you_matched_all_pairs
+                        feedbackSubTitleRes = R.string.you_matched_all_pairs,
+                        lastScore = batchScore,
+                        lastTotal = state.leftWords.size
                     )
                 }
             }

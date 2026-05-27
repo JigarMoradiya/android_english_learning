@@ -1,9 +1,6 @@
 package com.example.myapplication.main.age_group.from_5_to_7.singular_plural.match_form
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -57,7 +54,7 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawDragConnection
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.match_form.view_model.MatchSingularPluralViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.CustomPopupView
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -320,27 +317,23 @@ fun MatchSingularPluralPage(
         }
 
         // ── Completion popup ──────────────────────────────────────────────────
-        AnimatedVisibility(
-            visible = uiState.showPopup,
-            enter = fadeIn(),
-            exit = fadeOut()
-        ) {
-            CustomPopupView(
-                title = uiState.feedbackTitleRes.takeIf { it != 0 }
-                    ?.let { stringResource(it) } ?: "⭐ Well Done!",
-                description = stringResource(R.string.you_matched_all_pairs),
-                positiveButtonText = stringResource(R.string.continue_to_play),
-                negativeButtonText = stringResource(R.string.no_i_want_to_close),
-                icon = R.drawable.ic_complete,
-                onPositiveTapped = {
+        if (uiState.showPopup) {
+            ActivityCompletePopup(
+                stars = when {
+                    uiState.lastTotal > 0 && uiState.lastScore.toFloat() / uiState.lastTotal >= 0.8f -> 3
+                    uiState.lastTotal > 0 && uiState.lastScore.toFloat() / uiState.lastTotal >= 0.5f -> 2
+                    else -> 1
+                },
+                score = uiState.lastScore,
+                total = uiState.lastTotal,
+                scoreLabel = "correct 🎯",
+                feedbackText = stringResource(R.string.your_result),
+                onNext = {
                     wordFrames.clear()
                     oppositeFrames.clear()
                     viewModel.loadPairs()
                 },
-                onNegativeTapped = {
-                    viewModel.closePopup()
-                    navController.popBackStack()
-                }
+                onClose = { navController.popBackStack() }
             )
         }
     }

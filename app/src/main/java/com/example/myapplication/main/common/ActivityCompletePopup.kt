@@ -122,7 +122,7 @@ fun ActivityCompletePopup(
     LaunchedEffect(Unit) {
         cardVisible = true
         delay(400)
-        for (i in 0 until stars.coerceIn(1, 3)) {
+        for (i in 0..2) {
             starRevealed[i] = true
             delay(180)
         }
@@ -207,7 +207,7 @@ fun ActivityCompletePopup(
                                 modifier = Modifier.graphicsLayer {
                                     scaleX = starScales[i]
                                     scaleY = starScales[i]
-                                    alpha = if (isGold) starScales[i] else 1f
+                                    alpha = starScales[i]
                                 }
                             )
                         }

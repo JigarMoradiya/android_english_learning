@@ -1,8 +1,6 @@
 package com.example.myapplication.main.age_group.from_5_to_7.opposite_words.match_opposites
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
+
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -59,7 +57,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_im
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.components.drawMatchedConnections
 import com.example.myapplication.main.age_group.from_5_to_7.opposite_words.match_opposites.view_model.MatchOppositesViewModel
 import com.example.myapplication.main.common.BackButtonWithText
-import com.example.myapplication.main.common.CustomPopupView
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
@@ -117,7 +115,7 @@ fun MatchOppositesPage(
                         text = stringResource(R.string.drag_word_to_connect_opposite),
                         isSmall = true,
                         modifier = Modifier.padding(horizontal = Dimens12))
-                    KidsLabel("🎯 Round ${uiState.round}")
+                    KidsLabel(" 🎯 Round ${uiState.round}")
                 }
             }
 
@@ -322,27 +320,23 @@ fun MatchOppositesPage(
         }
 
         // ── Completion popup ──────────────────────────────────────────────────
-        AnimatedVisibility(
-            visible = uiState.showPopup,
-            enter = fadeIn(),
-            exit = fadeOut()
-        ) {
-            CustomPopupView(
-                title = uiState.feedbackTitleRes.takeIf { it != 0 }
-                    ?.let { stringResource(it) } ?: "⭐ Well Done!",
-                description = stringResource(R.string.you_matched_all_pairs),
-                positiveButtonText = stringResource(R.string.continue_to_play),
-                negativeButtonText = stringResource(R.string.no_i_want_to_close),
-                icon = R.drawable.ic_complete,
-                onPositiveTapped = {
+        if (uiState.showPopup) {
+            ActivityCompletePopup(
+                stars = when {
+                    uiState.lastTotal > 0 && uiState.lastScore.toFloat() / uiState.lastTotal >= 0.8f -> 3
+                    uiState.lastTotal > 0 && uiState.lastScore.toFloat() / uiState.lastTotal >= 0.5f -> 2
+                    else -> 1
+                },
+                score = uiState.lastScore,
+                total = uiState.lastTotal,
+                scoreLabel = "correct 🎯",
+                feedbackText = stringResource(R.string.your_result),
+                onNext = {
                     wordFrames.clear()
                     oppositeFrames.clear()
                     viewModel.generateNewBatch()
                 },
-                onNegativeTapped = {
-                    viewModel.closePopup()
-                    navController.popBackStack()
-                }
+                onClose = { navController.popBackStack() }
             )
         }
     }

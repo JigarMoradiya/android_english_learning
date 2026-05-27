@@ -10,5 +10,7 @@ data class MatchOppositesUiState(
     val showPopup: Boolean = false,
     val feedbackTitleRes: Int = 0,
     val feedbackSubTitleRes: Int = 0,
-    val round: Int = 0
+    val round: Int = 0,
+    val lastScore: Int = 0,
+    val lastTotal: Int = 0
 )
