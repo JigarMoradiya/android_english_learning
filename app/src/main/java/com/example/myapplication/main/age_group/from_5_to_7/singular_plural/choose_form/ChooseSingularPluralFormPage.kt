@@ -55,7 +55,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.choose_form.view_model.ChooseSingularPluralFormViewModel
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.ColoredFeedbackView
 import com.example.myapplication.main.common.CountdownBadge
@@ -116,18 +116,6 @@ fun ChooseSingularPluralFormPage(
                 }
             }
 
-            if (uiState.showCompletePopup) {
-                ResultView(
-                    modifier = Modifier.weight(1f).padding(horizontal = Dimens16),
-                    score = uiState.score,
-                    total = uiState.totalQuestions,
-                    title = stringResource(R.string.your_result),
-                    primaryButtonText = stringResource(R.string.want_to_continue),
-                    secondaryButtonText = stringResource(R.string.go_back),
-                    onPrimaryTap = { viewModel.startNewRound() },
-                    onSecondaryTap = { navController.popBackStack() }
-                )
-            } else {
                 Spacer(Modifier.weight(1f))
 
                 Column(
@@ -227,7 +215,21 @@ fun ChooseSingularPluralFormPage(
                 )
 
                 Spacer(Modifier.weight(1f))
-            }
+        }
+        if (uiState.showCompletePopup) {
+            ActivityCompletePopup(
+                stars = when {
+                    uiState.score.toFloat() / uiState.totalQuestions >= 0.8f -> 3
+                    uiState.score.toFloat() / uiState.totalQuestions >= 0.5f -> 2
+                    else -> 1
+                },
+                score = uiState.score,
+                total = uiState.totalQuestions,
+                scoreLabel = "correct 🎯",
+                feedbackText = stringResource(R.string.your_result),
+                onNext = { viewModel.startNewRound() },
+                onClose = { navController.popBackStack() }
+            )
         }
     }
 }

@@ -21,7 +21,7 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.components.MissingLetterScreen
 import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model.DifficultyLevel
 import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model.MissingLetterViewModel57
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.InstructionBadge
@@ -72,21 +72,24 @@ fun MissingLetterPage57(
                 }
             }
 
-            if (uiState.showResult) {
-                ResultView(
-                    modifier = Modifier.weight(1f).padding(horizontal = Dimens16),
-                    score = uiState.correctCount,
-                    total = uiState.totalRounds,
-                    title = stringResource(R.string.your_result),
-                    primaryButtonText = stringResource(R.string.want_to_continue),
-                    secondaryButtonText = stringResource(R.string.go_back),
-                    onPrimaryTap = { viewModel.restartGame() },
-                    onSecondaryTap = { navController.popBackStack() }
-                )
-            } else {
-                MissingLetterScreen(viewModel, modifier = Modifier.fillMaxSize())
-            }
+            MissingLetterScreen(viewModel, modifier = Modifier.fillMaxSize())
         }
-        if (viewModel.uiState.showSuccess) { ConfettiRainEffect() }
+        if (viewModel.uiState.showSuccess && !viewModel.uiState.showResult) { ConfettiRainEffect() }
+        if (uiState.showResult) {
+            ActivityCompletePopup(
+                stars = when {
+                    uiState.correctCount.toFloat() / uiState.totalRounds >= 0.8f -> 3
+                    uiState.correctCount.toFloat() / uiState.totalRounds >= 0.5f -> 2
+                    else -> 1
+                },
+                score = uiState.correctCount,
+                total = uiState.totalRounds,
+                scoreLabel = "correct 🎯",
+                feedbackTextRes = uiState.feedbackTextRes,
+                feedbackSubTextRes = uiState.feedbackSubTextRes,
+                onNext = { viewModel.restartGame() },
+                onClose = { navController.popBackStack() }
+            )
+        }
     }
 }

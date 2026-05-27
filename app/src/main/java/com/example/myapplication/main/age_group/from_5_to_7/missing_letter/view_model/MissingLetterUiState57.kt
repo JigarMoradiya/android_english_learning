@@ -11,7 +11,7 @@ data class MissingLetterUiState57(
     val countdownValue: Int = 3,
     val wrongSlots: Set<Int> = emptySet(),
     val round: Int = 1,
-    val totalRounds: Int = 10,
+    val totalRounds: Int = 5,
     val correctCount: Int = 0,
     val showResult: Boolean = false,
 )

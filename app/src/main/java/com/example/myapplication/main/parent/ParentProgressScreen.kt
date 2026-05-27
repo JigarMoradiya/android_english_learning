@@ -587,7 +587,14 @@ private fun WeakLettersCard(rows: List<WeakLetterEntry>, arrangeRows: List<WeakA
             WeakLetterRow(entry.label, entry.subLabel, entry.letters)
         }
         arrangeRows.forEach { entry ->
-            WeakArrangeRow(entry.label, entry.subLabel, entry.sequences, highlightLetters = entry.label != "Missing Letter" && entry.label != "Opposite Words")
+            val plainLabels = setOf("Opposite Words", "Drag & Drop", "Word Jigsaw", "Singular & Plural")
+            WeakArrangeRow(
+                label = entry.label,
+                subLabel = entry.subLabel,
+                sequences = entry.sequences,
+                highlightLetters = entry.label !in plainLabels && entry.label != "Missing Letter",
+                isMissingLetter = entry.label == "Missing Letter"
+            )
         }
     }
 }
@@ -642,7 +649,7 @@ private fun WeakLetterRow(label: String, subLabel: String? = null, letters: List
 }
 
 @Composable
-private fun WeakArrangeRow(label: String, subLabel: String?, sequences: List<String>, highlightLetters: Boolean = true) {
+private fun WeakArrangeRow(label: String, subLabel: String?, sequences: List<String>, highlightLetters: Boolean = true, isMissingLetter: Boolean = false) {
     Row(
         verticalAlignment = Alignment.Top,
         horizontalArrangement = Arrangement.spacedBy(Dimens8)
@@ -671,7 +678,9 @@ private fun WeakArrangeRow(label: String, subLabel: String?, sequences: List<Str
             horizontalArrangement = Arrangement.spacedBy(Dimens6)
         ) {
             sequences.forEach { sequence ->
-                if (highlightLetters) {
+                if (isMissingLetter) {
+                    MissingLetterSequenceBox(sequence)
+                } else if (highlightLetters) {
                     WrongSequenceBox(sequence)
                 } else {
                     Box(
@@ -690,6 +699,31 @@ private fun WeakArrangeRow(label: String, subLabel: String?, sequences: List<Str
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun MissingLetterSequenceBox(sequence: String) {
+    val parts = sequence.split(":", limit = 2)
+    val word = parts[0]
+    val wrongIndices = if (parts.size > 1)
+        parts[1].split(",").mapNotNull { it.toIntOrNull() }.toSet()
+    else emptySet()
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .background(Color(0xFFEEE8FF), RoundedCornerShape(Dimens8))
+            .height(Dimens30)
+            .padding(horizontal = Dimens8)
+    ) {
+        word.forEachIndexed { i, letter ->
+            Text(
+                text = letter.toString(),
+                style = MaterialTheme.typography.titleMedium.scaled(),
+                fontWeight = FontWeight.Normal,
+                color = if (wrongIndices.contains(i)) Color.Red else Color(0xFF5532D2)
+            )
         }
     }
 }

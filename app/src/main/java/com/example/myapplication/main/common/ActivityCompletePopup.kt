@@ -58,12 +58,29 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun ActivityCompletePopup(
-    stars: Int,             // 1, 2, or 3
+    stars: Int,
     score: Int,
-    total: Int,             // 0 = learning screen, hides score row
-    scoreLabel: String,     // e.g. "perfect! 🎯"
-    feedbackTextRes: Int,   // string resource for title
+    total: Int,
+    scoreLabel: String,
+    feedbackTextRes: Int,
     feedbackSubTextRes: Int,
+    onNext: () -> Unit,
+    onClose: () -> Unit
+) = ActivityCompletePopup(
+    stars = stars, score = score, total = total, scoreLabel = scoreLabel,
+    feedbackText = stringResource(feedbackTextRes),
+    feedbackSubText = stringResource(feedbackSubTextRes),
+    onNext = onNext, onClose = onClose
+)
+
+@Composable
+fun ActivityCompletePopup(
+    stars: Int,
+    score: Int,
+    total: Int,
+    scoreLabel: String,
+    feedbackText: String,
+    feedbackSubText: String = "",
     onNext: () -> Unit,
     onClose: () -> Unit
 ) {
@@ -148,7 +165,7 @@ fun ActivityCompletePopup(
                 ) {
                     Text("🏆", style = MaterialTheme.typography.displayLarge.scaled())
                     Text(
-                        text = stringResource(feedbackTextRes),
+                        text = feedbackText,
                         style = MaterialTheme.typography.titleMedium.scaled(),
                         fontWeight = FontWeight.Black,
                         color = Color.White,
@@ -225,7 +242,7 @@ fun ActivityCompletePopup(
                 }
 
                 // Subtitle
-                val subtitle = stringResource(feedbackSubTextRes)
+                val subtitle = feedbackSubText
                 if (subtitle.isNotEmpty()) {
                     Text(
                         text = subtitle,

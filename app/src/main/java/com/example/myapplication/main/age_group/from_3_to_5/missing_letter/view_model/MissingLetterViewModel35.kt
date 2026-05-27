@@ -31,7 +31,7 @@ class MissingLetterViewModel35 @Inject constructor(
     private val sessionRepository: SessionRepository
 ) : ViewModel() {
 
-    private val wrongAttemptsInBatch = mutableSetOf<String>()
+    private val wrongAttemptsInBatch = mutableMapOf<String, MutableSet<Int>>()
     private val correctAttemptsInBatch = mutableSetOf<String>()
     private var currentRoundHadWrong = false
     private var batchStartMs: Long = System.currentTimeMillis()
@@ -90,7 +90,9 @@ class MissingLetterViewModel35 @Inject constructor(
                     durationSeconds = duration,
                     score = uiState.correctCount,
                     totalQuestions = uiState.totalRounds,
-                    wrongItems = wrongAttemptsInBatch.toList(),
+                    wrongItems = wrongAttemptsInBatch.map { (word, slots) ->
+                        if (slots.isEmpty()) word else "$word:${slots.sorted().joinToString(",")}"
+                    },
                     correctItems = correctAttemptsInBatch.toList(),
                     subConfig = difficulty.value.name
                 )
@@ -295,7 +297,6 @@ class MissingLetterViewModel35 @Inject constructor(
                 }
             } else {
                 currentRoundHadWrong = true
-                wrongAttemptsInBatch.add(targetWord)
                 val badSlots = mutableSetOf<Int>()
                 targetWord.forEachIndexed { i, ch ->
                     if (!fixedIndices.contains(i)) {
@@ -305,6 +306,7 @@ class MissingLetterViewModel35 @Inject constructor(
                         }
                     }
                 }
+                wrongAttemptsInBatch.getOrPut(targetWord) { mutableSetOf() }.addAll(badSlots)
                 AudioPlayerManager.playSoundWrongAnswer()
                 uiState = uiState.copy(
                     showError = true,
