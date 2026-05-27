@@ -36,7 +36,7 @@ data class ModuleProgressRow(
     val avgStars: Double,           // 0.0–3.0
     val hasQuiz: Boolean = false,   // true = show stars + accuracy bar even when value is 0
     val route: String?,             // RouteNavigation route string, null = not tappable
-    val scoreText: String? = null   // e.g. "21/30 ×3" for Fill the Blank sub-rows
+    val scoreText: String? = null
 )
 
 @HiltViewModel
@@ -331,9 +331,7 @@ class ParentProgressViewModel @Inject constructor(
                     val totalQs    = quizSessions.sumOf { it.totalQuestions }
                     val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
                     val sessionCount = quizSessions.size
-                    val scoreStr = if (totalQs > 0)
-                        "$totalScore/$totalQs${if (sessionCount > 1) " ×$sessionCount" else ""}"
-                    else null
+                    val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
                     rowsWithTime.add(ModuleProgressRow(
                         moduleId = "$moduleId|$config",
                         displayName = "Fill the Blank",

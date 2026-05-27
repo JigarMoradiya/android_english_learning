@@ -32,7 +32,10 @@ import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.InstructionBadge
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -81,45 +84,52 @@ fun ArrangeLetterInSequencePage(
 
             Spacer(Modifier.weight(1f))
 
-            if (viewModel.uiState.showResult) {
-                ResultView(
-                    modifier = Modifier.padding(horizontal = Dimens16),
-                    score = viewModel.uiState.correctCount,
-                    total = viewModel.uiState.totalRounds,
-                    title = stringResource(R.string.your_result),
-                    primaryButtonText = stringResource(R.string.practice_again),
-                    secondaryButtonText = stringResource(R.string.go_back),
-                    onPrimaryTap = { viewModel.restartGame() },
-                    onSecondaryTap = { navController.popBackStack() }
-                )
-            } else {
+            TopArrangeLetterSlots(viewModel)
 
-                TopArrangeLetterSlots(viewModel)
+            Spacer(modifier = Modifier.height(Dimens16.scaled()))
 
-                Spacer(modifier = Modifier.height(Dimens16.scaled()))
+            InstructionBadge(
+                text = stringResource(R.string.arrange_letter_tap_instruction),
+                icon = Icons.Rounded.SwapHoriz
+            )
 
-                InstructionBadge(
-                    text = stringResource(R.string.arrange_letter_tap_instruction),
-                    icon = Icons.Rounded.SwapHoriz
-                )
+            Spacer(modifier = Modifier.height(Dimens16.scaled()))
 
-                Spacer(modifier = Modifier.height(Dimens16.scaled()))
+            BottomArrangeLetterOptions(viewModel)
 
-                BottomArrangeLetterOptions(viewModel)
+            Spacer(Modifier.weight(1f))
 
-                Spacer(Modifier.weight(1f))
-
-                FeedbackText(
-                    title = stringResource(viewModel.uiState.feedbackTextRes),
-                    subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
-                    isSuccess = viewModel.uiState.showSuccess,
-                    isVisible = viewModel.uiState.showError || viewModel.uiState.showNext
-                )
-            }
+            FeedbackText(
+                title = stringResource(viewModel.uiState.feedbackTextRes),
+                subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
+                isSuccess = viewModel.uiState.showSuccess,
+                isVisible = viewModel.uiState.showError || viewModel.uiState.showNext
+            )
         }
 
         if (viewModel.uiState.showSuccess && !viewModel.uiState.showResult) {
             ConfettiRainEffect()
+        }
+
+        AnimatedVisibility(
+            visible = viewModel.uiState.showResult,
+            enter = fadeIn(),
+            exit = fadeOut()
+        ) {
+            ActivityCompletePopup(
+                stars = when {
+                    viewModel.uiState.correctCount.toFloat() / viewModel.uiState.totalRounds >= 0.8f -> 3
+                    viewModel.uiState.correctCount.toFloat() / viewModel.uiState.totalRounds >= 0.5f -> 2
+                    else -> 1
+                },
+                score = viewModel.uiState.correctCount,
+                total = viewModel.uiState.totalRounds,
+                scoreLabel = "correct 🎯",
+                feedbackTextRes = viewModel.uiState.feedbackTextRes,
+                feedbackSubTextRes = viewModel.uiState.feedbackSubTextRes,
+                onNext = { viewModel.restartGame() },
+                onClose = { navController.popBackStack() }
+            )
         }
     }
 }

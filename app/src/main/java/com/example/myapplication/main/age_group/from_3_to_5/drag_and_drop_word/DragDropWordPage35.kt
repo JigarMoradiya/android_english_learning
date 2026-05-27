@@ -20,7 +20,10 @@ import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.components.DragDropScreen35
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.view_model.DragDropWordViewModel35
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.DifficultyLevel
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
@@ -78,31 +81,39 @@ fun DragDropWordPage35(
                 }
             }
 
-            if (uiState.showResult) {
-                ResultView(
-                    modifier = Modifier.fillMaxSize().padding(horizontal = Dimens16),
-                    score = uiState.correctCount,
-                    total = uiState.totalRounds,
-                    title = stringResource(R.string.your_result),
-                    primaryButtonText = stringResource(R.string.want_to_continue),
-                    secondaryButtonText = stringResource(R.string.go_back),
-                    onPrimaryTap = { viewModel.restartGame() },
-                    onSecondaryTap = { navController.popBackStack() }
+            DragDropScreen35(viewModel, modifier = Modifier.fillMaxSize())
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
+            ) {
+                FeedbackText(
+                    title = stringResource(viewModel.uiState.feedbackTextRes),
+                    subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
+                    isSuccess = viewModel.uiState.showSuccess,
+                    isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
                 )
-            } else {
-                DragDropScreen35(viewModel, modifier = Modifier.fillMaxSize())
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.BottomCenter
-                ) {
-                    FeedbackText(
-                        title = stringResource(viewModel.uiState.feedbackTextRes),
-                        subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
-                        isSuccess = viewModel.uiState.showSuccess,
-                        isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
-                    )
-                }
             }
+        }
+
+        AnimatedVisibility(
+            visible = uiState.showResult,
+            enter = fadeIn(),
+            exit = fadeOut()
+        ) {
+            ActivityCompletePopup(
+                stars = when {
+                    uiState.correctCount.toFloat() / uiState.totalRounds >= 0.8f -> 3
+                    uiState.correctCount.toFloat() / uiState.totalRounds >= 0.5f -> 2
+                    else -> 1
+                },
+                score = uiState.correctCount,
+                total = uiState.totalRounds,
+                scoreLabel = "correct 🎯",
+                feedbackTextRes = viewModel.uiState.feedbackTextRes,
+                feedbackSubTextRes = viewModel.uiState.feedbackSubTextRes,
+                onNext = { viewModel.restartGame() },
+                onClose = { navController.popBackStack() }
+            )
         }
     }
 }
