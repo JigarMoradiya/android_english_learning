@@ -158,7 +158,8 @@ class WordMatchImageViewModel @Inject constructor(
 
         // show popup when all matched
         if (updatedSet.size == uiState.batchLetters.size) {
-            // COMPLETE
+            // Update matched state immediately so last line renders before popup
+            uiState = uiState.copy(matchedLetters = updatedSet, matchedOrder = updatedOrder)
             viewModelScope.launch {
                 delay(300)
                 val score = batchSize - wrongAttemptsInBatch.size
@@ -166,8 +167,6 @@ class WordMatchImageViewModel @Inject constructor(
                 recordSession(score)
                 AudioPlayerManager.playSoundClap()
                 uiState = uiState.copy(
-                    matchedLetters = updatedSet,
-                    matchedOrder = updatedOrder,
                     batchScore = score,
                     earnedStars = stars,
                     scoreLabel = if (score == batchSize) "perfect! 🎯" else "first try 🎯",

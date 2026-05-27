@@ -96,11 +96,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="ActivityCompletePopup added in match opposite and match singular plural">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="what's kids learn and need practice add for word match with image">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/match_letter_with_image/view_model/MatchLetterWithImageViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/match_letter_with_image/view_model/MatchLetterWithImageViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/word_match_picture/view_model/WordMatchImageViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/word_match_picture/view_model/WordMatchImageViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -488,14 +488,6 @@
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
     </task>
-    <task id="LOCAL-00119" summary="changed on UI for grammar challenge">
-      <option name="closed" value="true" />
-      <created>1779093236014</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1779093236014</updated>
-    </task>
     <task id="LOCAL-00120" summary="tested in tablet">
       <option name="closed" value="true" />
       <created>1779108881113</created>
@@ -880,11 +872,18 @@
       <option name="project" value="LOCAL" />
       <updated>1779862741909</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="what's kids learn and need practice add for word match with image">
+      <option name="closed" value="true" />
+      <created>1779863667027</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1779863667027</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ui changes in sight word choice" />
     <MESSAGE value="purchase bug fixes and quick release" />
     <MESSAGE value="add objects on letter tracing" />
     <MESSAGE value="- base setup for parent report&#10;- done for match upper and lower case&#10;- done for match letter with image" />
@@ -909,7 +908,8 @@
     <MESSAGE value="ActivityCompletePopup replace to ResultView in age 3-5" />
     <MESSAGE value="solve bug for missing letter highlighter" />
     <MESSAGE value="ActivityCompletePopup added in match opposite and match singular plural" />
-    <option name="LAST_COMMIT_MESSAGE" value="ActivityCompletePopup added in match opposite and match singular plural" />
+    <MESSAGE value="what's kids learn and need practice add for word match with image" />
+    <option name="LAST_COMMIT_MESSAGE" value="what's kids learn and need practice add for word match with image" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

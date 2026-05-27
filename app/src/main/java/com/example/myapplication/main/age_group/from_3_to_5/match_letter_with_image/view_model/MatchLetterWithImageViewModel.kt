@@ -125,6 +125,8 @@ class MatchLetterWithImageViewModel @Inject constructor(
         val updatedOrder = uiState.matchedOrder + letter
 
         if (updatedSet.size == uiState.batchLetters.size) {
+            // Update matched state immediately so last line renders before popup
+            uiState = uiState.copy(matchedLetters = updatedSet, matchedOrder = updatedOrder)
             viewModelScope.launch {
                 delay(300)
                 val score = batchSize - wrongAttemptsInBatch.size
@@ -132,8 +134,6 @@ class MatchLetterWithImageViewModel @Inject constructor(
                 recordSession(score)
                 AudioPlayerManager.playSoundClap()
                 uiState = uiState.copy(
-                    matchedLetters = updatedSet,
-                    matchedOrder = updatedOrder,
                     batchScore = score,
                     earnedStars = stars,
                     scoreLabel = if (score == batchSize) "perfect! 🎯" else "first try 🎯",
