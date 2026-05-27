@@ -2,9 +2,7 @@ package com.example.myapplication.main.age_group.from_5_to_7.listen_and_select_a
 
 import com.example.myapplication.R
 
-
 data class ListenAndSelectWordUiState(
-    val wordList: List<String> = emptyList(),
     val currentWord: String = "",
     val optionsWord: List<String> = emptyList(),
 
@@ -14,4 +12,12 @@ data class ListenAndSelectWordUiState(
     val feedbackSubTextRes: Int = R.string.feedbackPhrasesSubtitle_1,
     val feedbackSubTextError: String = "",
     val countdown: Int = 3,
+
+    val questionIndex: Int = 0,
+    val totalQuestions: Int = 5,
+    val showBatchPopup: Boolean = false,
+    val lastScore: Int = 0,
+    val feedbackBatchTextRes: Int = R.string.feedbackPhrases_1,
+    val feedbackBatchSubTextRes: Int = R.string.feedbackPhrasesSubtitle_1,
+    val scoreLabel: String = "first try 🎯",
 )

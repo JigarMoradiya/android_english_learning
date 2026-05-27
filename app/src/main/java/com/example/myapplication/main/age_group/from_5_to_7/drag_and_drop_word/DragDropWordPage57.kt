@@ -87,7 +87,7 @@ fun DragDropWordPage57(
                 },
                 score = uiState.correctCount,
                 total = uiState.totalRounds,
-                scoreLabel = "correct 🎯",
+                scoreLabel = if (uiState.correctCount == uiState.totalRounds) "perfect! 🎯" else "first try 🎯",
                 feedbackTextRes = uiState.feedbackTextRes,
                 feedbackSubTextRes = uiState.feedbackSubTextRes,
                 onNext = { viewModel.restartGame() },

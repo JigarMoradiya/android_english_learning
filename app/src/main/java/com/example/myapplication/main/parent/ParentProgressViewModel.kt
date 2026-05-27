@@ -531,6 +531,15 @@ class ParentProgressViewModel @Inject constructor(
             result.add(Entry(label = "Match Word & Image", subLabel = "Age 5-7", sequences = wmiCorrect, latestMs = wmiSessions.maxOf { it.timestampMs }))
         }
 
+        // Listen & Select — only clean first-try wins go to "what kids learn"
+        val lasSessions = sessions.filter { it.moduleId == ModuleID.LISTEN_AND_SELECT }
+        val lasAllWrong = lasSessions.flatMap { it.wrongItems.orEmpty() }.toSet()
+        val lasCorrect = lasSessions.flatMap { it.correctItems.orEmpty() }
+            .filter { it.isNotEmpty() }.toSet().subtract(lasAllWrong).sorted()
+        if (lasCorrect.isNotEmpty()) {
+            result.add(Entry(label = "Listen & Select", subLabel = "Age 5-7", sequences = lasCorrect, latestMs = lasSessions.maxOf { it.timestampMs }))
+        }
+
         masteredSequenceRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
@@ -644,6 +653,13 @@ class ParentProgressViewModel @Inject constructor(
             result.add(Entry(label = "Match Word & Image", subLabel = "Age 5-7", sequences = wmiWrong, latestMs = wmiSessions.maxOf { it.timestampMs }))
         }
 
+        // Listen & Select — wrong words
+        val lasSessions = sessions.filter { it.moduleId == ModuleID.LISTEN_AND_SELECT }
+        val lasWrong = lasSessions.flatMap { it.wrongItems.orEmpty() }.filter { it.isNotEmpty() }.distinct().sorted()
+        if (lasWrong.isNotEmpty()) {
+            result.add(Entry(label = "Listen & Select", subLabel = "Age 5-7", sequences = lasWrong, latestMs = lasSessions.maxOf { it.timestampMs }))
+        }
+
         weakArrangeRows = result.sortedByDescending { it.latestMs }
             .map { WeakArrangeEntry(it.label, it.subLabel, it.sequences) }
     }
@@ -665,7 +681,7 @@ class ParentProgressViewModel @Inject constructor(
     private fun ageGroupForEntry(label: String, subLabel: String?): String {
         if (label == "Missing Letter") return if (subLabel == "Age 5-7") "5–7" else "3–5"
         return when (label) {
-            "Word Jigsaw", "Opposite Words", "Singular & Plural", "Match Word & Image" -> "5–7"
+            "Word Jigsaw", "Opposite Words", "Singular & Plural", "Match Word & Image", "Listen & Select" -> "5–7"
             else -> "3–5"
         }
     }

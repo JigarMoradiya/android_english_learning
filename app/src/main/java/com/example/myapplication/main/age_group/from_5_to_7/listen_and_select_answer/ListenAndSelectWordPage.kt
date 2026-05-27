@@ -17,35 +17,29 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.VolumeUp
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_5_to_7.listen_and_select_answer.view_model.ListenAndSelectWordViewModel
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.InstructionBadge
-import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
-import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsHeight
 import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsWidth
 import com.example.myapplication.ui.theme.ButtonType
-import com.example.myapplication.ui.theme.PrimaryGreen
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
@@ -62,8 +56,11 @@ fun ListenAndSelectWordPage(
     Box(modifier = Modifier.fillMaxSize()) {
 
         KidsGradientBackground(gradient = KidsGradient.aquaGreen, shape = KidsFloatingShape.leaves)
-        Column(modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing),
-            horizontalAlignment = Alignment.CenterHorizontally) {
+
+        Column(
+            modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
@@ -74,19 +71,23 @@ fun ListenAndSelectWordPage(
                     onBackClick = { navController.popBackStack() }
                 )
                 if (uiState.showSuccess) {
+                    KidsLabel("${uiState.questionIndex + 1}/${uiState.totalQuestions}")
                     CountdownBadge(
                         count = uiState.countdown,
-                        modifier = Modifier.padding(end = Dimens16,top = DeviceInfo.screenTopPadding())
+                        modifier = Modifier.padding(end = Dimens16)
                     )
-                }else{
+                } else {
                     InstructionBadge(
                         text = stringResource(R.string.listen_tap_the_word_),
                         isSmall = true,
-                        modifier = Modifier.padding(horizontal = Dimens16).padding(top = DeviceInfo.screenTopPadding())
+                        modifier = Modifier.padding(end = Dimens16)
                     )
+                    KidsLabel("${uiState.questionIndex + 1}/${uiState.totalQuestions}")
                 }
             }
+
             Spacer(Modifier.weight(1f))
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center,
@@ -96,9 +97,7 @@ fun ListenAndSelectWordPage(
                     text = stringResource(R.string.listen_word),
                     icon = Icons.AutoMirrored.Rounded.VolumeUp,
                     type = ButtonType.PINK,
-                    onClick = {
-                        viewModel.speakWord()
-                    }
+                    onClick = { viewModel.speakWord() }
                 )
                 Spacer(Modifier.width(Dimens16))
                 Image(
@@ -119,31 +118,23 @@ fun ListenAndSelectWordPage(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(Dimens16)
                 ) {
-
-                    // Split list into rows of 2
                     uiState.optionsWord.chunked(2).forEach { rowItems ->
-
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(Dimens16),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             rowItems.forEach { word ->
-
                                 KidsOptionButton(
                                     text = word.replaceFirstChar { it.uppercase() },
                                     type = ButtonType.OPTIONS,
                                     fontSize = listenAndAnswerOptionsHeight.value.sp * 0.5,
-                                    onClick = {
-                                        viewModel.checkCorrectOrWrong(word)
-                                    },
+                                    onClick = { viewModel.checkCorrectOrWrong(word) },
                                     enabled = !uiState.showSuccess,
                                     modifier = Modifier
                                         .width(listenAndAnswerOptionsWidth)
                                         .height(listenAndAnswerOptionsHeight)
                                 )
                             }
-
-                            // 👇 Important: if odd items (safety)
                             if (rowItems.size == 1) {
                                 Spacer(modifier = Modifier.width(listenAndAnswerOptionsWidth))
                             }
@@ -155,10 +146,28 @@ fun ListenAndSelectWordPage(
             Spacer(Modifier.weight(1f))
 
             FeedbackText(
-                title = stringResource(viewModel.uiState.feedbackTextRes),
-                subtitle = stringResource(viewModel.uiState.feedbackSubTextRes),
-                isSuccess = viewModel.uiState.showSuccess,
-                isVisible = viewModel.uiState.showError || viewModel.uiState.showSuccess
+                title = stringResource(uiState.feedbackTextRes),
+                subtitle = if (uiState.showError) uiState.feedbackSubTextError
+                           else stringResource(uiState.feedbackSubTextRes),
+                isSuccess = uiState.showSuccess,
+                isVisible = uiState.showError || uiState.showSuccess
+            )
+        }
+
+        if (uiState.showBatchPopup) {
+            ActivityCompletePopup(
+                stars = when {
+                    uiState.lastScore.toFloat() / uiState.totalQuestions >= 0.8f -> 3
+                    uiState.lastScore.toFloat() / uiState.totalQuestions >= 0.5f -> 2
+                    else -> 1
+                },
+                score = uiState.lastScore,
+                total = uiState.totalQuestions,
+                scoreLabel = uiState.scoreLabel,
+                feedbackTextRes = uiState.feedbackBatchTextRes,
+                feedbackSubTextRes = uiState.feedbackBatchSubTextRes,
+                onNext = { viewModel.loadNewBatch() },
+                onClose = { navController.popBackStack() }
             )
         }
     }

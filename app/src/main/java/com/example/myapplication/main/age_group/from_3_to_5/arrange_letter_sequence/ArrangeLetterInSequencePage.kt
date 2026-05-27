@@ -124,7 +124,7 @@ fun ArrangeLetterInSequencePage(
                 },
                 score = viewModel.uiState.correctCount,
                 total = viewModel.uiState.totalRounds,
-                scoreLabel = "correct 🎯",
+                scoreLabel = if (viewModel.uiState.correctCount == viewModel.uiState.totalRounds) "perfect! 🎯" else "first try 🎯",
                 feedbackTextRes = viewModel.uiState.feedbackTextRes,
                 feedbackSubTextRes = viewModel.uiState.feedbackSubTextRes,
                 onNext = { viewModel.restartGame() },

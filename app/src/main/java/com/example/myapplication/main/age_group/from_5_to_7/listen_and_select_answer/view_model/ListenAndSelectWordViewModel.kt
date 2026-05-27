@@ -5,48 +5,74 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.data.generation.letter.LetterRepository.vocabularyCategoryAllForListenAndSelect
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ListenAndSelectWordViewModel @Inject constructor(
-    private val ttsManager: TextToSpeechManager
+    private val ttsManager: TextToSpeechManager,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
 
     var uiState by mutableStateOf(ListenAndSelectWordUiState())
         private set
 
+    private val allWords: List<String> by lazy {
+        (LetterRepository.all.flatMap { listOf(it.mainWord) + it.altWords }
+                + vocabularyCategoryAllForListenAndSelect).distinct()
+    }
+
+    private var batchWords: List<String> = emptyList()
+    private var batchIndex: Int = 0
+    private var wrongAttemptsInBatch = mutableSetOf<String>()
+    private var correctAttemptsInBatch = mutableSetOf<String>()
+    private var batchStartMs = System.currentTimeMillis()
+    private var countdownJob: Job? = null
+
     init {
-        loadWords()
+        loadNewBatch()
     }
 
-    private fun loadWords() {
-        val allWords = (LetterRepository.all.flatMap {
-            listOf(it.mainWord) + it.altWords
-        } + vocabularyCategoryAllForListenAndSelect)
-
-        uiState = uiState.copy(wordList = allWords.distinct())
-        generateWord()
+    fun loadNewBatch() {
+        countdownJob?.cancel()
+        batchWords = allWords.shuffled().take(uiState.totalQuestions)
+        batchIndex = 0
+        wrongAttemptsInBatch.clear()
+        correctAttemptsInBatch.clear()
+        batchStartMs = System.currentTimeMillis()
+        uiState = uiState.copy(
+            showBatchPopup = false
+        )
+        loadCurrentWord()
     }
 
-    private fun generateWord() {
-        val uniqueWord = uiState.wordList.shuffled().first()
-        val otherWords = uiState.wordList
-            .filter { it != uniqueWord }
-            .shuffled()
-            .take(3)
-        val finalList = (listOf(uniqueWord) + otherWords).shuffled()
-        uiState = uiState.copy(currentWord = uniqueWord, optionsWord = finalList)
-
+    private fun loadCurrentWord() {
+        countdownJob?.cancel()
+        val word = batchWords[batchIndex]
+        val otherWords = allWords.filter { it != word }.shuffled().take(3)
+        val options = (listOf(word) + otherWords).shuffled()
+        uiState = uiState.copy(
+            currentWord = word,
+            optionsWord = options,
+            showSuccess = false,
+            showError = false,
+            countdown = 3,
+            questionIndex = batchIndex
+        )
         viewModelScope.launch {
             delay(500)
             speakWord()
@@ -57,44 +83,83 @@ class ListenAndSelectWordViewModel @Inject constructor(
         ttsManager.speak(uiState.currentWord)
     }
 
-    fun playAgain() {
-        uiState = uiState.copy(showSuccess = false)
-        generateWord()
-    }
-
-    fun closePopup() {
-        uiState = uiState.copy(showSuccess = false)
-    }
-
     fun checkCorrectOrWrong(word: String) {
-        val isCorrect = (word.equals(uiState.currentWord, true))
+        if (uiState.showSuccess) return
+        val isCorrect = word.equals(uiState.currentWord, ignoreCase = true)
+
         if (isCorrect) {
-            val randomTitle = feedbackTitles.random()
-            val randomSubTitle = feedbackGiveAnswerSubTitleCorrect.random()
+            if (!wrongAttemptsInBatch.contains(uiState.currentWord)) {
+                correctAttemptsInBatch.add(uiState.currentWord)
+            }
             uiState = uiState.copy(
-                feedbackTextRes = randomTitle,
-                feedbackSubTextRes = randomSubTitle,
+                feedbackTextRes = feedbackTitles.random(),
+                feedbackSubTextRes = feedbackGiveAnswerSubTitleCorrect.random(),
                 showSuccess = true,
                 showError = false,
                 countdown = 3
             )
             AudioPlayerManager.playSoundCorrectAnswer()
-            startCountdown()
+            batchIndex++
+
+            if (batchIndex >= uiState.totalQuestions) {
+                viewModelScope.launch {
+                    delay(500)
+                    showBatchComplete()
+                }
+            } else {
+                startCountdown()
+            }
         } else {
-            val randomTitle = feedbackWrong.random()
-            uiState = uiState.copy(feedbackTextRes = randomTitle, feedbackSubTextError = "Oops! The word is not $word", showError = true, showSuccess = false)
+            wrongAttemptsInBatch.add(uiState.currentWord)
+            uiState = uiState.copy(
+                feedbackTextRes = feedbackWrong.random(),
+                feedbackSubTextError = "Oops! The word is not $word",
+                showError = true,
+                showSuccess = false
+            )
             AudioPlayerManager.playSoundWrongAnswer()
         }
     }
 
+    private fun showBatchComplete() {
+        countdownJob?.cancel()
+        val score = maxOf(0, uiState.totalQuestions - wrongAttemptsInBatch.size)
+        recordSession(score)
+        AudioPlayerManager.playSoundClap()
+        uiState = uiState.copy(
+            lastScore = score,
+            scoreLabel = if (score == uiState.totalQuestions) "perfect! 🎯" else "first try 🎯",
+            feedbackBatchTextRes = feedbackTitles.random(),
+            feedbackBatchSubTextRes = feedbackGiveAnswerSubTitleCorrect.random(),
+            showBatchPopup = true
+        )
+    }
+
     private fun startCountdown() {
-        viewModelScope.launch {
+        countdownJob?.cancel()
+        countdownJob = viewModelScope.launch {
             for (i in 2 downTo 1) {
                 delay(1000)
                 uiState = uiState.copy(countdown = i)
             }
             delay(1000)
-            playAgain()
+            loadCurrentWord()
         }
     }
+
+    private fun recordSession(score: Int) {
+        val duration = ((System.currentTimeMillis() - batchStartMs) / 1000).toInt()
+        sessionRepository.record(
+            LearningSession(
+                moduleId = ModuleID.LISTEN_AND_SELECT,
+                ageGroup = AgeGroup.FIVE_TO_SEVEN,
+                durationSeconds = duration,
+                score = score,
+                totalQuestions = uiState.totalQuestions,
+                wrongItems = wrongAttemptsInBatch.sorted(),
+                correctItems = correctAttemptsInBatch.sorted()
+            )
+        )
+    }
+
 }

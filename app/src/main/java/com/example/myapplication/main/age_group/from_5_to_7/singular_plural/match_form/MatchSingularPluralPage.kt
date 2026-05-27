@@ -326,7 +326,7 @@ fun MatchSingularPluralPage(
                 },
                 score = uiState.lastScore,
                 total = uiState.lastTotal,
-                scoreLabel = "correct 🎯",
+                scoreLabel = if (uiState.lastScore == uiState.lastTotal) "perfect! 🎯" else "first try 🎯",
                 feedbackText = stringResource(R.string.your_result),
                 onNext = {
                     wordFrames.clear()

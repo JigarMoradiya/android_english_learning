@@ -225,7 +225,7 @@ fun ChooseSingularPluralFormPage(
                 },
                 score = uiState.score,
                 total = uiState.totalQuestions,
-                scoreLabel = "correct 🎯",
+                scoreLabel = if (uiState.score == uiState.totalQuestions) "perfect! 🎯" else "first try 🎯",
                 feedbackText = stringResource(R.string.your_result),
                 onNext = { viewModel.startNewRound() },
                 onClose = { navController.popBackStack() }
