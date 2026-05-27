@@ -1,11 +1,17 @@
 package com.example.myapplication.main.age_group.from_6_to_8.read_listen.view_model
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.model.ReadSentenceItemNew
 import com.example.myapplication.data.model.UnitSelectionScreen
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.main.age_group.from_6_to_8.common.unit.data.SentenceProgressManager
 import com.example.myapplication.utilities.TextToSpeechManager
+import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,10 +25,12 @@ import javax.inject.Inject
 @HiltViewModel
 class ReadAndListenViewModel @Inject constructor(
     private val progressManager: SentenceProgressManager,
-    private val ttsManager: TextToSpeechManager
+    private val ttsManager: TextToSpeechManager,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
 
     private var speakingJob: Job? = null
+    private val startTimeMs = System.currentTimeMillis()
 
     private val _uiState = MutableStateFlow(ReadAndListenUiState())
     val uiState: StateFlow<ReadAndListenUiState> = _uiState
@@ -34,6 +42,8 @@ class ReadAndListenViewModel @Inject constructor(
         screenType: UnitSelectionScreen,
         lessonData: ReadSentenceItemNew
     ) {
+        Log.e("jigarLogs","lessonData = "+ Gson().toJson(lessonData))
+        Log.e("jigarLogs","lessonData title = "+ lessonData.level?.title)
         _uiState.update {
             it.copy(screenType = screenType, lessonData = lessonData)
         }
@@ -106,6 +116,18 @@ class ReadAndListenViewModel @Inject constructor(
             progressManager.markCompleted(
                 type = state.screenType,
                 lessonId = lesson.id
+            )
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.READ_LISTEN_ALL,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt(),
+                    score = 0,
+                    totalQuestions = 0,
+                    correctItems = listOf(lesson.title),
+                    wrongItems = emptyList(),
+                    subConfig = lesson.level?.title ?: "Short Sentence"
+                )
             )
             _uiState.update {
                 it.copy(hasMarkedComplete = true)
@@ -228,7 +250,7 @@ class ReadAndListenViewModel @Inject constructor(
     private suspend fun speakWord(text: String, id: String) =
         suspendCancellableCoroutine<Unit> { cont ->
             ttsManager.speak(text, id, isAddInQueue = true) {
-                if (cont.isActive) cont.resume(Unit) {}
+                if (cont.isActive) cont.resume(Unit) { cause, _, _ -> }
             }
         }
 

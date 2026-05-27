@@ -592,7 +592,7 @@ private fun WeakLettersCard(rows: List<WeakLetterEntry>, arrangeRows: List<WeakA
                 label = entry.label,
                 subLabel = entry.subLabel,
                 sequences = entry.sequences,
-                highlightLetters = entry.label !in plainLabels && entry.label != "Missing Letter" && !entry.label.startsWith("Vocabulary") && entry.label != "Articles A / An" && entry.label != "Sight Words",
+                highlightLetters = entry.label !in plainLabels && entry.label != "Missing Letter" && !entry.label.startsWith("Vocabulary") && entry.label != "Articles A / An" && entry.label != "Sight Words" && entry.label != "Read & Listen",
                 isMissingLetter = entry.label == "Missing Letter"
             )
         }
@@ -780,8 +780,18 @@ private fun MasteredCard(rows: List<WeakLetterEntry>, arrangeRows: List<WeakArra
         rows.forEach { entry ->
             MasteredLetterRow(entry.label, entry.subLabel, entry.letters)
         }
+        val masteredPlainLabels = setOf(
+            "Missing Letter", "Opposite Words", "Drag & Drop", "Word Jigsaw", "Singular & Plural",
+            "Match Word & Image", "Listen & Select", "Article Choice", "Sight Word Choice",
+            "Articles A / An", "Sight Words", "Read & Listen"
+        )
         arrangeRows.forEach { entry ->
-            MasteredSequenceRow(entry.label, entry.subLabel, entry.sequences, highlightLetters = entry.label != "Missing Letter")
+            MasteredSequenceRow(
+                label = entry.label,
+                subLabel = entry.subLabel,
+                sequences = entry.sequences,
+                highlightLetters = entry.label !in masteredPlainLabels && !entry.label.startsWith("Vocabulary")
+            )
         }
     }
 }

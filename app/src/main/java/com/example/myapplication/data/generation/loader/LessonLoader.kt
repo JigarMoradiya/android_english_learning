@@ -17,7 +17,6 @@ object LessonLoader {
         val unitName = unit.name.lowercase()
         val levelName = level.name.lowercase()
         val fileName = "${unitName}_${levelName}.json"
-
         // ✅ Return cached data
         cache[fileName]?.let {
             return it
@@ -30,11 +29,10 @@ object LessonLoader {
                 .use { it.readText() }
 
             val type = object : TypeToken<List<ReadSentenceItemNew>>() {}.type
-            val lessons: List<ReadSentenceItemNew> =
-                Gson().fromJson(jsonString, type)
+            val lessons: List<ReadSentenceItemNew> = Gson().fromJson<List<ReadSentenceItemNew>>(jsonString, type)
+                .map { it.copy(level = level,unit = unit) }
 
             cache[fileName] = lessons
-
             Log.d("LessonLoader", "✅ Loaded ${lessons.size} lessons from $fileName")
 
             lessons

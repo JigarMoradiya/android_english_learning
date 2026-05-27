@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.data.progress.LearningSession
 import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.main.base.nav.RouteNavigation
@@ -345,6 +346,23 @@ class ParentProgressViewModel @Inject constructor(
                         scoreText = scoreStr
                     ) to latest)
                 }
+            } else if (moduleId == ModuleID.READ_LISTEN_ALL) {
+                val byConfig = sessions.groupBy { it.subConfig ?: "Short Sentence" }
+                byConfig.forEach { (config, configSessions) ->
+                    val latest = configSessions.maxOf { it.timestampMs }
+                    rowsWithTime.add(ModuleProgressRow(
+                        moduleId = "$moduleId|$config",
+                        displayName = info.first,
+                        subLabel = config,
+                        ageGroupLabel = info.second,
+                        rounds = configSessions.size,
+                        avgAccuracy = 0.0,
+                        avgStars = 0.0,
+                        hasQuiz = false,
+                        route = RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name),
+                        scoreText = null
+                    ) to latest)
+                }
             } else {
                 val latest = sessions.maxOf { it.timestampMs }
                 val quizSessions = sessions.filter { it.totalQuestions > 0 }
@@ -574,6 +592,22 @@ class ParentProgressViewModel @Inject constructor(
             result.add(Entry(label = "Sight Words", subLabel = "Age 5-7", sequences = swWords, latestMs = swSessions.maxOf { it.timestampMs }))
         }
 
+        // Read & Listen — lesson titles grouped by difficulty (Short Sentence / Long Sentence)
+        sessions.filter { it.moduleId == ModuleID.READ_LISTEN_ALL }
+            .groupBy { it.subConfig ?: "Short Sentence" }
+            .forEach { (config, cfgSessions) ->
+                val lessons = cfgSessions.flatMap { it.correctItems.orEmpty() }
+                    .filter { it.isNotEmpty() }.distinct().sorted()
+                if (lessons.isNotEmpty()) {
+                    result.add(Entry(
+                        label = "Read & Listen",
+                        subLabel = config,
+                        sequences = lessons,
+                        latestMs = cfgSessions.maxOf { it.timestampMs }
+                    ))
+                }
+            }
+
         // Vocabulary Categories — words the kid tapped (heard) go to "what kids learn"
         mapOf(
             ModuleID.VOCABULARY_ANIMALS    to "Vocabulary - Animals",
@@ -750,6 +784,7 @@ class ParentProgressViewModel @Inject constructor(
         return when (label) {
             "Word Jigsaw", "Opposite Words", "Singular & Plural", "Match Word & Image", "Listen & Select",
             "Article Choice", "Sight Word Choice", "Articles A / An", "Sight Words" -> "5–7"
+            "Read & Listen" -> "6–8"
             else -> "3–5"
         }
     }
@@ -817,6 +852,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.VOCABULARY_COLORS       to ("Vocabulary - Colors"     to "5–7"),
             ModuleID.VOCABULARY_SHAPES       to ("Vocabulary - Shapes"     to "5–7"),
             ModuleID.VOCABULARY_VEHICLES     to ("Vocabulary - Vehicles"   to "5–7"),
+            ModuleID.READ_LISTEN_ALL         to ("Read & Listen"           to "6–8"),
         )
 
         private val moduleRoutes = mapOf(
