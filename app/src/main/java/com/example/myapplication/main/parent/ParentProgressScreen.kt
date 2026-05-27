@@ -592,7 +592,7 @@ private fun WeakLettersCard(rows: List<WeakLetterEntry>, arrangeRows: List<WeakA
                 label = entry.label,
                 subLabel = entry.subLabel,
                 sequences = entry.sequences,
-                highlightLetters = entry.label !in plainLabels && entry.label != "Missing Letter" && !entry.label.startsWith("Vocabulary"),
+                highlightLetters = entry.label !in plainLabels && entry.label != "Missing Letter" && !entry.label.startsWith("Vocabulary") && entry.label != "Articles A / An" && entry.label != "Sight Words",
                 isMissingLetter = entry.label == "Missing Letter"
             )
         }

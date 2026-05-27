@@ -77,7 +77,7 @@ fun ArticlesAAnExamplePage(
                         bgColor = cardColors.base.copy(alpha = 0.2f),
                         isColorCategory = false,
                         onSpeakClick = {
-                            viewModel.speak("${item.article} ${item.word}".lowercase(Locale.ROOT))
+                            viewModel.speakAndTrack("${item.article} ${item.word}".lowercase(Locale.ROOT), item.word)
                         }
                     )
                 }

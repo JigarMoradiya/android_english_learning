@@ -108,7 +108,7 @@ fun ArticlesAAnPage(
                                         .fillMaxHeight()
                                         .clip(RoundedCornerShape(12.dp))
                                         .clickable {
-                                            viewModel.speak("${item.article}, ${item.word}")
+                                            viewModel.speakAndTrack("${item.article}, ${item.word}", item.word)
                                         }
                                         .padding(Dimens8),
                                     verticalArrangement = Arrangement.SpaceBetween, // 🔥 KEY

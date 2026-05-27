@@ -558,6 +558,22 @@ class ParentProgressViewModel @Inject constructor(
             result.add(Entry(label = "Sight Word Choice", subLabel = "Age 5-7", sequences = swcCorrect, latestMs = swcSessions.maxOf { it.timestampMs }))
         }
 
+        // Articles A / An — words tapped on info and example pages
+        val artSessions = sessions.filter { it.moduleId == ModuleID.ARTICLES_A_AN }
+        val artWords = artSessions.flatMap { it.correctItems.orEmpty() }
+            .filter { it.isNotEmpty() }.distinct().sorted()
+        if (artWords.isNotEmpty()) {
+            result.add(Entry(label = "Articles A / An", subLabel = "Age 5-7", sequences = artWords, latestMs = artSessions.maxOf { it.timestampMs }))
+        }
+
+        // Sight Words — words the kid navigated to (heard)
+        val swSessions = sessions.filter { it.moduleId == ModuleID.SIGHT_WORDS }
+        val swWords = swSessions.flatMap { it.correctItems.orEmpty() }
+            .filter { it.isNotEmpty() }.distinct().sorted()
+        if (swWords.isNotEmpty()) {
+            result.add(Entry(label = "Sight Words", subLabel = "Age 5-7", sequences = swWords, latestMs = swSessions.maxOf { it.timestampMs }))
+        }
+
         // Vocabulary Categories — words the kid tapped (heard) go to "what kids learn"
         mapOf(
             ModuleID.VOCABULARY_ANIMALS    to "Vocabulary - Animals",
@@ -733,7 +749,7 @@ class ParentProgressViewModel @Inject constructor(
         if (label.startsWith("Vocabulary")) return "5–7"
         return when (label) {
             "Word Jigsaw", "Opposite Words", "Singular & Plural", "Match Word & Image", "Listen & Select",
-            "Article Choice", "Sight Word Choice" -> "5–7"
+            "Article Choice", "Sight Word Choice", "Articles A / An", "Sight Words" -> "5–7"
             else -> "3–5"
         }
     }

@@ -19,6 +19,7 @@ class AppPreferencesHelper @Inject constructor(
         const val KEY_DEFAULT_TTS_SPEECH = "KEY_DEFAULT_TTS_SPEECH"
 
         const val KEY_BG_MUSIC_VOLUME = "KEY_BG_MUSIC_VOLUME"
+        const val KEY_SIGHT_WORD_INDEX = "sight_word_index"
     }
 
     private val mPrefs: SharedPreferences =
