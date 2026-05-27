@@ -1,5 +1,6 @@
 package com.example.myapplication.data.progress
 
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -39,6 +40,24 @@ class SessionRepository @Inject constructor(
     fun removeSessions(moduleId: String) {
         cache.removeAll { it.moduleId == moduleId }
         save()
+    }
+
+    fun clearAge68Sessions() {
+        val age68ModuleIds = setOf(
+            ModuleID.READ_LISTEN_UNIT1,
+            ModuleID.READ_LISTEN_ALL,
+            ModuleID.GRAMMAR_NOUNS,
+            ModuleID.GRAMMAR_VERBS,
+            ModuleID.GRAMMAR_ADJECTIVES,
+            ModuleID.GRAMMAR_PRONOUNS,
+            ModuleID.ONE_WORD_ANSWER,
+            ModuleID.SENTENCE_CHECK,
+            ModuleID.FILL_MISSING_WORD,
+            ModuleID.GRAMMAR_CHALLENGE_BEGINNER,
+            ModuleID.GRAMMAR_CHALLENGE_MEDIUM,
+            ModuleID.GRAMMAR_CHALLENGE_ADVANCED
+        )
+        age68ModuleIds.forEach { removeSessions(it) }
     }
 
     fun earliestSessionDate(): Long? = cache.minOfOrNull { it.timestampMs }

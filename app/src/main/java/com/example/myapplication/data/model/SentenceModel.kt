@@ -55,6 +55,24 @@ fun getSentenceUnit(name: String): SentenceUnit {
     }
 }
 
+val SentenceUnit.displayTitle: String
+    get() = when (this) {
+        SentenceUnit.PLAY_AND_FUN    -> "Play & Fun"
+        SentenceUnit.HOME_LIFE       -> "Home Life"
+        SentenceUnit.SCHOOL_LIFE     -> "School Life"
+        SentenceUnit.NATURE          -> "Nature"
+        SentenceUnit.FAMILY          -> "Family"
+        SentenceUnit.FOOD            -> "Food"
+        SentenceUnit.DAILY_ROUTINE   -> "Daily Routine"
+        SentenceUnit.EMOTIONS        -> "Emotions"
+        SentenceUnit.COLORS_SHAPES   -> "Colors & Shapes"
+        SentenceUnit.TRANSPORT       -> "Transport"
+        SentenceUnit.WEATHER         -> "Weather"
+        SentenceUnit.COMMUNITY       -> "Community"
+        SentenceUnit.SPORTS          -> "Sports"
+        SentenceUnit.FESTIVALS       -> "Festivals"
+    }
+
 
 // ==============================
 // SENTENCE LEVEL

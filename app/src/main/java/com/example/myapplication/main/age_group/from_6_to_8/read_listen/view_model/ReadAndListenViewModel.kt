@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.model.ReadSentenceItemNew
 import com.example.myapplication.data.model.UnitSelectionScreen
+import com.example.myapplication.data.model.displayTitle
 import com.example.myapplication.data.progress.AgeGroup
 import com.example.myapplication.data.progress.LearningSession
 import com.example.myapplication.data.progress.SessionRepository
@@ -126,7 +127,9 @@ class ReadAndListenViewModel @Inject constructor(
                     totalQuestions = 0,
                     correctItems = listOf(lesson.title),
                     wrongItems = emptyList(),
-                    subConfig = lesson.level?.title ?: "Short Sentence"
+                    subConfig = lesson.level?.title ?: "Short Sentence",
+                    lessonTitle = lesson.title,
+                    chapterTitle = lesson.unit?.displayTitle
                 )
             )
             _uiState.update {

@@ -40,6 +40,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -61,6 +64,7 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
@@ -71,6 +75,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens28
 import com.example.myapplication.ui.theme.AppDimens.Dimens30
+import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 
 @Composable
@@ -115,6 +120,10 @@ fun ParentProgressScreen(
                 WeekSummaryRow(viewModel)
                 ActivitySection(viewModel, navController)
             }
+        }
+
+        viewModel.chapterDetail?.let { detail ->
+            ChapterDetailSheet(detail = detail, onClose = { viewModel.closeChapterDetail() })
         }
     }
 }
@@ -277,7 +286,7 @@ private fun WeekSummaryRow(vm: ParentProgressViewModel) {
         StatCard(
             icon = Icons.Filled.AccessTime,
             value = if (vm.weeklyDurationSeconds == 0) "—"
-                    else vm.formatDuration(vm.weeklyDurationSeconds),
+                    else ParentProgressViewModel.formatDuration(vm.weeklyDurationSeconds),
             label = "Time",
             color = Color(0xFF2AA65C),
             modifier = Modifier.weight(1f)
@@ -350,6 +359,23 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
                 color = Color.Black.copy(alpha = 0.75f)
             )
             Spacer(Modifier.weight(1f))
+            if (vm.selectedAgeFilter == "Age 6-8") {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .border(0.8.dp, Color(0xFFE53935).copy(alpha = 0.5f), RoundedCornerShape(50))
+                        .clickable { vm.clearAge68Data() }
+                        .padding(horizontal = Dimens8, vertical = Dimens4)
+                ) {
+                    Text(
+                        text = "Clear 6-8",
+                        style = MaterialTheme.typography.labelSmall.scaled(),
+                        fontWeight = FontWeight.Normal,
+                        color = Color(0xFFE53935)
+                    )
+                }
+                Spacer(Modifier.width(Dimens6))
+            }
             ageFilters.forEach { filter ->
                 val isSelected = vm.selectedAgeFilter == filter
                 Spacer(Modifier.width(Dimens6))
@@ -395,7 +421,7 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
                 verticalArrangement = Arrangement.spacedBy(Dimens8)
             ) {
                 vm.filteredModuleRows.forEach { row ->
-                    ModuleRowItem(row = row, navController = navController)
+                    ModuleRowItem(row = row, navController = navController, viewModel = vm)
                 }
                 if (vm.filteredMasteredLetterRows.isNotEmpty() || vm.filteredMasteredSequenceRows.isNotEmpty()) {
                     MasteredCard(vm.filteredMasteredLetterRows, vm.filteredMasteredSequenceRows)
@@ -410,7 +436,7 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
 }
 
 @Composable
-private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) {
+private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController, viewModel: ParentProgressViewModel) {
     val baseModifier = Modifier
         .fillMaxWidth()
         .shadow(2.dp, RoundedCornerShape(Dimens8))
@@ -418,27 +444,29 @@ private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) 
         .padding(vertical = Dimens6)
         .padding(start = Dimens12, end = Dimens8)
 
-    val modifier = if (row.route != null) {
-        baseModifier.clickable { navController.navigate(row.route) }
-    } else baseModifier
+    val modifier = when {
+        row.chapterKey != null -> baseModifier.clickable { viewModel.openChapterDetail(row.chapterKey) }
+        row.route != null      -> baseModifier.clickable { navController.navigate(row.route) }
+        else                   -> baseModifier
+    }
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Dimens8),
         modifier = modifier
     ) {
-        // Age badge — no clip, use background(color, shape)
-        Text(
-            text = row.ageGroupLabel,
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier
-                .background(Color(0xFF9374EF), RoundedCornerShape(50))
-                .padding(horizontal = Dimens6, vertical = Dimens4)
-        )
+        // Age badge — hidden per design request
+//        Text(
+//            text = row.ageGroupLabel,
+//            style = MaterialTheme.typography.labelSmall.scaled(),
+//            fontWeight = FontWeight.Bold,
+//            color = Color.White,
+//            modifier = Modifier
+//                .background(Color(0xFF9374EF), RoundedCornerShape(50))
+//                .padding(horizontal = Dimens6, vertical = Dimens4)
+//        )
 
-        // Module name (+ optional subtitle for Fill the Blank variants)
+        // Module name + lesson label + divider + subLabel
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = row.displayName,
@@ -448,6 +476,15 @@ private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) 
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
+            if (row.lessonLabel != null) {
+                Text(
+                    text = row.lessonLabel,
+                    style = MaterialTheme.typography.labelSmall.scaled(),
+                    color = Color(0xFF5532D2),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
             if (row.subLabel != null) {
                 Text(
                     text = row.subLabel,
@@ -499,7 +536,7 @@ private fun ModuleRowItem(row: ModuleProgressRow, navController: NavController) 
         }
 
         // Chevron icon (only when tappable)
-        if (row.route != null) {
+        if (row.route != null || row.chapterKey != null) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                 contentDescription = null,
@@ -928,4 +965,162 @@ private fun EmptyState() {
             textAlign = TextAlign.Center
         )
     }
+}
+
+// ── Chapter Detail Sheet ──────────────────────────────────────────────────────
+
+@Composable
+private fun ChapterDetailSheet(detail: ChapterDetailData, onClose: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black.copy(alpha = 0.45f))
+            .clickable { onClose() },
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxHeight(0.85f)
+                .fillMaxWidth(0.55f)
+                .shadow(Dimens24, RoundedCornerShape(Dimens16))
+                .background(Color.White, RoundedCornerShape(Dimens16))
+                .clickable { /* consume clicks so backdrop doesn't fire */ }
+        ) {
+            // Header
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        Brush.horizontalGradient(
+                            listOf(Color(0xFF9374EF), Color(0xFF5532D2))
+                        ),
+                        RoundedCornerShape(topStart = Dimens16, topEnd = Dimens16)
+                    )
+                    .padding(vertical = Dimens12, horizontal = Dimens16),
+                contentAlignment = Alignment.Center
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.Start,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(Dimens4)
+                    ) {
+                        Text(
+                            text = detail.moduleName,
+                            style = MaterialTheme.typography.labelMedium.scaled(),
+                            color = Color.White.copy(alpha = 0.75f)
+                        )
+                        if (detail.difficulty.isNotEmpty()) {
+                            Text(
+                                text = "·",
+                                style = MaterialTheme.typography.labelMedium.scaled(),
+                                color = Color.White.copy(alpha = 0.4f)
+                            )
+                            Text(
+                                text = detail.difficulty,
+                                style = MaterialTheme.typography.labelSmall.scaled(),
+                                color = Color.White.copy(alpha = 0.65f)
+                            )
+                        }
+                    }
+                    Text(
+                        text = detail.chapterTitle,
+                        style = MaterialTheme.typography.titleMedium.scaled(),
+                        fontWeight = FontWeight.Black,
+                        color = Color.White
+                    )
+                }
+                Box(modifier = Modifier.align(Alignment.CenterEnd)) {
+                    KidsActionButton(
+                        text = "Close",
+                        type = ButtonType.DISABLE,
+                        isSmall = true,
+                        onClick = onClose
+                    )
+                }
+            }
+
+            // Lesson rows
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState())
+                    .padding(Dimens12),
+                verticalArrangement = Arrangement.spacedBy(Dimens8)
+            ) {
+                if (detail.lessonGroups.isEmpty()) {
+                    Text(
+                        "No lessons recorded yet.",
+                        style = MaterialTheme.typography.bodyMedium.scaled(),
+                        color = Color.Gray,
+                        modifier = Modifier.padding(Dimens8)
+                    )
+                } else {
+                    detail.lessonGroups.forEach { group ->
+                        Text(
+                            text = group.lessonTitle,
+                            style = MaterialTheme.typography.labelMedium.scaled(),
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF5532D2),
+                            modifier = Modifier.padding(top = Dimens8)
+                        )
+                        Column(verticalArrangement = Arrangement.spacedBy(Dimens6)){
+                            group.sessions.forEach { session ->
+                                ChapterSessionRow(session)
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+@Composable
+private fun ChapterSessionRow(session: SessionEntry) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Dimens8),
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(2.dp, RoundedCornerShape(Dimens8))
+            .background(Color(0xFFF8F5FF), RoundedCornerShape(Dimens8))
+            .padding(horizontal = Dimens12, vertical = Dimens8)
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+            Icon(Icons.Filled.AccessTime, contentDescription = null, tint = Color.Gray, modifier = Modifier.size(Dimens16))
+            Text(
+                ParentProgressViewModel.formatDuration(session.durationSeconds),
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                color = Color.Gray
+            )
+        }
+
+        if (session.totalQuestions > 0) {
+            StarsRow(stars = session.stars)
+            Text(
+                "${session.score}/${session.totalQuestions}",
+                style = MaterialTheme.typography.labelMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF5532D2)
+            )
+            AccuracyBar(accuracy = session.accuracy)
+        }
+
+        Spacer(Modifier.weight(1f))
+
+        Text(
+            formatSessionTime(session.timestampMs),
+            style = MaterialTheme.typography.labelSmall.scaled(),
+            color = Color.Gray
+        )
+    }
+}
+
+private fun formatSessionTime(timestampMs: Long): String {
+    val fmt = SimpleDateFormat("MMM d, h:mm a", Locale.getDefault())
+    return fmt.format(Date(timestampMs))
 }

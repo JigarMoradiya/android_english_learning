@@ -27,16 +27,39 @@ data class WeakArrangeEntry(
     val sequences: List<String>
 )
 
+data class SessionEntry(
+    val score: Int,
+    val totalQuestions: Int,
+    val durationSeconds: Int,
+    val accuracy: Double,
+    val stars: Double,
+    val timestampMs: Long
+)
+
+data class LessonGroup(
+    val lessonTitle: String,
+    val sessions: List<SessionEntry>
+)
+
+data class ChapterDetailData(
+    val moduleName: String,
+    val chapterTitle: String,
+    val difficulty: String,
+    val lessonGroups: List<LessonGroup>
+)
+
 data class ModuleProgressRow(
     val moduleId: String,
     val displayName: String,
-    val subLabel: String? = null,   // e.g. "Before Letter · ABC" for Fill the Blank sub-rows
+    val subLabel: String? = null,   // e.g. "Short Sentence"
+    val lessonLabel: String? = null, // e.g. "Colors & Shapes" — chapter name
+    val chapterKey: String? = null, // "$moduleId||$chapterTitle||$subConfig" — triggers detail sheet
     val ageGroupLabel: String,
     val rounds: Int,
     val avgAccuracy: Double,        // 0.0–1.0
     val avgStars: Double,           // 0.0–3.0
-    val hasQuiz: Boolean = false,   // true = show stars + accuracy bar even when value is 0
-    val route: String?,             // RouteNavigation route string, null = not tappable
+    val hasQuiz: Boolean = false,
+    val route: String?,
     val scoreText: String? = null
 )
 
@@ -86,8 +109,10 @@ class ParentProgressViewModel @Inject constructor(
     var filteredMasteredLetterRows by mutableStateOf(emptyList<WeakLetterEntry>())
         private set
     var filteredMasteredSequenceRows by mutableStateOf(emptyList<WeakArrangeEntry>())
-        private set
 
+    // Chapter detail sheet
+    var chapterDetail by mutableStateOf<ChapterDetailData?>(null)
+        private set
     val canGoBack: Boolean
         get() {
             val prevStart = weekStartMs(weekOffset - 1)
@@ -130,6 +155,62 @@ class ParentProgressViewModel @Inject constructor(
         weekOffset++
         selectedDayIndex = null
         reload()
+    }
+
+    // MARK: - Chapter Detail
+
+    fun openChapterDetail(key: String) {
+        val parts = key.split("||")
+        if (parts.size < 3) return
+        val moduleId = parts[0]
+        val chapterTitle = parts[1]
+        val subConfig = parts[2]
+
+        val sessions = sessionRepository.allSessions()
+            .filter {
+                it.moduleId == moduleId &&
+                (it.chapterTitle ?: "Other") == chapterTitle &&
+                (it.subConfig ?: "Short Sentence") == subConfig
+            }
+
+        val lessonGroups = sessions
+            .groupBy { it.lessonTitle ?: "Unknown" }
+            .map { (lessonTitle, ls) ->
+                val latestTimestamp = ls.maxOf { it.timestampMs }
+                val sessionEntries = ls
+                    .sortedByDescending { it.timestampMs }
+                    .map { s ->
+                        val acc = if (s.totalQuestions > 0) s.score.toDouble() / s.totalQuestions else 0.0
+                        SessionEntry(
+                            score = s.score,
+                            totalQuestions = s.totalQuestions,
+                            durationSeconds = s.durationSeconds,
+                            accuracy = acc,
+                            stars = if (s.totalQuestions > 0) minOf(3.0, acc * 3.0) else 0.0,
+                            timestampMs = s.timestampMs
+                        )
+                    }
+                Triple(latestTimestamp, lessonTitle, sessionEntries)
+            }
+            .sortedByDescending { it.first }
+            .map { (_, lessonTitle, sessions) -> LessonGroup(lessonTitle = lessonTitle, sessions = sessions) }
+
+        val moduleName = moduleInfo[moduleId]?.first ?: moduleId
+        chapterDetail = ChapterDetailData(
+            moduleName = moduleName,
+            chapterTitle = chapterTitle,
+            difficulty = subConfig,
+            lessonGroups = lessonGroups
+        )
+    }
+
+    fun closeChapterDetail() {
+        chapterDetail = null
+    }
+
+    fun clearAge68Data() {
+        sessionRepository.clearAge68Sessions()
+        load()
     }
 
     // MARK: - Load
@@ -346,20 +427,49 @@ class ParentProgressViewModel @Inject constructor(
                         scoreText = scoreStr
                     ) to latest)
                 }
-            } else if (moduleId == ModuleID.READ_LISTEN_ALL) {
-                val byConfig = sessions.groupBy { it.subConfig ?: "Short Sentence" }
-                byConfig.forEach { (config, configSessions) ->
+            } else if (moduleId == ModuleID.ONE_WORD_ANSWER) {
+                sessions
+                    .groupBy { Pair(it.chapterTitle ?: "Other", it.subConfig ?: "Short Sentence") }
+                    .forEach { (key, configSessions) ->
+                    val (chapterTitle, config) = key
                     val latest = configSessions.maxOf { it.timestampMs }
+                    val totalScore = configSessions.sumOf { it.score }
+                    val totalQs    = configSessions.sumOf { it.totalQuestions }
+                    val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                    val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
                     rowsWithTime.add(ModuleProgressRow(
-                        moduleId = "$moduleId|$config",
+                        moduleId = "$moduleId|$chapterTitle|$config",
                         displayName = info.first,
                         subLabel = config,
+                        lessonLabel = chapterTitle,
+                        chapterKey = "$moduleId||$chapterTitle||$config",
+                        ageGroupLabel = info.second,
+                        rounds = configSessions.size,
+                        avgAccuracy = avgAcc,
+                        avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                        hasQuiz = totalQs > 0,
+                        route = null,
+                        scoreText = scoreStr
+                    ) to latest)
+                }
+            } else if (moduleId == ModuleID.READ_LISTEN_ALL) {
+                sessions
+                    .groupBy { Pair(it.chapterTitle ?: "Other", it.subConfig ?: "Short Sentence") }
+                    .forEach { (key, configSessions) ->
+                    val (chapterTitle, config) = key
+                    val latest = configSessions.maxOf { it.timestampMs }
+                    rowsWithTime.add(ModuleProgressRow(
+                        moduleId = "$moduleId|$chapterTitle|$config",
+                        displayName = info.first,
+                        subLabel = config,
+                        lessonLabel = chapterTitle,
+                        chapterKey = "$moduleId||$chapterTitle||$config",
                         ageGroupLabel = info.second,
                         rounds = configSessions.size,
                         avgAccuracy = 0.0,
                         avgStars = 0.0,
                         hasQuiz = false,
-                        route = RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name),
+                        route = null,
                         scoreText = null
                     ) to latest)
                 }
@@ -812,17 +922,15 @@ class ParentProgressViewModel @Inject constructor(
         applyAgeFilter()
     }
 
-    // MARK: - Duration formatting
-
-    fun formatDuration(seconds: Int): String = when {
-        seconds < 60 -> "${seconds}s"
-        seconds < 3600 -> String.format("%02d:%02d", seconds / 60, seconds % 60)
-        else -> String.format("%02d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, seconds % 60)
-    }
-
     // MARK: - Module info
 
     companion object {
+
+        fun formatDuration(seconds: Int): String = when {
+            seconds < 60 -> "${seconds}s"
+            seconds < 3600 -> String.format("%02d:%02d", seconds / 60, seconds % 60)
+            else -> String.format("%02d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, seconds % 60)
+        }
         private val moduleInfo = mapOf(
             ModuleID.ALPHABET_TRACING        to ("Alphabet Tracing"     to "3–5"),
             ModuleID.ABCD_WITH_IMAGES        to ("ABCD with Images"     to "3–5"),
@@ -853,6 +961,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.VOCABULARY_SHAPES       to ("Vocabulary - Shapes"     to "5–7"),
             ModuleID.VOCABULARY_VEHICLES     to ("Vocabulary - Vehicles"   to "5–7"),
             ModuleID.READ_LISTEN_ALL         to ("Read & Listen"           to "6–8"),
+            ModuleID.ONE_WORD_ANSWER         to ("One Word Answer"         to "6–8"),
         )
 
         private val moduleRoutes = mapOf(

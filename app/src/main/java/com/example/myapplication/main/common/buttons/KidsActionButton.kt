@@ -132,7 +132,7 @@ fun KidsActionButton(
                 Spacer(Modifier.width(Dimens4))
             }
 
-            Box(Modifier.padding(start = if (!isIconStart) Dimens4 else 0.dp, end = if (isIconStart) Dimens4 else 0.dp)) {
+            Box(Modifier.padding(start = if (!isIconStart && icon != null) Dimens4 else 0.dp, end = if (isIconStart && icon != null) Dimens4 else 0.dp)) {
                 // Shadow layer
                 if (type != ButtonType.DISABLE){
                     Text(

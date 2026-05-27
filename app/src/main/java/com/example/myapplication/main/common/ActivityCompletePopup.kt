@@ -63,14 +63,19 @@ fun ActivityCompletePopup(
     total: Int,
     scoreLabel: String,
     feedbackTextRes: Int,
-    feedbackSubTextRes: Int,
-    onNext: () -> Unit,
+    feedbackSubTextRes: Int? = null,
+    onNext: (() -> Unit)? = null,
+    dismissLabel: String = "Close",
+    dismissType: ButtonType = ButtonType.RED,
     onClose: () -> Unit
 ) = ActivityCompletePopup(
     stars = stars, score = score, total = total, scoreLabel = scoreLabel,
     feedbackText = stringResource(feedbackTextRes),
-    feedbackSubText = stringResource(feedbackSubTextRes),
-    onNext = onNext, onClose = onClose
+    feedbackSubText = if (feedbackSubTextRes != null) stringResource(feedbackSubTextRes) else "",
+    onNext = onNext,
+    dismissLabel = dismissLabel,
+    dismissType = dismissType,
+    onClose = onClose
 )
 
 @Composable
@@ -81,7 +86,9 @@ fun ActivityCompletePopup(
     scoreLabel: String,
     feedbackText: String,
     feedbackSubText: String = "",
-    onNext: () -> Unit,
+    onNext: (() -> Unit)? = null,
+    dismissLabel: String = "Close",
+    dismissType: ButtonType = ButtonType.RED,
     onClose: () -> Unit
 ) {
     val cardWidth = LocalConfiguration.current.screenWidthDp * 0.5f
@@ -257,20 +264,22 @@ fun ActivityCompletePopup(
                 Spacer(modifier = Modifier.height(Dimens2))
                 Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
                     KidsActionButton(
-                        text = "Close",
-                        icon = Icons.Filled.Close,
-                        type = ButtonType.RED,
+                        text = dismissLabel,
+                        icon = if (onNext != null) Icons.Filled.Close else null,
+                        type = dismissType,
                         isSmall = true,
                         onClick = onClose
                     )
-                    KidsActionButton(
-                        text = "Continue",
-                        icon = Icons.AutoMirrored.Filled.ArrowForward,
-                        type = ButtonType.GREEN,
-                        isSmall = true,
-                        isIconStart = false,
-                        onClick = onNext
-                    )
+                    if (onNext != null) {
+                        KidsActionButton(
+                            text = "Continue",
+                            icon = Icons.AutoMirrored.Filled.ArrowForward,
+                            type = ButtonType.GREEN,
+                            isSmall = true,
+                            isIconStart = false,
+                            onClick = onNext
+                        )
+                    }
                 }
             }
         }
