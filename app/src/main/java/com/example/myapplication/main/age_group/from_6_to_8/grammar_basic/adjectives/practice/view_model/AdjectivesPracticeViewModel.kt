@@ -91,6 +91,22 @@ class AdjectivesPracticeViewModel @Inject constructor(
                 score = if (isCorrect) it.score + 1 else it.score
             )
         }
+        if (_uiState.value.currentIndex == _uiState.value.questions.lastIndex) {
+            val state = _uiState.value
+            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.GRAMMAR_ADJECTIVES,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = durationSec,
+                    score = state.score,
+                    totalQuestions = state.questions.size,
+                    subConfig = "",
+                    lessonTitle = null,
+                    chapterTitle = "Practice"
+                )
+            )
+        }
     }
 
     fun moveToNextQuestion() {
@@ -107,20 +123,6 @@ class AdjectivesPracticeViewModel @Inject constructor(
             loadCurrentQuestionOptions()
 
         } else {
-            val state = _uiState.value
-            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
-            sessionRepository.record(
-                LearningSession(
-                    moduleId = ModuleID.GRAMMAR_ADJECTIVES,
-                    ageGroup = AgeGroup.SIX_TO_EIGHT,
-                    durationSeconds = durationSec,
-                    score = state.score,
-                    totalQuestions = state.questions.size,
-                    subConfig = "",
-                    lessonTitle = null,
-                    chapterTitle = "Practice"
-                )
-            )
             _uiState.update {
                 it.copy(isCompleted = true)
             }

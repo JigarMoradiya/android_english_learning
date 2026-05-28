@@ -143,16 +143,8 @@ class GrammarFillTheBlanksViewModel @Inject constructor(
                 )
             }
         }
-    }
-
-    // ── Navigation ────────────────────────────────────────────────────────────
-
-    fun moveToNextQuestion() {
-        val state = _uiState.value
-        if (state.currentIndex < state.questions.size - 1) {
-            _uiState.update { it.copy(currentIndex = it.currentIndex + 1) }
-            setupCurrentQuestion()
-        } else {
+        if (_uiState.value.currentIndex == _uiState.value.questions.size - 1) {
+            val state = _uiState.value
             val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
             sessionRepository.record(
                 LearningSession(
@@ -166,6 +158,17 @@ class GrammarFillTheBlanksViewModel @Inject constructor(
                     chapterTitle = "Fill the Blanks"
                 )
             )
+        }
+    }
+
+    // ── Navigation ────────────────────────────────────────────────────────────
+
+    fun moveToNextQuestion() {
+        val state = _uiState.value
+        if (state.currentIndex < state.questions.size - 1) {
+            _uiState.update { it.copy(currentIndex = it.currentIndex + 1) }
+            setupCurrentQuestion()
+        } else {
             _uiState.update { it.copy(isCompleted = true) }
         }
     }

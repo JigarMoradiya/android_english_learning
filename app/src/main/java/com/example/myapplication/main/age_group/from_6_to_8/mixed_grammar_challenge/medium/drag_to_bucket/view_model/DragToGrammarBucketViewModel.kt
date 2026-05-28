@@ -148,6 +148,22 @@ class DragToGrammarBucketViewModel @Inject constructor(
                 feedbackSubTextRes = if (allCorrect) feedbackGiveAnswerSubTitleCorrect.random() else null,
             )
         }
+        if (_uiState.value.isLastIndex) {
+            val s = _uiState.value
+            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.GRAMMAR_CHALLENGE_MEDIUM,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = durationSec,
+                    score = s.score,
+                    totalQuestions = s.questions.size,
+                    subConfig = "",
+                    lessonTitle = null,
+                    chapterTitle = "Sort Words"
+                )
+            )
+        }
     }
 
     private fun clearDragState() {
@@ -161,19 +177,6 @@ class DragToGrammarBucketViewModel @Inject constructor(
     fun moveToNext() {
         val state = _uiState.value
         if (state.isLastIndex) {
-            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
-            sessionRepository.record(
-                LearningSession(
-                    moduleId = ModuleID.GRAMMAR_CHALLENGE_MEDIUM,
-                    ageGroup = AgeGroup.SIX_TO_EIGHT,
-                    durationSeconds = durationSec,
-                    score = state.score,
-                    totalQuestions = state.questions.size,
-                    subConfig = "",
-                    lessonTitle = null,
-                    chapterTitle = "Sort Words"
-                )
-            )
             _uiState.update { it.copy(isCompleted = true) }
         } else {
             _uiState.update { it.copy(currentIndex = it.currentIndex + 1) }

@@ -130,6 +130,27 @@ class FillTheMissingWordViewModel @Inject constructor(
                 score = if (isCorrect) it.score + 1 else it.score
             )
         }
+        if (_uiState.value.currentIndex == _uiState.value.questions.size - 1) {
+            val state = _uiState.value
+            progressManager.markCompleted(
+                type = state.screenType,
+                lessonId = state.lessonData?.id ?: "colors_1"
+            )
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.FILL_MISSING_WORD,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt(),
+                    score = state.score,
+                    totalQuestions = state.questions.size,
+                    correctItems = emptyList(),
+                    wrongItems = emptyList(),
+                    subConfig = state.level.title,
+                    lessonTitle = state.lessonData?.title,
+                    chapterTitle = state.lessonData?.unit?.displayTitle
+                )
+            )
+        }
     }
 
     fun backgroundType(option: String): ButtonType {
@@ -153,33 +174,7 @@ class FillTheMissingWordViewModel @Inject constructor(
             }
             prepareCurrentQuestion() // 🔥 IMPORTANT
         } else {
-            finishLesson()
-        }
-    }
-
-    // Finish
-    private fun finishLesson() {
-        val state = _uiState.value
-        progressManager.markCompleted(
-            type = state.screenType,
-            lessonId = state.lessonData?.id ?: "colors_1"
-        )
-        sessionRepository.record(
-            LearningSession(
-                moduleId = ModuleID.FILL_MISSING_WORD,
-                ageGroup = AgeGroup.SIX_TO_EIGHT,
-                durationSeconds = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt(),
-                score = state.score,
-                totalQuestions = state.questions.size,
-                correctItems = emptyList(),
-                wrongItems = emptyList(),
-                subConfig = state.level.title,
-                lessonTitle = state.lessonData?.title,
-                chapterTitle = state.lessonData?.unit?.displayTitle
-            )
-        )
-        _uiState.update {
-            it.copy(showResult = true)
+            _uiState.update { it.copy(showResult = true) }
         }
     }
 }

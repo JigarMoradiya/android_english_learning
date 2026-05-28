@@ -176,6 +176,24 @@ class SentenceBuilderViewModel @Inject constructor(
                     it.copy(isCorrect = false)
                 }
             }
+            if (_uiState.value.currentIndex == _uiState.value.questions.size - 1) {
+                val s = _uiState.value
+                val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+                sessionRepository.record(
+                    LearningSession(
+                        moduleId = ModuleID.SENTENCE_BUILDER,
+                        ageGroup = AgeGroup.SIX_TO_EIGHT,
+                        durationSeconds = durationSec,
+                        score = s.score,
+                        totalQuestions = s.questions.size,
+                        correctItems = emptyList(),
+                        wrongItems = emptyList(),
+                        subConfig = "",
+                        lessonTitle = null,
+                        chapterTitle = s.unit.displayTitle
+                    )
+                )
+            }
         }
     }
 
@@ -192,21 +210,6 @@ class SentenceBuilderViewModel @Inject constructor(
             prepareCurrentQuestion()
 
         } else {
-            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
-            sessionRepository.record(
-                LearningSession(
-                    moduleId = ModuleID.SENTENCE_BUILDER,
-                    ageGroup = AgeGroup.SIX_TO_EIGHT,
-                    durationSeconds = durationSec,
-                    score = state.score,
-                    totalQuestions = state.questions.size,
-                    correctItems = emptyList(),
-                    wrongItems = emptyList(),
-                    subConfig = "",
-                    lessonTitle = null,
-                    chapterTitle = state.unit.displayTitle
-                )
-            )
             _uiState.update {
                 it.copy(isCompleted = true)
             }

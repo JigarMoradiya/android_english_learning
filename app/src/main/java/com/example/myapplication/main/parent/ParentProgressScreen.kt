@@ -123,7 +123,16 @@ fun ParentProgressScreen(
         }
 
         viewModel.chapterDetail?.let { detail ->
-            ChapterDetailSheet(detail = detail, onClose = { viewModel.closeChapterDetail() })
+            ChapterDetailSheet(
+                detail = detail,
+                onClose = { viewModel.closeChapterDetail() },
+                onPractice = detail.route?.let { route ->
+                    {
+                        viewModel.closeChapterDetail()
+                        navController.navigate(route)
+                    }
+                }
+            )
         }
     }
 }
@@ -970,7 +979,11 @@ private fun EmptyState() {
 // ── Chapter Detail Sheet ──────────────────────────────────────────────────────
 
 @Composable
-private fun ChapterDetailSheet(detail: ChapterDetailData, onClose: () -> Unit) {
+private fun ChapterDetailSheet(
+    detail: ChapterDetailData,
+    onClose: () -> Unit,
+    onPractice: (() -> Unit)? = null
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -1032,7 +1045,18 @@ private fun ChapterDetailSheet(detail: ChapterDetailData, onClose: () -> Unit) {
                         color = Color.White
                     )
                 }
-                Box(modifier = Modifier.align(Alignment.CenterEnd)) {
+                Row(
+                    modifier = Modifier.align(Alignment.CenterEnd),
+                    horizontalArrangement = Arrangement.spacedBy(Dimens8)
+                ) {
+                    onPractice?.let {
+                        KidsActionButton(
+                            text = "Practice",
+                            type = ButtonType.POSITIVE,
+                            isSmall = true,
+                            onClick = it
+                        )
+                    }
                     KidsActionButton(
                         text = "Close",
                         type = ButtonType.DISABLE,

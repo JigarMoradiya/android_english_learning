@@ -45,7 +45,8 @@ data class ChapterDetailData(
     val moduleName: String,
     val chapterTitle: String,
     val difficulty: String,
-    val lessonGroups: List<LessonGroup>
+    val lessonGroups: List<LessonGroup>,
+    val route: String? = null
 )
 
 data class ModuleProgressRow(
@@ -203,11 +204,23 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.GRAMMAR_CHALLENGE_ADVANCED -> "Advanced"
             else -> subConfig
         }
+        val practiceRoute = when (moduleId) {
+            ModuleID.GRAMMAR_NOUNS      -> RouteNavigation.GrammarBasicNounPractice.route
+            ModuleID.GRAMMAR_VERBS      -> RouteNavigation.GrammarBasicVerbPractice.route
+            ModuleID.GRAMMAR_ADJECTIVES -> RouteNavigation.GrammarBasicAdjectivesPractice.route
+            ModuleID.GRAMMAR_PRONOUNS   -> RouteNavigation.GrammarBasicPronounsPractice.route
+            ModuleID.GRAMMAR_CHALLENGE_BEGINNER,
+            ModuleID.GRAMMAR_CHALLENGE_MEDIUM,
+            ModuleID.GRAMMAR_CHALLENGE_ADVANCED -> RouteNavigation.MixedGrammarChallenge.route
+            ModuleID.CHOOSE_RIGHT_SENTENCE      -> RouteNavigation.ChooseTheRightSentence.route
+            else -> null
+        }
         chapterDetail = ChapterDetailData(
             moduleName = moduleName,
             chapterTitle = chapterTitle,
             difficulty = difficultyLabel,
-            lessonGroups = lessonGroups
+            lessonGroups = lessonGroups,
+            route = practiceRoute
         )
     }
 

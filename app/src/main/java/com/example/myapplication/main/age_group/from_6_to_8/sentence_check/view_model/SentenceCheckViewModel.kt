@@ -113,21 +113,8 @@ class SentenceCheckViewModel @Inject constructor(
                 score = if (isCorrect) it.score + 1 else it.score
             )
         }
-    }
-
-    // Next
-
-    fun next() {
-        val state = _uiState.value
-
-        if (state.currentIndex < state.questions.size - 1) {
-            _uiState.update {
-                it.copy(
-                    currentIndex = it.currentIndex + 1,
-                    selectedAnswer = null
-                )
-            }
-        } else {
+        if (_uiState.value.currentIndex == _uiState.value.questions.size - 1) {
+            val state = _uiState.value
             val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
             sessionRepository.record(
                 LearningSession(
@@ -143,6 +130,22 @@ class SentenceCheckViewModel @Inject constructor(
                     chapterTitle = state.unit.displayTitle
                 )
             )
+        }
+    }
+
+    // Next
+
+    fun next() {
+        val state = _uiState.value
+
+        if (state.currentIndex < state.questions.size - 1) {
+            _uiState.update {
+                it.copy(
+                    currentIndex = it.currentIndex + 1,
+                    selectedAnswer = null
+                )
+            }
+        } else {
             _uiState.update {
                 it.copy(showResult = true)
             }

@@ -103,6 +103,24 @@ class MatchThePictureViewModel @Inject constructor(
                 score = if (isCorrect) it.score + 1 else it.score
             )
         }
+        if (_uiState.value.currentIndex == _uiState.value.questions.size - 1) {
+            val state = _uiState.value
+            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.MATCH_THE_PICTURE,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = durationSec,
+                    score = state.score,
+                    totalQuestions = state.questions.size,
+                    correctItems = emptyList(),
+                    wrongItems = emptyList(),
+                    subConfig = "",
+                    lessonTitle = null,
+                    chapterTitle = state.unit.displayTitle
+                )
+            )
+        }
     }
 
     // Next question
@@ -121,7 +139,7 @@ class MatchThePictureViewModel @Inject constructor(
             generateOptions()
 
         } else {
-            finish()
+            _uiState.update { it.copy(showResult = true) }
         }
     }
 
@@ -138,29 +156,6 @@ class MatchThePictureViewModel @Inject constructor(
         }
 
         loadQuestions()
-    }
-
-    // Finish
-    private fun finish() {
-        val state = _uiState.value
-        val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
-        sessionRepository.record(
-            LearningSession(
-                moduleId = ModuleID.MATCH_THE_PICTURE,
-                ageGroup = AgeGroup.SIX_TO_EIGHT,
-                durationSeconds = durationSec,
-                score = state.score,
-                totalQuestions = state.questions.size,
-                correctItems = emptyList(),
-                wrongItems = emptyList(),
-                subConfig = "",
-                lessonTitle = null,
-                chapterTitle = state.unit.displayTitle
-            )
-        )
-        _uiState.update {
-            it.copy(showResult = true)
-        }
     }
 
     // UI helper (same as iOS)

@@ -71,11 +71,8 @@ class FixTheSentenceViewModel @Inject constructor(
                 score             = if (correct) it.score + 1 else it.score
             )
         }
-    }
-
-    fun moveToNext() {
-        val state = _uiState.value
-        if (state.isLastIndex) {
+        if (_uiState.value.isLastIndex) {
+            val state = _uiState.value
             val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
             sessionRepository.record(
                 LearningSession(
@@ -89,6 +86,12 @@ class FixTheSentenceViewModel @Inject constructor(
                     chapterTitle = "Fix the Sentence"
                 )
             )
+        }
+    }
+
+    fun moveToNext() {
+        val state = _uiState.value
+        if (state.isLastIndex) {
             _uiState.update { it.copy(isCompleted = true) }
         } else {
             _uiState.update {
