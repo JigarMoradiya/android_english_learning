@@ -3,8 +3,12 @@ package com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.verb.
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.R
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.model.SentenceLevel.EASY
 import com.example.myapplication.data.model.WordType
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.common_ui.practice.GrammarPracticeQuestionFactory.generateQuestions
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utilities.TextToSpeechManager
@@ -22,8 +26,11 @@ import javax.inject.Inject
 @HiltViewModel
 class VerbPracticeViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val ttsManager: TextToSpeechManager
+    private val ttsManager: TextToSpeechManager,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
+
+    private var startTimeMs = System.currentTimeMillis()
 
     private val _uiState = MutableStateFlow(VerbPracticeUiState())
     val uiState: StateFlow<VerbPracticeUiState> = _uiState.asStateFlow()
@@ -100,15 +107,28 @@ class VerbPracticeViewModel @Inject constructor(
             loadCurrentQuestionOptions()
 
         } else {
-            _uiState.update {
-                it.copy(
-                    isCompleted = true
+            val state = _uiState.value
+            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.GRAMMAR_VERBS,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = durationSec,
+                    score = state.score,
+                    totalQuestions = state.questions.size,
+                    subConfig = "",
+                    lessonTitle = null,
+                    chapterTitle = "Practice"
                 )
+            )
+            _uiState.update {
+                it.copy(isCompleted = true)
             }
         }
     }
 
     fun restart() {
+        startTimeMs = System.currentTimeMillis()
         _uiState.update {
             it.copy(
                 currentIndex = 0,

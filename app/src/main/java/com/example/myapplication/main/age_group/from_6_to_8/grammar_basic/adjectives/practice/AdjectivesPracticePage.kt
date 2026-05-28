@@ -17,8 +17,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.adjectives.practice.view_model.AdjectivesPracticeViewModel
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.age_group.from_6_to_8.grammar_basic.common_ui.practice.GrammarPracticeQuestionLayout
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.buttons.KidsActionButton
@@ -116,20 +116,31 @@ fun AdjectivesPracticePage(
                         )
                     }
                 }
-
-            } else {
-
-                ResultView(
-                    score = uiState.score,
-                    total = uiState.questions.size,
-                    primaryButtonText = stringResource(R.string.want_to_continue),
-                    secondaryButtonText = stringResource(R.string.go_back),
-                    title = stringResource(R.string.your_result),
-                    modifier = Modifier.padding(horizontal = Dimens16),
-                    onSecondaryTap = { navController.popBackStack() },
-                    onPrimaryTap = { viewModel.restart() }
-                )
             }
+        }
+
+        if (uiState.isCompleted) {
+            val accuracy = if (uiState.questions.isNotEmpty())
+                uiState.score.toDouble() / uiState.questions.size else 0.0
+            ActivityCompletePopup(
+                stars = when {
+                    accuracy >= 0.8 -> 3
+                    accuracy >= 0.5 -> 2
+                    else -> 1
+                },
+                score = uiState.score,
+                total = uiState.questions.size,
+                scoreLabel = stringResource(R.string.correct_answers),
+                feedbackTextRes = when {
+                    accuracy >= 0.8 -> R.string.feedbackPhrases_1
+                    accuracy >= 0.5 -> R.string.feedbackPhrases_2
+                    else -> R.string.feedbackPhrases_3
+                },
+                onNext = { viewModel.restart() },
+                nextLabel = stringResource(R.string.want_to_continue),
+                dismissLabel = stringResource(R.string.go_back),
+                onClose = { navController.popBackStack() }
+            )
         }
     }
 }

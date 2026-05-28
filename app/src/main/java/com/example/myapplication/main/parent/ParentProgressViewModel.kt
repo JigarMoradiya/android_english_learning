@@ -169,7 +169,8 @@ class ParentProgressViewModel @Inject constructor(
         val sessions = sessionRepository.allSessions()
             .filter {
                 it.moduleId == moduleId &&
-                (it.chapterTitle ?: "Other") == chapterTitle &&
+                ((it.chapterTitle ?: "Other") == chapterTitle ||
+                 (chapterTitle == "Practice" && it.chapterTitle == null)) &&
                 (it.subConfig ?: "Short Sentence") == subConfig
             }
 
@@ -505,6 +506,29 @@ class ParentProgressViewModel @Inject constructor(
                         scoreText = scoreStr
                     ) to latest)
                 }
+            } else if (moduleId == ModuleID.GRAMMAR_NOUNS ||
+                       moduleId == ModuleID.GRAMMAR_VERBS ||
+                       moduleId == ModuleID.GRAMMAR_ADJECTIVES ||
+                       moduleId == ModuleID.GRAMMAR_PRONOUNS) {
+                val latest = sessions.maxOf { it.timestampMs }
+                val quizSessions = sessions.filter { it.totalQuestions > 0 }
+                val totalScore = quizSessions.sumOf { it.score }
+                val totalQs    = quizSessions.sumOf { it.totalQuestions }
+                val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
+                rowsWithTime.add(ModuleProgressRow(
+                    moduleId = moduleId,
+                    displayName = info.first,
+                    subLabel = null,
+                    chapterKey = "$moduleId||Practice||",
+                    ageGroupLabel = info.second,
+                    rounds = sessions.size,
+                    avgAccuracy = avgAcc,
+                    avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                    hasQuiz = totalQs > 0,
+                    route = null,
+                    scoreText = scoreStr
+                ) to latest)
             } else if (moduleId == ModuleID.READ_LISTEN_ALL) {
                 sessions
                     .groupBy { Pair(it.chapterTitle ?: "Other", it.subConfig ?: "Short Sentence") }
@@ -1021,6 +1045,10 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.WHICH_SENTENCE_RIGHT    to ("Which Sentence Sounds Right" to "6–8"),
             ModuleID.FIND_CORRECT_WRITING    to ("Find the Correct Writing" to "6–8"),
             ModuleID.SENTENCE_BUILDER        to ("Build the Sentence"       to "6–8"),
+            ModuleID.GRAMMAR_NOUNS           to ("Grammar: Nouns"           to "6–8"),
+            ModuleID.GRAMMAR_VERBS           to ("Grammar: Verbs"           to "6–8"),
+            ModuleID.GRAMMAR_ADJECTIVES      to ("Grammar: Adjectives"      to "6–8"),
+            ModuleID.GRAMMAR_PRONOUNS        to ("Grammar: Pronouns"        to "6–8"),
         )
 
         private val moduleRoutes = mapOf(
