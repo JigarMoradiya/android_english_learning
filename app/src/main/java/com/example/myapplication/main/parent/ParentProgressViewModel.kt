@@ -452,6 +452,30 @@ class ParentProgressViewModel @Inject constructor(
                         scoreText = scoreStr
                     ) to latest)
                 }
+            } else if (moduleId == ModuleID.FILL_MISSING_WORD) {
+                sessions
+                    .groupBy { it.chapterTitle ?: "Other" }
+                    .forEach { (chapterTitle, configSessions) ->
+                    val latest = configSessions.maxOf { it.timestampMs }
+                    val totalScore = configSessions.sumOf { it.score }
+                    val totalQs    = configSessions.sumOf { it.totalQuestions }
+                    val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                    val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
+                    rowsWithTime.add(ModuleProgressRow(
+                        moduleId = "$moduleId|$chapterTitle",
+                        displayName = info.first,
+                        subLabel = null,
+                        lessonLabel = chapterTitle,
+                        chapterKey = "$moduleId||$chapterTitle||",
+                        ageGroupLabel = info.second,
+                        rounds = configSessions.size,
+                        avgAccuracy = avgAcc,
+                        avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                        hasQuiz = totalQs > 0,
+                        route = null,
+                        scoreText = scoreStr
+                    ) to latest)
+                }
             } else if (moduleId == ModuleID.READ_LISTEN_ALL) {
                 sessions
                     .groupBy { Pair(it.chapterTitle ?: "Other", it.subConfig ?: "Short Sentence") }
@@ -962,6 +986,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.VOCABULARY_VEHICLES     to ("Vocabulary - Vehicles"   to "5–7"),
             ModuleID.READ_LISTEN_ALL         to ("Read & Listen"           to "6–8"),
             ModuleID.ONE_WORD_ANSWER         to ("One Word Answer"         to "6–8"),
+            ModuleID.FILL_MISSING_WORD       to ("Fill Missing Word"       to "6–8"),
         )
 
         private val moduleRoutes = mapOf(

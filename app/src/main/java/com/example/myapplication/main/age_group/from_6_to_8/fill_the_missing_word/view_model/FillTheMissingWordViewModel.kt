@@ -2,6 +2,7 @@ package com.example.myapplication.main.age_group.from_6_to_8.fill_the_missing_wo
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.WordBank
 import com.example.myapplication.data.generation.loader.OneWordAnswerLoader
 import com.example.myapplication.data.model.BlankableWord
@@ -9,6 +10,10 @@ import com.example.myapplication.data.model.ReadSentenceItemNew
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.data.model.WordType
+import com.example.myapplication.data.model.displayTitle
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.main.age_group.from_6_to_8.common.unit.data.SentenceProgressManager
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
@@ -21,8 +26,11 @@ import javax.inject.Inject
 @HiltViewModel
 class FillTheMissingWordViewModel @Inject constructor(
     private val progressManager: SentenceProgressManager,
+    private val sessionRepository: SessionRepository,
     @ApplicationContext private val context: Context
 ) : ViewModel() {
+
+    private val startTimeMs = System.currentTimeMillis()
 
     private val _uiState = MutableStateFlow(FillTheMissingWordUiState())
     val uiState: StateFlow<FillTheMissingWordUiState> = _uiState
@@ -152,9 +160,22 @@ class FillTheMissingWordViewModel @Inject constructor(
         val state = _uiState.value
         progressManager.markCompleted(
             type = state.screenType,
-            lessonId = state.lessonData?.id?:"colors_1"
+            lessonId = state.lessonData?.id ?: "colors_1"
         )
-
+        sessionRepository.record(
+            LearningSession(
+                moduleId = ModuleID.FILL_MISSING_WORD,
+                ageGroup = AgeGroup.SIX_TO_EIGHT,
+                durationSeconds = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt(),
+                score = state.score,
+                totalQuestions = state.questions.size,
+                correctItems = emptyList(),
+                wrongItems = emptyList(),
+                subConfig = "",
+                lessonTitle = state.lessonData?.title,
+                chapterTitle = state.lessonData?.unit?.displayTitle
+            )
+        )
         _uiState.update {
             it.copy(showResult = true)
         }

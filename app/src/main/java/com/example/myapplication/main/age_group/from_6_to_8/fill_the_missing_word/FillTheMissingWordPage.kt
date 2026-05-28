@@ -41,7 +41,7 @@ import com.example.myapplication.R
 import com.example.myapplication.data.model.ReadSentenceItemNew
 import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.main.age_group.from_6_to_8.fill_the_missing_word.view_model.FillTheMissingWordViewModel
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -124,13 +124,7 @@ fun FillTheMissingWordPage(
                         )
                     }
 
-                    if (uiState.showResult){
-                        ResultView(uiState.score,uiState.questions.size,
-                            title = stringResource(R.string.your_result),
-                            secondaryButtonText = stringResource(R.string.go_back),
-                            onSecondaryTap = { navController.popBackStack() }
-                        )
-                    }else{
+                    if (!uiState.showResult) {
                         Column(modifier = Modifier.weight(1f),verticalArrangement = Arrangement.spacedBy(Dimens16)) {
                             uiState.currentQuestion?.let{ currentQuestion ->
 
@@ -193,6 +187,29 @@ fun FillTheMissingWordPage(
                 }
             }
 
+        }
+
+        if (uiState.showResult) {
+            val accuracy = if (uiState.questions.isNotEmpty()) uiState.score.toFloat() / uiState.questions.size else 0f
+            ActivityCompletePopup(
+                stars = when {
+                    accuracy >= 0.8f -> 3
+                    accuracy >= 0.5f -> 2
+                    else -> 1
+                },
+                score = uiState.score,
+                total = uiState.questions.size,
+                scoreLabel = stringResource(R.string.correct_answers),
+                feedbackTextRes = when {
+                    accuracy >= 0.8f -> R.string.feedbackPhrases_1
+                    accuracy >= 0.5f -> R.string.feedbackPhrases_2
+                    else -> R.string.feedbackPhrases_3
+                },
+                onNext = null,
+                dismissLabel = stringResource(R.string.go_back_to_lesson),
+                dismissType = ButtonType.GREEN,
+                onClose = { navController.popBackStack() }
+            )
         }
     }
 }
