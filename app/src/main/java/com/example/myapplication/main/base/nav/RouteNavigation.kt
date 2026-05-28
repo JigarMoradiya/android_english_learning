@@ -73,8 +73,8 @@ sealed class RouteNavigation(val route: String) {
         fun oneWordAnswer(screenType: String, lessonData: String,level : String): String = "OneWordAnswer/$screenType/$lessonData/$level"
     }
 
-    object FillTheMissingWord : RouteNavigation("FillTheMissingWord/{screenType}/{lessonData}"){
-        fun fillTheMissingWord(screenType: String, lessonData: String): String = "FillTheMissingWord/$screenType/$lessonData"
+    object FillTheMissingWord : RouteNavigation("FillTheMissingWord/{screenType}/{lessonData}/{level}"){
+        fun fillTheMissingWord(screenType: String, lessonData: String, level: String): String = "FillTheMissingWord/$screenType/$lessonData/$level"
     }
     object ChooseTheRightSentence : RouteNavigation("ChooseTheRightSentence")
     object MatchThePicture : RouteNavigation("MatchThePicture/{unit}/{level}") {

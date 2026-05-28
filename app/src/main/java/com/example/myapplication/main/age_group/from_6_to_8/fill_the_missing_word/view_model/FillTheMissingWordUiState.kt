@@ -4,11 +4,13 @@ import com.example.myapplication.data.model.BlankableWord
 import com.example.myapplication.data.model.ComprehensionQuestion
 import com.example.myapplication.data.model.LessonSentence
 import com.example.myapplication.data.model.ReadSentenceItemNew
+import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.UnitSelectionScreen
 
 data class FillTheMissingWordUiState(
     val screenType: UnitSelectionScreen = UnitSelectionScreen.READ_AND_LISTEN_SENTENCE,
     val lessonData: ReadSentenceItemNew? = null,
+    val level: SentenceLevel = SentenceLevel.EASY,
     val questions: List<LessonSentence> = emptyList(),
     val currentIndex: Int = 0,
     val selectedAnswer: String? = null,

@@ -324,14 +324,16 @@ fun AppNavGraph(navController: NavHostController) {
             arguments = listOf(
                 navArgument("screenType") { type = NavType.StringType },
                 navArgument("lessonData") { type = NavType.StringType },
+                navArgument("level") { type = NavType.StringType },
             )
         ) { backStackEntry ->
             val screenType = backStackEntry.arguments?.getString("screenType")
                 ?: UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name
             val lessonData = backStackEntry.arguments?.getString("lessonData")
+            val level = backStackEntry.arguments?.getString("level") ?: SentenceLevel.EASY.name
             lessonData?.let {
                 val data = Gson().fromJson(lessonData, ReadSentenceItemNew::class.java)
-                FillTheMissingWordPage(getUnitSelectionScreen(screenType), data, navController)
+                FillTheMissingWordPage(getUnitSelectionScreen(screenType), data, getSentenceLevel(level), navController)
             }
         }
         composable(RouteNavigation.ChooseTheRightSentence.route) {

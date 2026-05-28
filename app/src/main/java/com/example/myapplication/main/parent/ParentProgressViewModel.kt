@@ -454,19 +454,20 @@ class ParentProgressViewModel @Inject constructor(
                 }
             } else if (moduleId == ModuleID.FILL_MISSING_WORD) {
                 sessions
-                    .groupBy { it.chapterTitle ?: "Other" }
-                    .forEach { (chapterTitle, configSessions) ->
+                    .groupBy { Pair(it.chapterTitle ?: "Other", it.subConfig ?: "Short Sentence") }
+                    .forEach { (key, configSessions) ->
+                    val (chapterTitle, config) = key
                     val latest = configSessions.maxOf { it.timestampMs }
                     val totalScore = configSessions.sumOf { it.score }
                     val totalQs    = configSessions.sumOf { it.totalQuestions }
                     val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
                     val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
                     rowsWithTime.add(ModuleProgressRow(
-                        moduleId = "$moduleId|$chapterTitle",
+                        moduleId = "$moduleId|$chapterTitle|$config",
                         displayName = info.first,
-                        subLabel = null,
+                        subLabel = config,
                         lessonLabel = chapterTitle,
-                        chapterKey = "$moduleId||$chapterTitle||",
+                        chapterKey = "$moduleId||$chapterTitle||$config",
                         ageGroupLabel = info.second,
                         rounds = configSessions.size,
                         avgAccuracy = avgAcc,

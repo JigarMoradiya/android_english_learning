@@ -9,6 +9,7 @@ import com.example.myapplication.data.model.BlankableWord
 import com.example.myapplication.data.model.ReadSentenceItemNew
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.UnitSelectionScreen
+import com.example.myapplication.data.model.displayTitle
 import com.example.myapplication.data.model.WordType
 import com.example.myapplication.data.model.displayTitle
 import com.example.myapplication.data.progress.AgeGroup
@@ -36,11 +37,12 @@ class FillTheMissingWordViewModel @Inject constructor(
     val uiState: StateFlow<FillTheMissingWordUiState> = _uiState
 
     // Call this from UI
-    fun setScreenTypeAndLessonData(screenType: UnitSelectionScreen, lessonData: ReadSentenceItemNew) {
+    fun setScreenTypeAndLessonData(screenType: UnitSelectionScreen, lessonData: ReadSentenceItemNew, level: SentenceLevel) {
         _uiState.update {
             it.copy(
                 screenType = screenType,
                 lessonData = lessonData,
+                level = level,
             )
         }
 
@@ -171,7 +173,7 @@ class FillTheMissingWordViewModel @Inject constructor(
                 totalQuestions = state.questions.size,
                 correctItems = emptyList(),
                 wrongItems = emptyList(),
-                subConfig = "",
+                subConfig = state.level.title,
                 lessonTitle = state.lessonData?.title,
                 chapterTitle = state.lessonData?.unit?.displayTitle
             )

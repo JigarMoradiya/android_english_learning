@@ -39,6 +39,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.ReadSentenceItemNew
+import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.main.age_group.from_6_to_8.fill_the_missing_word.view_model.FillTheMissingWordViewModel
 import com.example.myapplication.main.common.ActivityCompletePopup
@@ -62,15 +63,16 @@ import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 @Composable
 fun FillTheMissingWordPage(
-    screenType : UnitSelectionScreen,
+    screenType: UnitSelectionScreen,
     lessonData: ReadSentenceItemNew,
+    level: SentenceLevel,
     navController: NavController,
     viewModel: FillTheMissingWordViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
-        viewModel.setScreenTypeAndLessonData(screenType,lessonData)
+        viewModel.setScreenTypeAndLessonData(screenType, lessonData, level)
     }
     Box(modifier = Modifier.fillMaxSize()) {
 
