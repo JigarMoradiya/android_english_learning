@@ -10,6 +10,10 @@ import androidx.compose.material.icons.filled.DirectionsRun
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import com.example.myapplication.R
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.BeginnerActivityType
@@ -45,12 +49,17 @@ class TapTheWordViewModel @Inject constructor(
     init { load() }
 
     fun load() {
-        val all = MixedGrammarBeginnerQuestionFactory.generateQuestions(context, BeginnerActivityType.TAP_WORD)
-        val questions = all.shuffled().take(10)
-        _uiState.value = TapTheWordUiState(
-            questionsAll = all,
-            questions = questions
-        )
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true) }
+            val all = withContext(Dispatchers.Default) {
+                MixedGrammarBeginnerQuestionFactory.generateQuestions(context, BeginnerActivityType.TAP_WORD)
+            }
+            _uiState.value = TapTheWordUiState(
+                isLoading = false,
+                questionsAll = all,
+                questions = all.shuffled().take(10)
+            )
+        }
     }
 
     fun restart() {

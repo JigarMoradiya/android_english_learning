@@ -9,6 +9,10 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import com.example.myapplication.R
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.FixSentenceFactory
@@ -41,10 +45,13 @@ class FixTheSentenceViewModel @Inject constructor(
     init { load() }
 
     fun load() {
-        val questions = FixSentenceFactory.generateQuestions(context)
-            .shuffled()
-            .take(10)
-        _uiState.value = FixTheSentenceUiState(questions = questions)
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true) }
+            val questions = withContext(Dispatchers.Default) {
+                FixSentenceFactory.generateQuestions(context).shuffled().take(10)
+            }
+            _uiState.value = FixTheSentenceUiState(isLoading = false, questions = questions)
+        }
     }
 
     fun selectOption(option: String) {

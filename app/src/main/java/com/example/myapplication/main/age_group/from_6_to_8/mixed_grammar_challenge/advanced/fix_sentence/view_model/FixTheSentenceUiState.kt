@@ -5,6 +5,7 @@ import com.example.myapplication.data.generation.loader.FixSentenceQuestion
 enum class FixOptionState { NORMAL, SELECTED, CORRECT, WRONG }
 
 data class FixTheSentenceUiState(
+    val isLoading: Boolean = true,
     val questions: List<FixSentenceQuestion> = emptyList(),
     val currentIndex: Int = 0,
     val selectedOption: String? = null,

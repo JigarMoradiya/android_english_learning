@@ -7,6 +7,7 @@ import com.example.myapplication.data.generation.loader.SentenceSegment
 import java.util.UUID
 
 data class GrammarFillTheBlanksUiState(
+    val isLoading: Boolean = true,
     val questionsAll: List<FillBlanksQuestion> = emptyList(),
     val questions: List<FillBlanksQuestion> = emptyList(),
     val currentIndex: Int = 0,

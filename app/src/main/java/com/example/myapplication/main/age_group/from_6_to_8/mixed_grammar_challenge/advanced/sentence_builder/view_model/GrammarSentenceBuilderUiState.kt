@@ -4,6 +4,7 @@ import com.example.myapplication.data.generation.loader.AdvBuildWord
 import com.example.myapplication.data.generation.loader.AdvSentenceBuilderQuestion
 
 data class GrammarSentenceBuilderUiState(
+    val isLoading: Boolean = true,
     val questionsAll: List<AdvSentenceBuilderQuestion> = emptyList(),
     val questions: List<AdvSentenceBuilderQuestion> = emptyList(),
     val currentIndex: Int = 0,

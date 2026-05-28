@@ -19,10 +19,11 @@ object MixedGrammarBeginnerQuestionFactory {
 
         val lessons = LessonLoader.loadAllUnits(context, SentenceLevel.EASY)
 
-        // Global word pool for fallback wrong-option generation
-        val allWords = lessons
-            .flatMap { it.sentences }
-            .flatMap { it.blankableWords }
+        // Global word pool — pre-grouped by excluded type for O(1) distractor lookup
+        val allWords = lessons.flatMap { it.sentences }.flatMap { it.blankableWords }
+        val distractorPool: Map<WordType, List<BlankableWord>> = WordType.entries.associateWith { excluded ->
+            allWords.filter { it.type != excluded }
+        }
 
         val questions = mutableListOf<MixedBeginnerQuestion>()
 
@@ -31,13 +32,9 @@ object MixedGrammarBeginnerQuestionFactory {
 
                 if (sentence.blankableWords.isEmpty()) continue
 
-                // Group blankable words by type
                 val wordsByType: Map<WordType, List<BlankableWord>> =
                     sentence.blankableWords.groupBy { it.type }
 
-                // For TAP_WORD: only pick a type that appears exactly once in the sentence
-                // so there is a single unambiguous chip to tap.
-                // For MULTIPLE_CHOICE: any type is fine.
                 val eligibleTypes: List<WordType> = if (activityType == BeginnerActivityType.TAP_WORD) {
                     wordsByType.filter { it.value.size == 1 }.keys.toList()
                 } else {
@@ -53,26 +50,24 @@ object MixedGrammarBeginnerQuestionFactory {
                 val allCorrectWords = targetWords.map { it.word.lowercase() }
 
                 // Wrong options: prefer words from different type in same sentence
-                var wrongOptions = sentence.blankableWords
-                    .filter { it.type != targetType }
-                    .map { it.word.lowercase() }
-                    .distinct()
-                    .shuffled()
-                    .toMutableList()
+                val seen = mutableSetOf(correctWord)
+                val wrongOptions = mutableListOf<String>()
+                for (bw in sentence.blankableWords.shuffled()) {
+                    if (bw.type == targetType) continue
+                    val w = bw.word.lowercase()
+                    if (seen.add(w)) { wrongOptions += w }
+                    if (wrongOptions.size == 2) break
+                }
 
-                // Fill remaining slots from global pool if needed
+                // Fill remaining slots from pre-grouped global pool — no O(n) filter
                 if (wrongOptions.size < 2) {
-                    val extra = allWords
-                        .filter {
-                            it.type != targetType &&
-                            it.word.lowercase() != correctWord &&
-                            !wrongOptions.contains(it.word.lowercase())
-                        }
-                        .map { it.word.lowercase() }
-                        .distinct()
-                        .shuffled()
-                        .take(2 - wrongOptions.size)
-                    wrongOptions.addAll(extra)
+                    val pool = distractorPool[targetType] ?: emptyList()
+                    var attempts = 0
+                    while (wrongOptions.size < 2 && attempts < pool.size) {
+                        val w = pool[pool.indices.random()].word.lowercase()
+                        if (seen.add(w)) wrongOptions += w
+                        attempts++
+                    }
                 }
 
                 val options = (listOf(correctWord) + wrongOptions.take(2)).shuffled()

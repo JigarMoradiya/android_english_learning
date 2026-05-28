@@ -3,6 +3,10 @@ package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_chall
 import android.content.Context
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import com.example.myapplication.R
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.AdvBuildWord
@@ -35,10 +39,14 @@ class GrammarSentenceBuilderViewModel @Inject constructor(
     init { loadInitialData() }
 
     fun loadInitialData() {
-        val all = AdvSentenceBuilderFactory.generateQuestions(context)
-        val questions = all.take(10)
-        _uiState.value = GrammarSentenceBuilderUiState(questionsAll = all, questions = questions)
-        setupCurrentQuestion()
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true) }
+            val all = withContext(Dispatchers.Default) {
+                AdvSentenceBuilderFactory.generateQuestions(context)
+            }
+            _uiState.value = GrammarSentenceBuilderUiState(isLoading = false, questionsAll = all, questions = all.take(10))
+            setupCurrentQuestion()
+        }
     }
 
     fun restart() {

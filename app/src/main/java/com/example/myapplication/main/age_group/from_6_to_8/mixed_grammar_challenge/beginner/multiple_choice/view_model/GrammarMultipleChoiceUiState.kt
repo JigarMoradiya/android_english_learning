@@ -3,6 +3,7 @@ package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_chall
 import com.example.myapplication.data.generation.loader.MixedBeginnerQuestion
 
 data class GrammarMultipleChoiceUiState(
+    val isLoading: Boolean = true,
     val questionsAll: List<MixedBeginnerQuestion> = emptyList(),
     val questions: List<MixedBeginnerQuestion> = emptyList(),
     val currentIndex: Int = 0,
