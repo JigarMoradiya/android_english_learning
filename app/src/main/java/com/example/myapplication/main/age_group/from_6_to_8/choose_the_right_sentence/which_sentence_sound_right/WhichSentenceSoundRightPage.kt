@@ -29,7 +29,7 @@ import com.example.myapplication.R
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
 import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.which_sentence_sound_right.view_model.WhichSentenceSoundRightViewModel
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -74,23 +74,14 @@ fun WhichSentenceSoundRightPage(
             }
 
             Spacer(Modifier.weight(1f))
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(Dimens16),
-                modifier = Modifier.fillMaxSize()
-                    .padding(horizontal = Dimens16).padding(bottom = Dimens16)
-            ) {
+            if (!uiState.showResult) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(Dimens16),
+                    modifier = Modifier.fillMaxSize()
+                        .padding(horizontal = Dimens16).padding(bottom = Dimens16)
+                ) {
 
-                if (uiState.showResult){
-                    ResultView(uiState.score,uiState.questions.size,
-                        primaryButtonText = stringResource(R.string.want_to_continue),
-                        secondaryButtonText = stringResource(R.string.go_back),
-                    onSecondaryTap = {
-                        navController.popBackStack()
-                    },onPrimaryTap = {
-                        viewModel.restart()
-                    })
-                }else{
                     Column(
                         verticalArrangement = Arrangement.spacedBy(Dimens12)
                     ) {
@@ -105,13 +96,13 @@ fun WhichSentenceSoundRightPage(
                                 },
                                 enabled = uiState.selectedAnswer == null,
                                 modifier = Modifier
-                                    .fillMaxWidth() // 🔥 full width
+                                    .fillMaxWidth()
                                     .height(listenAndAnswerOptionsHeight),
                                 textAlign = TextAlign.Left
                             )
                         }
 
-                        // 👉 Next Button Row
+                        // Next Button Row
                         Row {
                             Spacer(Modifier.weight(1f))
 
@@ -132,6 +123,30 @@ fun WhichSentenceSoundRightPage(
                 }
             }
             Spacer(Modifier.weight(1f))
+        }
+
+        if (uiState.showResult) {
+            val accuracy = if (uiState.questions.isNotEmpty())
+                uiState.score.toDouble() / uiState.questions.size else 0.0
+            ActivityCompletePopup(
+                stars = when {
+                    accuracy >= 0.8 -> 3
+                    accuracy >= 0.5 -> 2
+                    else -> 1
+                },
+                score = uiState.score,
+                total = uiState.questions.size,
+                scoreLabel = stringResource(R.string.correct_answers),
+                feedbackTextRes = when {
+                    accuracy >= 0.8 -> R.string.feedbackPhrases_1
+                    accuracy >= 0.5 -> R.string.feedbackPhrases_2
+                    else -> R.string.feedbackPhrases_3
+                },
+                onNext = { viewModel.restart() },
+                nextLabel = stringResource(R.string.want_to_continue),
+                dismissLabel = stringResource(R.string.go_back),
+                onClose = { navController.popBackStack() }
+            )
         }
     }
 }

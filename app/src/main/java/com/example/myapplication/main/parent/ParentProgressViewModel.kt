@@ -477,7 +477,11 @@ class ParentProgressViewModel @Inject constructor(
                         scoreText = scoreStr
                     ) to latest)
                 }
-            } else if (moduleId == ModuleID.SENTENCE_CHECK) {
+            } else if (moduleId == ModuleID.SENTENCE_CHECK ||
+                       moduleId == ModuleID.MATCH_THE_PICTURE ||
+                       moduleId == ModuleID.WHICH_SENTENCE_RIGHT ||
+                       moduleId == ModuleID.FIND_CORRECT_WRITING ||
+                       moduleId == ModuleID.SENTENCE_BUILDER) {
                 sessions
                     .groupBy { it.chapterTitle ?: "Other" }
                     .forEach { (chapterTitle, chapterSessions) ->
@@ -1013,6 +1017,10 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.ONE_WORD_ANSWER         to ("One Word Answer"         to "6–8"),
             ModuleID.FILL_MISSING_WORD       to ("Fill Missing Word"       to "6–8"),
             ModuleID.SENTENCE_CHECK          to ("Sentence Check"          to "6–8"),
+            ModuleID.MATCH_THE_PICTURE       to ("Match the Picture"       to "6–8"),
+            ModuleID.WHICH_SENTENCE_RIGHT    to ("Which Sentence Sounds Right" to "6–8"),
+            ModuleID.FIND_CORRECT_WRITING    to ("Find the Correct Writing" to "6–8"),
+            ModuleID.SENTENCE_BUILDER        to ("Build the Sentence"       to "6–8"),
         )
 
         private val moduleRoutes = mapOf(

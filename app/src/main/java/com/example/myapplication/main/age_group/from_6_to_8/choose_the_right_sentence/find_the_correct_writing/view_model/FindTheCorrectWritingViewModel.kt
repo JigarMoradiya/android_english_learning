@@ -2,10 +2,15 @@ package com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_se
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.GrammarQuestionGenerator
 import com.example.myapplication.data.generation.loader.LessonLoader
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
+import com.example.myapplication.data.model.displayTitle
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,8 +22,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FindTheCorrectWritingViewModel @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
+
+    private var startTimeMs = System.currentTimeMillis()
 
     private val _uiState = MutableStateFlow(FindTheCorrectWritingUiState())
     val uiState: StateFlow<FindTheCorrectWritingUiState> = _uiState
@@ -106,6 +114,21 @@ class FindTheCorrectWritingViewModel @Inject constructor(
             generateOptions()
 
         } else {
+            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.FIND_CORRECT_WRITING,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = durationSec,
+                    score = state.score,
+                    totalQuestions = state.questions.size,
+                    correctItems = emptyList(),
+                    wrongItems = emptyList(),
+                    subConfig = "",
+                    lessonTitle = null,
+                    chapterTitle = state.unit.displayTitle
+                )
+            )
             _uiState.update {
                 it.copy(showResult = true)
             }
@@ -114,6 +137,7 @@ class FindTheCorrectWritingViewModel @Inject constructor(
 
     // Restart
     fun restart() {
+        startTimeMs = System.currentTimeMillis()
         _uiState.update {
             it.copy(
                 currentIndex = 0,

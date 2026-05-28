@@ -38,7 +38,7 @@ import com.example.myapplication.R
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
 import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.match_the_picture.view_model.MatchThePictureViewModel
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -100,15 +100,15 @@ fun MatchThePicturePage(
                         .padding(bottom = Dimens16)
                 ) {
 
-                    // 🟩 CENTER IMAGE
+                    // CENTER IMAGE
                     getImageResForSentence(uiState.currentQuestion?.imageName)?.let { resId ->
                         val modifier : Modifier = if (isTablet){
                             val screenHeight = with(LocalDensity.current) {
                                 LocalWindowInfo.current.containerSize.height.toDp()
                             }
-                            Modifier.size(screenHeight * 0.5f) // 50% of screen height
+                            Modifier.size(screenHeight * 0.5f)
                         } else{
-                            Modifier.aspectRatio(1f) // perfect square
+                            Modifier.aspectRatio(1f)
                         }
                         Image(
                             painter = painterResource(resId),
@@ -119,17 +119,7 @@ fun MatchThePicturePage(
                         )
                     }
 
-                    if (uiState.showResult){
-                        ResultView(uiState.score,uiState.questions.size,
-                            title = stringResource(R.string.completed),
-                            primaryButtonText = stringResource(R.string.want_to_continue),
-                            secondaryButtonText = stringResource(R.string.go_back),
-                        onSecondaryTap = {
-                            viewModel.restart()
-                        },onPrimaryTap = {
-                            navController.popBackStack()
-                        })
-                    }else{
+                    if (!uiState.showResult) {
                         Column(
                             modifier = Modifier.weight(1f),
                             verticalArrangement = Arrangement.spacedBy(Dimens12)
@@ -145,13 +135,13 @@ fun MatchThePicturePage(
                                     },
                                     enabled = uiState.selectedAnswer == null,
                                     modifier = Modifier
-                                        .fillMaxWidth() // 🔥 full width
+                                        .fillMaxWidth()
                                         .height(listenAndAnswerOptionsHeight),
                                     textAlign = TextAlign.Left
                                 )
                             }
 
-                            // 👉 Next Button Row
+                            // Next Button Row
                             Row {
                                 Spacer(Modifier.weight(1f))
 
@@ -173,6 +163,30 @@ fun MatchThePicturePage(
                 }
             }
 
+        }
+
+        if (uiState.showResult) {
+            val accuracy = if (uiState.questions.isNotEmpty())
+                uiState.score.toDouble() / uiState.questions.size else 0.0
+            ActivityCompletePopup(
+                stars = when {
+                    accuracy >= 0.8 -> 3
+                    accuracy >= 0.5 -> 2
+                    else -> 1
+                },
+                score = uiState.score,
+                total = uiState.questions.size,
+                scoreLabel = stringResource(R.string.correct_answers),
+                feedbackTextRes = when {
+                    accuracy >= 0.8 -> R.string.feedbackPhrases_1
+                    accuracy >= 0.5 -> R.string.feedbackPhrases_2
+                    else -> R.string.feedbackPhrases_3
+                },
+                onNext = { viewModel.restart() },
+                nextLabel = stringResource(R.string.want_to_continue),
+                dismissLabel = stringResource(R.string.go_back),
+                onClose = { navController.popBackStack() }
+            )
         }
     }
 }

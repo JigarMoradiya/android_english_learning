@@ -2,10 +2,15 @@ package com.example.myapplication.main.age_group.from_6_to_8.sentence_builder.vi
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.MatchPictureLoader
 import com.example.myapplication.data.model.SentenceBuilderQuestion
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
+import com.example.myapplication.data.model.displayTitle
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,8 +22,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SentenceBuilderViewModel @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
+
+    private var startTimeMs = System.currentTimeMillis()
 
     private val _uiState = MutableStateFlow(SentenceBuilderUiState())
     val uiState: StateFlow<SentenceBuilderUiState> = _uiState
@@ -61,6 +69,7 @@ class SentenceBuilderViewModel @Inject constructor(
     }
 
     fun restart() {
+        startTimeMs = System.currentTimeMillis()
         _uiState.update {
             it.copy(
                 score = 0,
@@ -183,6 +192,21 @@ class SentenceBuilderViewModel @Inject constructor(
             prepareCurrentQuestion()
 
         } else {
+            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.SENTENCE_BUILDER,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = durationSec,
+                    score = state.score,
+                    totalQuestions = state.questions.size,
+                    correctItems = emptyList(),
+                    wrongItems = emptyList(),
+                    subConfig = "",
+                    lessonTitle = null,
+                    chapterTitle = state.unit.displayTitle
+                )
+            )
             _uiState.update {
                 it.copy(isCompleted = true)
             }
