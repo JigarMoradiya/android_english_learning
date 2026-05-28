@@ -359,23 +359,23 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
                 color = Color.Black.copy(alpha = 0.75f)
             )
             Spacer(Modifier.weight(1f))
-            if (vm.selectedAgeFilter == "Age 6-8") {
-                Box(
-                    contentAlignment = Alignment.Center,
-                    modifier = Modifier
-                        .border(0.8.dp, Color(0xFFE53935).copy(alpha = 0.5f), RoundedCornerShape(50))
-                        .clickable { vm.clearAge68Data() }
-                        .padding(horizontal = Dimens8, vertical = Dimens4)
-                ) {
-                    Text(
-                        text = "Clear 6-8",
-                        style = MaterialTheme.typography.labelSmall.scaled(),
-                        fontWeight = FontWeight.Normal,
-                        color = Color(0xFFE53935)
-                    )
-                }
-                Spacer(Modifier.width(Dimens6))
-            }
+//            if (vm.selectedAgeFilter == "Age 6-8") {
+//                Box(
+//                    contentAlignment = Alignment.Center,
+//                    modifier = Modifier
+//                        .border(0.8.dp, Color(0xFFE53935).copy(alpha = 0.5f), RoundedCornerShape(50))
+//                        .clickable { vm.clearAge68Data() }
+//                        .padding(horizontal = Dimens8, vertical = Dimens4)
+//                ) {
+//                    Text(
+//                        text = "Clear 6-8",
+//                        style = MaterialTheme.typography.labelSmall.scaled(),
+//                        fontWeight = FontWeight.Normal,
+//                        color = Color(0xFFE53935)
+//                    )
+//                }
+//                Spacer(Modifier.width(Dimens6))
+//            }
             ageFilters.forEach { filter ->
                 val isSelected = vm.selectedAgeFilter == filter
                 Spacer(Modifier.width(Dimens6))

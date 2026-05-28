@@ -96,16 +96,27 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="parent report done for choose the right sentences and sentence builder">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="parent report done for grammar basic">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/adjectives/practice/AdjectivesPracticePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/adjectives/practice/AdjectivesPracticePage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/adjectives/practice/view_model/AdjectivesPracticeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/adjectives/practice/view_model/AdjectivesPracticeViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/practice/NounPracticePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/practice/NounPracticePage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/practice/view_model/NounPracticeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/noun/practice/view_model/NounPracticeViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/pronouns/practice/PronounPracticePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/pronouns/practice/PronounPracticePage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/pronouns/practice/view_model/PronounPracticeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/pronouns/practice/view_model/PronounPracticeViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/verb/practice/VerbPracticePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/verb/practice/VerbPracticePage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/verb/practice/view_model/VerbPracticeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/grammar_basic/verb/practice/view_model/VerbPracticeViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fill_blanks/GrammarFillTheBlanksPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fill_blanks/GrammarFillTheBlanksPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fill_blanks/view_model/GrammarFillTheBlanksViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fill_blanks/view_model/GrammarFillTheBlanksViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fix_sentence/FixTheSentencePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fix_sentence/FixTheSentencePage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fix_sentence/view_model/FixTheSentenceViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/fix_sentence/view_model/FixTheSentenceViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/sentence_builder/GrammarSentenceBuilderPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/sentence_builder/GrammarSentenceBuilderPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/sentence_builder/view_model/GrammarSentenceBuilderViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/advanced/sentence_builder/view_model/GrammarSentenceBuilderViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/beginner/multiple_choice/GrammarMultipleChoicePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/beginner/multiple_choice/GrammarMultipleChoicePage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/beginner/multiple_choice/view_model/GrammarMultipleChoiceViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/beginner/multiple_choice/view_model/GrammarMultipleChoiceViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/beginner/tap_the_word/TapTheWordPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/beginner/tap_the_word/TapTheWordPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/beginner/tap_the_word/view_model/TapTheWordViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/beginner/tap_the_word/view_model/TapTheWordViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/medium/drag_to_bucket/DragToGrammarBucketPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/medium/drag_to_bucket/DragToGrammarBucketPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/medium/drag_to_bucket/view_model/DragToGrammarBucketViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/mixed_grammar_challenge/medium/drag_to_bucket/view_model/DragToGrammarBucketViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/sentence_builder/SentenceBuilderPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/sentence_builder/SentenceBuilderPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -493,14 +504,6 @@
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
     </task>
-    <task id="LOCAL-00131" summary="background change for all screens">
-      <option name="closed" value="true" />
-      <created>1779334459113</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1779334459113</updated>
-    </task>
     <task id="LOCAL-00132" summary="solve purchase issue and release">
       <option name="closed" value="true" />
       <created>1779341390879</created>
@@ -885,11 +888,18 @@
       <option name="project" value="LOCAL" />
       <updated>1779951549064</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="parent report done for grammar basic">
+      <option name="closed" value="true" />
+      <created>1779955652535</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1779955652535</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="what kids learn done for match letter, letter-image, fill the blank and arrange in sequence" />
     <MESSAGE value="file name rename" />
     <MESSAGE value="parent report done for missing letter" />
     <MESSAGE value="parent report done for drag n drop" />
@@ -914,7 +924,8 @@
     <MESSAGE value="parent report done for fill the blank with sentence label add" />
     <MESSAGE value="parent report done for sentence check" />
     <MESSAGE value="parent report done for choose the right sentences and sentence builder" />
-    <option name="LAST_COMMIT_MESSAGE" value="parent report done for choose the right sentences and sentence builder" />
+    <MESSAGE value="parent report done for grammar basic" />
+    <option name="LAST_COMMIT_MESSAGE" value="parent report done for grammar basic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

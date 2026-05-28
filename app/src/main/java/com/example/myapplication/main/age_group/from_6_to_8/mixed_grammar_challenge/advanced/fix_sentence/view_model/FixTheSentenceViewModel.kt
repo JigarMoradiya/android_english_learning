@@ -10,8 +10,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.R
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.FixSentenceFactory
 import com.example.myapplication.data.model.WordType
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
@@ -25,8 +29,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FixTheSentenceViewModel @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
+
+    private var startTimeMs = System.currentTimeMillis()
 
     private val _uiState = MutableStateFlow(FixTheSentenceUiState())
     val uiState: StateFlow<FixTheSentenceUiState> = _uiState.asStateFlow()
@@ -69,6 +76,19 @@ class FixTheSentenceViewModel @Inject constructor(
     fun moveToNext() {
         val state = _uiState.value
         if (state.isLastIndex) {
+            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.GRAMMAR_CHALLENGE_ADVANCED,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = durationSec,
+                    score = state.score,
+                    totalQuestions = state.questions.size,
+                    subConfig = "",
+                    lessonTitle = null,
+                    chapterTitle = "Fix the Sentence"
+                )
+            )
             _uiState.update { it.copy(isCompleted = true) }
         } else {
             _uiState.update {
@@ -83,7 +103,10 @@ class FixTheSentenceViewModel @Inject constructor(
         }
     }
 
-    fun restart() { load() }
+    fun restart() {
+        startTimeMs = System.currentTimeMillis()
+        load()
+    }
 
     fun optionState(option: String): FixOptionState {
         val state = _uiState.value

@@ -98,8 +98,7 @@ fun SentenceBuilderPage(
 
             Spacer(Modifier.weight(1f))
             // CONTENT
-            if (!uiState.isCompleted) {
-                Row(
+            Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(Dimens16),
                     modifier = Modifier.fillMaxSize()
@@ -259,7 +258,6 @@ fun SentenceBuilderPage(
                     }
 
                 }
-            }
 
 
             Spacer(Modifier.weight(1f))

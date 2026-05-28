@@ -11,9 +11,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.R
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.BeginnerActivityType
 import com.example.myapplication.data.generation.loader.MixedGrammarBeginnerQuestionFactory
 import com.example.myapplication.data.model.WordType
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
@@ -29,8 +33,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TapTheWordViewModel @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
+
+    private var startTimeMs = System.currentTimeMillis()
 
     private val _uiState = MutableStateFlow(TapTheWordUiState())
     val uiState: StateFlow<TapTheWordUiState> = _uiState.asStateFlow()
@@ -47,6 +54,7 @@ class TapTheWordViewModel @Inject constructor(
     }
 
     fun restart() {
+        startTimeMs = System.currentTimeMillis()
         val all = _uiState.value.questionsAll
         _uiState.value = TapTheWordUiState(
             questionsAll = all,
@@ -91,6 +99,19 @@ class TapTheWordViewModel @Inject constructor(
                 )
             }
         } else {
+            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.GRAMMAR_CHALLENGE_BEGINNER,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = durationSec,
+                    score = state.score,
+                    totalQuestions = state.questions.size,
+                    subConfig = "",
+                    lessonTitle = null,
+                    chapterTitle = "Tap Correct Word"
+                )
+            )
             _uiState.update { it.copy(isCompleted = true) }
         }
     }

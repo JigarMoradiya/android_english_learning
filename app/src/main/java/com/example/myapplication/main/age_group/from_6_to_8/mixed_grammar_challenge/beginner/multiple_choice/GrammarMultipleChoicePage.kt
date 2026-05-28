@@ -44,8 +44,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.beginner.multiple_choice.view_model.GrammarMultipleChoiceViewModel
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
@@ -95,42 +95,26 @@ fun GrammarMultipleChoicePage(
                     type = ButtonType.PURPLE
                 )
 
-                if (!uiState.isCompleted) {
-                    KidsActionButton(
-                        text = if (uiState.isLastIndex) stringResource(R.string.check_result)
-                               else stringResource(R.string.next),
-                        icon = if (uiState.isLastIndex) null
-                               else Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                        isIconStart = false,
-                        isSmall = true,
-                        type = when {
-                            !uiState.showNext   -> ButtonType.DISABLE
-                            uiState.isLastIndex -> ButtonType.POSITIVE
-                            else                -> ButtonType.ORANGE
-                        },
-                        disable = !uiState.showNext,
-                        onClick = { viewModel.moveToNextQuestion() },
-                        modifier = Modifier.padding(end = Dimens16)
-                    )
-                }
+                KidsActionButton(
+                    text = if (uiState.isLastIndex) stringResource(R.string.check_result)
+                           else stringResource(R.string.next),
+                    icon = if (uiState.isLastIndex) null
+                           else Icons.AutoMirrored.Rounded.KeyboardArrowRight,
+                    isIconStart = false,
+                    isSmall = true,
+                    type = when {
+                        !uiState.showNext   -> ButtonType.DISABLE
+                        uiState.isLastIndex -> ButtonType.POSITIVE
+                        else                -> ButtonType.ORANGE
+                    },
+                    disable = !uiState.showNext,
+                    onClick = { viewModel.moveToNextQuestion() },
+                    modifier = Modifier.padding(end = Dimens16)
+                )
             }
 
             // ── Body ──────────────────────────────────────────────────────────
-            if (uiState.isCompleted) {
-                Spacer(Modifier.weight(1f))
-                ResultView(
-                    score = uiState.score,
-                    total = uiState.questions.size,
-                    title = stringResource(R.string.your_result),
-                    primaryButtonText = stringResource(R.string.want_to_continue),
-                    secondaryButtonText = stringResource(R.string.go_back),
-                    onSecondaryTap = { navController.popBackStack() },
-                    onPrimaryTap = { viewModel.restart() },
-                    modifier = Modifier.padding(horizontal = Dimens16)
-                )
-                Spacer(Modifier.weight(1f))
-            } else {
-                uiState.currentQuestion?.let { q ->
+            uiState.currentQuestion?.let { q ->
 
                     val typeColor = viewModel.typeColor(q.targetType)
                     val typeLabel = viewModel.typeLabel(q.targetType)
@@ -238,7 +222,30 @@ fun GrammarMultipleChoicePage(
                         }
                     }
                 }
-            }
+        }
+
+        if (uiState.isCompleted) {
+            val accuracy = if (uiState.questions.isNotEmpty())
+                uiState.score.toDouble() / uiState.questions.size else 0.0
+            ActivityCompletePopup(
+                stars = when {
+                    accuracy >= 0.8 -> 3
+                    accuracy >= 0.5 -> 2
+                    else -> 1
+                },
+                score = uiState.score,
+                total = uiState.questions.size,
+                scoreLabel = stringResource(R.string.correct_answers),
+                feedbackTextRes = when {
+                    accuracy >= 0.8 -> R.string.feedbackPhrases_1
+                    accuracy >= 0.5 -> R.string.feedbackPhrases_2
+                    else -> R.string.feedbackPhrases_3
+                },
+                onNext = { viewModel.restart() },
+                nextLabel = stringResource(R.string.want_to_continue),
+                dismissLabel = stringResource(R.string.go_back),
+                onClose = { navController.popBackStack() }
+            )
         }
     }
 }

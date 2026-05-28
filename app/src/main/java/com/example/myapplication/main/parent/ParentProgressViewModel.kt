@@ -197,10 +197,16 @@ class ParentProgressViewModel @Inject constructor(
             .map { (_, lessonTitle, sessions) -> LessonGroup(lessonTitle = lessonTitle, sessions = sessions) }
 
         val moduleName = moduleInfo[moduleId]?.first ?: moduleId
+        val difficultyLabel = when (moduleId) {
+            ModuleID.GRAMMAR_CHALLENGE_BEGINNER -> "Beginner"
+            ModuleID.GRAMMAR_CHALLENGE_MEDIUM   -> "Medium"
+            ModuleID.GRAMMAR_CHALLENGE_ADVANCED -> "Advanced"
+            else -> subConfig
+        }
         chapterDetail = ChapterDetailData(
             moduleName = moduleName,
             chapterTitle = chapterTitle,
-            difficulty = subConfig,
+            difficulty = difficultyLabel,
             lessonGroups = lessonGroups
         )
     }
@@ -529,6 +535,37 @@ class ParentProgressViewModel @Inject constructor(
                     route = null,
                     scoreText = scoreStr
                 ) to latest)
+            } else if (moduleId == ModuleID.GRAMMAR_CHALLENGE_BEGINNER ||
+                       moduleId == ModuleID.GRAMMAR_CHALLENGE_MEDIUM ||
+                       moduleId == ModuleID.GRAMMAR_CHALLENGE_ADVANCED) {
+                sessions
+                    .groupBy { it.chapterTitle ?: "Other" }
+                    .forEach { (chapterTitle, chapterSessions) ->
+                    val latest = chapterSessions.maxOf { it.timestampMs }
+                    val quizSessions = chapterSessions.filter { it.totalQuestions > 0 }
+                    val totalScore = quizSessions.sumOf { it.score }
+                    val totalQs    = quizSessions.sumOf { it.totalQuestions }
+                    val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                    val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
+                    rowsWithTime.add(ModuleProgressRow(
+                        moduleId = "$moduleId|$chapterTitle",
+                        displayName = info.first,
+                        subLabel = when (moduleId) {
+                            ModuleID.GRAMMAR_CHALLENGE_BEGINNER -> "Beginner"
+                            ModuleID.GRAMMAR_CHALLENGE_MEDIUM   -> "Medium"
+                            else                                -> "Advanced"
+                        },
+                        lessonLabel = chapterTitle,
+                        chapterKey = "$moduleId||$chapterTitle||",
+                        ageGroupLabel = info.second,
+                        rounds = chapterSessions.size,
+                        avgAccuracy = avgAcc,
+                        avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                        hasQuiz = totalQs > 0,
+                        route = null,
+                        scoreText = scoreStr
+                    ) to latest)
+                }
             } else if (moduleId == ModuleID.READ_LISTEN_ALL) {
                 sessions
                     .groupBy { Pair(it.chapterTitle ?: "Other", it.subConfig ?: "Short Sentence") }
@@ -1048,7 +1085,10 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.GRAMMAR_NOUNS           to ("Grammar: Nouns"           to "6–8"),
             ModuleID.GRAMMAR_VERBS           to ("Grammar: Verbs"           to "6–8"),
             ModuleID.GRAMMAR_ADJECTIVES      to ("Grammar: Adjectives"      to "6–8"),
-            ModuleID.GRAMMAR_PRONOUNS        to ("Grammar: Pronouns"        to "6–8"),
+            ModuleID.GRAMMAR_PRONOUNS           to ("Grammar: Pronouns"           to "6–8"),
+            ModuleID.GRAMMAR_CHALLENGE_BEGINNER to ("Grammar Challenge" to "6–8"),
+            ModuleID.GRAMMAR_CHALLENGE_MEDIUM   to ("Grammar Challenge" to "6–8"),
+            ModuleID.GRAMMAR_CHALLENGE_ADVANCED to ("Grammar Challenge" to "6–8"),
         )
 
         private val moduleRoutes = mapOf(

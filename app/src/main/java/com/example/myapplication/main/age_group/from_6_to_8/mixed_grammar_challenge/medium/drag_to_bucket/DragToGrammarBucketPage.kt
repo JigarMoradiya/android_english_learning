@@ -73,8 +73,8 @@ import com.example.myapplication.data.generation.loader.WordDragItem
 import com.example.myapplication.data.generation.loader.WrongCorrection
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.data.model.WordType
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.medium.drag_to_bucket.view_model.DragToGrammarBucketViewModel
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.FeedbackText
 import com.example.myapplication.main.common.buttons.KidsActionButton
@@ -108,19 +108,6 @@ fun DragToGrammarBucketPage(
             .onGloballyPositioned { rootCoords = it }
     ) {
         KidsGradientBackground(gradient = KidsGradient.grayBlue, shape = KidsFloatingShape.dots)
-
-        // ── Result screen ─────────────────────────────────────────────────────
-        if (uiState.isCompleted) {
-            ResultView(uiState.score,uiState.questions.size,
-                title = stringResource(R.string.your_result),
-                primaryButtonText = stringResource(R.string.want_to_continue),
-                secondaryButtonText = stringResource(R.string.go_back),
-                onSecondaryTap = { navController.popBackStack() },
-                onPrimaryTap = { viewModel.restart() }
-            )
-
-            return@Box
-        }
 
         val question = uiState.currentQuestion ?: return@Box
 
@@ -312,6 +299,29 @@ fun DragToGrammarBucketPage(
             FloatingWordChip(
                 word = dragging.word,
                 modifier = Modifier.offset(dx - 40.dp, dy - 20.dp)
+            )
+        }
+        if (uiState.isCompleted) {
+            val accuracy = if (uiState.questions.isNotEmpty())
+                uiState.score.toDouble() / uiState.questions.size else 0.0
+            ActivityCompletePopup(
+                stars = when {
+                    accuracy >= 0.8 -> 3
+                    accuracy >= 0.5 -> 2
+                    else -> 1
+                },
+                score = uiState.score,
+                total = uiState.questions.size,
+                scoreLabel = stringResource(R.string.correct_answers),
+                feedbackTextRes = when {
+                    accuracy >= 0.8 -> R.string.feedbackPhrases_1
+                    accuracy >= 0.5 -> R.string.feedbackPhrases_2
+                    else -> R.string.feedbackPhrases_3
+                },
+                onNext = { viewModel.restart() },
+                nextLabel = stringResource(R.string.want_to_continue),
+                dismissLabel = stringResource(R.string.go_back),
+                onClose = { navController.popBackStack() }
             )
         }
     }

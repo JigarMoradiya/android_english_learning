@@ -4,10 +4,14 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.R
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.MixedGrammarMediumQuestions
 import com.example.myapplication.data.generation.loader.WordDragItem
 import com.example.myapplication.data.generation.loader.WrongCorrection
 import com.example.myapplication.data.model.WordType
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
@@ -20,7 +24,11 @@ import java.util.UUID
 import javax.inject.Inject
 
 @HiltViewModel
-class DragToGrammarBucketViewModel @Inject constructor() : ViewModel() {
+class DragToGrammarBucketViewModel @Inject constructor(
+    private val sessionRepository: SessionRepository
+) : ViewModel() {
+
+    private var startTimeMs = System.currentTimeMillis()
 
     private val _uiState = MutableStateFlow(DragToGrammarBucketUiState())
     val uiState: StateFlow<DragToGrammarBucketUiState> = _uiState.asStateFlow()
@@ -153,6 +161,19 @@ class DragToGrammarBucketViewModel @Inject constructor() : ViewModel() {
     fun moveToNext() {
         val state = _uiState.value
         if (state.isLastIndex) {
+            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.GRAMMAR_CHALLENGE_MEDIUM,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = durationSec,
+                    score = state.score,
+                    totalQuestions = state.questions.size,
+                    subConfig = "",
+                    lessonTitle = null,
+                    chapterTitle = "Sort Words"
+                )
+            )
             _uiState.update { it.copy(isCompleted = true) }
         } else {
             _uiState.update { it.copy(currentIndex = it.currentIndex + 1) }
@@ -161,6 +182,7 @@ class DragToGrammarBucketViewModel @Inject constructor() : ViewModel() {
     }
 
     fun restart() {
+        startTimeMs = System.currentTimeMillis()
         load()
     }
 

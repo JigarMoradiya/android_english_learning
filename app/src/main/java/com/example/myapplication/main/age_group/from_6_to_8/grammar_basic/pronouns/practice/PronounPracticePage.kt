@@ -86,8 +86,7 @@ fun PronounPracticePage(
                     type = ButtonType.PURPLE,
                 )
 
-                if (!uiState.isCompleted) {
-                    KidsActionButton(
+                KidsActionButton(
                         text = if (uiState.selectedAnswer == null) {
                             stringResource(R.string.next_sentence)
                         } else if (viewModel.isLastIndex) {
@@ -109,12 +108,9 @@ fun PronounPracticePage(
                         disable = uiState.selectedAnswer == null,
                         modifier = Modifier.padding(end = Dimens16)
                     )
-                }
             }
 
-            if (!uiState.isCompleted) {
-
-                Box(
+            Box(
                     modifier = Modifier.fillMaxWidth(),
                     contentAlignment = Alignment.Center
                 ) {
@@ -183,7 +179,6 @@ fun PronounPracticePage(
                         )
                     }
                 }
-            }
         }
 
         if (uiState.isCompleted) {

@@ -3,12 +3,16 @@ package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_chall
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.R
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.BlankSlot
 import com.example.myapplication.data.generation.loader.FillBlankWord
 import com.example.myapplication.data.generation.loader.FillBlanksFactory
 import com.example.myapplication.data.generation.loader.FillBlanksQuestion
 import com.example.myapplication.data.generation.loader.FillSlotState
 import com.example.myapplication.data.generation.loader.SentenceSegment
+import com.example.myapplication.data.progress.AgeGroup
+import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
@@ -23,8 +27,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GrammarFillTheBlanksViewModel @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val sessionRepository: SessionRepository
 ) : ViewModel() {
+
+    private var startTimeMs = System.currentTimeMillis()
 
     private val _uiState = MutableStateFlow(GrammarFillTheBlanksUiState())
     val uiState: StateFlow<GrammarFillTheBlanksUiState> = _uiState.asStateFlow()
@@ -39,6 +46,7 @@ class GrammarFillTheBlanksViewModel @Inject constructor(
     }
 
     fun restart() {
+        startTimeMs = System.currentTimeMillis()
         val all = _uiState.value.questionsAll
         _uiState.value = GrammarFillTheBlanksUiState(
             questionsAll = all,
@@ -145,6 +153,19 @@ class GrammarFillTheBlanksViewModel @Inject constructor(
             _uiState.update { it.copy(currentIndex = it.currentIndex + 1) }
             setupCurrentQuestion()
         } else {
+            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+            sessionRepository.record(
+                LearningSession(
+                    moduleId = ModuleID.GRAMMAR_CHALLENGE_ADVANCED,
+                    ageGroup = AgeGroup.SIX_TO_EIGHT,
+                    durationSeconds = durationSec,
+                    score = state.score,
+                    totalQuestions = state.questions.size,
+                    subConfig = "",
+                    lessonTitle = null,
+                    chapterTitle = "Fill the Blanks"
+                )
+            )
             _uiState.update { it.copy(isCompleted = true) }
         }
     }

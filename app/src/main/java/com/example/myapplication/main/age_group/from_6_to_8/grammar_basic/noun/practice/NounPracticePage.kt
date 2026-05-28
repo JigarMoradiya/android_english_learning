@@ -66,8 +66,7 @@ fun NounPracticePage(
                     type = ButtonType.PURPLE,
                 )
 
-                if (!uiState.isCompleted) {
-                    KidsActionButton(
+                KidsActionButton(
                         text = if (uiState.selectedAnswer == null) {
                             stringResource(R.string.next_noun)
                         } else if (viewModel.isLastIndex) {
@@ -89,12 +88,9 @@ fun NounPracticePage(
                         disable = uiState.selectedAnswer == null,
                         modifier = Modifier.padding(end = Dimens16)
                     )
-                }
             }
 
-            if (!uiState.isCompleted) {
-
-                uiState.currentQuestion?.let { question ->
+            uiState.currentQuestion?.let { question ->
                     getImageResForSentence(question.imageName)?.let { resId ->
                         GrammarPracticeQuestionLayout(
                             imageRes = resId,
@@ -116,7 +112,6 @@ fun NounPracticePage(
                         )
                     }
                 }
-            }
         }
 
         if (uiState.isCompleted) {
