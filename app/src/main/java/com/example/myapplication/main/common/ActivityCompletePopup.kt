@@ -65,6 +65,7 @@ fun ActivityCompletePopup(
     feedbackTextRes: Int,
     feedbackSubTextRes: Int? = null,
     onNext: (() -> Unit)? = null,
+    nextLabel: String = "Continue",
     dismissLabel: String = "Close",
     dismissType: ButtonType = ButtonType.RED,
     onClose: () -> Unit
@@ -73,6 +74,7 @@ fun ActivityCompletePopup(
     feedbackText = stringResource(feedbackTextRes),
     feedbackSubText = if (feedbackSubTextRes != null) stringResource(feedbackSubTextRes) else "",
     onNext = onNext,
+    nextLabel = nextLabel,
     dismissLabel = dismissLabel,
     dismissType = dismissType,
     onClose = onClose
@@ -87,6 +89,7 @@ fun ActivityCompletePopup(
     feedbackText: String,
     feedbackSubText: String = "",
     onNext: (() -> Unit)? = null,
+    nextLabel: String = "Continue",
     dismissLabel: String = "Close",
     dismissType: ButtonType = ButtonType.RED,
     onClose: () -> Unit
@@ -272,7 +275,7 @@ fun ActivityCompletePopup(
                     )
                     if (onNext != null) {
                         KidsActionButton(
-                            text = "Continue",
+                            text = nextLabel,
                             icon = Icons.AutoMirrored.Filled.ArrowForward,
                             type = ButtonType.GREEN,
                             isSmall = true,

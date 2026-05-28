@@ -174,7 +174,7 @@ class ParentProgressViewModel @Inject constructor(
             }
 
         val lessonGroups = sessions
-            .groupBy { it.lessonTitle ?: "Unknown" }
+            .groupBy { title -> title.lessonTitle?.takeIf { it != "Practice" } ?: "" }
             .map { (lessonTitle, ls) ->
                 val latestTimestamp = ls.maxOf { it.timestampMs }
                 val sessionEntries = ls
@@ -470,6 +470,30 @@ class ParentProgressViewModel @Inject constructor(
                         chapterKey = "$moduleId||$chapterTitle||$config",
                         ageGroupLabel = info.second,
                         rounds = configSessions.size,
+                        avgAccuracy = avgAcc,
+                        avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                        hasQuiz = totalQs > 0,
+                        route = null,
+                        scoreText = scoreStr
+                    ) to latest)
+                }
+            } else if (moduleId == ModuleID.SENTENCE_CHECK) {
+                sessions
+                    .groupBy { it.chapterTitle ?: "Other" }
+                    .forEach { (chapterTitle, chapterSessions) ->
+                    val latest = chapterSessions.maxOf { it.timestampMs }
+                    val totalScore = chapterSessions.sumOf { it.score }
+                    val totalQs    = chapterSessions.sumOf { it.totalQuestions }
+                    val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                    val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
+                    rowsWithTime.add(ModuleProgressRow(
+                        moduleId = "$moduleId|$chapterTitle",
+                        displayName = info.first,
+                        subLabel = null,
+                        lessonLabel = chapterTitle,
+                        chapterKey = "$moduleId||$chapterTitle||",
+                        ageGroupLabel = info.second,
+                        rounds = chapterSessions.size,
                         avgAccuracy = avgAcc,
                         avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
                         hasQuiz = totalQs > 0,
@@ -988,6 +1012,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.READ_LISTEN_ALL         to ("Read & Listen"           to "6–8"),
             ModuleID.ONE_WORD_ANSWER         to ("One Word Answer"         to "6–8"),
             ModuleID.FILL_MISSING_WORD       to ("Fill Missing Word"       to "6–8"),
+            ModuleID.SENTENCE_CHECK          to ("Sentence Check"          to "6–8"),
         )
 
         private val moduleRoutes = mapOf(

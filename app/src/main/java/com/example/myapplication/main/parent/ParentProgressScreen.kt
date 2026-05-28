@@ -1059,13 +1059,15 @@ private fun ChapterDetailSheet(detail: ChapterDetailData, onClose: () -> Unit) {
                     )
                 } else {
                     detail.lessonGroups.forEach { group ->
-                        Text(
-                            text = group.lessonTitle,
-                            style = MaterialTheme.typography.labelMedium.scaled(),
-                            fontWeight = FontWeight.Bold,
-                            color = Color(0xFF5532D2),
-                            modifier = Modifier.padding(top = Dimens8)
-                        )
+                        if (group.lessonTitle.isNotEmpty()) {
+                            Text(
+                                text = group.lessonTitle,
+                                style = MaterialTheme.typography.labelMedium.scaled(),
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF5532D2),
+                                modifier = Modifier.padding(top = Dimens8)
+                            )
+                        }
                         Column(verticalArrangement = Arrangement.spacedBy(Dimens6)){
                             group.sessions.forEach { session ->
                                 ChapterSessionRow(session)

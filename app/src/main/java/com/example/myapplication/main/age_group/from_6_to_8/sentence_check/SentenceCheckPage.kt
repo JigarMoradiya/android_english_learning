@@ -40,7 +40,7 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
-import com.example.myapplication.main.age_group.from_6_to_8.common.ResultView
+import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.age_group.from_6_to_8.sentence_check.view_model.SentenceCheckViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.buttons.KidsActionButton
@@ -68,7 +68,7 @@ fun SentenceCheckPage(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     LaunchedEffect(Unit) {
-        viewModel.setData(unit,level)
+        viewModel.setData(unit, level)
     }
     Box(modifier = Modifier.fillMaxSize()) {
 
@@ -79,23 +79,19 @@ fun SentenceCheckPage(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-
                 BackButtonWithText(
                     title = stringResource(R.string.sentenceCheck),
                     modifier = Modifier.weight(1f),
                     onBackClick = { navController.popBackStack() }
                 )
-
-                KidsLabel("Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",)
+                KidsLabel("Question ${uiState.currentIndex + 1} / ${uiState.questions.size}")
             }
-
 
             Box(
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxSize(),
             ) {
-
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(Dimens16),
@@ -104,37 +100,30 @@ fun SentenceCheckPage(
                         .padding(horizontal = Dimens16)
                         .padding(bottom = Dimens16)
                 ) {
-
-                    // 🟩 CENTER IMAGE
+                    // IMAGE
                     getImageResForSentence(uiState.currentQuestion?.imageName)?.let { resId ->
-                        val modifier : Modifier = if (isTablet){
+                        val modifier: Modifier = if (isTablet) {
                             val screenHeight = with(LocalDensity.current) {
                                 LocalWindowInfo.current.containerSize.height.toDp()
                             }
-                            Modifier.size(screenHeight * 0.5f) // 50% of screen height
-                        } else{
-                            Modifier.aspectRatio(1f) // perfect square
+                            Modifier.size(screenHeight * 0.5f)
+                        } else {
+                            Modifier.aspectRatio(1f)
                         }
                         Image(
                             painter = painterResource(resId),
                             contentDescription = null,
                             contentScale = ContentScale.Crop,
-                            modifier = modifier
-                                .clip(RoundedCornerShape(Dimens16))
+                            modifier = modifier.clip(RoundedCornerShape(Dimens16))
                         )
                     }
 
-                    if (uiState.showResult){
-                        ResultView(uiState.score,uiState.questions.size,
-                            title = stringResource(R.string.your_result),
-                            primaryButtonText = stringResource(R.string.want_to_continue),
-                            secondaryButtonText = stringResource(R.string.go_back),
-                            onSecondaryTap = { navController.popBackStack() },
-                            onPrimaryTap = { viewModel.restart() }
-                        )
-                    }else{
-                        Column(modifier = Modifier.weight(1f),verticalArrangement = Arrangement.spacedBy(Dimens16)) {
-                            uiState.currentQuestion?.let{ currentQuestion ->
+                    if (!uiState.showResult) {
+                        Column(
+                            modifier = Modifier.weight(1f),
+                            verticalArrangement = Arrangement.spacedBy(Dimens16)
+                        ) {
+                            uiState.currentQuestion?.let { currentQuestion ->
 
                                 Text(
                                     text = currentQuestion.statement,
@@ -144,32 +133,25 @@ fun SentenceCheckPage(
                                     fontWeight = FontWeight.Bold
                                 )
 
-                                // Split list into rows of 2
                                 uiState.options.chunked(2).forEach { rowItems ->
-
                                     Row(
                                         horizontalArrangement = Arrangement.spacedBy(Dimens8),
                                         verticalAlignment = Alignment.CenterVertically
                                     ) {
                                         rowItems.forEach { word ->
-
                                             KidsOptionButton(
                                                 text = word.uppercase(),
                                                 type = viewModel.backgroundType(word),
                                                 fontSize = listenAndAnswerOptionsHeight.value.sp * 0.45,
-                                                onClick = {
-                                                    viewModel.selectAnswer(word)
-                                                },
+                                                onClick = { viewModel.selectAnswer(word) },
                                                 enabled = uiState.selectedAnswer == null,
                                                 modifier = Modifier
                                                     .weight(1f)
                                                     .height(listenAndAnswerOptionsHeight)
                                             )
                                         }
-
-                                        // 👇 Important: if odd items (safety)
                                         if (rowItems.size == 1) {
-                                            Spacer(modifier = Modifier.weight(1f) )
+                                            Spacer(modifier = Modifier.weight(1f))
                                         }
                                     }
                                 }
@@ -182,19 +164,41 @@ fun SentenceCheckPage(
                                         type = if (uiState.selectedAnswer == null) ButtonType.DISABLE else ButtonType.ORANGE,
                                         isIconStart = false,
                                         onClick = {
-                                            if (uiState.selectedAnswer != null){
+                                            if (uiState.selectedAnswer != null) {
                                                 viewModel.next()
                                             }
                                         }
                                     )
                                 }
                             }
-
                         }
                     }
                 }
             }
+        }
 
+        if (uiState.showResult) {
+            val accuracy = if (uiState.questions.isEmpty()) 0.0
+                else uiState.score.toDouble() / uiState.questions.size
+            ActivityCompletePopup(
+                stars = when {
+                    accuracy >= 0.8 -> 3
+                    accuracy >= 0.5 -> 2
+                    else -> 1
+                },
+                score = uiState.score,
+                total = uiState.questions.size,
+                scoreLabel = stringResource(R.string.correct_answers),
+                feedbackTextRes = when {
+                    accuracy >= 0.8 -> R.string.feedbackPhrases_1
+                    accuracy >= 0.5 -> R.string.feedbackPhrases_2
+                    else -> R.string.feedbackPhrases_3
+                },
+                onNext = { viewModel.restart() },
+                nextLabel = stringResource(R.string.want_to_continue),
+                dismissLabel = stringResource(R.string.go_back),
+                onClose = { navController.popBackStack() }
+            )
         }
     }
 }
