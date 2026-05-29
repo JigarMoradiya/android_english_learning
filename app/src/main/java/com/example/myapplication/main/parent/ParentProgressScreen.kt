@@ -1116,6 +1116,7 @@ private fun ChapterDetailSheet(
 }
 
 private val sessionItemModuleIds = setOf(
+    // Age 3-5
     ModuleID.LETTER_RECOGNITION,
     ModuleID.ALPHABET_TRACING,
     ModuleID.ABCD_WITH_IMAGES,
@@ -1125,7 +1126,25 @@ private val sessionItemModuleIds = setOf(
     ModuleID.FILL_THE_BLANK_LETTER,
     ModuleID.ARRANGE_LETTER_SEQUENCE,
     ModuleID.MATCH_LETTER_WITH_IMAGE,
-    ModuleID.MISSING_LETTER
+    ModuleID.MISSING_LETTER,
+    // Age 5-7
+    ModuleID.SIGHT_WORDS,
+    ModuleID.SIGHT_WORD_CHOICE,
+    ModuleID.ARTICLES_A_AN,
+    ModuleID.LISTEN_AND_SELECT,
+    ModuleID.ARTICLES_CHOICE,
+    ModuleID.MATCH_WORD_WITH_PICTURE,
+    ModuleID.OPPOSITES_WORD,
+    ModuleID.SINGULAR_PLURAL,
+    ModuleID.MISSING_LETTER_57,
+    ModuleID.WORD_JIGSAW,
+    ModuleID.VOCABULARY_ANIMALS,
+    ModuleID.VOCABULARY_FRUITS,
+    ModuleID.VOCABULARY_BIRDS,
+    ModuleID.VOCABULARY_VEGETABLES,
+    ModuleID.VOCABULARY_COLORS,
+    ModuleID.VOCABULARY_SHAPES,
+    ModuleID.VOCABULARY_VEHICLES
 )
 
 @Composable
@@ -1146,8 +1165,8 @@ private fun SessionLearnedLettersRow(session: SessionEntry) {
 
 @Composable
 private fun ItemChip(text: String, isWrong: Boolean) {
-    val bgColor = if (isWrong) Color(0xFFFFE8EC) else Color(0xFFEEE8FF)
-    val textColor = if (isWrong) Color(0xFFD0021B) else Color(0xFF5532D2)
+    val bgColor = if (isWrong) Color(0xFFFFE8EC) else Color(0xFFE6F4EA)
+    val textColor = if (isWrong) Color(0xFFD0021B) else Color(0xFF1B7E2A)
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier

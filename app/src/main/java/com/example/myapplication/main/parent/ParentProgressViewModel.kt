@@ -224,6 +224,14 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.GRAMMAR_CHALLENGE_MEDIUM,
             ModuleID.GRAMMAR_CHALLENGE_ADVANCED -> RouteNavigation.MixedGrammarChallenge.route
             ModuleID.CHOOSE_RIGHT_SENTENCE      -> RouteNavigation.ChooseTheRightSentence.route
+            ModuleID.READ_LISTEN_ALL       -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name)
+            ModuleID.ONE_WORD_ANSWER       -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.ONE_WORD_ANSWER.name)
+            ModuleID.FILL_MISSING_WORD     -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.FILL_THE_MISSING_WORD.name)
+            ModuleID.MATCH_THE_PICTURE     -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.MATCH_THE_PICTURE.name)
+            ModuleID.WHICH_SENTENCE_RIGHT  -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT.name)
+            ModuleID.FIND_CORRECT_WRITING  -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.FIND_THE_CORRECT_WRITING.name)
+            ModuleID.SENTENCE_CHECK        -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.SENTENCE_CHECK.name)
+            ModuleID.SENTENCE_BUILDER      -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.BUILD_THE_SENTENCE.name)
             // 3-5
             ModuleID.ALPHABET_TRACING        -> RouteNavigation.AlphabetTracing.route
             ModuleID.ABCD_WITH_IMAGES        -> RouteNavigation.ABCDWithImages.route
@@ -245,6 +253,15 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.MATCH_WORD_WITH_PICTURE -> RouteNavigation.WordMatchImage.route
             ModuleID.ARTICLES_CHOICE        -> RouteNavigation.ArticleChoice.route
             ModuleID.SIGHT_WORD_CHOICE      -> RouteNavigation.SightWordChoice.route
+            ModuleID.MISSING_LETTER_57      -> RouteNavigation.MissingLetterMedium.route
+            ModuleID.WORD_JIGSAW            -> RouteNavigation.WordJigsaw.route
+            ModuleID.VOCABULARY_ANIMALS     -> RouteNavigation.VocabularyDetail.vocabularyDetail("ANIMALS", "Animals")
+            ModuleID.VOCABULARY_FRUITS      -> RouteNavigation.VocabularyDetail.vocabularyDetail("FRUITS", "Fruits")
+            ModuleID.VOCABULARY_BIRDS       -> RouteNavigation.VocabularyDetail.vocabularyDetail("BIRDS", "Birds")
+            ModuleID.VOCABULARY_VEGETABLES  -> RouteNavigation.VocabularyDetail.vocabularyDetail("VEGETABLES", "Vegetables")
+            ModuleID.VOCABULARY_COLORS      -> RouteNavigation.VocabularyDetail.vocabularyDetail("COLORS", "Colors")
+            ModuleID.VOCABULARY_SHAPES      -> RouteNavigation.VocabularyDetail.vocabularyDetail("SHAPES", "Shapes")
+            ModuleID.VOCABULARY_VEHICLES    -> RouteNavigation.VocabularyDetail.vocabularyDetail("VEHICLES", "Vehicles")
             else -> null
         }
         chapterDetail = ChapterDetailData(
