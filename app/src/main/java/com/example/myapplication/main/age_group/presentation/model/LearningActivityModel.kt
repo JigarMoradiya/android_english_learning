@@ -20,6 +20,8 @@ import com.example.myapplication.main.base.nav.RouteNavigation
 // List of activities — accent colors match the Claude Design HTML tile palette
 val activities_age_3_5 = listOf(
     LearningActivityModel(R.string.alphabet_tracing,          R.drawable.age_3_5_alphabet_tracing_icon,           RouteNavigation.AlphabetTracing.route,         Color(0xFFE63946), moduleId = ModuleID.ALPHABET_TRACING),
+    LearningActivityModel(R.string.match_letters,             R.drawable.age_3_5_match_letters_icon,              RouteNavigation.MatchLetters.route,             Color(0xFF7A4481), moduleId = ModuleID.MATCH_UPPER_LOWER),
+    LearningActivityModel(R.string.menu_letter_phonics_sound,        R.drawable.age_3_5_letter_phonics_icon,         RouteNavigation.LetterPhonicsSoundRoute.route,        Color(0xFF6F3300), moduleId = ModuleID.LETTER_PHONICS),
     LearningActivityModel(R.string.fill_the_blank,            R.drawable.age_3_5_fill_the_blank_icon,             RouteNavigation.FillTheBlankLetters.route,      Color(0xFF016754), moduleId = ModuleID.FILL_THE_BLANK_LETTER),
     LearningActivityModel(R.string.letter_recognition,        R.drawable.age_3_5_letter_recognition_icon,         RouteNavigation.LetterRecognition.route,        Color(0xFF3674B5), moduleId = ModuleID.LETTER_RECOGNITION),
     LearningActivityModel(R.string.arrange_letter_in_sequence,R.drawable.age_3_5_arrange_letters_in_sequence_icon,RouteNavigation.ArrangeLetterInSequence.route,  Color(0xFF156419), moduleId = ModuleID.ARRANGE_LETTER_SEQUENCE),
@@ -27,9 +29,7 @@ val activities_age_3_5 = listOf(
     LearningActivityModel(R.string.match_letter_image,        R.drawable.age_3_5_match_letter_image_icon,         RouteNavigation.MatchLetterWithImage.route,     Color(0xFF008C87), moduleId = ModuleID.MATCH_LETTER_WITH_IMAGE),
     LearningActivityModel(R.string.coloring_alphabet,         R.drawable.age_3_5_coloring_alphabets_icon,         RouteNavigation.ColoringAlphabets.route,        Color(0xFFFF3872), moduleId = ModuleID.COLORING_ALPHABETS),
     LearningActivityModel(R.string.missing_letter,            R.drawable.age_3_5_missing_letter_icon,             RouteNavigation.MissingLetterEasy.route,        Color(0xFF943256), moduleId = ModuleID.MISSING_LETTER),
-    LearningActivityModel(R.string.match_letters,             R.drawable.age_3_5_match_letters_icon,              RouteNavigation.MatchLetters.route,             Color(0xFF7A4481), moduleId = ModuleID.MATCH_UPPER_LOWER),
 //    LearningActivityModel(R.string.drag_drop_words,           R.drawable.age_3_5_drag_drop_word_icon,             RouteNavigation.DragDropWord.route,             Color(0xFF0567BD), moduleId = ModuleID.DRAG_DROP_LETTERS),
-    LearningActivityModel(R.string.menu_letter_phonics_sound,        R.drawable.age_3_5_letter_phonics_icon,         RouteNavigation.LetterPhonicsSoundRoute.route,        Color(0xFF6F3300), moduleId = ModuleID.LETTER_PHONICS),
 )
 
 val activities_age_5_7 = listOf(
