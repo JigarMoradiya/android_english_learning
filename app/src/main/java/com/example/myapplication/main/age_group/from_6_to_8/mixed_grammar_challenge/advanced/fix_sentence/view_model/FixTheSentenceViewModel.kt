@@ -2,6 +2,7 @@ package com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_chall
 
 import android.content.Context
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.DirectionsRun
 import androidx.compose.material.icons.filled.DirectionsRun
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Palette
@@ -147,7 +148,7 @@ class FixTheSentenceViewModel @Inject constructor(
 
     fun typeIcon(type: WordType): ImageVector = when (type) {
         WordType.NOUN      -> Icons.Filled.Image
-        WordType.VERB      -> Icons.Filled.DirectionsRun
+        WordType.VERB      -> Icons.AutoMirrored.Filled.DirectionsRun
         WordType.ADJECTIVE -> Icons.Filled.Palette
         WordType.PRONOUN   -> Icons.Filled.Person
     }

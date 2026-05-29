@@ -16,6 +16,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.ArrowForward
+import androidx.compose.material.icons.automirrored.rounded.LastPage
 import androidx.compose.material.icons.rounded.ArrowForward
 import androidx.compose.material.icons.rounded.FirstPage
 import androidx.compose.material.icons.rounded.LastPage
@@ -129,7 +131,7 @@ fun FillBlankSetupScreen(navController: NavController) {
 
             KidsActionButton(
                 text = stringResource(R.string.lets_go),
-                icon = Icons.Rounded.ArrowForward,
+                icon = Icons.AutoMirrored.Rounded.ArrowForward,
                 type = ButtonType.BLUE,
                 isSmall = true,
                 isIconStart = false,
@@ -164,7 +166,7 @@ fun SectionLabel(text: String) {
 private fun BlankPosition.icon(): ImageVector = when (this) {
     BlankPosition.FIRST  -> Icons.Rounded.FirstPage
     BlankPosition.MIDDLE -> Icons.Rounded.SwapHoriz
-    BlankPosition.LAST   -> Icons.Rounded.LastPage
+    BlankPosition.LAST   -> Icons.AutoMirrored.Rounded.LastPage
     BlankPosition.RANDOM -> Icons.Rounded.Shuffle
 }
 

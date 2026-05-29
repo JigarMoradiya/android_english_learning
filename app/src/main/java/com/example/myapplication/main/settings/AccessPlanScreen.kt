@@ -63,6 +63,7 @@ import androidx.compose.material.icons.filled.TextFormat
 import androidx.compose.material.icons.filled.TouchApp
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -269,7 +270,7 @@ private fun SectionBlock(section: PlanSection) {
             section.rows.forEachIndexed { idx, row ->
                 PlanRowItem(row, isEven = idx % 2 == 0, tierColWidth = tierColWidth)
                 if (idx < section.rows.size - 1) {
-                    Divider(color = Color.Gray.copy(alpha = 0.2f), thickness = Dimens1)
+                    HorizontalDivider(Modifier, thickness = Dimens1, color = Color.Gray.copy(alpha = 0.2f))
                 }
             }
         }
