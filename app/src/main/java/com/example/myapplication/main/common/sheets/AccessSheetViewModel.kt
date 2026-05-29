@@ -111,10 +111,7 @@ class AccessSheetViewModel @Inject constructor(
     suspend fun checkAccess(moduleId: String): Boolean {
         Log.d(TAG, "checkAccess → moduleId='$moduleId'")
         return when (val result = accessManager.checkAccess(moduleId)) {
-            is AccessResult.Allowed -> {
-                accessManager.recordAttempt(moduleId)
-                true
-            }
+            is AccessResult.Allowed -> true
             is AccessResult.DailyLimitReached -> {
                 _sheetState.value = AccessSheetState.DailyLimit(
                     moduleId = moduleId,

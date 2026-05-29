@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.AccessManager
+import com.example.myapplication.data.access.DailyLimitManager
 import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.data.auth.AuthManager
 import com.example.myapplication.data.purchase.PurchaseManager
@@ -35,6 +36,7 @@ class SettingsViewModel @Inject constructor(
     private val accessManager: AccessManager,
     private val revenueCatManager: RevenueCatManager,
     private val bgMusicManager: BGMusicManager,
+    private val dailyLimitManager: DailyLimitManager,
 ) : ViewModel() {
 
     val userState: StateFlow<UserAccessState> = accessManager.userState
@@ -78,6 +80,10 @@ class SettingsViewModel @Inject constructor(
     fun updateMusicVolume(volume: Float) {
         bgMusicManager.setVolume(volume)
         musicVolume = volume
+    }
+
+    fun clearTodayActivityCount() {
+        viewModelScope.launch { dailyLimitManager.clearTodayCount() }
     }
 
     // ── Parental gate ─────────────────────────────────────────────────────────

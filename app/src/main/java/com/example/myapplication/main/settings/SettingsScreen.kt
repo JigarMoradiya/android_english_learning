@@ -172,6 +172,16 @@ fun SettingsScreen(
                     }
                 }
 
+                // ── [DEV] Clear today's activity count ──────────────────
+                SettingsCard {
+                    SettingsRow(
+                        icon = Icons.Filled.DeleteForever,
+                        title = "Clear Today's Activity Count",
+                        subtitle = "Dev only — resets daily limit for testing",
+                        type = ButtonType.RED
+                    ) { viewModel.clearTodayActivityCount() }
+                }
+
                 Spacer(Modifier.height(Dimens16))
             }
         }
@@ -197,7 +207,7 @@ private fun UserStatusCard(
 ) {
     val (icon, name, type, desc) = when {
         state.isPremium  -> Quad(Icons.Filled.Star,          "Premium",      ButtonType.ORANGE,   "Full access to all activities")
-        state.isLoggedIn -> Quad(Icons.Filled.Person,        "Free Account", ButtonType.BLUE,     "5 plays/day on limited activities")
+        state.isLoggedIn -> Quad(Icons.Filled.Person,        "Free Account", ButtonType.BLUE,     "3 activities/day")
         else             -> Quad(Icons.Filled.AccountCircle, "Guest",        ButtonType.NEGATIVE, "Sign in to track your progress")
     }
     val colors = getButtonColors(type)

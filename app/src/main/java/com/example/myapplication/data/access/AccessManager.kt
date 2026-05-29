@@ -82,19 +82,10 @@ class AccessManager @Inject constructor(
             AccessLevel.FREE -> AccessResult.Allowed
 
             AccessLevel.FREE_LIMITED -> {
-                val limit = if (state.isLoggedIn) config.loginDailyLimit
-                            else                  config.guestDailyLimit
-                val used  = dailyLimitManager.getUsedCount(moduleId)
-                Log.d(TAG, "checkAccess → FREE_LIMITED | used=$used | limit=$limit")
-
-                if (dailyLimitManager.hasAttemptsLeft(moduleId, limit)) {
-                    AccessResult.Allowed
-                } else {
-                    AccessResult.DailyLimitReached(
-                        remaining = 0,
-                        canUnlockWithLogin = !state.isLoggedIn
-                    )
+                if (!dailyLimitManager.hasAttemptsLeft(state.isLoggedIn)) {
+                    return AccessResult.DailyLimitReached(remaining = 0, canUnlockWithLogin = !state.isLoggedIn)
                 }
+                AccessResult.Allowed
             }
 
             AccessLevel.LOGIN_REQUIRED -> {
@@ -109,31 +100,22 @@ class AccessManager @Inject constructor(
         return result
     }
 
-    /**
-     * Call this when the user actually starts a FREE_LIMITED activity.
-     * Increments the daily counter.
-     */
+    /** Call this when the user actually starts a FREE_LIMITED activity. */
     suspend fun recordAttempt(moduleId: String) {
         val config = AccessConfig.get(moduleId) ?: return
         if (config.accessLevel == AccessLevel.FREE_LIMITED) {
-            dailyLimitManager.increment(moduleId)
-            val used = dailyLimitManager.getUsedCount(moduleId)
-            Log.d(TAG, "recordAttempt → moduleId='$moduleId' | usedNow=$used")
+            dailyLimitManager.recordModulePlayed(moduleId)
+            Log.d(TAG, "recordAttempt → moduleId='$moduleId'")
         }
     }
 
-    /** Convenience — returns remaining attempts today for FREE_LIMITED modules. */
+    /** Returns global remaining activity slots today for FREE_LIMITED modules. */
     suspend fun remainingAttempts(moduleId: String): Int {
         val config = AccessConfig.get(moduleId) ?: return Int.MAX_VALUE
         if (config.accessLevel != AccessLevel.FREE_LIMITED) return Int.MAX_VALUE
-
         val state = _userState.value
         if (state.isPremium) return Int.MAX_VALUE
-
-        val limit = if (state.isLoggedIn) config.loginDailyLimit
-                    else                  config.guestDailyLimit
-
-        return dailyLimitManager.remainingAttempts(moduleId, limit)
+        return dailyLimitManager.remainingAttempts(state.isLoggedIn)
     }
 }
 
@@ -149,7 +131,6 @@ sealed class AccessResult {
      *
      * @param remaining          Always 0 — for future use.
      * @param canUnlockWithLogin If true, logging in gives a higher daily limit.
-     *                           Show "Sign in for more" alongside the paywall.
      */
     data class DailyLimitReached(
         val remaining: Int,

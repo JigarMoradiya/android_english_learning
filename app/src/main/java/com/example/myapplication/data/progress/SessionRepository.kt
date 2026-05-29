@@ -1,16 +1,23 @@
 package com.example.myapplication.data.progress
 
+import com.example.myapplication.data.access.AccessConfig
+import com.example.myapplication.data.access.AccessLevel
+import com.example.myapplication.data.access.DailyLimitManager
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.Calendar
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class SessionRepository @Inject constructor(
-    private val prefs: AppPreferencesHelper
+    private val prefs: AppPreferencesHelper,
+    private val dailyLimitManager: DailyLimitManager
 ) {
 
     private val gson = Gson()
@@ -27,6 +34,11 @@ class SessionRepository @Inject constructor(
         cache.add(session)
         prune()
         save()
+        if (AccessConfig.get(session.moduleId)?.accessLevel == AccessLevel.FREE_LIMITED) {
+            CoroutineScope(Dispatchers.IO).launch {
+                dailyLimitManager.recordModulePlayed(session.moduleId)
+            }
+        }
     }
 
     fun sessionsThisWeek(weekOffset: Int = 0): List<LearningSession> {

@@ -47,8 +47,8 @@ import com.example.myapplication.utils.extensions.scaled
 /**
  * Bottom sheet shown when a user hits their daily attempt limit.
  *
- * - Guest user  (canUnlockWithLogin = true)  → ONLY "Login Now" button
- * - Free user   (canUnlockWithLogin = false) → ONLY "Go Premium!" button
+ * - Guest (canUnlockWithLogin = true)  → Login Now + Go Premium!
+ * - Free  (canUnlockWithLogin = false) → Go Premium! only
  */
 @Composable
 fun DailyLimitSheet(
@@ -143,11 +143,12 @@ fun DailyLimitSheet(
 
                 Spacer(modifier = Modifier.height(Dimens8))
 
+                val bodyText = if (canUnlockWithLogin)
+                    "Sign in for 3 activities/day — or go Premium for unlimited!"
+                else
+                    "You've used all your attempts for today.\nGo Premium for unlimited access!"
                 Text(
-                    text = if (canUnlockWithLogin)
-                        "You've used all your free tries for today.\nSign in to get more attempts!"
-                    else
-                        "You've used all your attempts for today.\nGo Premium for unlimited access!",
+                    text = bodyText,
                     color = Color(0xFF555555),
                     style = MaterialTheme.typography.bodyMedium.scaled(),
                     fontWeight = FontWeight.Normal
@@ -155,14 +156,22 @@ fun DailyLimitSheet(
 
                 Spacer(modifier = Modifier.height(Dimens12))
 
-                // Guest → Login Now only  |  Free user → Go Premium only
                 if (canUnlockWithLogin) {
-                    KidsActionButton(
-                        text = "Login Now",
-                        type = ButtonType.BLUE,
-                        onClick = onLoginClick
-                    )
+                    // Guest: show both options side by side
+                    Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        KidsActionButton(
+                            text = "Login Now",
+                            type = ButtonType.BLUE,
+                            onClick = onLoginClick
+                        )
+                        KidsActionButton(
+                            text = "Go Premium!",
+                            type = ButtonType.ORANGE,
+                            onClick = onPremiumClick
+                        )
+                    }
                 } else {
+                    // Free user: premium only
                     KidsActionButton(
                         text = "Go Premium!",
                         type = ButtonType.ORANGE,
