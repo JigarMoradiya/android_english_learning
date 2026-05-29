@@ -72,9 +72,8 @@ fun CategoriesHorizontalList(
                     val finalDimen = if (itemWidth > (boxHeight * ratio)) (boxHeight * ratio) else itemWidth
                     Box(
                         modifier = Modifier
-                            .width(finalDimen)
                             .height(finalDimen)
-                            .clip(RoundedCornerShape(500.dp)) // ⭐ IMPORTANT (ripple shape)
+                            .clip(RoundedCornerShape(Dimens16))
                             .clickable { onClick(item) },
                         contentAlignment = Alignment.Center
                     ){

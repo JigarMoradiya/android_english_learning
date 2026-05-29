@@ -18,15 +18,15 @@ class AgeCategoriesViewModel @Inject constructor(
     private val _categories = MutableStateFlow(
         listOf(
             AgeCategoryData(
-                img = R.drawable._level_1_icon,
+                img = R.drawable._menu_age_3_5,
                 destination = RouteNavigation.AgeGroup3to5.route
             ),
             AgeCategoryData(
-                img = R.drawable._level_2_icon,
+                img = R.drawable._menu_age_5_7,
                 destination = RouteNavigation.AgeGroup5to7.route
             ),
             AgeCategoryData(
-                img = R.drawable._level_3_icon,
+                img = R.drawable._menu_age_6_8,
                 destination = RouteNavigation.AgeGroup6to8.route
             )
         )

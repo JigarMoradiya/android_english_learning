@@ -96,11 +96,21 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="add loading on loading sentences">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="age group 3-5 menu ordering change">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_abacus_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_mascot_lion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_menu_age_3_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_menu_age_5_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_menu_age_6_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_menu_age_7_10.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/presentation/CategoriesHorizontalList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/presentation/CategoriesHorizontalList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/view_model/AgeCategoriesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/view_model/AgeCategoriesViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/_level_1_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/_level_2_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/_level_3_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/_level_4_icon.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +126,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=RZ8RC0C1F6B]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[LocalEmulator::path=/Users/jigarmoradiya/.android/avd/Pixel_Tablet_2.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -487,38 +497,6 @@
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
     </task>
-    <task id="LOCAL-00135" summary="missing letter UI changes">
-      <option name="closed" value="true" />
-      <created>1779379513221</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1779379513221</updated>
-    </task>
-    <task id="LOCAL-00136" summary="ui changes for matching">
-      <option name="closed" value="true" />
-      <created>1779380918154</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1779380918154</updated>
-    </task>
-    <task id="LOCAL-00137" summary="changes ui in explnation pages">
-      <option name="closed" value="true" />
-      <created>1779423461199</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1779423461199</updated>
-    </task>
-    <task id="LOCAL-00138" summary="changes ui in practice of oppsite and plural pages">
-      <option name="closed" value="true" />
-      <created>1779425846571</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1779425846571</updated>
-    </task>
     <task id="LOCAL-00139" summary="ui changes in listen and tap">
       <option name="closed" value="true" />
       <created>1779429087417</created>
@@ -879,14 +857,42 @@
       <option name="project" value="LOCAL" />
       <updated>1779985245743</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary=" parent report detail click for age group 3-5">
+      <option name="closed" value="true" />
+      <created>1780026746127</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1780026746127</updated>
+    </task>
+    <task id="LOCAL-00185" summary=" parent report detail click for age group 5-7">
+      <option name="closed" value="true" />
+      <created>1780028145934</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1780028145934</updated>
+    </task>
+    <task id="LOCAL-00186" summary="what kids learn and need practice filter base on ages selected">
+      <option name="closed" value="true" />
+      <created>1780028778894</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1780028778894</updated>
+    </task>
+    <task id="LOCAL-00187" summary="age group 3-5 menu ordering change">
+      <option name="closed" value="true" />
+      <created>1780029640430</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1780029640431</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="parent report for letter tracing, abcd with images, recognition and for coloring" />
-    <MESSAGE value="parent report for letter phonics" />
-    <MESSAGE value="age group 3-5 parent tracking done" />
-    <MESSAGE value="parent report done for opposite words" />
     <MESSAGE value="parent report done for singular plural" />
     <MESSAGE value="chnages" />
     <MESSAGE value="ActivityCompletePopup replace to ResultView in age 3-5" />
@@ -908,7 +914,11 @@
     <MESSAGE value="parent report done for grammar challenge" />
     <MESSAGE value="parent report done for age 6-8" />
     <MESSAGE value="add loading on loading sentences" />
-    <option name="LAST_COMMIT_MESSAGE" value="add loading on loading sentences" />
+    <MESSAGE value=" parent report detail click for age group 3-5" />
+    <MESSAGE value=" parent report detail click for age group 5-7" />
+    <MESSAGE value="what kids learn and need practice filter base on ages selected" />
+    <MESSAGE value="age group 3-5 menu ordering change" />
+    <option name="LAST_COMMIT_MESSAGE" value="age group 3-5 menu ordering change" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
