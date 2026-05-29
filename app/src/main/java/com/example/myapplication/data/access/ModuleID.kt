@@ -5,9 +5,10 @@ object ModuleID {
     // ── Age 3–5: Little Explorers ─────────────────────────────────────
     const val ABCD_WITH_IMAGES          = "abcd_with_images"
     const val LETTER_RECOGNITION        = "letter_recognition"
-    const val LETTER_PHONICS        = "letter_phonics"
+    const val LETTER_PHONICS            = "letter_phonics"
+    const val LETTER_PHONICS_KZ         = "letter_phonics_kz"    // letters K–Z, login-gated
     const val ALPHABET_TRACING          = "alphabet_tracing"
-    const val ALPHABET_TRACING_NZ       = "alphabet_tracing_nz"  // letters N–Z, login-gated
+    const val ALPHABET_TRACING_NZ       = "alphabet_tracing_nz"  // letters K–Z, login-gated
     const val COLORING_ALPHABETS        = "coloring_alphabets"
     const val MATCH_UPPER_LOWER         = "match_upper_lower"
     const val MATCH_LETTER_WITH_IMAGE   = "match_letter_with_image"

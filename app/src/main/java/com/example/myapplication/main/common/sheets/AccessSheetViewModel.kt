@@ -30,6 +30,9 @@ class AccessSheetViewModel @Inject constructor(
     private val purchaseManager: PurchaseManager
 ) : ViewModel() {
 
+    // ── User access state (observable by UI) ─────────────────────────
+    val userState: StateFlow<UserAccessState> = accessManager.userState
+
     // ── Sheet visibility state ────────────────────────────────────────
 
     private val _sheetState = MutableStateFlow<AccessSheetState>(AccessSheetState.Hidden)

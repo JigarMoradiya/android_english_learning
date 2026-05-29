@@ -126,8 +126,10 @@ private val planSections = listOf(
         title = "Ages 3-5 · Little Explorers",
         type = ButtonType.ORANGE,
         rows = listOf(
-            PlanRow(Icons.Filled.Edit,         "Alphabet Tracing (A-M)",   TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.Filled.EditOff,      "Alphabet Tracing (N-Z)",   TierAccess.LoginRequired, TierAccess.Full),
+            PlanRow(Icons.Filled.Edit,         "Alphabet Tracing (A-J)",   TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.EditOff,      "Alphabet Tracing (K-Z)",   TierAccess.LoginRequired, TierAccess.Full),
+            PlanRow(Icons.Filled.Edit,         "Letter Phonics Sound (A-J)",   TierAccess.Full,          TierAccess.Full),
+            PlanRow(Icons.Filled.EditOff,      "Letter Phonics Sound (K-Z)",   TierAccess.LoginRequired, TierAccess.Full),
             PlanRow(Icons.Filled.TextFormat,   "Letter Recognition",       TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.TextFields,   "ABCD with Images",         TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.Palette,      "Colouring Alphabets",      TierAccess.Limited(3),    TierAccess.Limited(5)),
@@ -136,7 +138,7 @@ private val planSections = listOf(
             PlanRow(Icons.AutoMirrored.Filled.Sort,         "Arrange Letter Sequence",  TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.Image,        "Match Letter with Image",     TierAccess.Limited(3),    TierAccess.Limited(5)),
             PlanRow(Icons.AutoMirrored.Filled.Help,         "Missing Letter",           TierAccess.Premium,       TierAccess.Premium),
-            PlanRow(Icons.Filled.TouchApp,     "Drag & Drop Letters",      TierAccess.Premium,       TierAccess.Premium),
+//            PlanRow(Icons.Filled.TouchApp,     "Drag & Drop Letters",      TierAccess.Premium,       TierAccess.Premium),
         )
     ),
     PlanSection(

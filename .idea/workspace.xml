@@ -101,11 +101,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="Home page new UI">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="mascot and background apply in age group menu pages">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/AccessConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/AccessConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/ModuleID.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/ModuleID.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/letter/LetterRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/letter/LetterRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/AgeCategoriesHomePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/AgeCategoriesHomePage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/alphabet_tracing/AlphabetTracingPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/alphabet_tracing/AlphabetTracingPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/fill_blank/view_model/FillBlankLettersViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/fill_blank/view_model/FillBlankLettersViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/letter_phonics_sound/LetterPhonicsSoundPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/letter_phonics_sound/LetterPhonicsSoundPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/AccessSheetViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/AccessSheetViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/settings/AccessPlanScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/settings/AccessPlanScreen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -492,22 +499,6 @@
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
     </task>
-    <task id="LOCAL-00141" summary="ui changes in article choice">
-      <option name="closed" value="true" />
-      <created>1779433423419</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1779433423419</updated>
-    </task>
-    <task id="LOCAL-00142" summary="ui changes in sight word choice">
-      <option name="closed" value="true" />
-      <created>1779436246993</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1779436246993</updated>
-    </task>
     <task id="LOCAL-00143" summary="purchase bug fixes and quick release">
       <option name="closed" value="true" />
       <created>1779459640065</created>
@@ -884,13 +875,26 @@
       <option name="project" value="LOCAL" />
       <updated>1780048216172</updated>
     </task>
-    <option name="localTasksCounter" value="190" />
+    <task id="LOCAL-00190" summary="home page bg change">
+      <option name="closed" value="true" />
+      <created>1780049405425</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1780049405425</updated>
+    </task>
+    <task id="LOCAL-00191" summary="mascot and background apply in age group menu pages">
+      <option name="closed" value="true" />
+      <created>1780055358963</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1780055358964</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ActivityCompletePopup replace to ResultView in age 3-5" />
-    <MESSAGE value="solve bug for missing letter highlighter" />
-    <MESSAGE value="ActivityCompletePopup added in match opposite and match singular plural" />
     <MESSAGE value="what's kids learn and need practice add for word match with image" />
     <MESSAGE value="drag line connect issue solve" />
     <MESSAGE value="parent report done for listen &amp; select" />
@@ -913,7 +917,10 @@
     <MESSAGE value="age group 3-5 menu ordering change" />
     <MESSAGE value="home icons changed" />
     <MESSAGE value="Home page new UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Home page new UI" />
+    <MESSAGE value="home page bg change" />
+    <MESSAGE value="mascot apply in age group menu pages" />
+    <MESSAGE value="mascot and background apply in age group menu pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="mascot and background apply in age group menu pages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

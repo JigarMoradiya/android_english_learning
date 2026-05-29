@@ -31,8 +31,8 @@ import com.example.myapplication.ui.theme.MyApplicationTheme
 import kotlinx.coroutines.launch
 
 
-// Letters N–Z start at index 13 (A=0, B=1, … M=12, N=13, … Z=25)
-private const val LOCKED_FROM_INDEX = 13
+// Letters K–Z start at index 10 (A=0, B=1, … J=9, K=10, … Z=25)
+private const val LOCKED_FROM_INDEX = 10
 
 @Composable
 fun AlphabetTracingPage(

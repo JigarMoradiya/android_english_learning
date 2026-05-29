@@ -61,9 +61,12 @@ import com.example.myapplication.main.age_category.view_model.AgeCategoriesViewM
 import com.example.myapplication.main.base.force_update.ForceUpdateHandler
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.base.notification.OneSignalSubscriptionWatcher
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.main.common.HomePageBackground
 import com.example.myapplication.main.common.permission.NotificationPermissionHandler
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.main.common.sheets.ParentalGateDialog
+import kotlinx.coroutines.launch
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
@@ -157,6 +160,8 @@ fun MainLearningAgesCategoriesScreen(
     val categories by viewModel.categories.collectAsState()
     val context = LocalContext.current
     var showParentalGate by remember { mutableStateOf(false) }
+    val accessVM = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
 
     LaunchedEffect(Unit) { viewModel.refresh() }
 
@@ -275,7 +280,18 @@ fun MainLearningAgesCategoriesScreen(
                             bestStreak = viewModel.bestStreak
                         )
                         Spacer(modifier = Modifier.width(Dimens12))
-                        TodayLetterCard(letter = viewModel.todayLetter)
+                        TodayLetterCard(
+                            letter = viewModel.todayLetter,
+                            onClick = {
+                                AudioPlayerManager.playSoundMenuClick()
+                                scope.launch {
+                                    val allowed = accessVM.checkAccess(ModuleID.LETTER_PHONICS)
+                                    if (allowed) {
+                                        navController.navigate(RouteNavigation.LetterPhonicsSoundRoute.route)
+                                    }
+                                }
+                            }
+                        )
                     }
 
                     // "Pick your level" divider
@@ -521,15 +537,23 @@ private fun StreakCard(currentStreak: Int, bestStreak: Int) {
 // ── Today's Letter Card ───────────────────────────────────────────────────────
 
 @Composable
-private fun TodayLetterCard(letter: Char) {
+private fun TodayLetterCard(letter: Char, onClick: () -> Unit) {
     val dayOfYear = remember { java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_YEAR) }
     val accentColor = letterAccentPalette[(dayOfYear - 1) % letterAccentPalette.size]
     val imgRes = remember(letter) {
         ImageAlphabetMapper.get("${letter.lowercaseChar()}_outline_c")
     }
+    val interactionSource = remember { MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+    val scale by animateFloatAsState(
+        targetValue = if (isPressed) 0.94f else 1f,
+        animationSpec = spring(dampingRatio = 0.5f, stiffness = Spring.StiffnessMedium),
+        label = "letterCardScale"
+    )
 
     Row(
         modifier = Modifier
+            .graphicsLayer(scaleX = scale, scaleY = scale)
             .shadow(
                 elevation = 4.dp,
                 shape = PillShape,
@@ -538,6 +562,7 @@ private fun TodayLetterCard(letter: Char) {
             )
             .background(Color.White.copy(alpha = 0.88f), PillShape)
             .border(1.5.dp, accentColor.copy(alpha = 0.4f), PillShape)
+            .clickable(interactionSource = interactionSource, indication = null, onClick = onClick)
             .padding(horizontal = Dimens14, vertical = Dimens8),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Dimens8)

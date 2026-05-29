@@ -58,7 +58,13 @@ class FillBlankLettersViewModel @Inject constructor(
         countdownJob = null
         val alphabets = getAlphabet()
         // ✅ 1. Pick random 5–6 sequence
-        val size = (2..3).random()
+//        val size = (2..3).random()
+        val size = when (blankPosition) {
+            BlankPosition.FIRST  -> 2
+            BlankPosition.LAST   -> 2
+            BlankPosition.MIDDLE -> 3
+            BlankPosition.RANDOM -> (2..3).random()
+        }
         val startIndex = (0..(26 - size)).random()
 
         val sequence = alphabets.subList(startIndex, startIndex + size)

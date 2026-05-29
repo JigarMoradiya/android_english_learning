@@ -19,7 +19,7 @@ object LetterRepository {
         LetterData("M", "Monkey",     listOf("Moon", "Mango", "Mushroom", "Mouse", "Mitten"),         phonicsSound = "Muh Muh Muh",      highlightTimings = listOf(0.20, 0.75, 1.60, 2.10, 2.70, 3.80, 4.45, 4.70)),
         LetterData("N", "Nest",       listOf("Nose", "Nurse", "Net", "Neck"),                         phonicsSound = "Nuh Nuh Nuh",      highlightTimings = listOf(0.20, 0.75, 1.60, 2.15, 2.70, 3.65, 4.25, 4.50)),
         LetterData("O", "Orange",     listOf("Owl", "Ox", "Octopus", "Onion", "Ostrich"),             phonicsSound = "Oh Oh Oh",         highlightTimings = listOf(0.25, 0.85, 1.40, 1.80, 2.35, 3.50, 4.00, 4.50)),
-        LetterData("P", "Parrot",     listOf("Pig", "Pen", "Penguin", "Pot", "Pumpkin"),              phonicsSound = "Puh Puh Puh",      highlightTimings = listOf(0.20, 0.75, 1.40, 1.80, 2.20, 3.45, 4.00, 4.45)),
+        LetterData("P", "Parrot",     listOf("Pig", "Pen", "Penguin", "Pot", "Pumpkin"),              phonicsSound = "Puh Puh Puh",      highlightTimings = listOf(0.20, 0.75, 1.40, 1.80, 2.20, 3.30, 3.85, 4.30)),
         LetterData("Q", "Queen",      listOf("Quill", "Quilt", "Question Mark", "Quiet"),             phonicsSound = "Kwuh Kwuh Kwuh",   highlightTimings = listOf(0.25, 0.85, 1.55, 2.00, 2.45, 3.50, 4.30, 4.65)),
         LetterData("R", "Rose",       listOf("Rabbit", "Road", "Rope", "Rocket"),                     phonicsSound = "Ruh Ruh Ruh",      highlightTimings = listOf(0.20, 0.75, 1.25, 1.60, 2.10, 3.20, 3.90, 4.30)),
         LetterData("S", "Sun",        listOf("Star", "Ship", "Snake", "Spoon", "Soap"),               phonicsSound = "Sss Sss Sss",      highlightTimings = listOf(0.20, 0.75, 1.65, 2.35, 2.90, 4.10, 4.70, 5.00)),

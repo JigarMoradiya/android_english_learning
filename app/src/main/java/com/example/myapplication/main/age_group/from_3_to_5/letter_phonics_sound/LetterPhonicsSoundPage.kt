@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
@@ -28,6 +29,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -66,9 +68,18 @@ import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.ui.theme.PrimaryOrange
 import com.example.myapplication.utils.extensions.scaled
 import kotlinx.coroutines.delay
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material3.Icon
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.unit.dp
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
+import kotlinx.coroutines.launch
 
 @Composable
 fun LetterPhonicsSoundPage(
@@ -76,6 +87,12 @@ fun LetterPhonicsSoundPage(
     viewModel: LetterPhonicsSoundViewModel = hiltViewModel()
 ) {
     val uiState = viewModel.uiState
+    val accessVM = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
+    val userState by accessVM.userState.collectAsState()
+
+    // Letters K–Z start at index 10 (A=0 … J=9, K=10 … Z=25)
+    val lockedFromIndex = 10
 
     DisposableEffect(Unit) {
         onDispose { viewModel.stopAudio() }
@@ -126,36 +143,74 @@ fun LetterPhonicsSoundPage(
                             contentPadding = PaddingValues(vertical = Dimens24),
                             modifier = Modifier.fillMaxWidth()
                         ) {
-                            itemsIndexed(uiState.letters) { _, item ->
+                            itemsIndexed(uiState.letters) { index, item ->
 
                                 val isSelected = uiState.selectedLetter == item.letter
+                                val isLocked = index >= lockedFromIndex
+                                val showLock = isLocked && !userState.isLoggedIn
 
                                 val scale by animateFloatAsState(
                                     targetValue = if (isSelected) 1.15f else 1f,
                                     label = "letterScale"
                                 )
 
+                                // Outer box: handles scale only (no clip), so lock badge stays visible
                                 Box(
                                     modifier = Modifier
                                         .size(boxSize)
-                                        .graphicsLayer {
-                                            scaleX = scale
-                                            scaleY = scale
-                                        }
-                                        .clip(RoundedCornerShape(Dimens12))
-                                        .background(
-                                            if (isSelected) PrimaryOrange
-                                            else PrimaryBlue.copy(alpha = 0.2f)
-                                        )
-                                        .clickable { viewModel.onLetterTap(item) },
+                                        .graphicsLayer { scaleX = scale; scaleY = scale },
                                     contentAlignment = Alignment.Center
                                 ) {
-                                    Text(
-                                        text = item.letter,
-                                        fontSize = (boxSize.value * 0.7f).sp,
-                                        fontWeight = FontWeight.Bold,
-                                        color = if (isSelected) Color.White else Color.Black
-                                    )
+                                    // Inner box: clip + background + click
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxSize()
+                                            .clip(RoundedCornerShape(Dimens12))
+                                            .background(
+                                                if (isSelected) PrimaryOrange else PrimaryBlue.copy(alpha = 0.2f)
+                                            )
+                                            .clickable {
+                                                if (isLocked) {
+                                                    scope.launch {
+                                                        val allowed = accessVM.checkAccess(ModuleID.LETTER_PHONICS_KZ)
+                                                        if (allowed) viewModel.onLetterTap(item)
+                                                    }
+                                                } else {
+                                                    viewModel.onLetterTap(item)
+                                                }
+                                            },
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Text(
+                                            text = item.letter,
+                                            fontSize = (boxSize.value * 0.7f).sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = if (isSelected) Color.White else Color.Black
+                                        )
+                                    }
+
+                                    // Lock badge — centered on top-right corner (half outside tile)
+                                    if (showLock) {
+                                        val badgeSize = (boxSize.value * 0.32f).dp
+                                        Box(
+                                            modifier = Modifier
+                                                .size(badgeSize)
+                                                .align(Alignment.TopEnd)
+                                                .offset(
+                                                    x = badgeSize / 3,
+                                                    y = -badgeSize / 3
+                                                )
+                                                .background(Color(0xFFE65100), CircleShape),
+                                            contentAlignment = Alignment.Center
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Filled.Lock,
+                                                contentDescription = null,
+                                                tint = Color.White,
+                                                modifier = Modifier.size((boxSize.value * 0.17f).dp)
+                                            )
+                                        }
+                                    }
                                 }
                             }
                         }
