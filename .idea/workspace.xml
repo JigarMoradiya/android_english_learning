@@ -30,6 +30,11 @@
           <theme>@style/Theme.MyApplication</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_parent_report.xml">
+        <config>
+          <theme>@style/Theme.MyApplication</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/j_outline_c.xml">
         <config>
           <theme>@style/Theme.MyApplication</theme>
@@ -96,21 +101,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="age group 3-5 menu ordering change">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_abacus_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_mascot_lion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_menu_age_3_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_menu_age_5_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_menu_age_6_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/_menu_age_7_10.png" afterDir="false" />
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="Home page new UI">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/presentation/CategoriesHorizontalList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/presentation/CategoriesHorizontalList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/view_model/AgeCategoriesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/view_model/AgeCategoriesViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/_level_1_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/_level_2_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/_level_3_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/_level_4_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/AgeCategoriesHomePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/AgeCategoriesHomePage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +121,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[LocalEmulator::path=/Users/jigarmoradiya/.android/avd/Pixel_Tablet_2.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=RZ8RC0C1F6B]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -496,22 +491,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00139" summary="ui changes in listen and tap">
-      <option name="closed" value="true" />
-      <created>1779429087417</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1779429087417</updated>
-    </task>
-    <task id="LOCAL-00140" summary="ui changes in sight word">
-      <option name="closed" value="true" />
-      <created>1779430843816</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1779430843816</updated>
     </task>
     <task id="LOCAL-00141" summary="ui changes in article choice">
       <option name="closed" value="true" />
@@ -889,12 +868,26 @@
       <option name="project" value="LOCAL" />
       <updated>1780029640431</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="home icons changed">
+      <option name="closed" value="true" />
+      <created>1780040129507</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1780040129507</updated>
+    </task>
+    <task id="LOCAL-00189" summary="Home page new UI">
+      <option name="closed" value="true" />
+      <created>1780048216172</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1780048216172</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="parent report done for singular plural" />
-    <MESSAGE value="chnages" />
     <MESSAGE value="ActivityCompletePopup replace to ResultView in age 3-5" />
     <MESSAGE value="solve bug for missing letter highlighter" />
     <MESSAGE value="ActivityCompletePopup added in match opposite and match singular plural" />
@@ -918,7 +911,9 @@
     <MESSAGE value=" parent report detail click for age group 5-7" />
     <MESSAGE value="what kids learn and need practice filter base on ages selected" />
     <MESSAGE value="age group 3-5 menu ordering change" />
-    <option name="LAST_COMMIT_MESSAGE" value="age group 3-5 menu ordering change" />
+    <MESSAGE value="home icons changed" />
+    <MESSAGE value="Home page new UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Home page new UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -946,12 +941,12 @@
         </entry>
         <entry key="com.vedaavi.english.learning">
           <value>
-            <CheckInfo lastCheckTimestamp="1779871016576" />
+            <CheckInfo lastCheckTimestamp="1780040698394" />
           </value>
         </entry>
         <entry key="com.vedaavi.english.learning.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1779871016576" />
+            <CheckInfo lastCheckTimestamp="1780040698377" />
           </value>
         </entry>
       </map>

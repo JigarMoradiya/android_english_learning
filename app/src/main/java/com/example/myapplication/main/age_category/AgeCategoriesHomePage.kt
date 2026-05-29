@@ -60,9 +60,7 @@ import com.example.myapplication.main.age_category.view_model.AgeCategoriesViewM
 import com.example.myapplication.main.base.force_update.ForceUpdateHandler
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.base.notification.OneSignalSubscriptionWatcher
-import com.example.myapplication.main.common.KidsFloatingShape
-import com.example.myapplication.main.common.KidsGradient
-import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.HomePageBackground
 import com.example.myapplication.main.common.permission.NotificationPermissionHandler
 import com.example.myapplication.main.common.sheets.ParentalGateDialog
 import com.example.myapplication.ui.theme.AppDimens
@@ -185,7 +183,7 @@ fun MainLearningAgesCategoriesScreen(
         val cardGap = Dimens12
         val rightPanelW = totalW * 0.78f
 
-        KidsGradientBackground(gradient = KidsGradient.lilacPink, shape = KidsFloatingShape.sparkles)
+        HomePageBackground()
 
         Column(modifier = Modifier.fillMaxSize()) {
 
