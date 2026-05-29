@@ -33,7 +33,10 @@ data class SessionEntry(
     val durationSeconds: Int,
     val accuracy: Double,
     val stars: Double,
-    val timestampMs: Long
+    val timestampMs: Long,
+    val moduleId: String = "",
+    val correctItems: List<String> = emptyList(),
+    val wrongItems: List<String> = emptyList()
 )
 
 data class LessonGroup(
@@ -172,7 +175,7 @@ class ParentProgressViewModel @Inject constructor(
                 it.moduleId == moduleId &&
                 ((it.chapterTitle ?: "Other") == chapterTitle ||
                  (chapterTitle == "Practice" && it.chapterTitle == null)) &&
-                (it.subConfig ?: "Short Sentence") == subConfig
+                (subConfig.isEmpty() || (it.subConfig ?: "") == subConfig)
             }
 
         val lessonGroups = sessions
@@ -189,7 +192,10 @@ class ParentProgressViewModel @Inject constructor(
                             durationSeconds = s.durationSeconds,
                             accuracy = acc,
                             stars = if (s.totalQuestions > 0) minOf(3.0, acc * 3.0) else 0.0,
-                            timestampMs = s.timestampMs
+                            timestampMs = s.timestampMs,
+                            moduleId = moduleId,
+                            correctItems = s.correctItems ?: emptyList(),
+                            wrongItems = s.wrongItems ?: emptyList()
                         )
                     }
                 Triple(latestTimestamp, lessonTitle, sessionEntries)
@@ -202,9 +208,14 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.GRAMMAR_CHALLENGE_BEGINNER -> "Beginner"
             ModuleID.GRAMMAR_CHALLENGE_MEDIUM   -> "Medium"
             ModuleID.GRAMMAR_CHALLENGE_ADVANCED -> "Advanced"
-            else -> subConfig
+            ModuleID.ARRANGE_LETTER_SEQUENCE    -> if (subConfig == "UPPERCASE") "ABC" else "abc"
+            ModuleID.FILL_THE_BLANK_LETTER      -> fillBlankSubLabel(subConfig)
+            ModuleID.SINGULAR_PLURAL            -> singularPluralSubLabel(subConfig)
+            ModuleID.OPPOSITES_WORD             -> oppositeWordSubLabel(subConfig)
+            else -> ""
         }
         val practiceRoute = when (moduleId) {
+            // 6-8
             ModuleID.GRAMMAR_NOUNS      -> RouteNavigation.GrammarBasicNounPractice.route
             ModuleID.GRAMMAR_VERBS      -> RouteNavigation.GrammarBasicVerbPractice.route
             ModuleID.GRAMMAR_ADJECTIVES -> RouteNavigation.GrammarBasicAdjectivesPractice.route
@@ -213,6 +224,27 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.GRAMMAR_CHALLENGE_MEDIUM,
             ModuleID.GRAMMAR_CHALLENGE_ADVANCED -> RouteNavigation.MixedGrammarChallenge.route
             ModuleID.CHOOSE_RIGHT_SENTENCE      -> RouteNavigation.ChooseTheRightSentence.route
+            // 3-5
+            ModuleID.ALPHABET_TRACING        -> RouteNavigation.AlphabetTracing.route
+            ModuleID.ABCD_WITH_IMAGES        -> RouteNavigation.ABCDWithImages.route
+            ModuleID.COLORING_ALPHABETS      -> RouteNavigation.ColoringAlphabets.route
+            ModuleID.LETTER_RECOGNITION      -> RouteNavigation.LetterRecognition.route
+            ModuleID.LETTER_PHONICS          -> RouteNavigation.LetterPhonicsSoundRoute.route
+            ModuleID.MATCH_UPPER_LOWER       -> RouteNavigation.MatchLetters.route
+            ModuleID.MATCH_LETTER_WITH_IMAGE -> RouteNavigation.MatchLetterWithImage.route
+            ModuleID.MISSING_LETTER          -> RouteNavigation.MissingLetterEasy.route
+            ModuleID.DRAG_DROP_LETTERS       -> RouteNavigation.DragDropWord.route
+            ModuleID.FILL_THE_BLANK_LETTER   -> RouteNavigation.FillTheBlankLetters.route
+            ModuleID.ARRANGE_LETTER_SEQUENCE -> RouteNavigation.ArrangeLetterInSequence.createRoute(subConfig.ifEmpty { "UPPERCASE" })
+            // 5-7
+            ModuleID.OPPOSITES_WORD         -> RouteNavigation.OppositeWords.route
+            ModuleID.SINGULAR_PLURAL        -> RouteNavigation.SingularPlural.route
+            ModuleID.ARTICLES_A_AN          -> RouteNavigation.ArticlesAAn.route
+            ModuleID.SIGHT_WORDS            -> RouteNavigation.SightWords.route
+            ModuleID.LISTEN_AND_SELECT      -> RouteNavigation.ListenAndSelectWord.route
+            ModuleID.MATCH_WORD_WITH_PICTURE -> RouteNavigation.WordMatchImage.route
+            ModuleID.ARTICLES_CHOICE        -> RouteNavigation.ArticleChoice.route
+            ModuleID.SIGHT_WORD_CHOICE      -> RouteNavigation.SightWordChoice.route
             else -> null
         }
         chapterDetail = ChapterDetailData(
@@ -369,6 +401,7 @@ class ParentProgressViewModel @Inject constructor(
                         moduleId = "$moduleId|$config",
                         displayName = info.first,
                         subLabel = subLabel,
+                        chapterKey = "$moduleId||Practice||$config",
                         ageGroupLabel = info.second,
                         rounds = configSessions.size,
                         avgAccuracy = avgAcc,
@@ -392,6 +425,7 @@ class ParentProgressViewModel @Inject constructor(
                         moduleId = "$moduleId|$config",
                         displayName = info.first,
                         subLabel = subLabel,
+                        chapterKey = "$moduleId||Practice||$config",
                         ageGroupLabel = info.second,
                         rounds = configSessions.size,
                         avgAccuracy = avgAcc,
@@ -415,6 +449,7 @@ class ParentProgressViewModel @Inject constructor(
                         moduleId = "$moduleId|$config",
                         displayName = info.first,
                         subLabel = subLabel,
+                        chapterKey = "$moduleId||Practice||$config",
                         ageGroupLabel = info.second,
                         rounds = configSessions.size,
                         avgAccuracy = avgAcc,
@@ -438,6 +473,7 @@ class ParentProgressViewModel @Inject constructor(
                         moduleId = "$moduleId|$config",
                         displayName = "Fill the Blank",
                         subLabel = fillBlankSubLabel(config),
+                        chapterKey = "$moduleId||Practice||$config",
                         ageGroupLabel = info.second,
                         rounds = configSessions.size,
                         avgAccuracy = avgAcc,
@@ -612,6 +648,7 @@ class ParentProgressViewModel @Inject constructor(
                 rowsWithTime.add(ModuleProgressRow(
                     moduleId = moduleId,
                     displayName = info.first,
+                    chapterKey = "$moduleId||Practice||",
                     ageGroupLabel = info.second,
                     rounds = sessions.size,
                     avgAccuracy = avgAcc,

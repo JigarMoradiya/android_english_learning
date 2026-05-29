@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -59,6 +60,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.KidsFloatingShape
@@ -1094,7 +1096,15 @@ private fun ChapterDetailSheet(
                         }
                         Column(verticalArrangement = Arrangement.spacedBy(Dimens6)){
                             group.sessions.forEach { session ->
-                                ChapterSessionRow(session)
+                                Column(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .shadow(Dimens2, RoundedCornerShape(Dimens8))
+                                        .background(Color(0xFFF8F5FF), RoundedCornerShape(Dimens8))
+                                ) {
+                                    ChapterSessionRow(session)
+                                    SessionLearnedLettersRow(session)
+                                }
                             }
                         }
                     }
@@ -1105,6 +1115,55 @@ private fun ChapterDetailSheet(
     }
 }
 
+private val sessionItemModuleIds = setOf(
+    ModuleID.LETTER_RECOGNITION,
+    ModuleID.ALPHABET_TRACING,
+    ModuleID.ABCD_WITH_IMAGES,
+    ModuleID.LETTER_PHONICS,
+    ModuleID.COLORING_ALPHABETS,
+    ModuleID.MATCH_UPPER_LOWER,
+    ModuleID.FILL_THE_BLANK_LETTER,
+    ModuleID.ARRANGE_LETTER_SEQUENCE,
+    ModuleID.MATCH_LETTER_WITH_IMAGE,
+    ModuleID.MISSING_LETTER
+)
+
+@Composable
+private fun SessionLearnedLettersRow(session: SessionEntry) {
+    val correct = session.correctItems
+    val wrong = session.wrongItems.map { it.substringBefore(":") }
+    if (session.moduleId !in sessionItemModuleIds || (correct.isEmpty() && wrong.isEmpty())) return
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = Dimens12, end = Dimens12, bottom = Dimens8),
+        horizontalArrangement = Arrangement.spacedBy(Dimens4)
+    ) {
+        correct.forEach { item -> ItemChip(text = item, isWrong = false) }
+        wrong.forEach { item -> ItemChip(text = item, isWrong = true) }
+    }
+}
+
+@Composable
+private fun ItemChip(text: String, isWrong: Boolean) {
+    val bgColor = if (isWrong) Color(0xFFFFE8EC) else Color(0xFFEEE8FF)
+    val textColor = if (isWrong) Color(0xFFD0021B) else Color(0xFF5532D2)
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .defaultMinSize(minWidth = 26.dp, minHeight = 26.dp)
+            .background(bgColor, RoundedCornerShape(6.dp))
+            .padding(horizontal = if (text.length > 2) Dimens6 else 0.dp, vertical = 2.dp)
+    ) {
+        Text(
+            text,
+            style = MaterialTheme.typography.labelSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = textColor
+        )
+    }
+}
+
 @Composable
 private fun ChapterSessionRow(session: SessionEntry) {
     Row(
@@ -1112,9 +1171,8 @@ private fun ChapterSessionRow(session: SessionEntry) {
         horizontalArrangement = Arrangement.spacedBy(Dimens8),
         modifier = Modifier
             .fillMaxWidth()
-            .shadow(2.dp, RoundedCornerShape(Dimens8))
-            .background(Color(0xFFF8F5FF), RoundedCornerShape(Dimens8))
-            .padding(horizontal = Dimens12, vertical = Dimens8)
+            .padding(horizontal = Dimens12)
+            .padding(top = Dimens8, bottom = Dimens4)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(2.dp)) {
             Icon(Icons.Filled.AccessTime, contentDescription = null, tint = Color.Gray, modifier = Modifier.size(Dimens16))
