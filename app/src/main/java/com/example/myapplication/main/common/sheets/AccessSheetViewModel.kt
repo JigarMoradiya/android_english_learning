@@ -145,7 +145,7 @@ class AccessSheetViewModel @Inject constructor(
         viewModelScope.launch {
             _isLoading.value = true
             when (val result = authManager.signInWithGoogle(activity)) {
-                is AuthResult.Success  -> onSignInSuccess()
+                is AuthResult.Success  -> onSignInSuccess(activity)
                 is AuthResult.Cancelled -> Unit
                 is AuthResult.Error    -> _message.emit(result.message)
                 is AuthResult.NeedsAccountLinking ->
@@ -161,7 +161,7 @@ class AccessSheetViewModel @Inject constructor(
         viewModelScope.launch {
             _isLoading.value = true
             when (val result = authManager.signInWithApple(activity)) {
-                is AuthResult.Success  -> onSignInSuccess()
+                is AuthResult.Success  -> onSignInSuccess(activity)
                 is AuthResult.Cancelled -> Unit
                 is AuthResult.Error    -> _message.emit(result.message)
                 is AuthResult.NeedsAccountLinking ->
@@ -226,18 +226,20 @@ class AccessSheetViewModel @Inject constructor(
      * - If there is a pending purchase → go back to paywall (user taps Subscribe again).
      * - Otherwise re-check the original module.
      */
-    private suspend fun onSignInSuccess() {
-        // Pending purchase flow: show paywall so user can tap Subscribe
+    private suspend fun onSignInSuccess(activity: Activity) {
+        // Pending purchase flow: auto-trigger purchase (user already tapped Subscribe before login)
         val pending = pendingPurchasePackage
         if (pending != null) {
             pendingPurchasePackage = null
-            // User may already be premium (existing subscription detected by RevenueCat on login)
+            _sheetState.value = AccessSheetState.Paywall(pendingPurchaseModuleId)
+            loadOfferings()
+            // Sync RevenueCat after login — detects existing subscriptions before purchase
+            purchaseManager.restorePurchases()
             if (accessManager.userState.value is UserAccessState.PremiumUser) {
                 dismiss()
                 return
             }
-            _sheetState.value = AccessSheetState.Paywall(pendingPurchaseModuleId)
-            loadOfferings()
+            doPurchase(activity, pending)
             return
         }
 
