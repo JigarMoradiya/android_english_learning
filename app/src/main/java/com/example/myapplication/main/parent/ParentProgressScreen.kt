@@ -133,7 +133,8 @@ fun ParentProgressScreen(
                         viewModel.closeChapterDetail()
                         navController.navigate(route)
                     }
-                }
+                },
+                selectedAgeFilter = viewModel.selectedAgeFilter
             )
         }
     }
@@ -354,7 +355,7 @@ private fun StatCard(
 
 // ── Activity section ─────────────────────────────────────────────────────────
 
-private val ageFilters = listOf("All", "Age 3-5", "Age 5-7", "Age 6-8")
+private val ageFilters = listOf(/*"All",*/ "Age 3-5", "Age 5-7", "Age 6-8")
 
 @Composable
 private fun ActivitySection(vm: ParentProgressViewModel, navController: NavController) {
@@ -984,7 +985,8 @@ private fun EmptyState() {
 private fun ChapterDetailSheet(
     detail: ChapterDetailData,
     onClose: () -> Unit,
-    onPractice: (() -> Unit)? = null
+    onPractice: (() -> Unit)? = null,
+    selectedAgeFilter: String = "Age 3-5"
 ) {
     Box(
         modifier = Modifier
@@ -1103,7 +1105,7 @@ private fun ChapterDetailSheet(
                                         .background(Color(0xFFF8F5FF), RoundedCornerShape(Dimens8))
                                 ) {
                                     ChapterSessionRow(session)
-                                    SessionLearnedLettersRow(session)
+                                    SessionLearnedLettersRow(session, selectedAgeFilter)
                                 }
                             }
                         }
@@ -1115,43 +1117,33 @@ private fun ChapterDetailSheet(
     }
 }
 
-private val sessionItemModuleIds = setOf(
-    // Age 3-5
-    ModuleID.LETTER_RECOGNITION,
-    ModuleID.ALPHABET_TRACING,
-    ModuleID.ABCD_WITH_IMAGES,
-    ModuleID.LETTER_PHONICS,
-    ModuleID.COLORING_ALPHABETS,
-    ModuleID.MATCH_UPPER_LOWER,
-    ModuleID.FILL_THE_BLANK_LETTER,
-    ModuleID.ARRANGE_LETTER_SEQUENCE,
-    ModuleID.MATCH_LETTER_WITH_IMAGE,
-    ModuleID.MISSING_LETTER,
-    // Age 5-7
-    ModuleID.SIGHT_WORDS,
-    ModuleID.SIGHT_WORD_CHOICE,
-    ModuleID.ARTICLES_A_AN,
-    ModuleID.LISTEN_AND_SELECT,
-    ModuleID.ARTICLES_CHOICE,
-    ModuleID.MATCH_WORD_WITH_PICTURE,
-    ModuleID.OPPOSITES_WORD,
-    ModuleID.SINGULAR_PLURAL,
-    ModuleID.MISSING_LETTER_57,
-    ModuleID.WORD_JIGSAW,
-    ModuleID.VOCABULARY_ANIMALS,
-    ModuleID.VOCABULARY_FRUITS,
-    ModuleID.VOCABULARY_BIRDS,
-    ModuleID.VOCABULARY_VEGETABLES,
-    ModuleID.VOCABULARY_COLORS,
-    ModuleID.VOCABULARY_SHAPES,
-    ModuleID.VOCABULARY_VEHICLES
+private val age35ModuleIds = setOf(
+    ModuleID.LETTER_RECOGNITION, ModuleID.ALPHABET_TRACING, ModuleID.ABCD_WITH_IMAGES,
+    ModuleID.LETTER_PHONICS, ModuleID.COLORING_ALPHABETS, ModuleID.MATCH_UPPER_LOWER,
+    ModuleID.FILL_THE_BLANK_LETTER, ModuleID.ARRANGE_LETTER_SEQUENCE,
+    ModuleID.MATCH_LETTER_WITH_IMAGE, ModuleID.MISSING_LETTER
 )
+private val age57ModuleIds = setOf(
+    ModuleID.SIGHT_WORDS, ModuleID.SIGHT_WORD_CHOICE, ModuleID.ARTICLES_A_AN,
+    ModuleID.LISTEN_AND_SELECT, ModuleID.ARTICLES_CHOICE, ModuleID.MATCH_WORD_WITH_PICTURE,
+    ModuleID.OPPOSITES_WORD, ModuleID.SINGULAR_PLURAL, ModuleID.MISSING_LETTER_57,
+    ModuleID.WORD_JIGSAW, ModuleID.VOCABULARY_ANIMALS, ModuleID.VOCABULARY_FRUITS,
+    ModuleID.VOCABULARY_BIRDS, ModuleID.VOCABULARY_VEGETABLES, ModuleID.VOCABULARY_COLORS,
+    ModuleID.VOCABULARY_SHAPES, ModuleID.VOCABULARY_VEHICLES
+)
+private val age68ModuleIds = emptySet<String>()
 
 @Composable
-private fun SessionLearnedLettersRow(session: SessionEntry) {
+private fun SessionLearnedLettersRow(session: SessionEntry, selectedAgeFilter: String = "Age 3-5") {
+    val moduleIds = when (selectedAgeFilter) {
+        "Age 3-5" -> age35ModuleIds
+        "Age 5-7" -> age57ModuleIds
+        "Age 6-8" -> age68ModuleIds
+        else -> age35ModuleIds + age57ModuleIds + age68ModuleIds
+    }
     val correct = session.correctItems
     val wrong = session.wrongItems.map { it.substringBefore(":") }
-    if (session.moduleId !in sessionItemModuleIds || (correct.isEmpty() && wrong.isEmpty())) return
+    if (session.moduleId !in moduleIds || (correct.isEmpty() && wrong.isEmpty())) return
     Row(
         modifier = Modifier
             .fillMaxWidth()
