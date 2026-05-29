@@ -106,7 +106,7 @@ fun DailyLimitSheet(
                     Text(text = "⏰", fontSize = SheetIconSizeLg)
                 }
                 Spacer(modifier = Modifier.height(Dimens6))
-                Text(text = "⭐ ⭐ ⭐", fontSize = 14.sp)
+                Text(text = "⭐ ⭐ ⭐", style = MaterialTheme.typography.labelLarge.scaled())
             }
 
             // Vertical divider
@@ -150,8 +150,7 @@ fun DailyLimitSheet(
                         "You've used all your attempts for today.\nGo Premium for unlimited access!",
                     color = Color(0xFF555555),
                     style = MaterialTheme.typography.bodyMedium.scaled(),
-                    fontWeight = FontWeight.Normal,
-                    lineHeight = 20.sp
+                    fontWeight = FontWeight.Normal
                 )
 
                 Spacer(modifier = Modifier.height(Dimens12))

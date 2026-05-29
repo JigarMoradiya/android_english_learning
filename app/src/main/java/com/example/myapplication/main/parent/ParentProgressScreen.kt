@@ -667,7 +667,7 @@ private fun WeakLetterRow(label: String, subLabel: String? = null, letters: List
             if (subLabel != null) {
                 Text(
                     text = subLabel,
-                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
+                    style = MaterialTheme.typography.labelSmall.scaled(),
                     color = Color.Gray,
                     modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
                 )
@@ -716,7 +716,7 @@ private fun WeakArrangeRow(label: String, subLabel: String?, sequences: List<Str
             if (subLabel != null) {
                 Text(
                     text = subLabel,
-                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
+                    style = MaterialTheme.typography.labelSmall.scaled(),
                     color = Color.Gray,
                     modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
                 )
@@ -864,7 +864,7 @@ private fun MasteredLetterRow(label: String, subLabel: String? = null, letters: 
             if (subLabel != null) {
                 Text(
                     text = subLabel,
-                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
+                    style = MaterialTheme.typography.labelSmall.scaled(),
                     color = Color.Gray,
                     modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
                 )
@@ -913,7 +913,7 @@ private fun MasteredSequenceRow(label: String, subLabel: String?, sequences: Lis
             if (subLabel != null) {
                 Text(
                     text = subLabel,
-                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 8.sp).scaled(),
+                    style = MaterialTheme.typography.labelSmall.scaled(),
                     color = Color.Gray,
                     modifier = Modifier.padding(horizontal = Dimens4, vertical = 2.dp)
                 )

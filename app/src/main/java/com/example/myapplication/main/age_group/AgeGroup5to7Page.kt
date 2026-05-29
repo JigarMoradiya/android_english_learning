@@ -4,7 +4,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
@@ -15,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.stringResource
@@ -23,7 +26,9 @@ import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.components.ActivityTileCard
 import com.example.myapplication.main.age_group.presentation.model.activities_age_5_7
+import com.example.myapplication.main.common.AgeGroup57Background
 import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.MascotPanel
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
@@ -31,9 +36,6 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.ToolbarIconSize
 import com.example.myapplication.utils.AudioPlayerManager
 import kotlinx.coroutines.launch
-import com.example.myapplication.main.common.KidsFloatingShape
-import com.example.myapplication.main.common.KidsGradient
-import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun AgeGroup5to7Page(navController: NavController) {
@@ -48,7 +50,8 @@ fun AgeGroup5to7Page(navController: NavController) {
     val tileHeight = (screenHeight - headerHeight - gridOverhead) * if (DeviceInfo.isTablet) 0.33f else 0.45f
 
     Box(modifier = Modifier.fillMaxSize()) {
-        KidsGradientBackground(gradient = KidsGradient.softBlue, shape = KidsFloatingShape.bubbles)
+        AgeGroup57Background()
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -57,35 +60,49 @@ fun AgeGroup5to7Page(navController: NavController) {
             BackButtonWithText(
                 title = stringResource(R.string.level2_title),
                 onBackClick = { navController.popBackStack() },
-                modifier = Modifier
-                    .windowInsetsPadding(WindowInsets.safeDrawing)
+                modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)
             )
 
-            LazyHorizontalGrid(
-                rows = GridCells.Fixed(2),
-                contentPadding = PaddingValues(
-                    start = DeviceInfo.screenHorizontalPadding(),
-                    end = DeviceInfo.screenHorizontalPadding(),
-                    bottom = Dimens16
-                ),
-                horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
-                verticalArrangement = Arrangement.spacedBy(Dimens12),
-                modifier = Modifier.fillMaxSize()
-            ) {
-                items(activities_age_5_7) { activity ->
-                    ActivityTileCard(
-                        activity = activity,
-                        tileHeight = tileHeight,
-                        onClick = {
-                            AudioPlayerManager.playSoundMenuClick()
-                            scope.launch {
-                                val allowed = if (activity.moduleId.isNotEmpty())
-                                    accessVM.checkAccess(activity.moduleId)
-                                else true
-                                if (allowed) navController.navigate(activity.destination)
+            Row(modifier = Modifier.fillMaxSize()) {
+                // ── Left mascot panel (22%) ───────────────────────────────────
+                MascotPanel(
+                    message = "Let's build\nwords! ⭐",
+                    textColor = Color(0xFF0369A1),
+                    borderColor = Color(0xFF38BDF8),
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .weight(0.22f)
+                )
+
+                // ── Right activity grid (78%) ─────────────────────────────────
+                LazyHorizontalGrid(
+                    rows = GridCells.Fixed(2),
+                    contentPadding = PaddingValues(
+                        start = DeviceInfo.screenHorizontalPadding(),
+                        end = DeviceInfo.screenHorizontalPadding(),
+                        bottom = Dimens16
+                    ),
+                    horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
+                    verticalArrangement = Arrangement.spacedBy(Dimens12),
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .weight(0.78f)
+                ) {
+                    items(activities_age_5_7) { activity ->
+                        ActivityTileCard(
+                            activity = activity,
+                            tileHeight = tileHeight,
+                            onClick = {
+                                AudioPlayerManager.playSoundMenuClick()
+                                scope.launch {
+                                    val allowed = if (activity.moduleId.isNotEmpty())
+                                        accessVM.checkAccess(activity.moduleId)
+                                    else true
+                                    if (allowed) navController.navigate(activity.destination)
+                                }
                             }
-                        }
-                    )
+                        )
+                    }
                 }
             }
         }

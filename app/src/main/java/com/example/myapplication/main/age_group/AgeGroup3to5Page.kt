@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -54,7 +55,9 @@ import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.CaseCard
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.SectionLabel
 import com.example.myapplication.main.age_group.presentation.model.activities_age_3_5
 import com.example.myapplication.main.base.nav.RouteNavigation
+import com.example.myapplication.main.common.AgeGroup35Background
 import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.MascotPanel
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
@@ -65,9 +68,6 @@ import com.example.myapplication.ui.theme.AppDimens.ToolbarIconSize
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
 import kotlinx.coroutines.launch
-import com.example.myapplication.main.common.KidsFloatingShape
-import com.example.myapplication.main.common.KidsGradient
-import com.example.myapplication.main.common.KidsGradientBackground
 
 @Composable
 fun AgeGroup3to5Page(
@@ -88,7 +88,8 @@ fun AgeGroup3to5Page(
     var arrangeMode by rememberSaveable { mutableStateOf(viewModel.getArrangeMode()) }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        KidsGradientBackground(gradient = KidsGradient.pinkVanilla, shape = KidsFloatingShape.stars)
+        AgeGroup35Background()
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -100,42 +101,57 @@ fun AgeGroup3to5Page(
                 modifier = Modifier
             )
 
-            LazyHorizontalGrid(
-                rows = GridCells.Fixed(2),
-                contentPadding = PaddingValues(
-                    start = DeviceInfo.screenHorizontalPadding(),
-                    end = DeviceInfo.screenHorizontalPadding(),
-                    bottom = Dimens16
-                ),
-                horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
-                verticalArrangement = Arrangement.spacedBy(Dimens12),
-                modifier = Modifier.fillMaxSize()
-            ) {
-                items(activities_age_3_5) { activity ->
-                    ActivityTileCard(
-                        activity = activity,
-                        tileHeight = tileHeight,
-                        onClick = {
-                            AudioPlayerManager.playSoundMenuClick()
-                            scope.launch {
-                                val allowed = if (activity.moduleId.isNotEmpty())
-                                    accessVM.checkAccess(activity.moduleId)
-                                else true
-                                if (allowed) {
-                                    if (activity.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE) {
-                                        showArrangeSheet = true
-                                    } else {
-                                        navController.navigate(activity.destination)
+            Row(modifier = Modifier.fillMaxSize()) {
+                // ── Left mascot panel (22%) ───────────────────────────────────
+                MascotPanel(
+                    message = "Let's learn\nletters! 🌈",
+                    textColor = Color(0xFFC2530A),
+                    borderColor = Color(0xFFFDBA74),
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .weight(0.22f)
+                )
+
+                // ── Right activity grid (78%) ─────────────────────────────────
+                LazyHorizontalGrid(
+                    rows = GridCells.Fixed(2),
+                    contentPadding = PaddingValues(
+                        start = DeviceInfo.screenHorizontalPadding(),
+                        end = DeviceInfo.screenHorizontalPadding(),
+                        bottom = Dimens16
+                    ),
+                    horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
+                    verticalArrangement = Arrangement.spacedBy(Dimens12),
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .weight(0.78f)
+                ) {
+                    items(activities_age_3_5) { activity ->
+                        ActivityTileCard(
+                            activity = activity,
+                            tileHeight = tileHeight,
+                            onClick = {
+                                AudioPlayerManager.playSoundMenuClick()
+                                scope.launch {
+                                    val allowed = if (activity.moduleId.isNotEmpty())
+                                        accessVM.checkAccess(activity.moduleId)
+                                    else true
+                                    if (allowed) {
+                                        if (activity.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE) {
+                                            showArrangeSheet = true
+                                        } else {
+                                            navController.navigate(activity.destination)
+                                        }
                                     }
                                 }
                             }
-                        }
-                    )
+                        )
+                    }
                 }
             }
         }
 
-        // Inline sheet overlay — same pattern as KidsBottomSheet, no Dialog window
+        // Inline sheet overlay
         AnimatedVisibility(
             visible = showArrangeSheet,
             enter = fadeIn(animationSpec = tween(200)),
@@ -167,17 +183,14 @@ fun AgeGroup3to5Page(
                                         Color(0xFFF7FCFF)
                                     ),
                                     start = Offset(0f, 0f),
-                                    end = Offset(1000f, 1000f) // 45°
+                                    end = Offset(1000f, 1000f)
                                 ),
-                                shape = RoundedCornerShape(
-                                    topStart = 20.dp,
-                                    topEnd = 20.dp
-                                )
+                                shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
                             )
                             .clickable(
                                 indication = null,
                                 interactionSource = remember { MutableInteractionSource() }
-                            ) { /* consume — prevent scrim dismiss */ }
+                            ) { }
                     ) {
                         ArrangeModePickerContent(
                             selectedMode = arrangeMode,
@@ -210,7 +223,6 @@ private fun ArrangeModePickerContent(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(Modifier.height(Dimens12))
-        // Drag handle
         Box(
             modifier = Modifier
                 .width(36.dp)

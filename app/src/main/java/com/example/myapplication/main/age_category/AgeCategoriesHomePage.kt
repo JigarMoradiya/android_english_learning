@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
@@ -185,7 +186,7 @@ fun MainLearningAgesCategoriesScreen(
 
         HomePageBackground()
 
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)) {
 
             // ── Full-width top bar ─────────────────────────────────────────
             HomeTopBar(
@@ -233,10 +234,9 @@ fun MainLearningAgesCategoriesScreen(
                             Text(
                                 text = "🌟 What do you want\nto learn today?",
                                 color = Color(0xFF3D2B9E),
-                                fontSize = 11.sp.scaled(),
+                                style = MaterialTheme.typography.labelSmall.scaled(),
                                 fontWeight = FontWeight.Bold,
                                 textAlign = TextAlign.Center,
-                                lineHeight = 16.sp.scaled(),
                                 modifier = Modifier
                                     .padding(horizontal = Dimens12, vertical = Dimens8)
                                     .padding(bottom = Dimens12)
@@ -302,7 +302,7 @@ fun MainLearningAgesCategoriesScreen(
                         Text(
                             text = "Pick your level and start learning!",
                             color = Color(0xFF5532D2).copy(alpha = 0.85f),
-                            fontSize = 11.sp.scaled(),
+                            style = MaterialTheme.typography.labelSmall.scaled(),
                             fontWeight = FontWeight.Bold
                         )
                         Spacer(modifier = Modifier.width(Dimens6))
@@ -403,7 +403,7 @@ private fun HomeTopBar(onParentClick: () -> Unit, onSettingsClick: () -> Unit) {
             )
             Text(
                 text = "Learn • Play • Grow 🎓",
-                fontSize = 11.sp.scaled(),
+                style = MaterialTheme.typography.labelSmall.scaled(),
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFF6C5CE7).copy(alpha = 0.75f)
             )
@@ -470,7 +470,7 @@ private fun GradientPill(
         Text(
             text = text,
             color = Color.White,
-            fontSize = 12.sp.scaled(),
+            style = MaterialTheme.typography.labelMedium.scaled(),
             fontWeight = FontWeight.Bold
         )
     }
@@ -499,23 +499,20 @@ private fun StreakCard(currentStreak: Int, bestStreak: Int) {
     ) {
         Text(
             text = "🔥",
-            fontSize = 18.sp.scaled(),
-            lineHeight = 20.sp.scaled()
+            style = MaterialTheme.typography.titleMedium.scaled()
         )
         Column {
             Text(
                 text = "$currentStreak Day${if (currentStreak == 1) "" else "s"}",
-                fontSize = 13.sp.scaled(),
+                style = MaterialTheme.typography.bodyMedium.scaled(),
                 fontWeight = FontWeight.Black,
-                color = Color(0xFFE65100),
-                lineHeight = 15.sp.scaled()
+                color = Color(0xFFE65100)
             )
             Text(
                 text = "Streak  •  Best: $bestStreak",
-                fontSize = 9.sp.scaled(),
+                style = MaterialTheme.typography.labelSmall.scaled(),
                 fontWeight = FontWeight.Medium,
-                color = Color(0xFFBF360C),
-                lineHeight = 11.sp.scaled()
+                color = Color(0xFFBF360C)
             )
         }
     }
@@ -560,8 +557,7 @@ private fun TodayLetterCard(letter: Char) {
             } else {
                 Text(
                     text = letter.toString(),
-                    fontSize = 18.sp.scaled(),
-                    lineHeight = 20.sp.scaled(),
+                    style = MaterialTheme.typography.titleMedium.scaled(),
                     fontWeight = FontWeight.Bold,
                     color = accentColor
                 )
@@ -570,10 +566,9 @@ private fun TodayLetterCard(letter: Char) {
         Column {
             Text(
                 text = "Today's Letter",
-                fontSize = 9.sp.scaled(),
+                style = MaterialTheme.typography.labelSmall.scaled(),
                 fontWeight = FontWeight.Medium,
-                color = Color.Gray,
-                lineHeight = 11.sp.scaled()
+                color = Color.Gray
             )
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -581,10 +576,9 @@ private fun TodayLetterCard(letter: Char) {
             ) {
                 Text(
                     text = "Let's practice '$letter' today!",
-                    fontSize = 11.sp.scaled(),
+                    style = MaterialTheme.typography.labelSmall.scaled(),
                     fontWeight = FontWeight.Bold,
-                    color = Color.Black.copy(alpha = 0.7f),
-                    lineHeight = 13.sp.scaled()
+                    color = Color.Black.copy(alpha = 0.7f)
                 )
                 Icon(
                     painter = painterResource(R.drawable.ic_sparkles),
@@ -661,15 +655,13 @@ private fun AbacusBanner(context: Context) {
             Text(
                 text = "Also try: Abacus Math! 🧮",
                 color = Color.White,
-                fontSize = 9.sp.scaled(),
-                lineHeight = 9.sp.scaled(),
+                style = MaterialTheme.typography.labelSmall.scaled(),
                 fontWeight = FontWeight.Bold
             )
             Text(
                 text = "Fun counting for kids",
                 color = Color.White.copy(alpha = 0.82f),
-                fontSize = 9.sp.scaled(),
-                lineHeight = 9.sp.scaled(),
+                style = MaterialTheme.typography.labelSmall.scaled(),
                 fontWeight = FontWeight.Medium
             )
         }

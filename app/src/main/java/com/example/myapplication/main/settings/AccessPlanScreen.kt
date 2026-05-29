@@ -63,6 +63,7 @@ import androidx.compose.material.icons.filled.TextFormat
 import androidx.compose.material.icons.filled.TouchApp
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.Divider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -93,6 +94,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.getButtonColors
+import com.example.myapplication.utils.extensions.scaled
 
 // ── Data model ───────────────────────────────────────────────────────────────
 
@@ -247,7 +249,7 @@ private fun SectionBlock(section: PlanSection) {
                 text = section.title,
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
-                fontSize = 14.sp,
+                style = MaterialTheme.typography.labelLarge.scaled(),
                 modifier = Modifier.weight(1f),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
@@ -300,8 +302,7 @@ private fun TierLabel(icon: ImageVector, text: String, colWidth: androidx.compos
             text = text,
             color = Color.White,
             fontWeight = FontWeight.Bold,
-            fontSize = 10.sp,
-            lineHeight = 10.sp,
+            style = MaterialTheme.typography.labelSmall.scaled(),
             textAlign = TextAlign.Center,
             maxLines = 1
         )
@@ -333,7 +334,7 @@ private fun PlanRowItem(row: PlanRow, isEven: Boolean, tierColWidth: androidx.co
             Spacer(Modifier.width(Dimens6))
             Text(
                 text = row.title,
-                fontSize = 13.sp,
+                style = MaterialTheme.typography.bodyMedium.scaled(),
                 fontWeight = FontWeight.Medium,
                 color = Color.Black.copy(alpha = 0.85f),
                 maxLines = 2,
@@ -378,7 +379,7 @@ private fun AccessBadge(access: TierAccess, modifier: Modifier = Modifier) {
         Text(
             text = label,
             color = fg,
-            fontSize = 12.sp,
+            style = MaterialTheme.typography.labelMedium.scaled(),
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             maxLines = 1,

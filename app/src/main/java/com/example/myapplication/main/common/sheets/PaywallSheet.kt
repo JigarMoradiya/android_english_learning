@@ -160,8 +160,7 @@ fun PaywallSheet(
                     text = "Unlock ALL activities\nNo daily limits\nLearn without limits!",
                     color = Color(0xFF666666),
                     style = MaterialTheme.typography.bodySmall.scaled(),
-                    textAlign = TextAlign.Center,
-                    lineHeight = 18.sp
+                    textAlign = TextAlign.Center
                 )
             }
 
@@ -260,7 +259,7 @@ private fun PlanRowCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(Dimens8)
         ) {
-            Text(text = emoji, fontSize = 22.sp)
+            Text(text = emoji, style = MaterialTheme.typography.headlineLarge.scaled())
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(

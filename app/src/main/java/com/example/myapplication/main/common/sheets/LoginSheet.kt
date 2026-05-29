@@ -137,8 +137,7 @@ fun LoginSheet(
                     text = "Sign in to unlock more\nactivities and track\nlearning progress!",
                     color = Color(0xFF666666),
                     style = MaterialTheme.typography.bodySmall.scaled(),
-                    textAlign = TextAlign.Center,
-                    lineHeight = 18.sp
+                    textAlign = TextAlign.Center
                 )
             }
 
@@ -232,7 +231,7 @@ private fun SignInProviderButton(
             ) {
                 Text(
                     text = emoji,
-                    fontSize = 13.sp,
+                    style = MaterialTheme.typography.bodyMedium.scaled(),
                     color = Color.White,
                     fontWeight = FontWeight.Bold
                 )

@@ -44,7 +44,7 @@ val activities_age_5_7 = listOf(
     LearningActivityModel(R.string.listen_and_select_answer,R.drawable.age_5_7_listen_and_select,  RouteNavigation.ListenAndSelectWord.route,      Color(0xFFA53860), moduleId = ModuleID.LISTEN_AND_SELECT),
     LearningActivityModel(R.string.sight_word_choice,      R.drawable.age_5_7_sight_word_choice,    RouteNavigation.SightWordChoice.route,          Color(0xFFB45253), moduleId = ModuleID.SIGHT_WORD_CHOICE),
     LearningActivityModel(R.string.missing_letter,          R.drawable.age_5_7_missing_letter,       RouteNavigation.MissingLetterMedium.route,      Color(0xFFF97A00), moduleId = ModuleID.MISSING_LETTER_57),
-    LearningActivityModel(R.string.phonics_reading,                  R.drawable.age_5_7_phonics_reading_icon,         RouteNavigation.PhonicsReadingLevels.route,           Color(0xFF2C2EB9), moduleId = ModuleID.PHONICS_READING),
+//    LearningActivityModel(R.string.phonics_reading,                  R.drawable.age_5_7_phonics_reading_icon,         RouteNavigation.PhonicsReadingLevels.route,           Color(0xFF2C2EB9), moduleId = ModuleID.PHONICS_READING),
 //    LearningActivityModel(R.string.missing_letter,          R.drawable.age_5_7_coloring_word,       RouteNavigation.MissingLetterMedium.route,      Color(0xFFE91E63), moduleId = ModuleID.MISSING_LETTER_57),
 
 )

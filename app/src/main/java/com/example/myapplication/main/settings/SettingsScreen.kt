@@ -50,6 +50,7 @@ import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun SettingsScreen(
@@ -233,7 +234,7 @@ private fun UserStatusCard(
             Text(
                 text = name,
                 fontWeight = FontWeight.Bold,
-                fontSize = 18.sp,
+                style = MaterialTheme.typography.titleMedium.scaled(),
                 color = colors.base
             )
             // Premium: show plan name + price + renewal date
@@ -241,14 +242,14 @@ private fun UserStatusCard(
                 Row(horizontalArrangement = Arrangement.spacedBy(Dimens6)) {
                     Text(
                         text = subscriptionInfo.planName,
-                        fontSize = 13.sp,
+                        style = MaterialTheme.typography.bodyMedium.scaled(),
                         fontWeight = FontWeight.Medium,
                         color = Color.Black.copy(alpha = 0.75f)
                     )
                     if (subscriptionInfo.price.isNotEmpty()) {
                         Text(
                             text = "· ${subscriptionInfo.price}",
-                            fontSize = 13.sp,
+                            style = MaterialTheme.typography.bodyMedium.scaled(),
                             fontWeight = FontWeight.Medium,
                             color = Color.Black.copy(alpha = 0.75f)
                         )
@@ -256,11 +257,11 @@ private fun UserStatusCard(
                 }
                 Text(
                     text = subscriptionInfo.renewalDate,
-                    fontSize = 12.sp,
+                    style = MaterialTheme.typography.bodySmall.scaled(),
                     color = Color.Gray
                 )
             } else {
-                Text(text = desc, fontSize = 13.sp, color = Color.Gray)
+                Text(text = desc, style = MaterialTheme.typography.bodyMedium.scaled(), color = Color.Gray)
             }
         }
 
@@ -343,8 +344,8 @@ private fun SettingsRow(
         Spacer(Modifier.width(Dimens12))
 
         Column(modifier = Modifier.weight(1f)) {
-            Text(title, fontWeight = FontWeight.Bold, fontSize = 15.sp, color = Color.Black)
-            Text(subtitle, fontSize = 12.sp, color = Color.Gray)
+            Text(title, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.titleSmall.scaled(), color = Color.Black)
+            Text(subtitle, style = MaterialTheme.typography.bodySmall.scaled(), color = Color.Gray)
         }
 
         Icon(
@@ -390,8 +391,8 @@ private fun MusicVolumeRow(volume: Float, onVolumeChange: (Float) -> Unit) {
             Spacer(Modifier.width(Dimens12))
 
             Column(modifier = Modifier.weight(1f)) {
-                Text("Background Music", fontWeight = FontWeight.Bold, fontSize = 15.sp, color = Color.Black)
-                Text("Adjust music volume", fontSize = 12.sp, color = Color.Gray)
+                Text("Background Music", fontWeight = FontWeight.Bold, style = MaterialTheme.typography.titleSmall.scaled(), color = Color.Black)
+                Text("Adjust music volume", style = MaterialTheme.typography.bodySmall.scaled(), color = Color.Gray)
             }
 
             Icon(
