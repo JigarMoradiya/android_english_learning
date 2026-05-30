@@ -101,25 +101,26 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="access logic changed">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="changes of paywall free trial">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/AccessConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/AccessConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/AccessManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/AccessManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/DailyLimitManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/DailyLimitManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/ModuleID.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/ModuleID.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/progress/SessionRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/progress/SessionRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/purchase/PurchaseManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/purchase/PurchaseManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/AgeCategoriesHomePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/AgeCategoriesHomePage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/view_model/AgeCategoriesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_category/view_model/AgeCategoriesViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/AccessBottomSheetHost.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/AccessBottomSheetHost.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/AccessSheetState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/AccessSheetState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/common/unit/SentenceUnitPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/common/unit/SentenceUnitPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/read_listen/view_model/ReadAndListenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/read_listen/view_model/ReadAndListenViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/AccessSheetViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/AccessSheetViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/KidsBottomSheet.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/KidsBottomSheet.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/settings/AccessPlanScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/settings/AccessPlanScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/settings/SettingsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/settings/SettingsScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/settings/SettingsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/settings/SettingsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utilities/pref/AppPreferencesHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utilities/pref/AppPreferencesHelper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +136,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[LocalEmulator::path=/Users/jigarmoradiya/.android/avd/Pixel_Tablet_2.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=RZ8RC0C1F6B]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -243,39 +244,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
-    &quot;ApkExportedModule&quot;: &quot;My_Application.app&quot;,
-    &quot;BundleExportedModule&quot;: &quot;My_Application.app&quot;,
-    &quot;Compose Preview.PreviewSentences.executor&quot;: &quot;Run&quot;,
-    &quot;DEBUGGABLE_DEVICE&quot;: &quot;samsung-sm_m127g-RZ8RC0C1F6B&quot;,
-    &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.vedaavi.english.learning&quot;,
-    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
-    &quot;ExportApk.ApkPathForMy_Application.app&quot;: &quot;/Users/jigarmoradiya/Documents/newProjects/MyApplication/app&quot;,
-    &quot;ExportBundle.BundlePathForMy_Application.app&quot;: &quot;/Users/jigarmoradiya/Documents/newProject/eng/android/app&quot;,
-    &quot;Gradle.MyApplication [signingReport].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;login__and__inapp&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jigarmoradiya/Documents/newProject/eng/android/app/src/main/res/drawable&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.android.studio.ml.bot.mainConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "ApkExportedModule": "My_Application.app",
+    "BundleExportedModule": "My_Application.app",
+    "Compose Preview.PreviewSentences.executor": "Run",
+    "DEBUGGABLE_DEVICE": "samsung-sm_m127g-RZ8RC0C1F6B",
+    "DEBUGGABLE_PROCESS": "com.vedaavi.english.learning",
+    "DEBUGGER_ID": "Auto",
+    "ExportApk.ApkPathForMy_Application.app": "/Users/jigarmoradiya/Documents/newProjects/MyApplication/app",
+    "ExportBundle.BundlePathForMy_Application.app": "/Users/jigarmoradiya/Documents/newProject/eng/android/app",
+    "Gradle.MyApplication [signingReport].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SHOW_ALL_PROCESSES": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "git-widget-placeholder": "login__and__inapp",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jigarmoradiya/Documents/newProject/eng/android/app/src/main/res/drawable",
+    "settings.editor.selected.configurable": "com.android.studio.ml.bot.mainConfigurable"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ExportApk.BuildVariants&quot;: [
-      &quot;dev1Release&quot;
+  "keyToStringList": {
+    "ExportApk.BuildVariants": [
+      "dev1Release"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
@@ -505,22 +507,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00146" summary="- base setup for parent report&#10;- done for match upper and lower case&#10;- done for match letter with image">
-      <option name="closed" value="true" />
-      <created>1779543433140</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1779543433140</updated>
-    </task>
-    <task id="LOCAL-00147" summary="word match with image report done">
-      <option name="closed" value="true" />
-      <created>1779545866666</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1779545866666</updated>
     </task>
     <task id="LOCAL-00148" summary="color change for letter tracing">
       <option name="closed" value="true" />
@@ -898,12 +884,26 @@
       <option name="project" value="LOCAL" />
       <updated>1780072962753</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="INCREASE REVIEWS &amp; RATINGS STRATEGY">
+      <option name="closed" value="true" />
+      <created>1780119450807</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1780119450807</updated>
+    </task>
+    <task id="LOCAL-00196" summary="changes of paywall free trial">
+      <option name="closed" value="true" />
+      <created>1780127295873</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1780127295873</updated>
+    </task>
+    <option name="localTasksCounter" value="197" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="parent report done for article choice and sight word choice" />
-    <MESSAGE value="parent report done for vocabulary category" />
     <MESSAGE value="parent report done for article a &amp; an, sight words" />
     <MESSAGE value="parent report done for read &amp; listen" />
     <MESSAGE value="parent report done for read &amp; listen, one word answer, also sub page of age group 6-8 done" />
@@ -927,7 +927,9 @@
     <MESSAGE value="apply access to phonics letter page" />
     <MESSAGE value="subscription flow" />
     <MESSAGE value="access logic changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="access logic changed" />
+    <MESSAGE value="INCREASE REVIEWS &amp; RATINGS STRATEGY" />
+    <MESSAGE value="changes of paywall free trial" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes of paywall free trial" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -955,12 +957,12 @@
         </entry>
         <entry key="com.vedaavi.english.learning">
           <value>
-            <CheckInfo lastCheckTimestamp="1780040698394" />
+            <CheckInfo lastCheckTimestamp="1780138214866" />
           </value>
         </entry>
         <entry key="com.vedaavi.english.learning.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1780040698377" />
+            <CheckInfo lastCheckTimestamp="1780138214847" />
           </value>
         </entry>
       </map>

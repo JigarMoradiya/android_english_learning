@@ -241,7 +241,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.GRAMMAR_CHALLENGE_MEDIUM,
             ModuleID.GRAMMAR_CHALLENGE_ADVANCED -> RouteNavigation.MixedGrammarChallenge.route
             ModuleID.CHOOSE_RIGHT_SENTENCE      -> RouteNavigation.ChooseTheRightSentence.route
-            ModuleID.READ_LISTEN_ALL       -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name)
+            ModuleID.READ_LISTEN       -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name)
             ModuleID.ONE_WORD_ANSWER       -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.ONE_WORD_ANSWER.name)
             ModuleID.FILL_MISSING_WORD     -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.FILL_THE_MISSING_WORD.name)
             ModuleID.MATCH_THE_PICTURE     -> RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.MATCH_THE_PICTURE.name)
@@ -650,7 +650,7 @@ class ParentProgressViewModel @Inject constructor(
                         scoreText = scoreStr
                     ) to latest)
                 }
-            } else if (moduleId == ModuleID.READ_LISTEN_ALL) {
+            } else if (moduleId == ModuleID.READ_LISTEN) {
                 sessions
                     .groupBy { Pair(it.chapterTitle ?: "Other", it.subConfig ?: "Short Sentence") }
                     .forEach { (key, configSessions) ->
@@ -902,7 +902,7 @@ class ParentProgressViewModel @Inject constructor(
         }
 
         // Read & Listen — lesson titles grouped by difficulty (Short Sentence / Long Sentence)
-        sessions.filter { it.moduleId == ModuleID.READ_LISTEN_ALL }
+        sessions.filter { it.moduleId == ModuleID.READ_LISTEN }
             .groupBy { it.subConfig ?: "Short Sentence" }
             .forEach { (config, cfgSessions) ->
                 val lessons = cfgSessions.flatMap { it.correctItems.orEmpty() }
@@ -1159,7 +1159,7 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.VOCABULARY_COLORS       to ("Vocabulary - Colors"     to "5–7"),
             ModuleID.VOCABULARY_SHAPES       to ("Vocabulary - Shapes"     to "5–7"),
             ModuleID.VOCABULARY_VEHICLES     to ("Vocabulary - Vehicles"   to "5–7"),
-            ModuleID.READ_LISTEN_ALL         to ("Read & Listen"           to "6–8"),
+            ModuleID.READ_LISTEN         to ("Read & Listen"           to "6–8"),
             ModuleID.ONE_WORD_ANSWER         to ("One Word Answer"         to "6–8"),
             ModuleID.FILL_MISSING_WORD       to ("Fill Missing Word"       to "6–8"),
             ModuleID.SENTENCE_CHECK          to ("Sentence Check"          to "6–8"),

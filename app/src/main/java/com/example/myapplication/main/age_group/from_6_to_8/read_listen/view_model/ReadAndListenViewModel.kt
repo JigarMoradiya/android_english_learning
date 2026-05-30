@@ -120,7 +120,7 @@ class ReadAndListenViewModel @Inject constructor(
             )
             sessionRepository.record(
                 LearningSession(
-                    moduleId = ModuleID.READ_LISTEN_ALL,
+                    moduleId = ModuleID.READ_LISTEN,
                     ageGroup = AgeGroup.SIX_TO_EIGHT,
                     durationSeconds = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt(),
                     score = 0,

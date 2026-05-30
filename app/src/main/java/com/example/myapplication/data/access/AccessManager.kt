@@ -1,6 +1,7 @@
 package com.example.myapplication.data.access
 
 import android.util.Log
+import com.google.gson.Gson
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -61,9 +62,9 @@ class AccessManager @Inject constructor(
                 Log.w(TAG, "checkAccess → moduleId='$moduleId' not in AccessConfig, allowing by default")
                 return AccessResult.Allowed
             }
-
+        Log.d(TAG, "checkAccess → config='$config'")
         val state = _userState.value
-        Log.d(TAG, "checkAccess → moduleId='$moduleId' | level=${config.accessLevel} | userState=$state")
+        Log.d(TAG, "checkAccess → moduleId='$moduleId' | level=${config.accessLevel} | userState=${Gson().toJson(state)}")
 
         // Developer mode — treat everything as premium
         if (DEV_MODE) {
@@ -79,7 +80,13 @@ class AccessManager @Inject constructor(
 
         val result = when (config.accessLevel) {
 
-            AccessLevel.FREE -> AccessResult.Allowed
+            AccessLevel.FREE -> {
+                // Apply daily limit: 1/day for guests, 3/day for logged-in free users
+                if (!dailyLimitManager.hasAttemptsLeft(state.isLoggedIn)) {
+                    return AccessResult.DailyLimitReached(remaining = 0, canUnlockWithLogin = !state.isLoggedIn)
+                }
+                AccessResult.Allowed
+            }
 
             AccessLevel.FREE_LIMITED -> {
                 if (!dailyLimitManager.hasAttemptsLeft(state.isLoggedIn)) {
@@ -100,13 +107,24 @@ class AccessManager @Inject constructor(
         return result
     }
 
-    /** Call this when the user actually starts a FREE_LIMITED activity. */
+    /** Call this when the user is allowed into any activity. */
     suspend fun recordAttempt(moduleId: String) {
-        val config = AccessConfig.get(moduleId) ?: return
-        if (config.accessLevel == AccessLevel.FREE_LIMITED) {
+        val state = _userState.value
+        if (state.isPremium) return
+        val config = AccessConfig.get(moduleId)
+        if (config == null) {
+            // Unknown / empty moduleId — count for all non-premium users
             dailyLimitManager.recordModulePlayed(moduleId)
-            Log.d(TAG, "recordAttempt → moduleId='$moduleId'")
+            return
         }
+        when (config.accessLevel) {
+            AccessLevel.FREE, AccessLevel.FREE_LIMITED -> {
+                // All non-premium users count: guest 1/day, logged-in free 3/day
+                dailyLimitManager.recordModulePlayed(moduleId)
+            }
+            else -> Unit
+        }
+        Log.d(TAG, "recordAttempt → moduleId='$moduleId' | state=$state")
     }
 
     /** Returns global remaining activity slots today for FREE_LIMITED modules. */

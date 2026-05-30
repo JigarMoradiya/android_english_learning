@@ -1,6 +1,8 @@
 package com.example.myapplication.main.settings
 
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.setValue
@@ -12,6 +14,7 @@ import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.data.auth.AuthManager
+import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.data.purchase.PurchaseManager
 import com.example.myapplication.data.purchase.RevenueCatManager
 import com.example.myapplication.utilities.BGMusicManager
@@ -42,6 +45,7 @@ class SettingsViewModel @Inject constructor(
     private val dailyLimitManager: DailyLimitManager,
     private val reviewManager: ReviewManager,
     private val streakRepository: com.example.myapplication.data.progress.StreakRepository,
+    private val sessionRepository: SessionRepository,
     private val appPrefs: AppPreferencesHelper,
 ) : ViewModel() {
 
@@ -98,6 +102,19 @@ class SettingsViewModel @Inject constructor(
 
     fun clearTrialOfferFlags() {
         appPrefs.clearTrialOfferFlags()
+    }
+
+    fun clearAllPreferences(context: Context) {
+        viewModelScope.launch {
+            dailyLimitManager.clearAll()   // DataStore
+            sessionRepository.clearAll()   // in-memory cache + SharedPreferences
+            appPrefs.clearPref()           // remaining SharedPreferences
+            // Restart so all in-memory singletons reinitialize from clean storage
+            val intent = context.packageManager.getLaunchIntentForPackage(context.packageName)
+                ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK) }
+            context.startActivity(intent)
+            android.os.Process.killProcess(android.os.Process.myPid())
+        }
     }
 
     fun simulateSixDayStreak() {

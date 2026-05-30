@@ -39,8 +39,8 @@ object ModuleID {
     const val WORD_JIGSAW               = "word_jigsaw"
 
     // ── Age 6–8: Sentence Builder ─────────────────────────────────────
-    const val READ_LISTEN_UNIT1         = "read_listen_unit1"
-    const val READ_LISTEN_ALL           = "read_listen_all"
+    const val READ_LISTEN_PREMIUM_UNIT         = "read_listen_premium_unit"
+    const val READ_LISTEN           = "read_listen"
     const val GRAMMAR_NOUNS             = "grammar_nouns"
     const val GRAMMAR_VERBS             = "grammar_verbs"
     const val GRAMMAR_ADJECTIVES        = "grammar_adjectives"

@@ -111,59 +111,54 @@ fun SentenceUnitPage(
                 verticalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
 
-                val unit1OnlyScreens = setOf(
-                    UnitSelectionScreen.READ_AND_LISTEN_SENTENCE,
-                    UnitSelectionScreen.ONE_WORD_ANSWER,
-                    UnitSelectionScreen.FILL_THE_MISSING_WORD,
-                )
-
                 itemsIndexed(uiState.sentenceUnitsList) { index, item ->
 
                     StyledColumn(
                         unlocked = true,
                         modifier = Modifier
-                            .clip(RoundedCornerShape(Dimens12)) // 👈 IMPORTANT
+                            .clip(RoundedCornerShape(Dimens12))
                             .clickable {
                                 AudioPlayerManager.playSoundMenuClick()
-                                // Unit 1 (index 0) is free for all; units 2+ require premium
-                                if (index > 0 && screenType in unit1OnlyScreens) {
-                                    scope.launch {
-                                        val hasAccess = accessVM.checkAccess(ModuleID.READ_LISTEN_ALL)
-                                        if (!hasAccess) return@launch
-                                        navController.navigate(
-                                            RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, uiState.level.name)
-                                        )
-                                    }
-                                    return@clickable
-                                }else if (index > 0 && screenType == UnitSelectionScreen.SENTENCE_CHECK) {
-                                    scope.launch {
-                                        val hasAccess = accessVM.checkAccess(ModuleID.READ_LISTEN_ALL)
-                                        if (!hasAccess) return@launch
-                                        navController.navigate(
+
+                                val navigate: () -> Unit = {
+                                    when (screenType) {
+                                        UnitSelectionScreen.MATCH_THE_PICTURE ->
+                                            navController.navigate(RouteNavigation.MatchThePicture.matchThePicture(item.unit.name, uiState.level.name))
+                                        UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT ->
+                                            navController.navigate(RouteNavigation.WhichSentenceSoundRight.whichSentenceSoundRight(item.unit.name, uiState.level.name))
+                                        UnitSelectionScreen.FIND_THE_CORRECT_WRITING ->
+                                            navController.navigate(RouteNavigation.FindTheCorrectWriting.findTheCorrectWriting(item.unit.name, uiState.level.name))
+                                        UnitSelectionScreen.SENTENCE_CHECK ->
                                             navController.navigate(RouteNavigation.SentenceCheck.sentenceCheck(item.unit.name, uiState.level.name))
-                                        )
+                                        UnitSelectionScreen.BUILD_THE_SENTENCE ->
+                                            navController.navigate(RouteNavigation.SentenceBuilder.sentenceBuilder(item.unit.name, uiState.level.name))
+                                        else ->
+                                            navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, uiState.level.name))
                                     }
-                                    return@clickable
                                 }
-                                when (screenType) {
-                                    UnitSelectionScreen.MATCH_THE_PICTURE -> {
-                                        navController.navigate(RouteNavigation.MatchThePicture.matchThePicture(item.unit.name, uiState.level.name))
+
+                                // Premium-only screens: every unit requires subscription
+                                val premiumModuleId: String? = when (screenType) {
+                                    UnitSelectionScreen.MATCH_THE_PICTURE           -> ModuleID.MATCH_THE_PICTURE
+                                    UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT -> ModuleID.WHICH_SENTENCE_RIGHT
+                                    UnitSelectionScreen.FIND_THE_CORRECT_WRITING    -> ModuleID.FIND_CORRECT_WRITING
+                                    UnitSelectionScreen.BUILD_THE_SENTENCE          -> ModuleID.SENTENCE_BUILDER
+                                    UnitSelectionScreen.SENTENCE_CHECK              -> ModuleID.SENTENCE_CHECK
+                                    else                                             -> null
+                                }
+
+                                scope.launch {
+                                    val moduleId = when {
+                                        premiumModuleId != null -> premiumModuleId
+                                        index > 0 -> ModuleID.READ_LISTEN_PREMIUM_UNIT
+                                        else -> when (screenType) {
+                                            UnitSelectionScreen.READ_AND_LISTEN_SENTENCE -> ModuleID.READ_LISTEN
+                                            UnitSelectionScreen.ONE_WORD_ANSWER          -> ModuleID.ONE_WORD_ANSWER
+                                            UnitSelectionScreen.FILL_THE_MISSING_WORD    -> ModuleID.FILL_MISSING_WORD
+                                            else                                         -> ModuleID.READ_LISTEN
+                                        }
                                     }
-                                    UnitSelectionScreen.WHICH_SENTENCE_SOUNDS_RIGHT -> {
-                                        navController.navigate(RouteNavigation.WhichSentenceSoundRight.whichSentenceSoundRight(item.unit.name, uiState.level.name))
-                                    }
-                                    UnitSelectionScreen.FIND_THE_CORRECT_WRITING -> {
-                                        navController.navigate(RouteNavigation.FindTheCorrectWriting.findTheCorrectWriting(item.unit.name, uiState.level.name))
-                                    }
-                                    UnitSelectionScreen.SENTENCE_CHECK -> {
-                                        navController.navigate(RouteNavigation.SentenceCheck.sentenceCheck(item.unit.name, uiState.level.name))
-                                    }
-                                    UnitSelectionScreen.BUILD_THE_SENTENCE -> {
-                                        navController.navigate(RouteNavigation.SentenceBuilder.sentenceBuilder(item.unit.name, uiState.level.name))
-                                    }
-                                    else -> {
-                                        navController.navigate(RouteNavigation.SentenceLessonList.sentenceLessonList(screenType.name, item.unit.name, uiState.level.name))
-                                    }
+                                    if (accessVM.checkAccess(moduleId)) navigate()
                                 }
                             }
                     ) {

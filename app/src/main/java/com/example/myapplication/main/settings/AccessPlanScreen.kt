@@ -168,7 +168,7 @@ private val planSections = listOf(
             PlanRow(Icons.Filled.Book,                       "Read & Listen (Unit 1)",            TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.AutoMirrored.Filled.Chat,          "One Word Answer (Unit 1)",          TierAccess.Full,          TierAccess.Full),
             PlanRow(Icons.Filled.BorderColor,                "Fill the Missing Word (Unit 1)",    TierAccess.Full,          TierAccess.Full),
-            PlanRow(Icons.Filled.Search,                     "Sentence Check (True/False) (Unit 1)", TierAccess.Full,       TierAccess.Full),
+            PlanRow(Icons.Filled.Search,                     "Sentence Check (True/False)",          TierAccess.Premium,    TierAccess.Premium),
             PlanRow(Icons.Filled.Photo,                      "Match the Picture",                 TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.Adjust,                     "Which Sentence is Right?",          TierAccess.Premium,       TierAccess.Premium),
             PlanRow(Icons.Filled.Create,                     "Find Correct Writing",              TierAccess.Premium,       TierAccess.Premium),

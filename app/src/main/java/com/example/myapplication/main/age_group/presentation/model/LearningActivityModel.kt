@@ -60,7 +60,7 @@ val vocabularyCategoryDataList = listOf(
 )
 
 val activities_age_6_8 = listOf(
-    LearningActivityModel(R.string.readListen,            R.drawable.age_6_8_read_sentences,          RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name), Color(0xFFD62828), moduleId = ""),  // FREE for all users
+    LearningActivityModel(R.string.readListen,            R.drawable.age_6_8_read_sentences,          RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.READ_AND_LISTEN_SENTENCE.name), Color(0xFFD62828), moduleId = ModuleID.READ_LISTEN),  // FREE for all users
     LearningActivityModel(R.string.chooseTheRightSentence,R.drawable.age_6_8_choose_the_right_sentence,RouteNavigation.ChooseTheRightSentence.route,Color(0xFF3265D3), moduleId = ""),  // FREE entry; inner pages gate themselves
     LearningActivityModel(R.string.oneWordAnswer,         R.drawable.age_6_8_one_word_answer,          RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.ONE_WORD_ANSWER.name),          Color(0xFFFF4400), moduleId = ModuleID.ONE_WORD_ANSWER),
     LearningActivityModel(R.string.sentenceBuilder,       R.drawable.age_6_8_build_the_sentence,       RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.BUILD_THE_SENTENCE.name),       Color(0xFF237227), moduleId = ModuleID.SENTENCE_BUILDER),

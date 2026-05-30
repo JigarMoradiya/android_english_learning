@@ -1,8 +1,6 @@
 package com.example.myapplication.data.progress
 
-import com.example.myapplication.data.access.AccessConfig
-import com.example.myapplication.data.access.AccessLevel
-import com.example.myapplication.data.access.DailyLimitManager
+import com.example.myapplication.data.access.AccessManager
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
@@ -18,7 +16,7 @@ import javax.inject.Singleton
 @Singleton
 class SessionRepository @Inject constructor(
     private val prefs: AppPreferencesHelper,
-    private val dailyLimitManager: DailyLimitManager,
+    private val accessManager: AccessManager,
     private val reviewManager: ReviewManager,
     private val streakRepository: StreakRepository
 ) {
@@ -39,10 +37,8 @@ class SessionRepository @Inject constructor(
         cache.add(session)
         prune()
         save()
-        if (AccessConfig.get(session.moduleId)?.accessLevel == AccessLevel.FREE_LIMITED) {
-            CoroutineScope(Dispatchers.IO).launch {
-                dailyLimitManager.recordModulePlayed(session.moduleId)
-            }
+        CoroutineScope(Dispatchers.IO).launch {
+            accessManager.recordAttempt(session.moduleId)
         }
         streakRepository.onActivityCompleted()
         reviewManager.onActivityCompleted(totalCount = cache.size)
@@ -56,6 +52,11 @@ class SessionRepository @Inject constructor(
 
     fun allSessions(): List<LearningSession> = cache.toList()
 
+    fun clearAll() {
+        cache.clear()
+        save()
+    }
+
     fun removeSessions(moduleId: String) {
         cache.removeAll { it.moduleId == moduleId }
         save()
@@ -63,8 +64,8 @@ class SessionRepository @Inject constructor(
 
     fun clearAge68Sessions() {
         val age68ModuleIds = setOf(
-            ModuleID.READ_LISTEN_UNIT1,
-            ModuleID.READ_LISTEN_ALL,
+            ModuleID.READ_LISTEN_PREMIUM_UNIT,
+            ModuleID.READ_LISTEN,
             ModuleID.GRAMMAR_NOUNS,
             ModuleID.GRAMMAR_VERBS,
             ModuleID.GRAMMAR_ADJECTIVES,

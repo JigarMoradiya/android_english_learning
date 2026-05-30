@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.AccessManager
 import com.example.myapplication.data.access.AccessResult
+import com.example.myapplication.data.access.DailyLimitManager
 import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.data.auth.AuthManager
@@ -13,6 +14,7 @@ import com.example.myapplication.data.auth.AuthResult
 import com.example.myapplication.data.purchase.PurchaseManager
 import com.example.myapplication.data.purchase.RevenueCatManager
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
+import com.google.gson.Gson
 import com.revenuecat.purchases.Package
 import kotlinx.coroutines.delay
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,6 +37,7 @@ class AccessSheetViewModel @Inject constructor(
     private val reviewManager: ReviewManager,
     private val revenueCatManager: RevenueCatManager,
     private val appPrefs: AppPreferencesHelper,
+    private val dailyLimitManager: DailyLimitManager,
 ) : ViewModel() {
 
     // ── User access state (observable by UI) ─────────────────────────
@@ -126,12 +129,31 @@ class AccessSheetViewModel @Inject constructor(
      */
     suspend fun checkAccess(moduleId: String): Boolean {
         Log.d(TAG, "checkAccess → moduleId='$moduleId'")
-        return when (val result = accessManager.checkAccess(moduleId)) {
+
+        // Empty moduleId = unregistered free activity, still enforce daily limit for non-premium users
+        if (moduleId.isEmpty()) {
+            val state = accessManager.userState.value
+            if (!state.isPremium) {
+                if (!dailyLimitManager.hasAttemptsLeft(isLoggedIn = state.isLoggedIn)) {
+                    _sheetState.value = AccessSheetState.DailyLimit(
+                        moduleId = moduleId,
+                        canUnlockWithLogin = !state.isLoggedIn
+                    )
+                    return false
+                }
+                dailyLimitManager.recordModulePlayed(moduleId)
+            }
+            return true
+        }
+
+        val hasAccessResult = accessManager.checkAccess(moduleId)
+        Log.d(TAG, "checkAccess → hasAccessResult='${Gson().toJson(hasAccessResult)}'")
+        return when (hasAccessResult) {
             is AccessResult.Allowed -> true
             is AccessResult.DailyLimitReached -> {
                 _sheetState.value = AccessSheetState.DailyLimit(
                     moduleId = moduleId,
-                    canUnlockWithLogin = result.canUnlockWithLogin
+                    canUnlockWithLogin = hasAccessResult.canUnlockWithLogin
                 )
                 false
             }

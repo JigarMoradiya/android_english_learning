@@ -1,6 +1,7 @@
 package com.example.myapplication.data.access
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -26,6 +27,9 @@ private val Context.dailyLimitDataStore: DataStore<Preferences>
  *   Free login → 3 activities/day
  *   Same activity CAN be replayed (each replay costs 1 slot).
  */
+
+private const val TAG = "DailyLimitManager"
+
 @Singleton
 class DailyLimitManager @Inject constructor(
     @ApplicationContext private val context: Context
@@ -39,6 +43,8 @@ class DailyLimitManager @Inject constructor(
     /** Returns true if the user still has activity slots remaining today. */
     suspend fun hasAttemptsLeft(isLoggedIn: Boolean): Boolean {
         val limit = if (isLoggedIn) freeLimit else guestLimit
+        Log.d(TAG, "hasAttemptsLeft → limit = $limit")
+        Log.d(TAG, "hasAttemptsLeft → globalCount = ${globalCount()}")
         return globalCount() < limit
     }
 
@@ -54,6 +60,11 @@ class DailyLimitManager @Inject constructor(
         context.dailyLimitDataStore.edit { prefs ->
             prefs.remove(countKey)
         }
+    }
+
+    /** Wipes the entire DataStore. For dev testing only. */
+    suspend fun clearAll() {
+        context.dailyLimitDataStore.edit { it.clear() }
     }
 
     /** Increments the global daily count. Called once per completed FREE_LIMITED session. */

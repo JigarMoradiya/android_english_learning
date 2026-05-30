@@ -250,6 +250,16 @@ fun SettingsScreen(
 //                    }
 //                }
 
+                // ── [DEV] Clear all app preferences ──────────────────────
+                SettingsCard {
+                    SettingsRow(
+                        icon = Icons.Filled.Delete,
+                        title = "Clear All App Data",
+                        subtitle = "Dev only — wipes all data and restarts the app",
+                        type = ButtonType.RED
+                    ) { viewModel.clearAllPreferences(context) }
+                }
+
                 Spacer(Modifier.height(Dimens16))
             }
         }
