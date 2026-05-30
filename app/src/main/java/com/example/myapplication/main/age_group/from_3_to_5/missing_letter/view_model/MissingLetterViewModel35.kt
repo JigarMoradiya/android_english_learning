@@ -274,7 +274,7 @@ class MissingLetterViewModel35 @Inject constructor(
         if (!dropped.contains(null)) {
 
             if (word == targetWord) {
-                AudioPlayerManager.playSoundCorrectAnswer()
+                AudioPlayerManager.playSoundClap()
                 if (!currentRoundHadWrong) {
                     correctAttemptsInBatch.add(targetWord)
                 }

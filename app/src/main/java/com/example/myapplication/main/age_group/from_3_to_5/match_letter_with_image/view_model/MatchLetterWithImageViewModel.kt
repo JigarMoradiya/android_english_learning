@@ -132,7 +132,7 @@ class MatchLetterWithImageViewModel @Inject constructor(
                 val score = batchSize - wrongAttemptsInBatch.size
                 val stars = computeStars(score, batchSize)
                 recordSession(score)
-                AudioPlayerManager.playSoundClap()
+                if (score.toDouble() / batchSize.toDouble() >= 0.7) AudioPlayerManager.playSoundClap()
                 uiState = uiState.copy(
                     batchScore = score,
                     earnedStars = stars,

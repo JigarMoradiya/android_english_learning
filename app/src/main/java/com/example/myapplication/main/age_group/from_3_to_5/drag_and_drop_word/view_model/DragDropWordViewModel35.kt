@@ -210,7 +210,7 @@ class DragDropWordViewModel35 @Inject constructor(
                     correctAttemptsInBatch.add(targetWord)
                 }
                 val newCorrectCount = if (!currentRoundHadWrong) uiState.correctCount + 1 else uiState.correctCount
-                AudioPlayerManager.playSoundCorrectAnswer()
+                AudioPlayerManager.playSoundClap()
                 uiState = uiState.copy(
                     showSuccess = true,
                     feedbackTextRes = feedbackTitles.random(),

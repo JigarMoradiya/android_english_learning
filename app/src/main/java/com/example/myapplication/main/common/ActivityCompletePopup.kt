@@ -287,7 +287,8 @@ fun ActivityCompletePopup(
             }
         }
 
-        if (!isPreview) ConfettiRainEffect()
+        val isGoodResult = total == 0 || score.toDouble() / total.toDouble() >= 0.7
+        if (!isPreview && isGoodResult) ConfettiRainEffect()
     }
 }
 

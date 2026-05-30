@@ -36,6 +36,7 @@ import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.example.myapplication.utils.extensions.OtherEx.safeAction
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -45,7 +46,8 @@ import javax.inject.Inject
 @HiltViewModel
 class AlphabetTracingViewModel @Inject constructor(
     private val sessionRepository: SessionRepository,
-    private val prefs: AppPreferencesHelper
+    private val prefs: AppPreferencesHelper,
+    private val ttsManager: TextToSpeechManager
 ) : ViewModel() {
 
     var uiState by mutableStateOf(LetterTracingUiState())
@@ -167,8 +169,21 @@ class AlphabetTracingViewModel @Inject constructor(
         if (uiState.strokeIndex >= cachedGuides.size) markCurrentLetterCompleted()
     }
 
+    private val beginnerPraise = listOf(
+        "Good start!", "Nice try!", "You are awesome!", "Keep going!",
+        "That's a good effort!", "Well done!", "Great job!", "Very nice!"
+    )
+    private val advancedPraise = listOf(
+        "You are amazing!", "You are doing great!", "Wow! That was fantastic!",
+        "Superstar work!", "You nailed it!", "You're doing great!",
+        "That was brilliant!", "You are a superstar!", "That was perfect!",
+        "Keep going!", "Outstanding performance!", "You're doing incredible!"
+    )
+
     private fun markCurrentLetterCompleted() {
         completedLettersInSession.add(currentLetter.toString())
+        val praise = if (uiState.currentIndex < 3) beginnerPraise.random() else advancedPraise.random()
+        ttsManager.speak(praise)
     }
 
     // -------------------------------
