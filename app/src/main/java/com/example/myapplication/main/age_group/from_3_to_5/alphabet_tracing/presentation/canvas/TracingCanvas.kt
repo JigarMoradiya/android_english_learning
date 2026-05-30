@@ -166,12 +166,12 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
             // 3b️⃣ FINISHED STROKE DECORATIONS
             // -------------------------------
             imageBitmap?.let { bitmap ->
-                val decorSize = sizePx * 0.06f
-                val decorStep = 8
+                val decorSize = sizePx * if (isLowercase) 0.04f else 0.06f
+                val minDecorDist = decorSize * 1.4f
                 val decorAlpha = if (isCompleted) 1f else 0.35f
 
                 uiState.finishedStrokes.forEachIndexed { idx, stroke ->
-                    stroke.filterIndexed { pidx, _ -> pidx % decorStep == 0 }
+                    stroke.filterByDist(minDecorDist)
                         .forEachIndexed { pidx, point ->
                             val rotDeg = ((pidx * 47 + idx * 23) % 60 - 30).toFloat()
                             withTransform({ rotate(degrees = rotDeg, pivot = point) }) {
@@ -218,10 +218,10 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
                     )
                 }
                 imageBitmap?.let { bitmap ->
-                    val decorSize = sizePx * 0.06f
-                    val decorStep = 8
+                    val decorSize = sizePx * if (isLowercase) 0.04f else 0.06f
+                    val minDecorDist = decorSize * 1.4f
                     guides.forEachIndexed { idx, stroke ->
-                        stroke.filterIndexed { pidx, _ -> pidx % decorStep == 0 }
+                        stroke.filterByDist(minDecorDist)
                             .forEachIndexed { pidx, point ->
                                 val rotDeg = ((pidx * 47 + idx * 23) % 60 - 30).toFloat()
                                 withTransform({ rotate(degrees = rotDeg, pivot = point) }) {
@@ -303,10 +303,10 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
             // 4b️⃣ LIVE STROKE DECORATIONS
             // -------------------------------
             imageBitmap?.let { bitmap ->
-                val decorSize = sizePx * 0.06f
-                val decorStep = 8
+                val decorSize = sizePx * if (isLowercase) 0.04f else 0.06f
+                val minDecorDist = decorSize * 1.4f
 
-                uiState.drawnPoints.filterIndexed { pidx, _ -> pidx % decorStep == 0 }
+                uiState.drawnPoints.filterByDist(minDecorDist)
                     .forEachIndexed { pidx, point ->
                         val rotDeg = ((pidx * 47) % 60 - 30).toFloat()
                         withTransform({ rotate(degrees = rotDeg, pivot = point) }) {
@@ -370,4 +370,17 @@ fun TracingCanvas(viewModel: AlphabetTracingViewModel = hiltViewModel()) {
             }
         }
     }
+}
+
+private fun List<Offset>.filterByDist(minDist: Float): List<Offset> {
+    val result = mutableListOf<Offset>()
+    var last: Offset? = null
+    for (pt in this) {
+        val l = last
+        if (l == null || (pt - l).getDistance() >= minDist) {
+            result.add(pt)
+            last = pt
+        }
+    }
+    return result
 }

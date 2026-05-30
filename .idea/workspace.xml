@@ -101,12 +101,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="solving access bug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/match_latters/view_model/MatchLettersViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/match_latters/view_model/MatchLettersViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/match_letter_with_image/view_model/MatchLetterWithImageViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/match_letter_with_image/view_model/MatchLetterWithImageViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/ActivityCompletePopup.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/ActivityCompletePopup.kt" afterDir="false" />
-    </list>
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="missing this done for age group 5-7" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -493,22 +488,6 @@
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
     </task>
-    <task id="LOCAL-00149" summary="changes for need practices logic">
-      <option name="closed" value="true" />
-      <created>1779631415671</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1779631415671</updated>
-    </task>
-    <task id="LOCAL-00150" summary="need practice data store matching wise">
-      <option name="closed" value="true" />
-      <created>1779632094265</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1779632094265</updated>
-    </task>
     <task id="LOCAL-00151" summary="parent report for fill the blank">
       <option name="closed" value="true" />
       <created>1779645076884</created>
@@ -885,12 +864,26 @@
       <option name="project" value="LOCAL" />
       <updated>1780142545640</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="missing this done for age group 3-5">
+      <option name="closed" value="true" />
+      <created>1780147758154</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1780147758154</updated>
+    </task>
+    <task id="LOCAL-00199" summary="missing this done for age group 5-7">
+      <option name="closed" value="true" />
+      <created>1780149722868</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1780149722868</updated>
+    </task>
+    <option name="localTasksCounter" value="200" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="parent report done for read &amp; listen" />
-    <MESSAGE value="parent report done for read &amp; listen, one word answer, also sub page of age group 6-8 done" />
     <MESSAGE value="parent report done for fill the blank" />
     <MESSAGE value="parent report done for fill the blank with sentence label add" />
     <MESSAGE value="parent report done for sentence check" />
@@ -914,7 +907,9 @@
     <MESSAGE value="INCREASE REVIEWS &amp; RATINGS STRATEGY" />
     <MESSAGE value="changes of paywall free trial" />
     <MESSAGE value="solving access bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="solving access bug" />
+    <MESSAGE value="missing this done for age group 3-5" />
+    <MESSAGE value="missing this done for age group 5-7" />
+    <option name="LAST_COMMIT_MESSAGE" value="missing this done for age group 5-7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
