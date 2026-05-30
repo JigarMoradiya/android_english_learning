@@ -76,11 +76,12 @@ fun MascotPanel(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = if (isTablet) Arrangement.Center else Arrangement.Top
     ) {
-        // Speech bubble — wraps to text width with downward-pointing tail
+        // Speech bubble — wraps to text width with downward-pointing tail, right-aligned
         Box(
             modifier = Modifier
                 .wrapContentWidth()
-                .padding(horizontal = Dimens8)
+                .align(Alignment.End)
+                .padding(end = Dimens8)
                 .shadow(
                     elevation = Dimens3,
                     shape = DownBubbleShape(),
@@ -108,22 +109,21 @@ fun MascotPanel(
             Text(
                 text = message,
                 textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.labelSmall.scaled(),
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.labelLarge.scaled(),
+                fontWeight = FontWeight.Black,
                 color = textColor
             )
         }
 
         // Mascot — fills remaining height, bottom padding prevents overflow
         Image(
-            painter = painterResource(id = R.drawable._mascot_lion),
+            painter = painterResource(id = R.drawable._mascot_),
             contentDescription = null,
             contentScale = ContentScale.Fit,
             modifier = (if (!isTablet) Modifier.weight(1f) else Modifier)
                 .fillMaxWidth()
                 .padding(horizontal = Dimens4)
-                .padding(bottom = Dimens16)
-                .offset(y = bob.dp)
+                .offset(y = (bob - 16f).dp)
         )
     }
 }

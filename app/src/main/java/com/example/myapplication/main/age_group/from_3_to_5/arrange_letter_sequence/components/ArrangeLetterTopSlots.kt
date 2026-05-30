@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,6 +19,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -26,6 +28,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_seque
 import com.example.myapplication.ui.theme.AppDimens.ArrangeLetterInSequenceBoxSize
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.MatchLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.utils.extensions.scaled
 
@@ -84,7 +87,9 @@ fun TopArrangeLetterSlots(viewModel: ArrangeLetterInSequenceViewModel) {
                 // Layer 3 — letter
                 Text(
                     text = letter ?: "",
-                    fontSize = (ArrangeLetterInSequenceBoxSize.value * 0.75).sp,
+                    style = MaterialTheme.typography.headlineLarge.copy(
+                        fontSize = (ArrangeLetterInSequenceBoxSize.value * 0.75).sp,
+                    ),
                     fontWeight = FontWeight.Bold,
                     color = when {
                         isEmpty -> Color.Transparent

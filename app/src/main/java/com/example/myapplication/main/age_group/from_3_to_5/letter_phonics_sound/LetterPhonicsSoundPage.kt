@@ -79,6 +79,7 @@ import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
+import com.example.myapplication.ui.theme.AppDimens.FillBlankLetterBoxSize
 import kotlinx.coroutines.launch
 
 @Composable
@@ -183,7 +184,9 @@ fun LetterPhonicsSoundPage(
                                     ) {
                                         Text(
                                             text = item.letter,
-                                            fontSize = (boxSize.value * 0.7f).sp,
+                                            style = MaterialTheme.typography.headlineLarge.copy(
+                                                fontSize = (boxSize.value * 0.7).sp,
+                                            ),
                                             fontWeight = FontWeight.Bold,
                                             color = if (isSelected) Color.White else Color.Black
                                         )

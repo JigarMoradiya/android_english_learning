@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -30,6 +31,7 @@ import androidx.compose.ui.zIndex
 import com.example.myapplication.main.age_group.from_5_to_7.drag_and_drop_word.view_model.DragDropWordViewModel57
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
+import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSizeTop
 import com.example.myapplication.ui.theme.PrimaryOrangeLight
 
 @Composable
@@ -124,7 +126,9 @@ fun DragDrop57BottomPool(viewModel: DragDropWordViewModel57) {
                 Text(
                     text = item.letter,
                     color = Color.Black,
-                    fontSize = (DragLetterBoxSize.value * 0.75).sp,
+                    style = MaterialTheme.typography.headlineLarge.copy(
+                        fontSize = (DragLetterBoxSize.value * 0.75).sp,
+                    ),
                     fontWeight = FontWeight.Bold
                 )
             }

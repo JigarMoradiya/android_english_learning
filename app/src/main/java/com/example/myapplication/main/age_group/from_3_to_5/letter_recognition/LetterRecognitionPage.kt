@@ -146,7 +146,9 @@ fun LetterRecognitionPage(
 
                                     Text(
                                         text = item.first,
-                                        fontSize = (boxSize.value * 0.7f).sp,
+                                        style = MaterialTheme.typography.headlineLarge.copy(
+                                            fontSize = (boxSize.value * 0.7).sp,
+                                        ),
                                         fontWeight = FontWeight.Bold,
                                         color = if (isSelected) Color.White else Color.Black
                                     )

@@ -67,7 +67,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="$USER_HOME$/Downloads/ChatGPT Image Apr 15, 2026, 03_43_40 PM.png" />
+                                                <entry key="imagePath" value="$USER_HOME$/Downloads/ChatGPT Image May 30, 2026, 10_32_30 PM.png" />
                                                 <entry key="scalingPercent" value="68" />
                                               </map>
                                             </option>
@@ -91,7 +91,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="$USER_HOME$/Downloads/ChatGPT Image Apr 15, 2026, 03_49_47 PM.png" />
+                                                <entry key="imagePath" value="$USER_HOME$/Downloads/ChatGPT Image May 30, 2026, 09_45_03 PM (1).png" />
                                                 <entry key="scalingPercent" value="62" />
                                               </map>
                                             </option>
@@ -148,7 +148,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="color" value="1b1067" />
+                                                <entry key="color" value="1847c8" />
                                                 <entry key="text" value="En" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
@@ -161,7 +161,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="color" value="1b1067" />
+                                                <entry key="color" value="1847c8" />
                                                 <entry key="text" value="En" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
@@ -173,6 +173,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="generateWebpIcons" value="false" />
                                       <entry key="legacyIconShape" value="CIRCLE" />
                                       <entry key="monochromeAssetType" value="TEXT" />
                                     </map>

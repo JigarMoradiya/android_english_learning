@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -120,7 +121,9 @@ fun MissingLetter35BottomPool(viewModel: MissingLetterViewModel35) {
                 Text(
                     text = item.letter,
                     color = Color.Black,
-                    fontSize = (DragLetterBoxSize.value * 0.75).sp,
+                    style = MaterialTheme.typography.headlineLarge.copy(
+                        fontSize = (DragLetterBoxSize.value * 0.75).sp,
+                    ),
                     fontWeight = FontWeight.Bold
                 )
             }

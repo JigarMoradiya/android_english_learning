@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.view_model.FillBlankLettersViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
 import com.example.myapplication.ui.theme.AppDimens.FillBlankLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.utils.extensions.scaled
@@ -88,7 +89,9 @@ fun TopLetterSlots(viewModel: FillBlankLettersViewModel) {
                 // Layer 3 — letter text
                 Text(
                     text = if (isEmpty) "" else letter,
-                    fontSize = (FillBlankLetterBoxSize.value * 0.75).sp,
+                    style = MaterialTheme.typography.headlineLarge.copy(
+                        fontSize = (FillBlankLetterBoxSize.value * 0.75).sp,
+                    ),
                     fontWeight = FontWeight.Bold,
                     color = when {
                         isEmpty -> Color.Gray.copy(alpha = 0.35f)

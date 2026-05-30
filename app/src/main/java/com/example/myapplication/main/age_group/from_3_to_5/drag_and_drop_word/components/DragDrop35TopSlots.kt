@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -164,7 +165,9 @@ fun DragDropTopSlots(viewModel: DragDropWordViewModel35) {
                         // 🔤 LETTER
                         Text(
                             text = item?.letter ?: "",
-                            fontSize = (DragLetterBoxSize.value * 0.75).sp,
+                            style = MaterialTheme.typography.headlineLarge.copy(
+                                fontSize = (DragLetterBoxSize.value * 0.75).sp,
+                            ),
                             fontWeight = FontWeight.Bold,
                             color = Color.White,
                             textAlign = TextAlign.Center,

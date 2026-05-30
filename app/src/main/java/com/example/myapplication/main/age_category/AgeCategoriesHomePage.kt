@@ -29,6 +29,7 @@ import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.CornerRadius
@@ -173,7 +174,7 @@ fun MainLearningAgesCategoriesScreen(
 
     val infiniteTransition = rememberInfiniteTransition(label = "mascot")
     val mascotOffsetY by infiniteTransition.animateFloat(
-        initialValue = 0f, targetValue = -7f,
+        initialValue = 0f, targetValue = -8f,
         animationSpec = infiniteRepeatable(
             animation = tween(2000, easing = FastOutSlowInEasing),
             repeatMode = RepeatMode.Reverse
@@ -252,8 +253,10 @@ fun MainLearningAgesCategoriesScreen(
                             )
                         }
 
+                        Spacer(Modifier.padding(top = Dimens12))
+
                         Image(
-                            painter = painterResource(R.drawable._mascot_lion),
+                            painter = painterResource(R.drawable._mascot_),
                             contentDescription = null,
                             contentScale = ContentScale.Fit,
                             modifier = Modifier

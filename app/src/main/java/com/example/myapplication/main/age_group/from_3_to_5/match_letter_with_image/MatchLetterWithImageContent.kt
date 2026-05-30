@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -162,15 +163,15 @@ fun MatchContent(
                             Text(
                                 text = letter,
                                 color = Color.White,
-                                fontSize = (MatchLetterBoxSize.value * 0.7).sp,
-                                fontWeight = FontWeight.Bold,
-                                style = TextStyle(
+                                style = MaterialTheme.typography.headlineLarge.copy(
+                                    fontSize = (MatchLetterBoxSize.value * 0.7).sp,
                                     shadow = Shadow(
                                         color = if (isMatched) Color.Transparent else Color.Black.copy(alpha = 0.25f),
                                         offset = Offset(1f, 1f),
                                         blurRadius = 2f
                                     )
-                                )
+                                ),
+                                fontWeight = FontWeight.Bold,
                             )
                         }
 

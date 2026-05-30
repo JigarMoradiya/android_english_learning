@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -36,6 +37,7 @@ import androidx.compose.ui.zIndex
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.view_model.MissingLetterViewModel35
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
+import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSize
 import com.example.myapplication.ui.theme.AppDimens.DragLetterBoxSizeTop
 import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.ui.theme.PrimaryGreenLight
@@ -164,7 +166,9 @@ fun MissingLetter35TopSlots(viewModel: MissingLetterViewModel35) {
                     // 🔤 LETTER
                     Text(
                         text = item?.letter ?: "",
-                        fontSize = (DragLetterBoxSizeTop.value * 0.75).sp,
+                        style = MaterialTheme.typography.headlineLarge.copy(
+                            fontSize = (DragLetterBoxSizeTop.value * 0.75).sp,
+                        ),
                         fontWeight = FontWeight.Bold,
                         color = when {
                             isFixed -> Color.DarkGray

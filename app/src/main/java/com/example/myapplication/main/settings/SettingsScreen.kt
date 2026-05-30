@@ -13,9 +13,15 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.filled.VolumeOff
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.*
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.material3.*
 import androidx.compose.material3.HorizontalDivider
 import android.app.Activity
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,6 +43,7 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.sheets.AccessSheetState
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
+import com.example.myapplication.main.common.sheets.KidsBottomSheet
 import com.example.myapplication.main.common.sheets.ParentalGateDialog
 import com.example.myapplication.ui.theme.AppDimens
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
@@ -71,6 +78,7 @@ fun SettingsScreen(
     val sheetViewModel = LocalAccessSheetViewModel.current
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
+    var showRateSheet by remember { mutableStateOf(false) }
 
     LaunchedEffect(navigateToParentProgress) {
         if (navigateToParentProgress) {
@@ -155,15 +163,7 @@ fun SettingsScreen(
                         subtitle = "Enjoying the app? Leave us a review ⭐",
                         type = ButtonType.ORANGE
                     ) {
-                        val marketUri = "market://details?id=com.vedaavi.english.learning".toUri()
-                        val fallbackUri = "https://play.google.com/store/apps/details?id=com.vedaavi.english.learning".toUri()
-                        try {
-                            context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, marketUri).apply {
-                                addFlags(android.content.Intent.FLAG_ACTIVITY_NO_HISTORY or android.content.Intent.FLAG_ACTIVITY_NEW_DOCUMENT or android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
-                            })
-                        } catch (e: android.content.ActivityNotFoundException) {
-                            context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, fallbackUri))
-                        }
+                        showRateSheet = true
                     }
                 }
 
@@ -251,14 +251,14 @@ fun SettingsScreen(
 //                }
 
                 // ── [DEV] Clear all app preferences ──────────────────────
-                SettingsCard {
-                    SettingsRow(
-                        icon = Icons.Filled.Delete,
-                        title = "Clear All App Data",
-                        subtitle = "Dev only — wipes all data and restarts the app",
-                        type = ButtonType.RED
-                    ) { viewModel.clearAllPreferences(context) }
-                }
+//                SettingsCard {
+//                    SettingsRow(
+//                        icon = Icons.Filled.Delete,
+//                        title = "Clear All App Data",
+//                        subtitle = "Dev only — wipes all data and restarts the app",
+//                        type = ButtonType.RED
+//                    ) { viewModel.clearAllPreferences(context) }
+//                }
 
                 Spacer(Modifier.height(Dimens16))
             }
@@ -269,6 +269,32 @@ fun SettingsScreen(
             ParentalGateDialog(
                 onPassed    = { viewModel.executeAction() },
                 onCancelled = { viewModel.dismissParentalGate() }
+            )
+        }
+
+        // ── Rate the App bottom sheet ────────────────────────────────────
+        KidsBottomSheet(
+            visible = showRateSheet,
+            onDismiss = { showRateSheet = false },
+            wrapContent = true
+        ) {
+            RateAppSheetContent(
+                onLoveIt = {
+                    showRateSheet = false
+                    val marketUri = "market://details?id=com.vedaavi.english.learning".toUri()
+                    val fallbackUri = "https://play.google.com/store/apps/details?id=com.vedaavi.english.learning".toUri()
+                    try {
+                        context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, marketUri).apply {
+                            addFlags(android.content.Intent.FLAG_ACTIVITY_NO_HISTORY or android.content.Intent.FLAG_ACTIVITY_NEW_DOCUMENT or android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+                        })
+                    } catch (e: android.content.ActivityNotFoundException) {
+                        context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, fallbackUri))
+                    }
+                },
+                onNotReally = {
+                    showRateSheet = false
+                    openFeedbackEmail(context)
+                }
             )
         }
     }
@@ -526,6 +552,99 @@ private fun MusicVolumeRow(volume: Float, onVolumeChange: (Float) -> Unit) {
     }
 }
 
+// ── Rate App Sheet ────────────────────────────────────────────────────────────
+
+@Composable
+private fun RateAppSheetContent(
+    onLoveIt: () -> Unit,
+    onNotReally: () -> Unit
+) {
+    val infiniteTransition = rememberInfiniteTransition(label = "stars")
+    val emojiScale by infiniteTransition.animateFloat(
+        initialValue = 1f,
+        targetValue = 1.3f,
+        animationSpec = infiniteRepeatable(tween(700), RepeatMode.Reverse),
+        label = "emojiScale"
+    )
+    val emojis = listOf("🌟", "😍", "⭐", "😍", "🌟")
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(Dimens24),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(Dimens16)
+    ) {
+        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+            emojis.forEachIndexed { i, emoji ->
+                val phase = ((emojiScale - 1f) + i * 0.05f).coerceIn(0f, 0.3f)
+                Text(
+                    text = emoji,
+                    style = MaterialTheme.typography.headlineMedium.scaled(),
+                    modifier = Modifier.graphicsLayer {
+                        scaleX = 1f + phase
+                        scaleY = 1f + phase
+                    }
+                )
+            }
+        }
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(Dimens8)
+        ) {
+            Text(
+                text = "How are we doing?",
+                style = MaterialTheme.typography.headlineMedium.scaled(),
+                fontWeight = FontWeight.Black,
+                color = Color.Black,
+                textAlign = TextAlign.Center
+            )
+            Text(
+                text = "We'd love to hear if your little learner is enjoying the lessons!",
+                style = MaterialTheme.typography.bodyMedium.scaled(),
+                color = Color.Gray,
+                textAlign = TextAlign.Center
+            )
+        }
+
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(Dimens12),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            KidsActionButton(
+                text = "😍 Yes, Love it!",
+                type = ButtonType.POSITIVE,
+                isSmall = true,
+                onClick = onLoveIt
+            )
+            KidsActionButton(
+                text = "😕 Not really",
+                type = ButtonType.RED,
+                isSmall = true,
+                onClick = onNotReally
+            )
+        }
+    }
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
+
+private fun openFeedbackEmail(context: android.content.Context) {
+    val intent = android.content.Intent(android.content.Intent.ACTION_SENDTO).apply {
+        data = android.net.Uri.parse("mailto:vedaavilearning@gmail.com")
+        putExtra(android.content.Intent.EXTRA_SUBJECT, "App Feedback - Kids English Learning")
+        setPackage("com.google.android.gm")
+    }
+    try {
+        context.startActivity(intent)
+    } catch (_: Exception) {
+        val fallback = android.content.Intent(android.content.Intent.ACTION_SENDTO).apply {
+            data = android.net.Uri.parse("mailto:vedaavilearning@gmail.com")
+            putExtra(android.content.Intent.EXTRA_SUBJECT, "App Feedback - Kids English Learning")
+        }
+        try { context.startActivity(fallback) } catch (_: Exception) { }
+    }
+}
 
 data class Quad<A, B, C, D>(val first: A, val second: B, val third: C, val fourth: D)

@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -45,6 +46,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.MatchLetterBoxSize
 import com.example.myapplication.ui.theme.PrimaryBlue
 import com.example.myapplication.ui.theme.PrimaryGreen
+import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun MatchLettersPage(
@@ -105,15 +107,15 @@ fun MatchLettersPage(
                         ) {
                             Text(
                                 text = letter.toString(),
-                                fontSize = (MatchLetterBoxSize.value * 0.75).sp,
-                                color = if (isMatched) Color.DarkGray.copy(alpha = 0.4f) else PrimaryBlue,
-                                style = TextStyle(
+                                style = MaterialTheme.typography.headlineLarge.copy(
+                                    fontSize = (MatchLetterBoxSize.value * 0.75).sp,
                                     shadow = Shadow(
                                         color = if (isMatched) Color.Transparent else Color.Black.copy(alpha = 0.6f),
                                         offset = Offset(2f, 2f),
                                         blurRadius = 2f
                                     )
                                 ),
+                                color = if (isMatched) Color.DarkGray.copy(alpha = 0.4f) else PrimaryBlue,
                                 fontWeight = FontWeight.Bold
                             )
                         }
@@ -144,15 +146,15 @@ fun MatchLettersPage(
                         ) {
                             Text(
                                 text = letter.lowercaseChar().toString(),
-                                fontSize = (MatchLetterBoxSize.value * 0.75).sp,
-                                color = if (isMatched) Color.DarkGray.copy(alpha = 0.4f) else PrimaryBlue,
-                                style = TextStyle(
+                                style = MaterialTheme.typography.headlineLarge.copy(
+                                    fontSize = (MatchLetterBoxSize.value * 0.75).sp,
                                     shadow = Shadow(
                                         color = if (isMatched) Color.Transparent else Color.Black.copy(alpha = 0.6f),
                                         offset = Offset(2f, 2f),
                                         blurRadius = 2f
                                     )
                                 ),
+                                color = if (isMatched) Color.DarkGray.copy(alpha = 0.4f) else PrimaryBlue,
                                 fontWeight = FontWeight.Bold
                             )
                         }
