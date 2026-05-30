@@ -165,7 +165,6 @@ class WordMatchImageViewModel @Inject constructor(
                 val score = batchSize - wrongAttemptsInBatch.size
                 val stars = computeStars(score, batchSize)
                 recordSession(score)
-                AudioPlayerManager.playSoundClap()
                 uiState = uiState.copy(
                     batchScore = score,
                     earnedStars = stars,

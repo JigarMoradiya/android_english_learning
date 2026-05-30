@@ -53,6 +53,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
 import kotlinx.coroutines.delay
 
@@ -129,8 +130,11 @@ fun ActivityCompletePopup(
     )
     val starScales = listOf(star0Scale, star1Scale, star2Scale)
 
+    val isGoodResult = total == 0 || score.toDouble() / total.toDouble() >= 0.7
+
     LaunchedEffect(Unit) {
         cardVisible = true
+        if (isGoodResult && !isPreview) AudioPlayerManager.playSoundClap()
         delay(400)
         for (i in 0..2) {
             starRevealed[i] = true
@@ -287,7 +291,6 @@ fun ActivityCompletePopup(
             }
         }
 
-        val isGoodResult = total == 0 || score.toDouble() / total.toDouble() >= 0.7
         if (!isPreview && isGoodResult) ConfettiRainEffect()
     }
 }

@@ -125,7 +125,6 @@ class ListenAndSelectWordViewModel @Inject constructor(
         countdownJob?.cancel()
         val score = maxOf(0, uiState.totalQuestions - wrongAttemptsInBatch.size)
         recordSession(score)
-        AudioPlayerManager.playSoundClap()
         uiState = uiState.copy(
             lastScore = score,
             scoreLabel = if (score == uiState.totalQuestions) "perfect! 🎯" else "first try 🎯",

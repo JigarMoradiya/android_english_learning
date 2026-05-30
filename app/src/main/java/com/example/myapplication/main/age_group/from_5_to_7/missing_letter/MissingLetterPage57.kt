@@ -25,7 +25,6 @@ import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.InstructionBadge
-import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
@@ -74,7 +73,6 @@ fun MissingLetterPage57(
 
             MissingLetterScreen(viewModel, modifier = Modifier.fillMaxSize())
         }
-        if (viewModel.uiState.showSuccess && !viewModel.uiState.showResult) { ConfettiRainEffect() }
         if (uiState.showResult) {
             ActivityCompletePopup(
                 stars = when {

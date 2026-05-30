@@ -144,7 +144,6 @@ class SightWordChoiceViewModel @Inject constructor(
         countdownJob?.cancel()
         val score = correctAttemptsInBatch.size
         recordSession(score)
-        AudioPlayerManager.playSoundClap()
         uiState = uiState.copy(
             lastScore = score,
             scoreLabel = if (score == uiState.totalQuestions) "perfect! 🎯" else "first try 🎯",

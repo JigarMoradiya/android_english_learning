@@ -36,7 +36,6 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import com.example.myapplication.main.common.ActivityCompletePopup
-import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.utils.extensions.scaled
@@ -105,10 +104,6 @@ fun ArrangeLetterInSequencePage(
                 isSuccess = viewModel.uiState.showSuccess,
                 isVisible = viewModel.uiState.showError || viewModel.uiState.showNext
             )
-        }
-
-        if (viewModel.uiState.showSuccess && !viewModel.uiState.showResult) {
-            ConfettiRainEffect()
         }
 
         AnimatedVisibility(

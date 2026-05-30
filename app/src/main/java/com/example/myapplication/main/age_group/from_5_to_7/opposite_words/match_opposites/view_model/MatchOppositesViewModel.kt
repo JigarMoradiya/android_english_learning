@@ -139,7 +139,6 @@ class MatchOppositesViewModel @Inject constructor(
             val batchScore = maxOf(0, state.leftWords.size - batchWrong.size)
             viewModelScope.launch {
                 delay(300)
-                AudioPlayerManager.playSoundClap()
                 _uiState.update {
                     it.copy(
                         showPopup = true,

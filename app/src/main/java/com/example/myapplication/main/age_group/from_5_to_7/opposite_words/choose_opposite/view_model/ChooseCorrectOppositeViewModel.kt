@@ -125,7 +125,6 @@ class ChooseCorrectOppositeViewModel @Inject constructor(
             delay(1_000)
             if (isLast) {
                 recordSession()
-                AudioPlayerManager.playSoundClap()
                 _uiState.update { it.copy(showCompletePopup = true, countdown = null) }
             } else {
                 loadNextQuestion()

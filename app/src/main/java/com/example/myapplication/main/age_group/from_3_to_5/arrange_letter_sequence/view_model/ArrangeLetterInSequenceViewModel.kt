@@ -103,7 +103,7 @@ class ArrangeLetterInSequenceViewModel @Inject constructor(
         val correct = uiState.fullSequence.joinToString("")
 
         if (formed == correct) {
-            AudioPlayerManager.playSoundClap()
+            AudioPlayerManager.playSoundCorrectAnswer()
             if (!currentRoundHadWrong) correctSequencesInBatch.add(correct)
             uiState = uiState.copy(
                 showSuccess = true,
