@@ -198,6 +198,19 @@ fun SettingsScreen(
                     }
                 }
 
+                // ── Privacy Policy ───────────────────────────────────────
+                SettingsCard {
+                    SettingsRow(
+                        icon = Icons.Filled.Lock,
+                        title = "Privacy Policy",
+                        subtitle = "Read our privacy policy",
+                        type = ButtonType.BLUE
+                    ) {
+                        val uri = "https://docs.google.com/document/d/1dfclCk6Hklv-RbiYi5EYbdx5i65g0YPv/".toUri()
+                        context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, uri))
+                    }
+                }
+
                 // ── [DEV] Clear trial offer flags ────────────────────────
 //                SettingsCard {
 //                    SettingsRow(
