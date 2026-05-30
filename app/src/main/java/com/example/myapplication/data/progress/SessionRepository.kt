@@ -4,6 +4,7 @@ import com.example.myapplication.data.access.AccessConfig
 import com.example.myapplication.data.access.AccessLevel
 import com.example.myapplication.data.access.DailyLimitManager
 import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -17,7 +18,9 @@ import javax.inject.Singleton
 @Singleton
 class SessionRepository @Inject constructor(
     private val prefs: AppPreferencesHelper,
-    private val dailyLimitManager: DailyLimitManager
+    private val dailyLimitManager: DailyLimitManager,
+    private val reviewManager: ReviewManager,
+    private val streakRepository: StreakRepository
 ) {
 
     private val gson = Gson()
@@ -28,6 +31,8 @@ class SessionRepository @Inject constructor(
 
     init {
         load()
+        reviewManager.bootstrapActivityMilestones(totalCount = cache.size)
+        reviewManager.clearStaleBootstrapTrigger()
     }
 
     fun record(session: LearningSession) {
@@ -39,6 +44,8 @@ class SessionRepository @Inject constructor(
                 dailyLimitManager.recordModulePlayed(session.moduleId)
             }
         }
+        streakRepository.onActivityCompleted()
+        reviewManager.onActivityCompleted(totalCount = cache.size)
     }
 
     fun sessionsThisWeek(weekOffset: Int = 0): List<LearningSession> {

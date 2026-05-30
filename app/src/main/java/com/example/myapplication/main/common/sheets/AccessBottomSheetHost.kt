@@ -14,6 +14,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -57,6 +59,7 @@ fun AccessBottomSheetHost(
     val isLoading        by viewModel.isLoading.collectAsState()
     val packages         by viewModel.packages.collectAsState()
     val showParentalGate by viewModel.showParentalGate.collectAsState()
+    val scope            = rememberCoroutineScope()
 
     // One-shot toast messages
     LaunchedEffect(Unit) {
@@ -123,6 +126,21 @@ fun AccessBottomSheetHost(
                 onPurchase = { pkg -> activity?.let { viewModel.purchase(it, pkg) } },
                 onRestore  = { viewModel.restorePurchases() },
                 onDismiss  = { viewModel.dismiss() }
+            )
+        }
+
+        // ── Premium Celebration Sheet ─────────────────────────────────
+        KidsBottomSheet(
+            visible = sheetState is AccessSheetState.PremiumCelebration,
+            onDismiss = { viewModel.dismiss() },
+            wrapContent = true
+        ) {
+            PremiumCelebrationSheet(
+                onRateNow = {
+                    val act = activity ?: return@PremiumCelebrationSheet
+                    scope.launch { viewModel.rateNowAndDismiss(act) }
+                },
+                onLater = { viewModel.dismiss() }
             )
         }
 

@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -49,6 +50,7 @@ fun KidsBottomSheet(
     visible: Boolean,
     onDismiss: () -> Unit,
     heightFraction: Float = SheetHeightFraction,
+    wrapContent: Boolean = false,
     content: @Composable () -> Unit
 ) {
     AnimatedVisibility(
@@ -81,19 +83,21 @@ fun KidsBottomSheet(
             ) {
                 Box(
                     modifier = Modifier
-                        .widthIn(max = SheetMaxWidth)          // ← constrain first
-                        .fillMaxWidth(SheetWidthFraction)       // ← then fill (94% on phone, 100% on tablet)
-                        .fillMaxHeight(heightFraction)
+                        .widthIn(max = SheetMaxWidth)
+                        .fillMaxWidth(SheetWidthFraction)
+                        .then(
+                            if (wrapContent) Modifier.wrapContentHeight()
+                            else Modifier.fillMaxHeight(heightFraction)
+                        )
                         .clip(RoundedCornerShape(topStart = Dimens24, topEnd = Dimens24))
                         .background(Color.White)
-                        // Consume clicks so they don't fall through to the scrim
                         .clickable(
                             indication = null,
                             interactionSource = remember { MutableInteractionSource() }
                         ) { /* consume */ }
                 ) {
                     Column(
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = if (wrapContent) Modifier.fillMaxWidth() else Modifier.fillMaxSize(),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         // Drag handle

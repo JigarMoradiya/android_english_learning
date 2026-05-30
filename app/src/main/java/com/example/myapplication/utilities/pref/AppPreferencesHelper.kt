@@ -20,6 +20,13 @@ class AppPreferencesHelper @Inject constructor(
 
         const val KEY_BG_MUSIC_VOLUME = "KEY_BG_MUSIC_VOLUME"
         const val KEY_SIGHT_WORD_INDEX = "sight_word_index"
+
+        // review / rating
+        const val KEY_REVIEW_LAST_ASK_DATE    = "review_last_ask_date"
+        const val KEY_REVIEW_PENDING_TRIGGER  = "review_pending_trigger"
+        const val KEY_REVIEW_PREMIUM_PENDING  = "review_premium_pending"
+        fun reviewStreakKey(days: Int)         = "review_milestone_streak_$days"
+        fun reviewActivityKey(count: Int)     = "review_milestone_activity_$count"
     }
 
     private val mPrefs: SharedPreferences =

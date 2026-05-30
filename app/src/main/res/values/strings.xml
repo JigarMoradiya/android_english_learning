@@ -285,5 +285,9 @@
     <string name="grammar_challenge_beginner">Grammar Challenge - Beginner</string>
     <string name="next_letter_in">Next letter in</string>
     <string name="parent_report">Parent Report</string>
+    <string name="rate_now">Rate Now</string>
+    <string name="maybe_later">Maybe Later</string>
+    <string name="welcome_to_premium">Welcome to Premium!</string>
+    <string name="you_re_amazing_mind_leaving_us_review">You\'re amazing! Mind leaving us\na quick review? It really helps 🌟</string>
 
 </resources>

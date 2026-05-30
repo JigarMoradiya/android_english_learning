@@ -1,5 +1,6 @@
 package com.example.myapplication.main.settings
 
+import android.app.Activity
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.setValue
@@ -7,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.AccessManager
 import com.example.myapplication.data.access.DailyLimitManager
+import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.data.auth.AuthManager
 import com.example.myapplication.data.purchase.PurchaseManager
@@ -37,6 +39,8 @@ class SettingsViewModel @Inject constructor(
     private val revenueCatManager: RevenueCatManager,
     private val bgMusicManager: BGMusicManager,
     private val dailyLimitManager: DailyLimitManager,
+    private val reviewManager: ReviewManager,
+    private val streakRepository: com.example.myapplication.data.progress.StreakRepository,
 ) : ViewModel() {
 
     val userState: StateFlow<UserAccessState> = accessManager.userState
@@ -84,6 +88,20 @@ class SettingsViewModel @Inject constructor(
 
     fun clearTodayActivityCount() {
         viewModelScope.launch { dailyLimitManager.clearTodayCount() }
+    }
+
+    fun clearActivityMilestone(count: Int) {
+        reviewManager.clearActivityMilestone(count)
+    }
+
+    fun simulateSixDayStreak() {
+        streakRepository.simulateSixDayStreak()
+        reviewManager.bootstrapStreakMilestones(6) // mark 3-day as already passed
+        reviewManager.clearStreakMilestone(7)      // allow 7-day to fire fresh
+    }
+
+    suspend fun requestNativeReview(activity: Activity) {
+        reviewManager.requestNativeReview(activity)
     }
 
     // ── Parental gate ─────────────────────────────────────────────────────────

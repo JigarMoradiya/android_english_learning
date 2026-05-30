@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.data.progress.LearningSession
 import com.example.myapplication.data.progress.SessionRepository
@@ -69,7 +70,8 @@ data class ModuleProgressRow(
 
 @HiltViewModel
 class ParentProgressViewModel @Inject constructor(
-    private val sessionRepository: SessionRepository
+    private val sessionRepository: SessionRepository,
+    private val reviewManager: ReviewManager
 ) : ViewModel() {
 
     var weekOffset by mutableStateOf(0)
@@ -113,6 +115,21 @@ class ParentProgressViewModel @Inject constructor(
     var filteredMasteredLetterRows by mutableStateOf(emptyList<WeakLetterEntry>())
         private set
     var filteredMasteredSequenceRows by mutableStateOf(emptyList<WeakArrangeEntry>())
+
+    // Review banner
+    var showReviewBanner by mutableStateOf(false)
+        private set
+    val reviewBannerTitle   get() = reviewManager.bannerTitle
+    val reviewBannerSubtitle get() = reviewManager.bannerSubtitle
+
+    fun onBannerShown() {
+        reviewManager.markBannerShown()
+        showReviewBanner = false
+    }
+
+    suspend fun requestNativeReview(activity: android.app.Activity) {
+        reviewManager.requestNativeReview(activity)
+    }
 
     // Chapter detail sheet
     var chapterDetail by mutableStateOf<ChapterDetailData?>(null)
@@ -288,6 +305,7 @@ class ParentProgressViewModel @Inject constructor(
         weekOffset = 0
         selectedDayIndex = null
         reload()
+        showReviewBanner = reviewManager.hasPendingReview || reviewManager.hasPremiumReviewPending
     }
 
     private var cachedWeekSessions: List<LearningSession> = emptyList()

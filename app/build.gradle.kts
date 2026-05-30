@@ -128,4 +128,7 @@ dependencies {
     // RevenueCat — subscription management
     implementation(libs.revenuecat)
     implementation(libs.revenuecat.ui)
+
+    // Google Play In-App Review
+    implementation(libs.play.review)
 }

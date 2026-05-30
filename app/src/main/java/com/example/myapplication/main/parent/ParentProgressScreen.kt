@@ -39,8 +39,17 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import android.app.Activity
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalContext
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -87,6 +96,10 @@ fun ParentProgressScreen(
 ) {
     LaunchedEffect(Unit) { viewModel.load() }
 
+    val context = LocalContext.current
+    val activity = context as? Activity
+    val scope = rememberCoroutineScope()
+
     Box(modifier = Modifier.fillMaxSize()) {
         KidsGradientBackground(gradient = KidsGradient.grayBlue, shape = KidsFloatingShape.dots)
 
@@ -119,6 +132,26 @@ fun ParentProgressScreen(
                     .weight(0.65f),
                 verticalArrangement = Arrangement.spacedBy(Dimens8)
             ) {
+                AnimatedVisibility(
+                    visible = viewModel.showReviewBanner,
+                    enter = expandVertically() + fadeIn(),
+                    exit = shrinkVertically() + fadeOut()
+                ) {
+                    ReviewBannerCard(
+                        title = viewModel.reviewBannerTitle,
+                        subtitle = viewModel.reviewBannerSubtitle,
+                        onLoveIt = {
+                            viewModel.onBannerShown()
+                            activity?.let { act ->
+                                scope.launch { viewModel.requestNativeReview(act) }
+                            }
+                        },
+                        onNotReally = {
+                            viewModel.onBannerShown()
+                            openFeedbackEmail(context)
+                        }
+                    )
+                }
                 WeekSummaryRow(viewModel)
                 ActivitySection(viewModel, navController)
             }
@@ -1218,4 +1251,22 @@ private fun ChapterSessionRow(session: SessionEntry) {
 private fun formatSessionTime(timestampMs: Long): String {
     val fmt = SimpleDateFormat("MMM d, h:mm a", Locale.getDefault())
     return fmt.format(Date(timestampMs))
+}
+
+private fun openFeedbackEmail(context: android.content.Context) {
+    val intent = android.content.Intent(android.content.Intent.ACTION_SENDTO).apply {
+        data = android.net.Uri.parse("mailto:vedaavilearning@gmail.com")
+        putExtra(android.content.Intent.EXTRA_SUBJECT, "App Feedback - Kids English Learning")
+        setPackage("com.google.android.gm") // open Gmail directly, no chooser
+    }
+    try {
+        context.startActivity(intent)
+    } catch (_: Exception) {
+        // Gmail not installed — fall back to system email chooser
+        val fallback = android.content.Intent(android.content.Intent.ACTION_SENDTO).apply {
+            data = android.net.Uri.parse("mailto:vedaavilearning@gmail.com")
+            putExtra(android.content.Intent.EXTRA_SUBJECT, "App Feedback - Kids English Learning")
+        }
+        try { context.startActivity(fallback) } catch (_: Exception) { }
+    }
 }

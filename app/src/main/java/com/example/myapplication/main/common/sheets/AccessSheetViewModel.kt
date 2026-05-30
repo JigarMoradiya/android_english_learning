@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.AccessManager
 import com.example.myapplication.data.access.AccessResult
+import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.data.auth.AuthManager
 import com.example.myapplication.data.auth.AuthResult
@@ -27,7 +28,8 @@ private const val TAG = "AccessSheetVM"
 class AccessSheetViewModel @Inject constructor(
     private val accessManager: AccessManager,
     private val authManager: AuthManager,
-    private val purchaseManager: PurchaseManager
+    private val purchaseManager: PurchaseManager,
+    private val reviewManager: ReviewManager,
 ) : ViewModel() {
 
     // ── User access state (observable by UI) ─────────────────────────
@@ -192,12 +194,20 @@ class AccessSheetViewModel @Inject constructor(
             Log.d(TAG, "doPurchase → package=${packageToPurchase.identifier}")
             _isLoading.value = true
             when (val result = purchaseManager.purchase(activity, packageToPurchase)) {
-                is PurchaseManager.PurchaseResult.Success   -> dismiss()
+                is PurchaseManager.PurchaseResult.Success   -> _sheetState.value = AccessSheetState.PremiumCelebration
                 is PurchaseManager.PurchaseResult.Cancelled -> Unit
                 is PurchaseManager.PurchaseResult.Error     -> _message.emit(result.message)
             }
             _isLoading.value = false
         }
+    }
+
+    // ── Premium celebration actions ───────────────────────────────────
+
+    suspend fun rateNowAndDismiss(activity: Activity) {
+        reviewManager.markBannerShown()
+        dismiss()
+        reviewManager.requestNativeReview(activity)
     }
 
     // ── Restore purchases ─────────────────────────────────────────────

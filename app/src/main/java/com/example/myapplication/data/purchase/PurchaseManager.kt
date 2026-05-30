@@ -2,6 +2,7 @@ package com.example.myapplication.data.purchase
 
 import android.app.Activity
 import com.example.myapplication.data.access.AccessManager
+import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.data.access.UserAccessState
 import com.google.firebase.auth.FirebaseAuth
 import com.revenuecat.purchases.Purchases
@@ -27,7 +28,8 @@ import kotlin.coroutines.resume
 @Singleton
 class PurchaseManager @Inject constructor(
     private val revenueCatManager: RevenueCatManager,
-    private val accessManager: AccessManager
+    private val accessManager: AccessManager,
+    private val reviewManager: ReviewManager
 ) {
 
     // ── Purchase result ───────────────────────────────────────────────
@@ -84,6 +86,7 @@ class PurchaseManager @Inject constructor(
                             ?: FirebaseAuth.getInstance().currentUser?.uid
                         if (freshInfo.entitlements[RevenueCatManager.ENTITLEMENT_ID]?.isActive == true && uid != null) {
                             accessManager.updateUserState(UserAccessState.PremiumUser(uid))
+                            reviewManager.onPremiumPurchased()
                         }
                         cont.resume(PurchaseResult.Success)
                     }

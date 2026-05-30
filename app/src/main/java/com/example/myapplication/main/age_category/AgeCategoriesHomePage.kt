@@ -158,6 +158,8 @@ fun MainLearningAgesCategoriesScreen(
     viewModel: AgeCategoriesViewModel = hiltViewModel()
 ) {
     val categories by viewModel.categories.collectAsState()
+    val currentStreak by viewModel.currentStreak.collectAsState()
+    val bestStreak by viewModel.bestStreak.collectAsState()
     val context = LocalContext.current
     var showParentalGate by remember { mutableStateOf(false) }
     val accessVM = LocalAccessSheetViewModel.current
@@ -276,8 +278,8 @@ fun MainLearningAgesCategoriesScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         StreakCard(
-                            currentStreak = viewModel.currentStreak,
-                            bestStreak = viewModel.bestStreak
+                            currentStreak = currentStreak,
+                            bestStreak = bestStreak
                         )
                         Spacer(modifier = Modifier.width(Dimens12))
                         TodayLetterCard(

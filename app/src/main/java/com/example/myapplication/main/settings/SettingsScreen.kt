@@ -15,6 +15,7 @@ import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.material3.HorizontalDivider
+import android.app.Activity
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,11 +24,13 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import kotlinx.coroutines.launch
 import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
@@ -51,6 +54,7 @@ import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.utils.extensions.scaled
+import androidx.core.net.toUri
 
 @Composable
 fun SettingsScreen(
@@ -65,6 +69,8 @@ fun SettingsScreen(
     val restoreMessage by viewModel.restoreMessage.collectAsState()
     val navigateToParentProgress by viewModel.navigateToParentProgress.collectAsState()
     val sheetViewModel = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     LaunchedEffect(navigateToParentProgress) {
         if (navigateToParentProgress) {
@@ -141,6 +147,26 @@ fun SettingsScreen(
                     }
                 }
 
+                // ── Rate the App ─────────────────────────────────────────
+                SettingsCard {
+                    SettingsRow(
+                        icon = Icons.Filled.Star,
+                        title = "Rate the App",
+                        subtitle = "Enjoying the app? Leave us a review ⭐",
+                        type = ButtonType.ORANGE
+                    ) {
+                        val marketUri = "market://details?id=com.vedaavi.english.learning".toUri()
+                        val fallbackUri = "https://play.google.com/store/apps/details?id=com.vedaavi.english.learning".toUri()
+                        try {
+                            context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, marketUri).apply {
+                                addFlags(android.content.Intent.FLAG_ACTIVITY_NO_HISTORY or android.content.Intent.FLAG_ACTIVITY_NEW_DOCUMENT or android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+                            })
+                        } catch (e: android.content.ActivityNotFoundException) {
+                            context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, fallbackUri))
+                        }
+                    }
+                }
+
                 // ── Restore + Logout ─────────────────────────────────────
                 SettingsCard {
                     Column {
@@ -173,14 +199,46 @@ fun SettingsScreen(
                 }
 
                 // ── [DEV] Clear today's activity count ──────────────────
-                SettingsCard {
-                    SettingsRow(
-                        icon = Icons.Filled.DeleteForever,
-                        title = "Clear Today's Activity Count",
-                        subtitle = "Dev only — resets daily limit for testing",
-                        type = ButtonType.RED
-                    ) { viewModel.clearTodayActivityCount() }
-                }
+//                SettingsCard {
+//                    SettingsRow(
+//                        icon = Icons.Filled.DeleteForever,
+//                        title = "Clear Today's Activity Count",
+//                        subtitle = "Dev only — resets daily limit for testing",
+//                        type = ButtonType.RED
+//                    ) { viewModel.clearTodayActivityCount() }
+//                }
+
+                // ── [DEV] Simulate 6-day streak ──────────────────────────
+//                SettingsCard {
+//                    SettingsRow(
+//                        icon = Icons.Filled.Refresh,
+//                        title = "Simulate 6-Day Streak",
+//                        subtitle = "Dev only — do 1 activity after this to trigger 7-day banner",
+//                        type = ButtonType.BLUE
+//                    ) { viewModel.simulateSixDayStreak() }
+//                }
+
+                // ── [DEV] Reset activity milestone (50) ─────────────────
+//                SettingsCard {
+//                    SettingsRow(
+//                        icon = Icons.Filled.Refresh,
+//                        title = "Reset Activity Milestone (50)",
+//                        subtitle = "Dev only — next activity triggers 50-activities banner",
+//                        type = ButtonType.ORANGE
+//                    ) { viewModel.clearActivityMilestone(50) }
+//                }
+
+                // ── [DEV] Test premium celebration ───────────────────────
+//                SettingsCard {
+//                    SettingsRow(
+//                        icon = Icons.Filled.Star,
+//                        title = "Test Premium Celebration",
+//                        subtitle = "Dev only — shows the post-purchase sheet",
+//                        type = ButtonType.ORANGE
+//                    ) {
+//                        sheetViewModel.requestState(AccessSheetState.PremiumCelebration)
+//                    }
+//                }
 
                 Spacer(Modifier.height(Dimens16))
             }

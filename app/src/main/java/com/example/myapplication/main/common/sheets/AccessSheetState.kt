@@ -23,4 +23,7 @@ sealed class AccessSheetState {
 
     /** Content requires a premium subscription. */
     data class Paywall(val moduleId: String) : AccessSheetState()
+
+    /** Shown immediately after a successful premium purchase. */
+    object PremiumCelebration : AccessSheetState()
 }
