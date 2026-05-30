@@ -21,6 +21,10 @@ class AppPreferencesHelper @Inject constructor(
         const val KEY_BG_MUSIC_VOLUME = "KEY_BG_MUSIC_VOLUME"
         const val KEY_SIGHT_WORD_INDEX = "sight_word_index"
 
+        // trial offer tracking
+        const val KEY_TRIAL_OFFER_SHOWN_FIRST_LAUNCH  = "trial_offer_shown_first_launch"
+        const val KEY_TRIAL_OFFER_SHOWN_AFTER_LOGIN    = "trial_offer_shown_after_first_login"
+
         // review / rating
         const val KEY_REVIEW_LAST_ASK_DATE    = "review_last_ask_date"
         const val KEY_REVIEW_PENDING_TRIGGER  = "review_pending_trigger"
@@ -61,6 +65,17 @@ class AppPreferencesHelper @Inject constructor(
         putFloat(paramName, paramValue)
     }
 
+
+    fun isTrialOfferShownOnFirstLaunch(): Boolean = getCustomParamBoolean(KEY_TRIAL_OFFER_SHOWN_FIRST_LAUNCH, false)
+    fun setTrialOfferShownOnFirstLaunch(shown: Boolean) = setCustomParamBoolean(KEY_TRIAL_OFFER_SHOWN_FIRST_LAUNCH, shown)
+
+    fun isTrialOfferShownAfterFirstLogin(): Boolean = getCustomParamBoolean(KEY_TRIAL_OFFER_SHOWN_AFTER_LOGIN, false)
+    fun setTrialOfferShownAfterFirstLogin(shown: Boolean) = setCustomParamBoolean(KEY_TRIAL_OFFER_SHOWN_AFTER_LOGIN, shown)
+
+    fun clearTrialOfferFlags() {
+        setTrialOfferShownOnFirstLaunch(false)
+        setTrialOfferShownAfterFirstLogin(false)
+    }
 
     fun getMusicVolume(): Float = getCustomParamFloat(KEY_BG_MUSIC_VOLUME, 0.05f)
     fun setMusicVolume(volume: Float) = setCustomParamFloat(KEY_BG_MUSIC_VOLUME, volume)

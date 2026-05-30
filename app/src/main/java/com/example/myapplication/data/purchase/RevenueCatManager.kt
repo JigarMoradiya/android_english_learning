@@ -6,6 +6,7 @@ import com.revenuecat.purchases.LogLevel
 import com.revenuecat.purchases.Purchases
 import com.revenuecat.purchases.PurchasesConfiguration
 import com.revenuecat.purchases.getCustomerInfoWith
+import com.revenuecat.purchases.getOfferingsWith
 import com.revenuecat.purchases.logInWith
 import com.revenuecat.purchases.logOutWith
 import com.revenuecat.purchases.restorePurchasesWith
@@ -115,6 +116,27 @@ class RevenueCatManager @Inject constructor(
             Purchases.sharedInstance.getCustomerInfoWith(
                 onError   = { cont.resume(null) },
                 onSuccess = { cont.resume(it) }
+            )
+        }
+
+    // ── Intro offer eligibility ───────────────────────────────────────
+
+    /**
+     * Returns true if the current offering has a free trial on any package.
+     * On Android, Google Play enforces user-level eligibility at purchase time —
+     * we just check whether the product has a trial offer configured.
+     */
+    suspend fun isEligibleForIntroOffer(): Boolean =
+        suspendCancellableCoroutine { cont ->
+            Purchases.sharedInstance.getOfferingsWith(
+                onError = { cont.resume(false) },
+                onSuccess = { offerings ->
+                    val packages = offerings.current?.availablePackages ?: emptyList()
+                    val hasTrial = packages.any { pkg ->
+                        pkg.product.defaultOption?.freePhase != null
+                    }
+                    cont.resume(hasTrial)
+                }
             )
         }
 

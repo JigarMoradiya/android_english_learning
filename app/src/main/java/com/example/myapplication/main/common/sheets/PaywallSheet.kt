@@ -60,10 +60,24 @@ import com.revenuecat.purchases.Package
  * Left: branding (crown icon + title + subtitle).
  * Right: vertical plan rows (monthly + yearly).
  */
+private fun trialPeriodLabel(pkg: Package?): String? {
+    val freePhase = pkg?.product?.defaultOption?.freePhase ?: return null
+    val period = freePhase.billingPeriod
+    val count = period.value
+    return when (period.unit) {
+        com.revenuecat.purchases.models.Period.Unit.DAY   -> "$count Day${if (count == 1) "" else "s"} Free"
+        com.revenuecat.purchases.models.Period.Unit.WEEK  -> "$count Week${if (count == 1) "" else "s"} Free"
+        com.revenuecat.purchases.models.Period.Unit.MONTH -> "$count Month${if (count == 1) "" else "s"} Free"
+        com.revenuecat.purchases.models.Period.Unit.YEAR  -> "$count Year${if (count == 1) "" else "s"} Free"
+        else -> null
+    }
+}
+
 @Composable
 fun PaywallSheet(
     packages: List<Package>,
     isLoading: Boolean,
+    isTrialEligible: Boolean = false,
     onPurchase: (Package) -> Unit,
     onRestore: () -> Unit,
     onDismiss: () -> Unit
@@ -77,6 +91,7 @@ fun PaywallSheet(
         it.identifier.contains("annual", ignoreCase = true) ||
         it.packageType.name.contains("ANNUAL", ignoreCase = true)
     }
+    val trialLabel = if (isTrialEligible) trialPeriodLabel(monthlyPackage ?: yearlyPackage) else null
 
     Column (modifier = Modifier.fillMaxSize()) {
 
@@ -138,7 +153,7 @@ fun PaywallSheet(
 
                 Box {
                     Text(
-                        text = "Go Premium!",
+                        text = if (trialLabel != null) "Try Free!" else "Go Premium!",
                         color = Color.Black.copy(alpha = 0.2f),
                         style = MaterialTheme.typography.titleLarge.scaled(),
                         fontWeight = FontWeight.Bold,
@@ -146,7 +161,7 @@ fun PaywallSheet(
                         modifier = Modifier.offset(ShadowOffsetText, ShadowOffsetText)
                     )
                     Text(
-                        text = "Go Premium!",
+                        text = if (trialLabel != null) "Try Free!" else "Go Premium!",
                         color = Color(0xFFE65100),
                         style = MaterialTheme.typography.titleLarge.scaled(),
                         fontWeight = FontWeight.Bold,
@@ -157,7 +172,10 @@ fun PaywallSheet(
                 Spacer(modifier = Modifier.height(Dimens6))
 
                 Text(
-                    text = "Unlock ALL activities\nNo daily limits\nLearn without limits!",
+                    text = if (trialLabel != null)
+                        "Free trial, then\nunlimited access!"
+                    else
+                        "Unlock ALL activities\nNo daily limits\nLearn without limits!",
                     color = Color(0xFF666666),
                     style = MaterialTheme.typography.bodySmall.scaled(),
                     textAlign = TextAlign.Center
@@ -189,6 +207,7 @@ fun PaywallSheet(
                         title = "Monthly",
                         price = monthlyPackage?.product?.price?.formatted ?: "--",
                         period = "/ month",
+                        trialLabel = trialLabel,
                         isHighlighted = false,
                         badge = null,
                         pkg = monthlyPackage,
@@ -202,11 +221,23 @@ fun PaywallSheet(
                         title = "Yearly",
                         price = yearlyPackage?.product?.price?.formatted ?: "--",
                         period = "/ year",
+                        trialLabel = trialLabel,
                         isHighlighted = true,
                         badge = "Best Value!",
                         pkg = yearlyPackage,
                         onPurchase = onPurchase
                     )
+
+                    if (trialLabel != null) {
+                        Spacer(modifier = Modifier.height(Dimens6))
+                        Text(
+                            text = "No payment today · Cancel anytime",
+                            color = Color(0xFF2E7D32),
+                            style = MaterialTheme.typography.labelSmall.scaled(),
+                            fontWeight = FontWeight.Medium,
+                            textAlign = TextAlign.Center
+                        )
+                    }
 
                     Spacer(modifier = Modifier.height(Dimens8))
 
@@ -236,6 +267,7 @@ private fun PlanRowCard(
     title: String,
     price: String,
     period: String,
+    trialLabel: String?,
     isHighlighted: Boolean,
     badge: String?,
     pkg: Package?,
@@ -268,19 +300,35 @@ private fun PlanRowCard(
                     style = MaterialTheme.typography.titleSmall.scaled(),
                     fontWeight = FontWeight.Bold
                 )
-                Text(
-                    text = price + " " + period,
-                    color = Color(0xFF0074D5),
-                    style = MaterialTheme.typography.bodyMedium.scaled(),
-                    fontWeight = FontWeight.Bold
-                )
+                if (trialLabel != null) {
+                    Text(
+                        text = trialLabel,
+                        color = Color(0xFF2E7D32),
+                        style = MaterialTheme.typography.bodyMedium.scaled(),
+                        fontWeight = FontWeight.Bold
+                    )
+                    Text(
+                        text = "then $price $period",
+                        color = Color(0xFF888888),
+                        style = MaterialTheme.typography.labelSmall.scaled(),
+                        fontWeight = FontWeight.Medium
+                    )
+                } else {
+                    Text(
+                        text = price + " " + period,
+                        color = Color(0xFF0074D5),
+                        style = MaterialTheme.typography.bodyMedium.scaled(),
+                        fontWeight = FontWeight.Bold
+                    )
+                }
             }
 
             KidsActionButton(
-                text = "Subscribe",
+                text = if (trialLabel != null) "Start Free Trial" else "Subscribe",
                 type = if (isHighlighted) ButtonType.ORANGE else ButtonType.BLUE,
                 onClick = { pkg?.let { onPurchase(it) } },
-                disable = pkg == null
+                disable = pkg == null,
+                isSmall = true
             )
         }
 

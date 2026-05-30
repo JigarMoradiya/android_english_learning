@@ -82,7 +82,7 @@ fun AgeGroup3to5Page(
     }
     val headerHeight = DeviceInfo.screenTopPadding() + Dimens8 + ToolbarIconSize
     val gridOverhead = Dimens16 + Dimens12
-    val tileHeight = (screenHeight - headerHeight - gridOverhead) * if (DeviceInfo.isTablet) 0.33f else 0.45f
+    val tileHeight = (screenHeight - headerHeight - gridOverhead) / 2
 
     var showArrangeSheet by rememberSaveable { mutableStateOf(false) }
     var arrangeMode by rememberSaveable { mutableStateOf(viewModel.getArrangeMode()) }

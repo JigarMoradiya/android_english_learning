@@ -198,6 +198,16 @@ fun SettingsScreen(
                     }
                 }
 
+                // ── [DEV] Clear trial offer flags ────────────────────────
+//                SettingsCard {
+//                    SettingsRow(
+//                        icon = Icons.Filled.Refresh,
+//                        title = "Reset Trial Offer Flag",
+//                        subtitle = "Dev only — next age-card tap shows trial paywall again",
+//                        type = ButtonType.ORANGE
+//                    ) { viewModel.clearTrialOfferFlags() }
+//                }
+
                 // ── [DEV] Clear today's activity count ──────────────────
 //                SettingsCard {
 //                    SettingsRow(

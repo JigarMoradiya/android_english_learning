@@ -76,6 +76,7 @@ import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
@@ -1030,8 +1031,8 @@ private fun ChapterDetailSheet(
     ) {
         Column(
             modifier = Modifier
-                .fillMaxHeight(0.85f)
-                .fillMaxWidth(0.55f)
+                .fillMaxHeight(if (isTablet) 0.80f else 0.85f)
+                .fillMaxWidth(0.75f)
                 .shadow(Dimens24, RoundedCornerShape(Dimens16))
                 .background(Color.White, RoundedCornerShape(Dimens16))
                 .clickable { /* consume clicks so backdrop doesn't fire */ }

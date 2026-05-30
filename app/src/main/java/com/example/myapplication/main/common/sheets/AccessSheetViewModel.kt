@@ -11,7 +11,10 @@ import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.data.auth.AuthManager
 import com.example.myapplication.data.auth.AuthResult
 import com.example.myapplication.data.purchase.PurchaseManager
+import com.example.myapplication.data.purchase.RevenueCatManager
+import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.revenuecat.purchases.Package
+import kotlinx.coroutines.delay
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -30,6 +33,8 @@ class AccessSheetViewModel @Inject constructor(
     private val authManager: AuthManager,
     private val purchaseManager: PurchaseManager,
     private val reviewManager: ReviewManager,
+    private val revenueCatManager: RevenueCatManager,
+    private val appPrefs: AppPreferencesHelper,
 ) : ViewModel() {
 
     // ── User access state (observable by UI) ─────────────────────────
@@ -88,6 +93,15 @@ class AccessSheetViewModel @Inject constructor(
 
     private val _packages = MutableStateFlow<List<Package>>(emptyList())
     val packages: StateFlow<List<Package>> = _packages.asStateFlow()
+
+    private val _isTrialEligible = MutableStateFlow(false)
+    val isTrialEligible: StateFlow<Boolean> = _isTrialEligible.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            _isTrialEligible.value = revenueCatManager.isEligibleForIntroOffer()
+        }
+    }
 
     // ── Pending purchase (set when guest taps Subscribe) ──────────────
 
@@ -264,15 +278,15 @@ class AccessSheetViewModel @Inject constructor(
         val moduleId = when (currentState) {
             is AccessSheetState.Login      -> currentState.moduleId
             is AccessSheetState.DailyLimit -> currentState.moduleId
-            else -> { dismiss(); return }
+            else -> { dismissOrShowTrialAfterFirstLogin(); return }
         }
         when (accessManager.checkAccess(moduleId)) {
-            is AccessResult.Allowed          -> dismiss()
+            is AccessResult.Allowed          -> dismissOrShowTrialAfterFirstLogin()
             is AccessResult.SubscribeRequired -> {
                 _sheetState.value = AccessSheetState.Paywall(moduleId)
                 loadOfferings()
             }
-            else -> dismiss()
+            else -> dismissOrShowTrialAfterFirstLogin()
         }
     }
 
@@ -280,6 +294,32 @@ class AccessSheetViewModel @Inject constructor(
         viewModelScope.launch {
             val offerings = purchaseManager.getOfferings()
             _packages.value = offerings?.current?.availablePackages ?: emptyList()
+            _isTrialEligible.value = revenueCatManager.isEligibleForIntroOffer()
         }
+    }
+
+    // ── Trial offer proactive triggers ────────────────────────────────
+
+    fun showTrialOfferIfNeededOnFirstLaunch() {
+        if (!_isTrialEligible.value) return
+        if (accessManager.userState.value !is UserAccessState.Guest) return
+        if (appPrefs.isTrialOfferShownOnFirstLaunch()) return
+        appPrefs.setTrialOfferShownOnFirstLaunch(true)
+        viewModelScope.launch {
+            delay(500)
+            requestState(AccessSheetState.Paywall("first_launch"))
+        }
+    }
+
+    private fun dismissOrShowTrialAfterFirstLogin() {
+        if (accessManager.userState.value.isPremium ||
+            appPrefs.isTrialOfferShownAfterFirstLogin() ||
+            !_isTrialEligible.value) {
+            dismiss()
+            return
+        }
+        appPrefs.setTrialOfferShownAfterFirstLogin(true)
+        _sheetState.value = AccessSheetState.Paywall("after_first_login")
+        loadOfferings()
     }
 }

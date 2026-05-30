@@ -8,6 +8,7 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -47,6 +48,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens18
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.utils.extensions.scaled
 
 @Composable
@@ -71,7 +73,8 @@ fun MascotPanel(
         modifier = modifier
             .padding(start = Dimens8)
             .padding(top = Dimens8),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = if (isTablet) Arrangement.Center else Arrangement.Top
     ) {
         // Speech bubble — wraps to text width with downward-pointing tail
         Box(
@@ -116,8 +119,7 @@ fun MascotPanel(
             painter = painterResource(id = R.drawable._mascot_lion),
             contentDescription = null,
             contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .weight(1f)
+            modifier = (if (!isTablet) Modifier.weight(1f) else Modifier)
                 .fillMaxWidth()
                 .padding(horizontal = Dimens4)
                 .padding(bottom = Dimens16)

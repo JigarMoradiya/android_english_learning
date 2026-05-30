@@ -55,10 +55,11 @@ fun AccessBottomSheetHost(
     val context = LocalContext.current
     val activity = context as? Activity
 
-    val sheetState       by viewModel.sheetState.collectAsState()
-    val isLoading        by viewModel.isLoading.collectAsState()
-    val packages         by viewModel.packages.collectAsState()
-    val showParentalGate by viewModel.showParentalGate.collectAsState()
+    val sheetState        by viewModel.sheetState.collectAsState()
+    val isLoading         by viewModel.isLoading.collectAsState()
+    val packages          by viewModel.packages.collectAsState()
+    val isTrialEligible   by viewModel.isTrialEligible.collectAsState()
+    val showParentalGate  by viewModel.showParentalGate.collectAsState()
     val scope            = rememberCoroutineScope()
 
     // One-shot toast messages
@@ -121,11 +122,12 @@ fun AccessBottomSheetHost(
             heightFraction = PaywallSheetHeightFraction
         ) {
             PaywallSheet(
-                packages  = packages,
-                isLoading = isLoading,
-                onPurchase = { pkg -> activity?.let { viewModel.purchase(it, pkg) } },
-                onRestore  = { viewModel.restorePurchases() },
-                onDismiss  = { viewModel.dismiss() }
+                packages        = packages,
+                isLoading       = isLoading,
+                isTrialEligible = isTrialEligible,
+                onPurchase      = { pkg -> activity?.let { viewModel.purchase(it, pkg) } },
+                onRestore       = { viewModel.restorePurchases() },
+                onDismiss       = { viewModel.dismiss() }
             )
         }
 

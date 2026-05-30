@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.AccessManager
 import com.example.myapplication.data.access.DailyLimitManager
 import com.example.myapplication.data.access.ReviewManager
+import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.data.auth.AuthManager
 import com.example.myapplication.data.purchase.PurchaseManager
@@ -41,6 +42,7 @@ class SettingsViewModel @Inject constructor(
     private val dailyLimitManager: DailyLimitManager,
     private val reviewManager: ReviewManager,
     private val streakRepository: com.example.myapplication.data.progress.StreakRepository,
+    private val appPrefs: AppPreferencesHelper,
 ) : ViewModel() {
 
     val userState: StateFlow<UserAccessState> = accessManager.userState
@@ -92,6 +94,10 @@ class SettingsViewModel @Inject constructor(
 
     fun clearActivityMilestone(count: Int) {
         reviewManager.clearActivityMilestone(count)
+    }
+
+    fun clearTrialOfferFlags() {
+        appPrefs.clearTrialOfferFlags()
     }
 
     fun simulateSixDayStreak() {

@@ -3,6 +3,7 @@ package com.example.myapplication.main.age_group.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,16 +32,19 @@ fun ActivityTileCard(
     tileHeight: Dp,
     onClick: () -> Unit
 ) {
+    val imageSize = tileHeight * 0.9f
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.width(tileHeight)
+        modifier = Modifier
+            .width(tileHeight)
+            .height(tileHeight)
     ) {
         Image(
             painter = painterResource(id = activity.img),
             contentDescription = null,
             contentScale = ContentScale.Fit,
             modifier = Modifier
-                .size(tileHeight)
+                .size(imageSize)
                 .clip(RoundedCornerShape(TILE_CORNER))
                 .clickable(onClick = onClick)
         )
@@ -51,8 +55,9 @@ fun ActivityTileCard(
             fontWeight = FontWeight.ExtraBold,
             color = activity.txtColor,
             textAlign = TextAlign.Center,
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.width(tileHeight)
         )
     }
 }

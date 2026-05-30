@@ -62,6 +62,7 @@ import com.example.myapplication.main.base.force_update.ForceUpdateHandler
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.base.notification.OneSignalSubscriptionWatcher
 import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.common.HomePageBackground
 import com.example.myapplication.main.common.permission.NotificationPermissionHandler
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
@@ -185,6 +186,7 @@ fun MainLearningAgesCategoriesScreen(
         val totalH = maxHeight
         val totalW = maxWidth
         val mascotMaxH = min(totalH.value * 0.50f, 240f).dp
+        val isTablet = DeviceInfo.isTablet
 
         // Card dimensions calculated once from full-screen size (same formula as iOS)
         val hPad = Dimens16
@@ -210,20 +212,20 @@ fun MainLearningAgesCategoriesScreen(
             // ── Body: mascot left (26%) + content right (74%) ─────────────
             Row(modifier = Modifier.fillMaxSize()) {
 
-                // ── Left panel: speech bubble + mascot at bottom ───────────
+                // ── Left panel: speech bubble + mascot ────────────────────
                 Box(
                     modifier = Modifier
                         .width(totalW * 0.22f)
                         .fillMaxHeight(),
-                    contentAlignment = Alignment.BottomCenter
+                    contentAlignment = if (isTablet) Alignment.TopCenter else Alignment.BottomCenter
                 ) {
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = Dimens10)
-                            .padding(bottom = Dimens12),
+                            .then(if (isTablet) Modifier.padding(top = Dimens12) else Modifier.padding(bottom = Dimens12)),
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Bottom
+                        verticalArrangement = if (isTablet) Arrangement.Top else Arrangement.Bottom
                     ) {
                         Box(
                             modifier = Modifier
@@ -365,6 +367,7 @@ fun MainLearningAgesCategoriesScreen(
                                         indication = null
                                     ) {
                                         AudioPlayerManager.playSoundMenuClick()
+                                        accessVM.showTrialOfferIfNeededOnFirstLaunch()
                                         navController.navigate(category.destination)
                                     }
                             )
