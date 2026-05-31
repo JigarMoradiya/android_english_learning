@@ -11,7 +11,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
@@ -48,6 +50,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens18
+import com.example.myapplication.ui.theme.AppDimens.Dimens30
 import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.utils.extensions.scaled
 
@@ -114,6 +117,8 @@ fun MascotPanel(
                 color = textColor
             )
         }
+
+        if (isTablet) Spacer(modifier = Modifier.height(Dimens30))
 
         // Mascot — fills remaining height, bottom padding prevents overflow
         Image(

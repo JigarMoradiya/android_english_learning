@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.data.model.LearningActivityModel
 import com.example.myapplication.utils.extensions.scaled
 
@@ -51,7 +52,8 @@ fun ActivityTileCard(
 
         Text(
             text = stringResource(activity.titleRes),
-            style = MaterialTheme.typography.labelMedium.scaled(),
+            style = if (DeviceInfo.isTablet) MaterialTheme.typography.titleSmall.scaled()
+                    else MaterialTheme.typography.labelMedium.scaled(),
             fontWeight = FontWeight.ExtraBold,
             color = activity.txtColor,
             textAlign = TextAlign.Center,

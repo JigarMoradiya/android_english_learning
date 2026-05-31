@@ -12,6 +12,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -27,6 +28,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -113,39 +115,85 @@ fun AgeGroup3to5Page(
                 )
 
                 // ── Right activity grid (78%) ─────────────────────────────────
-                LazyHorizontalGrid(
-                    rows = GridCells.Fixed(2),
-                    contentPadding = PaddingValues(
-                        start = DeviceInfo.screenHorizontalPadding(),
-                        end = DeviceInfo.screenHorizontalPadding(),
-                        bottom = Dimens16
-                    ),
-                    horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
-                    verticalArrangement = Arrangement.spacedBy(Dimens12),
+                BoxWithConstraints(
                     modifier = Modifier
                         .fillMaxHeight()
                         .weight(0.78f)
                 ) {
-                    items(activities_age_3_5) { activity ->
-                        ActivityTileCard(
-                            activity = activity,
-                            tileHeight = tileHeight,
-                            onClick = {
-                                AudioPlayerManager.playSoundMenuClick()
-                                scope.launch {
-                                    val allowed = if (activity.moduleId.isNotEmpty())
-                                        accessVM.checkAccess(activity.moduleId)
-                                    else true
-                                    if (allowed) {
-                                        if (activity.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE) {
-                                            showArrangeSheet = true
-                                        } else {
-                                            navController.navigate(activity.destination)
+                    val gridW = maxWidth
+                    val hPad  = DeviceInfo.screenHorizontalPadding()
+
+                    if (DeviceInfo.isTablet) {
+                        // Tablet: vertical scroll, 3 columns, tile size from width
+                        val tileSizeDp = (gridW - hPad * 2 - Dimens12 * 2) / 3
+
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(3),
+                            contentPadding = PaddingValues(
+                                start = hPad,
+                                end = hPad,
+                                bottom = Dimens16
+                            ),
+                            horizontalArrangement = Arrangement.spacedBy(Dimens12),
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            items(activities_age_3_5) { activity ->
+                                ActivityTileCard(
+                                    activity = activity,
+                                    tileHeight = tileSizeDp,
+                                    onClick = {
+                                        AudioPlayerManager.playSoundMenuClick()
+                                        scope.launch {
+                                            val allowed = if (activity.moduleId.isNotEmpty())
+                                                accessVM.checkAccess(activity.moduleId)
+                                            else true
+                                            if (allowed) {
+                                                if (activity.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE) {
+                                                    showArrangeSheet = true
+                                                } else {
+                                                    navController.navigate(activity.destination)
+                                                }
+                                            }
                                         }
                                     }
-                                }
+                                )
                             }
-                        )
+                        }
+                    } else {
+                        // Phone: horizontal scroll, 2 rows, tile size from height
+                        LazyHorizontalGrid(
+                            rows = GridCells.Fixed(2),
+                            contentPadding = PaddingValues(
+                                start = hPad,
+                                end = hPad,
+                                bottom = Dimens16
+                            ),
+                            horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
+                            verticalArrangement = Arrangement.spacedBy(Dimens12),
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            items(activities_age_3_5) { activity ->
+                                ActivityTileCard(
+                                    activity = activity,
+                                    tileHeight = tileHeight,
+                                    onClick = {
+                                        AudioPlayerManager.playSoundMenuClick()
+                                        scope.launch {
+                                            val allowed = if (activity.moduleId.isNotEmpty())
+                                                accessVM.checkAccess(activity.moduleId)
+                                            else true
+                                            if (allowed) {
+                                                if (activity.moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE) {
+                                                    showArrangeSheet = true
+                                                } else {
+                                                    navController.navigate(activity.destination)
+                                                }
+                                            }
+                                        }
+                                    }
+                                )
+                            }
+                        }
                     }
                 }
             }

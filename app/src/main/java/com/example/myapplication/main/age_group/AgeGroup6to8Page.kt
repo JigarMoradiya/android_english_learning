@@ -2,6 +2,7 @@ package com.example.myapplication.main.age_group
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -75,33 +77,62 @@ fun AgeGroup6to8Page(navController: NavController) {
                 )
 
                 // ── Right activity grid (78%) ─────────────────────────────────
-                LazyHorizontalGrid(
-                    rows = GridCells.Fixed(2),
-                    contentPadding = PaddingValues(
-                        start = DeviceInfo.screenHorizontalPadding(),
-                        end = DeviceInfo.screenHorizontalPadding(),
-                        bottom = Dimens16
-                    ),
-                    horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
-                    verticalArrangement = Arrangement.spacedBy(Dimens12),
+                BoxWithConstraints(
                     modifier = Modifier
                         .fillMaxHeight()
                         .weight(0.78f)
                 ) {
-                    items(activities_age_6_8) { activity ->
-                        ActivityTileCard(
-                            activity = activity,
-                            tileHeight = tileHeight,
-                            onClick = {
-                                AudioPlayerManager.playSoundMenuClick()
-                                scope.launch {
-                                    val allowed = if (activity.moduleId.isNotEmpty())
-                                        accessVM.checkAccess(activity.moduleId)
-                                    else true
-                                    if (allowed) navController.navigate(activity.destination)
-                                }
+                    val gridW = maxWidth
+                    val hPad  = DeviceInfo.screenHorizontalPadding()
+
+                    if (DeviceInfo.isTablet) {
+                        val tileSizeDp = (gridW - hPad * 2 - Dimens12 * 2) / 3
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(3),
+                            contentPadding = PaddingValues(start = hPad, end = hPad, top = Dimens8, bottom = Dimens16),
+                            horizontalArrangement = Arrangement.spacedBy(Dimens12),
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            items(activities_age_6_8) { activity ->
+                                ActivityTileCard(
+                                    activity = activity,
+                                    tileHeight = tileSizeDp,
+                                    onClick = {
+                                        AudioPlayerManager.playSoundMenuClick()
+                                        scope.launch {
+                                            val allowed = if (activity.moduleId.isNotEmpty())
+                                                accessVM.checkAccess(activity.moduleId)
+                                            else true
+                                            if (allowed) navController.navigate(activity.destination)
+                                        }
+                                    }
+                                )
                             }
-                        )
+                        }
+                    } else {
+                        LazyHorizontalGrid(
+                            rows = GridCells.Fixed(2),
+                            contentPadding = PaddingValues(start = hPad, end = hPad, bottom = Dimens16),
+                            horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
+                            verticalArrangement = Arrangement.spacedBy(Dimens12),
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            items(activities_age_6_8) { activity ->
+                                ActivityTileCard(
+                                    activity = activity,
+                                    tileHeight = tileHeight,
+                                    onClick = {
+                                        AudioPlayerManager.playSoundMenuClick()
+                                        scope.launch {
+                                            val allowed = if (activity.moduleId.isNotEmpty())
+                                                accessVM.checkAccess(activity.moduleId)
+                                            else true
+                                            if (allowed) navController.navigate(activity.destination)
+                                        }
+                                    }
+                                )
+                            }
+                        }
                     }
                 }
             }

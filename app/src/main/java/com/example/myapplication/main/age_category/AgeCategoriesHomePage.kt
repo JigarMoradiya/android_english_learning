@@ -336,15 +336,16 @@ fun MainLearningAgesCategoriesScreen(
                         )
                     }
 
-                    // Age cards — fill remaining space between header and footer
+                    // Age cards — top-aligned, same as iOS
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
                             .weight(1f)
                             .padding(horizontal = hPad)
-                            .padding(bottom = Dimens4),
+                            .padding(bottom = if (isTablet) 0.dp else Dimens4)
+                            .padding(top = if (isTablet) Dimens16 else 0.dp),
                         horizontalArrangement = Arrangement.spacedBy(cardGap),
-                        verticalAlignment = Alignment.CenterVertically
+                        verticalAlignment = if (isTablet) Alignment.Top else Alignment.CenterVertically
                     ) {
                         categories.forEach { category ->
                             val interactionSource = remember { MutableInteractionSource() }
@@ -363,7 +364,6 @@ fun MainLearningAgesCategoriesScreen(
                                 contentScale = ContentScale.Fit,
                                 modifier = Modifier
                                     .weight(1f)
-                                    .fillMaxHeight()
                                     .graphicsLayer { scaleX = scale; scaleY = scale }
                                     .clickable(
                                         interactionSource = interactionSource,
