@@ -28,12 +28,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.foundation.Canvas
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.launch
@@ -51,6 +51,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
@@ -62,6 +63,7 @@ import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.utils.extensions.scaled
 import androidx.core.net.toUri
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 
 @Composable
 fun SettingsScreen(
@@ -76,14 +78,14 @@ fun SettingsScreen(
     val restoreMessage by viewModel.restoreMessage.collectAsState()
     val navigateToParentProgress by viewModel.navigateToParentProgress.collectAsState()
     val sheetViewModel = LocalAccessSheetViewModel.current
-    val scope = rememberCoroutineScope()
+    rememberCoroutineScope()
     val context = LocalContext.current
     var showRateSheet by remember { mutableStateOf(false) }
 
     LaunchedEffect(navigateToParentProgress) {
         if (navigateToParentProgress) {
             viewModel.consumeParentProgressNavigation()
-            navController.navigate(com.example.myapplication.main.base.nav.RouteNavigation.ParentProgress.route)
+            navController.navigate(RouteNavigation.ParentProgress.route)
         }
     }
 
@@ -95,13 +97,11 @@ fun SettingsScreen(
                 .fillMaxSize()
                 .windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
-            // ── Back button ──────────────────────────────────────────────
             BackButtonWithText(
                 title = "Settings",
                 onBackClick = { navController.popBackStack() }
             )
 
-            // ── Content ──────────────────────────────────────────────────
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -109,10 +109,8 @@ fun SettingsScreen(
                     .padding(horizontal = Dimens16),
                 verticalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
-                Spacer(Modifier.height(Dimens8))
-
-                // ── User status card ─────────────────────────────────────
-                UserStatusCard(
+                // ── Hero user status banner ───────────────────────────────
+                UserStatusHeroCard(
                     state = userState,
                     subscriptionInfo = subscriptionInfo,
                     onSignIn = {
@@ -123,161 +121,51 @@ fun SettingsScreen(
                     }
                 )
 
-                // ── Background music volume ──────────────────────────────
-                SettingsCard {
-                    MusicVolumeRow(
-                        volume = musicVolume,
-                        onVolumeChange = { viewModel.updateMusicVolume(it) }
-                    )
-                }
+                // ── Sound section ─────────────────────────────────────────
+                SectionHeader(emoji = "🎵", title = "SOUND")
+                MusicVolumeCard(
+                    volume = musicVolume,
+                    onVolumeChange = { viewModel.updateMusicVolume(it) }
+                )
 
-                // ── Parent Report ────────────────────────────────────────
-                SettingsCard {
-                    SettingsRow(
-                        icon = Icons.Filled.Person,
-                        title = "Parent Report",
-                        subtitle = "View your child's weekly progress",
-                        type = ButtonType.BLUE
-                    ) {
+                // ── Explore quick actions ─────────────────────────────────
+                SectionHeader(emoji = "🚀", title = "EXPLORE")
+                QuickActionsRow(
+                    onParentReport = {
                         viewModel.requestParentalGate(SettingsViewModel.ParentalAction.ParentProgress)
-                    }
-                }
-
-                // ── Access Plan ──────────────────────────────────────────
-                SettingsCard {
-                    SettingsRow(
-                        icon = Icons.Filled.Map,
-                        title = "Access Plan",
-                        subtitle = "See what's included in each tier",
-                        type = ButtonType.BLUE
-                    ) {
-                        navController.navigate(RouteNavigation.AccessPlan.route)
-                    }
-                }
-
-                // ── Rate the App ─────────────────────────────────────────
-                SettingsCard {
-                    SettingsRow(
-                        icon = Icons.Filled.Star,
-                        title = "Rate the App",
-                        subtitle = "Enjoying the app? Leave us a review ⭐",
-                        type = ButtonType.ORANGE
-                    ) {
-                        showRateSheet = true
-                    }
-                }
-
-                // ── Restore + Logout ─────────────────────────────────────
-                SettingsCard {
-                    Column {
-                        SettingsRow(
-                            icon = Icons.Filled.Refresh,
-                            title = if (isRestoring) "Restoring…" else "Restore Purchases",
-                            subtitle = restoreMessage ?: "Already subscribed? Tap to restore",
-                            type = if (restoreMessage == "No active subscription found.") ButtonType.RED else ButtonType.GREEN
-                        ) {
-                            if (!isRestoring) {
-                                if (!userState.isLoggedIn) {
-                                    sheetViewModel.requestLoginForRestore()
-                                } else {
-                                    viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Restore)
-                                }
-                            }
-                        }
-                        if (userState.isLoggedIn) {
-                            HorizontalDivider(Modifier, thickness = AppDimens.Dimens1, color = Color.Gray.copy(alpha = 0.2f))
-                            SettingsRow(
-                                icon = Icons.AutoMirrored.Filled.ExitToApp,
-                                title = "Log Out",
-                                subtitle = "Sign out of your account",
-                                type = ButtonType.RED
-                            ) {
-                                viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Logout)
-                            }
-                        }
-                    }
-                }
-
-                // ── Privacy Policy ───────────────────────────────────────
-                SettingsCard {
-                    SettingsRow(
-                        icon = Icons.Filled.Lock,
-                        title = "Privacy Policy",
-                        subtitle = "Read our privacy policy",
-                        type = ButtonType.BLUE
-                    ) {
+                    },
+                    onAccessPlan = { navController.navigate(RouteNavigation.AccessPlan.route) },
+                    onRateApp = { showRateSheet = true },
+                    onPrivacyPolicy = {
                         val uri = "https://docs.google.com/document/d/1dfclCk6Hklv-RbiYi5EYbdx5i65g0YPv/".toUri()
                         context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, uri))
                     }
-                }
+                )
 
-                // ── [DEV] Clear trial offer flags ────────────────────────
-//                SettingsCard {
-//                    SettingsRow(
-//                        icon = Icons.Filled.Refresh,
-//                        title = "Reset Trial Offer Flag",
-//                        subtitle = "Dev only — next age-card tap shows trial paywall again",
-//                        type = ButtonType.ORANGE
-//                    ) { viewModel.clearTrialOfferFlags() }
-//                }
-
-                // ── [DEV] Clear today's activity count ──────────────────
-//                SettingsCard {
-//                    SettingsRow(
-//                        icon = Icons.Filled.DeleteForever,
-//                        title = "Clear Today's Activity Count",
-//                        subtitle = "Dev only — resets daily limit for testing",
-//                        type = ButtonType.RED
-//                    ) { viewModel.clearTodayActivityCount() }
-//                }
-
-                // ── [DEV] Simulate 6-day streak ──────────────────────────
-//                SettingsCard {
-//                    SettingsRow(
-//                        icon = Icons.Filled.Refresh,
-//                        title = "Simulate 6-Day Streak",
-//                        subtitle = "Dev only — do 1 activity after this to trigger 7-day banner",
-//                        type = ButtonType.BLUE
-//                    ) { viewModel.simulateSixDayStreak() }
-//                }
-
-                // ── [DEV] Reset activity milestone (50) ─────────────────
-//                SettingsCard {
-//                    SettingsRow(
-//                        icon = Icons.Filled.Refresh,
-//                        title = "Reset Activity Milestone (50)",
-//                        subtitle = "Dev only — next activity triggers 50-activities banner",
-//                        type = ButtonType.ORANGE
-//                    ) { viewModel.clearActivityMilestone(50) }
-//                }
-
-                // ── [DEV] Test premium celebration ───────────────────────
-//                SettingsCard {
-//                    SettingsRow(
-//                        icon = Icons.Filled.Star,
-//                        title = "Test Premium Celebration",
-//                        subtitle = "Dev only — shows the post-purchase sheet",
-//                        type = ButtonType.ORANGE
-//                    ) {
-//                        sheetViewModel.requestState(AccessSheetState.PremiumCelebration)
-//                    }
-//                }
-
-                // ── [DEV] Clear all app preferences ──────────────────────
-//                SettingsCard {
-//                    SettingsRow(
-//                        icon = Icons.Filled.Delete,
-//                        title = "Clear All App Data",
-//                        subtitle = "Dev only — wipes all data and restarts the app",
-//                        type = ButtonType.RED
-//                    ) { viewModel.clearAllPreferences(context) }
-//                }
+                // ── Account section ───────────────────────────────────────
+                SectionHeader(emoji = "👤", title = "ACCOUNT")
+                AccountCard(
+                    isRestoring = isRestoring,
+                    restoreMessage = restoreMessage,
+                    isLoggedIn = userState.isLoggedIn,
+                    onRestore = {
+                        if (!isRestoring) {
+                            if (!userState.isLoggedIn) {
+                                sheetViewModel.requestLoginForRestore()
+                            } else {
+                                viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Restore)
+                            }
+                        }
+                    },
+                    onLogout = {
+                        viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Logout)
+                    }
+                )
 
                 Spacer(Modifier.height(Dimens16))
             }
         }
 
-        // ── Parental gate overlay (shared common component) ─────────────
         if (showParentalGate) {
             ParentalGateDialog(
                 onPassed    = { viewModel.executeAction() },
@@ -285,7 +173,6 @@ fun SettingsScreen(
             )
         }
 
-        // ── Rate the App bottom sheet ────────────────────────────────────
         KidsBottomSheet(
             visible = showRateSheet,
             onDismiss = { showRateSheet = false },
@@ -313,111 +200,372 @@ fun SettingsScreen(
     }
 }
 
-// ── User status card ──────────────────────────────────────────────────────────
+// ── Section header ────────────────────────────────────────────────────────────
 
 @Composable
-private fun UserStatusCard(
+private fun SectionHeader(emoji: String, title: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = Dimens4, top = Dimens4),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Dimens6)
+    ) {
+        Text(text = emoji, style = MaterialTheme.typography.bodySmall.scaled())
+        Text(
+            text = title,
+            style = MaterialTheme.typography.labelSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color.Black.copy(alpha = 0.45f)
+        )
+    }
+}
+
+// ── Hero user status card ─────────────────────────────────────────────────────
+
+@Composable
+private fun UserStatusHeroCard(
     state: UserAccessState,
     subscriptionInfo: SubscriptionInfo?,
     onSignIn: () -> Unit,
     onUpgrade: () -> Unit
 ) {
     val (icon, name, type, desc) = when {
-        state.isPremium  -> Quad(Icons.Filled.Star,          "Premium",      ButtonType.ORANGE,   "Full access to all activities")
+        state.isPremium  -> Quad(Icons.Filled.Star,          "Premium ✨",   ButtonType.ORANGE,   "Full access to all activities")
         state.isLoggedIn -> Quad(Icons.Filled.Person,        "Free Account", ButtonType.BLUE,     "3 activities/day")
         else             -> Quad(Icons.Filled.AccountCircle, "Guest",        ButtonType.NEGATIVE, "Sign in to track your progress")
     }
     val colors = getButtonColors(type)
 
-    Row(
+    Box(
         modifier = Modifier
+            .padding(top = Dimens4)
             .fillMaxWidth()
-            .shadow(Dimens4, RoundedCornerShape(Dimens16))
+            .shadow(elevation = Dimens8, shape = RoundedCornerShape(Dimens16))
             .clip(RoundedCornerShape(Dimens16))
-            .background(Color.White.copy(alpha = 0.92f))
-            .padding(Dimens16),
-        verticalAlignment = Alignment.CenterVertically
+            .background(brush = colors.gradient)
     ) {
-        // Tier icon circle
-        Box(
-            modifier = Modifier
-                .size(AppDimens.Dimens50)
-                .shadow(Dimens4, CircleShape)
-                .clip(CircleShape)
-                .background(brush = colors.gradient),
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                tint = Color.White,
-                modifier = Modifier.size(Dimens24)
+        // Decorative circles — Canvas matches iOS GeometryReader proportions exactly
+        // iOS uses offset(x,y) for top-left corner, so center = (x + radius, y + radius)
+        Canvas(modifier = Modifier.matchParentSize()) {
+            val w = size.width
+            val h = size.height
+            // Big circle: diameter = h*1.5, top-left at (w*0.55, -h*0.5)
+            drawCircle(
+                color = Color.White.copy(alpha = 0.10f),
+                radius = h * 0.75f,
+                center = androidx.compose.ui.geometry.Offset(
+                    x = w * 0.55f + h * 0.75f,
+                    y = -h * 0.5f + h * 0.75f
+                )
+            )
+            // Small circle: diameter = h, top-left at (w*0.65, h*0.15)
+            drawCircle(
+                color = Color.White.copy(alpha = 0.07f),
+                radius = h * 0.5f,
+                center = androidx.compose.ui.geometry.Offset(
+                    x = w * 0.65f + h * 0.5f,
+                    y = h * 0.15f + h * 0.5f
+                )
             )
         }
 
-        Spacer(Modifier.width(Dimens12))
-
-        Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = name,
-                fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.titleMedium.scaled(),
-                color = colors.base
-            )
-            // Premium: show plan name + price + renewal date
-            if (state.isPremium && subscriptionInfo != null) {
-                Row(horizontalArrangement = Arrangement.spacedBy(Dimens6)) {
-                    Text(
-                        text = subscriptionInfo.planName,
-                        style = MaterialTheme.typography.bodyMedium.scaled(),
-                        fontWeight = FontWeight.Medium,
-                        color = Color.Black.copy(alpha = 0.75f)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(Dimens16),
+            verticalArrangement = Arrangement.spacedBy(Dimens12)
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(Dimens16)
+            ) {
+                // Tier icon circle
+                Box(
+                    modifier = Modifier
+                        .size(AppDimens.Dimens50)
+                        .background(Color.White.copy(alpha = 0.22f), CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null,
+                        tint = Color.White,
+                        modifier = Modifier.size(Dimens24)
                     )
-                    if (subscriptionInfo.price.isNotEmpty()) {
+                }
+
+                Column(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(Dimens4)
+                ) {
+                    Text(
+                        text = name,
+                        style = MaterialTheme.typography.titleLarge.scaled(),
+                        fontWeight = FontWeight.Black,
+                        color = Color.White
+                    )
+                    if (state.isPremium && subscriptionInfo != null) {
                         Text(
-                            text = "· ${subscriptionInfo.price}",
-                            style = MaterialTheme.typography.bodyMedium.scaled(),
+                            text = subscriptionInfo.planName,
+                            style = MaterialTheme.typography.bodyLarge.scaled(),
                             fontWeight = FontWeight.Medium,
-                            color = Color.Black.copy(alpha = 0.75f)
+                            color = Color.White.copy(alpha = 0.85f)
+                        )
+                        Text(
+                            text = subscriptionInfo.renewalDate,
+                            style = MaterialTheme.typography.bodySmall.scaled(),
+                            color = Color.White.copy(alpha = 0.70f)
+                        )
+                    } else {
+                        Text(
+                            text = desc,
+                            style = MaterialTheme.typography.bodyLarge.scaled(),
+                            color = Color.White.copy(alpha = 0.85f)
                         )
                     }
                 }
-                Text(
-                    text = subscriptionInfo.renewalDate,
-                    style = MaterialTheme.typography.bodySmall.scaled(),
-                    color = Color.Gray
-                )
-            } else {
-                Text(text = desc, style = MaterialTheme.typography.bodyMedium.scaled(), color = Color.Gray)
+            }
+
+            if (!state.isPremium) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .shadow(Dimens4, RoundedCornerShape(Dimens12))
+                        .clip(RoundedCornerShape(Dimens12))
+                        .background(Color.White)
+                        .clickable {
+                            AudioPlayerManager.playSoundMenuClick()
+                            if (state.isLoggedIn) onUpgrade() else onSignIn()
+                        }
+                        .padding(vertical = Dimens10),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(Dimens6),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = if (state.isLoggedIn) Icons.Filled.Star else Icons.Filled.Person,
+                            contentDescription = null,
+                            tint = colors.base,
+                            modifier = Modifier.size(Dimens16)
+                        )
+                        Text(
+                            text = if (state.isLoggedIn) "Upgrade to Premium" else "Sign In",
+                            style = MaterialTheme.typography.titleSmall.scaled(),
+                            fontWeight = FontWeight.Bold,
+                            color = colors.base
+                        )
+                    }
+                }
             }
         }
+    }
+}
 
-        // Guest → Sign In button; Free → Upgrade button; Premium → nothing
-        Spacer(Modifier.width(Dimens8))
-        when {
-            state.isPremium  -> { /* no button */ }
-            state.isLoggedIn -> KidsActionButton(
-                text = "Upgrade",
-                icon = Icons.Filled.Star,
-                type = ButtonType.ORANGE,
-                isSmall = true,
-                onClick = onUpgrade
+// ── Music volume card (horizontal) ────────────────────────────────────────────
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun MusicVolumeCard(volume: Float, onVolumeChange: (Float) -> Unit) {
+    val purpleLight = Color(0xFFAB47BC)
+    val purpleDark  = Color(0xFF6A1B9A)
+    val purpleBrush = Brush.linearGradient(listOf(purpleLight, purpleDark))
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(Dimens4, RoundedCornerShape(Dimens12))
+            .clip(RoundedCornerShape(Dimens12))
+            .background(Color.White.copy(alpha = 0.92f))
+            .padding(Dimens12),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Dimens12)
+    ) {
+        // Icon
+        Box(
+            modifier = Modifier
+                .size(AppDimens.ToolbarIconSize)
+                .shadow(Dimens4, RoundedCornerShape(Dimens10))
+                .clip(RoundedCornerShape(Dimens10))
+                .background(purpleBrush),
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                imageVector = if (volume == 0f) Icons.AutoMirrored.Filled.VolumeOff else Icons.AutoMirrored.Filled.VolumeUp,
+                contentDescription = null,
+                tint = Color.White,
+                modifier = Modifier.size(Dimens20)
             )
-            else -> KidsActionButton(
-                text = "Sign In",
-                icon = Icons.Filled.Person,
-                type = ButtonType.BLUE,
-                isSmall = true,
-                onClick = onSignIn
+        }
+
+        // Title
+        Text(
+            text = "Background Music",
+            style = MaterialTheme.typography.titleSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color.Black
+        )
+
+        // Slider
+        Slider(
+            value = volume,
+            onValueChange = onVolumeChange,
+            valueRange = 0f..1f,
+            modifier = Modifier.weight(1f),
+            thumb = {
+                Box(
+                    modifier = Modifier
+                        .size(Dimens20)
+                        .graphicsLayer(shadowElevation = 12f, shape = CircleShape, clip = true)
+                        .background(purpleLight, CircleShape)
+                )
+            },
+            track = { sliderState ->
+                SliderDefaults.Track(
+                    sliderState = sliderState,
+                    modifier = Modifier.height(Dimens4),
+                    colors = SliderDefaults.colors(
+                        activeTrackColor = purpleLight,
+                        inactiveTrackColor = purpleLight.copy(alpha = 0.2f),
+                        thumbColor = purpleLight
+                    )
+                )
+            }
+        )
+
+        // Percentage
+        Text(
+            text = "${(volume * 100).toInt()}%",
+            style = MaterialTheme.typography.titleSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = purpleDark.copy(alpha = 0.85f),
+            modifier = Modifier.widthIn(min = AppDimens.Dimens40)
+        )
+    }
+}
+
+// ── Quick actions horizontal row ──────────────────────────────────────────────
+
+@Composable
+private fun QuickActionsRow(
+    onParentReport: () -> Unit,
+    onAccessPlan: () -> Unit,
+    onRateApp: () -> Unit,
+    onPrivacyPolicy: () -> Unit
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(Dimens8)
+    ) {
+        QuickActionCard(
+            emoji = "🏆",
+            title = "Parent Report",
+            gradient = Brush.linearGradient(listOf(Color(0xFF8E24AA), Color(0xFF4A148C))),
+            shadowColor = Color(0xFF8E24AA),
+            modifier = Modifier.weight(1f),
+            onClick = onParentReport
+        )
+        QuickActionCard(
+            emoji = "🎯",
+            title = "Access Plan",
+            gradient = Brush.linearGradient(listOf(Color(0xFF1E88E5), Color(0xFF0D47A1))),
+            shadowColor = Color(0xFF1E88E5),
+            modifier = Modifier.weight(1f),
+            onClick = onAccessPlan
+        )
+        QuickActionCard(
+            emoji = "❤️",
+            title = "Rate the App",
+            gradient = Brush.linearGradient(listOf(Color(0xFFFB8C00), Color(0xFFE65100))),
+            shadowColor = Color(0xFFFB8C00),
+            modifier = Modifier.weight(1f),
+            onClick = onRateApp
+        )
+        QuickActionCard(
+            emoji = "🛡️",
+            title = "Privacy Policy",
+            gradient = Brush.linearGradient(listOf(Color(0xFF00897B), Color(0xFF004D40))),
+            shadowColor = Color(0xFF00897B),
+            modifier = Modifier.weight(1f),
+            onClick = onPrivacyPolicy
+        )
+    }
+}
+
+@Composable
+private fun QuickActionCard(
+    emoji: String,
+    title: String,
+    gradient: Brush,
+    shadowColor: Color,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
+) {
+    Box(
+        modifier = modifier
+            .shadow(
+                elevation = Dimens8,
+                shape = RoundedCornerShape(Dimens16),
+                ambientColor = shadowColor.copy(alpha = 0.4f),
+                spotColor = shadowColor.copy(alpha = 0.4f)
+            )
+            .clip(RoundedCornerShape(Dimens16))
+            .background(gradient)
+            .clickable {
+                AudioPlayerManager.playSoundMenuClick()
+                onClick()
+            }
+    ) {
+        // Decorative circle top-right
+        Box(
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .size(AppDimens.Dimens40)
+                .offset(x = Dimens8, y = -(Dimens8))
+                .background(Color.White.copy(alpha = 0.08f), CircleShape)
+        )
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = Dimens14),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(Dimens6)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(AppDimens.Dimens50)
+                    .background(Color.White.copy(alpha = 0.25f), CircleShape),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = emoji,
+                    style = MaterialTheme.typography.titleMedium.scaled()
+                )
+            }
+            Text(
+                text = title,
+                style = MaterialTheme.typography.bodyMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+                textAlign = TextAlign.Center
             )
         }
     }
 }
 
-// ── Settings card wrapper ─────────────────────────────────────────────────────
+// ── Account card ──────────────────────────────────────────────────────────────
 
 @Composable
-private fun SettingsCard(content: @Composable () -> Unit) {
+private fun AccountCard(
+    isRestoring: Boolean,
+    restoreMessage: String?,
+    isLoggedIn: Boolean,
+    onRestore: () -> Unit,
+    onLogout: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -425,22 +573,40 @@ private fun SettingsCard(content: @Composable () -> Unit) {
             .clip(RoundedCornerShape(Dimens16))
             .background(Color.White.copy(alpha = 0.92f))
     ) {
-        content()
+        Column {
+            AccountRow(
+                icon = Icons.Filled.Refresh,
+                title = if (isRestoring) "Restoring…" else "Restore Purchases",
+                subtitle = restoreMessage ?: "Already subscribed? Tap to restore",
+                iconColor = if (restoreMessage == "No active subscription found.") Color(0xFFE53935) else Color(0xFF43A047),
+                onClick = onRestore
+            )
+            if (isLoggedIn) {
+                HorizontalDivider(
+                    modifier = Modifier.padding(horizontal = Dimens16),
+                    thickness = AppDimens.Dimens1,
+                    color = Color.Gray.copy(alpha = 0.2f)
+                )
+                AccountRow(
+                    icon = Icons.AutoMirrored.Filled.ExitToApp,
+                    title = "Log Out",
+                    subtitle = "Sign out of your account",
+                    iconColor = Color(0xFFE53935),
+                    onClick = onLogout
+                )
+            }
+        }
     }
 }
 
-// ── Settings row ──────────────────────────────────────────────────────────────
-
 @Composable
-private fun SettingsRow(
+private fun AccountRow(
     icon: ImageVector,
     title: String,
     subtitle: String,
-    type: ButtonType,
+    iconColor: Color,
     onClick: () -> Unit
 ) {
-    val colors = getButtonColors(type)
-
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -449,26 +615,23 @@ private fun SettingsRow(
                 onClick()
             }
             .padding(Dimens12),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Dimens12)
     ) {
-        // Gradient icon box
         Box(
             modifier = Modifier
                 .size(AppDimens.ToolbarIconSize)
-                .shadow(Dimens4, RoundedCornerShape(Dimens10))
                 .clip(RoundedCornerShape(Dimens10))
-                .background(brush = colors.gradient),
+                .background(iconColor.copy(alpha = 0.12f)),
             contentAlignment = Alignment.Center
         ) {
             Icon(
                 imageVector = icon,
                 contentDescription = null,
-                tint = Color.White,
+                tint = iconColor,
                 modifier = Modifier.size(Dimens20)
             )
         }
-
-        Spacer(Modifier.width(Dimens12))
 
         Column(modifier = Modifier.weight(1f)) {
             Text(title, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.titleSmall.scaled(), color = Color.Black)
@@ -478,89 +641,8 @@ private fun SettingsRow(
         Icon(
             imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
             contentDescription = null,
-            tint = Color.Gray.copy(alpha = 0.5f),
+            tint = Color.Gray.copy(alpha = 0.4f),
             modifier = Modifier.size(Dimens20)
-        )
-    }
-}
-
-// ── Music volume row ──────────────────────────────────────────────────────────
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun MusicVolumeRow(volume: Float, onVolumeChange: (Float) -> Unit) {
-    // iOS system purple — matches SwiftUI Color.purple in light mode
-    val purple = Color(0xFFBF5AF2)
-
-    Column(modifier = Modifier.fillMaxWidth()) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(Dimens12),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(AppDimens.ToolbarIconSize)
-                    .shadow(Dimens4, RoundedCornerShape(Dimens10))
-                    .clip(RoundedCornerShape(Dimens10))
-                    .background(purple),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.MusicNote,
-                    contentDescription = null,
-                    tint = Color.White,
-                    modifier = Modifier.size(Dimens20)
-                )
-            }
-
-            Spacer(Modifier.width(Dimens12))
-
-            Column(modifier = Modifier.weight(1f)) {
-                Text("Background Music", fontWeight = FontWeight.Bold, style = MaterialTheme.typography.titleSmall.scaled(), color = Color.Black)
-                Text("Adjust music volume", style = MaterialTheme.typography.bodySmall.scaled(), color = Color.Gray)
-            }
-
-            Icon(
-                imageVector = if (volume == 0f) Icons.AutoMirrored.Filled.VolumeOff else Icons.AutoMirrored.Filled.VolumeUp,
-                contentDescription = null,
-                tint = purple.copy(alpha = 0.7f),
-                modifier = Modifier.size(Dimens20)
-            )
-        }
-
-        Slider(
-            value = volume,
-            onValueChange = onVolumeChange,
-            valueRange = 0f..1f,
-            thumb = {
-                Box(
-                    modifier = Modifier
-                        .size(Dimens20)
-                        .graphicsLayer(
-                            shadowElevation = 12f,
-                            shape = CircleShape,
-                            clip = true
-                        )
-                        .background(purple, CircleShape)
-                )
-            },
-            track = { sliderState ->
-                SliderDefaults.Track(
-                    sliderState = sliderState,
-                    modifier = Modifier.height(Dimens4),
-                    colors = SliderDefaults.colors(
-                        activeTrackColor = purple,
-                        inactiveTrackColor = purple.copy(alpha = 0.2f),
-                        thumbColor = purple,
-                    )
-                )
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = Dimens16)
-                .padding(bottom = Dimens12)
         )
     }
 }
