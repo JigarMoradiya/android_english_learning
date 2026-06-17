@@ -85,6 +85,7 @@ class ForceUpdateViewModel @Inject constructor(
     companion object {
         private const val TAG = "ForceUpdate"
         private const val KEY_ANDROID_VERSION = "android_version"
-        private const val MIN_FETCH_INTERVAL_SECONDS = 3600L
+//        private const val MIN_FETCH_INTERVAL_SECONDS = 3600L
+        private const val MIN_FETCH_INTERVAL_SECONDS = 0L
     }
 }

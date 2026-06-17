@@ -13,6 +13,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.myapplication.R
 import com.example.myapplication.main.common.CustomPopupView
 
@@ -22,8 +25,14 @@ fun ForceUpdateHandler(
 ) {
     val context = LocalContext.current
     val uiState by viewModel.uiState.collectAsState()
+    val lifecycle = LocalLifecycleOwner.current.lifecycle
 
-    LaunchedEffect(Unit) { viewModel.checkForUpdate() }
+    // Re-check every time the screen resumes — covers returning from Play Store.
+    LaunchedEffect(lifecycle) {
+        lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            viewModel.checkForUpdate()
+        }
+    }
 
     val isUpdateRequired = uiState is ForceUpdateUiState.UpdateRequired
 
@@ -54,7 +63,7 @@ fun ForceUpdateHandler(
                             context.startActivity(webIntent)
                         }
                     }
-                viewModel.dismiss()
+                // No dismiss — popup stays until the user actually updates.
             }
         )
     }
