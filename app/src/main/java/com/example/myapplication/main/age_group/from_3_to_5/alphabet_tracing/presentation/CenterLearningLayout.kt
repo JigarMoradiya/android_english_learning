@@ -1,6 +1,9 @@
 package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation
 
 import androidx.compose.foundation.Image
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -17,9 +20,11 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -82,20 +87,44 @@ fun CenterLearningLayout(
 }
 
 @Composable
-fun LeftLetterView(modifier: Modifier = Modifier,viewModel: AlphabetTracingViewModel) {
+fun LeftLetterView(modifier: Modifier = Modifier, viewModel: AlphabetTracingViewModel) {
+    val highlighted = viewModel.isPhonicsHighlighted
+    val phonicsColor by animateColorAsState(
+        targetValue = if (highlighted) viewModel.getLetterColor() else Color(0xFF9E9E9E),
+        animationSpec = tween(200),
+        label = "phonicsColor"
+    )
+    val phonicsScale by animateFloatAsState(
+        targetValue = if (highlighted) 1.2f else 1f,
+        animationSpec = tween(200),
+        label = "phonicsScale"
+    )
+
     Box(
-        modifier = modifier
-            .fillMaxHeight(),
+        modifier = modifier.fillMaxHeight(),
         contentAlignment = Alignment.Center
     ) {
-        Text(
-            text = viewModel.uiState.mode.displayString(viewModel.uiState.currentIndex),
-            color = Color.Black,
-            fontSize = AlphabetTracingLetterSize,
-            fontWeight = FontWeight.Bold
-        )
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                text = viewModel.uiState.mode.displayString(viewModel.uiState.currentIndex),
+                color = Color.Black,
+                fontSize = AlphabetTracingLetterSize,
+                fontWeight = FontWeight.Bold
+            )
+            Box(
+                modifier = Modifier.height(Dimens50),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = viewModel.phonicsSound,
+                    color = phonicsColor,
+                    style = MaterialTheme.typography.bodyLarge.scaled(),
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.graphicsLayer(scaleX = phonicsScale, scaleY = phonicsScale)
+                )
+            }
+        }
     }
-
 }
 
 @Composable

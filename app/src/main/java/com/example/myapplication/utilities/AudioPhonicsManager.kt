@@ -18,7 +18,7 @@ class AudioPhonicsManager @Inject constructor(
     fun playPhonicsSound(fileName: String) {
         try {
             stop()
-            val afd = context.assets.openFd("phonics_abcd/$fileName.mp3")
+            val afd = context.assets.openFd("$fileName.mp3")
             player = MediaPlayer().apply {
                 setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
                 afd.close()

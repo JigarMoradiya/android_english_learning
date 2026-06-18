@@ -46,7 +46,7 @@ class LetterPhonicsSoundViewModel @Inject constructor(
             animateObjectImage = false,
             phonicsAnimationTrigger = uiState.phonicsAnimationTrigger + 1,
         )
-        audioManager.playPhonicsSound("${item.letter.lowercase()}_${item.word.lowercase()}_sound")
+        audioManager.playPhonicsSound("phonics_abcd/${item.letter.lowercase()}_${item.word.lowercase()}_sound")
         audioManager.onAudioCompleted = {
             uiState = uiState.copy(animateObjectImage = false)
         }

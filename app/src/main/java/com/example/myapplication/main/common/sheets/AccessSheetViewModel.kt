@@ -61,6 +61,7 @@ class AccessSheetViewModel @Inject constructor(
      * Intercepts with the parental gate; other states set directly.
      */
     fun requestState(newState: AccessSheetState) {
+        if (accessManager.isDevMode) return
         when (newState) {
             is AccessSheetState.Login, is AccessSheetState.Paywall -> {
                 pendingStateAfterGate = newState

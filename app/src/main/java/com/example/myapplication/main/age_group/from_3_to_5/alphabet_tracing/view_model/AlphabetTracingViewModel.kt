@@ -19,6 +19,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import com.example.myapplication.R
 import com.example.myapplication.common.AppToolbarDropDownOnRight
 import com.example.myapplication.data.access.ModuleID
@@ -36,6 +39,7 @@ import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.example.myapplication.utilities.AudioPhonicsManager
 import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.example.myapplication.utils.extensions.OtherEx.safeAction
@@ -47,7 +51,8 @@ import javax.inject.Inject
 class AlphabetTracingViewModel @Inject constructor(
     private val sessionRepository: SessionRepository,
     private val prefs: AppPreferencesHelper,
-    private val ttsManager: TextToSpeechManager
+    private val ttsManager: TextToSpeechManager,
+    private val audioPhonicsManager: AudioPhonicsManager
 ) : ViewModel() {
 
     var uiState by mutableStateOf(LetterTracingUiState())
@@ -104,6 +109,10 @@ class AlphabetTracingViewModel @Inject constructor(
             return if (uiState.mode == LetterMode.UPPERCASE) base else base.lowercaseChar()
         }
 
+    val phonicsSound: String
+        get() = LetterRepository.all.getOrNull(uiState.currentIndex)
+            ?.phonicsSound?.split(" ")?.firstOrNull() ?: ""
+
     // -------------------------------
     // 📐 GUIDES
     // -------------------------------
@@ -124,6 +133,23 @@ class AlphabetTracingViewModel @Inject constructor(
         return cachedGuides
     }
 
+    var isPhonicsHighlighted by mutableStateOf(false)
+        private set
+
+    // -------------------------------
+    // 🔊 PHONICS SOUND
+    // -------------------------------
+    private fun playPhonicsSound() {
+        val letter = currentLetter.lowercaseChar()
+        audioPhonicsManager.playPhonicsSound("phonics_letter/sound_$letter")
+        isPhonicsHighlighted = true
+        viewModelScope.launch {
+            delay(1500)
+            isPhonicsHighlighted = false
+        }
+    }
+
+
     // -------------------------------
     // ✋ START STROKE
     // -------------------------------
@@ -139,6 +165,7 @@ class AlphabetTracingViewModel @Inject constructor(
                 drawnPoints = listOf(startPoint),
                 progressIndex = 0
             )
+            playPhonicsSound()
         }
     }
 
@@ -233,6 +260,7 @@ class AlphabetTracingViewModel @Inject constructor(
                     drawnPoints = listOf(startPoint),
                     progressIndex = 0
                 )
+                playPhonicsSound()
             }
 
             return
