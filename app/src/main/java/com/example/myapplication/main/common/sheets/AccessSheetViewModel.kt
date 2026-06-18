@@ -128,6 +128,7 @@ class AccessSheetViewModel @Inject constructor(
      * Returns false if a sheet was shown (caller should NOT navigate).
      */
     suspend fun checkAccess(moduleId: String): Boolean {
+        if (accessManager.isDevMode) return true
         Log.d(TAG, "checkAccess → moduleId='$moduleId'")
 
         // Empty moduleId = unregistered free activity, still enforce daily limit for non-premium users

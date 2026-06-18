@@ -15,7 +15,7 @@ private const val TAG = "AccessManager"
  * Every module behaves as if the user has an active premium subscription.
  * MUST be false before releasing to production.
  */
-private const val DEV_MODE = true
+private const val DEV_MODE = false
 
 /**
  * The single source of truth for access control.
@@ -41,6 +41,8 @@ class AccessManager @Inject constructor(
 
     private val _userState = MutableStateFlow<UserAccessState>(UserAccessState.Guest)
     val userState: StateFlow<UserAccessState> = _userState.asStateFlow()
+
+    val isDevMode: Boolean get() = DEV_MODE
 
     /** Called by AuthManager after login/logout/subscription change. */
     fun updateUserState(state: UserAccessState) {
