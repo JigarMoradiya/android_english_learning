@@ -101,43 +101,96 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="dev mode changes">
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_a.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_b.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_c.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_d.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_e.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_f.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_g.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_h.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_i.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_j.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_k.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_l.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_m.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_n.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_o.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_p.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_q.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_r.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_s.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_t.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_u.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_v.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_w.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_x.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_y.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_z.mp3" afterDir="false" />
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="phonics sound on letter tracing">
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/am.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/an.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ant.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/at.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ba.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ban.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/big.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bug.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bun.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/can.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cup.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/den.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dig.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/do.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dog.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/egg.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/en.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fan.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fig.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fog.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fun.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/go.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/got.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gun.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hen.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hog.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ig.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/in.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ink.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/it.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/jig.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/jog.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/log.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ma.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/man.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/map.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/me.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/men.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/no.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/og.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ox.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pan.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pen.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pig.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pun.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ran.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/red.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/run.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/si.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sun.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tan.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tap.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ten.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/un.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/up.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/us.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/van.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/we.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wig.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/win.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wit.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/AccessManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/AccessManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/alphabet_tracing/presentation/CenterLearningLayout.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/alphabet_tracing/presentation/CenterLearningLayout.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/alphabet_tracing/view_model/AlphabetTracingViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/alphabet_tracing/view_model/AlphabetTracingViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/letter_phonics_sound/view_model/LetterPhonicsSoundViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/letter_phonics_sound/view_model/LetterPhonicsSoundViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/AccessSheetViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/sheets/AccessSheetViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utilities/AudioPhonicsManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utilities/AudioPhonicsManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +340,7 @@
     "com.google.services.firebase.aqiPopupShown": "true",
     "git-widget-placeholder": "login__and__inapp",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jigarmoradiya/Documents/newProject/eng/android/app/src/main/assets/phonics_letter",
+    "last_opened_file_path": "/Users/jigarmoradiya/Documents/newProject/eng/android/app/src/main/assets/phonics_word",
     "settings.editor.selected.configurable": "com.android.studio.ml.bot.mainConfigurable"
   },
   "keyToStringList": {
@@ -298,11 +351,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/assets/phonics_word" />
       <recent name="$PROJECT_DIR$/app/src/main/assets/phonics_letter" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/font" />
       <recent name="$PROJECT_DIR$/app/src/main/assets/abcd_phonics" />
-      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_5_to_7/singular_plural" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/assets/jsons" />
@@ -526,14 +579,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00158" summary="parent report done for drag n drop">
-      <option name="closed" value="true" />
-      <created>1779767399945</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1779767399946</updated>
     </task>
     <task id="LOCAL-00159" summary="parent report for letter tracing, abcd with images, recognition and for coloring">
       <option name="closed" value="true" />
@@ -919,11 +964,18 @@
       <option name="project" value="LOCAL" />
       <updated>1781752726943</updated>
     </task>
-    <option name="localTasksCounter" value="207" />
+    <task id="LOCAL-00207" summary="phonics sound on letter tracing">
+      <option name="closed" value="true" />
+      <created>1781785490869</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1781785490869</updated>
+    </task>
+    <option name="localTasksCounter" value="208" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add loading on loading sentences" />
     <MESSAGE value=" parent report detail click for age group 3-5" />
     <MESSAGE value=" parent report detail click for age group 5-7" />
     <MESSAGE value="what kids learn and need practice filter base on ages selected" />
@@ -948,7 +1000,8 @@
     <MESSAGE value="age menu list change for tablet" />
     <MESSAGE value="force update" />
     <MESSAGE value="dev mode changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev mode changes" />
+    <MESSAGE value="phonics sound on letter tracing" />
+    <option name="LAST_COMMIT_MESSAGE" value="phonics sound on letter tracing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -30,6 +30,14 @@ import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_seque
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.ColoringAlphabetsPage
 import com.example.myapplication.main.age_group.from_3_to_5.letter_phonics_sound.LetterPhonicsSoundPage
 import com.example.myapplication.main.age_group.from_3_to_5.phonics_reading.PhonicsReadingLevelsPage
+import com.example.myapplication.main.age_group.phonics.l2_short_vowels.ShortVowelsIntroPage
+import com.example.myapplication.main.age_group.phonics.l2_short_vowels.ShortVowelsLearnPage
+import com.example.myapplication.main.age_group.phonics.l3_blending.BlendingIntroPage
+import com.example.myapplication.main.age_group.phonics.l3_blending.BlendingLearnPage
+import com.example.myapplication.main.age_group.phonics.l4_cvc_words.CvcWordsIntroPage
+import com.example.myapplication.main.age_group.phonics.l4_cvc_words.CvcWordsLearnPage
+import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesIntroPage
+import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesLearnPage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
@@ -192,6 +200,30 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.PhonicsReadingLevels.route) {
             PhonicsReadingLevelsPage(navController)
+        }
+        composable(RouteNavigation.ShortVowelsIntro.route) {
+            ShortVowelsIntroPage(navController)
+        }
+        composable(RouteNavigation.ShortVowelsLearn.route) {
+            ShortVowelsLearnPage(navController)
+        }
+        composable(RouteNavigation.BlendingIntro.route) {
+            BlendingIntroPage(navController)
+        }
+        composable(RouteNavigation.BlendingLearn.route) {
+            BlendingLearnPage(navController)
+        }
+        composable(RouteNavigation.CvcWordsIntro.route) {
+            CvcWordsIntroPage(navController)
+        }
+        composable(RouteNavigation.CvcWordsLearn.route) {
+            CvcWordsLearnPage(navController)
+        }
+        composable(RouteNavigation.WordFamiliesIntro.route) {
+            WordFamiliesIntroPage(navController)
+        }
+        composable(RouteNavigation.WordFamiliesLearn.route) {
+            WordFamiliesLearnPage(navController)
         }
 
         // Age Category 5 to 7

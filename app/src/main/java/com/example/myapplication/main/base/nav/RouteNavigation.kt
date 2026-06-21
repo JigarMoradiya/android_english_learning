@@ -24,6 +24,14 @@ sealed class RouteNavigation(val route: String) {
     object ColoringAlphabets : RouteNavigation("ColoringAlphabets")
     object LetterPhonicsSoundRoute : RouteNavigation("LetterPhonicsSoundRoute")
     object PhonicsReadingLevels : RouteNavigation("PhonicsReadingLevels")
+    object ShortVowelsIntro : RouteNavigation("ShortVowelsIntro")
+    object ShortVowelsLearn : RouteNavigation("ShortVowelsLearn")
+    object BlendingIntro : RouteNavigation("BlendingIntro")
+    object BlendingLearn : RouteNavigation("BlendingLearn")
+    object CvcWordsIntro : RouteNavigation("CvcWordsIntro")
+    object CvcWordsLearn : RouteNavigation("CvcWordsLearn")
+    object WordFamiliesIntro : RouteNavigation("WordFamiliesIntro")
+    object WordFamiliesLearn : RouteNavigation("WordFamiliesLearn")
 
 
 
