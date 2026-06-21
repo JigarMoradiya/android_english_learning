@@ -172,16 +172,11 @@ private fun FamilyTile(family: WordFamily, isSelected: Boolean, onClick: () -> U
         modifier = Modifier
             .fillMaxWidth()
             .graphicsLayer { scaleX = scale; scaleY = scale }
-            .shadow(
-                elevation = if (isSelected) Dimens8 else Dimens2,
-                shape = RoundedCornerShape(Dimens14),
-                clip = false
-            )
             .background(
                 if (isSelected) {
                     Brush.linearGradient(listOf(family.color, family.shadowColor))
                 } else {
-                    Brush.linearGradient(listOf(Color.White.copy(alpha = 0.82f), Color.White.copy(alpha = 0.82f)))
+                    Brush.linearGradient(listOf(Color.White, Color(0xD1FFFFFF)))
                 },
                 RoundedCornerShape(Dimens14)
             )

@@ -23,19 +23,20 @@ class CvcWordsViewModel @Inject constructor(
 
     private var animJob: Job? = null
 
-    fun onGroupTap(group: CvcGroup) {
-        if (uiState.selectedGroup?.vowel == group.vowel) return
-        animJob?.cancel()
-        audioManager.stop()
-        uiState = CvcUiState(selectedGroup = group)
-    }
-
     fun onWordTap(word: CvcWordModel) {
         animJob?.cancel()
         audioManager.stop()
-        val group = uiState.selectedGroup
-        uiState = CvcUiState(selectedGroup = group, selectedWord = word)
+        uiState = CvcUiState(selectedWord = word)
         animJob = viewModelScope.launch { runSequence(word) }
+    }
+
+    fun replayAnimation() {
+        uiState.selectedWord?.let { onWordTap(it) }
+    }
+
+    fun playWordAudio() {
+        val word = uiState.selectedWord ?: return
+        audioManager.playPhonicsSound("phonics_word/${word.word}")
     }
 
     fun stop() {
@@ -56,7 +57,7 @@ class CvcWordsViewModel @Inject constructor(
         delay(250)
         uiState = uiState.copy(phonicsPhase = CvcPhonicsPhase.INDIVIDUAL)
 
-        // Play each segment sound
+        // Play each segment sound sequentially with 0.2s gap
         for (i in word.segments.indices) {
             uiState = uiState.copy(highlightedIndex = i)
             suspendCancellableCoroutine { cont ->
@@ -67,22 +68,22 @@ class CvcWordsViewModel @Inject constructor(
             delay(200)
         }
 
-        // Merge sequence
+        // All boxes glow, then merge
         uiState = uiState.copy(highlightedIndex = -1, phonicsPhase = CvcPhonicsPhase.BLENDING)
         delay(500)
         uiState = uiState.copy(boxPhase = CvcBoxPhase.MERGING)
         delay(650)
+
+        // Merged tile springs in — play word audio after short pause
         uiState = uiState.copy(boxPhase = CvcBoxPhase.MERGED, phonicsPhase = CvcPhonicsPhase.COMPLETE)
         delay(700)
 
-        // Play word audio
         suspendCancellableCoroutine { cont ->
             audioManager.playPhonicsSound("phonics_word/${word.word}")
             audioManager.onAudioCompleted = { if (cont.isActive) cont.resume(Unit) }
             cont.invokeOnCancellation { audioManager.stop() }
         }
 
-        // Wiggle image
         uiState = uiState.copy(animateImage = true)
     }
 }

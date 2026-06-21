@@ -1,7 +1,7 @@
 package com.example.myapplication.main.age_group.phonics.l4_cvc_words
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloat
@@ -10,9 +10,8 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -34,35 +33,40 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Replay
 import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.blur
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.foundation.Image
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.view_model.CvcBoxPhase
-import com.example.myapplication.main.age_group.phonics.l4_cvc_words.view_model.CvcGroup
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.view_model.CvcPhonicsPhase
+import com.example.myapplication.main.age_group.phonics.l4_cvc_words.view_model.CvcUiState
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.view_model.CvcWordModel
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.view_model.CvcWordsViewModel
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.view_model.cvcGroups
@@ -70,17 +74,16 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
-import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.utils.extensions.scaled
-
 
 @Composable
 fun CvcWordsLearnPage(
@@ -102,7 +105,7 @@ fun CvcWordsLearnPage(
                 .fillMaxSize()
         ) {
 
-            // ── LEFT: group tabs + word list ──────────────────────────────
+            // ── LEFT: group sections + word list (iOS style scroll) ───────────
             Column(
                 modifier = Modifier
                     .weight(0.38f)
@@ -113,302 +116,446 @@ fun CvcWordsLearnPage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                // Vowel group tabs
-                Row(
-                    modifier = Modifier.padding(horizontal = Dimens12, vertical = Dimens8),
-                    horizontalArrangement = Arrangement.spacedBy(Dimens6)
+                LazyColumn(
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(horizontal = Dimens16),
+                    verticalArrangement = Arrangement.spacedBy(Dimens6)
                 ) {
                     cvcGroups.forEach { group ->
-                        val isSelected = uiState.selectedGroup?.vowel == group.vowel
-                        val scale by animateFloatAsState(
-                            targetValue = if (isSelected) 1.08f else 1.0f,
-                            animationSpec = spring(dampingRatio = 0.65f, stiffness = Spring.StiffnessMedium),
-                            label = "groupScale"
-                        )
-                        Box(
-                            contentAlignment = Alignment.Center,
-                            modifier = Modifier
-                                .weight(1f)
-                                .graphicsLayer { scaleX = scale; scaleY = scale }
-                                .background(
-                                    if (isSelected) group.color else group.color.copy(alpha = 0.15f),
-                                    RoundedCornerShape(Dimens8)
+                        item {
+                            // Section header: emoji + label
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(Dimens6),
+                                modifier = Modifier.padding(top = Dimens12, bottom = Dimens4)
+                            ) {
+                                Text(
+                                    text = group.emoji,
+                                    style = MaterialTheme.typography.titleMedium
                                 )
+                                Text(
+                                    text = group.label,
+                                    style = MaterialTheme.typography.titleSmall.scaled(),
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color(0xFF1A237E)
+                                )
+                            }
+                        }
+
+                        group.words.forEach { word ->
+                            item {
+                                WordRow(
+                                    word = word,
+                                    isSelected = uiState.selectedWord?.word == word.word,
+                                    onClick = { viewModel.onWordTap(word) }
+                                )
+                            }
+                        }
+                    }
+
+                    item { Spacer(modifier = Modifier.height(Dimens16)) }
+                }
+            }
+
+            // ── RIGHT: animation panel ────────────────────────────────────────
+            Column(
+                modifier = Modifier
+                    .weight(0.62f)
+                    .fillMaxHeight()
+            ) {
+                // Replay button row (top right, visible only when word selected)
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(end = Dimens16, top = Dimens8),
+                    horizontalArrangement = Arrangement.End
+                ) {
+                    AnimatedVisibility(
+                        visible = uiState.selectedWord != null,
+                        enter = scaleIn(initialScale = 0.85f, animationSpec = tween(200)),
+                        exit = scaleOut(targetScale = 0.85f, animationSpec = tween(200))
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(Dimens4),
+                            modifier = Modifier
+                                .background(Color(0xD9FFFFFF), RoundedCornerShape(50))
+                                .border(Dimens2, Color(0x4D3949AB), RoundedCornerShape(50))
                                 .clickable(
                                     interactionSource = remember { MutableInteractionSource() },
                                     indication = null
-                                ) { viewModel.onGroupTap(group) }
-                                .padding(vertical = Dimens8)
+                                ) { viewModel.replayAnimation() }
+                                .padding(horizontal = Dimens12, vertical = Dimens6)
                         ) {
+                            Icon(
+                                imageVector = Icons.Default.Replay,
+                                contentDescription = null,
+                                tint = Color(0xFF3949AB),
+                                modifier = Modifier.size(Dimens16)
+                            )
                             Text(
-                                text = group.vowel,
-                                style = MaterialTheme.typography.titleMedium.scaled(),
+                                text = "Replay",
+                                style = MaterialTheme.typography.labelLarge.scaled(),
                                 fontWeight = FontWeight.Bold,
-                                color = if (isSelected) Color.White else group.color
+                                color = Color(0xFF3949AB)
                             )
                         }
                     }
                 }
 
-                // Word list for selected group
-                val group = uiState.selectedGroup
-                if (group != null) {
-                    LazyColumn(
-                        modifier = Modifier
-                            .weight(1f)
-                            .padding(horizontal = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens8)
-                    ) {
-                        items(group.words) { word ->
-                            WordTile(
-                                word = word,
-                                group = group,
-                                isSelected = uiState.selectedWord?.word == word.word,
-                                onClick = { viewModel.onWordTap(word) }
-                            )
-                        }
-                    }
-                } else {
-                    Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = Modifier.weight(1f)
-                    ) {
+                // Content: empty state or animation panel
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.weight(1f).fillMaxWidth()
+                ) {
+                    val word = uiState.selectedWord
+                    if (word != null) {
+                        CvcAnimationPanel(word = word, uiState = uiState, viewModel = viewModel)
+                    } else {
                         Text(
-                            text = "👆 Pick a vowel\ngroup above",
-                            style = MaterialTheme.typography.bodyMedium.scaled(),
-                            color = Color.Gray,
+                            text = "👈 Tap a word to\nsee it come alive!",
+                            style = MaterialTheme.typography.titleLarge.scaled(),
+                            fontWeight = FontWeight.Medium,
+                            color = Color(0xBF4527A0),
                             textAlign = TextAlign.Center
                         )
                     }
                 }
             }
-
-            // ── RIGHT: animation panel ────────────────────────────────────
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .weight(0.62f)
-                    .fillMaxHeight()
-            ) {
-                val word = uiState.selectedWord
-                val group = uiState.selectedGroup
-                if (word != null && group != null) {
-                    CvcAnimationPanel(
-                        word = word,
-                        group = group,
-                        uiState = uiState
-                    )
-                } else {
-                    Text(
-                        text = "👈 Tap a word to\nsee it come alive!",
-                        style = MaterialTheme.typography.titleLarge.scaled(),
-                        fontWeight = FontWeight.Medium,
-                        color = Color(0xFF4527A0).copy(alpha = 0.75f),
-                        textAlign = TextAlign.Center
-                    )
-                }
-            }
         }
     }
 }
 
+// ── Word row (iOS-matching style) ─────────────────────────────────────────────
+
 @Composable
-private fun WordTile(word: CvcWordModel, group: CvcGroup, isSelected: Boolean, onClick: () -> Unit) {
+private fun WordRow(word: CvcWordModel, isSelected: Boolean, onClick: () -> Unit) {
     val scale by animateFloatAsState(
-        targetValue = if (isSelected) 1.03f else 1.0f,
+        targetValue = if (isSelected) 1.02f else 1.0f,
         animationSpec = spring(dampingRatio = 0.65f, stiffness = Spring.StiffnessMedium),
-        label = "wordTileScale"
+        label = "wordRowScale"
     )
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(Dimens8),
+        horizontalArrangement = Arrangement.spacedBy(Dimens6),
         modifier = Modifier
             .fillMaxWidth()
             .graphicsLayer { scaleX = scale; scaleY = scale }
             .background(
-                if (isSelected) Color(0xFFE8EAF6) else Color.White.copy(alpha = 0.7f),
-                RoundedCornerShape(Dimens10)
+                if (isSelected) Color(0xFFE8EAF6) else Color(0xB3FFFFFF),
+                RoundedCornerShape(Dimens12)
             )
-            .border(Dimens2, if (isSelected) Color(0xFF3949AB).copy(alpha = 0.5f) else Color.Transparent, RoundedCornerShape(Dimens10))
-            .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null, onClick = onClick)
+            .border(
+                Dimens2,
+                if (isSelected) Color(0x803949AB) else Color.Transparent,
+                RoundedCornerShape(Dimens12)
+            )
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+                onClick = onClick
+            )
             .padding(horizontal = Dimens12, vertical = Dimens8)
     ) {
-        // Mini CVC boxes
+        // Mini C/V/C tiles
         Row(horizontalArrangement = Arrangement.spacedBy(Dimens2)) {
             word.segments.forEach { seg ->
+                val bgColor = if (seg.isVowel) {
+                    if (isSelected) Color(0xFFFF5252) else Color(0xFFFFCDD2)
+                } else {
+                    if (isSelected) Color(0xFF2979FF) else Color(0xFFBBDEFB)
+                }
+                val fgColor = if (isSelected) Color.White else {
+                    if (seg.isVowel) Color(0xFFC62828) else Color(0xFF1565C0)
+                }
                 Box(
                     contentAlignment = Alignment.Center,
                     modifier = Modifier
-                        .size(20.dp)
-                        .background(
-                            if (seg.isVowel) group.color.copy(alpha = if (isSelected) 0.85f else 0.2f)
-                            else Color.Gray.copy(alpha = if (isSelected) 0.7f else 0.15f),
-                            RoundedCornerShape(3.dp)
-                        )
+                        .size(22.dp)
+                        .background(bgColor, RoundedCornerShape(5.dp))
                 ) {
                     Text(
                         text = seg.letter,
                         style = MaterialTheme.typography.labelSmall.scaled(),
                         fontWeight = FontWeight.Bold,
-                        color = if (isSelected) Color.White else if (seg.isVowel) group.color else Color.Gray
+                        color = fgColor
                     )
                 }
             }
         }
+
         Text(
             text = word.word,
             style = MaterialTheme.typography.titleMedium.scaled(),
             fontWeight = FontWeight.Bold,
-            color = if (isSelected) group.color else Color.Black.copy(alpha = 0.75f),
+            color = if (isSelected) Color(0xFF1A237E) else Color(0xBF000000),
             modifier = Modifier.weight(1f)
         )
-        if (isSelected) Text("🔊", style = MaterialTheme.typography.bodySmall)
+
+        // Word image thumbnail (iOS: shown always when hasImage)
+        if (word.hasImage) {
+            val resId = getImageResFromWord(word.word)
+            if (resId != null) {
+                Image(
+                    painter = painterResource(resId),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .size(28.dp)
+                        .clip(RoundedCornerShape(6.dp))
+                )
+            }
+        }
+
+        if (isSelected) {
+            Icon(
+                imageVector = Icons.Default.VolumeUp,
+                contentDescription = null,
+                tint = Color(0xFF3949AB),
+                modifier = Modifier.size(Dimens16)
+            )
+        }
     }
 }
+
+// ── Animation panel ───────────────────────────────────────────────────────────
 
 @Composable
 private fun CvcAnimationPanel(
     word: CvcWordModel,
-    group: CvcGroup,
-    uiState: com.example.myapplication.main.age_group.phonics.l4_cvc_words.view_model.CvcUiState
+    uiState: CvcUiState,
+    viewModel: CvcWordsViewModel
 ) {
-    val isMerging = uiState.boxPhase == CvcBoxPhase.MERGING || uiState.boxPhase == CvcBoxPhase.MERGED
-    val isMerged  = uiState.boxPhase == CvcBoxPhase.MERGED
+    val boxPhase    = uiState.boxPhase
+    val phonicsPhase = uiState.phonicsPhase
+    val highlightedIndex = uiState.highlightedIndex
+    val isMerging   = boxPhase == CvcBoxPhase.MERGING || boxPhase == CvcBoxPhase.MERGED
+    val isMerged    = boxPhase == CvcBoxPhase.MERGED
 
-    // Wiggle animation for image
+    // Freeze displayed word so MergedTile shows the correct word during exit animation
+    var displayedWord by remember { mutableStateOf(word) }
+    LaunchedEffect(isMerged) { if (isMerged) displayedWord = word }
+
+    // Wiggle animation for emoji (matches iOS: scale 1→1.12, rotation ±3°, 500ms easeInOut repeating)
     val infiniteTransition = rememberInfiniteTransition(label = "wiggle")
-    val wiggleAngle by infiniteTransition.animateFloat(
-        initialValue = -6f, targetValue = 6f,
-        animationSpec = infiniteRepeatable(tween(150, easing = LinearEasing), RepeatMode.Reverse),
-        label = "wiggleAngle"
+    val wiggleScale by infiniteTransition.animateFloat(
+        initialValue = 1.0f, targetValue = 1.12f,
+        animationSpec = infiniteRepeatable(tween(500, easing = FastOutSlowInEasing), RepeatMode.Reverse),
+        label = "wiggleScale"
     )
-    val imageRotation = if (uiState.animateImage) wiggleAngle else 0f
+    val wiggleRotation by infiniteTransition.animateFloat(
+        initialValue = -3f, targetValue = 3f,
+        animationSpec = infiniteRepeatable(tween(500, easing = FastOutSlowInEasing), RepeatMode.Reverse),
+        label = "wiggleRot"
+    )
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxSize().padding(Dimens24)
-    ) {
+    // boxesAlpha: the container holding individual boxes fades out when merged
+    val boxesAlpha by animateFloatAsState(
+        targetValue = if (isMerged) 0f else 1f,
+        animationSpec = tween(300),
+        label = "boxesAlpha"
+    )
 
-        // C / V / C labels aligned above each box (iOS ZStack with offsets)
-        BoxWithConstraints(modifier = Modifier.fillMaxWidth().alpha(if (isMerging) 0f else 1f)) {
-            val labelSpreadX = maxWidth * 0.30f
-            Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    text = if (word.segments[0].isVowel) "V" else "C",
-                    style = MaterialTheme.typography.titleMedium.scaled(),
-                    fontWeight = FontWeight.Bold,
-                    color = if (word.segments[0].isVowel) Color(0xFFC62828).copy(alpha = 0.7f) else Color(0xFF1565C0).copy(alpha = 0.7f),
-                    modifier = Modifier.offset(x = -labelSpreadX)
-                )
-                Text(
-                    text = if (word.segments[1].isVowel) "V" else "C",
-                    style = MaterialTheme.typography.titleMedium.scaled(),
-                    fontWeight = FontWeight.Bold,
-                    color = if (word.segments[1].isVowel) Color(0xFFC62828).copy(alpha = 0.7f) else Color(0xFF1565C0).copy(alpha = 0.7f)
-                )
-                Text(
-                    text = if (word.segments[2].isVowel) "V" else "C",
-                    style = MaterialTheme.typography.titleMedium.scaled(),
-                    fontWeight = FontWeight.Bold,
-                    color = if (word.segments[2].isVowel) Color(0xFFC62828).copy(alpha = 0.7f) else Color(0xFF1565C0).copy(alpha = 0.7f),
-                    modifier = Modifier.offset(x = labelSpreadX)
-                )
-            }
-        }
+    // V/C label row fades out during merge
+    val vcLabelAlpha by animateFloatAsState(
+        targetValue = if (isMerging) 0f else 1f,
+        animationSpec = tween(250),
+        label = "vcLabelAlpha"
+    )
 
-        Spacer(modifier = Modifier.height(Dimens12))
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+        val boxSizeDp = minOf(maxHeight * 0.20f, maxWidth * 0.13f)
+        val imageSizeDp = boxSizeDp * 1.8f
+        val spreadXDp = boxSizeDp * 1.5f
+        val touchXDp  = boxSizeDp * 1.0f
 
-        // 3-box animation
-        BoxWithConstraints {
-            val boxSizeDp = minOf(maxHeight * 0.28f, maxWidth * 0.20f)
-            val spreadXDp = boxSizeDp * 1.5f
-            val touchXDp  = boxSizeDp * 1.0f
-            val offsets = listOf(-1f, 0f, 1f)
+        // Per-box entry alpha: instant (0 or 1) — no animated alpha to avoid offscreen buffer clipping
+        val box0Alpha = if (boxPhase != CvcBoxPhase.HIDDEN) 1f else 0f
+        val box1Alpha = if (boxPhase != CvcBoxPhase.HIDDEN && boxPhase != CvcBoxPhase.BOX1_IN) 1f else 0f
+        val box2Alpha = if (boxPhase != CvcBoxPhase.HIDDEN && boxPhase != CvcBoxPhase.BOX1_IN && boxPhase != CvcBoxPhase.BOX2_IN) 1f else 0f
 
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(boxSizeDp + Dimens8)
-            ) {
-                val boxesAlpha by animateFloatAsState(
-                    targetValue = if (isMerged) 0f else 1f,
-                    animationSpec = tween(300),
-                    label = "boxesAlpha"
-                )
-                Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize().graphicsLayer { alpha = boxesAlpha }) {
-                    word.segments.forEachIndexed { index, seg ->
-                        val visibleFromPhase = when (index) {
-                            0 -> uiState.boxPhase != CvcBoxPhase.HIDDEN
-                            1 -> uiState.boxPhase != CvcBoxPhase.HIDDEN && uiState.boxPhase != CvcBoxPhase.BOX1_IN
-                            else -> uiState.boxPhase == CvcBoxPhase.BOX3_IN || uiState.boxPhase == CvcBoxPhase.ALL_SHOWN || uiState.boxPhase == CvcBoxPhase.MERGING
-                        }
-                        val alpha by animateFloatAsState(
-                            targetValue = if (visibleFromPhase) 1f else 0f,
-                            animationSpec = spring(dampingRatio = 0.7f), label = "boxAlpha$index"
-                        )
-                        val offsetY by animateFloatAsState(
-                            targetValue = if (visibleFromPhase) 0f else -40f,
-                            animationSpec = spring(dampingRatio = 0.65f, stiffness = Spring.StiffnessMediumLow), label = "boxY$index"
-                        )
-                        val offsetX by animateFloatAsState(
-                            targetValue = if (isMerging) offsets[index] * touchXDp.value else offsets[index] * spreadXDp.value,
-                            animationSpec = tween(durationMillis = 450), label = "boxX$index"
+        // Per-box dim alpha: lives in outer modifier graphicsLayer (2.0f × size buffer, safe from clipping)
+        val box0DimAlpha by animateFloatAsState(
+            targetValue = if (phonicsPhase == CvcPhonicsPhase.INDIVIDUAL && highlightedIndex != 0 && !isMerging) 0.45f else 1f,
+            animationSpec = tween(200), label = "box0Dim"
+        )
+        val box1DimAlpha by animateFloatAsState(
+            targetValue = if (phonicsPhase == CvcPhonicsPhase.INDIVIDUAL && highlightedIndex != 1 && !isMerging) 0.45f else 1f,
+            animationSpec = tween(200), label = "box1Dim"
+        )
+        val box2DimAlpha by animateFloatAsState(
+            targetValue = if (phonicsPhase == CvcPhonicsPhase.INDIVIDUAL && highlightedIndex != 2 && !isMerging) 0.45f else 1f,
+            animationSpec = tween(200), label = "box2Dim"
+        )
+
+        // Y spring for drop-in (alpha stays 1, Y spring gives the bounce)
+        val box0OffsetY by animateFloatAsState(
+            targetValue = if (box0Alpha == 1f) 0f else -40f,
+            animationSpec = spring(dampingRatio = 0.65f, stiffness = Spring.StiffnessMediumLow),
+            label = "box0Y"
+        )
+        val box1OffsetY by animateFloatAsState(
+            targetValue = if (box1Alpha == 1f) 0f else -40f,
+            animationSpec = spring(dampingRatio = 0.65f, stiffness = Spring.StiffnessMediumLow),
+            label = "box1Y"
+        )
+        val box2OffsetY by animateFloatAsState(
+            targetValue = if (box2Alpha == 1f) 0f else -40f,
+            animationSpec = spring(dampingRatio = 0.65f, stiffness = Spring.StiffnessMediumLow),
+            label = "box2Y"
+        )
+
+        // X: tween for merge slide; instant at spread positions (no animation on initial layout)
+        val box0OffsetX by animateFloatAsState(
+            targetValue = if (isMerging) -touchXDp.value else -spreadXDp.value,
+            animationSpec = tween(durationMillis = 550),
+            label = "box0X"
+        )
+        val box2OffsetX by animateFloatAsState(
+            targetValue = if (isMerging) touchXDp.value else spreadXDp.value,
+            animationSpec = tween(durationMillis = 550),
+            label = "box2X"
+        )
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxSize().padding(Dimens24)
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+
+                // V/C labels aligned above each box at ±spreadXDp
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .graphicsLayer { alpha = vcLabelAlpha }
+                ) {
+                    Text(
+                        text = if (word.segments[0].isVowel) "V" else "C",
+                        style = MaterialTheme.typography.titleMedium.scaled(),
+                        fontWeight = FontWeight.Bold,
+                        color = if (word.segments[0].isVowel) Color(0xB3C62828)
+                                else Color(0xB31565C0),
+                        modifier = Modifier.offset(x = -spreadXDp)
+                    )
+                    Text(
+                        text = if (word.segments[1].isVowel) "V" else "C",
+                        style = MaterialTheme.typography.titleMedium.scaled(),
+                        fontWeight = FontWeight.Bold,
+                        color = if (word.segments[1].isVowel) Color(0xB3C62828)
+                                else Color(0xB31565C0)
+                    )
+                    Text(
+                        text = if (word.segments[2].isVowel) "V" else "C",
+                        style = MaterialTheme.typography.titleMedium.scaled(),
+                        fontWeight = FontWeight.Bold,
+                        color = if (word.segments[2].isVowel) Color(0xB3C62828)
+                                else Color(0xB31565C0),
+                        modifier = Modifier.offset(x = spreadXDp)
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(Dimens8))
+
+                // 3-box animation area
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(boxSizeDp + Dimens8)
+                ) {
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier.fillMaxSize().graphicsLayer { alpha = boxesAlpha; clip = false }
+                    ) {
+                        CvcBox(
+                            letter = word.segments[0].letter,
+                            isVowel = word.segments[0].isVowel,
+                            size = boxSizeDp,
+                            isHighlighted = highlightedIndex == 0 || phonicsPhase == CvcPhonicsPhase.BLENDING,
+                            isBlending = phonicsPhase == CvcPhonicsPhase.BLENDING,
+                            isMerging = isMerging,
+                            modifier = Modifier.graphicsLayer {
+                                alpha = if (box0Alpha == 0f) 0f else box0DimAlpha
+                                translationX = box0OffsetX * density
+                                translationY = box0OffsetY * density
+                                clip = false
+                            }
                         )
                         CvcBox(
-                            letter = seg.letter,
-                            isVowel = seg.isVowel,
+                            letter = word.segments[1].letter,
+                            isVowel = word.segments[1].isVowel,
                             size = boxSizeDp,
-                            isHighlighted = uiState.highlightedIndex == index || uiState.phonicsPhase == CvcPhonicsPhase.BLENDING,
-                            isDimmed = uiState.phonicsPhase == CvcPhonicsPhase.INDIVIDUAL && uiState.highlightedIndex != index,
-                            isBlending = uiState.phonicsPhase == CvcPhonicsPhase.BLENDING,
+                            isHighlighted = highlightedIndex == 1 || phonicsPhase == CvcPhonicsPhase.BLENDING,
+                            isBlending = phonicsPhase == CvcPhonicsPhase.BLENDING,
                             isMerging = isMerging,
-                            modifier = Modifier
-                                .alpha(alpha)
-                                .offset(y = offsetY.dp, x = offsetX.dp)
+                            modifier = Modifier.graphicsLayer {
+                                alpha = if (box1Alpha == 0f) 0f else box1DimAlpha
+                                translationY = box1OffsetY * density
+                                clip = false
+                            }
+                        )
+                        CvcBox(
+                            letter = word.segments[2].letter,
+                            isVowel = word.segments[2].isVowel,
+                            size = boxSizeDp,
+                            isHighlighted = highlightedIndex == 2 || phonicsPhase == CvcPhonicsPhase.BLENDING,
+                            isBlending = phonicsPhase == CvcPhonicsPhase.BLENDING,
+                            isMerging = isMerging,
+                            modifier = Modifier.graphicsLayer {
+                                alpha = if (box2Alpha == 0f) 0f else box2DimAlpha
+                                translationX = box2OffsetX * density
+                                translationY = box2OffsetY * density
+                                clip = false
+                            }
                         )
                     }
-                }
-                val mergedAlpha by animateFloatAsState(
-                    targetValue = if (isMerged) 1f else 0f,
-                    animationSpec = tween(300),
-                    label = "mergedAlpha"
-                )
-                val mergedScale by animateFloatAsState(
-                    targetValue = if (isMerged) 1f else 0.5f,
-                    animationSpec = spring(dampingRatio = 0.7f),
-                    label = "mergedScale"
-                )
-                Box(modifier = Modifier.graphicsLayer { alpha = mergedAlpha; scaleX = mergedScale; scaleY = mergedScale }) {
-                    CvcMergedTile(word = word, size = boxSizeDp)
+
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        AnimatedVisibility(
+                            visible = isMerged,
+                            enter = scaleIn(
+                                initialScale = 0.5f,
+                                animationSpec = spring(dampingRatio = 0.7f, stiffness = Spring.StiffnessMediumLow)
+                            ),
+                            exit = scaleOut(targetScale = 0.5f)
+                        ) {
+                            CvcMergedTile(word = displayedWord, size = boxSizeDp)
+                        }
+                    }
                 }
             }
-        }
 
-        Spacer(modifier = Modifier.height(Dimens20))
+            Spacer(modifier = Modifier.height(Dimens24))
 
-        // Word image (placeholder emoji) with wiggle
-        AnimatedVisibility(
-            visible = isMerged,
-            enter = scaleIn(initialScale = 0.5f) + fadeIn(),
-            exit = fadeOut()
-        ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(Dimens8)
+            // Merged word banner — tappable to replay word audio
+            AnimatedVisibility(
+                visible = isMerged,
+                enter = scaleIn(
+                    initialScale = 0.5f,
+                    animationSpec = spring(dampingRatio = 0.7f, stiffness = Spring.StiffnessMediumLow)
+                ),
+                exit = scaleOut(targetScale = 0.5f)
             ) {
-                Text(
-                    text = wordToEmoji(word.word),
-                    style = MaterialTheme.typography.displayMedium,
-                    modifier = Modifier.graphicsLayer { rotationZ = imageRotation }
-                )
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(Dimens8),
                     modifier = Modifier
                         .background(Color(0xFFEDE7F6), RoundedCornerShape(50))
-                        .padding(horizontal = Dimens16, vertical = Dimens8)
+                        .shadow(
+                            elevation = Dimens4,
+                            shape = RoundedCornerShape(50),
+                            clip = false,
+                            ambientColor = Color(0x334A148C),
+                            spotColor = Color(0x334A148C)
+                        )
+                        .clickable(
+                            interactionSource = remember { MutableInteractionSource() },
+                            indication = null
+                        ) { viewModel.playWordAudio() }
+                        .padding(horizontal = Dimens20, vertical = Dimens12)
                 ) {
                     Icon(
                         imageVector = Icons.Default.VolumeUp,
@@ -417,10 +564,41 @@ private fun CvcAnimationPanel(
                         modifier = Modifier.size(Dimens20)
                     )
                     Text(
-                        text = word.word,
+                        text = displayedWord.word,
                         style = MaterialTheme.typography.headlineMedium.scaled(),
                         fontWeight = FontWeight.Bold,
                         color = Color(0xFF4A148C)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(Dimens16))
+
+            // Word image with wiggle (real image asset, matching iOS)
+            AnimatedVisibility(
+                visible = uiState.animateImage,
+                enter = scaleIn(initialScale = 0.5f, animationSpec = spring(dampingRatio = 0.7f, stiffness = Spring.StiffnessMediumLow)),
+                exit = scaleOut(targetScale = 0.5f)
+            ) {
+                val resId = getImageResFromWord(displayedWord.word)
+                val wiggleMod = Modifier.graphicsLayer {
+                    scaleX = wiggleScale; scaleY = wiggleScale
+                    rotationZ = wiggleRotation
+                }
+                if (displayedWord.hasImage && resId != null) {
+                    Image(
+                        painter = painterResource(resId),
+                        contentDescription = displayedWord.word,
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier
+                            .size(imageSizeDp)
+                            .then(wiggleMod)
+                    )
+                } else {
+                    Text(
+                        text = wordToEmoji(displayedWord.word),
+                        style = MaterialTheme.typography.displayMedium,
+                        modifier = wiggleMod
                     )
                 }
             }
@@ -428,92 +606,150 @@ private fun CvcAnimationPanel(
     }
 }
 
+// ── CVC box (same structure as PhonicsBox in BlendingLearnPage) ───────────────
+
 @Composable
 private fun CvcBox(
     letter: String,
     isVowel: Boolean,
     size: androidx.compose.ui.unit.Dp,
     isHighlighted: Boolean,
-    isDimmed: Boolean,
     isBlending: Boolean,
     isMerging: Boolean = false,
     modifier: Modifier = Modifier
 ) {
-    val gradStart = if (isVowel) Color(0xFFFF5252) else Color(0xFF2979FF)
-    val gradEnd   = if (isVowel) Color(0xFFC62828) else Color(0xFF1565C0)
-    val glowColor = if (isVowel) Color(0xFFFF5252) else Color(0xFF2979FF)
+    val gradStart      = if (isVowel) Color(0xFFFF5252) else Color(0xFF2979FF)
+    val gradEnd        = if (isVowel) Color(0xFFC62828) else Color(0xFF1565C0)
+    val shadowColor    = if (isVowel) Color(0xFFB71C1C) else Color(0xFF0D47A1)
+    val shadowColorDim = if (isVowel) Color(0x73B71C1C) else Color(0x730D47A1)
+    val glowColor = if (isVowel) {
+        if (isBlending) Color(0xFFB71C1C) else Color(0xFFFF5252)
+    } else {
+        if (isBlending) Color(0xFF0D47A1) else Color(0xFF2979FF)
+    }
+    val glowColorDim = if (isVowel) {
+        if (isBlending) Color(0xB3B71C1C) else Color(0xB3FF5252)
+    } else {
+        if (isBlending) Color(0xB30D47A1) else Color(0xB32979FF)
+    }
     val cornerShape = RoundedCornerShape(size * 0.22f)
+    val diagonalGradient = Brush.linearGradient(
+        colors = listOf(gradStart, gradEnd),
+        start = androidx.compose.ui.geometry.Offset(0f, 0f),
+        end = androidx.compose.ui.geometry.Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
+    )
 
     val scale by animateFloatAsState(
         targetValue = if (isHighlighted && !isMerging) 1.15f else 1.0f,
         animationSpec = spring(dampingRatio = 0.65f, stiffness = Spring.StiffnessMedium),
-        label = "cvcBoxScale"
+        label = "cvcScale"
     )
+
     Box(
         contentAlignment = Alignment.Center,
-        modifier = modifier
-            .size(size)
-            .graphicsLayer {
-                scaleX = scale; scaleY = scale
-                alpha = if (isDimmed && !isMerging) 0.45f else 1f
-            }
+        modifier = modifier.size(size * 2.0f)
     ) {
+        // Inner box: scale graphicsLayer only — no alpha here (alpha lives in caller's outer graphicsLayer)
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
-                .fillMaxSize()
-                .shadow(elevation = Dimens4, shape = cornerShape, clip = false)
-                .background(Brush.linearGradient(listOf(gradStart, gradEnd)), cornerShape)
-                .then(
-                    if (isHighlighted && !isMerging)
-                        Modifier.border(Dimens2, glowColor, cornerShape)
-                    else Modifier
-                )
+                .size(size)
+                .graphicsLayer { scaleX = scale; scaleY = scale; clip = false }
         ) {
-            Text(
-                text = letter,
-                style = MaterialTheme.typography.displaySmall.scaled(),
-                fontWeight = FontWeight.Bold,
-                color = Color.Black.copy(alpha = 0.25f),
-                modifier = Modifier.offset(x = 1.dp, y = 1.dp)
+            // 1. 3D depth shadow layer
+            Box(
+                modifier = Modifier
+                    .size(size)
+                    .offset(y = 3.dp)
+                    .background(shadowColor, cornerShape)
             )
-            Text(
-                text = letter,
-                style = MaterialTheme.typography.displaySmall.scaled(),
-                fontWeight = FontWeight.Bold,
-                color = Color.White
-            )
+
+            // 2. Main tile — diagonal gradient + colored drop shadow
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .size(size)
+                    .shadow(
+                        elevation = Dimens4,
+                        shape = cornerShape,
+                        clip = false,
+                        ambientColor = shadowColorDim,
+                        spotColor = shadowColorDim
+                    )
+                    .background(diagonalGradient, cornerShape)
+            ) {
+                Text(
+                    text = letter,
+                    style = MaterialTheme.typography.displaySmall.copy(
+                        fontSize = (size.value * 0.52f).sp,
+                        fontWeight = FontWeight.Bold
+                    ).scaled(),
+                    color = Color(0x40000000),
+                    modifier = Modifier.offset(x = 1.dp, y = 1.5.dp)
+                )
+                Text(
+                    text = letter,
+                    style = MaterialTheme.typography.displaySmall.copy(
+                        fontSize = (size.value * 0.52f).sp,
+                        fontWeight = FontWeight.Bold
+                    ).scaled(),
+                    color = Color.White
+                )
+            }
+
+            // 3. Highlight glow overlay
+            if (isHighlighted && !isMerging) {
+                Box(
+                    modifier = Modifier
+                        .size(size)
+                        .shadow(
+                            elevation = 10.dp,
+                            shape = cornerShape,
+                            clip = false,
+                            ambientColor = glowColorDim,
+                            spotColor = glowColorDim
+                        )
+                        .border(3.5.dp, glowColor, cornerShape)
+                )
+            }
         }
     }
 }
 
+// ── Merged tile (3-segment wide tile, purple gradient) ────────────────────────
+
 @Composable
 private fun CvcMergedTile(word: CvcWordModel, size: androidx.compose.ui.unit.Dp) {
-    val totalWidth = size * 2.8f
+    val totalWidth  = size * 2.8f
     val cornerShape = RoundedCornerShape(size * 0.20f)
-    val gradStart  = Color(0xFFAB47BC)
-    val gradEnd    = Color(0xFF6A1B9A)
-    val glowColor  = Color(0xFFCE93D8)
+    val gradStart   = Color(0xFFAB47BC)
+    val gradEnd     = Color(0xFF6A1B9A)
     val sparkleXOff = size * 1.25f
     val sparkleYOff = -(size * 0.30f)
 
     Box(contentAlignment = Alignment.Center) {
-        // Glow halo
-        Box(
-            modifier = Modifier
-                .size(width = totalWidth + size * 0.3f, height = size * 1.15f)
-                .background(glowColor.copy(alpha = 0.25f), cornerShape)
-                .blur(Dimens12)
-        )
-        // Main gradient tile
+        // Main gradient tile — large colored shadow creates the glow halo (same as BlendingLearnPage MergedTile)
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
                 .size(width = totalWidth, height = size)
-                .shadow(elevation = Dimens4, shape = cornerShape, clip = false)
-                .background(Brush.linearGradient(listOf(gradStart, gradEnd)), cornerShape)
+                .shadow(
+                    elevation = Dimens12,
+                    shape = cornerShape,
+                    clip = false,
+                    ambientColor = Color(0x806A1B9A),
+                    spotColor = Color(0x806A1B9A)
+                )
+                .background(
+                    Brush.linearGradient(
+                        listOf(gradStart, gradEnd),
+                        start = androidx.compose.ui.geometry.Offset(0f, 0f),
+                        end = androidx.compose.ui.geometry.Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
+                    ),
+                    cornerShape
+                )
         ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(size * 0.06f)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(size * 0.08f), verticalAlignment = Alignment.CenterVertically) {
                 word.segments.forEach { seg ->
                     Text(
                         text = seg.letter,
@@ -526,7 +762,7 @@ private fun CvcMergedTile(word: CvcWordModel, size: androidx.compose.ui.unit.Dp)
                 }
             }
         }
-        // Sparkle icons at top corners
+        // Sparkle accents
         Text(
             text = "✨",
             style = MaterialTheme.typography.titleSmall,
@@ -540,8 +776,10 @@ private fun CvcMergedTile(word: CvcWordModel, size: androidx.compose.ui.unit.Dp)
     }
 }
 
+// ── Word → emoji mapping ──────────────────────────────────────────────────────
+
 private fun wordToEmoji(word: String): String = when (word) {
-    "bat" -> "🦇"; "cat" -> "🐱"; "fan" -> "🌀"; "hat" -> "🎩"
+    "bat" -> "🏏"; "cat" -> "🐱"; "fan" -> "🌀"; "hat" -> "🎩"
     "man" -> "👨"; "map" -> "🗺️"; "rat" -> "🐀"; "tap" -> "🚰"
     "hen" -> "🐔"; "pen" -> "✏️"; "red" -> "🔴"; "ten" -> "🔟"
     "big" -> "🐘"; "pig" -> "🐷"; "sit" -> "🪑"; "win" -> "🏆"

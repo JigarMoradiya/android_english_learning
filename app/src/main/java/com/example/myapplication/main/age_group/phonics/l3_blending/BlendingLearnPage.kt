@@ -564,10 +564,9 @@ private fun PhonicsBox(
         animationSpec = spring(dampingRatio = 0.65f, stiffness = Spring.StiffnessMedium),
         label = "boxScale"
     )
-    // Outer box: 1.50f provides buffer room for scale spring (max ~1.20×) + drop shadows at any scale
     Box(
         contentAlignment = Alignment.Center,
-        modifier = modifier.size(size * 1.50f)
+        modifier = modifier.size(size * 2.0f)
     ) {
         // Inner box owns scale graphicsLayer only (dim alpha lives in the caller's outer graphicsLayer)
         Box(
