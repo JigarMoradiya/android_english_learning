@@ -101,14 +101,61 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="working on phonics L1 to L6">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="l1, l2, l3, l4, l6 done">
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/back.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bang.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bank.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bell.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/blank.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/block.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bunk.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/buzz.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cab.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/check.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cliff.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cod.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cut.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dress.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/drink.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/duck.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fizz.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/grass.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/honk.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hung.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/keg.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kept.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/key.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kick.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kid.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/king.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/long.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/luck.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lung.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/miss.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/off.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pack.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pink.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ring.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rock.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/shell.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sing.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sink.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sock.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/song.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/strong.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stunk.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tall.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thick.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thing.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/think.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/trunk.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l3_blending/BlendingLearnPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l3_blending/BlendingLearnPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l4_cvc_words/CvcWordsLearnPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l4_cvc_words/CvcWordsLearnPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l4_cvc_words/view_model/CvcWordsUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l4_cvc_words/view_model/CvcWordsUiState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l4_cvc_words/view_model/CvcWordsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l4_cvc_words/view_model/CvcWordsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l6_word_families/WordFamiliesLearnPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l6_word_families/WordFamiliesLearnPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/KidsGradientBackground.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/KidsGradientBackground.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,40 +280,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Android App.app.executor": "Run",
-    "ApkExportedModule": "My_Application.app",
-    "BundleExportedModule": "My_Application.app",
-    "Compose Preview.PreviewSentences.executor": "Run",
-    "DEBUGGABLE_DEVICE": "samsung-sm_m127g-RZ8RC0C1F6B",
-    "DEBUGGABLE_PROCESS": "com.vedaavi.english.learning",
-    "DEBUGGER_ID": "Auto",
-    "ExportApk.ApkPathForMy_Application.app": "/Users/jigarmoradiya/Documents/newProjects/MyApplication/app",
-    "ExportBundle.BundlePathForMy_Application.app": "/Users/jigarmoradiya/Documents/newProject/eng/android/app",
-    "Gradle.MyApplication [signingReport].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SHOW_ALL_PROCESSES": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "com.google.services.firebase.aqiPopupShown": "true",
-    "git-widget-placeholder": "login__and__inapp",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jigarmoradiya/Documents/newProject/eng/android/app/src/main/assets/phonics_word",
-    "settings.editor.selected.configurable": "com.android.studio.ml.bot.mainConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;ApkExportedModule&quot;: &quot;My_Application.app&quot;,
+    &quot;BundleExportedModule&quot;: &quot;My_Application.app&quot;,
+    &quot;Compose Preview.PreviewSentences.executor&quot;: &quot;Run&quot;,
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;samsung-sm_m127g-RZ8RC0C1F6B&quot;,
+    &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.vedaavi.english.learning&quot;,
+    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
+    &quot;ExportApk.ApkPathForMy_Application.app&quot;: &quot;/Users/jigarmoradiya/Documents/newProjects/MyApplication/app&quot;,
+    &quot;ExportBundle.BundlePathForMy_Application.app&quot;: &quot;/Users/jigarmoradiya/Documents/newProject/eng/android/app&quot;,
+    &quot;Gradle.MyApplication [signingReport].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;login__and__inapp&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jigarmoradiya/Documents/newProject/eng/android/app/src/main/assets/phonics_word&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.android.studio.ml.bot.mainConfigurable&quot;
   },
-  "keyToStringList": {
-    "ExportApk.BuildVariants": [
-      "dev1Release"
+  &quot;keyToStringList&quot;: {
+    &quot;ExportApk.BuildVariants&quot;: [
+      &quot;dev1Release&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/assets/phonics_word" />
@@ -371,12 +418,6 @@
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="${TEAM_ID}" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
-      <embedded_app_extension_list />
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="PreviewSentences" type="ComposePreviewRunConfiguration" temporary="true">
@@ -497,14 +538,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00160" summary="parent report for letter phonics">
-      <option name="closed" value="true" />
-      <created>1779802589351</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1779802589351</updated>
     </task>
     <task id="LOCAL-00161" summary="age group 3-5 parent tracking done">
       <option name="closed" value="true" />
@@ -890,11 +923,18 @@
       <option name="project" value="LOCAL" />
       <updated>1782017739695</updated>
     </task>
-    <option name="localTasksCounter" value="209" />
+    <task id="LOCAL-00209" summary="l1, l2, l3, l4, l6 done">
+      <option name="closed" value="true" />
+      <created>1782021518660</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1782021518660</updated>
+    </task>
+    <option name="localTasksCounter" value="210" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" parent report detail click for age group 5-7" />
     <MESSAGE value="what kids learn and need practice filter base on ages selected" />
     <MESSAGE value="age group 3-5 menu ordering change" />
     <MESSAGE value="home icons changed" />
@@ -919,7 +959,8 @@
     <MESSAGE value="dev mode changes" />
     <MESSAGE value="phonics sound on letter tracing" />
     <MESSAGE value="working on phonics L1 to L6" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on phonics L1 to L6" />
+    <MESSAGE value="l1, l2, l3, l4, l6 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="l1, l2, l3, l4, l6 done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

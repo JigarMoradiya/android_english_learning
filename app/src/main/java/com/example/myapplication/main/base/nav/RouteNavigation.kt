@@ -32,6 +32,8 @@ sealed class RouteNavigation(val route: String) {
     object CvcWordsLearn : RouteNavigation("CvcWordsLearn")
     object WordFamiliesIntro : RouteNavigation("WordFamiliesIntro")
     object WordFamiliesLearn : RouteNavigation("WordFamiliesLearn")
+    object ShortVowelRulesIntro : RouteNavigation("ShortVowelRulesIntro")
+    object ShortVowelRulesLearn : RouteNavigation("ShortVowelRulesLearn")
 
 
 

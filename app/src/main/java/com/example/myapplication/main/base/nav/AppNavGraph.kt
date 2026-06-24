@@ -36,6 +36,8 @@ import com.example.myapplication.main.age_group.phonics.l3_blending.BlendingIntr
 import com.example.myapplication.main.age_group.phonics.l3_blending.BlendingLearnPage
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.CvcWordsIntroPage
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.CvcWordsLearnPage
+import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.ShortVowelRulesIntroPage
+import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.ShortVowelRulesLearnPage
 import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesIntroPage
 import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesLearnPage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
@@ -224,6 +226,12 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.WordFamiliesLearn.route) {
             WordFamiliesLearnPage(navController)
+        }
+        composable(RouteNavigation.ShortVowelRulesIntro.route) {
+            ShortVowelRulesIntroPage(navController)
+        }
+        composable(RouteNavigation.ShortVowelRulesLearn.route) {
+            ShortVowelRulesLearnPage(navController)
         }
 
         // Age Category 5 to 7

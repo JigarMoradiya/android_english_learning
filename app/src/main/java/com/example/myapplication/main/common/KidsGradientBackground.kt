@@ -31,13 +31,14 @@ import kotlin.math.sin
 enum class KidsGradient {
     rosePink, creamMint, purpleBlue, peachYellow, grayBlue, pinkPeach,
     mintLime, skyLavender, tealCyan, aquaGreen, peachCoral, blueIndigo,
-    indigoPurple, periwinkleBlue, lilacPink, pinkVanilla, softBlue, seaBlue
+    indigoPurple, periwinkleBlue, lilacPink, pinkVanilla, softBlue, seaBlue,
+    oceanBlue
 }
 
 enum class KidsFloatingShape {
     none,
     hearts, mixShapes, stars, bubbles, dots, sparkles,
-    musicNotes, diamonds, leaves, speechBubbles, curveLines
+    musicNotes, diamonds, leaves, speechBubbles, curveLines, waves
 }
 
 private data class ShapeData(
@@ -191,6 +192,7 @@ fun KidsGradientBackground(gradient: KidsGradient, shape: KidsFloatingShape) {
             KidsGradient.pinkVanilla    -> listOf(Color(0xFFFFF0F8), Color(0xFFFFFDE8))
             KidsGradient.softBlue       -> listOf(Color(0xFFE8F0FF), Color(0xFFF3E8FF))
             KidsGradient.seaBlue        -> listOf(Color(0xFFD0EEFF), Color(0xFFC8F5EE))
+            KidsGradient.oceanBlue      -> listOf(Color(0xFFBBDEFB), Color(0xFFB3E5FC))
         }
     }
 
@@ -214,6 +216,7 @@ fun KidsGradientBackground(gradient: KidsGradient, shape: KidsFloatingShape) {
             KidsGradient.pinkVanilla    -> Color(0xFFFF4081)
             KidsGradient.softBlue       -> Color(0xFF1565C0)
             KidsGradient.seaBlue        -> Color(0xFF0277BD)
+            KidsGradient.oceanBlue      -> Color(0xFF1565C0)
         }
     }
 
@@ -300,6 +303,7 @@ fun KidsGradientBackground(gradient: KidsGradient, shape: KidsFloatingShape) {
                     KidsFloatingShape.leaves        -> drawLeaf(cx, cy, r, shapeColor)
                     KidsFloatingShape.speechBubbles -> drawSpeechBubble(cx, cy, r, shapeColor)
                     KidsFloatingShape.curveLines    -> drawWavyLine(cx, cy, r, shapeColor)
+                    KidsFloatingShape.waves         -> drawWave(cx, cy, r, shapeColor)
                 }
             }
         }
@@ -456,6 +460,27 @@ private fun DrawScope.drawSquare(cx: Float, cy: Float, outerRadius: Float, color
     )
 }
 
+private fun DrawScope.drawWave(cx: Float, cy: Float, outerRadius: Float, color: Color) {
+    val halfW = outerRadius * 2.0f
+    val amp = outerRadius * 0.35f
+    val steps = 24
+    repeat(3) { layer ->
+        val yOff = cy + layer * outerRadius * 0.5f - outerRadius * 0.5f
+        val path = Path()
+        for (i in 0..steps) {
+            val t = i.toFloat() / steps
+            val x = cx - halfW + t * halfW * 2
+            val y = yOff + amp * sin((t * 2 * PI + layer * PI / 3.0).toDouble()).toFloat()
+            if (i == 0) path.moveTo(x, y) else path.lineTo(x, y)
+        }
+        drawPath(
+            path,
+            color = color.copy(alpha = 0.12f - layer * 0.03f),
+            style = Stroke(width = maxOf(2f, outerRadius * 0.10f))
+        )
+    }
+}
+
 // MARK: - Previews
 
 @androidx.compose.ui.tooling.preview.Preview(showBackground = true, device = "spec:width=1280dp,height=720dp,dpi=240")
@@ -511,3 +536,6 @@ private fun DrawScope.drawSquare(cx: Float, cy: Float, outerRadius: Float, color
 
 @androidx.compose.ui.tooling.preview.Preview(showBackground = true, device = "spec:width=1280dp,height=720dp,dpi=240")
 @Composable private fun PreviewPeachCoral()    { KidsGradientBackground(KidsGradient.peachCoral,     KidsFloatingShape.diamonds) }
+
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true, device = "spec:width=1280dp,height=720dp,dpi=240")
+@Composable private fun PreviewOceanBlue()     { KidsGradientBackground(KidsGradient.oceanBlue,      KidsFloatingShape.waves) }

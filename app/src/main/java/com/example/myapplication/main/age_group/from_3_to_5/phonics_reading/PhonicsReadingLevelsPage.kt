@@ -89,7 +89,7 @@ val phonicsLevelItems = listOf(
         "🐱", Color(0xFFAD1457), "Age 4-5", RouteNavigation.CvcWordsIntro.route, true),
     PhonicsLevelItem(5,  "Short Vowel Spelling Rules",
         "-ff/-ll/-ss/-zz off, bell, miss\n-ck duck, back · -ng ring, song",
-        "📏", Color(0xFF00695C), "Age 4-5", "", false),
+        "📏", Color(0xFF00695C), "Age 4-5", RouteNavigation.ShortVowelRulesIntro.route, true),
 
     // ── Word Patterns (Age 5–6) ───────────────────────────────────────────────
     PhonicsLevelItem(6,  "Word Families",
