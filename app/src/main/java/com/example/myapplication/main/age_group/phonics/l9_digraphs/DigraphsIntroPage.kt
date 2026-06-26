@@ -1,0 +1,155 @@
+package com.example.myapplication.main.age_group.phonics.l9_digraphs
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.GraphicEq
+import androidx.compose.material.icons.filled.Hearing
+import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.filled.RecordVoiceOver
+import androidx.compose.material.icons.filled.Spellcheck
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.l9_digraphs.view_model.DigraphGroup
+import com.example.myapplication.main.base.nav.RouteNavigation
+import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.KidsFloatingShape
+import com.example.myapplication.main.common.KidsGradient
+import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.PhonicsIntroBtnConfig
+import com.example.myapplication.main.common.PhonicsIntroRightPanel
+import com.example.myapplication.main.common.kidsGlassCard
+import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.Dimens10
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens14
+import com.example.myapplication.ui.theme.AppDimens.Dimens20
+import com.example.myapplication.ui.theme.AppDimens.Dimens24
+import com.example.myapplication.ui.theme.ButtonType
+import com.example.myapplication.utils.extensions.scaled
+
+@Composable
+fun DigraphsIntroPage(navController: NavController) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        KidsGradientBackground(gradient = KidsGradient.peachYellow, shape = KidsFloatingShape.stars)
+
+        BoxWithConstraints(
+            modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing).fillMaxSize()
+        ) {
+            val screenH = maxHeight
+
+            Row(modifier = Modifier.fillMaxSize()) {
+                Column(modifier = Modifier.weight(0.54f).fillMaxHeight()) {
+                    BackButtonWithText(title = "Level 9", onBackClick = { navController.popBackStack() })
+                    Spacer(modifier = Modifier.weight(1f))
+                    Column(
+                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                    ) {
+                        Text(
+                            text = "Digraphs",
+                            style = MaterialTheme.typography.headlineLarge.scaled(),
+                            fontWeight = FontWeight.ExtraBold,
+                            color = Color(0xFFBF360C)
+                        )
+                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                            DigraphGroup.entries.forEach { group ->
+                                L9GroupBadge(group = group, modifier = Modifier.weight(1f))
+                            }
+                        }
+                        Column(verticalArrangement = Arrangement.spacedBy(Dimens10), modifier = Modifier.padding(top = Dimens4)) {
+                            L9BulletRow(icon = Icons.Default.GraphicEq,          color = Color(0xFFE65100), text = "6 digraphs — ch, sh, th, wh, ph, qu")
+                            L9BulletRow(icon = Icons.Default.Spellcheck,         color = Color(0xFF00838F), text = "Two letters that make ONE brand-new sound together")
+                            L9BulletRow(icon = Icons.Default.RecordVoiceOver,    color = Color(0xFF7B1FA2), text = "Tap any word to hear the digraph sound clearly")
+                            L9BulletRow(icon = Icons.Default.CheckCircle,        color = Color(0xFFE65100), text = "Practice quiz — pick the correct digraph")
+                        }
+                    }
+                    Spacer(modifier = Modifier.weight(1f))
+                }
+
+                PhonicsIntroRightPanel(
+                    screenHeight = screenH,
+                    strokeColor = Color(0xFFBF360C),
+                    title = "Let's learn digraphs!",
+                    titleColor = Color(0xFFBF360C),
+                    descLine1 = "Two letters — one brand-new sound",
+                    descLine2 = "ch · sh · th · wh · ph · qu",
+                    learnButton = PhonicsIntroBtnConfig(
+                        text = "Learn Digraphs",
+                        icon = Icons.Default.MenuBook,
+                        type = ButtonType.ORANGE,
+                        onClick = { navController.navigate(RouteNavigation.DigraphsLearn.route) }
+                    ),
+                    practiceButton = PhonicsIntroBtnConfig(
+                        text = "Practice",
+                        icon = Icons.Default.CheckCircle,
+                        type = ButtonType.PURPLE,
+                        onClick = { navController.navigate(RouteNavigation.DigraphsPractice.route) }
+                    ),
+                    listenButton = PhonicsIntroBtnConfig(
+                        text = "Listen",
+                        icon = Icons.Default.Hearing,
+                        type = ButtonType.TEAL,
+                        onClick = { navController.navigate(RouteNavigation.PhonicsListen.createRoute("digraphs")) }
+                    ),
+                    modifier = Modifier.weight(0.46f).fillMaxHeight()
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun L9GroupBadge(group: DigraphGroup, modifier: Modifier = Modifier) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(Dimens4),
+        modifier = modifier
+            .background(color = group.color.copy(alpha = 0.10f), shape = RoundedCornerShape(Dimens12))
+            .border(width = Dp(1.5f), color = group.color.copy(alpha = 0.30f), shape = RoundedCornerShape(Dimens12))
+            .padding(horizontal = Dimens10, vertical = Dimens8)
+    ) {
+        Text(text = group.emoji, style = MaterialTheme.typography.headlineSmall)
+        Text(
+            text = group.label,
+            style = MaterialTheme.typography.labelMedium.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = group.color
+        )
+    }
+}
+
+@Composable
+private fun L9BulletRow(icon: ImageVector, color: Color, text: String) {
+    Row(horizontalArrangement = Arrangement.spacedBy(Dimens10), verticalAlignment = Alignment.Top) {
+        Icon(imageVector = icon, contentDescription = null, tint = color, modifier = Modifier.width(Dimens24))
+        Text(text = text, style = MaterialTheme.typography.bodyMedium.scaled(), color = Color(0xFFBF360C))
+    }
+}
