@@ -11,6 +11,7 @@ data class LetterPhonicsSoundUiState(
     val letters: List<LetterPhonicsSoundItem> = emptyList(),
     val selectedLetter: String? = null,
     val animateObjectImage: Boolean = false,
+    val isDevMode: Boolean = false,
     val phonicsAnimationTrigger: Int = 0,
 ) {
     val selectedItem: LetterPhonicsSoundItem?

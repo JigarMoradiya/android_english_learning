@@ -23,6 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import com.example.myapplication.R
 import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
@@ -83,23 +84,28 @@ fun PhonicsIntroRightPanel(
                     color = titleColor,
                     textAlign = TextAlign.Center
                 )
-                Text(
-                    text = descLine1,
-                    style = MaterialTheme.typography.bodyMedium.scaled(),
-                    color = Color.Gray,
-                    textAlign = TextAlign.Center,
-                    softWrap = true,
-                    overflow = TextOverflow.Visible
-                )
-                if (descLine2.isNotEmpty()) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(Dimens2)
+                ) {
                     Text(
-                        text = descLine2,
+                        text = descLine1,
                         style = MaterialTheme.typography.bodyMedium.scaled(),
                         color = Color.Gray,
                         textAlign = TextAlign.Center,
                         softWrap = true,
                         overflow = TextOverflow.Visible
                     )
+                    if (descLine2.isNotEmpty()) {
+                        Text(
+                            text = descLine2,
+                            style = MaterialTheme.typography.bodyMedium.scaled(),
+                            color = Color.Gray,
+                            textAlign = TextAlign.Center,
+                            softWrap = true,
+                            overflow = TextOverflow.Visible
+                        )
+                    }
                 }
             }
 
@@ -123,7 +129,6 @@ fun PhonicsIntroRightPanel(
                             type = practiceButton.type,
                             isIconStart = true,
                             isSmall = true,
-                            modifier = Modifier.weight(1f),
                             onClick = practiceButton.onClick
                         )
                         KidsActionButton(
@@ -132,7 +137,6 @@ fun PhonicsIntroRightPanel(
                             type = listenButton.type,
                             isIconStart = true,
                             isSmall = true,
-                            modifier = Modifier.weight(1f),
                             onClick = listenButton.onClick
                         )
                     }

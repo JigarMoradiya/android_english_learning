@@ -240,7 +240,7 @@ fun PhonicsReadingLevelsPage(navController: NavController) {
                                 modifier = Modifier.size(Dimens20)
                             )
                             Text(
-                                text = "2 / 28",
+                                text = "12 / 28",
                                 style = MaterialTheme.typography.titleLarge.scaled(),
                                 fontWeight = FontWeight.Bold,
                                 color = Color(0xFF2E7D32)

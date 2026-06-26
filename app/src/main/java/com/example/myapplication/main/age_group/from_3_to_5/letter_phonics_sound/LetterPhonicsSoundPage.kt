@@ -148,7 +148,7 @@ fun LetterPhonicsSoundPage(
 
                                 val isSelected = uiState.selectedLetter == item.letter
                                 val isLocked = index >= lockedFromIndex
-                                val showLock = isLocked && !userState.isLoggedIn
+                                val showLock = isLocked && !userState.isLoggedIn && !uiState.isDevMode
 
                                 val scale by animateFloatAsState(
                                     targetValue = if (isSelected) 1.15f else 1f,

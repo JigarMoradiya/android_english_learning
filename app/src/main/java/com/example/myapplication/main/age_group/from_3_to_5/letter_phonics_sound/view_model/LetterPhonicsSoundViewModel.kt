@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.data.access.AccessManager
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.data.progress.AgeGroup
@@ -15,6 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LetterPhonicsSoundViewModel @Inject constructor(
+    private val accessManager: AccessManager,
     private val audioManager: AudioPhonicsManager,
     private val sessionRepository: SessionRepository
 ) : ViewModel() {
@@ -27,6 +29,7 @@ class LetterPhonicsSoundViewModel @Inject constructor(
 
     init {
         uiState = uiState.copy(
+            isDevMode = accessManager.isDevMode,
             letters = LetterRepository.all.map { data ->
                 LetterPhonicsSoundItem(
                     letter = data.letter,
