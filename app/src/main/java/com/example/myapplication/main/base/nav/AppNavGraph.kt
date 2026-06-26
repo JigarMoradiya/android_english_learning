@@ -40,6 +40,25 @@ import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.Sho
 import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.ShortVowelRulesLearnPage
 import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesIntroPage
 import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesLearnPage
+import com.example.myapplication.main.age_group.phonics.listen.PhonicsListenPage
+import com.example.myapplication.main.age_group.phonics.l7_open_syllable.OpenSyllableIntroPage
+import com.example.myapplication.main.age_group.phonics.l7_open_syllable.OpenSyllableLearnPage
+import com.example.myapplication.main.age_group.phonics.l7_open_syllable.OpenSyllablePracticePage
+import com.example.myapplication.main.age_group.phonics.l8_vowel_teams.VowelTeamsIntroPage
+import com.example.myapplication.main.age_group.phonics.l8_vowel_teams.VowelTeamsLearnPage
+import com.example.myapplication.main.age_group.phonics.l8_vowel_teams.VowelTeamsPracticePage
+import com.example.myapplication.main.age_group.phonics.l9_beginning_blends.BeginningBlendsIntroPage
+import com.example.myapplication.main.age_group.phonics.l9_beginning_blends.BeginningBlendsLearnPage
+import com.example.myapplication.main.age_group.phonics.l9_beginning_blends.BeginningBlendsPracticePage
+import com.example.myapplication.main.age_group.phonics.l10_ending_blends.EndingBlendsIntroPage
+import com.example.myapplication.main.age_group.phonics.l10_ending_blends.EndingBlendsLearnPage
+import com.example.myapplication.main.age_group.phonics.l10_ending_blends.EndingBlendsPracticePage
+import com.example.myapplication.main.age_group.phonics.l11_digraphs.DigraphsIntroPage
+import com.example.myapplication.main.age_group.phonics.l11_digraphs.DigraphsLearnPage
+import com.example.myapplication.main.age_group.phonics.l11_digraphs.DigraphsPracticePage
+import com.example.myapplication.main.age_group.phonics.l12_special_endings.SpecialEndingsIntroPage
+import com.example.myapplication.main.age_group.phonics.l12_special_endings.SpecialEndingsLearnPage
+import com.example.myapplication.main.age_group.phonics.l12_special_endings.SpecialEndingsPracticePage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
@@ -232,6 +251,80 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.ShortVowelRulesLearn.route) {
             ShortVowelRulesLearnPage(navController)
+        }
+
+        // ── Phonics: Listen screen ───────────────────────────────────────────
+        composable(
+            route = RouteNavigation.PhonicsListen.route,
+            arguments = listOf(navArgument("levelKey") { type = NavType.StringType })
+        ) {
+            PhonicsListenPage(navController = navController)
+        }
+
+        // ── Phonics L7: Open Syllable ────────────────────────────────────────
+        composable(RouteNavigation.OpenSyllableIntro.route) {
+            OpenSyllableIntroPage(navController)
+        }
+        composable(RouteNavigation.OpenSyllableLearn.route) {
+            OpenSyllableLearnPage(navController)
+        }
+        composable(RouteNavigation.OpenSyllablePractice.route) {
+            OpenSyllablePracticePage(navController)
+        }
+
+        // ── Phonics L8: Vowel Teams ──────────────────────────────────────────
+        composable(RouteNavigation.VowelTeamsIntro.route) {
+            VowelTeamsIntroPage(navController)
+        }
+        composable(RouteNavigation.VowelTeamsLearn.route) {
+            VowelTeamsLearnPage(navController)
+        }
+        composable(RouteNavigation.VowelTeamsPractice.route) {
+            VowelTeamsPracticePage(navController)
+        }
+
+        // ── Phonics L9: Beginning Blends ─────────────────────────────────────
+        composable(RouteNavigation.BeginningBlendsIntro.route) {
+            BeginningBlendsIntroPage(navController)
+        }
+        composable(RouteNavigation.BeginningBlendsLearn.route) {
+            BeginningBlendsLearnPage(navController)
+        }
+        composable(RouteNavigation.BeginningBlendsPractice.route) {
+            BeginningBlendsPracticePage(navController)
+        }
+
+        // ── Phonics L10: Ending Blends ────────────────────────────────────────
+        composable(RouteNavigation.EndingBlendsIntro.route) {
+            EndingBlendsIntroPage(navController)
+        }
+        composable(RouteNavigation.EndingBlendsLearn.route) {
+            EndingBlendsLearnPage(navController)
+        }
+        composable(RouteNavigation.EndingBlendsPractice.route) {
+            EndingBlendsPracticePage(navController)
+        }
+
+        // ── Phonics L11: Digraphs ────────────────────────────────────────────
+        composable(RouteNavigation.DigraphsIntro.route) {
+            DigraphsIntroPage(navController)
+        }
+        composable(RouteNavigation.DigraphsLearn.route) {
+            DigraphsLearnPage(navController)
+        }
+        composable(RouteNavigation.DigraphsPractice.route) {
+            DigraphsPracticePage(navController)
+        }
+
+        // ── Phonics L12: Special Endings ─────────────────────────────────────
+        composable(RouteNavigation.SpecialEndingsIntro.route) {
+            SpecialEndingsIntroPage(navController)
+        }
+        composable(RouteNavigation.SpecialEndingsLearn.route) {
+            SpecialEndingsLearnPage(navController)
+        }
+        composable(RouteNavigation.SpecialEndingsPractice.route) {
+            SpecialEndingsPracticePage(navController)
         }
 
         // Age Category 5 to 7

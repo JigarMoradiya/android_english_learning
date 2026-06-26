@@ -35,6 +35,41 @@ sealed class RouteNavigation(val route: String) {
     object ShortVowelRulesIntro : RouteNavigation("ShortVowelRulesIntro")
     object ShortVowelRulesLearn : RouteNavigation("ShortVowelRulesLearn")
 
+    // ── Phonics: Listen screen ───────────────────────────────────────────────
+    object PhonicsListen : RouteNavigation("PhonicsListen/{levelKey}") {
+        fun createRoute(levelKey: String) = "PhonicsListen/$levelKey"
+    }
+
+    // ── Phonics L7: Open Syllable ────────────────────────────────────────────
+    object OpenSyllableIntro : RouteNavigation("OpenSyllableIntro")
+    object OpenSyllableLearn : RouteNavigation("OpenSyllableLearn")
+    object OpenSyllablePractice : RouteNavigation("OpenSyllablePractice")
+
+    // ── Phonics L8: Vowel Teams ───────────────────────────────────────────────
+    object VowelTeamsIntro : RouteNavigation("VowelTeamsIntro")
+    object VowelTeamsLearn : RouteNavigation("VowelTeamsLearn")
+    object VowelTeamsPractice : RouteNavigation("VowelTeamsPractice")
+
+    // ── Phonics L9: Beginning Blends ─────────────────────────────────────────
+    object BeginningBlendsIntro : RouteNavigation("BeginningBlendsIntro")
+    object BeginningBlendsLearn : RouteNavigation("BeginningBlendsLearn")
+    object BeginningBlendsPractice : RouteNavigation("BeginningBlendsPractice")
+
+    // ── Phonics L10: Ending Blends ────────────────────────────────────────────
+    object EndingBlendsIntro : RouteNavigation("EndingBlendsIntro")
+    object EndingBlendsLearn : RouteNavigation("EndingBlendsLearn")
+    object EndingBlendsPractice : RouteNavigation("EndingBlendsPractice")
+
+    // ── Phonics L11: Digraphs ────────────────────────────────────────────────
+    object DigraphsIntro : RouteNavigation("DigraphsIntro")
+    object DigraphsLearn : RouteNavigation("DigraphsLearn")
+    object DigraphsPractice : RouteNavigation("DigraphsPractice")
+
+    // ── Phonics L12: Special Endings ─────────────────────────────────────────
+    object SpecialEndingsIntro : RouteNavigation("SpecialEndingsIntro")
+    object SpecialEndingsLearn : RouteNavigation("SpecialEndingsLearn")
+    object SpecialEndingsPractice : RouteNavigation("SpecialEndingsPractice")
+
 
 
     object AgeGroup5to7 : RouteNavigation("AgeGroup5to7")

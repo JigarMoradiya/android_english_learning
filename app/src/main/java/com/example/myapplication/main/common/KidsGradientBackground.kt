@@ -32,7 +32,7 @@ enum class KidsGradient {
     rosePink, creamMint, purpleBlue, peachYellow, grayBlue, pinkPeach,
     mintLime, skyLavender, tealCyan, aquaGreen, peachCoral, blueIndigo,
     indigoPurple, periwinkleBlue, lilacPink, pinkVanilla, softBlue, seaBlue,
-    oceanBlue
+    oceanBlue, meadowGreen
 }
 
 enum class KidsFloatingShape {
@@ -193,6 +193,7 @@ fun KidsGradientBackground(gradient: KidsGradient, shape: KidsFloatingShape) {
             KidsGradient.softBlue       -> listOf(Color(0xFFE8F0FF), Color(0xFFF3E8FF))
             KidsGradient.seaBlue        -> listOf(Color(0xFFD0EEFF), Color(0xFFC8F5EE))
             KidsGradient.oceanBlue      -> listOf(Color(0xFFBBDEFB), Color(0xFFB3E5FC))
+            KidsGradient.meadowGreen    -> listOf(Color(0xFFE8F5E9), Color(0xFFC8E6C9))
         }
     }
 
@@ -217,6 +218,7 @@ fun KidsGradientBackground(gradient: KidsGradient, shape: KidsFloatingShape) {
             KidsGradient.softBlue       -> Color(0xFF1565C0)
             KidsGradient.seaBlue        -> Color(0xFF0277BD)
             KidsGradient.oceanBlue      -> Color(0xFF1565C0)
+            KidsGradient.meadowGreen    -> Color(0xFF2E7D32)
         }
     }
 

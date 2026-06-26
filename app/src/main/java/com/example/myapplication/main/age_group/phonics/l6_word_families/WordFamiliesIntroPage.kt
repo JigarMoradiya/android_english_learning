@@ -1,6 +1,5 @@
 package com.example.myapplication.main.age_group.phonics.l6_word_families
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,41 +10,35 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.ArrowCircleRight
+import androidx.compose.material.icons.filled.Hearing
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavController
-import com.example.myapplication.R
 import com.example.myapplication.main.age_group.phonics.l6_word_families.view_model.wordFamiliesData
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
-import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.main.common.PhonicsIntroBtnConfig
+import com.example.myapplication.main.common.PhonicsIntroRightPanel
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
-import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
-import com.example.myapplication.ui.theme.AppDimens.Dimens28
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 
@@ -136,57 +129,27 @@ fun WordFamiliesIntroPage(navController: NavController) {
                 }
 
                 // ── RIGHT: start card ─────────────────────────────────────────
-                Box(
-                    contentAlignment = Alignment.Center,
-                    modifier = Modifier
-                        .weight(0.48f)
-                        .fillMaxHeight()
-                        .padding(horizontal = Dimens24)
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(Dimens24),
-                        modifier = Modifier
-                            .background(Color.White.copy(alpha = 0.88f), RoundedCornerShape(Dimens20))
-                            .padding(Dimens28)
-                    ) {
-                        Image(
-                            painter = painterResource(R.drawable._mascot_),
-                            contentDescription = null,
-                            contentScale = ContentScale.Fit,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(screenH * 0.25f)
-                        )
-
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.spacedBy(Dimens8)
-                        ) {
-                            Text(
-                                text = "Build words together!",
-                                style = MaterialTheme.typography.titleLarge.scaled(),
-                                fontWeight = FontWeight.Bold,
-                                color = Color(0xFF1B5E20)
-                            )
-                            Text(
-                                text = "Tap a family, then\nchoose a letter to build a word!",
-                                style = MaterialTheme.typography.bodyMedium.scaled(),
-                                color = Color.Gray,
-                                textAlign = TextAlign.Center
-                            )
-                        }
-
-                        KidsActionButton(
-                            text = "Start Building",
-                            icon = Icons.AutoMirrored.Filled.ArrowForward,
-                            type = ButtonType.BLUE,
-                            isIconStart = false,
-                            isSmall = true,
-                            onClick = { navController.navigate(RouteNavigation.WordFamiliesLearn.route) }
-                        )
-                    }
-                }
+                PhonicsIntroRightPanel(
+                    screenHeight = screenH,
+                    strokeColor = Color(0xFF2E7D32),
+                    title = "Ready to explore?",
+                    titleColor = Color(0xFF1B5E20),
+                    descLine1 = "Tap a family, then pick",
+                    descLine2 = "a letter to build words!",
+                    learnButton = PhonicsIntroBtnConfig(
+                        text = "Start Learning",
+                        icon = Icons.Default.ArrowCircleRight,
+                        type = ButtonType.BLUE,
+                        onClick = { navController.navigate(RouteNavigation.WordFamiliesLearn.route) }
+                    ),
+                    listenButton = PhonicsIntroBtnConfig(
+                        text = "Listen",
+                        icon = Icons.Default.Hearing,
+                        type = ButtonType.TEAL,
+                        onClick = { navController.navigate(RouteNavigation.PhonicsListen.createRoute("wordFamilies")) }
+                    ),
+                    modifier = Modifier.weight(0.48f).fillMaxHeight()
+                )
             }
         }
     }

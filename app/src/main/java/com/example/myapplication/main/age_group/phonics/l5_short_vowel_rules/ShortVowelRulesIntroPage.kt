@@ -1,18 +1,14 @@
 package com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
@@ -21,7 +17,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.ArrowCircleRight
 import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Hearing
 import androidx.compose.material.icons.filled.Lightbulb
@@ -34,30 +30,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.myapplication.R
 import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.view_model.spellingRulesData
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.PhonicsIntroBtnConfig
+import com.example.myapplication.main.common.PhonicsIntroRightPanel
 import com.example.myapplication.main.common.kidsGlassCard
-import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
-import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
-import com.example.myapplication.ui.theme.AppDimens.Dimens28
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 
@@ -165,70 +155,27 @@ fun ShortVowelRulesIntroPage(navController: NavController) {
                 }
 
                 // ── RIGHT: start card ─────────────────────────────────────────
-                Box(
-                    contentAlignment = Alignment.Center,
-                    modifier = Modifier
-                        .weight(0.48f)
-                        .fillMaxHeight()
-                        .padding(horizontal = Dimens24)
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(Dimens24),
-                        modifier = Modifier
-                            .kidsGlassCard(
-                                cornerRadius = Dimens20,
-                                strokeColor = Color(0xFF0D47A1).copy(alpha = 0.40f),
-                                elevation = 6.dp
-                            )
-                            .padding(Dimens28)
-                    ) {
-                        Image(
-                            painter = painterResource(R.drawable._mascot_),
-                            contentDescription = null,
-                            contentScale = ContentScale.Fit,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(screenH * 0.30f)
-                        )
-
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.spacedBy(Dimens8)
-                        ) {
-                            Text(
-                                text = "Ready to learn the rules?",
-                                style = MaterialTheme.typography.titleLarge.scaled(),
-                                fontWeight = FontWeight.Bold,
-                                color = Color(0xFF0D47A1)
-                            )
-                            Text(
-                                text = "Pick a rule, read the explanation,\nthen tap examples to hear them!",
-                                style = MaterialTheme.typography.bodyMedium.scaled(),
-                                color = Color.Gray,
-                                textAlign = TextAlign.Center
-                            )
-                        }
-
-                        KidsActionButton(
-                            text = "Start Learning",
-                            icon = Icons.AutoMirrored.Filled.ArrowForward,
-                            type = ButtonType.BLUE,
-                            isIconStart = false,
-                            isSmall = true,
-                            onClick = { navController.navigate(RouteNavigation.ShortVowelRulesLearn.route) }
-                        )
-
-                        KidsActionButton(
-                            text = "Listen",
-                            icon = Icons.Default.Hearing,
-                            type = ButtonType.TEAL,
-                            isIconStart = true,
-                            isSmall = true,
-                            onClick = { /* TODO: phonics listen */ }
-                        )
-                    }
-                }
+                PhonicsIntroRightPanel(
+                    screenHeight = screenH,
+                    strokeColor = Color(0xFF0D47A1),
+                    title = "Ready to learn the rules?",
+                    titleColor = Color(0xFF0D47A1),
+                    descLine1 = "Pick a rule, read the explanation,",
+                    descLine2 = "then tap examples to hear them!",
+                    learnButton = PhonicsIntroBtnConfig(
+                        text = "Start Learning",
+                        icon = Icons.Default.ArrowCircleRight,
+                        type = ButtonType.BLUE,
+                        onClick = { navController.navigate(RouteNavigation.ShortVowelRulesLearn.route) }
+                    ),
+                    listenButton = PhonicsIntroBtnConfig(
+                        text = "Listen",
+                        icon = Icons.Default.Hearing,
+                        type = ButtonType.TEAL,
+                        onClick = { navController.navigate(RouteNavigation.PhonicsListen.createRoute("shortVowelRules")) }
+                    ),
+                    modifier = Modifier.weight(0.48f).fillMaxHeight()
+                )
             }
         }
     }

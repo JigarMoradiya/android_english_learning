@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -50,11 +51,14 @@ fun BackButtonWithText(
     title: String,
     modifier: Modifier = Modifier,
     size: Dp = ToolbarIconSize,
+    expandWidth: Boolean = true,
     onBackClick: () -> Unit
 ) {
     val headerColors = getButtonColors(ButtonType.BLUE)
     Row(
-        modifier = modifier.fillMaxWidth().padding(top = DeviceInfo.screenTopPadding(), bottom = Dimens8, start = DeviceInfo.screenHorizontalPadding(), end = Dimens16),
+        modifier = modifier
+            .then(if (expandWidth) Modifier.fillMaxWidth() else Modifier.wrapContentWidth())
+            .padding(top = DeviceInfo.screenTopPadding(), bottom = Dimens8, start = DeviceInfo.screenHorizontalPadding(), end = Dimens16),
         verticalAlignment = Alignment.CenterVertically
     ) {
 

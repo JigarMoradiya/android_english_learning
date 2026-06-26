@@ -97,6 +97,52 @@ fun Modifier.kidsGlassCard(
 }
 
 /**
+ * Capsule-shaped glass modifier — same frosted-glass effect as kidsGlassCard
+ * but fully-rounded (pill shape). Used for navigation and control buttons.
+ */
+fun Modifier.kidsGlassCapsule(
+    strokeColor: Color = Color.White,
+    elevation: Dp = 2.dp
+): Modifier {
+    val shape = RoundedCornerShape(50)
+    return this
+        .shadow(
+            elevation = elevation,
+            shape = shape,
+            clip = false,
+            ambientColor = strokeColor.copy(alpha = 0.10f),
+            spotColor = strokeColor.copy(alpha = 0.14f)
+        )
+        .clip(shape)
+        .drawBehind {
+            val w = size.width; val h = size.height; val r = minOf(w, h) / 2f
+            drawRoundRect(
+                brush = Brush.linearGradient(
+                    colors = listOf(Color.White.copy(alpha = 0.68f), Color.White.copy(alpha = 0.48f)),
+                    start = Offset(0f, 0f), end = Offset(w, h)
+                ),
+                cornerRadius = CornerRadius(r, r), size = Size(w, h)
+            )
+            drawRoundRect(
+                brush = Brush.linearGradient(
+                    colors = listOf(Color.White.copy(alpha = 0.75f), Color.White.copy(alpha = 0.00f)),
+                    start = Offset(0f, 0f), end = Offset(0f, h * 0.24f)
+                ),
+                cornerRadius = CornerRadius(r, r), size = Size(w, h * 0.24f)
+            )
+        }
+        .border(
+            width = 1.dp,
+            brush = Brush.linearGradient(colorStops = arrayOf(
+                0.00f to strokeColor.copy(alpha = 0.75f),
+                0.55f to strokeColor.copy(alpha = 0.28f),
+                1.00f to strokeColor.copy(alpha = 0.08f)
+            )),
+            shape = shape
+        )
+}
+
+/**
  * Wrapper composable version — use when you need content padding built-in.
  */
 @Composable

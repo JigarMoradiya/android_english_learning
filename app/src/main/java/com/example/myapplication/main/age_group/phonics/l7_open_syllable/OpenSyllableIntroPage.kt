@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.phonics.l4_cvc_words
+package com.example.myapplication.main.age_group.phonics.l7_open_syllable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,8 +15,9 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowCircleRight
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Hearing
+import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,7 +26,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
-import com.example.myapplication.main.age_group.phonics.l4_cvc_words.view_model.cvcGroups
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.KidsFloatingShape
@@ -33,19 +33,20 @@ import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.PhonicsIntroBtnConfig
 import com.example.myapplication.main.common.PhonicsIntroRightPanel
-import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
+import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
-import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 
+private val accentColor = Color(0xFF6A1B9A)
+
 @Composable
-fun CvcWordsIntroPage(navController: NavController) {
+fun OpenSyllableIntroPage(navController: NavController) {
     Box(modifier = Modifier.fillMaxSize()) {
-        KidsGradientBackground(gradient = KidsGradient.skyLavender, shape = KidsFloatingShape.stars)
+        KidsGradientBackground(gradient = KidsGradient.indigoPurple, shape = KidsFloatingShape.stars)
 
         BoxWithConstraints(
             modifier = Modifier
@@ -59,35 +60,39 @@ fun CvcWordsIntroPage(navController: NavController) {
                 // ── LEFT: info panel ─────────────────────────────────────────
                 Column(
                     modifier = Modifier
-                        .weight(0.52f)
+                        .weight(0.54f)
                         .fillMaxHeight()
                 ) {
-                    BackButtonWithText(title = "Level 4", onBackClick = { navController.popBackStack() })
+                    BackButtonWithText(title = "Level 7", onBackClick = { navController.popBackStack() })
 
                     Spacer(modifier = Modifier.weight(1f))
 
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens24),
-                        verticalArrangement = Arrangement.spacedBy(Dimens20)
+                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14)
                     ) {
                         Text(
-                            text = "CVC Words",
+                            text = "Open Syllable",
                             style = MaterialTheme.typography.headlineLarge.scaled(),
                             fontWeight = FontWeight.ExtraBold,
-                            color = Color(0xFF4527A0)
+                            color = accentColor
                         )
 
-                        // Vowel group chips
+                        // Example vowel chips
                         Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
-                            cvcGroups.forEach { group ->
+                            listOf(
+                                "E" to Color(0xFF00897B),
+                                "O" to Color(0xFFE65100),
+                                "I/Y" to Color(0xFF6A1B9A)
+                            ).forEach { (label, color) ->
                                 Box(
                                     contentAlignment = Alignment.Center,
                                     modifier = Modifier
-                                        .background(group.color, RoundedCornerShape(Dimens8))
-                                        .padding(horizontal = Dimens12, vertical = Dimens6)
+                                        .background(color, RoundedCornerShape(Dimens8))
+                                        .padding(horizontal = Dimens12, vertical = Dimens8)
                                 ) {
                                     Text(
-                                        text = group.vowel,
+                                        text = label,
                                         style = MaterialTheme.typography.titleLarge.scaled(),
                                         fontWeight = FontWeight.Bold,
                                         color = Color.White
@@ -98,27 +103,26 @@ fun CvcWordsIntroPage(navController: NavController) {
 
                         // Description rows
                         Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
-                            IntroRow("🐱", "Consonant + Vowel + Consonant")
-                            IntroRow("🎯", "${cvcGroups.sumOf { it.words.size }} words across 5 vowel groups")
-                            IntroRow("🎬", "Watch 3 sounds merge into a word!")
+                            IntroRow("🔓", "Vowel at end of syllable says its long name")
+                            IntroRow("🌿", "me, he, she, be, we — long /ē/")
+                            IntroRow("🌕", "go, no, so, do — long /ō/")
+                            IntroRow("⚡", "fly, shy, sky, by — long /ī/")
                         }
 
-                        // Example words
+                        // Sample words
                         Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
-                            listOf("cat", "hen", "pig", "dog", "sun").forEachIndexed { i, word ->
+                            val samples = listOf("me" to Color(0xFF00897B), "go" to Color(0xFFE65100), "fly" to Color(0xFF6A1B9A))
+                            samples.forEach { (word, color) ->
                                 Box(
                                     modifier = Modifier
-                                        .background(
-                                            cvcGroups[i].color.copy(alpha = 0.12f),
-                                            RoundedCornerShape(Dimens8)
-                                        )
-                                        .padding(horizontal = Dimens10, vertical = Dimens6)
+                                        .background(color.copy(alpha = 0.12f), RoundedCornerShape(Dimens8))
+                                        .padding(horizontal = Dimens10, vertical = Dimens8)
                                 ) {
                                     Text(
                                         text = word,
-                                        style = MaterialTheme.typography.labelLarge.scaled(),
+                                        style = MaterialTheme.typography.titleMedium.scaled(),
                                         fontWeight = FontWeight.Bold,
-                                        color = cvcGroups[i].color
+                                        color = color
                                     )
                                 }
                             }
@@ -128,27 +132,33 @@ fun CvcWordsIntroPage(navController: NavController) {
                     Spacer(modifier = Modifier.weight(1f))
                 }
 
-                // ── RIGHT: start card ─────────────────────────────────────────
+                // ── RIGHT: start card ────────────────────────────────────────
                 PhonicsIntroRightPanel(
                     screenHeight = screenH,
-                    strokeColor = Color(0xFF3949AB),
-                    title = "Ready to learn?",
-                    titleColor = Color(0xFF1A237E),
-                    descLine1 = "Tap each word to see",
-                    descLine2 = "how it sounds and blends!",
+                    strokeColor = accentColor,
+                    title = "When the vowel is\nat the end — it speaks!",
+                    titleColor = accentColor,
+                    descLine1 = "An open syllable ends in a vowel",
+                    descLine2 = "that says its long sound",
                     learnButton = PhonicsIntroBtnConfig(
-                        text = "Start Learning",
-                        icon = Icons.Default.ArrowCircleRight,
+                        text = "Learn Words",
+                        icon = Icons.Default.MenuBook,
+                        type = ButtonType.PURPLE,
+                        onClick = { navController.navigate(RouteNavigation.OpenSyllableLearn.route) }
+                    ),
+                    practiceButton = PhonicsIntroBtnConfig(
+                        text = "Practice",
+                        icon = Icons.Default.CheckCircle,
                         type = ButtonType.BLUE,
-                        onClick = { navController.navigate(RouteNavigation.CvcWordsLearn.route) }
+                        onClick = { navController.navigate(RouteNavigation.OpenSyllablePractice.route) }
                     ),
                     listenButton = PhonicsIntroBtnConfig(
                         text = "Listen",
                         icon = Icons.Default.Hearing,
                         type = ButtonType.TEAL,
-                        onClick = { navController.navigate(RouteNavigation.PhonicsListen.createRoute("cvcWords")) }
+                        onClick = { navController.navigate(RouteNavigation.PhonicsListen.createRoute("openSyllable")) }
                     ),
-                    modifier = Modifier.weight(0.48f).fillMaxHeight()
+                    modifier = Modifier.weight(0.46f).fillMaxHeight()
                 )
             }
         }
@@ -165,7 +175,7 @@ private fun IntroRow(icon: String, text: String) {
         Text(
             text = text,
             style = MaterialTheme.typography.bodyMedium.scaled(),
-            color = Color(0xFF37474F)
+            color = accentColor.copy(alpha = 0.8f)
         )
     }
 }
