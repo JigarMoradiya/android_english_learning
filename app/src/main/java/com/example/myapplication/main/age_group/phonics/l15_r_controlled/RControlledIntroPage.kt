@@ -144,7 +144,7 @@ fun RControlledIntroPage(navController: NavController) {
                         text = "Listen",
                         icon = Icons.Default.Hearing,
                         type = ButtonType.TEAL,
-                        onClick = { navController.navigate(RouteNavigation.RControlledListen.route) }
+                        onClick = { navController.navigate(RouteNavigation.PhonicsListen.createRoute("rControlled")) }
                     ),
                     modifier = Modifier
                         .weight(0.46f)

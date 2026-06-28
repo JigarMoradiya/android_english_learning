@@ -61,15 +61,12 @@ import com.example.myapplication.main.age_group.phonics.l10_special_endings.Spec
 import com.example.myapplication.main.age_group.phonics.l10_special_endings.SpecialEndingsPracticePage
 import com.example.myapplication.main.age_group.phonics.l12_magic_e.MagicEIntroPage
 import com.example.myapplication.main.age_group.phonics.l12_magic_e.MagicELearnPage
-import com.example.myapplication.main.age_group.phonics.l12_magic_e.MagicEListenPage
 import com.example.myapplication.main.age_group.phonics.l12_magic_e.MagicEPracticePage
 import com.example.myapplication.main.age_group.phonics.l14_diphthongs.DiphthongsIntroPage
 import com.example.myapplication.main.age_group.phonics.l14_diphthongs.DiphthongsLearnPage
-import com.example.myapplication.main.age_group.phonics.l14_diphthongs.DiphthongsListenPage
 import com.example.myapplication.main.age_group.phonics.l14_diphthongs.DiphthongsPracticePage
 import com.example.myapplication.main.age_group.phonics.l15_r_controlled.RControlledIntroPage
 import com.example.myapplication.main.age_group.phonics.l15_r_controlled.RControlledLearnPage
-import com.example.myapplication.main.age_group.phonics.l15_r_controlled.RControlledListenPage
 import com.example.myapplication.main.age_group.phonics.l15_r_controlled.RControlledPracticePage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
@@ -349,10 +346,6 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.MagicEPractice.route) {
             MagicEPracticePage(navController)
         }
-        composable(RouteNavigation.MagicEListen.route) {
-            MagicEListenPage(navController)
-        }
-
         // ── Phonics L14: Diphthongs ───────────────────────────────────────────
         composable(RouteNavigation.DiphthongsIntro.route) {
             DiphthongsIntroPage(navController)
@@ -363,10 +356,6 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.DiphthongsPractice.route) {
             DiphthongsPracticePage(navController)
         }
-        composable(RouteNavigation.DiphthongsListen.route) {
-            DiphthongsListenPage(navController)
-        }
-
         // ── Phonics L15: R-Controlled Vowels ─────────────────────────────────
         composable(RouteNavigation.RControlledIntro.route) {
             RControlledIntroPage(navController)
@@ -377,10 +366,6 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.RControlledPractice.route) {
             RControlledPracticePage(navController)
         }
-        composable(RouteNavigation.RControlledListen.route) {
-            RControlledListenPage(navController)
-        }
-
         // Age Category 5 to 7
         composable(RouteNavigation.AgeGroup5to7.route) {
             AgeGroup5to7Page(navController)

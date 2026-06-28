@@ -161,7 +161,7 @@ fun DiphthongsIntroPage(navController: NavController) {
                         text = "Listen",
                         icon = Icons.Default.Hearing,
                         type = ButtonType.TEAL,
-                        onClick = { navController.navigate(RouteNavigation.DiphthongsListen.route) }
+                        onClick = { navController.navigate(RouteNavigation.PhonicsListen.createRoute("diphthongs")) }
                     ),
                     modifier = Modifier
                         .weight(0.46f)

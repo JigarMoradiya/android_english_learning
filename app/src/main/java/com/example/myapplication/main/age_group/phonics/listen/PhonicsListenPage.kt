@@ -40,15 +40,27 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
+import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -109,11 +121,10 @@ fun PhonicsListenPage(
             Spacer(modifier = Modifier.weight(1f))
 
             ListenWordCard(
-                word    = viewModel.currentWord,
+                words   = viewModel.config.words,
                 uiState = uiState,
                 accent  = accent,
                 wordIndex = viewModel.wordIndex,
-                isGoingForward = uiState.isGoingForward,
                 onSegmentTap = { idx -> if (!uiState.isAutoMode) viewModel.onSegmentTap(idx) }
             )
 
@@ -182,17 +193,17 @@ private fun ListenHeaderRow(
 
 @Composable
 private fun ListenWordCard(
-    word: ListenWord,
+    words: List<ListenWord>,
     uiState: PhonicsListenUiState,
     accent: Color,
     wordIndex: Int,
-    isGoingForward: Boolean,
     onSegmentTap: (Int) -> Unit
 ) {
     AnimatedContent(
         targetState = wordIndex,
+        modifier = Modifier.fillMaxWidth().clipToBounds(),
         transitionSpec = {
-            if (isGoingForward) {
+            if (targetState > initialState) {
                 (slideInHorizontally { it } + fadeIn(tween(300)))
                     .togetherWith(slideOutHorizontally { -it } + fadeOut(tween(300)))
             } else {
@@ -201,7 +212,18 @@ private fun ListenWordCard(
             }
         },
         label = "wordCard"
-    ) {
+    ) { currentWordIndex ->
+        val currentWord = words.getOrNull(currentWordIndex) ?: return@AnimatedContent
+        val arcSeg = currentWord.segments.firstOrNull { seg ->
+            seg.indices.size >= 2 && (seg.indices.max() - seg.indices.min()) > 1
+        }
+        val showArc  = arcSeg != null
+        val arcSegIdx = if (arcSeg != null) currentWord.segments.indexOf(arcSeg) else -1
+
+        val charLeft    = remember(currentWordIndex) { mutableStateMapOf<Int, Float>() }
+        val charRight   = remember(currentWordIndex) { mutableStateMapOf<Int, Float>() }
+        var canvasRootX by remember(currentWordIndex) { mutableFloatStateOf(0f) }
+
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(Dimens20),
@@ -211,20 +233,56 @@ private fun ListenWordCard(
                 .kidsGlassCard(cornerRadius = 20.dp, strokeColor = accent)
                 .padding(horizontal = Dimens32, vertical = Dimens24)
         ) {
+            // Arc canvas (only for Magic-E style non-adjacent pairs)
+            if (showArc) {
+                val arcColor = if (uiState.segmentIndex == arcSegIdx || uiState.wordDone)
+                    accent else Color(0xFFD0D0D0)
+                Canvas(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(14.dp)
+                        .onGloballyPositioned { canvasRootX = it.positionInRoot().x }
+                ) {
+                    val i1    = arcSeg!!.indices.min()
+                    val i2    = arcSeg.indices.max()
+                    val fromX = (charLeft[i1] ?: return@Canvas) - canvasRootX
+                    val toX   = (charRight[i2] ?: return@Canvas) - canvasRootX
+                    val midX  = (fromX + toX) / 2f
+                    val path  = Path().apply {
+                        moveTo(fromX, size.height)
+                        quadraticTo(midX, 0f, toX, size.height)
+                    }
+                    drawPath(
+                        path, color = arcColor,
+                        style = Stroke(
+                            width      = 3.dp.toPx(),
+                            cap        = StrokeCap.Round,
+                            pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 5f))
+                        )
+                    )
+                }
+                Spacer(modifier = Modifier.height(Dimens4))
+            }
+
             // Character row
             Row(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.Bottom,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                word.word.forEachIndexed { idx, char ->
-                    val (segIdx, isActive, isDone) = segmentStateFor(idx, word, uiState)
+                currentWord.word.forEachIndexed { idx, char ->
+                    val (_, isActive, isDone) = segmentStateFor(idx, currentWord, uiState)
                     CharacterView(
                         char     = char.toString(),
                         isActive = isActive,
                         isDone   = isDone,
                         wordDone = uiState.wordDone,
-                        accent   = accent
+                        accent   = accent,
+                        modifier = Modifier.onGloballyPositioned { coords ->
+                            val pos = coords.positionInRoot()
+                            charLeft[idx]  = pos.x
+                            charRight[idx] = pos.x + coords.size.width
+                        }
                     )
                 }
             }
@@ -234,7 +292,7 @@ private fun ListenWordCard(
                 horizontalArrangement = Arrangement.spacedBy(Dimens24),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                word.segments.forEachIndexed { segIdx, seg ->
+                currentWord.segments.forEachIndexed { segIdx, seg ->
                     SegmentDot(
                         segIdx   = segIdx,
                         seg      = seg,
@@ -254,7 +312,8 @@ private fun CharacterView(
     isActive: Boolean,
     isDone: Boolean,
     wordDone: Boolean,
-    accent: Color
+    accent: Color,
+    modifier: Modifier = Modifier
 ) {
     val charColor = when {
         wordDone -> accent
@@ -276,7 +335,7 @@ private fun CharacterView(
         style = MaterialTheme.typography.displayLarge.scaled(),
         fontWeight = FontWeight.Bold,
         color = charColor,
-        modifier = Modifier.graphicsLayer { scaleX = scale; scaleY = scale }
+        modifier = modifier.graphicsLayer { scaleX = scale; scaleY = scale }
     )
 }
 
@@ -379,7 +438,7 @@ private fun ListenBottomControls(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .kidsGlassCapsule(strokeColor = accent)
-                .padding(horizontal = Dimens12, vertical = Dimens8)
+                .padding(horizontal = Dimens12)
         ) {
             Icon(
                 imageVector = if (uiState.isAutoMode) Icons.Default.PlayCircle else Icons.Default.TouchApp,
@@ -389,16 +448,19 @@ private fun ListenBottomControls(
             )
             Text(
                 text = if (uiState.isAutoMode) "Auto" else "Manual",
-                style = MaterialTheme.typography.labelMedium.scaled(),
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF37474F)
+                style = MaterialTheme.typography.labelLarge.scaled(),
+                fontWeight = FontWeight.Medium,
+                color = Color(0xFF546E7A)
             )
             Switch(
                 checked = uiState.isAutoMode,
                 onCheckedChange = { onToggleMode() },
-                colors = SwitchDefaults.colors(checkedThumbColor = Color.White, checkedTrackColor = accent)
+                colors = SwitchDefaults.colors(checkedThumbColor = Color.White, checkedTrackColor = accent),
+                modifier = Modifier.scale(0.75f)
             )
         }
+
+        Spacer(modifier = Modifier.width(Dimens12))
 
         // Auto play / Tap hint
         if (uiState.isAutoMode) {

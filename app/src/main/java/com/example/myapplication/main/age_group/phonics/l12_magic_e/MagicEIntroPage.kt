@@ -161,7 +161,7 @@ fun MagicEIntroPage(navController: NavController) {
                         text = "Listen",
                         icon = Icons.Default.Hearing,
                         type = ButtonType.TEAL,
-                        onClick = { navController.navigate(RouteNavigation.MagicEListen.route) }
+                        onClick = { navController.navigate(RouteNavigation.PhonicsListen.createRoute("magicE")) }
                     ),
                     modifier = Modifier.weight(0.46f).fillMaxHeight()
                 )
