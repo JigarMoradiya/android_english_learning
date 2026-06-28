@@ -101,16 +101,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="changes level flow">
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ae.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ie.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/oe.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ue.mp3" afterDir="false" />
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="L14, L15 done">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l12_magic_e/MagicEIntroPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l12_magic_e/MagicEIntroPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l12_magic_e/MagicEListenPage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l14_diphthongs/DiphthongsIntroPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l14_diphthongs/DiphthongsIntroPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l14_diphthongs/DiphthongsListenPage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l15_r_controlled/RControlledIntroPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l15_r_controlled/RControlledIntroPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l15_r_controlled/RControlledListenPage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/PhonicsListenPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/PhonicsListenPage.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" afterDir="false" />
     </list>
@@ -496,14 +495,6 @@
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
     </task>
-    <task id="LOCAL-00165" summary="ActivityCompletePopup replace to ResultView in age 3-5">
-      <option name="closed" value="true" />
-      <created>1779853306704</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1779853306704</updated>
-    </task>
     <task id="LOCAL-00166" summary="solve bug for missing letter highlighter">
       <option name="closed" value="true" />
       <created>1779857943215</created>
@@ -888,11 +879,18 @@
       <option name="project" value="LOCAL" />
       <updated>1782480544601</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="L14, L15 done">
+      <option name="closed" value="true" />
+      <created>1782652437224</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1782652437224</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mascot apply in age group menu pages" />
     <MESSAGE value="mascot and background apply in age group menu pages" />
     <MESSAGE value="apply access to phonics letter page" />
     <MESSAGE value="subscription flow" />
@@ -917,7 +915,8 @@
     <MESSAGE value="long vowel added" />
     <MESSAGE value="right panel ui make common" />
     <MESSAGE value="changes level flow" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes level flow" />
+    <MESSAGE value="L14, L15 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="L14, L15 done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

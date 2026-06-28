@@ -233,57 +233,58 @@ private fun ListenWordCard(
                 .kidsGlassCard(cornerRadius = 20.dp, strokeColor = accent)
                 .padding(horizontal = Dimens32, vertical = Dimens24)
         ) {
-            // Arc canvas (only for Magic-E style non-adjacent pairs)
-            if (showArc) {
-                val arcColor = if (uiState.segmentIndex == arcSegIdx || uiState.wordDone)
-                    accent else Color(0xFFD0D0D0)
-                Canvas(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(14.dp)
-                        .onGloballyPositioned { canvasRootX = it.positionInRoot().x }
-                ) {
-                    val i1    = arcSeg!!.indices.min()
-                    val i2    = arcSeg.indices.max()
-                    val fromX = (charLeft[i1] ?: return@Canvas) - canvasRootX
-                    val toX   = (charRight[i2] ?: return@Canvas) - canvasRootX
-                    val midX  = (fromX + toX) / 2f
-                    val path  = Path().apply {
-                        moveTo(fromX, size.height)
-                        quadraticTo(midX, 0f, toX, size.height)
-                    }
-                    drawPath(
-                        path, color = arcColor,
-                        style = Stroke(
-                            width      = 3.dp.toPx(),
-                            cap        = StrokeCap.Round,
-                            pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 5f))
-                        )
-                    )
-                }
-                Spacer(modifier = Modifier.height(Dimens4))
-            }
-
-            // Character row
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.Bottom,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                currentWord.word.forEachIndexed { idx, char ->
-                    val (_, isActive, isDone) = segmentStateFor(idx, currentWord, uiState)
-                    CharacterView(
-                        char     = char.toString(),
-                        isActive = isActive,
-                        isDone   = isDone,
-                        wordDone = uiState.wordDone,
-                        accent   = accent,
-                        modifier = Modifier.onGloballyPositioned { coords ->
-                            val pos = coords.positionInRoot()
-                            charLeft[idx]  = pos.x
-                            charRight[idx] = pos.x + coords.size.width
+            // Arc canvas + character row grouped with zero spacing so arc touches chars
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                if (showArc) {
+                    val arcColor = if (uiState.segmentIndex == arcSegIdx || uiState.wordDone)
+                        accent else Color(0xFFD0D0D0)
+                    Canvas(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(16.dp)
+                            .onGloballyPositioned { canvasRootX = it.positionInRoot().x }
+                    ) {
+                        val i1    = arcSeg!!.indices.min()
+                        val i2    = arcSeg.indices.max()
+                        val fromX = (((charLeft[i1] ?: return@Canvas) + (charRight[i1] ?: return@Canvas)) / 2f) - canvasRootX
+                        val toX   = (((charLeft[i2] ?: return@Canvas) + (charRight[i2] ?: return@Canvas)) / 2f) - canvasRootX
+                        val midX  = (fromX + toX) / 2f
+                        val path  = Path().apply {
+                            moveTo(fromX, size.height)
+                            quadraticTo(midX, 0f, toX, size.height)
                         }
-                    )
+                        drawPath(
+                            path, color = arcColor,
+                            style = Stroke(
+                                width      = 2.dp.toPx(),
+                                cap        = StrokeCap.Round,
+                                pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 5f))
+                            )
+                        )
+                    }
+                }
+
+                // Character row — directly below canvas with no gap
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.Bottom,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    currentWord.word.forEachIndexed { idx, char ->
+                        val (_, isActive, isDone) = segmentStateFor(idx, currentWord, uiState)
+                        CharacterView(
+                            char     = char.toString(),
+                            isActive = isActive,
+                            isDone   = isDone,
+                            wordDone = uiState.wordDone,
+                            accent   = accent,
+                            modifier = Modifier.onGloballyPositioned { coords ->
+                                val pos = coords.positionInRoot()
+                                charLeft[idx]  = pos.x
+                                charRight[idx] = pos.x + coords.size.width
+                            }
+                        )
+                    }
                 }
             }
 
@@ -330,9 +331,10 @@ private fun CharacterView(
         animationSpec = spring(stiffness = 350f, dampingRatio = 0.7f),
         label = "charScale_$char"
     )
+    val baseStyle = MaterialTheme.typography.displayLarge.scaled()
     Text(
         text = char,
-        style = MaterialTheme.typography.displayLarge.scaled(),
+        style = baseStyle.copy(fontSize = baseStyle.fontSize * 1.3f),
         fontWeight = FontWeight.Bold,
         color = charColor,
         modifier = modifier.graphicsLayer { scaleX = scale; scaleY = scale }
