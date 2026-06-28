@@ -101,34 +101,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="right panel ui make common">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="changes level flow">
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ae.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ie.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/oe.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ue.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l10_ending_blends/EndingBlendsIntroPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l10_ending_blends/EndingBlendsLearnPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l10_ending_blends/EndingBlendsPracticePage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l10_ending_blends/view_model/EndingBlendsViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l11_digraphs/DigraphsIntroPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l11_digraphs/DigraphsLearnPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l11_digraphs/DigraphsPracticePage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l11_digraphs/view_model/DigraphsViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l12_special_endings/SpecialEndingsIntroPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l12_special_endings/SpecialEndingsLearnPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l12_special_endings/SpecialEndingsPracticePage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l12_special_endings/view_model/SpecialEndingsViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l7_open_syllable/OpenSyllableIntroPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l7_open_syllable/OpenSyllableLearnPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l7_open_syllable/OpenSyllablePracticePage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l7_open_syllable/view_model/OpenSyllableViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l8_vowel_teams/VowelTeamsIntroPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l8_vowel_teams/VowelTeamsLearnPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l8_vowel_teams/VowelTeamsPracticePage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l8_vowel_teams/view_model/VowelTeamsViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l9_beginning_blends/BeginningBlendsIntroPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l9_beginning_blends/BeginningBlendsLearnPage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l9_beginning_blends/BeginningBlendsPracticePage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l9_beginning_blends/view_model/BeginningBlendsViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -511,14 +495,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00164" summary="chnages">
-      <option name="closed" value="true" />
-      <created>1779851284059</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL-00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1779851284059</updated>
     </task>
     <task id="LOCAL-00165" summary="ActivityCompletePopup replace to ResultView in age 3-5">
       <option name="closed" value="true" />
@@ -904,11 +880,18 @@
       <option name="project" value="LOCAL" />
       <updated>1782473917973</updated>
     </task>
-    <option name="localTasksCounter" value="213" />
+    <task id="LOCAL-00213" summary="changes level flow">
+      <option name="closed" value="true" />
+      <created>1782480544601</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1782480544601</updated>
+    </task>
+    <option name="localTasksCounter" value="214" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="home page bg change" />
     <MESSAGE value="mascot apply in age group menu pages" />
     <MESSAGE value="mascot and background apply in age group menu pages" />
     <MESSAGE value="apply access to phonics letter page" />
@@ -933,7 +916,8 @@
     <MESSAGE value="working on L5, L7, L8, L9, L10" />
     <MESSAGE value="long vowel added" />
     <MESSAGE value="right panel ui make common" />
-    <option name="LAST_COMMIT_MESSAGE" value="right panel ui make common" />
+    <MESSAGE value="changes level flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes level flow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

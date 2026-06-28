@@ -59,6 +59,18 @@ import com.example.myapplication.main.age_group.phonics.l9_digraphs.DigraphsPrac
 import com.example.myapplication.main.age_group.phonics.l10_special_endings.SpecialEndingsIntroPage
 import com.example.myapplication.main.age_group.phonics.l10_special_endings.SpecialEndingsLearnPage
 import com.example.myapplication.main.age_group.phonics.l10_special_endings.SpecialEndingsPracticePage
+import com.example.myapplication.main.age_group.phonics.l12_magic_e.MagicEIntroPage
+import com.example.myapplication.main.age_group.phonics.l12_magic_e.MagicELearnPage
+import com.example.myapplication.main.age_group.phonics.l12_magic_e.MagicEListenPage
+import com.example.myapplication.main.age_group.phonics.l12_magic_e.MagicEPracticePage
+import com.example.myapplication.main.age_group.phonics.l14_diphthongs.DiphthongsIntroPage
+import com.example.myapplication.main.age_group.phonics.l14_diphthongs.DiphthongsLearnPage
+import com.example.myapplication.main.age_group.phonics.l14_diphthongs.DiphthongsListenPage
+import com.example.myapplication.main.age_group.phonics.l14_diphthongs.DiphthongsPracticePage
+import com.example.myapplication.main.age_group.phonics.l15_r_controlled.RControlledIntroPage
+import com.example.myapplication.main.age_group.phonics.l15_r_controlled.RControlledLearnPage
+import com.example.myapplication.main.age_group.phonics.l15_r_controlled.RControlledListenPage
+import com.example.myapplication.main.age_group.phonics.l15_r_controlled.RControlledPracticePage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
@@ -316,7 +328,7 @@ fun AppNavGraph(navController: NavHostController) {
             DigraphsPracticePage(navController)
         }
 
-        // ── Phonics L12: Special Endings ─────────────────────────────────────
+        // ── Phonics L10: Special Endings ─────────────────────────────────────
         composable(RouteNavigation.SpecialEndingsIntro.route) {
             SpecialEndingsIntroPage(navController)
         }
@@ -325,6 +337,48 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.SpecialEndingsPractice.route) {
             SpecialEndingsPracticePage(navController)
+        }
+
+        // ── Phonics L12: Magic E ──────────────────────────────────────────────
+        composable(RouteNavigation.MagicEIntro.route) {
+            MagicEIntroPage(navController)
+        }
+        composable(RouteNavigation.MagicELearn.route) {
+            MagicELearnPage(navController)
+        }
+        composable(RouteNavigation.MagicEPractice.route) {
+            MagicEPracticePage(navController)
+        }
+        composable(RouteNavigation.MagicEListen.route) {
+            MagicEListenPage(navController)
+        }
+
+        // ── Phonics L14: Diphthongs ───────────────────────────────────────────
+        composable(RouteNavigation.DiphthongsIntro.route) {
+            DiphthongsIntroPage(navController)
+        }
+        composable(RouteNavigation.DiphthongsLearn.route) {
+            DiphthongsLearnPage(navController)
+        }
+        composable(RouteNavigation.DiphthongsPractice.route) {
+            DiphthongsPracticePage(navController)
+        }
+        composable(RouteNavigation.DiphthongsListen.route) {
+            DiphthongsListenPage(navController)
+        }
+
+        // ── Phonics L15: R-Controlled Vowels ─────────────────────────────────
+        composable(RouteNavigation.RControlledIntro.route) {
+            RControlledIntroPage(navController)
+        }
+        composable(RouteNavigation.RControlledLearn.route) {
+            RControlledLearnPage(navController)
+        }
+        composable(RouteNavigation.RControlledPractice.route) {
+            RControlledPracticePage(navController)
+        }
+        composable(RouteNavigation.RControlledListen.route) {
+            RControlledListenPage(navController)
         }
 
         // Age Category 5 to 7

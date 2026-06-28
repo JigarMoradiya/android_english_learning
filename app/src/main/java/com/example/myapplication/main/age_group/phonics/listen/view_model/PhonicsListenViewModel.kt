@@ -22,7 +22,8 @@ import kotlin.coroutines.resume
 
 enum class PhonicsListenLevelKey {
     letterSounds, shortVowels, blending, cvcWords, shortVowelRules,
-    wordFamilies, openSyllable, vowelTeams, beginningBlends, endingBlends, digraphs, specialEndings
+    wordFamilies, openSyllable, vowelTeams, beginningBlends, endingBlends, digraphs, specialEndings, magicE,
+    diphthongs, rControlled
 }
 
 // ── Models ────────────────────────────────────────────────────────────────────
@@ -466,6 +467,117 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("tank",   listOf(s("t", listOf(0)), s("a", listOf(1)), s("nk", listOf(2,3)))),
             w("honk",   listOf(s("h", listOf(0)), s("o", listOf(1)), s("nk", listOf(2,3)))),
             w("bunk",   listOf(s("b", listOf(0)), s("u", listOf(1)), s("nk", listOf(2,3))))
+        )
+    ),
+
+    PhonicsListenLevelKey.magicE to PhonicsListenConfig(
+        title = "Magic E", subtitle = "a-e · i-e · o-e · u-e",
+        levelKey = PhonicsListenLevelKey.magicE,
+        accentColor = Color(0xFF880E4F), shadowColor = Color(0xFF4A148C),
+        words = listOf(
+            // a-e
+            w("cape",  listOf(s("c", listOf(0)),   s("a", listOf(1,3)), s("p", listOf(2)))),
+            w("hate",  listOf(s("h", listOf(0)),   s("a", listOf(1,3)), s("t", listOf(2)))),
+            w("made",  listOf(s("m", listOf(0)),   s("a", listOf(1,3)), s("d", listOf(2)))),
+            w("tape",  listOf(s("t", listOf(0)),   s("a", listOf(1,3)), s("p", listOf(2)))),
+            w("mane",  listOf(s("m", listOf(0)),   s("a", listOf(1,3)), s("n", listOf(2)))),
+            w("cane",  listOf(s("c", listOf(0)),   s("a", listOf(1,3)), s("n", listOf(2)))),
+            // i-e
+            w("bite",  listOf(s("b", listOf(0)),   s("i", listOf(1,3)), s("t", listOf(2)))),
+            w("hide",  listOf(s("h", listOf(0)),   s("i", listOf(1,3)), s("d", listOf(2)))),
+            w("dime",  listOf(s("d", listOf(0)),   s("i", listOf(1,3)), s("m", listOf(2)))),
+            w("pine",  listOf(s("p", listOf(0)),   s("i", listOf(1,3)), s("n", listOf(2)))),
+            w("kite",  listOf(s("k", listOf(0)),   s("i", listOf(1,3)), s("t", listOf(2)))),
+            w("fine",  listOf(s("f", listOf(0)),   s("i", listOf(1,3)), s("n", listOf(2)))),
+            // o-e
+            w("hope",  listOf(s("h", listOf(0)),   s("o", listOf(1,3)), s("p", listOf(2)))),
+            w("note",  listOf(s("n", listOf(0)),   s("o", listOf(1,3)), s("t", listOf(2)))),
+            w("code",  listOf(s("c", listOf(0)),   s("o", listOf(1,3)), s("d", listOf(2)))),
+            w("robe",  listOf(s("r", listOf(0)),   s("o", listOf(1,3)), s("b", listOf(2)))),
+            w("cone",  listOf(s("c", listOf(0)),   s("o", listOf(1,3)), s("n", listOf(2)))),
+            w("tone",  listOf(s("t", listOf(0)),   s("o", listOf(1,3)), s("n", listOf(2)))),
+            // u-e
+            w("cube",  listOf(s("c", listOf(0)),   s("u", listOf(1,3)), s("b", listOf(2)))),
+            w("cute",  listOf(s("c", listOf(0)),   s("u", listOf(1,3)), s("t", listOf(2)))),
+            w("tube",  listOf(s("t", listOf(0)),   s("u", listOf(1,3)), s("b", listOf(2)))),
+            w("dune",  listOf(s("d", listOf(0)),   s("u", listOf(1,3)), s("n", listOf(2)))),
+            w("tune",  listOf(s("t", listOf(0)),   s("u", listOf(1,3)), s("n", listOf(2))))
+        )
+    ),
+
+    PhonicsListenLevelKey.diphthongs to PhonicsListenConfig(
+        title = "Diphthongs", subtitle = "oi/oy · ou/ow · au/aw",
+        levelKey = PhonicsListenLevelKey.diphthongs,
+        accentColor = Color(0xFFE65100), shadowColor = Color(0xFFBF360C),
+        words = listOf(
+            // /ɔɪ/ — oi
+            w("coin",  listOf(s("c",  listOf(0)),    s("oi", listOf(1,2)), s("n",  listOf(3)))),
+            w("oil",   listOf(s("oi", listOf(0,1)),  s("l",  listOf(2)))),
+            w("foil",  listOf(s("f",  listOf(0)),    s("oi", listOf(1,2)), s("l",  listOf(3)))),
+            w("join",  listOf(s("j",  listOf(0)),    s("oi", listOf(1,2)), s("n",  listOf(3)))),
+            w("soil",  listOf(s("s",  listOf(0)),    s("oi", listOf(1,2)), s("l",  listOf(3)))),
+            // /ɔɪ/ — oy
+            w("toy",   listOf(s("t",  listOf(0)),    s("oy", listOf(1,2)))),
+            w("boy",   listOf(s("b",  listOf(0)),    s("oy", listOf(1,2)))),
+            w("joy",   listOf(s("j",  listOf(0)),    s("oy", listOf(1,2)))),
+            w("soy",   listOf(s("s",  listOf(0)),    s("oy", listOf(1,2)))),
+            // /aʊ/ — ou
+            w("out",   listOf(s("ou", listOf(0,1)),  s("t",  listOf(2)))),
+            w("loud",  listOf(s("l",  listOf(0)),    s("ou", listOf(1,2)), s("d",  listOf(3)))),
+            w("cloud", listOf(s("cl", listOf(0,1)),  s("ou", listOf(2,3)), s("d",  listOf(4)))),
+            w("found", listOf(s("f",  listOf(0)),    s("ou", listOf(1,2)), s("nd", listOf(3,4)))),
+            w("mouth", listOf(s("m",  listOf(0)),    s("ou", listOf(1,2)), s("th", listOf(3,4)))),
+            // /aʊ/ — ow
+            w("cow",   listOf(s("c",  listOf(0)),    s("ow", listOf(1,2)))),
+            w("now",   listOf(s("n",  listOf(0)),    s("ow", listOf(1,2)))),
+            w("down",  listOf(s("d",  listOf(0)),    s("ow", listOf(1,2)), s("n",  listOf(3)))),
+            w("town",  listOf(s("t",  listOf(0)),    s("ow", listOf(1,2)), s("n",  listOf(3)))),
+            w("brown", listOf(s("br", listOf(0,1)),  s("ow", listOf(2,3)), s("n",  listOf(4)))),
+            // /ɔː/ — au
+            w("haul",  listOf(s("h",  listOf(0)),    s("au", listOf(1,2)), s("l",  listOf(3)))),
+            w("cause", listOf(s("c",  listOf(0)),    s("au", listOf(1,2)), s("se", listOf(3,4)))),
+            w("pause", listOf(s("p",  listOf(0)),    s("au", listOf(1,2)), s("se", listOf(3,4)))),
+            // /ɔː/ — aw
+            w("saw",   listOf(s("s",  listOf(0)),    s("aw", listOf(1,2)))),
+            w("paw",   listOf(s("p",  listOf(0)),    s("aw", listOf(1,2)))),
+            w("jaw",   listOf(s("j",  listOf(0)),    s("aw", listOf(1,2)))),
+            w("draw",  listOf(s("dr", listOf(0,1)),  s("aw", listOf(2,3)))),
+            w("yawn",  listOf(s("y",  listOf(0)),    s("aw", listOf(1,2)), s("n",  listOf(3))))
+        )
+    ),
+
+    PhonicsListenLevelKey.rControlled to PhonicsListenConfig(
+        title = "R-Controlled Vowels", subtitle = "ar · or · er · ir · ur",
+        levelKey = PhonicsListenLevelKey.rControlled,
+        accentColor = Color(0xFF2E7D32), shadowColor = Color(0xFF1B5E20),
+        words = listOf(
+            // ar
+            w("car",   listOf(s("c",  listOf(0)),    s("ar", listOf(1,2)))),
+            w("star",  listOf(s("st", listOf(0,1)),  s("ar", listOf(2,3)))),
+            w("farm",  listOf(s("f",  listOf(0)),    s("ar", listOf(1,2)), s("m",  listOf(3)))),
+            w("bark",  listOf(s("b",  listOf(0)),    s("ar", listOf(1,2)), s("k",  listOf(3)))),
+            w("dark",  listOf(s("d",  listOf(0)),    s("ar", listOf(1,2)), s("k",  listOf(3)))),
+            // or
+            w("for",   listOf(s("f",  listOf(0)),    s("or", listOf(1,2)))),
+            w("fork",  listOf(s("f",  listOf(0)),    s("or", listOf(1,2)), s("k",  listOf(3)))),
+            w("corn",  listOf(s("c",  listOf(0)),    s("or", listOf(1,2)), s("n",  listOf(3)))),
+            w("horn",  listOf(s("h",  listOf(0)),    s("or", listOf(1,2)), s("n",  listOf(3)))),
+            w("short", listOf(s("sh", listOf(0,1)),  s("or", listOf(2,3)), s("t",  listOf(4)))),
+            // er
+            w("her",   listOf(s("h",  listOf(0)),    s("er", listOf(1,2)))),
+            w("fern",  listOf(s("f",  listOf(0)),    s("er", listOf(1,2)), s("n",  listOf(3)))),
+            w("verb",  listOf(s("v",  listOf(0)),    s("er", listOf(1,2)), s("b",  listOf(3)))),
+            w("herd",  listOf(s("h",  listOf(0)),    s("er", listOf(1,2)), s("d",  listOf(3)))),
+            // ir
+            w("bird",  listOf(s("b",  listOf(0)),    s("ir", listOf(1,2)), s("d",  listOf(3)))),
+            w("girl",  listOf(s("g",  listOf(0)),    s("ir", listOf(1,2)), s("l",  listOf(3)))),
+            w("first", listOf(s("f",  listOf(0)),    s("ir", listOf(1,2)), s("st", listOf(3,4)))),
+            w("dirt",  listOf(s("d",  listOf(0)),    s("ir", listOf(1,2)), s("t",  listOf(3)))),
+            // ur
+            w("burn",  listOf(s("b",  listOf(0)),    s("ur", listOf(1,2)), s("n",  listOf(3)))),
+            w("turn",  listOf(s("t",  listOf(0)),    s("ur", listOf(1,2)), s("n",  listOf(3)))),
+            w("curl",  listOf(s("c",  listOf(0)),    s("ur", listOf(1,2)), s("l",  listOf(3)))),
+            w("hurt",  listOf(s("h",  listOf(0)),    s("ur", listOf(1,2)), s("t",  listOf(3))))
         )
     )
 )

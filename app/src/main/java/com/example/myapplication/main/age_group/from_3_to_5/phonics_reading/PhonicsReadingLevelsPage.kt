@@ -116,16 +116,16 @@ val phonicsLevelItems = listOf(
         "🔓", Color(0xFF6A1B9A), "Age 6-7", RouteNavigation.OpenSyllableIntro.route, true),
     PhonicsLevelItem(12, "Magic E",
         "cap→cape · hop→hope · bit→bite · cub→cube · pet→Pete",
-        "✨", Color(0xFF880E4F), "Age 6-7", "", false),
+        "✨", Color(0xFF880E4F), "Age 6-7", RouteNavigation.MagicEIntro.route, true),
     PhonicsLevelItem(13, "Vowel Teams",
         "ai/ay rain, day · ee/ea feet, read · oa/ow boat, snow",
         "🤝", Color(0xFFEF6C00), "Age 6-7", RouteNavigation.VowelTeamsIntro.route, true),
     PhonicsLevelItem(14, "Diphthongs",
         "oi/oy coin, boy · ou/ow cloud, cow · au/aw pause, saw",
-        "🔄", Color(0xFF4E342E), "Age 6-7", "", false),
+        "🔄", Color(0xFFE65100), "Age 6-7", RouteNavigation.DiphthongsIntro.route, true),
     PhonicsLevelItem(15, "R-Controlled Vowels",
         "ar car · or fork · er her · ir bird · ur burn",
-        "🌀", Color(0xFF1A237E), "Age 6-7", "", false),
+        "🌀", Color(0xFF2E7D32), "Age 6-7", RouteNavigation.RControlledIntro.route, true),
     PhonicsLevelItem(16, "igh & gh Patterns",
         "igh night, light, fight · gh=/f/: enough, laugh",
         "🌙", Color(0xFFF57F17), "Age 6-7", "", false),
@@ -242,7 +242,7 @@ fun PhonicsReadingLevelsPage(navController: NavController) {
                                 modifier = Modifier.size(Dimens20)
                             )
                             Text(
-                                text = "12 / 28",
+                                text = "15 / 28",
                                 style = MaterialTheme.typography.titleLarge.scaled(),
                                 fontWeight = FontWeight.Bold,
                                 color = Color(0xFF2E7D32)

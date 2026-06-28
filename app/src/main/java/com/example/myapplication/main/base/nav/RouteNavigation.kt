@@ -65,11 +65,28 @@ sealed class RouteNavigation(val route: String) {
     object DigraphsLearn : RouteNavigation("DigraphsLearn")
     object DigraphsPractice : RouteNavigation("DigraphsPractice")
 
-    // ── Phonics L12: Special Endings ─────────────────────────────────────────
+    // ── Phonics L10: Special Endings ─────────────────────────────────────────
     object SpecialEndingsIntro : RouteNavigation("SpecialEndingsIntro")
     object SpecialEndingsLearn : RouteNavigation("SpecialEndingsLearn")
     object SpecialEndingsPractice : RouteNavigation("SpecialEndingsPractice")
 
+    // ── Phonics L12: Magic E ──────────────────────────────────────────────────
+    object MagicEIntro : RouteNavigation("MagicEIntro")
+    object MagicELearn : RouteNavigation("MagicELearn")
+    object MagicEPractice : RouteNavigation("MagicEPractice")
+    object MagicEListen : RouteNavigation("MagicEListen")
+
+    // ── Phonics L14: Diphthongs ───────────────────────────────────────────────
+    object DiphthongsIntro : RouteNavigation("DiphthongsIntro")
+    object DiphthongsLearn : RouteNavigation("DiphthongsLearn")
+    object DiphthongsPractice : RouteNavigation("DiphthongsPractice")
+    object DiphthongsListen : RouteNavigation("DiphthongsListen")
+
+    // ── Phonics L15: R-Controlled Vowels ─────────────────────────────────────
+    object RControlledIntro : RouteNavigation("RControlledIntro")
+    object RControlledLearn : RouteNavigation("RControlledLearn")
+    object RControlledPractice : RouteNavigation("RControlledPractice")
+    object RControlledListen : RouteNavigation("RControlledListen")
 
 
     object AgeGroup5to7 : RouteNavigation("AgeGroup5to7")
