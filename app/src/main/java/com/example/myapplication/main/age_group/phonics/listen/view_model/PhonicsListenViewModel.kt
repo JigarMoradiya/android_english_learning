@@ -295,12 +295,12 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("hi",  listOf(s("h", listOf(0)), s("i", listOf(1)))),
             w("by",  listOf(s("b", listOf(0)), s("y", listOf(1)))),
             w("my",  listOf(s("m", listOf(0)), s("y", listOf(1)))),
-            w("fly", listOf(s("fl", listOf(0,1)), s("y", listOf(2)))),
+            w("fly", listOf(s("f", listOf(0)), s("l", listOf(1)), s("y", listOf(2)))),
             w("shy", listOf(s("sh", listOf(0,1)), s("y", listOf(2)))),
-            w("sky", listOf(s("sk", listOf(0,1)), s("y", listOf(2)))),
-            w("cry", listOf(s("cr", listOf(0,1)), s("y", listOf(2)))),
-            w("dry", listOf(s("dr", listOf(0,1)), s("y", listOf(2)))),
-            w("pro", listOf(s("pr", listOf(0,1)), s("o", listOf(2))))
+            w("sky", listOf(s("s", listOf(0)), s("k", listOf(1)), s("y", listOf(2)))),
+            w("cry", listOf(s("c", listOf(0)), s("r", listOf(1)), s("y", listOf(2)))),
+            w("dry", listOf(s("d", listOf(0)), s("r", listOf(1)), s("y", listOf(2)))),
+            w("pro", listOf(s("p", listOf(0)), s("r", listOf(1)), s("o", listOf(2))))
         )
     ),
 
@@ -312,20 +312,20 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("rain",  listOf(s("r", listOf(0)), s("ai", listOf(1,2)), s("n", listOf(3)))),
             w("tail",  listOf(s("t", listOf(0)), s("ai", listOf(1,2)), s("l", listOf(3)))),
             w("day",   listOf(s("d", listOf(0)), s("ay", listOf(1,2)))),
-            w("play",  listOf(s("pl", listOf(0,1)), s("ay", listOf(2,3)))),
+            w("play",  listOf(s("p", listOf(0)), s("l", listOf(1)), s("ay", listOf(2,3)))),
             w("feet",  listOf(s("f", listOf(0)), s("ee", listOf(1,2)), s("t", listOf(3)))),
-            w("tree",  listOf(s("tr", listOf(0,1)), s("ee", listOf(2,3)))),
+            w("tree",  listOf(s("t", listOf(0)), s("r", listOf(1)), s("ee", listOf(2,3)))),
             w("read",  listOf(s("r", listOf(0)), s("ea", listOf(1,2)), s("d", listOf(3)))),
             w("team",  listOf(s("t", listOf(0)), s("ea", listOf(1,2)), s("m", listOf(3)))),
             w("boat",  listOf(s("b", listOf(0)), s("oa", listOf(1,2)), s("t", listOf(3)))),
             w("coat",  listOf(s("c", listOf(0)), s("oa", listOf(1,2)), s("t", listOf(3)))),
-            w("snow",  listOf(s("sn", listOf(0,1)), s("ow", listOf(2,3)))),
-            w("grow",  listOf(s("gr", listOf(0,1)), s("ow", listOf(2,3)))),
+            w("snow",  listOf(s("s", listOf(0)), s("n", listOf(1)), s("ow", listOf(2,3)))),
+            w("grow",  listOf(s("g", listOf(0)), s("r", listOf(1)), s("ow", listOf(2,3)))),
             w("wait",  listOf(s("w", listOf(0)), s("ai", listOf(1,2)), s("t", listOf(3)))),
             w("beach", listOf(s("b", listOf(0)), s("ea", listOf(1,2)), s("ch", listOf(3,4)))),
             w("road",  listOf(s("r", listOf(0)), s("oa", listOf(1,2)), s("d", listOf(3)))),
             w("say",   listOf(s("s", listOf(0)), s("ay", listOf(1,2)))),
-            w("green", listOf(s("gr", listOf(0,1)), s("ee", listOf(2,3)), s("n", listOf(4)))),
+            w("green", listOf(s("g", listOf(0)), s("r", listOf(1)), s("ee", listOf(2,3)), s("n", listOf(4)))),
             w("goat",  listOf(s("g", listOf(0)), s("oa", listOf(1,2)), s("t", listOf(3))))
         )
     ),
@@ -337,7 +337,7 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
         words = listOf(
             w("blue",  listOf(s("bl", listOf(0,1)), s("ue", listOf(2,3)))),
             w("black", listOf(s("bl", listOf(0,1)), s("a", listOf(2)), s("ck", listOf(3,4)))),
-            w("blink", listOf(s("bl", listOf(0,1)), s("i", listOf(2)), s("nk", listOf(3,4)))),
+            w("blink", listOf(s("bl", listOf(0,1)), s("i", listOf(2)), s("n", listOf(3)), s("k", listOf(4)))),
             w("clap",  listOf(s("cl", listOf(0,1)), s("a", listOf(2)), s("p", listOf(3)))),
             w("clock", listOf(s("cl", listOf(0,1)), s("o", listOf(2)), s("ck", listOf(3,4)))),
             w("clip",  listOf(s("cl", listOf(0,1)), s("i", listOf(2)), s("p", listOf(3)))),
@@ -419,11 +419,11 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("chat",    listOf(s("ch", listOf(0,1)), s("a", listOf(2)), s("t", listOf(3)))),
             w("chin",    listOf(s("ch", listOf(0,1)), s("i", listOf(2)), s("n", listOf(3)))),
             w("check",   listOf(s("ch", listOf(0,1)), s("e", listOf(2)), s("ck", listOf(3,4)))),
-            w("chest",   listOf(s("ch", listOf(0,1)), s("e", listOf(2)), s("st", listOf(3,4)))),
+            w("chest",   listOf(s("ch", listOf(0,1)), s("e", listOf(2)), s("s", listOf(3)), s("t", listOf(4)))),
             w("ship",    listOf(s("sh", listOf(0,1)), s("i", listOf(2)), s("p", listOf(3)))),
             w("shop",    listOf(s("sh", listOf(0,1)), s("o", listOf(2)), s("p", listOf(3)))),
             w("shed",    listOf(s("sh", listOf(0,1)), s("e", listOf(2)), s("d", listOf(3)))),
-            w("shell",   listOf(s("sh", listOf(0,1)), s("e", listOf(2)), s("ll", listOf(3,4)))),
+            w("shell",   listOf(s("sh", listOf(0,1)), s("e", listOf(2)), s("l", listOf(3)), s("l", listOf(4)))),
             w("shark",   listOf(s("sh", listOf(0,1)), s("ar", listOf(2,3)), s("k", listOf(4)))),
             w("thin",    listOf(s("th", listOf(0,1)), s("i", listOf(2)), s("n", listOf(3)))),
             w("that",    listOf(s("th", listOf(0,1)), s("a", listOf(2)), s("t", listOf(3)))),
@@ -433,9 +433,9 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("whip",    listOf(s("wh", listOf(0,1)), s("i", listOf(2)), s("p", listOf(3)))),
             w("when",    listOf(s("wh", listOf(0,1)), s("e", listOf(2)), s("n", listOf(3)))),
             w("what",    listOf(s("wh", listOf(0,1)), s("a", listOf(2)), s("t", listOf(3)))),
-            w("whale",   listOf(s("wh", listOf(0,1)), s("a", listOf(2)), s("le", listOf(3,4)))),
-            w("phone",   listOf(s("ph", listOf(0,1)), s("o", listOf(2)), s("ne", listOf(3,4)))),
-            w("photo",   listOf(s("ph", listOf(0,1)), s("o", listOf(2)), s("to", listOf(3,4)))),
+            w("whale",   listOf(s("wh", listOf(0,1)), s("a", listOf(2)), s("l", listOf(3)), s("e", listOf(4)))),
+            w("phone",   listOf(s("ph", listOf(0,1)), s("o", listOf(2)), s("n", listOf(3)), s("e", listOf(4)))),
+            w("photo",   listOf(s("ph", listOf(0,1)), s("o", listOf(2)), s("t", listOf(3)), s("o", listOf(4)))),
             w("queen",   listOf(s("qu", listOf(0,1)), s("ee", listOf(2,3)), s("n", listOf(4)))),
             w("quiz",    listOf(s("qu", listOf(0,1)), s("i", listOf(2)), s("z", listOf(3)))),
             w("quick",   listOf(s("qu", listOf(0,1)), s("i", listOf(2)), s("ck", listOf(3,4))))
@@ -458,7 +458,7 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("badge",  listOf(s("b", listOf(0)), s("a", listOf(1)), s("dge", listOf(2,3,4)))),
             w("edge",   listOf(s("e", listOf(0)), s("dge", listOf(1,2,3)))),
             w("hedge",  listOf(s("h", listOf(0)), s("e", listOf(1)), s("dge", listOf(2,3,4)))),
-            w("bridge", listOf(s("br", listOf(0,1)), s("i", listOf(2)), s("dge", listOf(3,4,5)))),
+            w("bridge", listOf(s("b", listOf(0)), s("r", listOf(1)), s("i", listOf(2)), s("dge", listOf(3,4,5)))),
             w("judge",  listOf(s("j", listOf(0)), s("u", listOf(1)), s("dge", listOf(2,3,4)))),
             w("fudge",  listOf(s("f", listOf(0)), s("u", listOf(1)), s("dge", listOf(2,3,4)))),
             w("sink",   listOf(s("s", listOf(0)), s("i", listOf(1)), s("nk", listOf(2,3)))),
@@ -524,24 +524,24 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             // /aʊ/ — ou
             w("out",   listOf(s("ou", listOf(0,1)),  s("t",  listOf(2)))),
             w("loud",  listOf(s("l",  listOf(0)),    s("ou", listOf(1,2)), s("d",  listOf(3)))),
-            w("cloud", listOf(s("cl", listOf(0,1)),  s("ou", listOf(2,3)), s("d",  listOf(4)))),
-            w("found", listOf(s("f",  listOf(0)),    s("ou", listOf(1,2)), s("nd", listOf(3,4)))),
+            w("cloud", listOf(s("c",  listOf(0)),    s("l",  listOf(1)),   s("ou", listOf(2,3)), s("d", listOf(4)))),
+            w("found", listOf(s("f",  listOf(0)),    s("ou", listOf(1,2)), s("n",  listOf(3)),   s("d", listOf(4)))),
             w("mouth", listOf(s("m",  listOf(0)),    s("ou", listOf(1,2)), s("th", listOf(3,4)))),
             // /aʊ/ — ow
             w("cow",   listOf(s("c",  listOf(0)),    s("ow", listOf(1,2)))),
             w("now",   listOf(s("n",  listOf(0)),    s("ow", listOf(1,2)))),
             w("down",  listOf(s("d",  listOf(0)),    s("ow", listOf(1,2)), s("n",  listOf(3)))),
             w("town",  listOf(s("t",  listOf(0)),    s("ow", listOf(1,2)), s("n",  listOf(3)))),
-            w("brown", listOf(s("br", listOf(0,1)),  s("ow", listOf(2,3)), s("n",  listOf(4)))),
+            w("brown", listOf(s("b",  listOf(0)),    s("r",  listOf(1)),   s("ow", listOf(2,3)), s("n", listOf(4)))),
             // /ɔː/ — au
             w("haul",  listOf(s("h",  listOf(0)),    s("au", listOf(1,2)), s("l",  listOf(3)))),
-            w("cause", listOf(s("c",  listOf(0)),    s("au", listOf(1,2)), s("se", listOf(3,4)))),
-            w("pause", listOf(s("p",  listOf(0)),    s("au", listOf(1,2)), s("se", listOf(3,4)))),
+            w("cause", listOf(s("c",  listOf(0)),    s("au", listOf(1,2)), s("s",  listOf(3)), s("e", listOf(4)))),
+            w("pause", listOf(s("p",  listOf(0)),    s("au", listOf(1,2)), s("s",  listOf(3)), s("e", listOf(4)))),
             // /ɔː/ — aw
             w("saw",   listOf(s("s",  listOf(0)),    s("aw", listOf(1,2)))),
             w("paw",   listOf(s("p",  listOf(0)),    s("aw", listOf(1,2)))),
             w("jaw",   listOf(s("j",  listOf(0)),    s("aw", listOf(1,2)))),
-            w("draw",  listOf(s("dr", listOf(0,1)),  s("aw", listOf(2,3)))),
+            w("draw",  listOf(s("d",  listOf(0)),    s("r",  listOf(1)),   s("aw", listOf(2,3)))),
             w("yawn",  listOf(s("y",  listOf(0)),    s("aw", listOf(1,2)), s("n",  listOf(3))))
         )
     ),
@@ -553,7 +553,7 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
         words = listOf(
             // ar
             w("car",   listOf(s("c",  listOf(0)),    s("ar", listOf(1,2)))),
-            w("star",  listOf(s("st", listOf(0,1)),  s("ar", listOf(2,3)))),
+            w("star",  listOf(s("s",  listOf(0)),    s("t",  listOf(1)),   s("ar", listOf(2,3)))),
             w("farm",  listOf(s("f",  listOf(0)),    s("ar", listOf(1,2)), s("m",  listOf(3)))),
             w("bark",  listOf(s("b",  listOf(0)),    s("ar", listOf(1,2)), s("k",  listOf(3)))),
             w("dark",  listOf(s("d",  listOf(0)),    s("ar", listOf(1,2)), s("k",  listOf(3)))),
@@ -571,7 +571,7 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             // ir
             w("bird",  listOf(s("b",  listOf(0)),    s("ir", listOf(1,2)), s("d",  listOf(3)))),
             w("girl",  listOf(s("g",  listOf(0)),    s("ir", listOf(1,2)), s("l",  listOf(3)))),
-            w("first", listOf(s("f",  listOf(0)),    s("ir", listOf(1,2)), s("st", listOf(3,4)))),
+            w("first", listOf(s("f",  listOf(0)),    s("ir", listOf(1,2)), s("s",  listOf(3)), s("t", listOf(4)))),
             w("dirt",  listOf(s("d",  listOf(0)),    s("ir", listOf(1,2)), s("t",  listOf(3)))),
             // ur
             w("burn",  listOf(s("b",  listOf(0)),    s("ur", listOf(1,2)), s("n",  listOf(3)))),
@@ -596,22 +596,22 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("sight",  listOf(s("s",  listOf(0)),    s("igh", listOf(1,2,3)), s("t",  listOf(4)))),
             w("might",  listOf(s("m",  listOf(0)),    s("igh", listOf(1,2,3)), s("t",  listOf(4)))),
             w("fight",  listOf(s("f",  listOf(0)),    s("igh", listOf(1,2,3)), s("t",  listOf(4)))),
-            w("bright", listOf(s("br", listOf(0,1)),  s("igh", listOf(2,3,4)), s("t",  listOf(5)))),
-            w("flight", listOf(s("fl", listOf(0,1)),  s("igh", listOf(2,3,4)), s("t",  listOf(5)))),
+            w("bright", listOf(s("b",  listOf(0)),    s("r",   listOf(1)),    s("igh", listOf(2,3,4)), s("t", listOf(5)))),
+            w("flight", listOf(s("f",  listOf(0)),    s("l",   listOf(1)),    s("igh", listOf(2,3,4)), s("t", listOf(5)))),
             w("sigh",   listOf(s("s",  listOf(0)),    s("igh", listOf(1,2,3)))),
             // silent gh
-            w("though",  listOf(s("thou", listOf(0,1,2,3)), s("gh", listOf(4,5)))),
-            w("thought", listOf(s("thou", listOf(0,1,2,3)), s("gh", listOf(4,5)), s("t", listOf(6)))),
-            w("bought",  listOf(s("bou",  listOf(0,1,2)),   s("gh", listOf(3,4)), s("t", listOf(5)))),
-            w("caught",  listOf(s("cau",  listOf(0,1,2)),   s("gh", listOf(3,4)), s("t", listOf(5)))),
-            w("taught",  listOf(s("tau",  listOf(0,1,2)),   s("gh", listOf(3,4)), s("t", listOf(5)))),
-            w("dough",   listOf(s("dou",  listOf(0,1,2)),   s("gh", listOf(3,4)))),
+            w("though",  listOf(s("th", listOf(0,1)), s("ou", listOf(2,3)), s("gh", listOf(4,5)))),
+            w("thought", listOf(s("th", listOf(0,1)), s("ou", listOf(2,3)), s("gh", listOf(4,5)), s("t", listOf(6)))),
+            w("bought",  listOf(s("b",  listOf(0)),   s("ou", listOf(1,2)), s("gh", listOf(3,4)), s("t", listOf(5)))),
+            w("caught",  listOf(s("c",  listOf(0)),   s("au", listOf(1,2)), s("gh", listOf(3,4)), s("t", listOf(5)))),
+            w("taught",  listOf(s("t",  listOf(0)),   s("au", listOf(1,2)), s("gh", listOf(3,4)), s("t", listOf(5)))),
+            w("dough",   listOf(s("d",  listOf(0)),   s("ou", listOf(1,2)), s("gh", listOf(3,4)))),
             // gh = /f/
-            w("enough", listOf(s("enou", listOf(0,1,2,3)), s("gh", listOf(4,5)))),
-            w("laugh",  listOf(s("lau",  listOf(0,1,2)),   s("gh", listOf(3,4)))),
-            w("cough",  listOf(s("cou",  listOf(0,1,2)),   s("gh", listOf(3,4)))),
-            w("rough",  listOf(s("rou",  listOf(0,1,2)),   s("gh", listOf(3,4)))),
-            w("tough",  listOf(s("tou",  listOf(0,1,2)),   s("gh", listOf(3,4))))
+            w("enough", listOf(s("e", listOf(0)), s("n", listOf(1)), s("ou", listOf(2,3)), s("gh", listOf(4,5)))),
+            w("laugh",  listOf(s("l", listOf(0)), s("au", listOf(1,2)), s("gh", listOf(3,4)))),
+            w("cough",  listOf(s("c", listOf(0)), s("ou", listOf(1,2)), s("gh", listOf(3,4)))),
+            w("rough",  listOf(s("r", listOf(0)), s("ou", listOf(1,2)), s("gh", listOf(3,4)))),
+            w("tough",  listOf(s("t", listOf(0)), s("ou", listOf(1,2)), s("gh", listOf(3,4))))
         )
     )
 )

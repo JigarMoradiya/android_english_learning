@@ -224,83 +224,86 @@ private fun ListenWordCard(
         val charRight   = remember(currentWordIndex) { mutableStateMapOf<Int, Float>() }
         var canvasRootX by remember(currentWordIndex) { mutableFloatStateOf(0f) }
 
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(Dimens20),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = Dimens32)
-                .kidsGlassCard(cornerRadius = 20.dp, strokeColor = accent)
-                .padding(horizontal = Dimens32, vertical = Dimens24)
-        ) {
-            // Arc canvas + character row grouped with zero spacing so arc touches chars
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                if (showArc) {
-                    val arcColor = if (uiState.segmentIndex == arcSegIdx || uiState.wordDone)
-                        accent else Color(0xFFD0D0D0)
-                    Canvas(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(16.dp)
-                            .onGloballyPositioned { canvasRootX = it.positionInRoot().x }
-                    ) {
-                        val i1    = arcSeg!!.indices.min()
-                        val i2    = arcSeg.indices.max()
-                        val fromX = (((charLeft[i1] ?: return@Canvas) + (charRight[i1] ?: return@Canvas)) / 2f) - canvasRootX
-                        val toX   = (((charLeft[i2] ?: return@Canvas) + (charRight[i2] ?: return@Canvas)) / 2f) - canvasRootX
-                        val midX  = (fromX + toX) / 2f
-                        val path  = Path().apply {
-                            moveTo(fromX, size.height)
-                            quadraticTo(midX, 0f, toX, size.height)
-                        }
-                        drawPath(
-                            path, color = arcColor,
-                            style = Stroke(
-                                width      = 2.dp.toPx(),
-                                cap        = StrokeCap.Round,
-                                pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 5f))
-                            )
-                        )
-                    }
-                }
-
-                // Character row — directly below canvas with no gap
-                Row(
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.Bottom,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    currentWord.word.forEachIndexed { idx, char ->
-                        val (_, isActive, isDone) = segmentStateFor(idx, currentWord, uiState)
-                        CharacterView(
-                            char     = char.toString(),
-                            isActive = isActive,
-                            isDone   = isDone,
-                            wordDone = uiState.wordDone,
-                            accent   = accent,
-                            modifier = Modifier.onGloballyPositioned { coords ->
-                                val pos = coords.positionInRoot()
-                                charLeft[idx]  = pos.x
-                                charRight[idx] = pos.x + coords.size.width
-                            }
-                        )
-                    }
-                }
-            }
-
-            // Segment dots row
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(Dimens24),
-                verticalAlignment = Alignment.CenterVertically
+        // Center the wrap-content card inside the full-width animation frame
+        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(Dimens20),
+                modifier = Modifier
+                    .padding(horizontal = Dimens32)
+                    .kidsGlassCard(cornerRadius = 20.dp, strokeColor = accent)
+                    .padding(horizontal = Dimens32, vertical = Dimens24)
             ) {
-                currentWord.segments.forEachIndexed { segIdx, seg ->
-                    SegmentDot(
-                        segIdx   = segIdx,
-                        seg      = seg,
-                        uiState  = uiState,
-                        accent   = accent,
-                        onClick  = { onSegmentTap(segIdx) }
-                    )
+                // Arc canvas overlaid on character row via a Box — Box size = Row size
+                Box(contentAlignment = Alignment.BottomCenter) {
+                    // Characters drive the Box width; top padding leaves room for arc
+                    Row(
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.Bottom,
+                        modifier = Modifier.padding(top = if (showArc) Dimens20 else 0.dp)
+                    ) {
+                        currentWord.word.forEachIndexed { idx, char ->
+                            val (_, isActive, isDone) = segmentStateFor(idx, currentWord, uiState)
+                            CharacterView(
+                                char     = char.toString(),
+                                isActive = isActive,
+                                isDone   = isDone,
+                                wordDone = uiState.wordDone,
+                                accent   = accent,
+                                modifier = Modifier.onGloballyPositioned { coords ->
+                                    val pos = coords.positionInRoot()
+                                    charLeft[idx]  = pos.x
+                                    charRight[idx] = pos.x + coords.size.width
+                                }
+                            )
+                        }
+                    }
+
+                    // Arc canvas matches Box (= character row size)
+                    if (showArc) {
+                        val arcColor = if (uiState.segmentIndex == arcSegIdx || uiState.wordDone)
+                            accent else Color(0xFFD0D0D0)
+                        Canvas(
+                            modifier = Modifier
+                                .matchParentSize()
+                                .onGloballyPositioned { canvasRootX = it.positionInRoot().x }
+                        ) {
+                            val i1    = arcSeg!!.indices.min()
+                            val i2    = arcSeg.indices.max()
+                            val fromX = (((charLeft[i1] ?: return@Canvas) + (charRight[i1] ?: return@Canvas)) / 2f) - canvasRootX
+                            val toX   = (((charLeft[i2] ?: return@Canvas) + (charRight[i2] ?: return@Canvas)) / 2f) - canvasRootX
+                            val midX  = (fromX + toX) / 2f
+                            val arcTop = size.height * 0.15f
+                            val path  = Path().apply {
+                                moveTo(fromX, size.height)
+                                quadraticTo(midX, arcTop, toX, size.height)
+                            }
+                            drawPath(
+                                path, color = arcColor,
+                                style = Stroke(
+                                    width      = 2.dp.toPx(),
+                                    cap        = StrokeCap.Round,
+                                    pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 5f))
+                                )
+                            )
+                        }
+                    }
+                }
+
+                // Segment dots row — wraps content naturally
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(Dimens24),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    currentWord.segments.forEachIndexed { segIdx, seg ->
+                        SegmentDot(
+                            segIdx   = segIdx,
+                            seg      = seg,
+                            uiState  = uiState,
+                            accent   = accent,
+                            onClick  = { onSegmentTap(segIdx) }
+                        )
+                    }
                 }
             }
         }
