@@ -128,7 +128,7 @@ val phonicsLevelItems = listOf(
         "🌀", Color(0xFF2E7D32), "Age 6-7", RouteNavigation.RControlledIntro.route, true),
     PhonicsLevelItem(16, "igh & gh Patterns",
         "igh night, light, fight · gh=/f/: enough, laugh",
-        "🌙", Color(0xFFF57F17), "Age 6-7", "", false),
+        "🌙", Color(0xFF311B92), "Age 6-7", RouteNavigation.IghGhIntro.route, true),
 
     // ── Advanced Patterns (Age 7+) ────────────────────────────────────────────
     PhonicsLevelItem(17, "Y as a Vowel",

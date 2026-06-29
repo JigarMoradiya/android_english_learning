@@ -85,6 +85,11 @@ sealed class RouteNavigation(val route: String) {
     object RControlledLearn : RouteNavigation("RControlledLearn")
     object RControlledPractice : RouteNavigation("RControlledPractice")
 
+    // ── Phonics L16: igh & gh Patterns ───────────────────────────────────────
+    object IghGhIntro : RouteNavigation("IghGhIntro")
+    object IghGhLearn : RouteNavigation("IghGhLearn")
+    object IghGhPractice : RouteNavigation("IghGhPractice")
+
 
     object AgeGroup5to7 : RouteNavigation("AgeGroup5to7")
     object VocabularyBuilding : RouteNavigation("VocabularyBuilding")

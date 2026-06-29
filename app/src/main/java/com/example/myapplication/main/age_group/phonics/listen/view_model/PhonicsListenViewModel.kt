@@ -23,7 +23,7 @@ import kotlin.coroutines.resume
 enum class PhonicsListenLevelKey {
     letterSounds, shortVowels, blending, cvcWords, shortVowelRules,
     wordFamilies, openSyllable, vowelTeams, beginningBlends, endingBlends, digraphs, specialEndings, magicE,
-    diphthongs, rControlled
+    diphthongs, rControlled, ighGh
 }
 
 // ── Models ────────────────────────────────────────────────────────────────────
@@ -578,6 +578,40 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("turn",  listOf(s("t",  listOf(0)),    s("ur", listOf(1,2)), s("n",  listOf(3)))),
             w("curl",  listOf(s("c",  listOf(0)),    s("ur", listOf(1,2)), s("l",  listOf(3)))),
             w("hurt",  listOf(s("h",  listOf(0)),    s("ur", listOf(1,2)), s("t",  listOf(3))))
+        )
+    ),
+
+    // ── L16 · igh & gh Patterns ───────────────────────────────────────────────
+    PhonicsListenLevelKey.ighGh to PhonicsListenConfig(
+        title = "igh & gh", subtitle = "igh · silent gh · gh=/f/",
+        levelKey = PhonicsListenLevelKey.ighGh,
+        accentColor = Color(0xFF311B92), shadowColor = Color(0xFF1A237E),
+        words = listOf(
+            // igh = /aɪ/
+            w("night",  listOf(s("n",  listOf(0)),    s("igh", listOf(1,2,3)), s("t",  listOf(4)))),
+            w("light",  listOf(s("l",  listOf(0)),    s("igh", listOf(1,2,3)), s("t",  listOf(4)))),
+            w("high",   listOf(s("h",  listOf(0)),    s("igh", listOf(1,2,3)))),
+            w("tight",  listOf(s("t",  listOf(0)),    s("igh", listOf(1,2,3)), s("t",  listOf(4)))),
+            w("right",  listOf(s("r",  listOf(0)),    s("igh", listOf(1,2,3)), s("t",  listOf(4)))),
+            w("sight",  listOf(s("s",  listOf(0)),    s("igh", listOf(1,2,3)), s("t",  listOf(4)))),
+            w("might",  listOf(s("m",  listOf(0)),    s("igh", listOf(1,2,3)), s("t",  listOf(4)))),
+            w("fight",  listOf(s("f",  listOf(0)),    s("igh", listOf(1,2,3)), s("t",  listOf(4)))),
+            w("bright", listOf(s("br", listOf(0,1)),  s("igh", listOf(2,3,4)), s("t",  listOf(5)))),
+            w("flight", listOf(s("fl", listOf(0,1)),  s("igh", listOf(2,3,4)), s("t",  listOf(5)))),
+            w("sigh",   listOf(s("s",  listOf(0)),    s("igh", listOf(1,2,3)))),
+            // silent gh
+            w("though",  listOf(s("thou", listOf(0,1,2,3)), s("gh", listOf(4,5)))),
+            w("thought", listOf(s("thou", listOf(0,1,2,3)), s("gh", listOf(4,5)), s("t", listOf(6)))),
+            w("bought",  listOf(s("bou",  listOf(0,1,2)),   s("gh", listOf(3,4)), s("t", listOf(5)))),
+            w("caught",  listOf(s("cau",  listOf(0,1,2)),   s("gh", listOf(3,4)), s("t", listOf(5)))),
+            w("taught",  listOf(s("tau",  listOf(0,1,2)),   s("gh", listOf(3,4)), s("t", listOf(5)))),
+            w("dough",   listOf(s("dou",  listOf(0,1,2)),   s("gh", listOf(3,4)))),
+            // gh = /f/
+            w("enough", listOf(s("enou", listOf(0,1,2,3)), s("gh", listOf(4,5)))),
+            w("laugh",  listOf(s("lau",  listOf(0,1,2)),   s("gh", listOf(3,4)))),
+            w("cough",  listOf(s("cou",  listOf(0,1,2)),   s("gh", listOf(3,4)))),
+            w("rough",  listOf(s("rou",  listOf(0,1,2)),   s("gh", listOf(3,4)))),
+            w("tough",  listOf(s("tou",  listOf(0,1,2)),   s("gh", listOf(3,4))))
         )
     )
 )

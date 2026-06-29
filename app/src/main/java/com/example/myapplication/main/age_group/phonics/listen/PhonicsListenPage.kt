@@ -215,7 +215,7 @@ private fun ListenWordCard(
     ) { currentWordIndex ->
         val currentWord = words.getOrNull(currentWordIndex) ?: return@AnimatedContent
         val arcSeg = currentWord.segments.firstOrNull { seg ->
-            seg.indices.size >= 2 && (seg.indices.max() - seg.indices.min()) > 1
+            seg.indices.size >= 2 && (seg.indices.max() - seg.indices.min()) > (seg.indices.size - 1)
         }
         val showArc  = arcSeg != null
         val arcSegIdx = if (arcSeg != null) currentWord.segments.indexOf(arcSeg) else -1

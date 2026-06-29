@@ -1,11 +1,13 @@
 package com.example.myapplication.main.age_group.phonics.l14_diphthongs
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,6 +19,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.safeDrawing
@@ -26,7 +29,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
-import androidx.compose.material.icons.filled.TouchApp
+import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -34,17 +37,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
+import androidx.compose.foundation.layout.offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -209,17 +211,26 @@ private fun DiphthongGroupContent(
         DiphthongRuleBanner(group = group)
 
         if (uiState.showWords) {
-            // Two side-by-side columns per spelling variant
-            group.spellings.forEach { spelling ->
-                val wordsForSpelling = group.wordsBySpelling(spelling)
-                if (wordsForSpelling.isNotEmpty()) {
-                    DiphthongSpellingSection(
-                        spelling = spelling,
-                        group = group,
-                        words = wordsForSpelling,
-                        highlightedWordId = uiState.highlightedWordId,
-                        onWordTap = onWordTap
-                    )
+            // One glass card — two spelling columns side by side (matches iOS splitColumns)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .kidsGlassCard(cornerRadius = Dimens12, strokeColor = group.accentColor)
+                    .padding(Dimens14),
+                horizontalArrangement = Arrangement.spacedBy(Dimens10)
+            ) {
+                group.spellings.forEach { spelling ->
+                    val words = group.wordsBySpelling(spelling)
+                    if (words.isNotEmpty()) {
+                        DiphthongSpellingColumn(
+                            spelling = spelling,
+                            words = words,
+                            group = group,
+                            highlightedWordId = uiState.highlightedWordId,
+                            onWordTap = onWordTap,
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
                 }
             }
         }
@@ -320,70 +331,55 @@ private fun DiphthongRuleBanner(group: DiphthongGroup) {
     }
 }
 
-// ── Spelling Section ──────────────────────────────────────────────────────────
+// ── Spelling Column (inside shared card) ─────────────────────────────────────
 
 @Composable
-private fun DiphthongSpellingSection(
+private fun DiphthongSpellingColumn(
     spelling: String,
     group: DiphthongGroup,
     words: List<DiphthongWord>,
     highlightedWordId: String?,
-    onWordTap: (DiphthongWord) -> Unit
+    onWordTap: (DiphthongWord) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .kidsGlassCard(cornerRadius = Dimens12, strokeColor = group.accentColor)
-            .padding(Dimens14),
-        verticalArrangement = Arrangement.spacedBy(Dimens10)
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(Dimens8)
     ) {
+        // Header pill + word count (matches iOS capsule + "X words")
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(Dimens8)
+            horizontalArrangement = Arrangement.spacedBy(Dimens6)
         ) {
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .background(group.accentColor, RoundedCornerShape(50))
-                    .padding(horizontal = Dimens10, vertical = Dimens4)
+                    .padding(horizontal = Dimens8, vertical = Dimens4)
             ) {
                 Text(
-                    text = spelling,
-                    style = MaterialTheme.typography.titleSmall.scaled(),
+                    text = spelling.uppercase(),
+                    style = MaterialTheme.typography.labelLarge.scaled(),
                     fontWeight = FontWeight.ExtraBold,
                     color = Color.White
                 )
             }
-            Icon(
-                imageVector = Icons.Default.TouchApp,
-                contentDescription = null,
-                tint = group.accentColor,
-                modifier = Modifier.height(Dimens16)
-            )
             Text(
-                text = "Tap to hear",
-                style = MaterialTheme.typography.titleSmall.scaled(),
-                fontWeight = FontWeight.Bold,
-                color = group.accentColor
+                text = "${words.size} words",
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                color = Color(0xFF90A4AE)
             )
         }
 
-        words.chunked(2).forEach { row ->
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(Dimens8)
-            ) {
-                row.forEach { word ->
-                    DiphthongWordCard(
-                        word = word,
-                        group = group,
-                        isHighlighted = highlightedWordId == word.id,
-                        onTap = { onWordTap(word) },
-                        modifier = Modifier.weight(1f)
-                    )
-                }
-                if (row.size == 1) Spacer(Modifier.weight(1f))
-            }
+        // Words stacked vertically (matches iOS vertical ForEach)
+        words.forEach { word ->
+            DiphthongWordCard(
+                word = word,
+                group = group,
+                isHighlighted = highlightedWordId == word.id,
+                onTap = { onWordTap(word) },
+                modifier = Modifier.fillMaxWidth()
+            )
         }
     }
 }
@@ -398,32 +394,80 @@ private fun DiphthongWordCard(
     onTap: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val normalColor = if (isHighlighted) Color.White.copy(0.88f) else Color(0xFF263238)
-    val bg = if (isHighlighted)
-        Brush.linearGradient(listOf(group.accentColor, group.shadowColor))
-    else
-        Brush.linearGradient(listOf(Color.White, Color.White))
+    val scale by animateFloatAsState(
+        targetValue = if (isHighlighted) 1.03f else 1.0f,
+        animationSpec = spring(dampingRatio = 0.65f, stiffness = 500f),
+        label = "wordScale"
+    )
+    val normalColor = if (isHighlighted) Color.White.copy(alpha = 0.88f) else Color(0xFF263238)
 
-    Box(
-        modifier = modifier
-            .scale(if (isHighlighted) 1.03f else 1.0f)
-            .shadow(if (isHighlighted) 8.dp else 2.dp, RoundedCornerShape(Dimens10))
-            .background(bg, RoundedCornerShape(Dimens10))
-            .clickable { onTap() }
-            .padding(horizontal = Dimens10, vertical = Dimens8),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = buildAnnotatedString {
-                withStyle(SpanStyle(color = normalColor)) { append(word.pre) }
-                withStyle(SpanStyle(
-                    color = if (isHighlighted) Color.White else group.accentColor,
-                    fontWeight = FontWeight.ExtraBold
-                )) { append(word.diphthong) }
-                withStyle(SpanStyle(color = normalColor)) { append(word.suf) }
-            },
-            style = MaterialTheme.typography.titleMedium.scaled(),
-            fontWeight = FontWeight.Bold
+    val cardShape = RoundedCornerShape(Dimens8)
+    val textStyle = MaterialTheme.typography.bodyLarge.scaled()
+    val iconTint = if (isHighlighted) Color.White.copy(alpha = 0.80f) else group.accentColor.copy(alpha = 0.70f)
+    val borderColor = if (isHighlighted) Color.White.copy(alpha = 0.40f) else group.accentColor.copy(alpha = 0.20f)
+    val diphthongBg = if (isHighlighted) Color.White.copy(alpha = 0.82f) else group.accentColor.copy(alpha = 0.12f)
+
+    Box(modifier = modifier.scale(scale)) {
+        // 3D base — iOS: RoundedRectangle(shadowColor).offset(y: 3)
+        Box(
+            modifier = Modifier
+                .matchParentSize()
+                .offset(y = 3.dp)
+                .background(group.shadowColor.copy(alpha = if (isHighlighted) 0f else 0.55f), cardShape)
         )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .shadow(if (isHighlighted) 8.dp else 2.dp, cardShape,
+                    ambientColor = group.accentColor, spotColor = group.accentColor)
+                .then(
+                    if (isHighlighted)
+                        Modifier.background(Brush.linearGradient(listOf(group.accentColor, group.shadowColor)), cardShape)
+                    else
+                        Modifier.background(Color.White, cardShape)
+                )
+                .border(1.5.dp, borderColor, cardShape)
+                .clickable { onTap() }
+                .padding(horizontal = Dimens10, vertical = Dimens8)
+        ) {
+            // iOS HStack(spacing: 0): pre | diphthong(rounded bg) | suf | Spacer | speaker icon
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.weight(1f)
+            ) {
+                if (word.pre.isNotEmpty()) {
+                    Text(
+                        text = word.pre,
+                        style = textStyle,
+                        fontWeight = FontWeight.Bold,
+                        color = normalColor
+                    )
+                }
+                Text(
+                    text = word.diphthong,
+                    style = textStyle,
+                    fontWeight = FontWeight.ExtraBold,
+                    color = if (isHighlighted) group.shadowColor else group.accentColor,
+                    modifier = Modifier
+                        .background(diphthongBg, RoundedCornerShape(4.dp))
+                        .padding(horizontal = 3.dp)
+                )
+                if (word.suf.isNotEmpty()) {
+                    Text(
+                        text = word.suf,
+                        style = textStyle,
+                        fontWeight = FontWeight.Bold,
+                        color = normalColor
+                    )
+                }
+            }
+            Icon(
+                imageVector = Icons.Default.VolumeUp,
+                contentDescription = null,
+                tint = iconTint,
+                modifier = Modifier.size(18.dp)
+            )
+        }
     }
 }

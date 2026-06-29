@@ -137,9 +137,9 @@ class DiphthongsLearnViewModel @Inject constructor(
         uiState = uiState.copy(highlightedWordId = word.id)
         audioManager.playPhonicsSound("phonics_word/${word.word}")
         audioManager.onAudioCompleted = {
-            if (animSession == session) {
-                uiState = uiState.copy(highlightedWordId = null)
-            }
+            // Only clear when audio actually finishes — matches iOS AudioPhonicsManager.onAudioCompleted callback.
+            // If audio file doesn't exist, callback never fires → chip stays until next tap (radio-button UX).
+            if (animSession == session) uiState = uiState.copy(highlightedWordId = null)
         }
     }
 
