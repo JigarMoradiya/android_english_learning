@@ -90,6 +90,26 @@ sealed class RouteNavigation(val route: String) {
     object IghGhLearn : RouteNavigation("IghGhLearn")
     object IghGhPractice : RouteNavigation("IghGhPractice")
 
+    // ── Phonics L17: Y as a Vowel ─────────────────────────────────────────────
+    object YAsVowelIntro : RouteNavigation("YAsVowelIntro")
+    object YAsVowelLearn : RouteNavigation("YAsVowelLearn")
+    object YAsVowelPractice : RouteNavigation("YAsVowelPractice")
+
+    // ── Phonics L18: 3-Letter Blends ──────────────────────────────────────────
+    object ThreeLetterBlendsIntro : RouteNavigation("ThreeLetterBlendsIntro")
+    object ThreeLetterBlendsLearn : RouteNavigation("ThreeLetterBlendsLearn")
+    object ThreeLetterBlendsPractice : RouteNavigation("ThreeLetterBlendsPractice")
+
+    // ── Phonics L19: Soft C & Soft G ──────────────────────────────────────────
+    object SoftCSoftGIntro : RouteNavigation("SoftCSoftGIntro")
+    object SoftCSoftGLearn : RouteNavigation("SoftCSoftGLearn")
+    object SoftCSoftGPractice : RouteNavigation("SoftCSoftGPractice")
+
+    // ── Phonics L20: Silent Letters ────────────────────────────────────────────
+    object SilentLettersIntro : RouteNavigation("SilentLettersIntro")
+    object SilentLettersLearn : RouteNavigation("SilentLettersLearn")
+    object SilentLettersPractice : RouteNavigation("SilentLettersPractice")
+
 
     object AgeGroup5to7 : RouteNavigation("AgeGroup5to7")
     object VocabularyBuilding : RouteNavigation("VocabularyBuilding")

@@ -127,7 +127,7 @@ fun DigraphsPracticePage(
                                 }
                                 val shakeOffset = if (uiState.shakeWrong) (sin(System.currentTimeMillis() / 50.0) * 7).roundToInt() else 0
                                 Box(modifier = Modifier.fillMaxWidth().kidsGlassCard(cornerRadius = Dimens12, strokeColor = accentColor).padding(Dimens16), contentAlignment = Alignment.Center) {
-                                    Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(Dimens4)) {
+                                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Dimens4)) {
                                         Box(contentAlignment = Alignment.Center, modifier = Modifier.offset { IntOffset(shakeOffset, 0) }.background(when { uiState.isCorrect == true -> Color(0xFFC8E6C9); uiState.isCorrect == false -> Color(0xFFFFCDD2); else -> Color(0xFFECEFF1) }, RoundedCornerShape(Dimens8)).padding(horizontal = Dimens8, vertical = Dimens4)) {
                                             Text(uiState.selectedAnswer ?: "___", style = MaterialTheme.typography.displaySmall.scaled(), fontWeight = FontWeight.Bold, color = when { uiState.isCorrect == true -> Color(0xFF2E7D32); uiState.isCorrect == false -> Color(0xFFC62828); else -> Color(0xFF90A4AE) })
                                         }

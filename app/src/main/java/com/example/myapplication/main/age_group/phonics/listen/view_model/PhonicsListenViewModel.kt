@@ -23,7 +23,8 @@ import kotlin.coroutines.resume
 enum class PhonicsListenLevelKey {
     letterSounds, shortVowels, blending, cvcWords, shortVowelRules,
     wordFamilies, openSyllable, vowelTeams, beginningBlends, endingBlends, digraphs, specialEndings, magicE,
-    diphthongs, rControlled, ighGh
+    diphthongs, rControlled, ighGh,
+    yAsVowel, threeLetterBlends, softCSoftG, silentLetters
 }
 
 // ── Models ────────────────────────────────────────────────────────────────────
@@ -612,6 +613,143 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("cough",  listOf(s("c", listOf(0)), s("ou", listOf(1,2)), s("gh", listOf(3,4)))),
             w("rough",  listOf(s("r", listOf(0)), s("ou", listOf(1,2)), s("gh", listOf(3,4)))),
             w("tough",  listOf(s("t", listOf(0)), s("ou", listOf(1,2)), s("gh", listOf(3,4))))
+        )
+    ),
+
+    // ── L17: Y as a Vowel ────────────────────────────────────────────────────
+    PhonicsListenLevelKey.yAsVowel to PhonicsListenConfig(
+        title = "Y as a Vowel", subtitle = "/ī/ end · /ē/ multi · /ī/ middle",
+        levelKey = PhonicsListenLevelKey.yAsVowel,
+        accentColor = Color(0xFF0097A7), shadowColor = Color(0xFF006064),
+        words = listOf(
+            // y = /ī/ (1-syllable end)
+            w("fly",   listOf(s("f",  listOf(0)), s("l",  listOf(1)), s("y",  listOf(2)))),
+            w("sky",   listOf(s("s",  listOf(0)), s("k",  listOf(1)), s("y",  listOf(2)))),
+            w("cry",   listOf(s("c",  listOf(0)), s("r",  listOf(1)), s("y",  listOf(2)))),
+            w("dry",   listOf(s("d",  listOf(0)), s("r",  listOf(1)), s("y",  listOf(2)))),
+            w("try",   listOf(s("t",  listOf(0)), s("r",  listOf(1)), s("y",  listOf(2)))),
+            w("fry",   listOf(s("f",  listOf(0)), s("r",  listOf(1)), s("y",  listOf(2)))),
+            w("spy",   listOf(s("s",  listOf(0)), s("p",  listOf(1)), s("y",  listOf(2)))),
+            w("shy",   listOf(s("sh", listOf(0,1)), s("y", listOf(2)))),
+            w("by",    listOf(s("b",  listOf(0)), s("y",  listOf(1)))),
+            w("my",    listOf(s("m",  listOf(0)), s("y",  listOf(1)))),
+            // y = /ē/ (multi-syllable end)
+            w("happy",  listOf(s("h",  listOf(0)), s("a",  listOf(1)), s("pp", listOf(2,3)), s("y", listOf(4)))),
+            w("baby",   listOf(s("b",  listOf(0)), s("a",  listOf(1)), s("b",  listOf(2)),   s("y", listOf(3)))),
+            w("funny",  listOf(s("f",  listOf(0)), s("u",  listOf(1)), s("nn", listOf(2,3)), s("y", listOf(4)))),
+            w("sunny",  listOf(s("s",  listOf(0)), s("u",  listOf(1)), s("nn", listOf(2,3)), s("y", listOf(4)))),
+            w("candy",  listOf(s("c",  listOf(0)), s("a",  listOf(1)), s("n",  listOf(2)),   s("d", listOf(3)), s("y", listOf(4)))),
+            w("windy",  listOf(s("w",  listOf(0)), s("i",  listOf(1)), s("n",  listOf(2)),   s("d", listOf(3)), s("y", listOf(4)))),
+            w("party",  listOf(s("p",  listOf(0)), s("ar", listOf(1,2)), s("t", listOf(3)),  s("y", listOf(4)))),
+            w("ready",  listOf(s("r",  listOf(0)), s("ea", listOf(1,2)), s("d", listOf(3)),  s("y", listOf(4)))),
+            // y = /ī/ (middle)
+            w("gym",   listOf(s("g",  listOf(0)), s("y",  listOf(1)), s("m",  listOf(2)))),
+            w("myth",  listOf(s("m",  listOf(0)), s("y",  listOf(1)), s("th", listOf(2,3)))),
+            w("lynx",  listOf(s("l",  listOf(0)), s("y",  listOf(1)), s("n",  listOf(2)), s("x", listOf(3)))),
+            w("crypt", listOf(s("c",  listOf(0)), s("r",  listOf(1)), s("y",  listOf(2)), s("p", listOf(3)), s("t", listOf(4))))
+        )
+    ),
+
+    // ── L18: 3-Letter Blends ─────────────────────────────────────────────────
+    PhonicsListenLevelKey.threeLetterBlends to PhonicsListenConfig(
+        title = "3-Letter Blends", subtitle = "str · spl · spr · thr · scr",
+        levelKey = PhonicsListenLevelKey.threeLetterBlends,
+        accentColor = Color(0xFFF9A825), shadowColor = Color(0xFFF57F17),
+        words = listOf(
+            // str
+            w("strong",  listOf(s("str", listOf(0,1,2)), s("o",  listOf(3)), s("n", listOf(4)), s("g", listOf(5)))),
+            w("street",  listOf(s("str", listOf(0,1,2)), s("ee", listOf(3,4)), s("t", listOf(5)))),
+            w("string",  listOf(s("str", listOf(0,1,2)), s("i",  listOf(3)), s("ng", listOf(4,5)))),
+            w("stretch", listOf(s("str", listOf(0,1,2)), s("e",  listOf(3)), s("tch", listOf(4,5,6)))),
+            w("stream",  listOf(s("str", listOf(0,1,2)), s("ea", listOf(3,4)), s("m", listOf(5)))),
+            // spl
+            w("splash",  listOf(s("spl", listOf(0,1,2)), s("a",  listOf(3)), s("sh", listOf(4,5)))),
+            w("split",   listOf(s("spl", listOf(0,1,2)), s("i",  listOf(3)), s("t",  listOf(4)))),
+            w("splat",   listOf(s("spl", listOf(0,1,2)), s("a",  listOf(3)), s("t",  listOf(4)))),
+            w("splend",  listOf(s("spl", listOf(0,1,2)), s("e",  listOf(3)), s("n",  listOf(4)), s("d", listOf(5)))),
+            // spr
+            w("spring",  listOf(s("spr", listOf(0,1,2)), s("i",  listOf(3)), s("ng", listOf(4,5)))),
+            w("spray",   listOf(s("spr", listOf(0,1,2)), s("ay", listOf(3,4)))),
+            w("sprout",  listOf(s("spr", listOf(0,1,2)), s("ou", listOf(3,4)), s("t", listOf(5)))),
+            // thr
+            w("three",   listOf(s("thr", listOf(0,1,2)), s("ee", listOf(3,4)))),
+            w("throw",   listOf(s("thr", listOf(0,1,2)), s("ow", listOf(3,4)))),
+            w("thread",  listOf(s("thr", listOf(0,1,2)), s("ea", listOf(3,4)), s("d", listOf(5)))),
+            w("throat",  listOf(s("thr", listOf(0,1,2)), s("oa", listOf(3,4)), s("t", listOf(5)))),
+            // scr
+            w("scream",  listOf(s("scr", listOf(0,1,2)), s("ea", listOf(3,4)), s("m", listOf(5)))),
+            w("screen",  listOf(s("scr", listOf(0,1,2)), s("ee", listOf(3,4)), s("n", listOf(5)))),
+            w("scratch", listOf(s("scr", listOf(0,1,2)), s("a",  listOf(3)), s("tch", listOf(4,5,6)))),
+            w("scrap",   listOf(s("scr", listOf(0,1,2)), s("a",  listOf(3)), s("p",   listOf(4))))
+        )
+    ),
+
+    // ── L19: Soft C & Soft G ─────────────────────────────────────────────────
+    PhonicsListenLevelKey.softCSoftG to PhonicsListenConfig(
+        title = "Soft C & Soft G", subtitle = "/s/ · /k/ · /j/ · /g/",
+        levelKey = PhonicsListenLevelKey.softCSoftG,
+        accentColor = Color(0xFFBF360C), shadowColor = Color(0xFF7F0000),
+        words = listOf(
+            // Soft C (/s/)
+            w("city",   listOf(s("c", listOf(0)), s("i",  listOf(1)), s("t",  listOf(2)), s("y",  listOf(3)))),
+            w("cent",   listOf(s("c", listOf(0)), s("e",  listOf(1)), s("n",  listOf(2)), s("t",  listOf(3)))),
+            w("cycle",  listOf(s("c", listOf(0)), s("y",  listOf(1)), s("c",  listOf(2)), s("le", listOf(3,4)))),
+            w("ice",    listOf(s("i", listOf(0)), s("c",  listOf(1)), s("e",  listOf(2)))),
+            w("nice",   listOf(s("n", listOf(0)), s("i",  listOf(1)), s("c",  listOf(2)), s("e",  listOf(3)))),
+            w("face",   listOf(s("f", listOf(0)), s("a",  listOf(1)), s("c",  listOf(2)), s("e",  listOf(3)))),
+            // Hard C (/k/)
+            w("cat",    listOf(s("c", listOf(0)), s("a",  listOf(1)), s("t",  listOf(2)))),
+            w("cup",    listOf(s("c", listOf(0)), s("u",  listOf(1)), s("p",  listOf(2)))),
+            w("coat",   listOf(s("c", listOf(0)), s("oa", listOf(1,2)), s("t", listOf(3)))),
+            w("cold",   listOf(s("c", listOf(0)), s("o",  listOf(1)), s("l",  listOf(2)), s("d",  listOf(3)))),
+            // Soft G (/j/)
+            w("gem",     listOf(s("g",  listOf(0)), s("e",  listOf(1)), s("m",  listOf(2)))),
+            w("giant",   listOf(s("g",  listOf(0)), s("i",  listOf(1)), s("a",  listOf(2)), s("n", listOf(3)), s("t", listOf(4)))),
+            w("ginger",  listOf(s("g",  listOf(0)), s("i",  listOf(1)), s("n",  listOf(2)), s("g", listOf(3)), s("er", listOf(4,5)))),
+            w("age",     listOf(s("a",  listOf(0)), s("g",  listOf(1)), s("e",  listOf(2)))),
+            w("cage",    listOf(s("c",  listOf(0)), s("a",  listOf(1)), s("g",  listOf(2)), s("e",  listOf(3)))),
+            // Hard G (/g/)
+            w("gap",    listOf(s("g",  listOf(0)), s("a",  listOf(1)), s("p",  listOf(2)))),
+            w("got",    listOf(s("g",  listOf(0)), s("o",  listOf(1)), s("t",  listOf(2)))),
+            w("gum",    listOf(s("g",  listOf(0)), s("u",  listOf(1)), s("m",  listOf(2)))),
+            w("game",   listOf(s("g",  listOf(0)), s("a",  listOf(1)), s("m",  listOf(2)), s("e",  listOf(3)))),
+            w("good",   listOf(s("g",  listOf(0)), s("oo", listOf(1,2)), s("d", listOf(3))))
+        )
+    ),
+
+    // ── L20: Silent Letters ───────────────────────────────────────────────────
+    PhonicsListenLevelKey.silentLetters to PhonicsListenConfig(
+        title = "Silent Letters", subtitle = "kn · wr · mb · gn",
+        levelKey = PhonicsListenLevelKey.silentLetters,
+        accentColor = Color(0xFF455A64), shadowColor = Color(0xFF263238),
+        words = listOf(
+            // kn (silent k)
+            w("knife",  listOf(s("kn", listOf(0,1)), s("i",  listOf(2)), s("f",  listOf(3)), s("e",  listOf(4)))),
+            w("know",   listOf(s("kn", listOf(0,1)), s("ow", listOf(2,3)))),
+            w("kneel",  listOf(s("kn", listOf(0,1)), s("ee", listOf(2,3)), s("l",  listOf(4)))),
+            w("knight", listOf(s("kn", listOf(0,1)), s("igh", listOf(2,3,4)), s("t", listOf(5)))),
+            w("knit",   listOf(s("kn", listOf(0,1)), s("i",  listOf(2)), s("t",  listOf(3)))),
+            w("knock",  listOf(s("kn", listOf(0,1)), s("o",  listOf(2)), s("ck", listOf(3,4)))),
+            w("knot",   listOf(s("kn", listOf(0,1)), s("o",  listOf(2)), s("t",  listOf(3)))),
+            // wr (silent w)
+            w("write",  listOf(s("wr", listOf(0,1)), s("i",  listOf(2)), s("t",  listOf(3)), s("e",  listOf(4)))),
+            w("wrist",  listOf(s("wr", listOf(0,1)), s("i",  listOf(2)), s("s",  listOf(3)), s("t",  listOf(4)))),
+            w("wrong",  listOf(s("wr", listOf(0,1)), s("o",  listOf(2)), s("ng", listOf(3,4)))),
+            w("wrap",   listOf(s("wr", listOf(0,1)), s("a",  listOf(2)), s("p",  listOf(3)))),
+            w("wrote",  listOf(s("wr", listOf(0,1)), s("o",  listOf(2)), s("t",  listOf(3)), s("e",  listOf(4)))),
+            w("wreck",  listOf(s("wr", listOf(0,1)), s("e",  listOf(2)), s("ck", listOf(3,4)))),
+            // mb (silent b)
+            w("lamb",   listOf(s("l",  listOf(0)), s("a",  listOf(1)), s("mb", listOf(2,3)))),
+            w("climb",  listOf(s("c",  listOf(0)), s("l",  listOf(1)), s("i",  listOf(2)), s("mb", listOf(3,4)))),
+            w("thumb",  listOf(s("th", listOf(0,1)), s("u", listOf(2)), s("mb", listOf(3,4)))),
+            w("comb",   listOf(s("c",  listOf(0)), s("o",  listOf(1)), s("mb", listOf(2,3)))),
+            w("numb",   listOf(s("n",  listOf(0)), s("u",  listOf(1)), s("mb", listOf(2,3)))),
+            // gn (silent g)
+            w("sign",   listOf(s("s",  listOf(0)), s("i",  listOf(1)), s("gn", listOf(2,3)))),
+            w("gnome",  listOf(s("gn", listOf(0,1)), s("o", listOf(2)), s("m",  listOf(3)), s("e",  listOf(4)))),
+            w("gnat",   listOf(s("gn", listOf(0,1)), s("a", listOf(2)), s("t",  listOf(3)))),
+            w("design", listOf(s("d",  listOf(0)), s("e",  listOf(1)), s("s",  listOf(2)), s("i",  listOf(3)), s("gn", listOf(4,5)))),
+            w("align",  listOf(s("a",  listOf(0)), s("l",  listOf(1)), s("i",  listOf(2)), s("gn", listOf(3,4))))
         )
     )
 )

@@ -71,6 +71,18 @@ import com.example.myapplication.main.age_group.phonics.l15_r_controlled.RContro
 import com.example.myapplication.main.age_group.phonics.l16_igh_gh.IghGhIntroPage
 import com.example.myapplication.main.age_group.phonics.l16_igh_gh.IghGhLearnPage
 import com.example.myapplication.main.age_group.phonics.l16_igh_gh.IghGhPracticePage
+import com.example.myapplication.main.age_group.phonics.l17_y_as_vowel.YAsVowelIntroPage
+import com.example.myapplication.main.age_group.phonics.l17_y_as_vowel.YAsVowelLearnPage
+import com.example.myapplication.main.age_group.phonics.l17_y_as_vowel.YAsVowelPracticePage
+import com.example.myapplication.main.age_group.phonics.l18_three_letter_blends.ThreeLetterBlendsIntroPage
+import com.example.myapplication.main.age_group.phonics.l18_three_letter_blends.ThreeLetterBlendsLearnPage
+import com.example.myapplication.main.age_group.phonics.l18_three_letter_blends.ThreeLetterBlendsPracticePage
+import com.example.myapplication.main.age_group.phonics.l19_soft_c_soft_g.SoftCSoftGIntroPage
+import com.example.myapplication.main.age_group.phonics.l19_soft_c_soft_g.SoftCSoftGLearnPage
+import com.example.myapplication.main.age_group.phonics.l19_soft_c_soft_g.SoftCSoftGPracticePage
+import com.example.myapplication.main.age_group.phonics.l20_silent_letters.SilentLettersIntroPage
+import com.example.myapplication.main.age_group.phonics.l20_silent_letters.SilentLettersLearnPage
+import com.example.myapplication.main.age_group.phonics.l20_silent_letters.SilentLettersPracticePage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
@@ -378,6 +390,46 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.IghGhPractice.route) {
             IghGhPracticePage(navController)
+        }
+        // ── Phonics L17: Y as a Vowel ─────────────────────────────────────────
+        composable(RouteNavigation.YAsVowelIntro.route) {
+            YAsVowelIntroPage(navController)
+        }
+        composable(RouteNavigation.YAsVowelLearn.route) {
+            YAsVowelLearnPage(navController)
+        }
+        composable(RouteNavigation.YAsVowelPractice.route) {
+            YAsVowelPracticePage(navController)
+        }
+        // ── Phonics L18: 3-Letter Blends ──────────────────────────────────────
+        composable(RouteNavigation.ThreeLetterBlendsIntro.route) {
+            ThreeLetterBlendsIntroPage(navController)
+        }
+        composable(RouteNavigation.ThreeLetterBlendsLearn.route) {
+            ThreeLetterBlendsLearnPage(navController)
+        }
+        composable(RouteNavigation.ThreeLetterBlendsPractice.route) {
+            ThreeLetterBlendsPracticePage(navController)
+        }
+        // ── Phonics L19: Soft C & Soft G ──────────────────────────────────────
+        composable(RouteNavigation.SoftCSoftGIntro.route) {
+            SoftCSoftGIntroPage(navController)
+        }
+        composable(RouteNavigation.SoftCSoftGLearn.route) {
+            SoftCSoftGLearnPage(navController)
+        }
+        composable(RouteNavigation.SoftCSoftGPractice.route) {
+            SoftCSoftGPracticePage(navController)
+        }
+        // ── Phonics L20: Silent Letters ────────────────────────────────────────
+        composable(RouteNavigation.SilentLettersIntro.route) {
+            SilentLettersIntroPage(navController)
+        }
+        composable(RouteNavigation.SilentLettersLearn.route) {
+            SilentLettersLearnPage(navController)
+        }
+        composable(RouteNavigation.SilentLettersPractice.route) {
+            SilentLettersPracticePage(navController)
         }
         // Age Category 5 to 7
         composable(RouteNavigation.AgeGroup5to7.route) {

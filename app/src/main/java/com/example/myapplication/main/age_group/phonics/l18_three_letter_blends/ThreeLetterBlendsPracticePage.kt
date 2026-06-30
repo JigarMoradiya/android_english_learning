@@ -1,4 +1,4 @@
-package com.example.myapplication.main.age_group.phonics.l16_igh_gh
+package com.example.myapplication.main.age_group.phonics.l18_three_letter_blends
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.spring
@@ -6,6 +6,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -39,15 +40,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.myapplication.main.age_group.phonics.l16_igh_gh.view_model.IghGhPracticeQuestion
-import com.example.myapplication.main.age_group.phonics.l16_igh_gh.view_model.IghGhPracticeUiState
-import com.example.myapplication.main.age_group.phonics.l16_igh_gh.view_model.IghGhPracticeViewModel
+import com.example.myapplication.main.age_group.phonics.l18_three_letter_blends.view_model.ThreeLetterBlendsPracticeQuestion
+import com.example.myapplication.main.age_group.phonics.l18_three_letter_blends.view_model.ThreeLetterBlendsPracticeUiState
+import com.example.myapplication.main.age_group.phonics.l18_three_letter_blends.view_model.ThreeLetterBlendsPracticeViewModel
+import com.example.myapplication.main.age_group.phonics.l18_three_letter_blends.view_model.threeLetterBlendsGroups
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
@@ -66,63 +69,63 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens32
 import com.example.myapplication.utils.extensions.scaled
 
-private val ighAccent = Color(0xFF311B92)
-private val ighShadow = Color(0xFF1A237E)
+private val blendAccent = Color(0xFFE65100)
+private val blendShadow = Color(0xFFBF360C)
 
 @Composable
-fun IghGhPracticePage(
+fun ThreeLetterBlendsPracticePage(
     navController: NavController,
-    viewModel:     IghGhPracticeViewModel = hiltViewModel()
+    viewModel: ThreeLetterBlendsPracticeViewModel = hiltViewModel()
 ) {
     val uiState = viewModel.uiState
 
     Box(modifier = Modifier.fillMaxSize()) {
-        KidsGradientBackground(gradient = KidsGradient.indigoPurple, shape = KidsFloatingShape.sparkles)
+        KidsGradientBackground(gradient = KidsGradient.sunsetCoral, shape = KidsFloatingShape.sparkles)
 
         if (uiState.isFinished) {
-            IghGhFinishedView(uiState = uiState, total = viewModel.totalQuestions) { viewModel.restart() }
+            BlendFinishedView(score = uiState.score, total = viewModel.totalQuestions) { viewModel.restart() }
         } else {
             val question = viewModel.currentQuestion ?: return@Box
 
-            AnimatedContent(
-                targetState = uiState.currentIndex,
-                transitionSpec = { fadeIn(spring()) togetherWith fadeOut(spring()) },
-                label = "ighGhQuestion",
+            Row(
                 modifier = Modifier
                     .windowInsetsPadding(WindowInsets.safeDrawing)
                     .fillMaxSize()
-            ) { _ ->
-                Row(modifier = Modifier.fillMaxSize()) {
-                    // ── LEFT ─────────────────────────────────────────────────
+            ) {
+                // ── LEFT (40%) — stable, no animation ────────────────────────
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth(0.40f)
+                        .fillMaxHeight()
+                ) {
+                    BackButtonWithText(
+                        title = "3-Letter Blends Practice",
+                        onBackClick = { navController.popBackStack() }
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
                     Column(
-                        modifier = Modifier
-                            .fillMaxWidth(0.42f)
-                            .fillMaxHeight()
+                        modifier = Modifier.padding(horizontal = Dimens20),
+                        verticalArrangement = Arrangement.spacedBy(Dimens16)
                     ) {
-                        BackButtonWithText(title = "igh & gh Practice",
-                            onBackClick = { navController.popBackStack() })
-
-                        Spacer(modifier = Modifier.weight(1f))
-
-                        Column(
-                            modifier = Modifier.padding(horizontal = Dimens20),
-                            verticalArrangement = Arrangement.spacedBy(Dimens16)
-                        ) {
-                            DotProgress(current = uiState.currentIndex, total = viewModel.totalQuestions)
-                            InstructionCard()
-                            WordDisplay(question = question, uiState = uiState)
-                            ScoreChip(score = uiState.score)
-                        }
-
-                        Spacer(modifier = Modifier.weight(1f))
+                        BlendDotProgress(current = uiState.currentIndex, total = viewModel.totalQuestions)
+                        BlendInstructionCard()
+                        BlendWordDisplay(question = question, uiState = uiState)
+                        BlendScoreChip(score = uiState.score)
                     }
+                    Spacer(modifier = Modifier.weight(1f))
+                }
 
-                    // ── RIGHT (2×2 options) ───────────────────────────────────
+                // ── RIGHT (60%) — only grid animates ─────────────────────────
+                AnimatedContent(
+                    targetState = uiState.currentIndex,
+                    transitionSpec = { fadeIn(spring()) togetherWith fadeOut(spring()) },
+                    label = "blendPractice",
+                    modifier = Modifier.weight(1f).fillMaxHeight()
+                ) { _ ->
                     Column(
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier
-                            .weight(1f)
                             .fillMaxHeight()
                             .padding(horizontal = Dimens20)
                     ) {
@@ -132,7 +135,7 @@ fun IghGhPracticePage(
                             verticalArrangement   = Arrangement.spacedBy(Dimens12),
                         ) {
                             items(question.options) { option ->
-                                OptionTile(
+                                BlendOptionTile(
                                     option   = option,
                                     question = question,
                                     uiState  = uiState,
@@ -148,7 +151,7 @@ fun IghGhPracticePage(
 }
 
 @Composable
-private fun DotProgress(current: Int, total: Int) {
+private fun BlendDotProgress(current: Int, total: Int) {
     Column(verticalArrangement = Arrangement.spacedBy(Dimens6)) {
         Text(
             text  = "Question ${current + 1} of $total",
@@ -163,9 +166,9 @@ private fun DotProgress(current: Int, total: Int) {
                         .clip(CircleShape)
                         .background(
                             when {
-                                i < current  -> ighAccent
-                                i == current -> Color(0xFF5E35B1)
-                                else         -> ighAccent.copy(alpha = 0.20f)
+                                i < current  -> blendAccent
+                                i == current -> Color(0xFFF9A825)
+                                else         -> blendAccent.copy(alpha = 0.20f)
                             }
                         )
                 )
@@ -175,25 +178,25 @@ private fun DotProgress(current: Int, total: Int) {
 }
 
 @Composable
-private fun InstructionCard() {
+private fun BlendInstructionCard() {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Dimens10),
         modifier = Modifier
             .fillMaxWidth()
-            .kidsGlassCard(cornerRadius = 12.dp, strokeColor = ighAccent)
+            .kidsGlassCard(cornerRadius = 12.dp, strokeColor = blendAccent)
             .padding(Dimens12)
     ) {
-        Text(text = "🔍", style = MaterialTheme.typography.titleLarge.scaled())
+        Text(text = "💥", style = MaterialTheme.typography.titleLarge.scaled())
         Column(verticalArrangement = Arrangement.spacedBy(Dimens4)) {
             Text(
-                text  = "Fill the Blank!",
+                text  = "Fill the Blend!",
                 style = MaterialTheme.typography.bodyMedium.scaled(),
                 fontWeight = FontWeight.Bold,
-                color = ighAccent
+                color = blendAccent
             )
             Text(
-                text  = "Which letters complete the word?",
+                text  = "Which 3-letter blend starts this word?",
                 style = MaterialTheme.typography.labelSmall.scaled(),
                 color = Color(0xFF546E7A)
             )
@@ -202,20 +205,22 @@ private fun InstructionCard() {
 }
 
 @Composable
-private fun WordDisplay(question: IghGhPracticeQuestion, uiState: IghGhPracticeUiState) {
-    val answered = uiState.selectedAnswer != null
+private fun BlendWordDisplay(
+    question: ThreeLetterBlendsPracticeQuestion,
+    uiState: ThreeLetterBlendsPracticeUiState
+) {
+    val answered  = uiState.selectedAnswer != null
     val isCorrect = uiState.isCorrect
-    val parts = question.displayWord.split(question.blank)
-    val pre = parts.getOrNull(0) ?: ""
-    val suf = parts.getOrNull(1) ?: ""
+    val rest      = question.word.drop(question.answer.length)
+    val blendDisplay = if (answered) question.answer else "___"
 
     val slotColor = when {
-        !answered   -> Color(0xFF90A4AE)
+        !answered          -> Color(0xFF90A4AE)
         isCorrect == true  -> Color(0xFF2E7D32)
         else               -> Color(0xFFC62828)
     }
     val slotBg = when {
-        !answered   -> Color(0xFFEDE7F6)
+        !answered          -> Color(0xFFECEFF1)
         isCorrect == true  -> Color(0xFFC8E6C9)
         else               -> Color(0xFFFFCDD2)
     }
@@ -225,37 +230,34 @@ private fun WordDisplay(question: IghGhPracticeQuestion, uiState: IghGhPracticeU
         horizontalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxWidth()
-            .kidsGlassCard(cornerRadius = 12.dp, strokeColor = ighAccent)
+            .kidsGlassCard(cornerRadius = 12.dp, strokeColor = blendAccent)
             .padding(Dimens16)
     ) {
-        if (pre.isNotEmpty()) {
-            Text(pre, style = MaterialTheme.typography.headlineMedium.scaled(),
-                fontWeight = FontWeight.ExtraBold, color = Color(0xFF263238))
-        }
         Text(
-            text  = uiState.selectedAnswer ?: question.blank,
+            text  = blendDisplay,
             style = MaterialTheme.typography.headlineMedium.scaled(),
             fontWeight = FontWeight.ExtraBold,
             color = slotColor,
             modifier = Modifier
-                .padding(horizontal = Dimens8)
                 .background(slotBg, RoundedCornerShape(8.dp))
                 .padding(horizontal = Dimens8)
         )
-        if (suf.isNotEmpty()) {
-            Text(suf, style = MaterialTheme.typography.headlineMedium.scaled(),
-                fontWeight = FontWeight.ExtraBold, color = Color(0xFF263238))
-        }
+        Text(
+            text  = rest,
+            style = MaterialTheme.typography.headlineMedium.scaled(),
+            fontWeight = FontWeight.ExtraBold,
+            color = Color(0xFF263238)
+        )
     }
 }
 
 @Composable
-private fun ScoreChip(score: Int) {
+private fun BlendScoreChip(score: Int) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Dimens6),
         modifier = Modifier
-            .kidsGlassCapsule(strokeColor = ighAccent)
+            .kidsGlassCapsule(strokeColor = blendAccent)
             .padding(horizontal = Dimens14, vertical = Dimens6)
     ) {
         Icon(Icons.Default.Star, contentDescription = null,
@@ -264,16 +266,16 @@ private fun ScoreChip(score: Int) {
             text  = "Score: $score",
             style = MaterialTheme.typography.bodyMedium.scaled(),
             fontWeight = FontWeight.Bold,
-            color = ighAccent
+            color = blendAccent
         )
     }
 }
 
 @Composable
-private fun OptionTile(
+private fun BlendOptionTile(
     option:   String,
-    question: IghGhPracticeQuestion,
-    uiState:  IghGhPracticeUiState,
+    question: ThreeLetterBlendsPracticeQuestion,
+    uiState:  ThreeLetterBlendsPracticeUiState,
     onClick:  () -> Unit
 ) {
     val answered  = uiState.selectedAnswer != null
@@ -281,24 +283,26 @@ private fun OptionTile(
     val isCorrect = option == question.answer
     val interactionSource = remember { MutableInteractionSource() }
 
+    val groupColor = threeLetterBlendsGroups.firstOrNull { it.blend == option }?.accentColor ?: blendAccent
+
     val fillColor = when {
-        !answered   -> Color.Transparent
+        !answered              -> Color.White
         selected && isCorrect  -> Color(0xFFC8E6C9)
         selected && !isCorrect -> Color(0xFFFFCDD2)
         isCorrect              -> Color(0xFFC8E6C9)
-        else                   -> Color.Transparent
+        else                   -> Color.White.copy(alpha = 0.60f)
     }
     val borderColor = when {
-        !answered   -> ighAccent.copy(alpha = 0.35f)
+        !answered   -> groupColor.copy(alpha = 0.35f)
         isCorrect   -> Color(0xFF2E7D32)
         selected    -> Color(0xFFC62828)
         else        -> Color(0xFFB0BEC5).copy(alpha = 0.5f)
     }
     val textColor = when {
-        !answered   -> ighAccent
+        !answered   -> groupColor
         isCorrect   -> Color(0xFF1B5E20)
         selected    -> Color(0xFFB71C1C)
-        else        -> ighAccent.copy(alpha = 0.40f)
+        else        -> groupColor.copy(alpha = 0.40f)
     }
 
     Column(
@@ -307,19 +311,24 @@ private fun OptionTile(
         modifier = Modifier
             .height(130.dp)
             .fillMaxWidth()
+            .scale(if (selected) 1.03f else 1.0f)
             .background(fillColor, RoundedCornerShape(12.dp))
             .kidsGlassCard(cornerRadius = 12.dp, strokeColor = borderColor)
-            .clip(RoundedCornerShape(12.dp))
+            .border(
+                width = if (selected || (isCorrect && answered)) 2.5.dp else 1.5.dp,
+                color = borderColor,
+                shape = RoundedCornerShape(12.dp)
+            )
             .clickable(
-                enabled           = !answered,
+                enabled = !answered,
                 interactionSource = interactionSource,
-                indication        = null
+                indication = null
             ) { onClick() }
             .padding(Dimens8)
     ) {
         Text(
             text  = option,
-            style = MaterialTheme.typography.headlineMedium.scaled(),
+            style = MaterialTheme.typography.headlineLarge.scaled(),
             fontWeight = FontWeight.ExtraBold,
             color = textColor
         )
@@ -327,7 +336,7 @@ private fun OptionTile(
             Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
                 repeat(3) {
                     Text("⭐", style = MaterialTheme.typography.labelSmall.scaled(),
-                        color = ighAccent.copy(alpha = 0.25f))
+                        color = groupColor.copy(alpha = 0.25f))
                 }
             }
         } else {
@@ -342,33 +351,29 @@ private fun OptionTile(
 }
 
 @Composable
-private fun IghGhFinishedView(
-    uiState: IghGhPracticeUiState,
-    total:   Int,
-    onRetry: () -> Unit
-) {
+private fun BlendFinishedView(score: Int, total: Int, onRestart: () -> Unit) {
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(Dimens24),
             modifier = Modifier
-                .kidsGlassCard(cornerRadius = 20.dp, strokeColor = ighAccent)
+                .kidsGlassCard(cornerRadius = 20.dp, strokeColor = blendAccent)
                 .padding(Dimens32)
         ) {
-            Text("🌙", style = MaterialTheme.typography.displayLarge.scaled())
+            Text("💪", style = MaterialTheme.typography.displayLarge.scaled())
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(Dimens8)
+                verticalArrangement = Arrangement.spacedBy(Dimens4)
             ) {
                 Text(
-                    text  = if (uiState.score >= total / 2) "Brilliant! ⭐" else "Keep shining! 💫",
+                    text  = if (score >= total / 2) "Superb Blending! ⭐" else "Keep practicing! 💫",
                     style = MaterialTheme.typography.headlineMedium.scaled(),
                     fontWeight = FontWeight.ExtraBold,
-                    color = ighAccent
+                    color = blendAccent
                 )
                 Text(
-                    text  = "You got ${uiState.score} out of $total",
+                    text  = "You got $score out of $total",
                     style = MaterialTheme.typography.titleMedium.scaled(),
                     color = Color(0xFF546E7A)
                 )
@@ -379,12 +384,11 @@ private fun IghGhFinishedView(
                 horizontalArrangement = Arrangement.spacedBy(Dimens8),
                 modifier = Modifier
                     .clip(RoundedCornerShape(50))
-                    .background(Brush.linearGradient(listOf(ighAccent, ighShadow)))
-                    .clickable { onRetry() }
+                    .background(Brush.linearGradient(listOf(blendAccent, blendShadow)))
+                    .clickable { onRestart() }
                     .padding(horizontal = Dimens24, vertical = Dimens12)
             ) {
-                Icon(Icons.Default.Refresh, null, tint = Color.White,
-                    modifier = Modifier.size(18.dp))
+                Icon(Icons.Default.Refresh, null, tint = Color.White, modifier = Modifier.size(18.dp))
                 Text(
                     text  = "Try Again",
                     style = MaterialTheme.typography.labelLarge.scaled(),

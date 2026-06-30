@@ -242,7 +242,7 @@ private fun PartialWordDisplay(
         contentAlignment = Alignment.Center
     ) {
         Row(
-            verticalAlignment = Alignment.Bottom,
+            verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(Dimens4)
         ) {
             // Blank / answer box

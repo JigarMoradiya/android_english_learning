@@ -133,16 +133,16 @@ val phonicsLevelItems = listOf(
     // ── Advanced Patterns (Age 7+) ────────────────────────────────────────────
     PhonicsLevelItem(17, "Y as a Vowel",
         "fly, sky = /i/ · happy, baby = /e/ · gym, myth = /i/",
-        "🦋", Color(0xFF0097A7), "Age 7+", "", false),
+        "🦋", Color(0xFF0097A7), "Age 7+", RouteNavigation.YAsVowelIntro.route, true),
     PhonicsLevelItem(18, "3-Letter Blends",
         "str strong · spl splash · spr spring · thr three · scr scream",
-        "💪", Color(0xFFF9A825), "Age 7+", "", false),
+        "💪", Color(0xFFF9A825), "Age 7+", RouteNavigation.ThreeLetterBlendsIntro.route, true),
     PhonicsLevelItem(19, "Soft C & Soft G",
         "c+e/i/y = /s/ city, ice · g+e/i/y = /j/ gem, giraffe, gym",
-        "🎭", Color(0xFFBF360C), "Age 7+", "", false),
+        "🎭", Color(0xFFBF360C), "Age 7+", RouteNavigation.SoftCSoftGIntro.route, true),
     PhonicsLevelItem(20, "Silent Letters",
         "kn knife, know · wr write, wrist · mb lamb, climb · gn gnat, sign",
-        "🤫", Color(0xFF37474F), "Age 7+", "", false),
+        "🤫", Color(0xFF37474F), "Age 7+", RouteNavigation.SilentLettersIntro.route, true),
 
     // ── Word Building (Age 7+) ────────────────────────────────────────────────
     PhonicsLevelItem(21, "Word Endings",

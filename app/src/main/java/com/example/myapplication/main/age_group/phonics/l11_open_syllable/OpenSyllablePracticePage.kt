@@ -214,7 +214,7 @@ private fun LeftPanel(
                 val prefix = if (vowelIndex > 0) question.word.take(vowelIndex) else ""
 
                 Row(
-                    verticalAlignment = Alignment.Bottom,
+                    verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(Dimens4)
                 ) {
                     if (prefix.isNotEmpty()) {

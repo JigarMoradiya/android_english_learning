@@ -135,7 +135,7 @@ fun SpecialEndingsPracticePage(
                                 // Word display (special ending at end: base + BLANK)
                                 val shakeOffset = if (uiState.shakeWrong) (sin(System.currentTimeMillis() / 50.0) * 7).roundToInt() else 0
                                 Box(modifier = Modifier.fillMaxWidth().kidsGlassCard(cornerRadius = Dimens12, strokeColor = accentColor).padding(Dimens16), contentAlignment = Alignment.Center) {
-                                    Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(Dimens4)) {
+                                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Dimens4)) {
                                         Text(question.word.dropLast(question.endingLength), style = MaterialTheme.typography.displaySmall.scaled(), fontWeight = FontWeight.Bold, color = Color(0xFF263238))
                                         Box(
                                             contentAlignment = Alignment.Center,
