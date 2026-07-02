@@ -26,7 +26,7 @@ enum class PhonicsListenLevelKey {
     wordFamilies, openSyllable, vowelTeams, beginningBlends, endingBlends, digraphs, specialEndings, magicE,
     diphthongs, rControlled, ighGh,
     yAsVowel, threeLetterBlends, softCSoftG, silentLetters,
-    wordEndings, prefixes, suffixes, contractions, consonantLe
+    wordEndings, prefixes, suffixes, contractions, consonantLe, compoundWords
 }
 
 // ── Models ────────────────────────────────────────────────────────────────────
@@ -854,6 +854,31 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("you've",   listOf(s("you",  listOf(0,1,2)),      s("'ve",  listOf(3,4,5)))),
             w("I'd",      listOf(s("I",    listOf(0)),          s("'d",   listOf(1,2)))),
             w("they've",  listOf(s("they", listOf(0,1,2,3)),    s("'ve",  listOf(4,5,6))))
+        )
+    ),
+
+    // ── L26 · Compound Words ──────────────────────────────────────────────────
+    PhonicsListenLevelKey.compoundWords to PhonicsListenConfig(
+        title = "Compound Words", subtitle = "Two words joined as one!",
+        levelKey = PhonicsListenLevelKey.compoundWords,
+        accentColor = Color(0xFFF57C00), shadowColor = Color(0xFFE65100),
+        words = listOf(
+            w("rainbow",    listOf(s("rain",  listOf(0,1,2,3)),       s("bow",   listOf(4,5,6)))),
+            w("sunshine",   listOf(s("sun",   listOf(0,1,2)),         s("shine", listOf(3,4,5,6,7)))),
+            w("snowflake",  listOf(s("snow",  listOf(0,1,2,3)),       s("flake", listOf(4,5,6,7,8)))),
+            w("sunflower",  listOf(s("sun",   listOf(0,1,2)),         s("flower",listOf(3,4,5,6,7,8)))),
+            w("waterfall",  listOf(s("water", listOf(0,1,2,3,4)),     s("fall",  listOf(5,6,7,8)))),
+            w("butterfly",  listOf(s("butter",listOf(0,1,2,3,4,5)),   s("fly",   listOf(6,7,8)))),
+            w("ladybug",    listOf(s("lady",  listOf(0,1,2,3)),       s("bug",   listOf(4,5,6)))),
+            w("football",   listOf(s("foot",  listOf(0,1,2,3)),       s("ball",  listOf(4,5,6,7)))),
+            w("birthday",   listOf(s("birth", listOf(0,1,2,3,4)),     s("day",   listOf(5,6,7)))),
+            w("toothbrush", listOf(s("tooth", listOf(0,1,2,3,4)),     s("brush", listOf(5,6,7,8,9)))),
+            w("bedroom",    listOf(s("bed",   listOf(0,1,2)),         s("room",  listOf(3,4,5,6)))),
+            w("notebook",   listOf(s("note",  listOf(0,1,2,3)),       s("book",  listOf(4,5,6,7)))),
+            w("starfish",   listOf(s("star",  listOf(0,1,2,3)),       s("fish",  listOf(4,5,6,7)))),
+            w("backpack",   listOf(s("back",  listOf(0,1,2,3)),       s("pack",  listOf(4,5,6,7)))),
+            w("airplane",   listOf(s("air",   listOf(0,1,2)),         s("plane", listOf(3,4,5,6,7)))),
+            w("moonlight",  listOf(s("moon",  listOf(0,1,2,3)),       s("light", listOf(4,5,6,7,8))))
         )
     ),
 

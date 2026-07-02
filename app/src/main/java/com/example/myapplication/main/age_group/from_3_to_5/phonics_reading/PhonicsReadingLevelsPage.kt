@@ -162,7 +162,7 @@ val phonicsLevelItems = listOf(
         "🍏", Color(0xFFAD1457), "Age 7+", RouteNavigation.ConsonantLeIntro.route, true),
     PhonicsLevelItem(26, "Compound Words",
         "sun+flower · rain+bow · bed+room · butter+fly",
-        "🌈", Color(0xFF455A64), "Age 7+", "", false),
+        "🌈", Color(0xFFF57C00), "Age 7+", RouteNavigation.CompoundWordsIntro.route, true),
     PhonicsLevelItem(27, "Syllable Division",
         "VCCV rab-bit · VCV pi-lot · V/CV ti-ger · VC/V cam-el",
         "✂️", Color(0xFFE65100), "Age 7+", "", false),
