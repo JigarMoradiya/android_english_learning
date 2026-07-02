@@ -24,7 +24,8 @@ enum class PhonicsListenLevelKey {
     letterSounds, shortVowels, blending, cvcWords, shortVowelRules,
     wordFamilies, openSyllable, vowelTeams, beginningBlends, endingBlends, digraphs, specialEndings, magicE,
     diphthongs, rControlled, ighGh,
-    yAsVowel, threeLetterBlends, softCSoftG, silentLetters
+    yAsVowel, threeLetterBlends, softCSoftG, silentLetters,
+    wordEndings, prefixes, suffixes, contractions
 }
 
 // ── Models ────────────────────────────────────────────────────────────────────
@@ -750,6 +751,108 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("gnat",   listOf(s("gn", listOf(0,1)), s("a", listOf(2)), s("t",  listOf(3)))),
             w("design", listOf(s("d",  listOf(0)), s("e",  listOf(1)), s("s",  listOf(2)), s("i",  listOf(3)), s("gn", listOf(4,5)))),
             w("align",  listOf(s("a",  listOf(0)), s("l",  listOf(1)), s("i",  listOf(2)), s("gn", listOf(3,4))))
+        )
+    ),
+
+    // ── L21: Word Endings ─────────────────────────────────────────────────────
+    PhonicsListenLevelKey.wordEndings to PhonicsListenConfig(
+        title = "Word Endings", subtitle = "-ing · -ed · -er · -est",
+        levelKey = PhonicsListenLevelKey.wordEndings,
+        accentColor = Color(0xFF2E7D32), shadowColor = Color(0xFF1B5E20),
+        words = listOf(
+            // -ing (base + suffix split)
+            w("jumping",  listOf(s("jump",  listOf(0,1,2,3)),   s("ing", listOf(4,5,6)))),
+            w("playing",  listOf(s("play",  listOf(0,1,2,3)),   s("ing", listOf(4,5,6)))),
+            w("running",  listOf(s("runn",  listOf(0,1,2,3)),   s("ing", listOf(4,5,6)))),
+            w("sitting",  listOf(s("sitt",  listOf(0,1,2,3)),   s("ing", listOf(4,5,6)))),
+            w("making",   listOf(s("mak",   listOf(0,1,2)),     s("ing", listOf(3,4,5)))),
+            w("dancing",  listOf(s("danc",  listOf(0,1,2,3)),   s("ing", listOf(4,5,6)))),
+            // -ed
+            w("jumped",   listOf(s("jump",  listOf(0,1,2,3)),   s("ed",  listOf(4,5)))),
+            w("clapped",  listOf(s("clapp", listOf(0,1,2,3,4)), s("ed",  listOf(5,6)))),
+            w("baked",    listOf(s("bak",   listOf(0,1,2)),     s("ed",  listOf(3,4)))),
+            w("stopped",  listOf(s("stopp", listOf(0,1,2,3,4)), s("ed",  listOf(5,6)))),
+            // -er
+            w("faster",   listOf(s("fast",  listOf(0,1,2,3)),   s("er",  listOf(4,5)))),
+            w("bigger",   listOf(s("bigg",  listOf(0,1,2,3)),   s("er",  listOf(4,5)))),
+            w("nicer",    listOf(s("nic",   listOf(0,1,2)),     s("er",  listOf(3,4)))),
+            // -est
+            w("tallest",  listOf(s("tall",  listOf(0,1,2,3)),   s("est", listOf(4,5,6)))),
+            w("biggest",  listOf(s("bigg",  listOf(0,1,2,3)),   s("est", listOf(4,5,6)))),
+            w("nicest",   listOf(s("nic",   listOf(0,1,2)),     s("est", listOf(3,4,5))))
+        )
+    ),
+
+    // ── L22: Prefixes ─────────────────────────────────────────────────────────
+    PhonicsListenLevelKey.prefixes to PhonicsListenConfig(
+        title = "Prefixes", subtitle = "un- · re- · pre- · dis- · mis-",
+        levelKey = PhonicsListenLevelKey.prefixes,
+        accentColor = Color(0xFF1565C0), shadowColor = Color(0xFF0D47A1),
+        words = listOf(
+            w("unhappy",    listOf(s("un",   listOf(0,1)),       s("happy",   listOf(2,3,4,5,6)))),
+            w("unlock",     listOf(s("un",   listOf(0,1)),       s("lock",    listOf(2,3,4,5)))),
+            w("redo",       listOf(s("re",   listOf(0,1)),       s("do",      listOf(2,3)))),
+            w("replay",     listOf(s("re",   listOf(0,1)),       s("play",    listOf(2,3,4,5)))),
+            w("rewrite",    listOf(s("re",   listOf(0,1)),       s("write",   listOf(2,3,4,5,6)))),
+            w("preview",    listOf(s("pre",  listOf(0,1,2)),     s("view",    listOf(3,4,5,6)))),
+            w("preheat",    listOf(s("pre",  listOf(0,1,2)),     s("heat",    listOf(3,4,5,6)))),
+            w("preschool",  listOf(s("pre",  listOf(0,1,2)),     s("school",  listOf(3,4,5,6,7,8)))),
+            w("disagree",   listOf(s("dis",  listOf(0,1,2)),     s("agree",   listOf(3,4,5,6,7)))),
+            w("dislike",    listOf(s("dis",  listOf(0,1,2)),     s("like",    listOf(3,4,5,6)))),
+            w("disconnect", listOf(s("dis",  listOf(0,1,2)),     s("connect", listOf(3,4,5,6,7,8,9)))),
+            w("mistake",    listOf(s("mis",  listOf(0,1,2)),     s("take",    listOf(3,4,5,6)))),
+            w("misread",    listOf(s("mis",  listOf(0,1,2)),     s("read",    listOf(3,4,5,6)))),
+            w("misspell",   listOf(s("mis",  listOf(0,1,2)),     s("spell",   listOf(3,4,5,6,7)))),
+            w("misplace",   listOf(s("mis",  listOf(0,1,2)),     s("place",   listOf(3,4,5,6,7)))),
+            w("refill",     listOf(s("re",   listOf(0,1)),       s("fill",    listOf(2,3,4,5))))
+        )
+    ),
+
+    // ── L23: Suffixes ─────────────────────────────────────────────────────────
+    PhonicsListenLevelKey.suffixes to PhonicsListenConfig(
+        title = "Suffixes", subtitle = "-ful · -less · -ness · -tion",
+        levelKey = PhonicsListenLevelKey.suffixes,
+        accentColor = Color(0xFF3949AB), shadowColor = Color(0xFF1A237E),
+        words = listOf(
+            w("helpful",    listOf(s("help",    listOf(0,1,2,3)),           s("ful",  listOf(4,5,6)))),
+            w("careful",    listOf(s("care",    listOf(0,1,2,3)),           s("ful",  listOf(4,5,6)))),
+            w("peaceful",   listOf(s("peace",   listOf(0,1,2,3,4)),         s("ful",  listOf(5,6,7)))),
+            w("powerful",   listOf(s("power",   listOf(0,1,2,3,4)),         s("ful",  listOf(5,6,7)))),
+            w("careless",   listOf(s("care",    listOf(0,1,2,3)),           s("less", listOf(4,5,6,7)))),
+            w("hopeless",   listOf(s("hope",    listOf(0,1,2,3)),           s("less", listOf(4,5,6,7)))),
+            w("fearless",   listOf(s("fear",    listOf(0,1,2,3)),           s("less", listOf(4,5,6,7)))),
+            w("kindness",   listOf(s("kind",    listOf(0,1,2,3)),           s("ness", listOf(4,5,6,7)))),
+            w("darkness",   listOf(s("dark",    listOf(0,1,2,3)),           s("ness", listOf(4,5,6,7)))),
+            w("happiness",  listOf(s("happi",   listOf(0,1,2,3,4)),         s("ness", listOf(5,6,7,8)))),
+            w("action",     listOf(s("act",     listOf(0,1,2)),             s("ion",  listOf(3,4,5)))),
+            w("direction",  listOf(s("direct",  listOf(0,1,2,3,4,5)),       s("ion",  listOf(6,7,8)))),
+            w("connection", listOf(s("connect", listOf(0,1,2,3,4,5,6)),     s("ion",  listOf(7,8,9))))
+        )
+    ),
+
+    // ── L24: Contractions ────────────────────────────────────────────────────
+    PhonicsListenLevelKey.contractions to PhonicsListenConfig(
+        title = "Contractions", subtitle = "not · am/is/are · will · have",
+        levelKey = PhonicsListenLevelKey.contractions,
+        accentColor = Color(0xFF8E24AA), shadowColor = Color(0xFF6A1B9A),
+        words = listOf(
+            w("don't",    listOf(s("do",   listOf(0,1)),        s("n't",  listOf(2,3,4)))),
+            w("didn't",   listOf(s("did",  listOf(0,1,2)),      s("n't",  listOf(3,4,5)))),
+            w("can't",    listOf(s("can",  listOf(0,1,2)),      s("'t",   listOf(3,4)))),
+            w("isn't",    listOf(s("is",   listOf(0,1)),        s("n't",  listOf(2,3,4)))),
+            w("won't",    listOf(s("wo",   listOf(0,1)),        s("n't",  listOf(2,3,4)))),
+            w("I'm",      listOf(s("I",    listOf(0)),          s("'m",   listOf(1,2)))),
+            w("you're",   listOf(s("you",  listOf(0,1,2)),      s("'re",  listOf(3,4,5)))),
+            w("he's",     listOf(s("he",   listOf(0,1)),        s("'s",   listOf(2,3)))),
+            w("they're",  listOf(s("they", listOf(0,1,2,3)),    s("'re",  listOf(4,5,6)))),
+            w("it's",     listOf(s("it",   listOf(0,1)),        s("'s",   listOf(2,3)))),
+            w("I'll",     listOf(s("I",    listOf(0)),          s("'ll",  listOf(1,2,3)))),
+            w("you'll",   listOf(s("you",  listOf(0,1,2)),      s("'ll",  listOf(3,4,5)))),
+            w("they'll",  listOf(s("they", listOf(0,1,2,3)),    s("'ll",  listOf(4,5,6)))),
+            w("I've",     listOf(s("I",    listOf(0)),          s("'ve",  listOf(1,2,3)))),
+            w("you've",   listOf(s("you",  listOf(0,1,2)),      s("'ve",  listOf(3,4,5)))),
+            w("I'd",      listOf(s("I",    listOf(0)),          s("'d",   listOf(1,2)))),
+            w("they've",  listOf(s("they", listOf(0,1,2,3)),    s("'ve",  listOf(4,5,6))))
         )
     )
 )

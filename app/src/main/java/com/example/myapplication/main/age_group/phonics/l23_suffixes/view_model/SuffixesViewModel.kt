@@ -1,0 +1,216 @@
+package com.example.myapplication.main.age_group.phonics.l23_suffixes.view_model
+
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+// ── Models ────────────────────────────────────────────────────────────────────
+
+enum class SuffixRule { JUST_ADD, DROP_Y }
+
+data class SuffixWord(val base: String, val full: String, val rule: SuffixRule)
+
+data class SuffixGroup(
+    val suffix: String,
+    val rawSuffix: String,
+    val suffixLen: Int,
+    val meaning: String,
+    val emoji: String,
+    val accentColor: Color,
+    val shadowColor: Color,
+    val words: List<SuffixWord>
+)
+
+// ── Data ──────────────────────────────────────────────────────────────────────
+
+val suffixGroups: List<SuffixGroup> = listOf(
+    SuffixGroup(
+        suffix = "-ful", rawSuffix = "ful", suffixLen = 3,
+        meaning = "full of", emoji = "💛",
+        accentColor = Color(0xFF00695C), shadowColor = Color(0xFF004D40),
+        words = listOf(
+            SuffixWord("help",   "helpful",    SuffixRule.JUST_ADD),
+            SuffixWord("care",   "careful",    SuffixRule.JUST_ADD),
+            SuffixWord("joy",    "joyful",     SuffixRule.JUST_ADD),
+            SuffixWord("play",   "playful",    SuffixRule.JUST_ADD),
+            SuffixWord("thank",  "thankful",   SuffixRule.JUST_ADD),
+            SuffixWord("hope",   "hopeful",    SuffixRule.JUST_ADD),
+            SuffixWord("peace",  "peaceful",   SuffixRule.JUST_ADD),
+            SuffixWord("power",  "powerful",   SuffixRule.JUST_ADD),
+            SuffixWord("color",  "colorful",   SuffixRule.JUST_ADD),
+            SuffixWord("wonder", "wonderful",  SuffixRule.JUST_ADD)
+        )
+    ),
+    SuffixGroup(
+        suffix = "-less", rawSuffix = "less", suffixLen = 4,
+        meaning = "without", emoji = "🕳️",
+        accentColor = Color(0xFF283593), shadowColor = Color(0xFF1A237E),
+        words = listOf(
+            SuffixWord("care",    "careless",    SuffixRule.JUST_ADD),
+            SuffixWord("hope",    "hopeless",    SuffixRule.JUST_ADD),
+            SuffixWord("fear",    "fearless",    SuffixRule.JUST_ADD),
+            SuffixWord("help",    "helpless",    SuffixRule.JUST_ADD),
+            SuffixWord("use",     "useless",     SuffixRule.JUST_ADD),
+            SuffixWord("harm",    "harmless",    SuffixRule.JUST_ADD),
+            SuffixWord("end",     "endless",     SuffixRule.JUST_ADD),
+            SuffixWord("thought", "thoughtless", SuffixRule.JUST_ADD),
+            SuffixWord("worth",   "worthless",   SuffixRule.JUST_ADD),
+            SuffixWord("speech",  "speechless",  SuffixRule.JUST_ADD)
+        )
+    ),
+    SuffixGroup(
+        suffix = "-ness", rawSuffix = "ness", suffixLen = 4,
+        meaning = "quality of", emoji = "✨",
+        accentColor = Color(0xFFE65100), shadowColor = Color(0xFFBF360C),
+        words = listOf(
+            SuffixWord("kind",  "kindness",  SuffixRule.JUST_ADD),
+            SuffixWord("dark",  "darkness",  SuffixRule.JUST_ADD),
+            SuffixWord("sad",   "sadness",   SuffixRule.JUST_ADD),
+            SuffixWord("good",  "goodness",  SuffixRule.JUST_ADD),
+            SuffixWord("sick",  "sickness",  SuffixRule.JUST_ADD),
+            SuffixWord("soft",  "softness",  SuffixRule.JUST_ADD),
+            SuffixWord("loud",  "loudness",  SuffixRule.JUST_ADD),
+            SuffixWord("weak",  "weakness",  SuffixRule.JUST_ADD),
+            SuffixWord("happy", "happiness", SuffixRule.DROP_Y),
+            SuffixWord("lazy",  "laziness",  SuffixRule.DROP_Y),
+            SuffixWord("heavy", "heaviness", SuffixRule.DROP_Y),
+            SuffixWord("ready", "readiness", SuffixRule.DROP_Y),
+            SuffixWord("silly", "silliness", SuffixRule.DROP_Y),
+            SuffixWord("easy",  "easiness",  SuffixRule.DROP_Y)
+        )
+    ),
+    SuffixGroup(
+        suffix = "-tion", rawSuffix = "tion", suffixLen = 4,
+        meaning = "act of", emoji = "⚡",
+        accentColor = Color(0xFF6A1B9A), shadowColor = Color(0xFF4A148C),
+        words = listOf(
+            SuffixWord("act",     "action",     SuffixRule.JUST_ADD),
+            SuffixWord("direct",  "direction",  SuffixRule.JUST_ADD),
+            SuffixWord("connect", "connection", SuffixRule.JUST_ADD),
+            SuffixWord("protect", "protection", SuffixRule.JUST_ADD),
+            SuffixWord("collect", "collection", SuffixRule.JUST_ADD),
+            SuffixWord("inject",  "injection",  SuffixRule.JUST_ADD),
+            SuffixWord("elect",   "election",   SuffixRule.JUST_ADD),
+            SuffixWord("react",   "reaction",   SuffixRule.JUST_ADD),
+            SuffixWord("select",  "selection",  SuffixRule.JUST_ADD),
+            SuffixWord("correct", "correction", SuffixRule.JUST_ADD)
+        )
+    )
+)
+
+// ── Learn ViewModel ───────────────────────────────────────────────────────────
+
+data class SuffixesLearnUiState(
+    val selectedGroupIndex: Int = 0,
+    val highlightedWord: String? = null,
+    val showWords: Boolean = false
+)
+
+@HiltViewModel
+class SuffixesLearnViewModel @Inject constructor() : ViewModel() {
+    var uiState by mutableStateOf(SuffixesLearnUiState()); private set
+
+    val selectedGroup: SuffixGroup get() = suffixGroups[uiState.selectedGroupIndex]
+
+    fun onScreenAppear() {
+        uiState = uiState.copy(showWords = false, highlightedWord = null)
+        viewModelScope.launch {
+            delay(100)
+            uiState = uiState.copy(showWords = true)
+        }
+    }
+
+    fun onGroupTap(index: Int) {
+        if (index == uiState.selectedGroupIndex) return
+        uiState = uiState.copy(highlightedWord = null, selectedGroupIndex = index)
+    }
+
+    fun onWordTap(word: SuffixWord) {
+        uiState = uiState.copy(highlightedWord = word.full)
+    }
+}
+
+// ── Practice ──────────────────────────────────────────────────────────────────
+
+data class SuffixesPracticeQuestion(
+    val base: String,
+    val suffix: String,
+    val correct: String,
+    val options: List<String>
+)
+
+val suffixesPracticeQuestions: List<SuffixesPracticeQuestion> = listOf(
+    // -ful
+    SuffixesPracticeQuestion("help",  "-ful", "helpful",   listOf("helpful",   "helpfull",  "helpfful",  "helppful")),
+    SuffixesPracticeQuestion("care",  "-ful", "careful",   listOf("careful",   "carefull",  "carful",    "carefful")),
+    SuffixesPracticeQuestion("peace", "-ful", "peaceful",  listOf("peaceful",  "peacefull", "peacful",   "peacceful")),
+    SuffixesPracticeQuestion("power", "-ful", "powerful",  listOf("powerful",  "powerfull", "powerrful", "powwerful")),
+    // -less
+    SuffixesPracticeQuestion("care",  "-less", "careless",  listOf("careless",  "carelless", "carles",    "caareless")),
+    SuffixesPracticeQuestion("hope",  "-less", "hopeless",  listOf("hopeless",  "hopelless", "hoples",    "hopeles")),
+    SuffixesPracticeQuestion("fear",  "-less", "fearless",  listOf("fearless",  "fearlless", "fearles",   "feerless")),
+    SuffixesPracticeQuestion("harm",  "-less", "harmless",  listOf("harmless",  "harmlless", "harmles",   "harmmless")),
+    // -ness JUST_ADD
+    SuffixesPracticeQuestion("kind",  "-ness", "kindness",  listOf("kindness",  "kindnness", "kindnes",   "kingness")),
+    SuffixesPracticeQuestion("dark",  "-ness", "darkness",  listOf("darkness",  "darknness", "darknes",   "darckness")),
+    SuffixesPracticeQuestion("sad",   "-ness", "sadness",   listOf("sadness",   "sadnness",  "sadnes",    "saddness")),
+    SuffixesPracticeQuestion("weak",  "-ness", "weakness",  listOf("weakness",  "weaknness", "weaknes",   "weackness")),
+    // -ness DROP_Y
+    SuffixesPracticeQuestion("happy", "-ness", "happiness", listOf("happiness", "happyness", "hapiness",  "happines")),
+    SuffixesPracticeQuestion("lazy",  "-ness", "laziness",  listOf("laziness",  "lazyness",  "lazines",   "lazzyness")),
+    SuffixesPracticeQuestion("heavy", "-ness", "heaviness", listOf("heaviness", "heavyness", "heavines",  "heavviness")),
+    SuffixesPracticeQuestion("ready", "-ness", "readiness", listOf("readiness", "readyness", "readines",  "readdiness")),
+    // -tion
+    SuffixesPracticeQuestion("act",     "-tion", "action",     listOf("action",     "acction",    "actoin",    "actioon")),
+    SuffixesPracticeQuestion("direct",  "-tion", "direction",  listOf("direction",  "directtion", "diriction", "dirrection")),
+    SuffixesPracticeQuestion("connect", "-tion", "connection", listOf("connection", "connecttion","conection", "connexion")),
+    SuffixesPracticeQuestion("collect", "-tion", "collection", listOf("collection", "collecttion","colection", "collecktion"))
+)
+
+data class SuffixesPracticeUiState(
+    val currentIndex: Int = 0,
+    val score: Int = 0,
+    val selectedAnswer: String? = null,
+    val isCorrect: Boolean? = null,
+    val isFinished: Boolean = false,
+    val shakeWrong: Boolean = false
+)
+
+@HiltViewModel
+class SuffixesPracticeViewModel @Inject constructor() : ViewModel() {
+    var uiState by mutableStateOf(SuffixesPracticeUiState()); private set
+    private val questions = suffixesPracticeQuestions.shuffled().map { it.copy(options = it.options.shuffled()) }
+
+    val totalQuestions: Int get() = questions.size
+    val currentQuestion: SuffixesPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)
+
+    fun onAnswerTap(answer: String) {
+        if (uiState.selectedAnswer != null) return
+        val q = currentQuestion ?: return
+        val correct = answer == q.correct
+        uiState = uiState.copy(selectedAnswer = answer, isCorrect = correct, shakeWrong = !correct)
+        if (!correct) {
+            viewModelScope.launch { delay(600); uiState = uiState.copy(shakeWrong = false) }
+        }
+        viewModelScope.launch {
+            delay(if (correct) 1400L else 2000L)
+            advance()
+        }
+    }
+
+    fun restart() { uiState = SuffixesPracticeUiState() }
+
+    private fun advance() {
+        val next = uiState.currentIndex + 1
+        val newScore = uiState.score + (if (uiState.isCorrect == true) 1 else 0)
+        if (next >= questions.size) { uiState = uiState.copy(isFinished = true, score = newScore) }
+        else { uiState = SuffixesPracticeUiState(currentIndex = next, score = newScore) }
+    }
+}

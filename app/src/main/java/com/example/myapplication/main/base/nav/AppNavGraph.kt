@@ -83,6 +83,18 @@ import com.example.myapplication.main.age_group.phonics.l19_soft_c_soft_g.SoftCS
 import com.example.myapplication.main.age_group.phonics.l20_silent_letters.SilentLettersIntroPage
 import com.example.myapplication.main.age_group.phonics.l20_silent_letters.SilentLettersLearnPage
 import com.example.myapplication.main.age_group.phonics.l20_silent_letters.SilentLettersPracticePage
+import com.example.myapplication.main.age_group.phonics.l21_word_endings.WordEndingsIntroPage
+import com.example.myapplication.main.age_group.phonics.l21_word_endings.WordEndingsLearnPage
+import com.example.myapplication.main.age_group.phonics.l21_word_endings.WordEndingsPracticePage
+import com.example.myapplication.main.age_group.phonics.l22_prefixes.PrefixesIntroPage
+import com.example.myapplication.main.age_group.phonics.l22_prefixes.PrefixesLearnPage
+import com.example.myapplication.main.age_group.phonics.l22_prefixes.PrefixesPracticePage
+import com.example.myapplication.main.age_group.phonics.l23_suffixes.SuffixesIntroPage
+import com.example.myapplication.main.age_group.phonics.l23_suffixes.SuffixesLearnPage
+import com.example.myapplication.main.age_group.phonics.l23_suffixes.SuffixesPracticePage
+import com.example.myapplication.main.age_group.phonics.l24_contractions.ContractionsIntroPage
+import com.example.myapplication.main.age_group.phonics.l24_contractions.ContractionsLearnPage
+import com.example.myapplication.main.age_group.phonics.l24_contractions.ContractionsPracticePage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
@@ -430,6 +442,46 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.SilentLettersPractice.route) {
             SilentLettersPracticePage(navController)
+        }
+        // ── Phonics L21: Word Endings ──────────────────────────────────────────
+        composable(RouteNavigation.WordEndingsIntro.route) {
+            WordEndingsIntroPage(navController)
+        }
+        composable(RouteNavigation.WordEndingsLearn.route) {
+            WordEndingsLearnPage(navController)
+        }
+        composable(RouteNavigation.WordEndingsPractice.route) {
+            WordEndingsPracticePage(navController)
+        }
+        // ── Phonics L22: Prefixes ──────────────────────────────────────────────
+        composable(RouteNavigation.PrefixesIntro.route) {
+            PrefixesIntroPage(navController)
+        }
+        composable(RouteNavigation.PrefixesLearn.route) {
+            PrefixesLearnPage(navController)
+        }
+        composable(RouteNavigation.PrefixesPractice.route) {
+            PrefixesPracticePage(navController)
+        }
+        // ── Phonics L23: Suffixes ──────────────────────────────────────────────
+        composable(RouteNavigation.SuffixesIntro.route) {
+            SuffixesIntroPage(navController)
+        }
+        composable(RouteNavigation.SuffixesLearn.route) {
+            SuffixesLearnPage(navController)
+        }
+        composable(RouteNavigation.SuffixesPractice.route) {
+            SuffixesPracticePage(navController)
+        }
+        // ── Phonics L24: Contractions ──────────────────────────────────────────
+        composable(RouteNavigation.ContractionsIntro.route) {
+            ContractionsIntroPage(navController)
+        }
+        composable(RouteNavigation.ContractionsLearn.route) {
+            ContractionsLearnPage(navController)
+        }
+        composable(RouteNavigation.ContractionsPractice.route) {
+            ContractionsPracticePage(navController)
         }
         // Age Category 5 to 7
         composable(RouteNavigation.AgeGroup5to7.route) {

@@ -110,6 +110,25 @@ sealed class RouteNavigation(val route: String) {
     object SilentLettersLearn : RouteNavigation("SilentLettersLearn")
     object SilentLettersPractice : RouteNavigation("SilentLettersPractice")
 
+    // ── Phonics L21: Word Endings ─────────────────────────────────────────────
+    object WordEndingsIntro : RouteNavigation("WordEndingsIntro")
+    object WordEndingsLearn : RouteNavigation("WordEndingsLearn")
+    object WordEndingsPractice : RouteNavigation("WordEndingsPractice")
+
+    // ── Phonics L22: Prefixes ─────────────────────────────────────────────────
+    object PrefixesIntro : RouteNavigation("PrefixesIntro")
+    object PrefixesLearn : RouteNavigation("PrefixesLearn")
+    object PrefixesPractice : RouteNavigation("PrefixesPractice")
+
+    // ── Phonics L23: Suffixes ─────────────────────────────────────────────────
+    object SuffixesIntro : RouteNavigation("SuffixesIntro")
+    object SuffixesLearn : RouteNavigation("SuffixesLearn")
+    object SuffixesPractice : RouteNavigation("SuffixesPractice")
+
+    // ── Phonics L24: Contractions ─────────────────────────────────────────────
+    object ContractionsIntro : RouteNavigation("ContractionsIntro")
+    object ContractionsLearn : RouteNavigation("ContractionsLearn")
+    object ContractionsPractice : RouteNavigation("ContractionsPractice")
 
     object AgeGroup5to7 : RouteNavigation("AgeGroup5to7")
     object VocabularyBuilding : RouteNavigation("VocabularyBuilding")
