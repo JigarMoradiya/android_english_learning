@@ -130,6 +130,11 @@ sealed class RouteNavigation(val route: String) {
     object ContractionsLearn : RouteNavigation("ContractionsLearn")
     object ContractionsPractice : RouteNavigation("ContractionsPractice")
 
+    // ── Phonics L25: Consonant + -le ──────────────────────────────────────────
+    object ConsonantLeIntro : RouteNavigation("ConsonantLeIntro")
+    object ConsonantLeLearn : RouteNavigation("ConsonantLeLearn")
+    object ConsonantLePractice : RouteNavigation("ConsonantLePractice")
+
     object AgeGroup5to7 : RouteNavigation("AgeGroup5to7")
     object VocabularyBuilding : RouteNavigation("VocabularyBuilding")
     object VocabularyDetail : RouteNavigation("VocabularyDetail/{type}/{title}") {

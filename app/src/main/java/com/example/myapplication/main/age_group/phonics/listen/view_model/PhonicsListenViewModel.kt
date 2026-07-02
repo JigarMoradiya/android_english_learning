@@ -9,6 +9,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.utilities.AudioPhonicsManager
+import com.example.myapplication.utilities.TextToSpeechManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -25,7 +26,7 @@ enum class PhonicsListenLevelKey {
     wordFamilies, openSyllable, vowelTeams, beginningBlends, endingBlends, digraphs, specialEndings, magicE,
     diphthongs, rControlled, ighGh,
     yAsVowel, threeLetterBlends, softCSoftG, silentLetters,
-    wordEndings, prefixes, suffixes, contractions
+    wordEndings, prefixes, suffixes, contractions, consonantLe
 }
 
 // ── Models ────────────────────────────────────────────────────────────────────
@@ -854,6 +855,31 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("I'd",      listOf(s("I",    listOf(0)),          s("'d",   listOf(1,2)))),
             w("they've",  listOf(s("they", listOf(0,1,2,3)),    s("'ve",  listOf(4,5,6))))
         )
+    ),
+
+    // ── L25 · Consonant + -le ─────────────────────────────────────────────────
+    PhonicsListenLevelKey.consonantLe to PhonicsListenConfig(
+        title = "Consonant + -le", subtitle = "-ble · -tle · -ple · -dle/-gle",
+        levelKey = PhonicsListenLevelKey.consonantLe,
+        accentColor = Color(0xFFAD1457), shadowColor = Color(0xFF880E4F),
+        words = listOf(
+            w("apple",   listOf(s("ap",   listOf(0,1)),        s("ple",  listOf(2,3,4)))),
+            w("simple",  listOf(s("sim",  listOf(0,1,2)),      s("ple",  listOf(3,4,5)))),
+            w("purple",  listOf(s("pur",  listOf(0,1,2)),      s("ple",  listOf(3,4,5)))),
+            w("maple",   listOf(s("ma",   listOf(0,1)),        s("ple",  listOf(2,3,4)))),
+            w("little",  listOf(s("lit",  listOf(0,1,2)),      s("tle",  listOf(3,4,5)))),
+            w("bottle",  listOf(s("bot",  listOf(0,1,2)),      s("tle",  listOf(3,4,5)))),
+            w("turtle",  listOf(s("tur",  listOf(0,1,2)),      s("tle",  listOf(3,4,5)))),
+            w("table",   listOf(s("ta",   listOf(0,1)),        s("ble",  listOf(2,3,4)))),
+            w("bubble",  listOf(s("bub",  listOf(0,1,2)),      s("ble",  listOf(3,4,5)))),
+            w("stable",  listOf(s("sta",  listOf(0,1,2)),      s("ble",  listOf(3,4,5)))),
+            w("candle",  listOf(s("can",  listOf(0,1,2)),      s("dle",  listOf(3,4,5)))),
+            w("middle",  listOf(s("mid",  listOf(0,1,2)),      s("dle",  listOf(3,4,5)))),
+            w("jungle",  listOf(s("jun",  listOf(0,1,2)),      s("gle",  listOf(3,4,5)))),
+            w("single",  listOf(s("sin",  listOf(0,1,2)),      s("gle",  listOf(3,4,5)))),
+            w("eagle",   listOf(s("ea",   listOf(0,1)),        s("gle",  listOf(2,3,4)))),
+            w("giggle",  listOf(s("gig",  listOf(0,1,2)),      s("gle",  listOf(3,4,5))))
+        )
     )
 )
 
@@ -862,7 +888,8 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
 @HiltViewModel
 class PhonicsListenViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val audioManager: AudioPhonicsManager
+    private val audioManager: AudioPhonicsManager,
+    private val ttsManager: TextToSpeechManager
 ) : ViewModel() {
 
     private val levelKeyStr: String = savedStateHandle["levelKey"] ?: "beginningBlends"
@@ -878,9 +905,24 @@ class PhonicsListenViewModel @Inject constructor(
     val totalWords: Int get() = config.words.size
     val currentWord: ListenWord get() = config.words[wordIndex]
 
+    private val wordsWithFallback: Set<Int> by lazy {
+        config.words.indices.filter { idx ->
+            config.words[idx].segments.any { !audioManager.audioExists(it.audioFileName) }
+        }.toSet()
+    }
+
+    val currentWordUsesFallback: Boolean get() = wordsWithFallback.contains(wordIndex)
+
     private var autoPlayJob: Job? = null
 
     fun onSegmentTap(idx: Int) {
+        if (currentWordUsesFallback) {
+            autoPlayJob?.cancel()
+            audioManager.stop()
+            uiState = uiState.copy(segmentIndex = 0, wordDone = true)
+            playWordOrTTS(currentWord)
+            return
+        }
         if (idx >= currentWord.segments.count()) return
         autoPlayJob?.cancel()
         audioManager.stop()
@@ -903,6 +945,15 @@ class PhonicsListenViewModel @Inject constructor(
         if (uiState.isPlaying) return
         uiState = uiState.copy(isPlaying = true, isAutoMode = true)
         autoPlayJob = viewModelScope.launch {
+            if (currentWordUsesFallback) {
+                uiState = uiState.copy(segmentIndex = 0)
+                suspendCancellableCoroutine { cont ->
+                    playWordOrTTS(currentWord, onDone = { if (cont.isActive) cont.resume(Unit) })
+                    cont.invokeOnCancellation { audioManager.stop(); ttsManager.stop() }
+                }
+                uiState = uiState.copy(wordDone = true, isPlaying = false)
+                return@launch
+            }
             val word = currentWord
             for (segIdx in word.segments.indices) {
                 if (uiState.playedSegments.contains(segIdx)) continue
@@ -950,6 +1001,16 @@ class PhonicsListenViewModel @Inject constructor(
         uiState = PhonicsListenUiState(isAutoMode = !uiState.isAutoMode, isGoingForward = uiState.isGoingForward)
     }
 
+    private fun playWordOrTTS(word: ListenWord, onDone: (() -> Unit)? = null) {
+        val fileName = "phonics_word/${word.word}"
+        if (audioManager.audioExists(fileName)) {
+            audioManager.playPhonicsSound(fileName)
+            onDone?.let { audioManager.onAudioCompleted = { it() } }
+        } else {
+            ttsManager.speak(word.word, utteranceId = "phonics_${word.word}", onDone = onDone)
+        }
+    }
+
     fun playFullWord() {
         audioManager.stop()
         audioManager.playPhonicsSound("phonics_word/${currentWord.word}")
@@ -958,6 +1019,7 @@ class PhonicsListenViewModel @Inject constructor(
     fun stop() {
         autoPlayJob?.cancel()
         audioManager.stop()
+        ttsManager.stop()
     }
 
     override fun onCleared() {

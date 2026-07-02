@@ -15,6 +15,15 @@ class AudioPhonicsManager @Inject constructor(
     private var player: MediaPlayer? = null
     var onAudioCompleted: (() -> Unit)? = null
 
+    fun audioExists(fileName: String): Boolean {
+        return try {
+            context.assets.open("$fileName.mp3").close()
+            true
+        } catch (_: Exception) {
+            false
+        }
+    }
+
     fun playPhonicsSound(fileName: String) {
         try {
             stop()

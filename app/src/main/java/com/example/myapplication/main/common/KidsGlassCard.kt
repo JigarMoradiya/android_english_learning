@@ -48,18 +48,32 @@ fun Modifier.kidsGlassCard(
         )
         // 2. Clip so background + inner highlight stay inside the rounded shape
         .clip(shape)
-        // 3. Glass background: white gradient + inner highlight line
+        // 3. Glass background: accent tint + frosted white + inner highlight
         .drawBehind {
             val w = size.width
             val h = size.height
             val r = cornerRadius.toPx()
 
-            // Translucent white fill — lets background gradient show through like frosted glass
+            // Accent color tint — lets the context color bleed through like iOS glass picks up ambient color
             drawRoundRect(
                 brush = Brush.linearGradient(
                     colors = listOf(
-                        Color.White.copy(alpha = 0.68f),
-                        Color.White.copy(alpha = 0.48f)
+                        strokeColor.copy(alpha = 0.16f),
+                        strokeColor.copy(alpha = 0.08f)
+                    ),
+                    start = Offset(0f, 0f),
+                    end = Offset(w, h)
+                ),
+                cornerRadius = CornerRadius(r, r),
+                size = Size(w, h)
+            )
+
+            // Frosted white overlay — slightly reduced so accent tint shows through
+            drawRoundRect(
+                brush = Brush.linearGradient(
+                    colors = listOf(
+                        Color.White.copy(alpha = 0.58f),
+                        Color.White.copy(alpha = 0.38f)
                     ),
                     start = Offset(0f, 0f),
                     end = Offset(w, h)
@@ -118,7 +132,14 @@ fun Modifier.kidsGlassCapsule(
             val w = size.width; val h = size.height; val r = minOf(w, h) / 2f
             drawRoundRect(
                 brush = Brush.linearGradient(
-                    colors = listOf(Color.White.copy(alpha = 0.68f), Color.White.copy(alpha = 0.48f)),
+                    colors = listOf(strokeColor.copy(alpha = 0.16f), strokeColor.copy(alpha = 0.08f)),
+                    start = Offset(0f, 0f), end = Offset(w, h)
+                ),
+                cornerRadius = CornerRadius(r, r), size = Size(w, h)
+            )
+            drawRoundRect(
+                brush = Brush.linearGradient(
+                    colors = listOf(Color.White.copy(alpha = 0.58f), Color.White.copy(alpha = 0.38f)),
                     start = Offset(0f, 0f), end = Offset(w, h)
                 ),
                 cornerRadius = CornerRadius(r, r), size = Size(w, h)

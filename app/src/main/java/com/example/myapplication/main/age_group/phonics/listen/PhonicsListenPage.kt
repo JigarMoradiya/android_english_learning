@@ -121,11 +121,13 @@ fun PhonicsListenPage(
             Spacer(modifier = Modifier.weight(1f))
 
             ListenWordCard(
-                words   = viewModel.config.words,
-                uiState = uiState,
-                accent  = accent,
-                wordIndex = viewModel.wordIndex,
-                onSegmentTap = { idx -> if (!uiState.isAutoMode) viewModel.onSegmentTap(idx) }
+                words      = viewModel.config.words,
+                uiState    = uiState,
+                accent     = accent,
+                wordIndex  = viewModel.wordIndex,
+                useFallback = viewModel.currentWordUsesFallback,
+                onSegmentTap = { idx -> if (!uiState.isAutoMode) viewModel.onSegmentTap(idx) },
+                onFallbackTap = { if (!uiState.isAutoMode) viewModel.onSegmentTap(0) }
             )
 
             Spacer(modifier = Modifier.weight(1f))
@@ -197,7 +199,9 @@ private fun ListenWordCard(
     uiState: PhonicsListenUiState,
     accent: Color,
     wordIndex: Int,
-    onSegmentTap: (Int) -> Unit
+    useFallback: Boolean,
+    onSegmentTap: (Int) -> Unit,
+    onFallbackTap: () -> Unit
 ) {
     AnimatedContent(
         targetState = wordIndex,
@@ -290,19 +294,27 @@ private fun ListenWordCard(
                     }
                 }
 
-                // Segment dots row — wraps content naturally
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(Dimens24),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    currentWord.segments.forEachIndexed { segIdx, seg ->
-                        SegmentDot(
-                            segIdx   = segIdx,
-                            seg      = seg,
-                            uiState  = uiState,
-                            accent   = accent,
-                            onClick  = { onSegmentTap(segIdx) }
-                        )
+                // Segment dots row (or fallback full-word bar)
+                if (useFallback) {
+                    FullWordBar(
+                        uiState  = uiState,
+                        accent   = accent,
+                        onClick  = onFallbackTap
+                    )
+                } else {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(Dimens24),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        currentWord.segments.forEachIndexed { segIdx, seg ->
+                            SegmentDot(
+                                segIdx   = segIdx,
+                                seg      = seg,
+                                uiState  = uiState,
+                                accent   = accent,
+                                onClick  = { onSegmentTap(segIdx) }
+                            )
+                        }
                     }
                 }
             }
@@ -388,6 +400,52 @@ private fun SegmentDot(
                 .size(Dimens16)
                 .graphicsLayer { scaleX = dotScale; scaleY = dotScale }
                 .background(dotColor, CircleShape)
+        )
+    }
+}
+
+@Composable
+private fun FullWordBar(
+    uiState: PhonicsListenUiState,
+    accent: Color,
+    onClick: () -> Unit
+) {
+    val isActive = uiState.segmentIndex == 0 && !uiState.wordDone
+    val isDone   = uiState.wordDone
+
+    val barScale by animateFloatAsState(
+        targetValue = if (isActive) 1.3f else 1.0f,
+        animationSpec = spring(stiffness = 300f, dampingRatio = 0.65f),
+        label = "fallbackBarScale"
+    )
+    val barColor = when {
+        isDone   -> accent
+        isActive -> accent.copy(alpha = 0.65f)
+        else     -> Color(0xFF90A4AE)
+    }
+    val iconTint = if (isDone || isActive) accent else Color(0xFF607D8B)
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(Dimens6),
+        modifier = Modifier.clickable(
+            interactionSource = remember { MutableInteractionSource() },
+            indication = null,
+            enabled = !uiState.isAutoMode
+        ) { onClick() }
+    ) {
+        Icon(
+            imageVector = if (isDone) Icons.Default.PlayCircle else Icons.Default.VolumeUp,
+            contentDescription = null,
+            tint = iconTint,
+            modifier = Modifier.size(Dimens16)
+        )
+        Box(
+            modifier = Modifier
+                .width(56.dp)
+                .height(Dimens8)
+                .graphicsLayer { scaleY = barScale }
+                .background(barColor, RoundedCornerShape(50))
         )
     }
 }

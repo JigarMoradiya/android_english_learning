@@ -95,6 +95,9 @@ import com.example.myapplication.main.age_group.phonics.l23_suffixes.SuffixesPra
 import com.example.myapplication.main.age_group.phonics.l24_contractions.ContractionsIntroPage
 import com.example.myapplication.main.age_group.phonics.l24_contractions.ContractionsLearnPage
 import com.example.myapplication.main.age_group.phonics.l24_contractions.ContractionsPracticePage
+import com.example.myapplication.main.age_group.phonics.l25_consonant_le.ConsonantLeIntroPage
+import com.example.myapplication.main.age_group.phonics.l25_consonant_le.ConsonantLeLearnPage
+import com.example.myapplication.main.age_group.phonics.l25_consonant_le.ConsonantLePracticePage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
@@ -482,6 +485,16 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.ContractionsPractice.route) {
             ContractionsPracticePage(navController)
+        }
+        // ── Phonics L25: Consonant + -le ──────────────────────────────────────
+        composable(RouteNavigation.ConsonantLeIntro.route) {
+            ConsonantLeIntroPage(navController)
+        }
+        composable(RouteNavigation.ConsonantLeLearn.route) {
+            ConsonantLeLearnPage(navController)
+        }
+        composable(RouteNavigation.ConsonantLePractice.route) {
+            ConsonantLePracticePage(navController)
         }
         // Age Category 5 to 7
         composable(RouteNavigation.AgeGroup5to7.route) {
