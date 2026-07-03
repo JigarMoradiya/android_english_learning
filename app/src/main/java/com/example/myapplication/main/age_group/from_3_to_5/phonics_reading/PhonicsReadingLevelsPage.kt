@@ -170,7 +170,7 @@ val phonicsLevelItems = listOf(
     // ── Sight Words (All Ages) ────────────────────────────────────────────────
     PhonicsLevelItem(28, "Sight Words",
         "the, was, said, have, they, once, who, your, because, friend",
-        "👁️", Color(0xFF5D4037), "Age 3+", "", false),
+        "⭐", Color(0xFFD81B60), "Age 3+", RouteNavigation.StarWordsIntro.route, true),
 )
 
 // ── Screen ────────────────────────────────────────────────────────────────────

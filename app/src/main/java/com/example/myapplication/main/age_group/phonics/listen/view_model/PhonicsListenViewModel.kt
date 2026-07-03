@@ -26,7 +26,7 @@ enum class PhonicsListenLevelKey {
     wordFamilies, openSyllable, vowelTeams, beginningBlends, endingBlends, digraphs, specialEndings, magicE,
     diphthongs, rControlled, ighGh,
     yAsVowel, threeLetterBlends, softCSoftG, silentLetters,
-    wordEndings, prefixes, suffixes, contractions, consonantLe, compoundWords, syllableDivision
+    wordEndings, prefixes, suffixes, contractions, consonantLe, compoundWords, syllableDivision, sightWords
 }
 
 // ── Models ────────────────────────────────────────────────────────────────────
@@ -907,6 +907,32 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("lemon",   listOf(s("lem",  listOf(0,1,2)),     s("on",  listOf(3,4)))),
             w("planet",  listOf(s("plan", listOf(0,1,2,3)),   s("et",  listOf(4,5)))),
             w("dragon",  listOf(s("drag", listOf(0,1,2,3)),   s("on",  listOf(4,5))))
+        )
+    ),
+
+    // ── L28 · Sight Words ─────────────────────────────────────────────────────
+    // Sight words can't be sounded out — one whole-word segment each
+    PhonicsListenLevelKey.sightWords to PhonicsListenConfig(
+        title = "Sight Words", subtitle = "Know them by sight!",
+        levelKey = PhonicsListenLevelKey.sightWords,
+        accentColor = Color(0xFFD81B60), shadowColor = Color(0xFF880E4F),
+        words = listOf(
+            w("the",     listOf(s("the",     listOf(0,1,2)))),
+            w("was",     listOf(s("was",     listOf(0,1,2)))),
+            w("said",    listOf(s("said",    listOf(0,1,2,3)))),
+            w("have",    listOf(s("have",    listOf(0,1,2,3)))),
+            w("they",    listOf(s("they",    listOf(0,1,2,3)))),
+            w("once",    listOf(s("once",    listOf(0,1,2,3)))),
+            w("who",     listOf(s("who",     listOf(0,1,2)))),
+            w("your",    listOf(s("your",    listOf(0,1,2,3)))),
+            w("because", listOf(s("because", listOf(0,1,2,3,4,5,6)))),
+            w("friend",  listOf(s("friend",  listOf(0,1,2,3,4,5)))),
+            w("what",    listOf(s("what",    listOf(0,1,2,3)))),
+            w("where",   listOf(s("where",   listOf(0,1,2,3,4)))),
+            w("come",    listOf(s("come",    listOf(0,1,2,3)))),
+            w("some",    listOf(s("some",    listOf(0,1,2,3)))),
+            w("one",     listOf(s("one",     listOf(0,1,2)))),
+            w("people",  listOf(s("people",  listOf(0,1,2,3,4,5))))
         )
     ),
 

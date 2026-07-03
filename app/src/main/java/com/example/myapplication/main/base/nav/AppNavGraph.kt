@@ -104,6 +104,9 @@ import com.example.myapplication.main.age_group.phonics.l26_compound_words.Compo
 import com.example.myapplication.main.age_group.phonics.l27_syllable_division.SyllableDivisionIntroPage
 import com.example.myapplication.main.age_group.phonics.l27_syllable_division.SyllableDivisionLearnPage
 import com.example.myapplication.main.age_group.phonics.l27_syllable_division.SyllableDivisionPracticePage
+import com.example.myapplication.main.age_group.phonics.l28_sight_words.StarWordsIntroPage
+import com.example.myapplication.main.age_group.phonics.l28_sight_words.StarWordsLearnPage
+import com.example.myapplication.main.age_group.phonics.l28_sight_words.StarWordsPracticePage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
@@ -521,6 +524,16 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.SyllableDivisionPractice.route) {
             SyllableDivisionPracticePage(navController)
+        }
+        // ── Phonics L28: Sight Words ──────────────────────────────────────────
+        composable(RouteNavigation.StarWordsIntro.route) {
+            StarWordsIntroPage(navController)
+        }
+        composable(RouteNavigation.StarWordsLearn.route) {
+            StarWordsLearnPage(navController)
+        }
+        composable(RouteNavigation.StarWordsPractice.route) {
+            StarWordsPracticePage(navController)
         }
         // Age Category 5 to 7
         composable(RouteNavigation.AgeGroup5to7.route) {
