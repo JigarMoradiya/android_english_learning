@@ -102,6 +102,23 @@ val suffixGroups: List<SuffixGroup> = listOf(
             SuffixWord("select",  "selection",  SuffixRule.JUST_ADD),
             SuffixWord("correct", "correction", SuffixRule.JUST_ADD)
         )
+    ),
+    SuffixGroup(
+        suffix = "-sion", rawSuffix = "sion", suffixLen = 4,
+        meaning = "state / result", emoji = "🌀",
+        accentColor = Color(0xFF1565C0), shadowColor = Color(0xFF0D47A1),
+        words = listOf(
+            SuffixWord("vi",      "vision",     SuffixRule.JUST_ADD),
+            SuffixWord("ten",     "tension",    SuffixRule.JUST_ADD),
+            SuffixWord("mis",     "mission",    SuffixRule.JUST_ADD),
+            SuffixWord("exten",   "extension",  SuffixRule.JUST_ADD),
+            SuffixWord("confu",   "confusion",  SuffixRule.JUST_ADD),
+            SuffixWord("explo",   "explosion",  SuffixRule.JUST_ADD),
+            SuffixWord("discus",  "discussion", SuffixRule.JUST_ADD),
+            SuffixWord("inva",    "invasion",   SuffixRule.JUST_ADD),
+            SuffixWord("pas",     "passion",    SuffixRule.JUST_ADD),
+            SuffixWord("permis",  "permission", SuffixRule.JUST_ADD)
+        )
     )
 )
 
@@ -171,7 +188,14 @@ val suffixesPracticeQuestions: List<SuffixesPracticeQuestion> = listOf(
     SuffixesPracticeQuestion("act",     "-tion", "action",     listOf("action",     "acction",    "actoin",    "actioon")),
     SuffixesPracticeQuestion("direct",  "-tion", "direction",  listOf("direction",  "directtion", "diriction", "dirrection")),
     SuffixesPracticeQuestion("connect", "-tion", "connection", listOf("connection", "connecttion","conection", "connexion")),
-    SuffixesPracticeQuestion("collect", "-tion", "collection", listOf("collection", "collecttion","colection", "collecktion"))
+    SuffixesPracticeQuestion("collect", "-tion", "collection", listOf("collection", "collecttion","colection", "collecktion")),
+    // -sion
+    SuffixesPracticeQuestion("ten",    "-sion", "tension",    listOf("tension",    "tention",    "tensian",   "tensoin")),
+    SuffixesPracticeQuestion("mis",    "-sion", "mission",    listOf("mission",    "mision",     "mistion",   "mishion")),
+    SuffixesPracticeQuestion("exten",  "-sion", "extension",  listOf("extension",  "extention",  "extensian", "extencion")),
+    SuffixesPracticeQuestion("confu",  "-sion", "confusion",  listOf("confusion",  "confution",  "confusian", "confushion")),
+    SuffixesPracticeQuestion("explo",  "-sion", "explosion",  listOf("explosion",  "exploshion", "explotion", "explosian")),
+    SuffixesPracticeQuestion("inva",   "-sion", "invasion",   listOf("invasion",   "invashion",  "invation",  "invasian"))
 )
 
 data class SuffixesPracticeUiState(

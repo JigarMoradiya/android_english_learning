@@ -165,7 +165,7 @@ val phonicsLevelItems = listOf(
         "🌈", Color(0xFFF57C00), "Age 7+", RouteNavigation.CompoundWordsIntro.route, true),
     PhonicsLevelItem(27, "Syllable Division",
         "VCCV rab-bit · VCV pi-lot · V/CV ti-ger · VC/V cam-el",
-        "✂️", Color(0xFFE65100), "Age 7+", "", false),
+        "✂️", Color(0xFF00897B), "Age 7+", RouteNavigation.SyllableDivisionIntro.route, true),
 
     // ── Sight Words (All Ages) ────────────────────────────────────────────────
     PhonicsLevelItem(28, "Sight Words",

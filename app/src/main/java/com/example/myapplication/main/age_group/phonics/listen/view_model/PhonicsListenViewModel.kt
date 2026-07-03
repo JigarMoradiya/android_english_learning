@@ -26,7 +26,7 @@ enum class PhonicsListenLevelKey {
     wordFamilies, openSyllable, vowelTeams, beginningBlends, endingBlends, digraphs, specialEndings, magicE,
     diphthongs, rControlled, ighGh,
     yAsVowel, threeLetterBlends, softCSoftG, silentLetters,
-    wordEndings, prefixes, suffixes, contractions, consonantLe, compoundWords
+    wordEndings, prefixes, suffixes, contractions, consonantLe, compoundWords, syllableDivision
 }
 
 // ── Models ────────────────────────────────────────────────────────────────────
@@ -879,6 +879,34 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("backpack",   listOf(s("back",  listOf(0,1,2,3)),       s("pack",  listOf(4,5,6,7)))),
             w("airplane",   listOf(s("air",   listOf(0,1,2)),         s("plane", listOf(3,4,5,6,7)))),
             w("moonlight",  listOf(s("moon",  listOf(0,1,2,3)),       s("light", listOf(4,5,6,7,8))))
+        )
+    ),
+
+    // ── L27 · Syllable Division ───────────────────────────────────────────────
+    PhonicsListenLevelKey.syllableDivision to PhonicsListenConfig(
+        title = "Syllable Division", subtitle = "Chop big words into beats!",
+        levelKey = PhonicsListenLevelKey.syllableDivision,
+        accentColor = Color(0xFF00897B), shadowColor = Color(0xFF00695C),
+        words = listOf(
+            // VC/CV
+            w("rabbit",  listOf(s("rab",  listOf(0,1,2)),     s("bit", listOf(3,4,5)))),
+            w("kitten",  listOf(s("kit",  listOf(0,1,2)),     s("ten", listOf(3,4,5)))),
+            w("sunset",  listOf(s("sun",  listOf(0,1,2)),     s("set", listOf(3,4,5)))),
+            w("basket",  listOf(s("bas",  listOf(0,1,2)),     s("ket", listOf(3,4,5)))),
+            w("muffin",  listOf(s("muf",  listOf(0,1,2)),     s("fin", listOf(3,4,5)))),
+            w("winter",  listOf(s("win",  listOf(0,1,2)),     s("ter", listOf(3,4,5)))),
+            // V/CV
+            w("tiger",   listOf(s("ti",   listOf(0,1)),       s("ger", listOf(2,3,4)))),
+            w("pilot",   listOf(s("pi",   listOf(0,1)),       s("lot", listOf(2,3,4)))),
+            w("paper",   listOf(s("pa",   listOf(0,1)),       s("per", listOf(2,3,4)))),
+            w("music",   listOf(s("mu",   listOf(0,1)),       s("sic", listOf(2,3,4)))),
+            w("spider",  listOf(s("spi",  listOf(0,1,2)),     s("der", listOf(3,4,5)))),
+            w("robot",   listOf(s("ro",   listOf(0,1)),       s("bot", listOf(2,3,4)))),
+            // VC/V
+            w("camel",   listOf(s("cam",  listOf(0,1,2)),     s("el",  listOf(3,4)))),
+            w("lemon",   listOf(s("lem",  listOf(0,1,2)),     s("on",  listOf(3,4)))),
+            w("planet",  listOf(s("plan", listOf(0,1,2,3)),   s("et",  listOf(4,5)))),
+            w("dragon",  listOf(s("drag", listOf(0,1,2,3)),   s("on",  listOf(4,5))))
         )
     ),
 

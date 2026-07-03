@@ -140,6 +140,11 @@ sealed class RouteNavigation(val route: String) {
     object CompoundWordsLearn : RouteNavigation("CompoundWordsLearn")
     object CompoundWordsPractice : RouteNavigation("CompoundWordsPractice")
 
+    // ── Phonics L27: Syllable Division ────────────────────────────────────────
+    object SyllableDivisionIntro : RouteNavigation("SyllableDivisionIntro")
+    object SyllableDivisionLearn : RouteNavigation("SyllableDivisionLearn")
+    object SyllableDivisionPractice : RouteNavigation("SyllableDivisionPractice")
+
     object AgeGroup5to7 : RouteNavigation("AgeGroup5to7")
     object VocabularyBuilding : RouteNavigation("VocabularyBuilding")
     object VocabularyDetail : RouteNavigation("VocabularyDetail/{type}/{title}") {

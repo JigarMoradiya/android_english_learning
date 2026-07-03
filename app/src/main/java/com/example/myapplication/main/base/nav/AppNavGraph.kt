@@ -101,6 +101,9 @@ import com.example.myapplication.main.age_group.phonics.l25_consonant_le.Consona
 import com.example.myapplication.main.age_group.phonics.l26_compound_words.CompoundWordsIntroPage
 import com.example.myapplication.main.age_group.phonics.l26_compound_words.CompoundWordsLearnPage
 import com.example.myapplication.main.age_group.phonics.l26_compound_words.CompoundWordsPracticePage
+import com.example.myapplication.main.age_group.phonics.l27_syllable_division.SyllableDivisionIntroPage
+import com.example.myapplication.main.age_group.phonics.l27_syllable_division.SyllableDivisionLearnPage
+import com.example.myapplication.main.age_group.phonics.l27_syllable_division.SyllableDivisionPracticePage
 import com.example.myapplication.main.age_group.from_3_to_5.drag_and_drop_word.DragDropWordPage35
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosition
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
@@ -508,6 +511,16 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.CompoundWordsPractice.route) {
             CompoundWordsPracticePage(navController)
+        }
+        // ── Phonics L27: Syllable Division ────────────────────────────────────
+        composable(RouteNavigation.SyllableDivisionIntro.route) {
+            SyllableDivisionIntroPage(navController)
+        }
+        composable(RouteNavigation.SyllableDivisionLearn.route) {
+            SyllableDivisionLearnPage(navController)
+        }
+        composable(RouteNavigation.SyllableDivisionPractice.route) {
+            SyllableDivisionPracticePage(navController)
         }
         // Age Category 5 to 7
         composable(RouteNavigation.AgeGroup5to7.route) {

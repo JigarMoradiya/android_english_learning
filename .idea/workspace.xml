@@ -101,14 +101,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="L21, 22, 23, 24 done">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/KidsGlassCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/common/KidsGlassCard.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utilities/AudioPhonicsManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utilities/AudioPhonicsManager.kt" afterDir="false" />
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="L26 done">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -492,22 +486,6 @@
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
     </task>
-    <task id="LOCAL-00172" summary="parent report done for vocabulary category">
-      <option name="closed" value="true" />
-      <created>1779879450155</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1779879450155</updated>
-    </task>
-    <task id="LOCAL-00173" summary="parent report done for article a &amp; an, sight words">
-      <option name="closed" value="true" />
-      <created>1779881049601</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1779881049601</updated>
-    </task>
     <task id="LOCAL-00174" summary="parent report done for read &amp; listen">
       <option name="closed" value="true" />
       <created>1779886320489</created>
@@ -884,12 +862,26 @@
       <option name="project" value="LOCAL" />
       <updated>1782972478218</updated>
     </task>
-    <option name="localTasksCounter" value="221" />
+    <task id="LOCAL-00221" summary="L25 done">
+      <option name="closed" value="true" />
+      <created>1782984580730</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1782984580730</updated>
+    </task>
+    <task id="LOCAL-00222" summary="L26 done">
+      <option name="closed" value="true" />
+      <created>1782987558956</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1782987558956</updated>
+    </task>
+    <option name="localTasksCounter" value="223" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="INCREASE REVIEWS &amp; RATINGS STRATEGY" />
-    <MESSAGE value="changes of paywall free trial" />
     <MESSAGE value="solving access bug" />
     <MESSAGE value="missing this done for age group 3-5" />
     <MESSAGE value="missing this done for age group 5-7" />
@@ -913,7 +905,9 @@
     <MESSAGE value="changes" />
     <MESSAGE value="L17,18,19,20 done" />
     <MESSAGE value="L21, 22, 23, 24 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="L21, 22, 23, 24 done" />
+    <MESSAGE value="L25 done" />
+    <MESSAGE value="L26 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="L26 done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
