@@ -14,6 +14,8 @@
 
     <!-- Category Ages 3–5 -->
     <string name="alphabet_tracing">Alphabet Tracing</string>
+    <string name="letter_practice">Letter Practice</string>
+    <string name="practice">Practice</string>
     <string name="letter_recognition">Letter Recognition</string>
     <string name="fill_the_blank">Fill the Blank</string>
     <string name="fill_blank_tap_instruction"><![CDATA[<b>Tap the missing letter</b> to fill the blank! 👇]]></string>

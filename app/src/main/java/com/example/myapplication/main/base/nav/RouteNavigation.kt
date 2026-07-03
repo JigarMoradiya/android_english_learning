@@ -8,6 +8,7 @@ sealed class RouteNavigation(val route: String) {
     object AccessPlan : RouteNavigation("AccessPlan")
     object AgeGroup3to5 : RouteNavigation("AgeGroup3to5")
     object AlphabetTracing : RouteNavigation("AlphabetTracing")
+    object LetterPractice : RouteNavigation("LetterPractice")
     object LetterRecognition : RouteNavigation("LetterRecognition")
     object ABCDWithImages : RouteNavigation("ABCDWithImages")
     object MatchLetters : RouteNavigation("MatchLetters")

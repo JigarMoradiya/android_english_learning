@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.canvas.GuidelineCanvas
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.canvas.TracingCanvas
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
+import com.example.myapplication.ui.theme.AppDimens.AlphabetTracingArrowImageHeight
 import com.example.myapplication.ui.theme.AppDimens.AlphabetTracingLetterSize
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
@@ -49,7 +50,8 @@ fun CenterLearningLayout(
     modifier : Modifier,
     viewModel: AlphabetTracingViewModel,
     imageRes: Int?,
-    word: String?
+    word: String?,
+    arrowImageRes: Int? = null
 ) {
     Box(
         modifier = modifier.fillMaxSize(),
@@ -69,7 +71,8 @@ fun CenterLearningLayout(
                 // LEFT
                 LeftLetterView(
                     modifier = Modifier.weight(1f),
-                    viewModel
+                    viewModel,
+                    arrowImageRes = arrowImageRes
                 )
 
                 // CENTER (fixed size)
@@ -87,7 +90,11 @@ fun CenterLearningLayout(
 }
 
 @Composable
-fun LeftLetterView(modifier: Modifier = Modifier, viewModel: AlphabetTracingViewModel) {
+fun LeftLetterView(
+    modifier: Modifier = Modifier,
+    viewModel: AlphabetTracingViewModel,
+    arrowImageRes: Int? = null
+) {
     val highlighted = viewModel.isPhonicsHighlighted
     val phonicsColor by animateColorAsState(
         targetValue = if (highlighted) viewModel.getLetterColor() else Color(0xFF9E9E9E),
@@ -105,12 +112,21 @@ fun LeftLetterView(modifier: Modifier = Modifier, viewModel: AlphabetTracingView
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(
-                text = viewModel.uiState.mode.displayString(viewModel.uiState.currentIndex),
-                color = Color.Black,
-                fontSize = AlphabetTracingLetterSize,
-                fontWeight = FontWeight.Bold
-            )
+            if (arrowImageRes != null) {
+                Image(
+                    painter = painterResource(id = arrowImageRes),
+                    contentDescription = viewModel.uiState.mode.displayString(viewModel.uiState.currentIndex),
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier.height(AlphabetTracingArrowImageHeight)
+                )
+            } else {
+                Text(
+                    text = viewModel.uiState.mode.displayString(viewModel.uiState.currentIndex),
+                    color = Color.Black,
+                    fontSize = AlphabetTracingLetterSize,
+                    fontWeight = FontWeight.Bold
+                )
+            }
             Box(
                 modifier = Modifier.height(Dimens50),
                 contentAlignment = Alignment.Center

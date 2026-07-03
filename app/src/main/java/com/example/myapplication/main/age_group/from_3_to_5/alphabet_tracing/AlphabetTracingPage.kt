@@ -22,9 +22,11 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.pre
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.presentation.CenterLearningLayout
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
+import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.getImageResForLetterArrow
 import com.example.myapplication.main.common.getImageResFromWord
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.ui.theme.MyApplicationTheme
@@ -33,6 +35,9 @@ import kotlinx.coroutines.launch
 
 // Letters K–Z start at index 10 (A=0, B=1, … J=9, K=10, … Z=25)
 private const val LOCKED_FROM_INDEX = 10
+
+// Ignore next/previous taps within this window so a double-tap moves only one letter
+private const val NAV_CLICK_THROTTLE_MS = 400L
 
 @Composable
 fun AlphabetTracingPage(
@@ -44,13 +49,28 @@ fun AlphabetTracingPage(
 
     val currentItem = viewModel.lettersData.getOrNull(viewModel.uiState.currentIndex)
     val word = currentItem?.second
+    val displayString = viewModel.uiState.mode.displayString(viewModel.uiState.currentIndex)
+    val arrowImageRes = getImageResForLetterArrow("${displayString.lowercase()}_arrow")
 
-    // Helper: navigate to [targetIndex] but first gate N–Z for guests
+    val lastNavClickMs = remember { longArrayOf(0L) }
+    val isAccessCheckInFlight = remember { booleanArrayOf(false) }
+
+    // Helper: navigate to [targetIndex] but first gate N–Z for guests.
+    // Throttled so rapid taps don't advance multiple letters at once.
     fun navigateTo(targetIndex: Int, doNavigate: () -> Unit) {
+        val now = System.currentTimeMillis()
+        if (now - lastNavClickMs[0] < NAV_CLICK_THROTTLE_MS || isAccessCheckInFlight[0]) return
+        lastNavClickMs[0] = now
+
         if (targetIndex >= LOCKED_FROM_INDEX) {
+            isAccessCheckInFlight[0] = true
             scope.launch {
-                val allowed = accessVM.checkAccess(ModuleID.ALPHABET_TRACING_NZ)
-                if (allowed) doNavigate()
+                try {
+                    val allowed = accessVM.checkAccess(ModuleID.ALPHABET_TRACING_NZ)
+                    if (allowed) doNavigate()
+                } finally {
+                    isAccessCheckInFlight[0] = false
+                }
             }
         } else {
             doNavigate()
@@ -82,7 +102,8 @@ fun AlphabetTracingPage(
                 modifier = Modifier.weight(1f),
                 viewModel = viewModel,
                 imageRes = getImageResFromWord(word),
-                word = word
+                word = word,
+                arrowImageRes = arrowImageRes
             )
 
             BottomTracingControls(
@@ -96,6 +117,9 @@ fun AlphabetTracingPage(
                     val currentIndex = viewModel.uiState.currentIndex
                     val nextIndex = (currentIndex + 1) % 26
                     navigateTo(nextIndex) { viewModel.next() }
+                },
+                onPractice = {
+                    navController.navigate(RouteNavigation.LetterPractice.route)
                 }
             )
         }

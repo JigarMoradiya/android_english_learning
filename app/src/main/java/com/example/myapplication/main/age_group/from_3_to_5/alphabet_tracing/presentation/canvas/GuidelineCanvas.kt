@@ -14,7 +14,8 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.vie
 
 @Composable
 fun GuidelineCanvas(
-    viewModel: AlphabetTracingViewModel
+    viewModel: AlphabetTracingViewModel,
+    lineAlphaFactor: Float = 1f
 ) {
 
     val uiState = viewModel.uiState
@@ -49,9 +50,9 @@ fun GuidelineCanvas(
 
                 drawLine(
                     color = if (i == 0 || i == 3)
-                        Color.Red.copy(alpha = 0.3f)
+                        Color.Red.copy(alpha = 0.3f * lineAlphaFactor)
                     else
-                        Color.Blue.copy(alpha = 0.2f),
+                        Color.Blue.copy(alpha = 0.2f * lineAlphaFactor),
                     start = Offset(0f, y),
                     end = Offset(size.width, y),
                     strokeWidth = 4f,
@@ -74,9 +75,9 @@ fun GuidelineCanvas(
 
                 drawLine(
                     color = if (i == 0 || i == 2)
-                        Color.Red.copy(alpha = 0.3f)
+                        Color.Red.copy(alpha = 0.3f * lineAlphaFactor)
                     else
-                        Color.Blue.copy(alpha = 0.2f),
+                        Color.Blue.copy(alpha = 0.2f * lineAlphaFactor),
                     start = Offset(0f, y),
                     end = Offset(size.width, y),
                     strokeWidth = 4f,

@@ -25,6 +25,7 @@ import com.example.myapplication.main.age_group.AgeGroup5to7Page
 import com.example.myapplication.main.age_group.AgeGroup6to8Page
 import com.example.myapplication.main.age_group.from_3_to_5.abcd_with_images.ABCDWithImagesPage
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.AlphabetTracingPage
+import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.LetterPracticePage
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
 import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.ArrangeLetterInSequencePage
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.ColoringAlphabetsPage
@@ -221,6 +222,9 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.AlphabetTracing.route) {
             AlphabetTracingPage(navController)
+        }
+        composable(RouteNavigation.LetterPractice.route) {
+            LetterPracticePage(navController)
         }
         composable(RouteNavigation.LetterRecognition.route) {
             LetterRecognitionPage(navController)

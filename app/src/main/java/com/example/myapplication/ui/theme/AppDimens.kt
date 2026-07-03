@@ -61,6 +61,7 @@ object AppDimens {
     val mixGrammarMediumBucketMinHeight = if(isLargeTablet) 200.dp else if (isTablet) 150.dp else 100.dp
 
     val AlphabetTracingLetterSize = if(isLargeTablet) 140.sp else if (isTablet) 120.sp else 90.sp
+    val AlphabetTracingArrowImageHeight = if(isLargeTablet) 156.dp else if (isTablet) 132.dp else 120.dp
     val LetterRecognitionLetterSize = if(isLargeTablet) 80.sp else if (isTablet) 60.sp else 40.sp
     val MatchWordTextSize = if(isLargeTablet) 24.sp else if (isTablet) 20.sp else 16.sp
     val ABCDWithImagesBigTextSize = if(isLargeTablet) 210.sp else if (isTablet) 180.sp else 120.sp

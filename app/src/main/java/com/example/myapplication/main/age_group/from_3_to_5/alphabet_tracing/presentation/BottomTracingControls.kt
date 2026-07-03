@@ -3,9 +3,11 @@ package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.pr
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,7 +25,8 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens8
 fun BottomTracingControls(
     onClear: () -> Unit,
     onPrevious: () -> Unit,
-    onNext: () -> Unit
+    onNext: () -> Unit,
+    onPractice: (() -> Unit)? = null
 ) {
     Row(
         modifier = Modifier.padding(start = DeviceInfo.screenHorizontalPadding(), end = Dimens16).padding(bottom = Dimens16,top = Dimens8),
@@ -45,6 +48,18 @@ fun BottomTracingControls(
             onClick = onClear,
             isSmall = true
         )
+
+        if (onPractice != null) {
+            Spacer(modifier = Modifier.width(Dimens16))
+
+            KidsActionButton(
+                text = stringResource(R.string.practice),
+                icon = Icons.Rounded.Edit,
+                type = ButtonType.GREEN,
+                onClick = onPractice,
+                isSmall = true
+            )
+        }
 
         Spacer(modifier = Modifier.weight(1f))
 
