@@ -1,8 +1,12 @@
 package com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -25,10 +29,13 @@ import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -44,10 +51,13 @@ import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.v
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.buttons.KidsActionButton
 import com.example.myapplication.main.common.getImageResForAlphabet
+import com.example.myapplication.main.common.getImageResForLetterArrow
 import com.example.myapplication.main.common.getImageResFromWord
+import com.example.myapplication.ui.theme.AppDimens.AlphabetTracingArrowImageHeight
+import com.example.myapplication.ui.theme.AppDimens.AlphabetTracingLetterSize
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
-import com.example.myapplication.ui.theme.AppDimens.Dimens40
+import com.example.myapplication.ui.theme.AppDimens.Dimens50
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.isLargeTablet
 import com.example.myapplication.ui.theme.AppDimens.isTablet
@@ -122,64 +132,124 @@ fun ColoringAlphabetsPage(
                 }
             }
 
-            // 🔥 MAIN CONTENT
-            Row(
+            // 🔥 MAIN CONTENT — canvas centered, letter/word centered in side spaces (same as letter tracing)
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
+                contentAlignment = Alignment.Center
             ) {
 
-                // 🟦 CANVAS CARD
-                BoxWithConstraints(
-                    contentAlignment = Alignment.Center
-                ) {
+                BoxWithConstraints {
 
-                    val minusExtraSpace = if(isLargeTablet) 100.dp else if (isTablet) 60.dp else 0.dp
+                    val minusExtraSpace = if (isLargeTablet) 100.dp else if (isTablet) 60.dp else 0.dp
                     val size = min(maxWidth - minusExtraSpace, maxHeight - minusExtraSpace)
 
-                    Box(
-                        modifier = Modifier
-                            .height(size).width(size + (size * 0.20f))
-                            .shadow(Dimens8, RoundedCornerShape(Dimens24))
-                            .background(Color(0xFFEFEFEF), RoundedCornerShape(Dimens24))
-                            .padding(Dimens16)
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        val res = getImageResForAlphabet(item.outlineImageName)
-                        ColoringCanvas(
-                            res = res ?: R.drawable.a_outline_c,
-                            outlineName = item.outlineImageName,
-                            strokes = state.strokes,
-                            viewModel = viewModel
+
+                        // LEFT — letter (image or text), tap to play phonics sound
+                        val phonicsColor by animateColorAsState(
+                            targetValue = if (viewModel.isPhonicsHighlighted) MaterialTheme.colorScheme.primary else Color(0xFF9E9E9E),
+                            animationSpec = tween(200),
+                            label = "phonicsColor"
                         )
-                    }
-                }
-
-                Spacer(modifier = Modifier.width(Dimens40))
-
-                // RIGHT SIDE (IMAGE + WORD)
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-
-                    val res = getImageResFromWord(item.word)
-                    res?.let {
-                        Image(
-                            painter = painterResource(id = res),
-                            contentDescription = null,
-                            contentScale = ContentScale.Fit,
-                            modifier = Modifier.fillMaxHeight(0.4f)
+                        val phonicsScale by animateFloatAsState(
+                            targetValue = if (viewModel.isPhonicsHighlighted) 1.2f else 1f,
+                            animationSpec = tween(200),
+                            label = "phonicsScale"
                         )
 
-                        Spacer(modifier = Modifier.height(Dimens16))
-                    }
+                        Box(
+                            modifier = Modifier.weight(1f).fillMaxHeight(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.clickable(
+                                    interactionSource = remember { MutableInteractionSource() },
+                                    indication = null
+                                ) { viewModel.playPhonicsSound() }
+                            ) {
+                                val arrowRes = getImageResForLetterArrow("${item.letter.lowercase()}_arrow")
+                                if (arrowRes != null) {
+                                    Image(
+                                        painter = painterResource(id = arrowRes),
+                                        contentDescription = item.letter,
+                                        contentScale = ContentScale.Fit,
+                                        modifier = Modifier.height(AlphabetTracingArrowImageHeight)
+                                    )
+                                } else {
+                                    Text(
+                                        text = item.letter,
+                                        color = Color.Black,
+                                        fontSize = AlphabetTracingLetterSize,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                }
+                                Box(
+                                    modifier = Modifier.height(Dimens50),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = viewModel.phonicsSound,
+                                        color = phonicsColor,
+                                        style = MaterialTheme.typography.bodyLarge.scaled(),
+                                        fontWeight = FontWeight.Bold,
+                                        modifier = Modifier.graphicsLayer(scaleX = phonicsScale, scaleY = phonicsScale)
+                                    )
+                                }
+                            }
+                        }
 
-                    Text(
-                        text = item.word,
-                        style = MaterialTheme.typography.headlineLarge.scaled(),
-                        fontWeight = FontWeight.Bold,
-                    )
+                        // 🟦 CANVAS CARD (fixed size, centered)
+                        Box(
+                            modifier = Modifier
+                                .height(size).width(size + (size * 0.20f))
+                                .shadow(Dimens8, RoundedCornerShape(Dimens24))
+                                .background(Color(0xFFEFEFEF), RoundedCornerShape(Dimens24))
+                                .padding(Dimens16)
+                        ) {
+                            val res = getImageResForAlphabet(item.outlineImageName)
+                            ColoringCanvas(
+                                res = res ?: R.drawable.a_outline_c,
+                                outlineName = item.outlineImageName,
+                                strokes = state.strokes,
+                                viewModel = viewModel
+                            )
+                        }
+
+                        // RIGHT SIDE (IMAGE + WORD)
+                        Box(
+                            modifier = Modifier.weight(1f).fillMaxHeight(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+
+                                val res = getImageResFromWord(item.word)
+                                res?.let {
+                                    Image(
+                                        painter = painterResource(id = res),
+                                        contentDescription = null,
+                                        contentScale = ContentScale.Fit,
+                                        modifier = Modifier.fillMaxHeight(0.4f)
+                                    )
+
+                                    Spacer(modifier = Modifier.height(Dimens16))
+                                }
+
+                                Text(
+                                    text = item.word,
+                                    style = MaterialTheme.typography.headlineLarge.scaled(),
+                                    fontWeight = FontWeight.Bold,
+                                )
+                            }
+                        }
+                    }
                 }
             }
 

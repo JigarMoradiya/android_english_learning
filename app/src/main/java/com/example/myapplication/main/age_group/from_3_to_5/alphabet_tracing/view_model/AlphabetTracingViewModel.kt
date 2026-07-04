@@ -139,7 +139,7 @@ class AlphabetTracingViewModel @Inject constructor(
     // -------------------------------
     // 🔊 PHONICS SOUND
     // -------------------------------
-    private fun playPhonicsSound() {
+    fun playPhonicsSound() {
         val letter = currentLetter.lowercaseChar()
         audioPhonicsManager.playPhonicsSound("phonics_letter/sound_$letter")
         isPhonicsHighlighted = true

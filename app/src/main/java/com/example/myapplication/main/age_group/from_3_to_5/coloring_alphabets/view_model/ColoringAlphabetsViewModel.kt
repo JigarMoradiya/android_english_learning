@@ -8,19 +8,24 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.data.progress.AgeGroup
 import com.example.myapplication.data.progress.LearningSession
 import com.example.myapplication.data.progress.SessionRepository
+import com.example.myapplication.utilities.AudioPhonicsManager
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @HiltViewModel
 class ColoringAlphabetsViewModel @Inject constructor(
     private val sessionRepository: SessionRepository,
-    private val prefs: AppPreferencesHelper
+    private val prefs: AppPreferencesHelper,
+    private val audioPhonicsManager: AudioPhonicsManager
 ) : ViewModel() {
 
     private val items = LetterRepository.colorAlphabets
@@ -38,6 +43,23 @@ class ColoringAlphabetsViewModel @Inject constructor(
     )
         private set
 
+    var isPhonicsHighlighted by mutableStateOf(false)
+        private set
+
+    val phonicsSound: String
+        get() = LetterRepository.all.getOrNull(uiState.currentIndex)
+            ?.phonicsSound?.split(" ")?.firstOrNull() ?: ""
+
+    fun playPhonicsSound() {
+        val letter = uiState.items[uiState.currentIndex].letter.lowercase()
+        audioPhonicsManager.playPhonicsSound("phonics_letter/sound_$letter")
+        isPhonicsHighlighted = true
+        viewModelScope.launch {
+            delay(1500)
+            isPhonicsHighlighted = false
+        }
+    }
+
     private var currentPoints = mutableListOf<Offset>()
     var currentStroke by mutableStateOf<List<Offset>>(emptyList())
         private set
@@ -47,6 +69,7 @@ class ColoringAlphabetsViewModel @Inject constructor(
     fun startStroke(point: Offset) {
         currentPoints = mutableListOf(point)
         currentStroke = listOf(point)
+        playPhonicsSound()
     }
 
     fun addPoint(point: Offset) {

@@ -1,16 +1,17 @@
 package com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -45,6 +46,7 @@ import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.AppDimens.Dimens40
 import com.example.myapplication.ui.theme.AppDimens.isLargeTablet
 import com.example.myapplication.ui.theme.AppDimens.isTablet
 import kotlinx.coroutines.launch
@@ -125,40 +127,45 @@ fun LetterPracticePage(
                 BoxWithConstraints {
 
                     val minusExtraSpace = if (isLargeTablet) 100.dp else if (isTablet) 60.dp else 0.dp
-                    val size = min(maxWidth - minusExtraSpace, maxHeight - minusExtraSpace)
+                    val gap = Dimens40
+                    // Cap so preview (0.45×) + gap + canvas always fit side by side
+                    val size = min(
+                        min(maxWidth - minusExtraSpace, maxHeight - minusExtraSpace),
+                        (maxWidth - gap) / 1.5f
+                    )
+                    val previewSize = size * 0.45f
 
+                    // Preview + canvas centered together as one group
                     Row(
                         modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
 
-                        // LEFT — auto-play tracing preview
+                        // Auto-play tracing preview
                         Box(
-                            modifier = Modifier.weight(1f).fillMaxHeight(),
+                            modifier = Modifier.size(previewSize),
                             contentAlignment = Alignment.Center
                         ) {
-                            Box(
-                                modifier = Modifier.fillMaxWidth(0.55f).aspectRatio(1f),
-                                contentAlignment = Alignment.Center
+                            Card(
+                                modifier = Modifier.fillMaxSize(),
+                                shape = RoundedCornerShape(Dimens16),
+                                elevation = CardDefaults.cardElevation(Dimens4),
+                                colors = CardDefaults.cardColors(containerColor = Color.White)
                             ) {
-                                Card(
-                                    modifier = Modifier.fillMaxSize(),
-                                    shape = RoundedCornerShape(Dimens16),
-                                    elevation = CardDefaults.cardElevation(Dimens4),
-                                    colors = CardDefaults.cardColors(containerColor = Color.White)
-                                ) {
-                                    GuidelineCanvas(viewModel, lineAlphaFactor = 0.2f)
-                                }
-                                AutoTracePreviewCanvas(
-                                    letter = viewModel.currentLetter,
-                                    mode = uiState.mode,
-                                    strokeColor = viewModel.getLetterColor(),
-                                    modifier = Modifier.fillMaxSize()
-                                )
+                                GuidelineCanvas(viewModel, lineAlphaFactor = 0.2f)
                             }
+                            AutoTracePreviewCanvas(
+                                letter = viewModel.currentLetter,
+                                mode = uiState.mode,
+                                strokeColor = viewModel.getLetterColor(),
+                                modifier = Modifier.fillMaxSize()
+                            )
                         }
 
-                        // CENTER — big free-draw canvas
+                        Spacer(modifier = Modifier.width(gap))
+
+                        // Big free-draw canvas
                         Box(
                             modifier = Modifier.size(size),
                             contentAlignment = Alignment.Center
@@ -177,7 +184,10 @@ fun LetterPracticePage(
                                 strokeColor = viewModel.getLetterColor(),
                                 finishedStrokes = finishedStrokes,
                                 currentStroke = currentStroke,
-                                onStrokeStart = { currentStroke = listOf(it) },
+                                onStrokeStart = {
+                                    currentStroke = listOf(it)
+                                    viewModel.playPhonicsSound()
+                                },
                                 onStrokeMove = { currentStroke = currentStroke + it },
                                 onStrokeEnd = {
                                     if (currentStroke.size > 1) {
@@ -188,9 +198,6 @@ fun LetterPracticePage(
                                 modifier = Modifier.fillMaxSize()
                             )
                         }
-
-                        // RIGHT — keeps the canvas centered like the tracing screen
-                        Box(modifier = Modifier.weight(1f))
                     }
                 }
             }
