@@ -188,7 +188,7 @@ class SpecialEndingsLearnViewModel @Inject constructor(
     }
 
     fun onEndingSoundTap(entry: SpecialEndingEntry) {
-        audioManager.playPhonicsSound("phonics_blend/${entry.ending}")
+        audioManager.playPhonicsSound("phonics_word/${entry.ending}")
     }
 
     fun stop() {

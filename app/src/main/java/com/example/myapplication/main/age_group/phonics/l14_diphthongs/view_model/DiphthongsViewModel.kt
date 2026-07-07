@@ -272,7 +272,8 @@ data class DiphthongsListenEntry(
     }
     fun segmentAudio(seg: Int): String = when (seg) {
         0    -> if (pre.isEmpty()) "" else "phonics_letter/sound_${pre[0]}"
-        1    -> "phonics_word/$diphthong"
+        // "ow" here is the /aʊ/ sound (cow) — ow.mp3 holds the vowel-team /ō/ (snow)
+        1    -> if (diphthong == "ow") "phonics_word/ow2" else "phonics_word/$diphthong"
         2    -> if (suf.isEmpty()) "" else "phonics_letter/sound_${suf[0]}"
         else -> "phonics_word/$word"
     }

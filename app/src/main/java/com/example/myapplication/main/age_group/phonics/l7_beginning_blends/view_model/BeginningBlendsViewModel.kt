@@ -271,7 +271,7 @@ class BeginningBlendsLearnViewModel @Inject constructor(
     }
 
     fun onBlendSoundTap(blend: BlendEntry) {
-        audioManager.playPhonicsSound("phonics_blend/${blend.blend}")
+        audioManager.playPhonicsSound("phonics_word/${blend.blend}")
     }
 
     fun stop() {

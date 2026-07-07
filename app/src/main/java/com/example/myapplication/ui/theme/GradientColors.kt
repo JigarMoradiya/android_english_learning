@@ -3,9 +3,8 @@ package com.example.myapplication.ui.theme
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
-val gradientBrushList = listOf(
-
-    // 🔴 solid (using gradient)
+// 🔴 solid (using gradient) — the "crayon" tray in the color rail
+val solidBrushList = listOf(
     Brush.linearGradient(listOf(Color(0xFFF44336),Color(0xFFF44336))),
     Brush.linearGradient(listOf(Color(0xFF9C27B0),Color(0xFF9C27B0))),
     Brush.linearGradient(listOf(Color(0xFF673AB7),Color(0xFF673AB7))),
@@ -16,8 +15,10 @@ val gradientBrushList = listOf(
     Brush.linearGradient(listOf(Color(0xFFFFEB3B),Color(0xFFFFEB3B))),
     Brush.linearGradient(listOf(Color(0xFFFF9800),Color(0xFFFF9800))),
     Brush.linearGradient(listOf(Color(0xFFFF5722),Color(0xFFFF5722))),
+)
 
-    // 🌈 real gradients
+// 🌈 real gradients — the "rainbow" tray in the color rail
+val realGradientBrushList = listOf(
     Brush.linearGradient(listOf(Color(0xFFFF0700), Color(0xFF5623B0))),
     Brush.linearGradient(listOf(Color(0xFF1F35B0), Color(0xFFD03066))),
     Brush.linearGradient(listOf(Color(0xFF3199F5), Color(0xFF08867B))),
@@ -25,6 +26,8 @@ val gradientBrushList = listOf(
     Brush.linearGradient(listOf(Color(0xFFFFEB3B), Color(0xFFFF5722))),
     Brush.linearGradient(listOf(Color(0xFF43A047), Color(0xFFFB8C00))),
 )
+
+val gradientBrushList = solidBrushList + realGradientBrushList
 val colorList = listOf(
     Color(0xFFF44336),
     Color(0xFFE91E63),

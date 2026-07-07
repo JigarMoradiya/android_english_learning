@@ -56,7 +56,7 @@ class LetterRecognitionViewModel @Inject constructor(
         if (speakToken != token) return
 
         val (fileName, segment) = when (step) {
-            0 -> "phonics_letter/$letterKey" to LetterRecognitionSegment.LETTER
+            0 -> "phonics_letter/letter_$letterKey" to LetterRecognitionSegment.LETTER
             1 -> "phonics_letter/says" to LetterRecognitionSegment.SAYS
             2 -> "phonics_letter/sound_$letterKey" to LetterRecognitionSegment.SOUND
             else -> {

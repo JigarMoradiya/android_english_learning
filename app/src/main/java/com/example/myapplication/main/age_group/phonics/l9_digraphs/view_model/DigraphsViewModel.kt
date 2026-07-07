@@ -192,7 +192,7 @@ class DigraphsLearnViewModel @Inject constructor(
     }
 
     fun onDigraphSoundTap(entry: DigraphEntry) {
-        audioManager.playPhonicsSound("phonics_blend/${entry.digraph}")
+        audioManager.playPhonicsSound("phonics_word/${entry.digraph}")
     }
 
     fun stop() {

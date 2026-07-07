@@ -64,11 +64,22 @@ class ColoringAlphabetsViewModel @Inject constructor(
     var currentStroke by mutableStateOf<List<Offset>>(emptyList())
         private set
 
+    // Fixed once per gesture in startStroke() — NOT derived from
+    // uiState.strokes.size at draw time. That reactive value changes the
+    // instant endStroke() appends the new stroke, so for a stray frame right
+    // at release the still-visible live stroke could redraw with the new
+    // (incremented) size while the just-committed stroke renders with the
+    // old one — two different random dot patterns stacked on top of each
+    // other, making the textured area look bigger than what was drawn.
+    var currentStrokeSeed: Int = 0
+        private set
+
     private val undoStack = mutableListOf<List<StrokeData>>()
     private val redoStack = mutableListOf<List<StrokeData>>()
     fun startStroke(point: Offset) {
         currentPoints = mutableListOf(point)
         currentStroke = listOf(point)
+        currentStrokeSeed = uiState.strokes.size
         if (!uiState.isEraser) {
             playPhonicsSound()
         }
@@ -91,7 +102,10 @@ class ColoringAlphabetsViewModel @Inject constructor(
                     points = currentPoints.toList(),
                     strokeWidth = uiState.strokeSize,
                     brush = uiState.selectedBrush,
-                    isEraser = uiState.isEraser
+                    style = if (uiState.isEraser) BrushTexture.FLAT else uiState.selectedStyle,
+                    isEraser = uiState.isEraser,
+                    // Same fixed seed the live stroke was drawn with.
+                    seed = currentStrokeSeed
                 )
             )
         }
@@ -165,9 +179,10 @@ class ColoringAlphabetsViewModel @Inject constructor(
             correctItems = visitedLetters.sorted()
         ))
     }
-    fun selectBrush(brush: Brush) {
+    fun selectBrush(brush: Brush, style: BrushTexture = BrushTexture.FLAT) {
         uiState = uiState.copy(
             selectedBrush = brush,
+            selectedStyle = style,
             isEraser = false
         )
     }

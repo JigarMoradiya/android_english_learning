@@ -34,11 +34,15 @@ enum class PhonicsListenLevelKey {
 data class ListenSegment(
     val id: String = UUID.randomUUID().toString(),
     val text: String,
-    val indices: List<Int>
+    val indices: List<Int>,
+    // Same spelling can carry two sounds (ow in snow vs cow) — override picks the file
+    // while the screen still displays `text`.
+    val audioOverride: String? = null
 ) {
     val audioFileName: String get() {
+        audioOverride?.let { return "phonics_word/$it" }
         val clean = text.replace("_", "")
-        return if (clean.length == 1) "phonics_letter/sound_$clean" else "phonics_blend/$clean"
+        return if (clean.length == 1) "phonics_letter/sound_$clean" else "phonics_word/$clean"
     }
 }
 
@@ -70,7 +74,7 @@ data class PhonicsListenUiState(
 
 // ── Builder helpers ───────────────────────────────────────────────────────────
 
-private fun s(text: String, indices: List<Int>) = ListenSegment(text = text, indices = indices)
+private fun s(text: String, indices: List<Int>, audio: String? = null) = ListenSegment(text = text, indices = indices, audioOverride = audio)
 private fun w(word: String, segs: List<ListenSegment>) = ListenWord(word = word, segments = segs)
 
 // ── All Level Configs ─────────────────────────────────────────────────────────
@@ -531,11 +535,11 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("found", listOf(s("f",  listOf(0)),    s("ou", listOf(1,2)), s("n",  listOf(3)),   s("d", listOf(4)))),
             w("mouth", listOf(s("m",  listOf(0)),    s("ou", listOf(1,2)), s("th", listOf(3,4)))),
             // /aʊ/ — ow
-            w("cow",   listOf(s("c",  listOf(0)),    s("ow", listOf(1,2)))),
-            w("now",   listOf(s("n",  listOf(0)),    s("ow", listOf(1,2)))),
-            w("down",  listOf(s("d",  listOf(0)),    s("ow", listOf(1,2)), s("n",  listOf(3)))),
-            w("town",  listOf(s("t",  listOf(0)),    s("ow", listOf(1,2)), s("n",  listOf(3)))),
-            w("brown", listOf(s("b",  listOf(0)),    s("r",  listOf(1)),   s("ow", listOf(2,3)), s("n", listOf(4)))),
+            w("cow",   listOf(s("c",  listOf(0)),    s("ow", listOf(1,2), audio = "ow2"))),
+            w("now",   listOf(s("n",  listOf(0)),    s("ow", listOf(1,2), audio = "ow2"))),
+            w("down",  listOf(s("d",  listOf(0)),    s("ow", listOf(1,2), audio = "ow2"), s("n",  listOf(3)))),
+            w("town",  listOf(s("t",  listOf(0)),    s("ow", listOf(1,2), audio = "ow2"), s("n",  listOf(3)))),
+            w("brown", listOf(s("b",  listOf(0)),    s("r",  listOf(1)),   s("ow", listOf(2,3), audio = "ow2"), s("n", listOf(4)))),
             // /ɔː/ — au
             w("haul",  listOf(s("h",  listOf(0)),    s("au", listOf(1,2)), s("l",  listOf(3)))),
             w("cause", listOf(s("c",  listOf(0)),    s("au", listOf(1,2)), s("s",  listOf(3)), s("e", listOf(4)))),
@@ -1022,7 +1026,12 @@ class PhonicsListenViewModel @Inject constructor(
 
     fun startAutoPlay() {
         if (uiState.isPlaying) return
-        uiState = uiState.copy(isPlaying = true, isAutoMode = true)
+        autoPlayJob?.cancel()
+        // Fresh run every time (matches iOS): clear highlights and replay from the first segment
+        uiState = uiState.copy(
+            isPlaying = true, isAutoMode = true,
+            segmentIndex = -1, playedSegments = emptySet(), wordDone = false
+        )
         autoPlayJob = viewModelScope.launch {
             if (currentWordUsesFallback) {
                 uiState = uiState.copy(segmentIndex = 0)
@@ -1035,7 +1044,6 @@ class PhonicsListenViewModel @Inject constructor(
             }
             val word = currentWord
             for (segIdx in word.segments.indices) {
-                if (uiState.playedSegments.contains(segIdx)) continue
                 uiState = uiState.copy(segmentIndex = segIdx, playedSegments = uiState.playedSegments + segIdx)
                 suspendCancellableCoroutine { cont ->
                     audioManager.playPhonicsSound(word.segments[segIdx].audioFileName)
