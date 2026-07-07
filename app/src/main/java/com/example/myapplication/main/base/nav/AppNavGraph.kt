@@ -113,6 +113,12 @@ import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.BlankPosi
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankLettersPage
 import com.example.myapplication.main.age_group.from_3_to_5.fill_blank.FillBlankSetupScreen
 import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.LetterRecognitionPage
+import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.LetterRecognitionHubPage
+import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.mirror_letters.MirrorLetterPair
+import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.mirror_letters.MirrorLettersIntroPage
+import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.mirror_letters.MirrorLettersPickerPage
+import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.mirror_letters.MirrorLettersPracticePage
+import com.example.myapplication.main.age_group.from_3_to_5.letter_recognition.speed_game.LetterSpeedGamePage
 import com.example.myapplication.main.age_group.from_3_to_5.match_latters.MatchLettersPage
 import com.example.myapplication.main.age_group.from_3_to_5.match_letter_with_image.MatchLetterWithImagePage
 import com.example.myapplication.main.age_group.from_3_to_5.missing_letter.MissingLetterPage35
@@ -227,7 +233,30 @@ fun AppNavGraph(navController: NavHostController) {
             LetterPracticePage(navController)
         }
         composable(RouteNavigation.LetterRecognition.route) {
+            LetterRecognitionHubPage(navController)
+        }
+        composable(RouteNavigation.LetterRecognitionExplore.route) {
             LetterRecognitionPage(navController)
+        }
+        composable(RouteNavigation.MirrorLettersPicker.route) {
+            MirrorLettersPickerPage(navController)
+        }
+        composable(
+            route = RouteNavigation.MirrorLettersIntro.route,
+            arguments = listOf(navArgument("pair") { type = NavType.StringType })
+        ) { back ->
+            val pair = MirrorLetterPair.valueOf(back.arguments?.getString("pair") ?: MirrorLetterPair.BD.name)
+            MirrorLettersIntroPage(navController, pair)
+        }
+        composable(
+            route = RouteNavigation.MirrorLettersPractice.route,
+            arguments = listOf(navArgument("pair") { type = NavType.StringType })
+        ) { back ->
+            val pair = MirrorLetterPair.valueOf(back.arguments?.getString("pair") ?: MirrorLetterPair.BD.name)
+            MirrorLettersPracticePage(navController, pair)
+        }
+        composable(RouteNavigation.LetterSpeedGame.route) {
+            LetterSpeedGamePage(navController)
         }
         composable(RouteNavigation.ABCDWithImages.route) {
             ABCDWithImagesPage(navController)

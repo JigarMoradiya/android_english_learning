@@ -16,6 +16,8 @@ object ModuleID {
     const val ARRANGE_LETTER_SEQUENCE   = "arrange_letter_sequence"
     const val MISSING_LETTER            = "missing_letter"
     const val DRAG_DROP_LETTERS         = "drag_drop_letters"
+    const val LETTER_CONFUSION          = "letter_confusion"    // b/d, p/q, m/w, n/u mirror-letters activity
+    const val LETTER_SPEED_GAME         = "letter_speed_game"   // timed "find the letter fast" game
 
     // ── Age 5–7: Word Adventure ───────────────────────────────────────
     const val PHONICS_READING        = "phonics_reading"

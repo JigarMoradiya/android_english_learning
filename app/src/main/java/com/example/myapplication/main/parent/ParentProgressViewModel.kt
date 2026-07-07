@@ -254,6 +254,8 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.ABCD_WITH_IMAGES        -> RouteNavigation.ABCDWithImages.route
             ModuleID.COLORING_ALPHABETS      -> RouteNavigation.ColoringAlphabets.route
             ModuleID.LETTER_RECOGNITION      -> RouteNavigation.LetterRecognition.route
+            ModuleID.LETTER_CONFUSION        -> RouteNavigation.MirrorLettersPicker.route
+            ModuleID.LETTER_SPEED_GAME       -> RouteNavigation.LetterSpeedGame.route
             ModuleID.LETTER_PHONICS          -> RouteNavigation.LetterPhonicsSoundRoute.route
             ModuleID.MATCH_UPPER_LOWER       -> RouteNavigation.MatchLetters.route
             ModuleID.MATCH_LETTER_WITH_IMAGE -> RouteNavigation.MatchLetterWithImage.route
@@ -747,6 +749,8 @@ class ParentProgressViewModel @Inject constructor(
         addIfNeeded(ModuleID.ABCD_WITH_IMAGES,        "ABCD with Images")
         addIfNeeded(ModuleID.COLORING_ALPHABETS,      "Coloring Alphabets")
         addIfNeeded(ModuleID.LETTER_RECOGNITION,      "Letter Recognition")
+        addIfNeeded(ModuleID.LETTER_CONFUSION,        "Tricky Twins")
+        addIfNeeded(ModuleID.LETTER_SPEED_GAME,       "Speed Round")
         addIfNeeded(ModuleID.LETTER_PHONICS,          "Letter Phonics")
 
         sessions.filter { it.moduleId == ModuleID.ALPHABET_TRACING }
@@ -953,6 +957,7 @@ class ParentProgressViewModel @Inject constructor(
 
         addIfNeeded(ModuleID.MATCH_UPPER_LOWER,       "Match Letters")
         addIfNeeded(ModuleID.MATCH_LETTER_WITH_IMAGE, "Match with Image")
+        addIfNeeded(ModuleID.LETTER_SPEED_GAME,       "Speed Round")
 
         val fbSessions = sessions.filter { it.moduleId == ModuleID.FILL_THE_BLANK_LETTER }
         fbSessions.groupBy { it.subConfig ?: "?" }.forEach { (config, cfgSessions) ->
@@ -1135,6 +1140,8 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.ABCD_WITH_IMAGES        to ("ABCD with Images"     to "3–5"),
             ModuleID.COLORING_ALPHABETS      to ("Coloring Alphabets"   to "3–5"),
             ModuleID.LETTER_RECOGNITION      to ("Letter Recognition"   to "3–5"),
+            ModuleID.LETTER_CONFUSION        to ("Tricky Twins"         to "3–5"),
+            ModuleID.LETTER_SPEED_GAME       to ("Speed Round"          to "3–5"),
             ModuleID.LETTER_PHONICS          to ("Letter Phonics Sound" to "3–5"),
             ModuleID.MATCH_UPPER_LOWER       to ("Match Letters"        to "3–5"),
             ModuleID.MATCH_LETTER_WITH_IMAGE to ("Match with Image"     to "3–5"),
@@ -1181,6 +1188,8 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.MATCH_LETTER_WITH_IMAGE to RouteNavigation.MatchLetterWithImage.route,
             ModuleID.ALPHABET_TRACING        to RouteNavigation.AlphabetTracing.route,
             ModuleID.LETTER_RECOGNITION      to RouteNavigation.LetterRecognition.route,
+            ModuleID.LETTER_CONFUSION        to RouteNavigation.MirrorLettersPicker.route,
+            ModuleID.LETTER_SPEED_GAME       to RouteNavigation.LetterSpeedGame.route,
             ModuleID.LETTER_PHONICS          to RouteNavigation.LetterPhonicsSoundRoute.route,
             ModuleID.COLORING_ALPHABETS      to RouteNavigation.ColoringAlphabets.route,
             ModuleID.ABCD_WITH_IMAGES        to RouteNavigation.ABCDWithImages.route,

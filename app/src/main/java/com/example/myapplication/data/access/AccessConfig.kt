@@ -17,6 +17,8 @@ object AccessConfig {
     val modules: Map<String, ModuleAccess> = mapOf(
         ModuleID.ABCD_WITH_IMAGES to ModuleAccess(moduleId = ModuleID.ABCD_WITH_IMAGES, accessLevel = FREE),
         ModuleID.LETTER_RECOGNITION to ModuleAccess(moduleId = ModuleID.LETTER_RECOGNITION, accessLevel = FREE),
+        ModuleID.LETTER_CONFUSION to ModuleAccess(moduleId = ModuleID.LETTER_CONFUSION, accessLevel = FREE),
+        ModuleID.LETTER_SPEED_GAME to ModuleAccess(moduleId = ModuleID.LETTER_SPEED_GAME, accessLevel = FREE),
         ModuleID.LETTER_PHONICS to ModuleAccess(moduleId = ModuleID.LETTER_PHONICS, accessLevel = FREE),
         ModuleID.LETTER_PHONICS_KZ to ModuleAccess(moduleId = ModuleID.LETTER_PHONICS_KZ, accessLevel = LOGIN_REQUIRED),
         ModuleID.ALPHABET_TRACING to ModuleAccess(moduleId = ModuleID.ALPHABET_TRACING, accessLevel = FREE),

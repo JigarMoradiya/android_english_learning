@@ -9,17 +9,15 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.LetterMode
-import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.view_model.AlphabetTracingViewModel
 
 
 @Composable
 fun GuidelineCanvas(
-    viewModel: AlphabetTracingViewModel,
+    mode: LetterMode,
     lineAlphaFactor: Float = 1f
 ) {
 
-    val uiState = viewModel.uiState
-    val isLowercase = uiState.mode == LetterMode.LOWERCASE
+    val isLowercase = mode == LetterMode.LOWERCASE
 
     Canvas(modifier = Modifier.fillMaxSize()) {
 

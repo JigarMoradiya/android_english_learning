@@ -159,7 +159,7 @@ fun CenterTracingView(
             elevation = CardDefaults.cardElevation(Dimens4),
             colors = CardDefaults.cardColors(containerColor = Color.White)
         ) {
-            GuidelineCanvas(viewModel)
+            GuidelineCanvas(viewModel.uiState.mode)
         }
 
         TracingCanvas(viewModel)

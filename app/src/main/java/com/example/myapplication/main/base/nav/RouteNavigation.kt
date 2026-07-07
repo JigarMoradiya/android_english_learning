@@ -10,6 +10,15 @@ sealed class RouteNavigation(val route: String) {
     object AlphabetTracing : RouteNavigation("AlphabetTracing")
     object LetterPractice : RouteNavigation("LetterPractice")
     object LetterRecognition : RouteNavigation("LetterRecognition")
+    object LetterRecognitionExplore : RouteNavigation("LetterRecognitionExplore")
+    object MirrorLettersPicker : RouteNavigation("MirrorLettersPicker")
+    object MirrorLettersIntro : RouteNavigation("MirrorLettersIntro/{pair}") {
+        fun createRoute(pair: String) = "MirrorLettersIntro/$pair"
+    }
+    object MirrorLettersPractice : RouteNavigation("MirrorLettersPractice/{pair}") {
+        fun createRoute(pair: String) = "MirrorLettersPractice/$pair"
+    }
+    object LetterSpeedGame : RouteNavigation("LetterSpeedGame")
     object ABCDWithImages : RouteNavigation("ABCDWithImages")
     object MatchLetters : RouteNavigation("MatchLetters")
     object FillTheBlankLetters : RouteNavigation("FillTheBlankLetters")
