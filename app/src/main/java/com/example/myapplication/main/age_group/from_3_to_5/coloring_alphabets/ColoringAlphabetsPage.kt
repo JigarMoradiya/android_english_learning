@@ -23,8 +23,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.rounded.Redo
 import androidx.compose.material.icons.automirrored.rounded.Undo
+import androidx.compose.material.icons.filled.AutoFixHigh
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -45,8 +48,10 @@ import androidx.compose.ui.unit.min
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
+import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.components.ColoringBottomControls
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.components.ColoringCanvas
+import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.components.LetterPickerRow
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.view_model.ColoringAlphabetsViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.buttons.KidsActionButton
@@ -128,6 +133,16 @@ fun ColoringAlphabetsPage(
                         type = ButtonType.BLUE,
                         onClick = { viewModel.clear() },
                         isSmall = true
+                    )
+
+                    Spacer(modifier = Modifier.width(Dimens8))
+
+                    KidsActionButton(
+                        text = stringResource(R.string.eraser),
+                        icon = Icons.Default.AutoFixHigh,
+                        type = ButtonType.RED,
+                        onClick = { viewModel.selectEraser() },
+                        isSmall = !state.isEraser
                     )
                 }
             }
@@ -253,12 +268,48 @@ fun ColoringAlphabetsPage(
                 }
             }
 
+            Spacer(modifier = Modifier.height(Dimens8))
+
+            // Previous / A-Z picker / Next — one small strip
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = DeviceInfo.screenHorizontalPadding()),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                KidsActionButton(
+                    text = stringResource(R.string.previous),
+                    icon = Icons.AutoMirrored.Rounded.KeyboardArrowLeft,
+                    type = ButtonType.ORANGE,
+                    onClick = { viewModel.previous() },
+                    isSmall = true
+                )
+
+                Spacer(modifier = Modifier.width(Dimens8))
+
+                Box(modifier = Modifier.weight(1f)) {
+                    LetterPickerRow(
+                        items = state.items,
+                        currentIndex = state.currentIndex,
+                        onSelect = { viewModel.jumpToLetter(it) }
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(Dimens8))
+
+                KidsActionButton(
+                    text = stringResource(R.string.next),
+                    icon = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
+                    type = ButtonType.ORANGE,
+                    onClick = { viewModel.next() },
+                    isSmall = true,
+                    isIconStart = false
+                )
+            }
+
             ColoringBottomControls(
                 state = state,
-                onPrevious = { viewModel.previous() },
-                onNext = { viewModel.next() },
-                onBrushSelect = { viewModel.selectBrush(it) }, // ✅ updated
-                onEraserSelect = { viewModel.selectEraser() }
+                onBrushSelect = { viewModel.selectBrush(it) }
             )
         }
     }

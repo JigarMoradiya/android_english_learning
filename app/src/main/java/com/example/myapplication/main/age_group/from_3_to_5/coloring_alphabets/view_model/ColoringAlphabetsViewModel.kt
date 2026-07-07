@@ -69,7 +69,9 @@ class ColoringAlphabetsViewModel @Inject constructor(
     fun startStroke(point: Offset) {
         currentPoints = mutableListOf(point)
         currentStroke = listOf(point)
-        playPhonicsSound()
+        if (!uiState.isEraser) {
+            playPhonicsSound()
+        }
     }
 
     fun addPoint(point: Offset) {
@@ -128,19 +130,26 @@ class ColoringAlphabetsViewModel @Inject constructor(
         uiState = uiState.copy(strokes = emptyList())
     }
     fun next() {
-        val next = (uiState.currentIndex + 1) % items.size
-        undoStack.clear()
-        redoStack.clear()
-        uiState = uiState.copy(currentIndex = next, strokes = emptyList())
-        prefs.setCustomParamInt("coloring_index", next)
+        goToIndex((uiState.currentIndex + 1) % items.size)
     }
 
     fun previous() {
-        val prev = if (uiState.currentIndex == 0) items.lastIndex else uiState.currentIndex - 1
+        goToIndex(if (uiState.currentIndex == 0) items.lastIndex else uiState.currentIndex - 1)
+    }
+
+    // Jumping straight to a letter (from the A-Z picker) behaves exactly
+    // like Next/Previous — coloring progress was never persisted per-letter
+    // to begin with, so there's nothing extra to preserve or discard.
+    fun jumpToLetter(index: Int) {
+        if (index == uiState.currentIndex || index !in items.indices) return
+        goToIndex(index)
+    }
+
+    private fun goToIndex(index: Int) {
         undoStack.clear()
         redoStack.clear()
-        uiState = uiState.copy(currentIndex = prev, strokes = emptyList())
-        prefs.setCustomParamInt("coloring_index", prev)
+        uiState = uiState.copy(currentIndex = index, strokes = emptyList())
+        prefs.setCustomParamInt("coloring_index", index)
     }
 
     override fun onCleared() {
