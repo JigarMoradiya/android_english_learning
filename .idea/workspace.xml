@@ -101,26 +101,801 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="working on coloring alphabets, audio files adding">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="audio play bug fixes">
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/able.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/act.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/action.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/age.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/agree.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/air.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/airplane.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/align.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ap.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/appear.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/apple.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ar.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/arent.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/arm.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/art.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/baby.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/backpack.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bake.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/baked.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bark.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/barn.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bas.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/base.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/baseball.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/basket.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/basketball.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bath.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bathroom.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/battle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/because.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bed.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bedroom.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bee.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bigger.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/biggest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bird.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/birth.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/birthday.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ble.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bluebird.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/board.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/body.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bomb.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/book.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bookcase.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/born.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bottle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bought.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bow.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/box.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/braver.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bravest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bright.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/brit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/brittle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/brought.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bub.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bubble.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/build.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bumble.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bumblebee.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/burn.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/burst.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/butter.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/butterfly.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ca.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cabin.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cable.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cage.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/calm.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cam.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/camel.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/candle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/candy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cant.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/car.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/care.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/careful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/careless.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/case.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/case_1.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/catfish.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cattle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/caught.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cell.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cent.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cereal.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cinema.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/circle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/city.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/clapped.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/class.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/classroom.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cleaned.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cleaner.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cleanest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/clear.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/climb.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/close.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/closing.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cold.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/colder.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/coldest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/collect.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/collection.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/color.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/colorful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/comb.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/come.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/comfort.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/connect.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/connection.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cook.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cooked.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cooking.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cool.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cooler.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/coolest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cord.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/corn.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/correct.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/correction.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cou.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cough.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/could.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/couldnt.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/couple.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cover.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cover_2.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cozy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/crumb.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/crypt.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cupboard.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cupcake.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/curl.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cuter.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cutest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cutting.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cycle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dance.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/danced.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dancing.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dark.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/darkness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/deep.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/deeper.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/deepest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dentist.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/der.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/design.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dice.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/did.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/didnt.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dim.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dimple.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/direct.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/direction.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dirt.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/disagree.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/disappear.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/discomfort.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/disconnect.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/discover.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dishonest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dislike.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/disobey.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/disorder.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/distrust.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/do_2.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/does.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/doesnt.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/done.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dont.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/door.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/doorbell.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dough.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dragon.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dragonfly.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/drib.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dribble.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dropped.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/e.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/eagle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/earth.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/earthworm.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/easiness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/easy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ed.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/el.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/elect.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/election.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/end.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/enough.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/er.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/et.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/even.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fa.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fable.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/face.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fair.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fall.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/farm.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/faster.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fastest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fear.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fearless.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fern.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fight.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fill.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fin.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/firefly.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fireplace.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/firm.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/first.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fitter.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fittest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/flake.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/flight.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/foot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/football.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/for.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fork.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fort.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/friend.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fry.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/funny.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fur.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/game.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gap.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gem.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gen.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gentle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ger.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/germ.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/get.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/getting.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gh.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/giant.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gig.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/giggle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ginger.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/giraffe.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/girl.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/give.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/giving.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gnat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gnaw.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gnome.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gob.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gobble.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/good.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/goodness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/grace.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gum.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gym.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/han.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/handle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hap.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/happen.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/happiness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/happy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hard.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/harm.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/harmless.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/have.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hear.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/heat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/heat_2.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/heaviness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/heavy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hed.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hell.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/help.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/helpful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/helpless.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/her.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/herd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hes.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/high.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/honest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hop.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hoped.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hopeful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hopeless.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hopped.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hopping.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/horn.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hotter.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hottest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hurt.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hymn.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/i.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ice.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/id.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/igh.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ill.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/im.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ing.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/inject.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/injection.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ir.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/is.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/isnt.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/itll.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/its.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ive.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/jar.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/joyful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/jumped.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/jumping.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/jun.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/jungle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ket.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kin.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kindness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kitten.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/knack.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/knee.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kneel.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/knife.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/knight.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/knit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/knock.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/knot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/know.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lady.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ladybug.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lamb.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/late.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/later.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/latest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/laugh.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/laziness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lazy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lead.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lem.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lemon.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lent.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/less.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/light.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/like.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/limb.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/little.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ll.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lock.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/loudness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/love.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/loved.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lynx.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/m.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mailbox.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/make.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/making.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/maple.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mel.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/melon.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mice.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mid.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/middle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/might.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/miscount.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mishear.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/misjudge.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mislead.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mismatch.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/misplace.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/misread.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/misspell.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mistake.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/misuse.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mix.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/moonlight.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/move.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/moved.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mu.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/muf.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/muffin.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/music.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/myth.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/nap.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/napkin.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/nic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/nice.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/nicer.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/nicest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/night.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/noble.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/noo.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/noodle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/notebook.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/numb.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/nurse.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/nymph.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/obey.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/of.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/on.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/once.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/one.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/open.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/or.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/orange.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/order.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pa.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/page.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/paint.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/paper.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/park.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pay.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/peace.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/peaceful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/people.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/per.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pi.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/picnic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pillow.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pillowcase.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pilot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/place.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/plane.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/planet.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/planned.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/played.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/playful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/playground.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/playing.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ple.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/power.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/powerful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/precook.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pregame.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/preheat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/premix.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/prepay.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/preplan.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/preschool.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pretest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/preview.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/prewash.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/protect.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/protection.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pud.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/puddle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/puppy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pur.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/purple.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pygmy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rab.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rabbit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rainbow.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/raindrop.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rained.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rattle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/react.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/reaction.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/read_2.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/readiness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/reading.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ready.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rebuild.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/redo.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/refill.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/reheat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/reign.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/reopen.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/repaint.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/replay.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/reread.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/reuse.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rewrite.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rid.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/riddle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/riding.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/right.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rip.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ripple.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/riv.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/river.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ro.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rob.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/robin.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/robot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/room.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rough.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/running.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/s.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sad.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sadder.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/saddest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sadness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/safe.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/safer.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/safest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/said.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sam.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sample.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/school.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/scramble.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/scrap.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/scratch.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/scream.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/screen.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/scroll.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/seahorse.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/seashell.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/select.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/selection.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/serve.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/set.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/settle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sev.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/seven.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/shes.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/shopping.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/short.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/shouldnt.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sick.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sickness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sigh.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sight.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sign.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/silent.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/silliness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/silly.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sim.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/simple.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sin.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/single.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sir.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sitting.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sleeping.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/slight.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/smarter.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/smartest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/smiled.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/snowflake.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/softer.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/softest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/softness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/some.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sort.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/speech.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/speechless.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/spell.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/spi.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/spider.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/splash.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/splat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/splendid.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/splinter.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/split.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/spray.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/spread.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/spring.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sprinkle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sprint.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sprout.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/spy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sta.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stable.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stage.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/staircase.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/starfish.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/starlight.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stern.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stopped.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/storm.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/strange.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stream.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/street.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/strike.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/string.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/strip.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stripe.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sunflower.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sunny.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sunset.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/surf.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/swimming.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ta.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/table.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/take.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/talk.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/talked.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/talking.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/taller.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tallest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/taught.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tem.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/temple.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ter.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/term.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/test.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thank.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thankful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thatll.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thats.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/theres.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/they.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/theyd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/theyll.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/theyre.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/theyve.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thinner.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thinnest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/third.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/though.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thought.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thoughtless.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thread.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/threw.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thrill.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/throat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/through.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/throw.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thunder.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thunderstorm.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ti.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tiger.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tight.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tiny.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tist.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/title.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tomb.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tooth.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/toothbrush.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tough.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tri.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/triple.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/trust.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/try.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tur.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/turn.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/turtle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/two.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/unclear.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/uncover.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/undo.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/unfair.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/unhappy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/unkind.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/unlock.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/unpack.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/unwrap.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ur.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/use.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/useless.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ve.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ven.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/verb.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/view.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wag.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wagon.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/walk.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/walked.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/walking.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/was.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wash.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/water.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/waterfall.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/weak.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/weakness.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wed.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/well.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/were.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/weve.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/where.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/who.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/whos.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/why.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wide.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wider.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/widest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/windy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/winter.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wo.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wob.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wobble.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wonder.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wonderful.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wont.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/worm.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/worn.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/worth.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/worthless.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wouldnt.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wrap.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wreck.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wren.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wrestle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wrinkle.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wrist.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/write.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/writing.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wrong.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/wrote.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/yard.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/you.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/youd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/youll.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/your.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/youre.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l13_vowel_teams/view_model/VowelTeamsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l13_vowel_teams/view_model/VowelTeamsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l16_igh_gh/view_model/IghGhViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l16_igh_gh/view_model/IghGhViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l17_y_as_vowel/view_model/YAsVowelViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l17_y_as_vowel/view_model/YAsVowelViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l18_three_letter_blends/view_model/ThreeLetterBlendsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l18_three_letter_blends/view_model/ThreeLetterBlendsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l19_soft_c_soft_g/view_model/SoftCSoftGViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l19_soft_c_soft_g/view_model/SoftCSoftGViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l20_silent_letters/view_model/SilentLettersViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l20_silent_letters/view_model/SilentLettersViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l21_word_endings/view_model/WordEndingsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l21_word_endings/view_model/WordEndingsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l22_prefixes/view_model/PrefixesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l22_prefixes/view_model/PrefixesViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l23_suffixes/view_model/SuffixesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l23_suffixes/view_model/SuffixesViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l24_contractions/view_model/ContractionsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l24_contractions/view_model/ContractionsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l25_consonant_le/view_model/ConsonantLeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l25_consonant_le/view_model/ConsonantLeViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l27_syllable_division/view_model/SyllableDivisionViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l27_syllable_division/view_model/SyllableDivisionViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l28_sight_words/view_model/StarWordsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l28_sight_words/view_model/StarWordsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/theme/GradientColors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/theme/GradientColors.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utilities/AudioPhonicsManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utilities/AudioPhonicsManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ba.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ba.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/back.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/back.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bell.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bell.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/big.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/big.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bit.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bit.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/blue.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/blue.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/brave.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/brave.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/brush.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/brush.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bug.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bug.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/by.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/by.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cab.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cab.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/can.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/can.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/clap.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/clap.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/clean.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/clean.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/coat.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/coat.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/count.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/count.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cry.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cry.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cup.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cup.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cut.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cut.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cute.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/cute.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/den.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/den.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/do.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/do.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/drag.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/drag.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/drop.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/drop.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dry.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dry.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ea.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ea.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/en.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/en.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fast.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fast.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fit.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fit.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fly.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fly.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/got.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/got.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/he.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/he.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hope.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hope.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hot.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/hot.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/in.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/in.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/joy.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/joy.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/judge.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/judge.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/jump.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/jump.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kind.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kind.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kit.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kit.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lot.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lot.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/loud.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/loud.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ma.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ma.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mail.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mail.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/match.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/match.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/my.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/my.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/no.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/no.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/note.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/note.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/nt.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/nt.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pack.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pack.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/plan.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/plan.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/play.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/play.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rain.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rain.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rat.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/rat.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/read.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/read.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ride.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ride.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/run.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/run.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/she.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/she.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/shed.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/shed.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/shell.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/shell.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/shop.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/shop.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/si.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/si.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sit.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sit.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sky.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sky.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sleep.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sleep.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/smart.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/smart.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/smile.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/smile.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/snow.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/snow.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/soft.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/soft.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/star.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/star.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stir.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stir.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stop.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/stop.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/swim.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/swim.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tall.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tall.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ten.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ten.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thin.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thin.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/three.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/three.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thumb.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/thumb.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/we.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/we.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/what.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/what.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -510,14 +1285,6 @@
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
     </task>
-    <task id="LOCAL-00182" summary="parent report done for age 6-8">
-      <option name="closed" value="true" />
-      <created>1779982926097</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1779982926097</updated>
-    </task>
     <task id="LOCAL-00183" summary="add loading on loading sentences">
       <option name="closed" value="true" />
       <created>1779985245743</created>
@@ -902,7 +1669,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783427202783</updated>
     </task>
-    <option name="localTasksCounter" value="231" />
+    <task id="LOCAL-00231" summary="audio play bug fixes">
+      <option name="closed" value="true" />
+      <created>1783480310687</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1783480310687</updated>
+    </task>
+    <option name="localTasksCounter" value="232" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -917,7 +1692,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="setting ui change" />
     <MESSAGE value="age menu list change for tablet" />
     <MESSAGE value="force update" />
     <MESSAGE value="dev mode changes" />
@@ -942,7 +1716,8 @@
     <MESSAGE value="letter recognition letter speed game" />
     <MESSAGE value="working on coloring alphabets" />
     <MESSAGE value="working on coloring alphabets, audio files adding" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on coloring alphabets, audio files adding" />
+    <MESSAGE value="audio play bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="audio play bug fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

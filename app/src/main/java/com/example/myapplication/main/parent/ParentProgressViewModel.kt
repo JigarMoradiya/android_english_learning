@@ -1,6 +1,8 @@
 package com.example.myapplication.main.parent
 
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
@@ -74,22 +76,22 @@ class ParentProgressViewModel @Inject constructor(
     private val reviewManager: ReviewManager
 ) : ViewModel() {
 
-    var weekOffset by mutableStateOf(0)
+    var weekOffset by mutableIntStateOf(0)
         private set
 
     // null = whole week; 0–6 = Mon–Sun filter
     var selectedDayIndex by mutableStateOf<Int?>(null)
         private set
 
-    var currentStreak by mutableStateOf(0)
+    var currentStreak by mutableIntStateOf(0)
         private set
-    var bestStreak by mutableStateOf(0)
+    var bestStreak by mutableIntStateOf(0)
         private set
-    var weeklySessionCount by mutableStateOf(0)
+    var weeklySessionCount by mutableIntStateOf(0)
         private set
-    var weeklyDurationSeconds by mutableStateOf(0)
+    var weeklyDurationSeconds by mutableIntStateOf(0)
         private set
-    var weeklyAccuracy by mutableStateOf(0.0)
+    var weeklyAccuracy by mutableDoubleStateOf(0.0)
         private set
     var activeDays by mutableStateOf(List(7) { false })
         private set
