@@ -187,7 +187,7 @@ class VowelTeamsPracticeViewModel @Inject constructor(
         uiState = uiState.copy(selectedAnswer = answer, isCorrect = correct)
         if (correct) {
             uiState = uiState.copy(score = uiState.score + 1)
-            audioManager.playPhonicsSound(q.word)
+            audioManager.playPhonicsSound("phonics_word/${q.word}")
         } else {
             uiState = uiState.copy(shakeWrong = true)
             viewModelScope.launch {

@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.utilities.AudioPhonicsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -176,7 +177,9 @@ data class CLEPracticeUiState(
 )
 
 @HiltViewModel
-class ConsonantLePracticeViewModel @Inject constructor() : ViewModel() {
+class ConsonantLePracticeViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(CLEPracticeUiState()); private set
     private val questions = clePracticeQuestions.shuffled().map { it.copy(options = it.options.shuffled()) }
 
@@ -188,7 +191,9 @@ class ConsonantLePracticeViewModel @Inject constructor() : ViewModel() {
         val q = currentQuestion ?: return
         val correct = answer == q.correct
         uiState = uiState.copy(selectedAnswer = answer, isCorrect = correct, shakeWrong = !correct)
-        if (!correct) {
+        if (correct) {
+            audioManager.playPhonicsSound("phonics_word/${q.correct}")
+        } else {
             viewModelScope.launch { delay(600); uiState = uiState.copy(shakeWrong = false) }
         }
         viewModelScope.launch {

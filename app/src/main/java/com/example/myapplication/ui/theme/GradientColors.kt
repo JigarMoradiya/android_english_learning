@@ -17,7 +17,10 @@ val solidBrushList = listOf(
     Brush.linearGradient(listOf(Color(0xFFFF5722),Color(0xFFFF5722))),
 )
 
-// 🌈 real gradients — the "rainbow" tray in the color rail
+// 🌈 real gradients — the "rainbow" tray in the color rail. Kept identical
+// (same hex pairs, same order) to iOS's paletteOptions in
+// MainColoringAlphabetView.swift so the rainbow category looks the same on
+// both platforms.
 val realGradientBrushList = listOf(
     Brush.linearGradient(listOf(Color(0xFFFF0700), Color(0xFF5623B0))),
     Brush.linearGradient(listOf(Color(0xFF1F35B0), Color(0xFFD03066))),
@@ -25,6 +28,10 @@ val realGradientBrushList = listOf(
     Brush.linearGradient(listOf(Color(0xFFCDDC39), Color(0xFF4CAF50))),
     Brush.linearGradient(listOf(Color(0xFFFFEB3B), Color(0xFFFF5722))),
     Brush.linearGradient(listOf(Color(0xFF43A047), Color(0xFFFB8C00))),
+    Brush.linearGradient(listOf(Color(0xFFFF6EC7), Color(0xFF7B2FF7))),
+    Brush.linearGradient(listOf(Color(0xFF00E5FF), Color(0xFF2979FF))),
+    Brush.linearGradient(listOf(Color(0xFFFFB300), Color(0xFFFF3D00))),
+    Brush.linearGradient(listOf(Color(0xFF00E5A0), Color(0xFF00B8D4))),
 )
 
 val gradientBrushList = solidBrushList + realGradientBrushList
