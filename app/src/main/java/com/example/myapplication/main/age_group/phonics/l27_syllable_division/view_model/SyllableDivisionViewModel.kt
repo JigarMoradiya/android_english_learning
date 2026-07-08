@@ -119,7 +119,9 @@ data class SDLearnUiState(
 )
 
 @HiltViewModel
-class SDLearnViewModel @Inject constructor() : ViewModel() {
+class SDLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(SDLearnUiState()); private set
 
     val selectedGroup: SDGroup get() = sdGroups[uiState.selectedGroupIndex]
@@ -132,6 +134,9 @@ class SDLearnViewModel @Inject constructor() : ViewModel() {
     fun onWordTap(word: SDWord) {
         val next = if (uiState.activeWordFull == word.full) null else word.full
         uiState = uiState.copy(activeWordFull = next)
+        if (next != null) {
+            audioManager.playPhonicsSound("phonics_word/${word.full}")
+        }
     }
 }
 

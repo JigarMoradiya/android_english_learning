@@ -29,10 +29,18 @@ class MatchLettersViewModel @Inject constructor(
 
     private val allLetters = ('A'..'Z').toList()
     private val batchSize = 5
+    private val maxWeakSlotsPerBatch = 2
 
     private var didSpeakThisTurn = false
     private var wrongAttemptsInBatch = mutableSetOf<Char>()
     private var batchStartMs = System.currentTimeMillis()
+
+    // Loaded once and kept in sync after every recordSession() save, so
+    // loadNewBatch() always sees the latest weak-letter list without
+    // re-reading from storage every round.
+    private var progress: MatchUpperLowerProgress =
+        moduleProgressRepository.load(ModuleID.MATCH_UPPER_LOWER, MatchUpperLowerProgress::class.java)
+            ?: MatchUpperLowerProgress()
 
     var uiState by mutableStateOf(MatchLettersUiState())
         private set
@@ -44,7 +52,16 @@ class MatchLettersViewModel @Inject constructor(
     // MARK: - Load
 
     fun loadNewBatch() {
-        val batch = allLetters.shuffled().take(batchSize)
+        // Bias each round toward letters the kid has gotten wrong before:
+        // reserve up to maxWeakSlotsPerBatch slots for weak letters (fewer
+        // if there aren't that many yet), fill the rest randomly from the
+        // full alphabet. A brand-new player has no weak letters yet, so
+        // this is identical to the old pure-random behavior.
+        val weakLetters = progress.weakPairIndices.mapNotNull { allLetters.getOrNull(it) }
+        val reservedWeak = weakLetters.shuffled().take(minOf(maxWeakSlotsPerBatch, weakLetters.size))
+        val remaining = allLetters.filter { it !in reservedWeak }.shuffled().take(batchSize - reservedWeak.size)
+        val batch = (reservedWeak + remaining).shuffled()
+
         wrongAttemptsInBatch = mutableSetOf()
         batchStartMs = System.currentTimeMillis()
         didSpeakThisTurn = false
@@ -151,21 +168,44 @@ class MatchLettersViewModel @Inject constructor(
             )
         )
 
-        val progress = moduleProgressRepository.load(ModuleID.MATCH_UPPER_LOWER, MatchUpperLowerProgress::class.java)
-            ?: MatchUpperLowerProgress()
+        val wrongIndices = wrongAttemptsInBatch
+            .mapNotNull { ch -> allLetters.indexOf(ch.uppercaseChar()).takeIf { it >= 0 } }
+            .toSet()
+        val correctIndices = uiState.currentBatch
+            .filter { it !in wrongAttemptsInBatch }
+            .mapNotNull { ch -> allLetters.indexOf(ch.uppercaseChar()).takeIf { it >= 0 } }
+            .toSet()
 
-        val alphabet = ('A'..'Z').toList()
-        val newWeakIndices = wrongAttemptsInBatch
-            .mapNotNull { ch -> alphabet.indexOf(ch.uppercaseChar()).takeIf { it >= 0 } }
-            .filter { it !in progress.weakPairIndices }
+        val weakSet = progress.weakPairIndices.toMutableSet()
+        val streaks = progress.weakLetterStreaks.orEmpty().toMutableMap()
 
-        moduleProgressRepository.save(
-            progress.copy(
-                totalRoundsCompleted = progress.totalRoundsCompleted + 1,
-                weakPairIndices = progress.weakPairIndices + newWeakIndices
-            ),
-            ModuleID.MATCH_UPPER_LOWER
+        // Wrong this round — (re-)enter the weak list, reset any streak.
+        wrongIndices.forEach { idx ->
+            weakSet.add(idx)
+            streaks[idx] = 0
+        }
+
+        // Correct this round and currently weak — one step closer to
+        // graduating. 2 clean answers in a row (no wrong in between) drops
+        // it from the weak list entirely.
+        correctIndices.forEach { idx ->
+            if (idx in weakSet) {
+                val newStreak = (streaks[idx] ?: 0) + 1
+                if (newStreak >= 2) {
+                    weakSet.remove(idx)
+                    streaks.remove(idx)
+                } else {
+                    streaks[idx] = newStreak
+                }
+            }
+        }
+
+        progress = progress.copy(
+            totalRoundsCompleted = progress.totalRoundsCompleted + 1,
+            weakPairIndices = weakSet.toList(),
+            weakLetterStreaks = streaks
         )
+        moduleProgressRepository.save(progress, ModuleID.MATCH_UPPER_LOWER)
     }
 
     // MARK: - Helpers

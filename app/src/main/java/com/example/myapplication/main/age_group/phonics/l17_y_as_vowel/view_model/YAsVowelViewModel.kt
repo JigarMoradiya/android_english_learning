@@ -87,7 +87,9 @@ data class YAsVowelLearnUiState(
 )
 
 @HiltViewModel
-class YAsVowelLearnViewModel @Inject constructor() : ViewModel() {
+class YAsVowelLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(YAsVowelLearnUiState()); private set
 
     val selectedGroup: YAsVowelGroup get() = yAsVowelGroups[uiState.selectedGroupIndex]
@@ -107,6 +109,7 @@ class YAsVowelLearnViewModel @Inject constructor() : ViewModel() {
 
     fun onWordTap(word: YAsVowelWord) {
         uiState = uiState.copy(highlightedWord = word.word)
+        audioManager.playPhonicsSound("phonics_word/${word.word}")
     }
 }
 

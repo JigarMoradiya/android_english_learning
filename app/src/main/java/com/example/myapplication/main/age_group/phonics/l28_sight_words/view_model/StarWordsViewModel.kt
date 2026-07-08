@@ -95,7 +95,9 @@ data class SWLearnUiState(
 )
 
 @HiltViewModel
-class SWLearnViewModel @Inject constructor() : ViewModel() {
+class SWLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(SWLearnUiState()); private set
 
     val selectedSet: SWSet get() = swSets[uiState.selectedSetIndex]
@@ -108,6 +110,9 @@ class SWLearnViewModel @Inject constructor() : ViewModel() {
     fun onWordTap(word: SWWord) {
         val next = if (uiState.activeWord == word.word) null else word.word
         uiState = uiState.copy(activeWord = next)
+        if (next != null) {
+            audioManager.playPhonicsSound("phonics_word/${word.word}")
+        }
     }
 }
 

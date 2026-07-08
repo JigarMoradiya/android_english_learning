@@ -83,7 +83,9 @@ data class IghGhLearnUiState(
 )
 
 @HiltViewModel
-class IghGhLearnViewModel @Inject constructor() : ViewModel() {
+class IghGhLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(IghGhLearnUiState()); private set
 
     val selectedGroup: IghGhGroup get() = ighGhGroups[uiState.selectedGroupIndex]
@@ -107,6 +109,7 @@ class IghGhLearnViewModel @Inject constructor() : ViewModel() {
     fun onWordTap(word: IghGhWord) {
         // Set highlight and keep it until another word is tapped (radio-button UX, matches iOS).
         uiState = uiState.copy(highlightedWord = word.word)
+        audioManager.playPhonicsSound("phonics_word/${word.word}")
     }
 }
 

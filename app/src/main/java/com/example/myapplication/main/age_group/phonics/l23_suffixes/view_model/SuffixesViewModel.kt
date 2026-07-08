@@ -132,7 +132,9 @@ data class SuffixesLearnUiState(
 )
 
 @HiltViewModel
-class SuffixesLearnViewModel @Inject constructor() : ViewModel() {
+class SuffixesLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(SuffixesLearnUiState()); private set
 
     val selectedGroup: SuffixGroup get() = suffixGroups[uiState.selectedGroupIndex]
@@ -152,6 +154,7 @@ class SuffixesLearnViewModel @Inject constructor() : ViewModel() {
 
     fun onWordTap(word: SuffixWord) {
         uiState = uiState.copy(highlightedWord = word.full)
+        audioManager.playPhonicsSound("phonics_word/${word.full}")
     }
 }
 

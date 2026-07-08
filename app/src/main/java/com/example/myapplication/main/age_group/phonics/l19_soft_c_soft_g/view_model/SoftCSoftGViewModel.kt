@@ -115,7 +115,9 @@ data class SoftCSoftGLearnUiState(
 )
 
 @HiltViewModel
-class SoftCSoftGLearnViewModel @Inject constructor() : ViewModel() {
+class SoftCSoftGLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(SoftCSoftGLearnUiState()); private set
 
     val selectedGroup: SoftCSoftGGroup get() = softCSoftGGroups[uiState.selectedGroupIndex]
@@ -135,6 +137,7 @@ class SoftCSoftGLearnViewModel @Inject constructor() : ViewModel() {
 
     fun onWordTap(word: SoftCSoftGWord) {
         uiState = uiState.copy(highlightedWord = word.word)
+        audioManager.playPhonicsSound("phonics_word/${word.word}")
     }
 }
 

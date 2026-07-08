@@ -107,7 +107,9 @@ data class ContractionsLearnUiState(
 )
 
 @HiltViewModel
-class ContractionsLearnViewModel @Inject constructor() : ViewModel() {
+class ContractionsLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(ContractionsLearnUiState()); private set
 
     val selectedGroup: ContractionGroup get() = contractionGroups[uiState.selectedGroupIndex]
@@ -127,6 +129,7 @@ class ContractionsLearnViewModel @Inject constructor() : ViewModel() {
 
     fun onWordTap(word: ContractionWord) {
         uiState = uiState.copy(highlightedWord = word.contraction)
+        audioManager.playPhonicsSound("phonics_word/${word.contraction}")
     }
 }
 

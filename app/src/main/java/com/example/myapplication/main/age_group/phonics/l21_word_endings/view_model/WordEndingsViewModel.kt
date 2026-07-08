@@ -166,7 +166,9 @@ data class WordEndingsLearnUiState(
 )
 
 @HiltViewModel
-class WordEndingsLearnViewModel @Inject constructor() : ViewModel() {
+class WordEndingsLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(WordEndingsLearnUiState()); private set
 
     val selectedGroup: WordEndingGroup get() = wordEndingGroups[uiState.selectedGroupIndex]
@@ -179,6 +181,9 @@ class WordEndingsLearnViewModel @Inject constructor() : ViewModel() {
     fun onWordTap(word: WordEndingWord) {
         val newId = if (uiState.tappedWordId == word.id) null else word.id
         uiState = uiState.copy(tappedWordId = newId)
+        if (newId != null) {
+            audioManager.playPhonicsSound("phonics_word/${word.derived}")
+        }
     }
 }
 

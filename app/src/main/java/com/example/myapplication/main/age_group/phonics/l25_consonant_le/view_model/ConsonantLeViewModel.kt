@@ -107,7 +107,9 @@ data class CLELearnUiState(
 )
 
 @HiltViewModel
-class ConsonantLeLearnViewModel @Inject constructor() : ViewModel() {
+class ConsonantLeLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(CLELearnUiState()); private set
 
     val selectedGroup: CLEGroup get() = cleGroups[uiState.selectedGroupIndex]
@@ -128,6 +130,9 @@ class ConsonantLeLearnViewModel @Inject constructor() : ViewModel() {
     fun onWordTap(word: CLEWord) {
         val newTapped = if (uiState.tappedWordFull == word.full) null else word.full
         uiState = uiState.copy(tappedWordFull = newTapped)
+        if (newTapped != null) {
+            audioManager.playPhonicsSound("phonics_word/${word.full}")
+        }
     }
 }
 

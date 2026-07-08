@@ -117,7 +117,9 @@ data class SilentLettersLearnUiState(
 )
 
 @HiltViewModel
-class SilentLettersLearnViewModel @Inject constructor() : ViewModel() {
+class SilentLettersLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(SilentLettersLearnUiState()); private set
 
     val selectedGroup: SilentLettersGroup get() = silentLettersGroups[uiState.selectedGroupIndex]
@@ -137,6 +139,7 @@ class SilentLettersLearnViewModel @Inject constructor() : ViewModel() {
 
     fun onWordTap(word: SilentLettersWord) {
         uiState = uiState.copy(highlightedWord = word.word)
+        audioManager.playPhonicsSound("phonics_word/${word.word}")
     }
 }
 

@@ -120,7 +120,9 @@ data class PrefixesLearnUiState(
 )
 
 @HiltViewModel
-class PrefixesLearnViewModel @Inject constructor() : ViewModel() {
+class PrefixesLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(PrefixesLearnUiState()); private set
 
     val selectedGroup: PrefixGroup get() = prefixGroups[uiState.selectedGroupIndex]
@@ -140,6 +142,7 @@ class PrefixesLearnViewModel @Inject constructor() : ViewModel() {
 
     fun onWordTap(word: PrefixWord) {
         uiState = uiState.copy(highlightedWord = word.full)
+        audioManager.playPhonicsSound("phonics_word/${word.full}")
     }
 }
 

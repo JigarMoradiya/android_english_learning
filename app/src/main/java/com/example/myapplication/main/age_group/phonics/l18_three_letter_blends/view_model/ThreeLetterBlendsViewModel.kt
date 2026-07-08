@@ -121,7 +121,9 @@ data class ThreeLetterBlendsLearnUiState(
 )
 
 @HiltViewModel
-class ThreeLetterBlendsLearnViewModel @Inject constructor() : ViewModel() {
+class ThreeLetterBlendsLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(ThreeLetterBlendsLearnUiState()); private set
 
     val selectedGroup: ThreeLetterBlendsGroup get() = threeLetterBlendsGroups[uiState.selectedGroupIndex]
@@ -141,6 +143,7 @@ class ThreeLetterBlendsLearnViewModel @Inject constructor() : ViewModel() {
 
     fun onWordTap(word: ThreeLetterBlendsWord) {
         uiState = uiState.copy(highlightedWord = word.word)
+        audioManager.playPhonicsSound("phonics_word/${word.word}")
     }
 }
 
