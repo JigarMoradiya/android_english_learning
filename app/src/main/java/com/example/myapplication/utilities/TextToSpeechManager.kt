@@ -92,8 +92,8 @@ class TextToSpeechManager @Inject constructor(
             putString(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, utteranceId)
         }
 
-        onDone?.let {
-            utteranceCallbacks[utteranceId] = { it() }
+        if (onDone != null) {
+            utteranceCallbacks[utteranceId] = { onDone() }
         }
 
         try {

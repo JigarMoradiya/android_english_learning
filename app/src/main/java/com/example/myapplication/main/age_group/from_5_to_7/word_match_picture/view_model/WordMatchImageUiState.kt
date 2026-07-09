@@ -13,6 +13,9 @@ data class WordMatchImageUiState(
 
     val matchedLetters: Set<String> = emptySet(),
     val matchedOrder: List<String> = emptyList(),
+    // Words whose image the kid has gotten wrong twice this round — shows
+    // a pulsing hint on the correct image cell (doesn't auto-solve).
+    val hintedLetters: Set<String> = emptySet(),
 
     val letterPositions: Map<String, Offset> = emptyMap(),
     val imagePositions: Map<String, Offset> = emptyMap(),

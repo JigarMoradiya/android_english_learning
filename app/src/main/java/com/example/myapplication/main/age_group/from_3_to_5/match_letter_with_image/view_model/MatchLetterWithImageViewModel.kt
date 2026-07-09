@@ -16,6 +16,7 @@ import com.example.myapplication.data.progress.ModuleProgressRepository
 import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.data.progress.models.MatchLetterWithImageProgress
 import com.example.myapplication.ui.theme.colorList
+import com.example.myapplication.utilities.TextToSpeechManager
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackMatchLetterSubtitles
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
@@ -28,10 +29,13 @@ import kotlin.math.abs
 @HiltViewModel
 class MatchLetterWithImageViewModel @Inject constructor(
     private val sessionRepository: SessionRepository,
-    private val moduleProgressRepository: ModuleProgressRepository
+    private val moduleProgressRepository: ModuleProgressRepository,
+    private val ttsManager: TextToSpeechManager
 ) : ViewModel() {
 
     private val batchSize = 5
+    private val wrongTriesBeforeHint = 2
+    private val matchChimeDelayMs = 400L
 
     var uiState by mutableStateOf(MatchLetterWithImageUiState())
         private set
@@ -40,7 +44,9 @@ class MatchLetterWithImageViewModel @Inject constructor(
     var dragEnd by mutableStateOf<Offset?>(null)
         private set
 
-    private var wrongAttemptsInBatch = mutableSetOf<String>()
+    // Wrong-count per letter this round (not just "was it ever wrong") —
+    // drives the hint trigger. Same per-batch lifecycle as before.
+    private var wrongAttemptsInBatch = mutableMapOf<String, Int>()
     private var batchStartMs = System.currentTimeMillis()
     private var totalDrag = Offset.Zero
 
@@ -62,7 +68,7 @@ class MatchLetterWithImageViewModel @Inject constructor(
             it.letter to allWords.random()
         }
 
-        wrongAttemptsInBatch = mutableSetOf()
+        wrongAttemptsInBatch = mutableMapOf()
         batchStartMs = System.currentTimeMillis()
         dragStart = null
         dragEnd = null
@@ -72,6 +78,7 @@ class MatchLetterWithImageViewModel @Inject constructor(
             shuffledImages = batch.shuffled(),
             matchedLetters = emptySet(),
             matchedOrder = emptyList(),
+            hintedLetters = emptySet(),
             draggingLetter = null,
             letterPositions = emptyMap(),
             imagePositions = emptyMap(),
@@ -106,7 +113,11 @@ class MatchLetterWithImageViewModel @Inject constructor(
             markLetterAsMatched(letter)
         } else {
             if (target != null) {
-                wrongAttemptsInBatch.add(letter)
+                val newCount = (wrongAttemptsInBatch[letter] ?: 0) + 1
+                wrongAttemptsInBatch[letter] = newCount
+                if (newCount >= wrongTriesBeforeHint) {
+                    uiState = uiState.copy(hintedLetters = uiState.hintedLetters + letter)
+                }
             }
             AudioPlayerManager.playSoundWrongAnswer()
         }
@@ -123,28 +134,50 @@ class MatchLetterWithImageViewModel @Inject constructor(
 
         val updatedSet = uiState.matchedLetters + letter
         val updatedOrder = uiState.matchedOrder + letter
+        val updatedHints = uiState.hintedLetters - letter
+        val word = uiState.batchLetters.firstOrNull { it.first == letter }?.second
+
+        uiState = uiState.copy(matchedLetters = updatedSet, matchedOrder = updatedOrder, hintedLetters = updatedHints)
+        AudioPlayerManager.playSoundCorrectAnswer()
 
         if (updatedSet.size == uiState.batchLetters.size) {
-            // Update matched state immediately so last line renders before popup
-            uiState = uiState.copy(matchedLetters = updatedSet, matchedOrder = updatedOrder)
+            // Last pair — sequence chime, then spoken word, then popup,
+            // driven by TTS's actual completion callback rather than a
+            // guessed delay.
             viewModelScope.launch {
-                delay(300)
-                val score = batchSize - wrongAttemptsInBatch.size
-                val stars = computeStars(score, batchSize)
-                recordSession(score)
-                uiState = uiState.copy(
-                    batchScore = score,
-                    earnedStars = stars,
-                    scoreLabel = if (score == batchSize) "perfect! 🎯" else "first try 🎯",
-                    feedbackTextRes = feedbackTitles.random(),
-                    feedbackSubTextRes = feedbackMatchLetterSubtitles.random(),
-                    showPopup = true
-                )
+                delay(matchChimeDelayMs)
+                if (word != null) {
+                    ttsManager.speak(word, utteranceId = "matchWordDone", onDone = {
+                        viewModelScope.launch { showCompletionPopup() }
+                    })
+                } else {
+                    showCompletionPopup()
+                }
             }
         } else {
-            AudioPlayerManager.playSoundCorrectAnswer()
-            uiState = uiState.copy(matchedLetters = updatedSet, matchedOrder = updatedOrder)
+            // Speak the word after the correct-answer chime finishes, not
+            // on top of it — firing both at once made them mix/overlap.
+            word?.let { w ->
+                viewModelScope.launch {
+                    delay(matchChimeDelayMs)
+                    ttsManager.speak(w)
+                }
+            }
         }
+    }
+
+    private fun showCompletionPopup() {
+        val score = batchSize - wrongAttemptsInBatch.size
+        val stars = computeStars(score, batchSize)
+        recordSession(score)
+        uiState = uiState.copy(
+            batchScore = score,
+            earnedStars = stars,
+            scoreLabel = if (score == batchSize) "perfect! 🎯" else "first try 🎯",
+            feedbackTextRes = feedbackTitles.random(),
+            feedbackSubTextRes = feedbackMatchLetterSubtitles.random(),
+            showPopup = true
+        )
     }
 
     // MARK: - Position Tracking
@@ -200,7 +233,7 @@ class MatchLetterWithImageViewModel @Inject constructor(
                 durationSeconds = duration,
                 score = score,
                 totalQuestions = batchSize,
-                wrongItems = wrongAttemptsInBatch.toList(),
+                wrongItems = wrongAttemptsInBatch.keys.toList(),
                 correctItems = correctItems
             )
         )
@@ -209,7 +242,7 @@ class MatchLetterWithImageViewModel @Inject constructor(
             ?: MatchLetterWithImageProgress()
 
         val alphabet = ('A'..'Z').toList()
-        val newWeakIndices = wrongAttemptsInBatch
+        val newWeakIndices = wrongAttemptsInBatch.keys
             .mapNotNull { letter ->
                 val ch = letter.firstOrNull()?.uppercaseChar() ?: return@mapNotNull null
                 alphabet.indexOf(ch).takeIf { it >= 0 }

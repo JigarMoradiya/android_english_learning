@@ -193,6 +193,7 @@ fun MatchWordWithImageContent(
             MatchWithImagesGrid(
                 images = uiState.shuffledImages,
                 matchedLetters = uiState.matchedLetters,
+                hintedLetters = uiState.hintedLetters,
                 rootCoords = rootCoords,
                 onUpdateImagePosition = viewModel::updateImagePosition,
                 onUpdateImageRect = viewModel::updateImageRect

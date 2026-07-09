@@ -18,6 +18,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 fun MatchWithImagesGrid(
     images: List<Pair<String, String>>,
     matchedLetters: Set<String>,
+    hintedLetters: Set<String> = emptySet(),
     rootCoords: LayoutCoordinates?,
     onUpdateImagePosition: (String, Offset) -> Unit,
     onUpdateImageRect: (String, Rect) -> Unit
@@ -34,6 +35,7 @@ fun MatchWithImagesGrid(
                 letter = letter,
                 word = word,
                 isMatched = matchedLetters.contains(letter),
+                isHinted = hintedLetters.contains(letter),
                 rootCoords = rootCoords,
                 onUpdateImagePosition = onUpdateImagePosition,
                 onUpdateImageRect = onUpdateImageRect

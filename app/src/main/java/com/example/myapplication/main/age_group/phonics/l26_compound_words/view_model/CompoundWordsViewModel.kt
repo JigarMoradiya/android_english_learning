@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.utilities.AudioPhonicsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -138,7 +139,9 @@ data class CWLearnUiState(
 )
 
 @HiltViewModel
-class CWLearnViewModel @Inject constructor() : ViewModel() {
+class CWLearnViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(CWLearnUiState()); private set
 
     val selectedGroup: CWGroup get() = cwGroups[uiState.selectedGroupIndex]
@@ -151,6 +154,9 @@ class CWLearnViewModel @Inject constructor() : ViewModel() {
     fun onWordTap(word: CWWord) {
         val next = if (uiState.activeWordFull == word.full) null else word.full
         uiState = uiState.copy(activeWordFull = next)
+        if (next != null) {
+            audioManager.playPhonicsSound("phonics_word/${word.full}")
+        }
     }
 }
 
@@ -166,7 +172,9 @@ data class CWPracticeUiState(
 )
 
 @HiltViewModel
-class CWPracticeViewModel @Inject constructor() : ViewModel() {
+class CWPracticeViewModel @Inject constructor(
+    private val audioManager: AudioPhonicsManager
+) : ViewModel() {
     var uiState by mutableStateOf(CWPracticeUiState()); private set
     private val questions = cwPracticeQuestions.shuffled()
         .map { it.copy(options = it.options.shuffled()) }
@@ -179,7 +187,9 @@ class CWPracticeViewModel @Inject constructor() : ViewModel() {
         val q = currentQuestion ?: return
         val correct = option == q.correctPart2
         uiState = uiState.copy(selectedOption = option, isCorrect = correct, shakeWrong = !correct)
-        if (!correct) {
+        if (correct) {
+            audioManager.playPhonicsSound("phonics_word/${q.answer}")
+        } else {
             viewModelScope.launch { delay(600); uiState = uiState.copy(shakeWrong = false) }
         }
         viewModelScope.launch {
