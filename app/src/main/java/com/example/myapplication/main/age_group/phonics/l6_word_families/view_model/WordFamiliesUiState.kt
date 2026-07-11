@@ -60,4 +60,20 @@ val wordFamiliesData = listOf(
         FamilyOnset("s","sun"), FamilyOnset("r","run"), FamilyOnset("f","fun"),
         FamilyOnset("b","bun"), FamilyOnset("g","gun"), FamilyOnset("p","pun")
     )),
+    WordFamily("ap", "ap", Color(0xFF00897B), Color(0xFF00695C), listOf(
+        FamilyOnset("c","cap"), FamilyOnset("m","map"), FamilyOnset("n","nap"),
+        FamilyOnset("t","tap"), FamilyOnset("l","lap"), FamilyOnset("g","gap")
+    )),
+    WordFamily("in", "in", Color(0xFF5E35B1), Color(0xFF4527A0), listOf(
+        FamilyOnset("p","pin"), FamilyOnset("w","win"), FamilyOnset("f","fin"),
+        FamilyOnset("t","tin"), FamilyOnset("b","bin")
+    )),
+    WordFamily("op", "op", Color(0xFFD81B60), Color(0xFFAD1457), listOf(
+        FamilyOnset("t","top"), FamilyOnset("h","hop"), FamilyOnset("m","mop"),
+        FamilyOnset("p","pop"), FamilyOnset("c","cop")
+    )),
+    WordFamily("ug", "ug", Color(0xFF6D4C41), Color(0xFF4E342E), listOf(
+        FamilyOnset("b","bug"), FamilyOnset("r","rug"), FamilyOnset("h","hug"),
+        FamilyOnset("m","mug"), FamilyOnset("d","dug"), FamilyOnset("j","jug")
+    )),
 )

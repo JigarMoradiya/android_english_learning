@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Lightbulb
 import androidx.compose.material.icons.filled.RemoveCircle
 import androidx.compose.material.icons.filled.Repeat
+import androidx.compose.material.icons.filled.SwapHoriz
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -53,6 +54,7 @@ private val WordEndingRule.icon: ImageVector
         WordEndingRule.JUST_ADD -> Icons.Default.AddCircle
         WordEndingRule.DOUBLE   -> Icons.Default.Repeat
         WordEndingRule.DROP_E   -> Icons.Default.RemoveCircle
+        WordEndingRule.DROP_Y   -> Icons.Default.SwapHoriz
     }
 
 @Composable

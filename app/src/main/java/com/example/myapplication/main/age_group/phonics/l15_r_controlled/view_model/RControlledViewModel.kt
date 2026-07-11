@@ -80,6 +80,21 @@ val rControlledGroups: List<RControlledGroup> = listOf(
         RControlledWord(word = "curl",  rTeam = "ur"), RControlledWord(word = "surf",  rTeam = "ur"),
         RControlledWord(word = "nurse", rTeam = "ur"), RControlledWord(word = "burst", rTeam = "ur"),
     )),
+    RControlledGroup(rTeam = "air", sound = "/eər/", emoji = "💇", accentColor = Color(0xFF00838F), shadowColor = Color(0xFF006064), words = listOf(
+        RControlledWord(word = "hair",  rTeam = "air"), RControlledWord(word = "chair", rTeam = "air"),
+        RControlledWord(word = "pair",  rTeam = "air"), RControlledWord(word = "fair",  rTeam = "air"),
+        RControlledWord(word = "stair", rTeam = "air"), RControlledWord(word = "air",   rTeam = "air"),
+    )),
+    RControlledGroup(rTeam = "ear", sound = "/ɪər/", emoji = "👂", accentColor = Color(0xFF5E35B1), shadowColor = Color(0xFF4527A0), words = listOf(
+        RControlledWord(word = "ear",   rTeam = "ear"), RControlledWord(word = "hear",  rTeam = "ear"),
+        RControlledWord(word = "year",  rTeam = "ear"), RControlledWord(word = "near",  rTeam = "ear"),
+        RControlledWord(word = "clear", rTeam = "ear"), RControlledWord(word = "dear",  rTeam = "ear"),
+    )),
+    RControlledGroup(rTeam = "ore", sound = "/ɔːr/", emoji = "🏪", accentColor = Color(0xFFD81B60), shadowColor = Color(0xFFAD1457), words = listOf(
+        RControlledWord(word = "more",  rTeam = "ore"), RControlledWord(word = "store", rTeam = "ore"),
+        RControlledWord(word = "score", rTeam = "ore"), RControlledWord(word = "shore", rTeam = "ore"),
+        RControlledWord(word = "snore", rTeam = "ore"), RControlledWord(word = "chore", rTeam = "ore"),
+    )),
 )
 
 // ── Learn UI State ────────────────────────────────────────────────────────────
@@ -186,6 +201,9 @@ val rControlledPracticeQuestions: List<RControlledPracticeQuestion> = listOf(
     RControlledPracticeQuestion(word = "burn", rTeam = "ur", options = listOf("ur", "or", "ir")),
     RControlledPracticeQuestion(word = "turn", rTeam = "ur", options = listOf("ur", "ar", "ir")),
     RControlledPracticeQuestion(word = "curl", rTeam = "ur", options = listOf("ur", "er", "ar")),
+    RControlledPracticeQuestion(word = "hair", rTeam = "air", options = listOf("air", "ear", "ore")),
+    RControlledPracticeQuestion(word = "hear", rTeam = "ear", options = listOf("ear", "air", "ore")),
+    RControlledPracticeQuestion(word = "more", rTeam = "ore", options = listOf("ore", "air", "ear")),
 )
 
 // ── Practice ViewModel ────────────────────────────────────────────────────────

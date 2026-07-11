@@ -63,6 +63,22 @@ val swSets: List<SWSet> = listOf(
             SWWord("could"),
             SWWord("people")
         )
+    ),
+    SWSet(
+        name = "Set 3", emoji = "✨",
+        accentColor = Color(0xFF00838F), shadowColor = Color(0xFF006064),
+        words = listOf(
+            SWWord("there"),
+            SWWord("here"),
+            SWWord("want"),
+            SWWord("very"),
+            SWWord("again"),
+            SWWord("any"),
+            SWWord("been"),
+            SWWord("does"),
+            SWWord("after"),
+            SWWord("every")
+        )
     )
 )
 
@@ -84,7 +100,14 @@ val swPracticeQuestions: List<SWPracticeQuestion> = listOf(
     SWPracticeQuestion("one",     listOf("one",     "wun",     "onne",    "oen")),
     SWPracticeQuestion("two",     listOf("two",     "twoo",    "tuo",     "toow")),
     SWPracticeQuestion("could",   listOf("could",   "coud",    "culd",    "cuold")),
-    SWPracticeQuestion("people",  listOf("people",  "peple",   "peopel",  "pepole"))
+    SWPracticeQuestion("people",  listOf("people",  "peple",   "peopel",  "pepole")),
+    // Set 3
+    SWPracticeQuestion("there",   listOf("there",   "thair",   "ther",    "therre")),
+    SWPracticeQuestion("want",    listOf("want",    "wamt",    "wannt",   "waant")),
+    SWPracticeQuestion("very",    listOf("very",    "verry",   "veri",    "verey")),
+    SWPracticeQuestion("again",   listOf("again",   "agen",    "agian",   "agane")),
+    SWPracticeQuestion("been",    listOf("been",    "beem",    "bene",    "beeen")),
+    SWPracticeQuestion("does",    listOf("does",    "doess",   "doez",    "dows"))
 )
 
 // ── Learn ViewModel ───────────────────────────────────────────────────────────

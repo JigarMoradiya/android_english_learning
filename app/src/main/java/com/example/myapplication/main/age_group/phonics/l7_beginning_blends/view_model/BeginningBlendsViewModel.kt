@@ -23,7 +23,8 @@ enum class BlendGroup(val label: String, val emoji: String,
                       val hint: String) {
     L_BLENDS("L-Blends", "🍃", Color(0xFF00897B), Color(0xFF00695C), "bl cl fl gl pl sl"),
     R_BLENDS("R-Blends", "🌊", Color(0xFFE64A19), Color(0xFFBF360C), "br cr dr fr gr pr tr"),
-    S_BLENDS("S-Blends", "⭐", Color(0xFF7B1FA2), Color(0xFF4A148C), "sm sn sp st sw sc sk")
+    S_BLENDS("S-Blends", "⭐", Color(0xFF7B1FA2), Color(0xFF4A148C), "sm sn sp st sw sc sk"),
+    W_BLENDS("W-Blends", "🌀", Color(0xFF1565C0), Color(0xFF0D47A1), "tw")
 }
 
 data class BlendWord(
@@ -198,7 +199,12 @@ val beginningBlendsData: List<BlendEntry> = listOf(
         BlendWord(word="skip",  blendLength=2), BlendWord(word="skin",  blendLength=2),
         BlendWord(word="sky",   blendLength=2), BlendWord(word="skull", blendLength=2),
         BlendWord(word="skill", blendLength=2), BlendWord(word="skunk", blendLength=2),
-        BlendWord(word="skid",  blendLength=2), BlendWord(word="skim",  blendLength=2)))
+        BlendWord(word="skid",  blendLength=2), BlendWord(word="skim",  blendLength=2))),
+    BlendEntry("", "tw", "/tw/", "Say /t/ then /w/ — they run together, like 'twin'",
+               BlendGroup.W_BLENDS, listOf(
+        BlendWord(word="twin",   blendLength=2), BlendWord(word="twelve", blendLength=2),
+        BlendWord(word="twenty", blendLength=2), BlendWord(word="twist",  blendLength=2),
+        BlendWord(word="twig",   blendLength=2), BlendWord(word="tweet",  blendLength=2)))
 )
 
 val beginningBlendsPracticeQuestions: List<BlendPracticeQuestion> = listOf(
@@ -221,7 +227,9 @@ val beginningBlendsPracticeQuestions: List<BlendPracticeQuestion> = listOf(
     BlendPracticeQuestion(word="spin",  blendLength=2, correctBlend="sp", options=listOf("sp","st","sk"), imageName="spin"),
     BlendPracticeQuestion(word="smile", blendLength=2, correctBlend="sm", options=listOf("sm","sn","sw"), imageName="smile"),
     BlendPracticeQuestion(word="skip",  blendLength=2, correctBlend="sk", options=listOf("sk","sp","sc"), imageName="skip"),
-    BlendPracticeQuestion(word="scan",  blendLength=2, correctBlend="sc", options=listOf("sc","sk","st"), imageName="scan")
+    BlendPracticeQuestion(word="scan",  blendLength=2, correctBlend="sc", options=listOf("sc","sk","st"), imageName="scan"),
+    BlendPracticeQuestion(word="twin",  blendLength=2, correctBlend="tw", options=listOf("tw","tr","sw"), imageName="twin"),
+    BlendPracticeQuestion(word="twig",  blendLength=2, correctBlend="tw", options=listOf("tw","sw","dr"), imageName="twig")
 )
 
 // ── Learn ViewModel ────────────────────────────────────────────────────────────

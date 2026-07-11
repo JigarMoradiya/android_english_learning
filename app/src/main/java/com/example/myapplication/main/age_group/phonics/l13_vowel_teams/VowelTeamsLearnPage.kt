@@ -290,9 +290,13 @@ private fun ruleCard(group: VowelTeamGroup) {
 }
 
 private fun teamSound(group: VowelTeamGroup): String = when (group) {
-    VowelTeamGroup.AI_AY -> "/ā/ long A"
-    VowelTeamGroup.EE_EA -> "/ē/ long E"
-    VowelTeamGroup.OA_OW -> "/ō/ long O"
+    VowelTeamGroup.AI_AY    -> "/ā/ long A"
+    VowelTeamGroup.EE_EA    -> "/ē/ long E"
+    VowelTeamGroup.OA_OW    -> "/ō/ long O"
+    VowelTeamGroup.OO_LONG  -> "/oo/ as in moon"
+    VowelTeamGroup.OO_SHORT -> "/u/ as in book"
+    VowelTeamGroup.EW_UE_UI -> "/oo/ as in blue"
+    VowelTeamGroup.EA_SHORT -> "/e/ as in bread"
 }
 
 @Composable

@@ -16,17 +16,19 @@ import javax.inject.Inject
 // ── Rule ──────────────────────────────────────────────────────────────────────
 
 enum class WordEndingRule {
-    JUST_ADD, DOUBLE, DROP_E;
+    JUST_ADD, DOUBLE, DROP_E, DROP_Y;
 
     val label: String get() = when (this) {
         JUST_ADD -> "just add"
         DOUBLE   -> "double"
         DROP_E   -> "drop-e"
+        DROP_Y   -> "y → i"
     }
     val color: Color get() = when (this) {
         JUST_ADD -> Color(0xFF2E7D32)
         DOUBLE   -> Color(0xFFE65100)
         DROP_E   -> Color(0xFF1565C0)
+        DROP_Y   -> Color(0xFFAD1457)
     }
 }
 
@@ -81,7 +83,7 @@ val wordEndingGroups: List<WordEndingGroup> = listOf(
     ),
     WordEndingGroup(
         suffix = "-ed", suffixLen = 2,
-        emoji = "📖", meaning = "happened in the PAST",
+        emoji = "📖", meaning = "happened in the PAST · says /t/ (jumped), /d/ (played) or /id/ (planted)!",
         accentColor = Color(0xFF1565C0), shadowColor = Color(0xFF0D47A1),
         words = listOf(
             WordEndingWord(base = "jump",  derived = "jumped",  rule = WordEndingRule.JUST_ADD),
@@ -102,6 +104,10 @@ val wordEndingGroups: List<WordEndingGroup> = listOf(
             WordEndingWord(base = "love",  derived = "loved",   rule = WordEndingRule.DROP_E),
             WordEndingWord(base = "hope",  derived = "hoped",   rule = WordEndingRule.DROP_E),
             WordEndingWord(base = "move",  derived = "moved",   rule = WordEndingRule.DROP_E),
+            // y → i — consonant + y: change y to i first
+            WordEndingWord(base = "cry",   derived = "cried",   rule = WordEndingRule.DROP_Y),
+            WordEndingWord(base = "carry", derived = "carried", rule = WordEndingRule.DROP_Y),
+            WordEndingWord(base = "hurry", derived = "hurried", rule = WordEndingRule.DROP_Y),
         )
     ),
     WordEndingGroup(
@@ -117,6 +123,7 @@ val wordEndingGroups: List<WordEndingGroup> = listOf(
             WordEndingWord(base = "cool",  derived = "cooler",  rule = WordEndingRule.JUST_ADD),
             WordEndingWord(base = "deep",  derived = "deeper",  rule = WordEndingRule.JUST_ADD),
             WordEndingWord(base = "clean", derived = "cleaner", rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "happy", derived = "happier", rule = WordEndingRule.DROP_Y),
             WordEndingWord(base = "big",   derived = "bigger",  rule = WordEndingRule.DOUBLE),
             WordEndingWord(base = "hot",   derived = "hotter",  rule = WordEndingRule.DOUBLE),
             WordEndingWord(base = "sad",   derived = "sadder",  rule = WordEndingRule.DOUBLE),
@@ -143,6 +150,7 @@ val wordEndingGroups: List<WordEndingGroup> = listOf(
             WordEndingWord(base = "cool",  derived = "coolest",  rule = WordEndingRule.JUST_ADD),
             WordEndingWord(base = "deep",  derived = "deepest",  rule = WordEndingRule.JUST_ADD),
             WordEndingWord(base = "clean", derived = "cleanest", rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "happy", derived = "happiest", rule = WordEndingRule.DROP_Y),
             WordEndingWord(base = "big",   derived = "biggest",  rule = WordEndingRule.DOUBLE),
             WordEndingWord(base = "hot",   derived = "hottest",  rule = WordEndingRule.DOUBLE),
             WordEndingWord(base = "sad",   derived = "saddest",  rule = WordEndingRule.DOUBLE),
@@ -154,6 +162,32 @@ val wordEndingGroups: List<WordEndingGroup> = listOf(
             WordEndingWord(base = "wide",  derived = "widest",   rule = WordEndingRule.DROP_E),
             WordEndingWord(base = "safe",  derived = "safest",   rule = WordEndingRule.DROP_E),
             WordEndingWord(base = "late",  derived = "latest",   rule = WordEndingRule.DROP_E),
+        )
+    ),
+    WordEndingGroup(
+        suffix = "-s", suffixLen = 1,
+        emoji = "🐾", meaning = "MORE than one!",
+        accentColor = Color(0xFF00897B), shadowColor = Color(0xFF00695C),
+        words = listOf(
+            WordEndingWord(base = "cat",  derived = "cats",  rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "dog",  derived = "dogs",  rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "cup",  derived = "cups",  rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "hat",  derived = "hats",  rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "pen",  derived = "pens",  rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "star", derived = "stars", rule = WordEndingRule.JUST_ADD),
+        )
+    ),
+    WordEndingGroup(
+        suffix = "-es", suffixLen = 2,
+        emoji = "📦", meaning = "MORE than one — after s · x · ch · sh!",
+        accentColor = Color(0xFF5D4037), shadowColor = Color(0xFF3E2723),
+        words = listOf(
+            WordEndingWord(base = "box",   derived = "boxes",   rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "bus",   derived = "buses",   rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "fox",   derived = "foxes",   rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "wish",  derived = "wishes",  rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "dish",  derived = "dishes",  rule = WordEndingRule.JUST_ADD),
+            WordEndingWord(base = "class", derived = "classes", rule = WordEndingRule.JUST_ADD),
         )
     ),
 )
@@ -254,6 +288,17 @@ val wordEndingsPracticeQuestions: List<WordEndingsPracticeQuestion> = listOf(
     WordEndingsPracticeQuestion("brave", "-est", "bravest",  listOf("bravest","braveest","bravvest","braver").shuffled()),
     WordEndingsPracticeQuestion("wide",  "-est", "widest",   listOf("widest","wideest","widdest","wider").shuffled()),
     WordEndingsPracticeQuestion("late",  "-est", "latest",   listOf("latest","lateest","lattest","later").shuffled()),
+    // -s / -es plurals
+    WordEndingsPracticeQuestion("cat",   "-s",  "cats",     listOf("cats","cates","catss","cat").shuffled()),
+    WordEndingsPracticeQuestion("dog",   "-s",  "dogs",     listOf("dogs","doges","dogss","dogz").shuffled()),
+    WordEndingsPracticeQuestion("box",   "-es", "boxes",    listOf("boxes","boxs","boxies","boxess").shuffled()),
+    WordEndingsPracticeQuestion("bus",   "-es", "buses",    listOf("buses","buss","busies","busess").shuffled()),
+    WordEndingsPracticeQuestion("wish",  "-es", "wishes",   listOf("wishes","wishs","wishies","wishess").shuffled()),
+    // y → i (tricky!)
+    WordEndingsPracticeQuestion("cry",   "-ed", "cried",    listOf("cried","cryed","cride","cryd").shuffled()),
+    WordEndingsPracticeQuestion("carry", "-ed", "carried",  listOf("carried","carryed","carrid","caried").shuffled()),
+    WordEndingsPracticeQuestion("happy", "-er", "happier",  listOf("happier","happyer","hapier","happyier").shuffled()),
+    WordEndingsPracticeQuestion("happy", "-est","happiest", listOf("happiest","happyest","hapiest","happyiest").shuffled()),
 )
 
 // ── Practice ViewModel ────────────────────────────────────────────────────────

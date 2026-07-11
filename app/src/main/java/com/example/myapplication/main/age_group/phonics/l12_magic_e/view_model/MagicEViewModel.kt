@@ -85,6 +85,15 @@ val magicEGroups: List<MagicEGroup> = listOf(
             MagicEWord(base = "tun", magic = "tune"), MagicEWord(base = "dud", magic = "dude"),
         )
     ),
+    // e_e is the rarest magic-e — only a handful of real words exist
+    MagicEGroup(
+        vowel = 'e', longLabel = "ē", emoji = "🐣",
+        accentColor = Color(0xFFEC407A), shadowColor = Color(0xFFAD1457),
+        words = listOf(
+            MagicEWord(base = "pet",  magic = "Pete"),
+            MagicEWord(base = "them", magic = "theme"),
+        )
+    ),
 )
 
 // ── UI State ──────────────────────────────────────────────────────────────────
@@ -198,6 +207,8 @@ val magicEPracticeQuestions: List<MagicEPracticeQuestion> = listOf(
     MagicEPracticeQuestion(baseWord = "cub",  correctMagic = "cube",  options = listOf("cube", "hope", "bite")),
     MagicEPracticeQuestion(baseWord = "cut",  correctMagic = "cute",  options = listOf("cute", "cape", "ride")),
     MagicEPracticeQuestion(baseWord = "tub",  correctMagic = "tube",  options = listOf("tube", "pine", "made")),
+    MagicEPracticeQuestion(baseWord = "pet",  correctMagic = "Pete",  options = listOf("Pete", "tape", "bite")),
+    MagicEPracticeQuestion(baseWord = "them", correctMagic = "theme", options = listOf("theme", "tune", "note")),
 )
 
 // ── Practice ViewModel ────────────────────────────────────────────────────────

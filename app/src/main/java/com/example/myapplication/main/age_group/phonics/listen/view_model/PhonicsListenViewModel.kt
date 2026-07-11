@@ -340,7 +340,23 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("road",  listOf(s("r", listOf(0)), s("oa", listOf(1,2)), s("d", listOf(3)))),
             w("say",   listOf(s("s", listOf(0)), s("ay", listOf(1,2)))),
             w("green", listOf(s("g", listOf(0)), s("r", listOf(1)), s("ee", listOf(2,3)), s("n", listOf(4)))),
-            w("goat",  listOf(s("g", listOf(0)), s("oa", listOf(1,2)), s("t", listOf(3))))
+            w("goat",  listOf(s("g", listOf(0)), s("oa", listOf(1,2)), s("t", listOf(3)))),
+            // oo — long /uː/ (moon team)
+            w("moon",  listOf(s("m", listOf(0)), s("oo", listOf(1,2)), s("n", listOf(3)))),
+            w("food",  listOf(s("f", listOf(0)), s("oo", listOf(1,2)), s("d", listOf(3)))),
+            w("zoo",   listOf(s("z", listOf(0)), s("oo", listOf(1,2)))),
+            // oo — short /ʊ/ (book team → oo2)
+            w("book",  listOf(s("b", listOf(0)), s("oo", listOf(1,2), audio = "oo2"), s("k", listOf(3)))),
+            w("look",  listOf(s("l", listOf(0)), s("oo", listOf(1,2), audio = "oo2"), s("k", listOf(3)))),
+            w("good",  listOf(s("g", listOf(0)), s("oo", listOf(1,2), audio = "oo2"), s("d", listOf(3)))),
+            // ew / ue / ui — long-u /uː/ (ue spelling → ue2; ue.mp3 is Magic E's /yoo/)
+            w("new",   listOf(s("n", listOf(0)), s("ew", listOf(1,2)))),
+            w("blue",  listOf(s("b", listOf(0)), s("l", listOf(1)), s("ue", listOf(2,3), audio = "ue2"))),
+            w("glue",  listOf(s("g", listOf(0)), s("l", listOf(1)), s("ue", listOf(2,3), audio = "ue2"))),
+            w("fruit", listOf(s("f", listOf(0)), s("r", listOf(1)), s("ui", listOf(2,3), audio = "ui"), s("t", listOf(4)))),
+            // ea — short /ĕ/ (bread family → existing sound_e)
+            w("bread", listOf(s("b", listOf(0)), s("r", listOf(1)), s("ea", listOf(2,3), audio = "sound_e"), s("d", listOf(4)))),
+            w("head",  listOf(s("h", listOf(0)), s("ea", listOf(1,2), audio = "sound_e"), s("d", listOf(3))))
         )
     ),
 
@@ -349,7 +365,7 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
         levelKey = PhonicsListenLevelKey.beginningBlends,
         accentColor = Color(0xFF00897B), shadowColor = Color(0xFF00695C),
         words = listOf(
-            w("blue",  listOf(s("bl", listOf(0,1)), s("ue", listOf(2,3)))),
+            w("blue",  listOf(s("bl", listOf(0,1)), s("ue", listOf(2,3), audio = "ue2"))),
             w("black", listOf(s("bl", listOf(0,1)), s("a", listOf(2)), s("ck", listOf(3,4)))),
             w("blink", listOf(s("bl", listOf(0,1)), s("i", listOf(2)), s("n", listOf(3)), s("k", listOf(4)))),
             w("clap",  listOf(s("cl", listOf(0,1)), s("a", listOf(2)), s("p", listOf(3)))),
@@ -387,7 +403,11 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("star",  listOf(s("st", listOf(0,1)), s("ar", listOf(2,3)))),
             w("stop",  listOf(s("st", listOf(0,1)), s("o", listOf(2)), s("p", listOf(3)))),
             w("swim",  listOf(s("sw", listOf(0,1)), s("i", listOf(2)), s("m", listOf(3)))),
-            w("swam",  listOf(s("sw", listOf(0,1)), s("a", listOf(2)), s("m", listOf(3))))
+            w("swam",  listOf(s("sw", listOf(0,1)), s("a", listOf(2)), s("m", listOf(3)))),
+            // tw
+            w("twin",  listOf(s("tw", listOf(0,1)), s("i", listOf(2)), s("n", listOf(3)))),
+            w("twig",  listOf(s("tw", listOf(0,1)), s("i", listOf(2)), s("g", listOf(3)))),
+            w("twist", listOf(s("tw", listOf(0,1)), s("i", listOf(2)), s("s", listOf(3)), s("t", listOf(4))))
         )
     ),
 
@@ -419,7 +439,12 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("best",  listOf(s("b", listOf(0)), s("e", listOf(1)), s("st", listOf(2,3)))),
             w("nest",  listOf(s("n", listOf(0)), s("e", listOf(1)), s("st", listOf(2,3)))),
             w("fast",  listOf(s("f", listOf(0)), s("a", listOf(1)), s("st", listOf(2,3)))),
-            w("dust",  listOf(s("d", listOf(0)), s("u", listOf(1)), s("st", listOf(2,3))))
+            w("dust",  listOf(s("d", listOf(0)), s("u", listOf(1)), s("st", listOf(2,3)))),
+            // ld / lp
+            w("cold",  listOf(s("c", listOf(0)), s("o", listOf(1), audio = "long_o"), s("ld", listOf(2,3)))),
+            w("gold",  listOf(s("g", listOf(0)), s("o", listOf(1), audio = "long_o"), s("ld", listOf(2,3)))),
+            w("help",  listOf(s("h", listOf(0)), s("e", listOf(1)), s("lp", listOf(2,3)))),
+            w("gulp",  listOf(s("g", listOf(0)), s("u", listOf(1)), s("lp", listOf(2,3))))
         )
     ),
 
@@ -515,7 +540,10 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("cute",  listOf(s("c", listOf(0)),   s("u_e", listOf(1,3)), s("t", listOf(2)))),
             w("tube",  listOf(s("t", listOf(0)),   s("u_e", listOf(1,3)), s("b", listOf(2)))),
             w("dune",  listOf(s("d", listOf(0)),   s("u_e", listOf(1,3)), s("n", listOf(2)))),
-            w("tune",  listOf(s("t", listOf(0)),   s("u_e", listOf(1,3)), s("n", listOf(2))))
+            w("tune",  listOf(s("t", listOf(0)),   s("u_e", listOf(1,3)), s("n", listOf(2)))),
+            // e_e — rarest magic-e (e_e segment maps to ee.mp3, same /ē/ sound)
+            w("Pete",  listOf(s("P", listOf(0)),   s("e_e", listOf(1,3)), s("t", listOf(2)))),
+            w("theme", listOf(s("th", listOf(0,1)), s("e_e", listOf(2,4)), s("m", listOf(3))))
         )
     ),
 
@@ -694,7 +722,12 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("scream",  listOf(s("scr", listOf(0,1,2)), s("ea", listOf(3,4)), s("m", listOf(5)))),
             w("screen",  listOf(s("scr", listOf(0,1,2)), s("ee", listOf(3,4)), s("n", listOf(5)))),
             w("scratch", listOf(s("scr", listOf(0,1,2)), s("a",  listOf(3)), s("tch", listOf(4,5,6)))),
-            w("scrap",   listOf(s("scr", listOf(0,1,2)), s("a",  listOf(3)), s("p",   listOf(4))))
+            w("scrap",   listOf(s("scr", listOf(0,1,2)), s("a",  listOf(3)), s("p",   listOf(4)))),
+            // squ / shr
+            w("squeeze", listOf(s("squ", listOf(0,1,2)), s("ee", listOf(3,4)), s("z", listOf(5)), s("e", listOf(6), audio = ""))),
+            w("squeak",  listOf(s("squ", listOf(0,1,2)), s("ea", listOf(3,4)), s("k", listOf(5)))),
+            w("shrimp",  listOf(s("shr", listOf(0,1,2)), s("i",  listOf(3)), s("m", listOf(4)), s("p", listOf(5)))),
+            w("shrub",   listOf(s("shr", listOf(0,1,2)), s("u",  listOf(3)), s("b", listOf(4))))
         )
     ),
 
@@ -762,6 +795,11 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             // gn (silent g)
             w("sign",   listOf(s("s",  listOf(0)), s("i",  listOf(1), audio = "long_i"), s("gn", listOf(2,3)))),
             w("gnome",  listOf(s("gn", listOf(0,1)), s("o", listOf(2), audio = "long_o"), s("m",  listOf(3)), s("e",  listOf(4), audio = ""))),
+            // silent h / l / t
+            w("hour",   listOf(s("h", listOf(0), audio = ""), s("ou", listOf(1,2)), s("r", listOf(3)))),
+            w("walk",   listOf(s("w", listOf(0)), s("a", listOf(1)), s("l", listOf(2), audio = ""), s("k", listOf(3)))),
+            w("talk",   listOf(s("t", listOf(0)), s("a", listOf(1)), s("l", listOf(2), audio = ""), s("k", listOf(3)))),
+            w("listen", listOf(s("l", listOf(0)), s("i", listOf(1)), s("s", listOf(2)), s("t", listOf(3), audio = ""), s("e", listOf(4)), s("n", listOf(5)))),
             w("gnat",   listOf(s("gn", listOf(0,1)), s("a", listOf(2)), s("t",  listOf(3)))),
             w("design", listOf(s("d",  listOf(0)), s("e",  listOf(1)), s("s",  listOf(2)), s("i",  listOf(3)), s("gn", listOf(4,5)))),
             w("align",  listOf(s("a",  listOf(0)), s("l",  listOf(1)), s("i",  listOf(2)), s("gn", listOf(3,4))))
@@ -793,7 +831,12 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             // -est
             w("tallest",  listOf(s("tall",  listOf(0,1,2,3)),   s("est", listOf(4,5,6)))),
             w("biggest",  listOf(s("bigg",  listOf(0,1,2,3)),   s("est", listOf(4,5,6)))),
-            w("nicest",   listOf(s("nic",   listOf(0,1,2)),     s("est", listOf(3,4,5))))
+            w("nicest",   listOf(s("nic",   listOf(0,1,2)),     s("est", listOf(3,4,5)))),
+            // -s / -es plurals
+            w("cats",     listOf(s("cat",   listOf(0,1,2)),     s("s",   listOf(3)))),
+            w("cups",     listOf(s("cup",   listOf(0,1,2)),     s("s",   listOf(3)))),
+            w("boxes",    listOf(s("box",   listOf(0,1,2)),     s("es",  listOf(3,4)))),
+            w("wishes",   listOf(s("w", listOf(0)), s("i", listOf(1)), s("sh", listOf(2,3)), s("es", listOf(4,5))))
         )
     ),
 
@@ -818,7 +861,11 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("misread",    listOf(s("mis",  listOf(0,1,2)),     s("read",    listOf(3,4,5,6)))),
             w("misspell",   listOf(s("mis",  listOf(0,1,2)),     s("spell",   listOf(3,4,5,6,7)))),
             w("misplace",   listOf(s("mis",  listOf(0,1,2)),     s("place",   listOf(3,4,5,6,7)))),
-            w("refill",     listOf(s("re",   listOf(0,1)),       s("fill",    listOf(2,3,4,5))))
+            w("refill",     listOf(s("re",   listOf(0,1)),       s("fill",    listOf(2,3,4,5)))),
+            // over- / under- / non-
+            w("overeat",    listOf(s("over", listOf(0,1,2,3)),    s("eat",   listOf(4,5,6)))),
+            w("underwater", listOf(s("under",listOf(0,1,2,3,4)),  s("water", listOf(5,6,7,8,9)))),
+            w("nonstop",    listOf(s("non",  listOf(0,1,2)),      s("stop",  listOf(3,4,5,6))))
         )
     ),
 
@@ -969,6 +1016,12 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("jungle",  listOf(s("jun",  listOf(0,1,2)),      s("gle",  listOf(3,4,5)))),
             w("single",  listOf(s("sin",  listOf(0,1,2)),      s("gle",  listOf(3,4,5)))),
             w("eagle",   listOf(s("ea",   listOf(0,1)),        s("gle",  listOf(2,3,4)))),
+            // -kle / -fle / -zle
+            w("ankle",   listOf(s("an",   listOf(0,1)),        s("kle",  listOf(2,3,4)))),
+            w("twinkle", listOf(s("twin", listOf(0,1,2,3)),    s("kle",  listOf(4,5,6)))),
+            w("waffle",  listOf(s("waf",  listOf(0,1,2)),      s("fle",  listOf(3,4,5)))),
+            w("puzzle",  listOf(s("puz",  listOf(0,1,2)),      s("zle",  listOf(3,4,5)))),
+            w("sizzle",  listOf(s("siz",  listOf(0,1,2)),      s("zle",  listOf(3,4,5)))),
             w("giggle",  listOf(s("gig",  listOf(0,1,2)),      s("gle",  listOf(3,4,5))))
         )
     )
@@ -1020,26 +1073,20 @@ class PhonicsListenViewModel @Inject constructor(
         uiState = uiState.copy(segmentIndex = idx, playedSegments = uiState.playedSegments + idx)
 
         val seg = currentWord.segments[idx]
-        val isLast = idx + 1 >= currentWord.segments.size
+        // The full word plays after the last AUDIBLE segment — trailing silent
+        // segments (silent gh/e) never trigger it, they only highlight.
+        val lastAudibleIndex = currentWord.segments.indexOfLast { !it.isSilent }
+            .takeIf { it >= 0 } ?: (currentWord.segments.size - 1)
+        val isLastAudible = idx == lastAudibleIndex
 
         if (seg.isSilent) {
-            // No audio to wait on — advance on a fixed beat instead of an audio-completion callback.
-            if (isLast) {
-                viewModelScope.launch {
-                    delay(350)
-                    if (uiState.segmentIndex == idx) {
-                        playFullWord()
-                        uiState = uiState.copy(wordDone = true)
-                    }
-                }
-            }
             return
         }
 
         audioManager.playPhonicsSound(seg.audioFileName)
         audioManager.onAudioCompleted = {
             if (uiState.segmentIndex == idx) {
-                if (isLast) {
+                if (isLastAudible) {
                     playFullWord()
                     uiState = uiState.copy(wordDone = true)
                 } else {

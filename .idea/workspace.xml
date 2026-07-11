@@ -101,28 +101,26 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="new audio added and match hint logic">
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/bu.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/long_a.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/long_e.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/long_i.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/long_o.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/oo2.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ou2.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ou3.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/th2.mp3" afterDir="false" />
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="add missing audio">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/au.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/au.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ed.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ed.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/oo.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/oo.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ou.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ou.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/th.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/th.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/PhonicsListenPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/PhonicsListenPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l12_magic_e/view_model/MagicEViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l12_magic_e/view_model/MagicEViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l13_vowel_teams/VowelTeamsLearnPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l13_vowel_teams/VowelTeamsLearnPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l13_vowel_teams/view_model/VowelTeamsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l13_vowel_teams/view_model/VowelTeamsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l15_r_controlled/view_model/RControlledViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l15_r_controlled/view_model/RControlledViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l18_three_letter_blends/view_model/ThreeLetterBlendsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l18_three_letter_blends/view_model/ThreeLetterBlendsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l20_silent_letters/view_model/SilentLettersViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l20_silent_letters/view_model/SilentLettersViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l21_word_endings/WordEndingsLearnPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l21_word_endings/WordEndingsLearnPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l21_word_endings/view_model/WordEndingsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l21_word_endings/view_model/WordEndingsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l22_prefixes/view_model/PrefixesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l22_prefixes/view_model/PrefixesViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l23_suffixes/view_model/SuffixesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l23_suffixes/view_model/SuffixesViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l25_consonant_le/view_model/ConsonantLeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l25_consonant_le/view_model/ConsonantLeViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l28_sight_words/view_model/StarWordsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l28_sight_words/view_model/StarWordsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l6_word_families/view_model/WordFamiliesUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l6_word_families/view_model/WordFamiliesUiState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l7_beginning_blends/view_model/BeginningBlendsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l7_beginning_blends/view_model/BeginningBlendsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l8_ending_blends/view_model/EndingBlendsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l8_ending_blends/view_model/EndingBlendsViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -505,14 +503,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00186" summary="what kids learn and need practice filter base on ages selected">
-      <option name="closed" value="true" />
-      <created>1780028778894</created>
-      <option name="number" value="00186" />
-      <option name="presentableId" value="LOCAL-00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1780028778894</updated>
     </task>
     <task id="LOCAL-00187" summary="age group 3-5 menu ordering change">
       <option name="closed" value="true" />
@@ -898,7 +888,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783592143607</updated>
     </task>
-    <option name="localTasksCounter" value="235" />
+    <task id="LOCAL-00235" summary="add missing audio">
+      <option name="closed" value="true" />
+      <created>1783746769599</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1783746769599</updated>
+    </task>
+    <option name="localTasksCounter" value="236" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -913,7 +911,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="phonics sound on letter tracing" />
     <MESSAGE value="working on phonics L1 to L6" />
     <MESSAGE value="l1, l2, l3, l4, l6 done" />
     <MESSAGE value="L5 done" />
@@ -938,7 +935,8 @@
     <MESSAGE value="audio added" />
     <MESSAGE value="audio bug fixed and letter match logic, load letter from wrong in past" />
     <MESSAGE value="new audio added and match hint logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="new audio added and match hint logic" />
+    <MESSAGE value="add missing audio" />
+    <option name="LAST_COMMIT_MESSAGE" value="add missing audio" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

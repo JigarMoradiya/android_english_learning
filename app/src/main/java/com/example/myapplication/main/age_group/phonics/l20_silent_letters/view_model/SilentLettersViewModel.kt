@@ -105,6 +105,44 @@ val silentLettersGroups: List<SilentLettersGroup> = listOf(
             SilentLettersWord("reign",  3),
             SilentLettersWord("align",  3)
         )
+    ),
+    SilentLettersGroup(
+        pattern = "h",
+        rule = "Sometimes H hides completely — you don't hear it at all",
+        emoji = "🤐",
+        accentColor = Color(0xFF00695C),
+        shadowColor = Color(0xFF004D40),
+        words = listOf(
+            SilentLettersWord("hour",   0),
+            SilentLettersWord("honest", 0),
+            SilentLettersWord("ghost",  1)
+        )
+    ),
+    SilentLettersGroup(
+        pattern = "l",
+        rule = "L can be silent after A — like in walk and calm",
+        emoji = "🚶",
+        accentColor = Color(0xFF8E24AA),
+        shadowColor = Color(0xFF6A1B9A),
+        words = listOf(
+            SilentLettersWord("walk",  2),
+            SilentLettersWord("talk",  2),
+            SilentLettersWord("calm",  2),
+            SilentLettersWord("half",  2)
+        )
+    ),
+    SilentLettersGroup(
+        pattern = "t",
+        rule = "T can hide in the middle — like in listen and castle",
+        emoji = "🏰",
+        accentColor = Color(0xFFEF6C00),
+        shadowColor = Color(0xFFE65100),
+        words = listOf(
+            SilentLettersWord("listen",  3),
+            SilentLettersWord("castle",  3),
+            SilentLettersWord("whistle", 4),
+            SilentLettersWord("often",   2)
+        )
     )
 )
 
@@ -166,7 +204,12 @@ val silentLettersPracticeQuestions: List<SilentLettersPracticeQuestion> = listOf
     SilentLettersPracticeQuestion("thumb",  4),
     SilentLettersPracticeQuestion("sign",   2),
     SilentLettersPracticeQuestion("gnome",  0),
-    SilentLettersPracticeQuestion("gnat",   0)
+    SilentLettersPracticeQuestion("gnat",   0),
+    SilentLettersPracticeQuestion("hour",   0),
+    SilentLettersPracticeQuestion("walk",   2),
+    SilentLettersPracticeQuestion("talk",   2),
+    SilentLettersPracticeQuestion("listen", 3),
+    SilentLettersPracticeQuestion("castle", 3)
 )
 
 data class SilentLettersPracticeUiState(

@@ -95,6 +95,20 @@ val cleGroups: List<CLEGroup> = listOf(
             CLEWord("giggle",  "gig",  "gle"),
             CLEWord("noodle",  "noo",  "dle")
         )
+    ),
+    CLEGroup(
+        ending = "-kle / -fle / -zle", emoji = "🧩", rule = "sounds like /kəl/, /fəl/ or /zəl/",
+        accentColor = Color(0xFF00838F), shadowColor = Color(0xFF006064),
+        words = listOf(
+            CLEWord("ankle",   "an",   "kle"),
+            CLEWord("twinkle", "twin", "kle"),
+            CLEWord("sparkle", "spar", "kle"),
+            CLEWord("waffle",  "waf",  "fle"),
+            CLEWord("ruffle",  "ruf",  "fle"),
+            CLEWord("puzzle",  "puz",  "zle"),
+            CLEWord("sizzle",  "siz",  "zle"),
+            CLEWord("drizzle", "driz", "zle")
+        )
     )
 )
 
@@ -169,7 +183,11 @@ val clePracticeQuestions: List<CLEPracticeQuestion> = listOf(
     CLEPracticeQuestion("mid", "-dle", "middle", listOf("middle", "middel", "middal", "midal")),
     CLEPracticeQuestion("jun", "-gle", "jungle", listOf("jungle", "jungel", "jungal", "jungul")),
     CLEPracticeQuestion("sin", "-gle", "single", listOf("single", "singel", "singal", "singul")),
-    CLEPracticeQuestion("ea",  "-gle", "eagle",  listOf("eagle",  "eagel",  "eagal",  "eagul"))
+    CLEPracticeQuestion("ea",  "-gle", "eagle",  listOf("eagle",  "eagel",  "eagal",  "eagul")),
+    CLEPracticeQuestion("an",  "-kle", "ankle",  listOf("ankle",  "ankel",  "ankal",  "ankul")),
+    CLEPracticeQuestion("twin","-kle", "twinkle",listOf("twinkle","twinkel","twinkal","twinkul")),
+    CLEPracticeQuestion("waf", "-fle", "waffle", listOf("waffle", "waffel", "waffal", "wafle")),
+    CLEPracticeQuestion("puz", "-zle", "puzzle", listOf("puzzle", "puzzel", "puzzal", "puzle"))
 )
 
 data class CLEPracticeUiState(

@@ -108,6 +108,37 @@ val prefixGroups: List<PrefixGroup> = listOf(
             PrefixWord("hear",   "mishear"),
             PrefixWord("match",  "mismatch")
         )
+    ),
+    PrefixGroup(
+        prefix = "over", displayPrefix = "over-", meaning = "TOO MUCH", emoji = "🌊",
+        accentColor = Color(0xFF0277BD), shadowColor = Color(0xFF01579B),
+        words = listOf(
+            PrefixWord("eat",   "overeat"),
+            PrefixWord("sleep", "oversleep"),
+            PrefixWord("flow",  "overflow"),
+            PrefixWord("load",  "overload"),
+            PrefixWord("heat",  "overheat")
+        )
+    ),
+    PrefixGroup(
+        prefix = "under", displayPrefix = "under-", meaning = "BELOW", emoji = "⬇️",
+        accentColor = Color(0xFF00695C), shadowColor = Color(0xFF004D40),
+        words = listOf(
+            PrefixWord("water",  "underwater"),
+            PrefixWord("ground", "underground"),
+            PrefixWord("line",   "underline"),
+            PrefixWord("cook",   "undercook")
+        )
+    ),
+    PrefixGroup(
+        prefix = "non", displayPrefix = "non-", meaning = "NOT / NONE", emoji = "🚱",
+        accentColor = Color(0xFF6D4C41), shadowColor = Color(0xFF4E342E),
+        words = listOf(
+            PrefixWord("stop",  "nonstop"),
+            PrefixWord("sense", "nonsense"),
+            PrefixWord("fat",   "nonfat"),
+            PrefixWord("stick", "nonstick")
+        )
     )
 )
 
@@ -180,7 +211,11 @@ val prefixesPracticeQuestions: List<PrefixesPracticeQuestion> = listOf(
     PrefixesPracticeQuestion("mis", "spell", "misspell",   listOf("misspell",   "mispell",   "mis-spell",   "wrongspell")),
     PrefixesPracticeQuestion("mis", "read",  "misread",    listOf("misread",    "missread",  "mis-read",    "wrongread")),
     PrefixesPracticeQuestion("mis", "place", "misplace",   listOf("misplace",   "missplace", "mis-place",   "wrongplace")),
-    PrefixesPracticeQuestion("mis", "match", "mismatch",   listOf("mismatch",   "missmatch", "mis-match",   "wrongmatch"))
+    PrefixesPracticeQuestion("mis", "match", "mismatch",   listOf("mismatch",   "missmatch", "mis-match",   "wrongmatch")),
+    // over- / under- / non-
+    PrefixesPracticeQuestion("over",  "eat",   "overeat",    listOf("overeat",    "overreat",   "over-eat",    "muchseat")),
+    PrefixesPracticeQuestion("under", "water", "underwater", listOf("underwater", "underrwater","under-water", "belowwater")),
+    PrefixesPracticeQuestion("non",   "stop",  "nonstop",    listOf("nonstop",    "nonnstop",   "non-stop",    "notstop"))
 )
 
 data class PrefixesPracticeUiState(

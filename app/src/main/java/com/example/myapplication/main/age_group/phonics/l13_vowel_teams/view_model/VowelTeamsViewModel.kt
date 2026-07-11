@@ -35,7 +35,23 @@ enum class VowelTeamGroup(
     OA_OW("OA / OW", "🌊", Color(0xFF1565C0), Color(0xFF0D47A1),
         "OA and OW together say /ō/ (long O)",
         "boat coat snow grow",
-        "oa · ow")
+        "oa · ow"),
+    OO_LONG("OO · moon", "🌙", Color(0xFF5E35B1), Color(0xFF4527A0),
+        "OO usually says /oo/ — long like a ghost: \"oooo\" 👻",
+        "moon food zoo pool",
+        "oo 🌙"),
+    OO_SHORT("OO · book", "📖", Color(0xFFE65100), Color(0xFFBF360C),
+        "A small OO family says a quick /u/ — no rule, learn them by heart! Tip: oo + k almost always sounds like book",
+        "book look good foot",
+        "oo 📖"),
+    EW_UE_UI("EW / UE / UI", "💧", Color(0xFF0277BD), Color(0xFF01579B),
+        "EW, UE and UI all say /oo/ — just like the moon sound!",
+        "new blue glue fruit",
+        "ew · ue · ui"),
+    EA_SHORT("EA · bread", "🍞", Color(0xFF6D4C41), Color(0xFF4E342E),
+        "A few EA words say short /e/ (like bread) — no rule, learn this little family by heart!",
+        "bread head ready",
+        "ea 🍞")
 }
 
 data class VowelTeamWord(
@@ -96,6 +112,46 @@ val vowelTeamWordData: Map<VowelTeamGroup, List<VowelTeamWord>> = mapOf(
         VowelTeamWord(word = "grow",  teamStart = 2, teamLength = 2),
         VowelTeamWord(word = "flow",  teamStart = 2, teamLength = 2),
         VowelTeamWord(word = "show",  teamStart = 2, teamLength = 2),
+    ),
+    VowelTeamGroup.OO_LONG to listOf(
+        VowelTeamWord(word = "moon",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "food",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "zoo",   teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "roof",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "spoon", teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "cool",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "pool",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "boot",  teamStart = 1, teamLength = 2),
+    ),
+    VowelTeamGroup.OO_SHORT to listOf(
+        VowelTeamWord(word = "book",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "look",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "took",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "cook",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "hook",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "good",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "wood",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "foot",  teamStart = 1, teamLength = 2),
+    ),
+    VowelTeamGroup.EW_UE_UI to listOf(
+        VowelTeamWord(word = "new",   teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "grew",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "flew",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "chew",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "blue",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "glue",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "true",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "clue",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "fruit", teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "juice", teamStart = 1, teamLength = 2),
+    ),
+    VowelTeamGroup.EA_SHORT to listOf(
+        VowelTeamWord(word = "bread",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "head",   teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "thread", teamStart = 3, teamLength = 2),
+        VowelTeamWord(word = "spread", teamStart = 3, teamLength = 2),
+        VowelTeamWord(word = "ready",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "heavy",  teamStart = 1, teamLength = 2),
     )
 )
 
@@ -115,6 +171,14 @@ val vowelTeamPracticeQuestions: List<VowelTeamPracticeQuestion> = listOf(
     VowelTeamPracticeQuestion(word = "wait",  correctTeam = "ai", options = listOf("ai", "oa", "ee"), teamStart = 1, teamLength = 2),
     VowelTeamPracticeQuestion(word = "beach", correctTeam = "ea", options = listOf("ea", "ow", "ay"), teamStart = 1, teamLength = 2),
     VowelTeamPracticeQuestion(word = "green", correctTeam = "ee", options = listOf("ee", "oa", "ai"), teamStart = 2, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "moon",  correctTeam = "oo", options = listOf("oo", "ee", "oa"), teamStart = 1, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "book",  correctTeam = "oo", options = listOf("oo", "ai", "ee"), teamStart = 1, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "food",  correctTeam = "oo", options = listOf("oo", "oa", "ay"), teamStart = 1, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "look",  correctTeam = "oo", options = listOf("oo", "ea", "ai"), teamStart = 1, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "new",   correctTeam = "ew", options = listOf("ew", "oo", "ay"), teamStart = 1, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "blue",  correctTeam = "ue", options = listOf("ue", "oo", "ea"), teamStart = 2, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "fruit", correctTeam = "ui", options = listOf("ui", "oo", "ee"), teamStart = 2, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "bread", correctTeam = "ea", options = listOf("ea", "ee", "oo"), teamStart = 2, teamLength = 2),
 )
 
 // ── UI States ─────────────────────────────────────────────────────────────────
@@ -153,7 +217,7 @@ class VowelTeamsLearnViewModel @Inject constructor(
         val wordId = word.id
         audioManager.stop()
         uiState = uiState.copy(highlightedWordId = wordId)
-        audioManager.playPhonicsSound(word.word)
+        audioManager.playPhonicsSound("phonics_word/${word.word}")
         audioManager.onAudioCompleted = {
             if (uiState.highlightedWordId == wordId) {
                 uiState = uiState.copy(highlightedWordId = null)

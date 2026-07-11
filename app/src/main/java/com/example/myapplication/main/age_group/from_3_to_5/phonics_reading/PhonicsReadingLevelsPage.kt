@@ -118,7 +118,7 @@ val phonicsLevelItems = listOf(
         "cap→cape · hop→hope · bit→bite · cub→cube · pet→Pete",
         "✨", Color(0xFF880E4F), "Age 6-7", RouteNavigation.MagicEIntro.route, true),
     PhonicsLevelItem(13, "Vowel Teams",
-        "ai/ay rain, day · ee/ea feet, read · oa/ow boat, snow",
+        "ai/ay rain · ee/ea feet · oa/ow boat · oo moon/book · ew/ue new, blue · ea bread",
         "🤝", Color(0xFFEF6C00), "Age 6-7", RouteNavigation.VowelTeamsIntro.route, true),
     PhonicsLevelItem(14, "Diphthongs",
         "oi/oy coin, boy · ou/ow cloud, cow · au/aw pause, saw",
@@ -146,7 +146,7 @@ val phonicsLevelItems = listOf(
 
     // ── Word Building (Age 7+) ────────────────────────────────────────────────
     PhonicsLevelItem(21, "Word Endings",
-        "-ing/-ed/-er/-est · double: run→running · drop-e: make→making",
+        "-s/-es cats, boxes · -ing/-ed/-er/-est · double run→running · drop-e · y→i cry→cried",
         "🔧", Color(0xFF283593), "Age 7+", RouteNavigation.WordEndingsIntro.route, true),
     PhonicsLevelItem(22, "Prefixes",
         "un- unhappy · re- redo · pre- preview · dis- disagree · mis- mistake",

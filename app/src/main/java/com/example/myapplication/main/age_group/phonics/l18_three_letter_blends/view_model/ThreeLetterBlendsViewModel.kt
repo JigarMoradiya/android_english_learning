@@ -109,6 +109,34 @@ val threeLetterBlendsGroups: List<ThreeLetterBlendsGroup> = listOf(
             ThreeLetterBlendsWord("scroll",   "scr"),
             ThreeLetterBlendsWord("scramble", "scr")
         )
+    ),
+    ThreeLetterBlendsGroup(
+        blend = "squ",
+        rule = "squ — s+q+u squeeze together!",
+        emoji = "🐿️",
+        accentColor = Color(0xFF00838F),
+        shadowColor = Color(0xFF006064),
+        words = listOf(
+            ThreeLetterBlendsWord("squeeze",  "squ"),
+            ThreeLetterBlendsWord("squash",   "squ"),
+            ThreeLetterBlendsWord("squirrel", "squ"),
+            ThreeLetterBlendsWord("square",   "squ"),
+            ThreeLetterBlendsWord("squeak",   "squ")
+        )
+    ),
+    ThreeLetterBlendsGroup(
+        blend = "shr",
+        rule = "shr — sh digraph + r!",
+        emoji = "🦐",
+        accentColor = Color(0xFF5E35B1),
+        shadowColor = Color(0xFF4527A0),
+        words = listOf(
+            ThreeLetterBlendsWord("shrimp",  "shr"),
+            ThreeLetterBlendsWord("shrink",  "shr"),
+            ThreeLetterBlendsWord("shred",   "shr"),
+            ThreeLetterBlendsWord("shrub",   "shr"),
+            ThreeLetterBlendsWord("shrug",   "shr")
+        )
     )
 )
 
@@ -172,7 +200,9 @@ val threeLetterBlendsPracticeQuestions: List<ThreeLetterBlendsPracticeQuestion> 
     ThreeLetterBlendsPracticeQuestion("sprout",  "spr", listOf("spr", "str", "scr", "spl")),
     ThreeLetterBlendsPracticeQuestion("thread",  "thr", listOf("thr", "str", "spl", "scr")),
     ThreeLetterBlendsPracticeQuestion("screen",  "scr", listOf("scr", "thr", "spl", "spr")),
-    ThreeLetterBlendsPracticeQuestion("strip",   "str", listOf("str", "spl", "thr", "scr"))
+    ThreeLetterBlendsPracticeQuestion("strip",   "str", listOf("str", "spl", "thr", "scr")),
+    ThreeLetterBlendsPracticeQuestion("squeeze", "squ", listOf("squ", "scr", "str", "shr")),
+    ThreeLetterBlendsPracticeQuestion("shrimp",  "shr", listOf("shr", "squ", "thr", "spr"))
 )
 
 data class ThreeLetterBlendsPracticeUiState(

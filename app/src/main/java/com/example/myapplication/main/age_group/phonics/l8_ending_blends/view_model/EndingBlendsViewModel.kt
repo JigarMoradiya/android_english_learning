@@ -124,7 +124,16 @@ val endingBlendsData: List<EndBlendEntry> = listOf(
         EndBlendWord(word="best", blendLength=2), EndBlendWord(word="nest", blendLength=2),
         EndBlendWord(word="fast", blendLength=2), EndBlendWord(word="list", blendLength=2),
         EndBlendWord(word="dust", blendLength=2), EndBlendWord(word="rest", blendLength=2),
-        EndBlendWord(word="just", blendLength=2), EndBlendWord(word="last", blendLength=2)))
+        EndBlendWord(word="just", blendLength=2), EndBlendWord(word="last", blendLength=2))),
+    EndBlendEntry("", "ld", "/ld/", "Finish with /l/ then /d/ — like 'cold' or 'old'",
+                  EndBlendGroup.MP_LK, listOf(
+        EndBlendWord(word="cold", blendLength=2), EndBlendWord(word="old",  blendLength=2),
+        EndBlendWord(word="gold", blendLength=2), EndBlendWord(word="held", blendLength=2),
+        EndBlendWord(word="bold", blendLength=2), EndBlendWord(word="wild", blendLength=2))),
+    EndBlendEntry("", "lp", "/lp/", "Finish with /l/ then /p/ — like 'help' or 'gulp'",
+                  EndBlendGroup.MP_LK, listOf(
+        EndBlendWord(word="help", blendLength=2), EndBlendWord(word="gulp", blendLength=2),
+        EndBlendWord(word="yelp", blendLength=2), EndBlendWord(word="pulp", blendLength=2)))
 )
 
 val endingBlendsPracticeQuestions: List<EndBlendPracticeQuestion> = listOf(
@@ -142,7 +151,9 @@ val endingBlendsPracticeQuestions: List<EndBlendPracticeQuestion> = listOf(
     EndBlendPracticeQuestion(word="gift", blendLength=2, correctBlend="ft", options=listOf("ft","st","sk"), imageName="gift"),
     EndBlendPracticeQuestion(word="dust", blendLength=2, correctBlend="st", options=listOf("st","nd","ft"), imageName="dust"),
     EndBlendPracticeQuestion(word="mask", blendLength=2, correctBlend="sk", options=listOf("sk","ft","lt"), imageName="mask"),
-    EndBlendPracticeQuestion(word="bulk", blendLength=2, correctBlend="lk", options=listOf("lk","lt","mp"), imageName="bulk")
+    EndBlendPracticeQuestion(word="bulk", blendLength=2, correctBlend="lk", options=listOf("lk","lt","mp"), imageName="bulk"),
+    EndBlendPracticeQuestion(word="cold", blendLength=2, correctBlend="ld", options=listOf("ld","lt","nd"), imageName="cold"),
+    EndBlendPracticeQuestion(word="help", blendLength=2, correctBlend="lp", options=listOf("lp","lk","mp"), imageName="help")
 )
 
 // ── Learn ViewModel ────────────────────────────────────────────────────────────

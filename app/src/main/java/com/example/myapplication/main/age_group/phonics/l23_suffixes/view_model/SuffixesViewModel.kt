@@ -120,6 +120,46 @@ val suffixGroups: List<SuffixGroup> = listOf(
             SuffixWord("pas",     "passion",    SuffixRule.JUST_ADD),
             SuffixWord("permis",  "permission", SuffixRule.JUST_ADD)
         )
+    ),
+    SuffixGroup(
+        suffix = "-ly", rawSuffix = "ly", suffixLen = 2,
+        meaning = "in that way", emoji = "💨",
+        accentColor = Color(0xFF00838F), shadowColor = Color(0xFF006064),
+        words = listOf(
+            SuffixWord("slow",  "slowly",  SuffixRule.JUST_ADD),
+            SuffixWord("quick", "quickly", SuffixRule.JUST_ADD),
+            SuffixWord("loud",  "loudly",  SuffixRule.JUST_ADD),
+            SuffixWord("soft",  "softly",  SuffixRule.JUST_ADD),
+            SuffixWord("kind",  "kindly",  SuffixRule.JUST_ADD),
+            SuffixWord("safe",  "safely",  SuffixRule.JUST_ADD),
+            SuffixWord("happy", "happily", SuffixRule.DROP_Y)
+        )
+    ),
+    SuffixGroup(
+        suffix = "-er", rawSuffix = "er", suffixLen = 2,
+        meaning = "person who does it", emoji = "🧑‍🏫",
+        accentColor = Color(0xFF5E35B1), shadowColor = Color(0xFF4527A0),
+        words = listOf(
+            SuffixWord("teach", "teacher", SuffixRule.JUST_ADD),
+            SuffixWord("sing",  "singer",  SuffixRule.JUST_ADD),
+            SuffixWord("play",  "player",  SuffixRule.JUST_ADD),
+            SuffixWord("paint", "painter", SuffixRule.JUST_ADD),
+            SuffixWord("farm",  "farmer",  SuffixRule.JUST_ADD),
+            SuffixWord("help",  "helper",  SuffixRule.JUST_ADD)
+        )
+    ),
+    SuffixGroup(
+        suffix = "-y", rawSuffix = "y", suffixLen = 1,
+        meaning = "full of / like", emoji = "☔",
+        accentColor = Color(0xFFEF6C00), shadowColor = Color(0xFFE65100),
+        words = listOf(
+            SuffixWord("rain",  "rainy",  SuffixRule.JUST_ADD),
+            SuffixWord("wind",  "windy",  SuffixRule.JUST_ADD),
+            SuffixWord("cloud", "cloudy", SuffixRule.JUST_ADD),
+            SuffixWord("snow",  "snowy",  SuffixRule.JUST_ADD),
+            SuffixWord("luck",  "lucky",  SuffixRule.JUST_ADD),
+            SuffixWord("sleep", "sleepy", SuffixRule.JUST_ADD)
+        )
     )
 )
 
@@ -199,7 +239,16 @@ val suffixesPracticeQuestions: List<SuffixesPracticeQuestion> = listOf(
     SuffixesPracticeQuestion("exten",  "-sion", "extension",  listOf("extension",  "extention",  "extensian", "extencion")),
     SuffixesPracticeQuestion("confu",  "-sion", "confusion",  listOf("confusion",  "confution",  "confusian", "confushion")),
     SuffixesPracticeQuestion("explo",  "-sion", "explosion",  listOf("explosion",  "exploshion", "explotion", "explosian")),
-    SuffixesPracticeQuestion("inva",   "-sion", "invasion",   listOf("invasion",   "invashion",  "invation",  "invasian"))
+    SuffixesPracticeQuestion("inva",   "-sion", "invasion",   listOf("invasion",   "invashion",  "invation",  "invasian")),
+    // -ly
+    SuffixesPracticeQuestion("slow",  "-ly", "slowly",  listOf("slowly",  "slowley",  "slowlly",  "slowli")),
+    SuffixesPracticeQuestion("quick", "-ly", "quickly", listOf("quickly", "quickley", "quicklly", "quickli")),
+    // -er (person who)
+    SuffixesPracticeQuestion("teach", "-er", "teacher", listOf("teacher", "teachar",  "teachor",  "teacherr")),
+    SuffixesPracticeQuestion("sing",  "-er", "singer",  listOf("singer",  "singar",   "singor",   "singger")),
+    // -y
+    SuffixesPracticeQuestion("rain",  "-y",  "rainy",   listOf("rainy",   "rainey",   "rainny",   "raini")),
+    SuffixesPracticeQuestion("luck",  "-y",  "lucky",   listOf("lucky",   "luckey",   "luccy",    "lucki"))
 )
 
 data class SuffixesPracticeUiState(
