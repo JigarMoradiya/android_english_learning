@@ -34,6 +34,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.PauseCircle
 import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material.icons.filled.TouchApp
+import androidx.compose.material.icons.filled.VolumeOff
 import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -62,6 +63,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -393,14 +395,27 @@ private fun SegmentDot(
             text = seg.text.replace("_", ""),
             style = MaterialTheme.typography.bodyLarge.scaled(),
             fontWeight = FontWeight.Bold,
-            color = if (isActive) accent else if (isDone) Color(0xFF546E7A) else Color(0xFF607D8B)
+            color = if (seg.isSilent) Color(0xFFB0BEC5) else if (isActive) accent else if (isDone) Color(0xFF546E7A) else Color(0xFF607D8B),
+            textDecoration = if (seg.isSilent) TextDecoration.LineThrough else TextDecoration.None
         )
-        Box(
-            modifier = Modifier
-                .size(Dimens16)
-                .graphicsLayer { scaleX = dotScale; scaleY = dotScale }
-                .background(dotColor, CircleShape)
-        )
+        if (seg.isSilent) {
+            // Silent segment: telegraph "no sound" up front instead of a colored dot.
+            Icon(
+                imageVector = Icons.Filled.VolumeOff,
+                contentDescription = null,
+                tint = Color(0xFFB0BEC5),
+                modifier = Modifier
+                    .size(Dimens16)
+                    .graphicsLayer { scaleX = dotScale; scaleY = dotScale }
+            )
+        } else {
+            Box(
+                modifier = Modifier
+                    .size(Dimens16)
+                    .graphicsLayer { scaleX = dotScale; scaleY = dotScale }
+                    .background(dotColor, CircleShape)
+            )
+        }
     }
 }
 
