@@ -2,6 +2,9 @@ package com.example.myapplication.main.age_group.phonics.l2_short_vowels
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -17,10 +20,12 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowCircleRight
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Hearing
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,7 +33,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.min
 import androidx.navigation.NavController
 import com.example.myapplication.main.age_group.phonics.l2_short_vowels.view_model.shortVowelData
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.main.base.nav.RouteNavigation
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
@@ -42,9 +49,18 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import kotlinx.coroutines.launch
 
 @Composable
 fun ShortVowelsIntroPage(navController: NavController) {
+    // L1–L3 are free but count against the daily limit — check on every
+    // Learn/Practice/Listen start (login/limit sheets shown automatically).
+    val accessVM = LocalAccessSheetViewModel.current
+    val scope = rememberCoroutineScope()
+    fun gated(action: () -> Unit) {
+        scope.launch { if (accessVM.checkAccess(ModuleID.PHONICS_READING)) action() }
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
         KidsGradientBackground(gradient = KidsGradient.peachCoral, shape = KidsFloatingShape.sparkles)
 
@@ -66,11 +82,12 @@ fun ShortVowelsIntroPage(navController: NavController) {
                 ) {
                     BackButtonWithText(title = "Level 2", onBackClick = { navController.popBackStack() })
 
-                    Spacer(modifier = Modifier.weight(1f))
-
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens24),
-                        verticalArrangement = Arrangement.spacedBy(Dimens20)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens24),
+                        verticalArrangement = Arrangement.spacedBy(Dimens20, Alignment.CenterVertically)
                     ) {
                         Text(
                             text = "Short Vowels",
@@ -80,7 +97,10 @@ fun ShortVowelsIntroPage(navController: NavController) {
                         )
 
                         // Vowel tiles row
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens10)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens10),
+                            verticalArrangement = Arrangement.spacedBy(Dimens10)
+                        ) {
                             val tileSize = min(screenH * 0.08f, screenW * 0.06f)
                             shortVowelData.forEach { v ->
                                 val color = Color(v.colorHex)
@@ -108,7 +128,10 @@ fun ShortVowelsIntroPage(navController: NavController) {
                         }
 
                         // Example anchor words
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             listOf("ant", "egg", "ink", "ox", "up").forEach { word ->
                                 Box(
                                     modifier = Modifier
@@ -125,8 +148,6 @@ fun ShortVowelsIntroPage(navController: NavController) {
                             }
                         }
                     }
-
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT: start card ─────────────────────────────────────────
@@ -140,14 +161,20 @@ fun ShortVowelsIntroPage(navController: NavController) {
                     learnButton = PhonicsIntroBtnConfig(
                         text = "Start Learning",
                         icon = Icons.Default.ArrowCircleRight,
+                        type = ButtonType.GREEN,
+                        onClick = { gated { navController.navigate(RouteNavigation.ShortVowelsLearn.route) } }
+                    ),
+                    practiceButton = PhonicsIntroBtnConfig(
+                        text = "Practice",
+                        icon = Icons.Default.CheckCircle,
                         type = ButtonType.BLUE,
-                        onClick = { navController.navigate(RouteNavigation.ShortVowelsLearn.route) }
+                        onClick = { gated { navController.navigate(RouteNavigation.ShortVowelsPractice.route) } }
                     ),
                     listenButton = PhonicsIntroBtnConfig(
                         text = "Listen",
                         icon = Icons.Default.Hearing,
                         type = ButtonType.TEAL,
-                        onClick = { navController.navigate(RouteNavigation.PhonicsListen.createRoute("shortVowels")) }
+                        onClick = { gated { navController.navigate(RouteNavigation.PhonicsListen.createRoute("shortVowels")) } }
                     ),
                     modifier = Modifier.weight(0.48f).fillMaxHeight()
                 )

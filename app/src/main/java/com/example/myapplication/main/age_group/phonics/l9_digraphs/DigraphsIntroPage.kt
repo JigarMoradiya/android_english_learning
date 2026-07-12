@@ -3,6 +3,9 @@ package com.example.myapplication.main.age_group.phonics.l9_digraphs
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -68,10 +71,12 @@ fun DigraphsIntroPage(navController: NavController) {
             Row(modifier = Modifier.fillMaxSize()) {
                 Column(modifier = Modifier.weight(0.54f).fillMaxHeight()) {
                     BackButtonWithText(title = "Level 9", onBackClick = { navController.popBackStack() })
-                    Spacer(modifier = Modifier.weight(1f))
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
                     ) {
                         Text(
                             text = "Digraphs",
@@ -79,7 +84,10 @@ fun DigraphsIntroPage(navController: NavController) {
                             fontWeight = FontWeight.ExtraBold,
                             color = Color(0xFFBF360C)
                         )
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             DigraphGroup.entries.forEach { group ->
                                 L9GroupBadge(group = group, modifier = Modifier.weight(1f))
                             }
@@ -91,7 +99,6 @@ fun DigraphsIntroPage(navController: NavController) {
                             L9BulletRow(icon = Icons.Default.CheckCircle,        color = Color(0xFFE65100), text = "Practice quiz — pick the correct digraph")
                         }
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 PhonicsIntroRightPanel(

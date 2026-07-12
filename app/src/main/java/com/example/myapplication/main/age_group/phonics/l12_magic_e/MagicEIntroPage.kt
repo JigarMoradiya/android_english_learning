@@ -2,6 +2,9 @@ package com.example.myapplication.main.age_group.phonics.l12_magic_e
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -71,11 +74,18 @@ fun MagicEIntroPage(navController: NavController) {
                 ) {
                     BackButtonWithText(title = "Level 12", onBackClick = { navController.popBackStack() })
 
-                    Spacer(modifier = Modifier.weight(1f))
-
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+
+                        modifier = Modifier
+
+                            .weight(1f)
+
+                            .verticalScroll(rememberScrollState())
+
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
+
                     ) {
                         Text(
                             text = "Magic E",
@@ -85,7 +95,10 @@ fun MagicEIntroPage(navController: NavController) {
                         )
 
                         // Word transformation showcase
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             listOf(
                                 Triple("cap", "cape", Color(0xFFFF7043)),
                                 Triple("bit",  "bite",  Color(0xFFAB47BC)),
@@ -133,8 +146,6 @@ fun MagicEIntroPage(navController: NavController) {
                             MagicEIntroRow("4️⃣", "Works for a, i, o, and u vowels")
                         }
                     }
-
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT: start card ────────────────────────────────────────

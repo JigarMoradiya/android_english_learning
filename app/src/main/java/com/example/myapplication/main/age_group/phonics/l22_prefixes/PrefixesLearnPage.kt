@@ -31,6 +31,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l22_prefixes.view_model.PrefixGroup
 import com.example.myapplication.main.age_group.phonics.l22_prefixes.view_model.PrefixWord
 import com.example.myapplication.main.age_group.phonics.l22_prefixes.view_model.PrefixesLearnViewModel
@@ -54,6 +56,9 @@ fun PrefixesLearnPage(
     navController: NavController,
     viewModel: PrefixesLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.prefixes)
+
     val uiState = viewModel.uiState
     val selectedGroup = viewModel.selectedGroup
 

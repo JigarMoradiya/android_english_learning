@@ -6,6 +6,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.progress.PhonicsLevelProgressRepository
+import com.example.myapplication.data.progress.PhonicsSessionRecorder
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.utilities.AudioPhonicsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -223,9 +226,16 @@ data class SilentLettersPracticeUiState(
 
 @HiltViewModel
 class SilentLettersPracticeViewModel @Inject constructor(
-    private val audioManager: AudioPhonicsManager
+    private val audioManager: AudioPhonicsManager,
+    private val levelProgressRepo: PhonicsLevelProgressRepository,
+    private val phonicsSessions: PhonicsSessionRecorder
 ) : ViewModel() {
     var uiState by mutableStateOf(SilentLettersPracticeUiState()); private set
+
+    // Parent-report session tracking
+    private var sessionStartMs = System.currentTimeMillis()
+    private val wrongWords = mutableListOf<String>()
+    private val correctWords = mutableListOf<String>()
     private val questions = silentLettersPracticeQuestions.shuffled()
 
     val totalQuestions: Int get() = questions.size
@@ -250,12 +260,21 @@ class SilentLettersPracticeViewModel @Inject constructor(
         }
     }
 
-    fun restart() { uiState = SilentLettersPracticeUiState() }
+    fun restart() {
+        sessionStartMs = System.currentTimeMillis()
+        wrongWords.clear()
+        correctWords.clear()
+        uiState = SilentLettersPracticeUiState()
+    }
 
     private fun advance() {
         val next = uiState.currentIndex + 1
         val newScore = uiState.score + (if (uiState.isCorrect == true) 1 else 0)
-        if (next >= questions.size) { uiState = uiState.copy(isFinished = true, score = newScore) }
+        if (next >= questions.size) {
+            uiState = uiState.copy(isFinished = true, score = newScore)
+            levelProgressRepo.recordPractice(level = PhonicsListenLevelKey.silentLetters, score = newScore, total = questions.size)
+            phonicsSessions.recordPractice(PhonicsListenLevelKey.silentLetters, newScore, questions.size, ((System.currentTimeMillis() - sessionStartMs) / 1000).toInt(), wrongWords.toList(), correctWords.toList())
+        }
         else { uiState = SilentLettersPracticeUiState(currentIndex = next, score = newScore) }
     }
 }

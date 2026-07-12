@@ -58,6 +58,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.view_model.RuleComparison
 import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.view_model.RuleWordExample
@@ -89,6 +91,9 @@ fun ShortVowelRulesLearnPage(
     navController: NavController,
     viewModel: ShortVowelRulesViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.shortVowelRules)
+
     val uiState = viewModel.uiState
 
     LaunchedEffect(Unit) {

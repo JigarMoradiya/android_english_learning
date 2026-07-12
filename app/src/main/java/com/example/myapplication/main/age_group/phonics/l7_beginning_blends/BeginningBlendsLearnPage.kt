@@ -51,6 +51,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l7_beginning_blends.view_model.BeginningBlendsLearnViewModel
 import com.example.myapplication.main.age_group.phonics.l7_beginning_blends.view_model.BlendEntry
 import com.example.myapplication.main.age_group.phonics.l7_beginning_blends.view_model.BlendGroup
@@ -81,6 +83,9 @@ fun BeginningBlendsLearnPage(
     navController: NavController,
     viewModel: BeginningBlendsLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.beginningBlends)
+
     val uiState = viewModel.uiState
 
     LaunchedEffect(Unit) {

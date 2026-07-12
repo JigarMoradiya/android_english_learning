@@ -10,6 +10,7 @@ import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.data.progress.LearningSession
+import com.example.myapplication.data.progress.PhonicsLevelProgressRepository
 import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.main.base.nav.RouteNavigation
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -39,7 +40,8 @@ data class SessionEntry(
     val timestampMs: Long,
     val moduleId: String = "",
     val correctItems: List<String> = emptyList(),
-    val wrongItems: List<String> = emptyList()
+    val wrongItems: List<String> = emptyList(),
+    val mode: String? = null   // "Practice" / "Learning" / "Listen" tag (phonics sessions)
 )
 
 data class LessonGroup(
@@ -73,8 +75,22 @@ data class ModuleProgressRow(
 @HiltViewModel
 class ParentProgressViewModel @Inject constructor(
     private val sessionRepository: SessionRepository,
-    private val reviewManager: ReviewManager
+    private val reviewManager: ReviewManager,
+    private val phonicsRepository: PhonicsLevelProgressRepository
 ) : ViewModel() {
+
+    // ── Phonics tab (all-time journey progress + this week's phonics activity) ──
+    val phonicsLevelsDone: Int get() = phonicsRepository.doneCount
+    val phonicsTotalStars: Int get() = phonicsRepository.totalStars
+    var phonicsWeekSessions by mutableIntStateOf(0)
+        private set
+    var phonicsWeekDurationSeconds by mutableIntStateOf(0)
+        private set
+    var phonicsWeekAccuracy by mutableDoubleStateOf(0.0)
+        private set
+    /** Tricky words grouped per level — (level title, words) sorted L1→L28. */
+    var phonicsWeakWordsByLevel by mutableStateOf(emptyList<Pair<String, List<String>>>())
+        private set
 
     var weekOffset by mutableIntStateOf(0)
         private set
@@ -214,7 +230,13 @@ class ParentProgressViewModel @Inject constructor(
                             timestampMs = s.timestampMs,
                             moduleId = moduleId,
                             correctItems = s.correctItems ?: emptyList(),
-                            wrongItems = s.wrongItems ?: emptyList()
+                            wrongItems = s.wrongItems ?: emptyList(),
+                            mode = when (s.subConfig) {
+                                "PRACTICE" -> "Practice"
+                                "LEARN" -> "Learning"
+                                "LISTEN" -> "Listen"
+                                else -> null
+                            }
                         )
                     }
                 Triple(latestTimestamp, lessonTitle, sessionEntries)
@@ -342,6 +364,26 @@ class ParentProgressViewModel @Inject constructor(
         weeklyAccuracy = if (quizSessions.isEmpty()) 0.0
         else quizSessions.sumOf { it.accuracy } / quizSessions.size
 
+        // Phonics tab stats — this week's phonics_reading activity only
+        val phonicsSessions = sessions.filter { it.moduleId == ModuleID.PHONICS_READING }
+        phonicsWeekSessions = phonicsSessions.size
+        phonicsWeekDurationSeconds = phonicsSessions.sumOf { it.durationSeconds }
+        val phonicsQuiz = phonicsSessions.filter { it.totalQuestions > 0 }
+        phonicsWeekAccuracy = if (phonicsQuiz.isEmpty()) 0.0
+        else phonicsQuiz.sumOf { it.accuracy } / phonicsQuiz.size
+        phonicsWeakWordsByLevel = phonicsSessions
+            .filter { !it.wrongItems.isNullOrEmpty() }
+            .groupBy { it.lessonTitle ?: "Phonics" }
+            .map { (level, levelSessions) ->
+                val words = levelSessions
+                    .flatMap { it.wrongItems.orEmpty() }
+                    .groupingBy { it }.eachCount()
+                    .entries.sortedByDescending { it.value }
+                    .take(12).map { it.key }
+                level to words
+            }
+            .sortedBy { it.first.removePrefix("L").substringBefore(" ").toIntOrNull() ?: 999 }
+
         buildModuleRows(sessions)
         loadWeakLetters(sessions)
         loadWeakArrange(sessions)
@@ -425,7 +467,32 @@ class ParentProgressViewModel @Inject constructor(
         grouped.forEach { (moduleId, sessions) ->
             val info = moduleInfo[moduleId] ?: return@forEach
 
-            if (moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE) {
+            if (moduleId == ModuleID.PHONICS_READING) {
+                // One row per journey level (lessonTitle = "L4 CVC Words" etc.),
+                // aggregating that level's Learn/Listen/Practice sessions.
+                sessions
+                    .groupBy { it.lessonTitle ?: "Phonics" }
+                    .forEach { (levelTitle, levelSessions) ->
+                    val latest = levelSessions.maxOf { it.timestampMs }
+                    val quizSessions = levelSessions.filter { it.totalQuestions > 0 }
+                    val totalScore = quizSessions.sumOf { it.score }
+                    val totalQs    = quizSessions.sumOf { it.totalQuestions }
+                    val avgAcc = if (totalQs > 0) totalScore.toDouble() / totalQs else 0.0
+                    val scoreStr = if (totalQs > 0) "$totalScore/$totalQs" else null
+                    rowsWithTime.add(ModuleProgressRow(
+                        moduleId = "$moduleId|$levelTitle",
+                        displayName = levelTitle,
+                        chapterKey = "$moduleId||$levelTitle||",
+                        ageGroupLabel = info.second,
+                        rounds = levelSessions.size,
+                        avgAccuracy = avgAcc,
+                        avgStars = if (totalQs > 0) minOf(3.0, avgAcc * 3.0) else 0.0,
+                        hasQuiz = quizSessions.isNotEmpty(),
+                        route = RouteNavigation.PhonicsReadingLevels.route,
+                        scoreText = scoreStr
+                    ) to latest)
+                }
+            } else if (moduleId == ModuleID.ARRANGE_LETTER_SEQUENCE) {
                 val byConfig = sessions.groupBy { it.subConfig ?: "UPPERCASE" }
                 byConfig.forEach { (config, configSessions) ->
                     val latest = configSessions.maxOf { it.timestampMs }
@@ -1084,6 +1151,7 @@ class ParentProgressViewModel @Inject constructor(
         "3–5" -> "Age 3-5"
         "5–7" -> "Age 5-7"
         "6–8" -> "Age 6-8"
+        "Phonics" -> "Phonics"
         else  -> "All"
     }
 
@@ -1091,6 +1159,7 @@ class ParentProgressViewModel @Inject constructor(
         "Age 3-5" -> "3–5"
         "Age 5-7" -> "5–7"
         "Age 6-8" -> "6–8"
+        "Phonics" -> "Phonics"
         else      -> null
     }
 
@@ -1138,6 +1207,7 @@ class ParentProgressViewModel @Inject constructor(
             else -> String.format("%02d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, seconds % 60)
         }
         private val moduleInfo = mapOf(
+            ModuleID.PHONICS_READING         to ("Phonics Journey"      to "Phonics"),
             ModuleID.ALPHABET_TRACING        to ("Alphabet Tracing"     to "3–5"),
             ModuleID.ABCD_WITH_IMAGES        to ("ABCD with Images"     to "3–5"),
             ModuleID.COLORING_ALPHABETS      to ("Coloring Alphabets"   to "3–5"),

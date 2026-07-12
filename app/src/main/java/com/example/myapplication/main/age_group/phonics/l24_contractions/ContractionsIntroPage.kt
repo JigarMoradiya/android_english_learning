@@ -3,6 +3,8 @@ package com.example.myapplication.main.age_group.phonics.l24_contractions
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
@@ -61,10 +63,12 @@ fun ContractionsIntroPage(navController: NavController) {
                         .fillMaxHeight()
                 ) {
                     BackButtonWithText(title = "Level 24", onBackClick = { navController.popBackStack() })
-                    Spacer(modifier = Modifier.weight(1f))
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
                     ) {
                         Text(
                             text       = "Contractions",
@@ -79,7 +83,10 @@ fun ContractionsIntroPage(navController: NavController) {
                             color      = ctPurpleLight
                         )
                         // Group chips: emoji + type
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             contractionGroups.forEach { group -> CTGroupChip(group) }
                         }
                         // Bullet rows — exact iOS wording
@@ -111,7 +118,6 @@ fun ContractionsIntroPage(navController: NavController) {
                             )
                         }
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT 54% ─────────────────────────────────────────────────
@@ -149,22 +155,11 @@ fun ContractionsIntroPage(navController: NavController) {
 
 @Composable
 private fun CTGroupChip(group: ContractionGroup) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Dimens2),
-        modifier = Modifier
-            .background(group.accentColor.copy(alpha = 0.10f), RoundedCornerShape(8.dp))
-            .border(1.5.dp, group.accentColor.copy(alpha = 0.35f), RoundedCornerShape(8.dp))
-            .padding(horizontal = Dimens8, vertical = Dimens6)
-    ) {
-        Text(text = group.emoji, style = MaterialTheme.typography.bodyMedium.scaled())
-        Text(
-            text       = group.type,
-            style      = MaterialTheme.typography.labelSmall.scaled(),
-            fontWeight = FontWeight.Bold,
-            color      = group.accentColor
-        )
-    }
+    PhonicsGroupChip(
+        emoji = group.emoji,
+        title = group.type,
+        accentColor = group.accentColor
+    )
 }
 
 @Composable

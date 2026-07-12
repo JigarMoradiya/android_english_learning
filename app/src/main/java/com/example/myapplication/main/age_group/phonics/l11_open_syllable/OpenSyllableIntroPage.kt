@@ -2,6 +2,9 @@ package com.example.myapplication.main.age_group.phonics.l11_open_syllable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -65,11 +68,18 @@ fun OpenSyllableIntroPage(navController: NavController) {
                 ) {
                     BackButtonWithText(title = "Level 11", onBackClick = { navController.popBackStack() })
 
-                    Spacer(modifier = Modifier.weight(1f))
-
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+
+                        modifier = Modifier
+
+                            .weight(1f)
+
+                            .verticalScroll(rememberScrollState())
+
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
+
                     ) {
                         Text(
                             text = "Open Syllable",
@@ -79,7 +89,10 @@ fun OpenSyllableIntroPage(navController: NavController) {
                         )
 
                         // Example vowel chips
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             listOf(
                                 "E" to Color(0xFF00897B),
                                 "O" to Color(0xFFE65100),
@@ -110,7 +123,10 @@ fun OpenSyllableIntroPage(navController: NavController) {
                         }
 
                         // Sample words
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             val samples = listOf("me" to Color(0xFF00897B), "go" to Color(0xFFE65100), "fly" to Color(0xFF6A1B9A))
                             samples.forEach { (word, color) ->
                                 Box(
@@ -128,8 +144,6 @@ fun OpenSyllableIntroPage(navController: NavController) {
                             }
                         }
                     }
-
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT: start card ────────────────────────────────────────

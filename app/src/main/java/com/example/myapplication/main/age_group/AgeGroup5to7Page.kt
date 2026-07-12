@@ -16,10 +16,18 @@ import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.stringResource
@@ -51,6 +59,17 @@ fun AgeGroup5to7Page(navController: NavController) {
     val gridOverhead = Dimens16 + Dimens12
     val tileHeight = (screenHeight - headerHeight - gridOverhead) / 2
 
+    // Feeds grid scroll movement to the mascot so it can lean and bounce
+    var mascotScrollOffset by remember { mutableFloatStateOf(0f) }
+    val mascotScrollConnection = remember {
+        object : NestedScrollConnection {
+            override fun onPostScroll(consumed: Offset, available: Offset, source: NestedScrollSource): Offset {
+                mascotScrollOffset += consumed.x + consumed.y
+                return Offset.Zero
+            }
+        }
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
         AgeGroup57Background()
 
@@ -71,6 +90,7 @@ fun AgeGroup5to7Page(navController: NavController) {
                     message = "Let's build\nwords! ⭐",
                     textColor = Color(0xFF0369A1),
                     borderColor = Color(0xFF38BDF8),
+                    scrollOffset = { mascotScrollOffset },
                     modifier = Modifier
                         .fillMaxHeight()
                         .weight(0.22f)
@@ -91,12 +111,15 @@ fun AgeGroup5to7Page(navController: NavController) {
                             columns = GridCells.Fixed(3),
                             contentPadding = PaddingValues(start = hPad, end = hPad, top = Dimens8, bottom = Dimens16),
                             horizontalArrangement = Arrangement.spacedBy(Dimens12),
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .nestedScroll(mascotScrollConnection)
                         ) {
                             items(activities_age_5_7) { activity ->
                                 ActivityTileCard(
                                     activity = activity,
                                     tileHeight = tileSizeDp,
+                                    showCard = true,
                                     onClick = {
                                         AudioPlayerManager.playSoundMenuClick()
                                         scope.launch {
@@ -115,12 +138,15 @@ fun AgeGroup5to7Page(navController: NavController) {
                             contentPadding = PaddingValues(start = hPad, end = hPad, bottom = Dimens16),
                             horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
                             verticalArrangement = Arrangement.spacedBy(Dimens12),
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .nestedScroll(mascotScrollConnection)
                         ) {
                             items(activities_age_5_7) { activity ->
                                 ActivityTileCard(
                                     activity = activity,
                                     tileHeight = tileHeight,
+                                    showCard = true,
                                     onClick = {
                                         AudioPlayerManager.playSoundMenuClick()
                                         scope.launch {

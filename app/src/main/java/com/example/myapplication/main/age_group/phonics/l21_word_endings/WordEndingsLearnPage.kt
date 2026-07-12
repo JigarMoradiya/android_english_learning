@@ -36,6 +36,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l21_word_endings.view_model.*
 import com.example.myapplication.main.common.*
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
@@ -62,6 +64,9 @@ fun WordEndingsLearnPage(
     navController: NavController,
     viewModel: WordEndingsLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.wordEndings)
+
     val uiState       = viewModel.uiState
     val selectedGroup = viewModel.selectedGroup
 

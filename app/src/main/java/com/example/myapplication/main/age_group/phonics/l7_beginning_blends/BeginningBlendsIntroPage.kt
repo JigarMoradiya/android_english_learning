@@ -3,6 +3,9 @@ package com.example.myapplication.main.age_group.phonics.l7_beginning_blends
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -73,11 +76,18 @@ fun BeginningBlendsIntroPage(navController: NavController) {
                 ) {
                     BackButtonWithText(title = "Level 7", onBackClick = { navController.popBackStack() })
 
-                    Spacer(modifier = Modifier.weight(1f))
-
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+
+                        modifier = Modifier
+
+                            .weight(1f)
+
+                            .verticalScroll(rememberScrollState())
+
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
+
                     ) {
                         Text(
                             text = "Beginning Blends",
@@ -87,7 +97,10 @@ fun BeginningBlendsIntroPage(navController: NavController) {
                         )
 
                         // Group badges
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             BlendGroup.entries.forEach { group ->
                                 GroupBadge(group = group, modifier = Modifier.weight(1f))
                             }
@@ -119,8 +132,6 @@ fun BeginningBlendsIntroPage(navController: NavController) {
                             )
                         }
                     }
-
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT 46% ────────────────────────────────────────────────

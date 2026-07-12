@@ -3,6 +3,8 @@ package com.example.myapplication.main.age_group.phonics.l19_soft_c_soft_g
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
@@ -52,10 +54,12 @@ fun SoftCSoftGIntroPage(navController: NavController) {
                 // ── LEFT ─────────────────────────────────────────────────────
                 Column(modifier = Modifier.weight(0.54f).fillMaxHeight()) {
                     BackButtonWithText(title = "Level 19", onBackClick = { navController.popBackStack() })
-                    Spacer(modifier = Modifier.weight(1f))
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
                     ) {
                         Text(
                             text = "Soft C & Soft G",
@@ -69,7 +73,10 @@ fun SoftCSoftGIntroPage(navController: NavController) {
                             fontWeight = FontWeight.Bold,
                             color = Color(0xFFE64A19)
                         )
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             softCSoftGGroups.forEach { group -> SoftCGGroupChip(group) }
                         }
                         Column(verticalArrangement = Arrangement.spacedBy(Dimens10)) {
@@ -83,7 +90,6 @@ fun SoftCSoftGIntroPage(navController: NavController) {
                                 "Hard G: gap, got, gum, game → /g/")
                         }
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT ────────────────────────────────────────────────────
@@ -121,27 +127,12 @@ fun SoftCSoftGIntroPage(navController: NavController) {
 
 @Composable
 private fun SoftCGGroupChip(group: SoftCSoftGGroup) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Dimens2),
-        modifier = Modifier
-            .background(group.accentColor.copy(alpha = 0.10f), RoundedCornerShape(8.dp))
-            .border(1.5.dp, group.accentColor.copy(alpha = 0.35f), RoundedCornerShape(8.dp))
-            .padding(horizontal = Dimens8, vertical = Dimens6)
-    ) {
-        Text(text = group.emoji, style = MaterialTheme.typography.bodyMedium.scaled())
-        Text(
-            text = group.title,
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            fontWeight = FontWeight.ExtraBold,
-            color = group.accentColor
-        )
-        Text(
-            text = group.sound,
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            color = Color(0xFF546E7A)
-        )
-    }
+    PhonicsGroupChip(
+        emoji = group.emoji,
+        title = group.title,
+        subtitle = group.sound,
+        accentColor = group.accentColor
+    )
 }
 
 @Composable

@@ -33,6 +33,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -42,6 +43,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.stringResource
@@ -89,6 +93,17 @@ fun AgeGroup3to5Page(
     var showArrangeSheet by rememberSaveable { mutableStateOf(false) }
     var arrangeMode by rememberSaveable { mutableStateOf(viewModel.getArrangeMode()) }
 
+    // Feeds grid scroll movement to the mascot so it can lean and bounce
+    var mascotScrollOffset by remember { mutableFloatStateOf(0f) }
+    val mascotScrollConnection = remember {
+        object : NestedScrollConnection {
+            override fun onPostScroll(consumed: Offset, available: Offset, source: NestedScrollSource): Offset {
+                mascotScrollOffset += consumed.x + consumed.y
+                return Offset.Zero
+            }
+        }
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
         AgeGroup35Background()
 
@@ -109,6 +124,7 @@ fun AgeGroup3to5Page(
                     message = "Let's learn\nletters! 🌈",
                     textColor = Color(0xFFC2530A),
                     borderColor = Color(0xFFFDBA74),
+                    scrollOffset = { mascotScrollOffset },
                     modifier = Modifier
                         .fillMaxHeight()
                         .weight(0.22f)
@@ -135,12 +151,15 @@ fun AgeGroup3to5Page(
                                 bottom = Dimens16
                             ),
                             horizontalArrangement = Arrangement.spacedBy(Dimens12),
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .nestedScroll(mascotScrollConnection)
                         ) {
                             items(activities_age_3_5) { activity ->
                                 ActivityTileCard(
                                     activity = activity,
                                     tileHeight = tileSizeDp,
+                                    showCard = true,
                                     onClick = {
                                         AudioPlayerManager.playSoundMenuClick()
                                         scope.launch {
@@ -170,12 +189,15 @@ fun AgeGroup3to5Page(
                             ),
                             horizontalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterHorizontally),
                             verticalArrangement = Arrangement.spacedBy(Dimens12),
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .nestedScroll(mascotScrollConnection)
                         ) {
                             items(activities_age_3_5) { activity ->
                                 ActivityTileCard(
                                     activity = activity,
                                     tileHeight = tileHeight,
+                                    showCard = true,
                                     onClick = {
                                         AudioPlayerManager.playSoundMenuClick()
                                         scope.launch {

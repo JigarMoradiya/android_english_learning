@@ -49,6 +49,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l18_three_letter_blends.view_model.ThreeLetterBlendsGroup
 import com.example.myapplication.main.age_group.phonics.l18_three_letter_blends.view_model.ThreeLetterBlendsLearnViewModel
 import com.example.myapplication.main.age_group.phonics.l18_three_letter_blends.view_model.ThreeLetterBlendsWord
@@ -73,6 +75,9 @@ fun ThreeLetterBlendsLearnPage(
     navController: NavController,
     viewModel: ThreeLetterBlendsLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.threeLetterBlends)
+
     val uiState = viewModel.uiState
     val selectedGroup = viewModel.selectedGroup
 

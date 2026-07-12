@@ -2,6 +2,9 @@ package com.example.myapplication.main.age_group.phonics.l14_diphthongs
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -67,11 +70,18 @@ fun DiphthongsIntroPage(navController: NavController) {
                 ) {
                     BackButtonWithText(title = "Level 14", onBackClick = { navController.popBackStack() })
 
-                    Spacer(modifier = Modifier.weight(1f))
-
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+
+                        modifier = Modifier
+
+                            .weight(1f)
+
+                            .verticalScroll(rememberScrollState())
+
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
+
                     ) {
                         Text(
                             text = "Diphthongs",
@@ -133,8 +143,6 @@ fun DiphthongsIntroPage(navController: NavController) {
                             DiphthongsIntroRow("3️⃣", "Three diphthong families: /ɔɪ/, /aʊ/, /ɔː/")
                         }
                     }
-
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT: start card ────────────────────────────────────────

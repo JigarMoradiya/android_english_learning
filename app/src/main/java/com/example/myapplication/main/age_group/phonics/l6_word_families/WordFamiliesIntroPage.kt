@@ -2,6 +2,9 @@ package com.example.myapplication.main.age_group.phonics.l6_word_families
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -16,6 +19,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowCircleRight
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Hearing
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -64,11 +68,12 @@ fun WordFamiliesIntroPage(navController: NavController) {
                 ) {
                     BackButtonWithText(title = "Level 6", onBackClick = { navController.popBackStack() })
 
-                    Spacer(modifier = Modifier.weight(1f))
-
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens24),
-                        verticalArrangement = Arrangement.spacedBy(Dimens20)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens24),
+                        verticalArrangement = Arrangement.spacedBy(Dimens20, Alignment.CenterVertically)
                     ) {
                         Text(
                             text = "Word Families",
@@ -78,7 +83,10 @@ fun WordFamiliesIntroPage(navController: NavController) {
                         )
 
                         // Family rime chips — first 4
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             wordFamiliesData.take(4).forEach { family ->
                                 Box(
                                     contentAlignment = Alignment.Center,
@@ -104,7 +112,10 @@ fun WordFamiliesIntroPage(navController: NavController) {
                         }
 
                         // Sample words
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             listOf("cat", "man", "dog", "hen").forEachIndexed { i, word ->
                                 Box(
                                     modifier = Modifier
@@ -124,8 +135,6 @@ fun WordFamiliesIntroPage(navController: NavController) {
                             }
                         }
                     }
-
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT: start card ─────────────────────────────────────────
@@ -139,8 +148,14 @@ fun WordFamiliesIntroPage(navController: NavController) {
                     learnButton = PhonicsIntroBtnConfig(
                         text = "Start Learning",
                         icon = Icons.Default.ArrowCircleRight,
-                        type = ButtonType.BLUE,
+                        type = ButtonType.GREEN,
                         onClick = { navController.navigate(RouteNavigation.WordFamiliesLearn.route) }
+                    ),
+                    practiceButton = PhonicsIntroBtnConfig(
+                        text = "Practice",
+                        icon = Icons.Default.CheckCircle,
+                        type = ButtonType.BLUE,
+                        onClick = { navController.navigate(RouteNavigation.WordFamiliesPractice.route) }
                     ),
                     listenButton = PhonicsIntroBtnConfig(
                         text = "Listen",

@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.R
+import com.example.myapplication.data.progress.PhonicsLevelProgressRepository
 import com.example.myapplication.data.progress.StreakRepository
 import com.example.myapplication.main.base.nav.RouteNavigation
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,8 +20,14 @@ import javax.inject.Inject
 @HiltViewModel
 class AgeCategoriesViewModel @Inject constructor(
     application: Application,
-    private val streakRepository: StreakRepository
+    private val streakRepository: StreakRepository,
+    private val phonicsRepository: PhonicsLevelProgressRepository
 ) : AndroidViewModel(application) {
+
+    /** Completed phonics journey levels — shown on the home entry card (X/28). */
+    val phonicsDone: StateFlow<Int> = phonicsRepository.progress
+        .map { phonicsRepository.doneCount }
+        .stateIn(viewModelScope, SharingStarted.Eagerly, phonicsRepository.doneCount)
 
     private val _categories = MutableStateFlow(
         listOf(

@@ -1,7 +1,9 @@
 package com.example.myapplication.main.age_group.phonics.l15_r_controlled
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -32,6 +34,7 @@ import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.KidsFloatingShape
 import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
+import com.example.myapplication.main.common.PhonicsGroupChip
 import com.example.myapplication.main.common.PhonicsIntroBtnConfig
 import com.example.myapplication.main.common.PhonicsIntroRightPanel
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
@@ -68,11 +71,12 @@ fun RControlledIntroPage(navController: NavController) {
                 ) {
                     BackButtonWithText(title = "Level 15", onBackClick = { navController.popBackStack() })
 
-                    Spacer(modifier = Modifier.weight(1f))
-
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens20, vertical = Dimens12),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
                     ) {
                         Text(
                             text = "R-Controlled Vowels",
@@ -87,25 +91,19 @@ fun RControlledIntroPage(navController: NavController) {
                             color = bossyRColor
                         )
 
-                        // R-team badges in a row
-                        Row(
+                        // R-team badges — wraps to more rows when needed
+                        FlowRow(
                             horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8),
                             modifier = Modifier.padding(vertical = Dimens6)
                         ) {
                             rControlledGroups.forEach { group ->
-                                Box(
-                                    contentAlignment = Alignment.Center,
-                                    modifier = Modifier
-                                        .background(group.accentColor, RoundedCornerShape(50))
-                                        .padding(horizontal = Dimens10, vertical = Dimens6)
-                                ) {
-                                    Text(
-                                        text = group.emoji + " " + group.rTeam,
-                                        style = MaterialTheme.typography.labelLarge.scaled(),
-                                        fontWeight = FontWeight.ExtraBold,
-                                        color = Color.White
-                                    )
-                                }
+                                PhonicsGroupChip(
+                                    emoji = group.emoji,
+                                    title = group.rTeam,
+                                    subtitle = "${group.words.size} words",
+                                    accentColor = group.accentColor
+                                )
                             }
                         }
 
@@ -113,11 +111,9 @@ fun RControlledIntroPage(navController: NavController) {
                         Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
                             RControlledIntroRow("👑", "R is bossy — it changes the vowel sound!")
                             RControlledIntroRow("🔊", "ar = /ɑːr/ · or = /ɔːr/ · er/ir/ur = /ɜːr/")
-                            RControlledIntroRow("5️⃣", "Five r-teams: ar, or, er, ir, ur")
+                            RControlledIntroRow("🎯", "Eight r-teams: ar, or, er, ir, ur, air, ear, ore")
                         }
                     }
-
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT: start card ────────────────────────────────────────

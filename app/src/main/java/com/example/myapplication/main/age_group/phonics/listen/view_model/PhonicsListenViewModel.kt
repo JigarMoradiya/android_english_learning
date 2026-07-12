@@ -8,8 +8,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.progress.PhonicsLevelProgressRepository
+import com.example.myapplication.data.progress.PhonicsSessionRecorder
 import com.example.myapplication.utilities.AudioPhonicsManager
 import com.example.myapplication.utilities.TextToSpeechManager
+import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -1033,21 +1036,41 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
 class PhonicsListenViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val audioManager: AudioPhonicsManager,
-    private val ttsManager: TextToSpeechManager
+    private val ttsManager: TextToSpeechManager,
+    private val levelProgressRepo: PhonicsLevelProgressRepository,
+    private val phonicsSessions: PhonicsSessionRecorder,
+    private val prefs: AppPreferencesHelper
 ) : ViewModel() {
 
+    private val sessionStartMs = System.currentTimeMillis()
+
     private val levelKeyStr: String = savedStateHandle["levelKey"] ?: "beginningBlends"
-    val config: PhonicsListenConfig = run {
-        val key = try { PhonicsListenLevelKey.valueOf(levelKeyStr) }
-                  catch (_: Exception) { PhonicsListenLevelKey.beginningBlends }
-        phonicsListenConfigs[key] ?: phonicsListenConfigs[PhonicsListenLevelKey.beginningBlends]!!
+    private val levelKey: PhonicsListenLevelKey =
+        try { PhonicsListenLevelKey.valueOf(levelKeyStr) }
+        catch (_: Exception) { PhonicsListenLevelKey.beginningBlends }
+    val config: PhonicsListenConfig =
+        phonicsListenConfigs[levelKey] ?: phonicsListenConfigs[PhonicsListenLevelKey.beginningBlends]!!
+
+    /** A word counts as "listened" once its full word has played (auto or manual). */
+    private fun markWordListened(word: ListenWord) {
+        levelProgressRepo.markListened(levelKey, word.word)
     }
 
-    var wordIndex by mutableIntStateOf(0); private set
+    private val progressKey = AppPreferencesHelper.phonicsListenIndexKey(levelKey.name)
+
+    var wordIndex by mutableIntStateOf(
+        prefs.getCustomParamInt(progressKey, 0).coerceIn(0, maxOf(0, config.words.size - 1))
+    ); private set
     var uiState by mutableStateOf(PhonicsListenUiState()); private set
 
     val totalWords: Int get() = config.words.size
     val currentWord: ListenWord get() = config.words[wordIndex]
+
+    /** How many of this level's words the kid has heard (fed by markWordListened). */
+    val listenedCount: Int get() = levelProgressRepo.listenProgress(levelKey).first
+
+    fun isWordListened(word: ListenWord): Boolean =
+        levelProgressRepo.isWordListened(levelKey, word.word)
 
     private val wordsWithFallback: Set<Int> by lazy {
         config.words.indices.filter { idx ->
@@ -1064,13 +1087,14 @@ class PhonicsListenViewModel @Inject constructor(
             autoPlayJob?.cancel()
             audioManager.stop()
             uiState = uiState.copy(segmentIndex = 0, wordDone = true)
+            markWordListened(currentWord)
             playWordOrTTS(currentWord)
             return
         }
         if (idx >= currentWord.segments.count()) return
         autoPlayJob?.cancel()
         audioManager.stop()
-        uiState = uiState.copy(segmentIndex = idx, playedSegments = uiState.playedSegments + idx)
+        uiState = uiState.copy(segmentIndex = idx, playedSegments = uiState.playedSegments + idx, wordDone = false)
 
         val seg = currentWord.segments[idx]
         // The full word plays after the last AUDIBLE segment — trailing silent
@@ -1085,12 +1109,16 @@ class PhonicsListenViewModel @Inject constructor(
 
         audioManager.playPhonicsSound(seg.audioFileName)
         audioManager.onAudioCompleted = {
-            if (uiState.segmentIndex == idx) {
-                if (isLastAudible) {
-                    playFullWord()
-                    uiState = uiState.copy(wordDone = true)
-                } else {
-                    uiState = uiState.copy(segmentIndex = -1)
+            // Non-last segments keep their highlight until the next tap (matches iOS).
+            if (isLastAudible && uiState.segmentIndex == idx) {
+                viewModelScope.launch {
+                    delay(100)
+                    if (uiState.segmentIndex == idx) {
+                        playFullWord()
+                        // Clear last-segment highlight; whole word glows instead.
+                        uiState = uiState.copy(wordDone = true, segmentIndex = -1)
+                        markWordListened(currentWord)
+                    }
                 }
             }
         }
@@ -1112,6 +1140,7 @@ class PhonicsListenViewModel @Inject constructor(
                     cont.invokeOnCancellation { audioManager.stop(); ttsManager.stop() }
                 }
                 uiState = uiState.copy(wordDone = true, isPlaying = false)
+                markWordListened(currentWord)
                 return@launch
             }
             val word = currentWord
@@ -1131,6 +1160,7 @@ class PhonicsListenViewModel @Inject constructor(
                 delay(120)
             }
             uiState = uiState.copy(wordDone = true, segmentIndex = -1)
+            markWordListened(word)
             suspendCancellableCoroutine { cont ->
                 audioManager.playPhonicsSound("phonics_word/${word.word}")
                 audioManager.onAudioCompleted = { if (cont.isActive) cont.resume(Unit) }
@@ -1151,6 +1181,7 @@ class PhonicsListenViewModel @Inject constructor(
         if (wordIndex >= totalWords - 1) return
         pauseAutoPlay()
         wordIndex += 1
+        prefs.setCustomParamInt(progressKey, wordIndex)
         uiState = PhonicsListenUiState(isAutoMode = uiState.isAutoMode, isGoingForward = true)
     }
 
@@ -1158,6 +1189,7 @@ class PhonicsListenViewModel @Inject constructor(
         if (wordIndex <= 0) return
         pauseAutoPlay()
         wordIndex -= 1
+        prefs.setCustomParamInt(progressKey, wordIndex)
         uiState = PhonicsListenUiState(isAutoMode = uiState.isAutoMode, isGoingForward = false)
     }
 
@@ -1190,5 +1222,8 @@ class PhonicsListenViewModel @Inject constructor(
     override fun onCleared() {
         super.onCleared()
         stop()
+        // Listening time feeds the parent report's Phonics tab.
+        val seconds = ((System.currentTimeMillis() - sessionStartMs) / 1000).toInt()
+        phonicsSessions.recordLearning(levelKey, "LISTEN", seconds)
     }
 }

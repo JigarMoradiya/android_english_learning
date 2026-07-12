@@ -162,6 +162,7 @@ fun MainLearningAgesCategoriesScreen(
     val categories by viewModel.categories.collectAsState()
     val currentStreak by viewModel.currentStreak.collectAsState()
     val bestStreak by viewModel.bestStreak.collectAsState()
+    val phonicsDone by viewModel.phonicsDone.collectAsState()
     val context = LocalContext.current
     var showParentalGate by remember { mutableStateOf(false) }
     val accessVM = LocalAccessSheetViewModel.current
@@ -287,16 +288,13 @@ fun MainLearningAgesCategoriesScreen(
                             bestStreak = bestStreak
                         )
                         Spacer(modifier = Modifier.width(Dimens12))
-                        TodayLetterCard(
-                            letter = viewModel.todayLetter,
+                        PhonicsJourneyCard(
+                            doneCount = phonicsDone,
                             onClick = {
+                                // Journey map + intros are free to browse; the daily-limit
+                                // check happens on each level's Learn/Practice/Listen buttons.
                                 AudioPlayerManager.playSoundMenuClick()
-                                scope.launch {
-                                    val allowed = accessVM.checkAccess(ModuleID.LETTER_PHONICS)
-                                    if (allowed) {
-                                        navController.navigate(RouteNavigation.LetterPhonicsSoundRoute.route)
-                                    }
-                                }
+                                navController.navigate(RouteNavigation.PhonicsReadingLevels.route)
                             }
                         )
                     }
@@ -377,14 +375,27 @@ fun MainLearningAgesCategoriesScreen(
                         }
                     }
 
-                    // Footer — always at bottom
+                    // Footer — today's letter bottom-left, abacus promo bottom-right
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = hPad)
                             .padding(bottom = Dimens8),
-                        horizontalArrangement = Arrangement.End
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
+                        TodayLetterCard(
+                            letter = viewModel.todayLetter,
+                            onClick = {
+                                AudioPlayerManager.playSoundMenuClick()
+                                scope.launch {
+                                    val allowed = accessVM.checkAccess(ModuleID.LETTER_PHONICS)
+                                    if (allowed) {
+                                        navController.navigate(RouteNavigation.LetterPhonicsSoundRoute.route)
+                                    }
+                                }
+                            }
+                        )
+                        Spacer(modifier = Modifier.weight(1f))
                         AbacusBanner(context = context)
                     }
                 }
@@ -545,6 +556,97 @@ private fun StreakCard(currentStreak: Int, bestStreak: Int) {
 // ── Today's Letter Card ───────────────────────────────────────────────────────
 
 @Composable
+private fun PhonicsJourneyCard(doneCount: Int, onClick: () -> Unit) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+    val scale by animateFloatAsState(
+        targetValue = if (isPressed) 0.94f else 1f,
+        animationSpec = spring(dampingRatio = 0.5f, stiffness = Spring.StiffnessMedium),
+        label = "phonicsCardScale"
+    )
+    // Gently wiggling book — same playful beat as the journey map's next-up emoji
+    val wiggle = rememberInfiniteTransition(label = "phonicsWiggle")
+    val angle by wiggle.animateFloat(
+        initialValue = -8f, targetValue = 8f,
+        animationSpec = infiniteRepeatable(tween(600), RepeatMode.Reverse),
+        label = "phonicsWiggleAngle"
+    )
+
+    Row(
+        modifier = Modifier
+            .graphicsLayer(scaleX = scale, scaleY = scale)
+            .shadow(
+                elevation = 4.dp,
+                shape = PillShape,
+                ambientColor = Color(0xFF5532D2).copy(alpha = 0.25f),
+                spotColor = Color(0xFF5532D2).copy(alpha = 0.25f)
+            )
+            .background(
+                Brush.horizontalGradient(listOf(Color(0xFF7C4DFF), Color(0xFF536DFE))),
+                PillShape
+            )
+            .border(1.5.dp, Color.White.copy(alpha = 0.22f), PillShape)
+            .clickable(interactionSource = interactionSource, indication = null, onClick = onClick)
+            .padding(horizontal = Dimens14, vertical = Dimens8),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Dimens8)
+    ) {
+        Box(
+            modifier = Modifier
+                .size(AppDimens.Dimens40)
+                .background(Color.White.copy(alpha = 0.20f), CircleShape),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "📖",
+                style = MaterialTheme.typography.titleMedium.scaled(),
+                modifier = Modifier.graphicsLayer { rotationZ = angle }
+            )
+        }
+        Column {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(3.dp)
+            ) {
+                Text(
+                    text = "Phonics Journey",
+                    style = MaterialTheme.typography.labelMedium.scaled(),
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
+                )
+                Icon(
+                    painter = painterResource(R.drawable.ic_sparkles),
+                    contentDescription = null,
+                    tint = Color(0xFFFFE082),
+                    modifier = Modifier.size(11.dp.scaled())
+                )
+            }
+            Text(
+                text = "Sounds → words → reading! 🎵",
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                fontWeight = FontWeight.Medium,
+                color = Color.White.copy(alpha = 0.85f)
+            )
+        }
+        Text(
+            text = "⭐ $doneCount/28",
+            style = MaterialTheme.typography.labelSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            modifier = Modifier
+                .background(Color.White.copy(alpha = 0.20f), PillShape)
+                .padding(horizontal = Dimens8, vertical = 3.dp)
+        )
+        Icon(
+            imageVector = Icons.Default.ChevronRight,
+            contentDescription = null,
+            tint = Color.White.copy(alpha = 0.9f),
+            modifier = Modifier.size(16.dp.scaled())
+        )
+    }
+}
+
+@Composable
 private fun TodayLetterCard(letter: Char, onClick: () -> Unit) {
     val dayOfYear = remember { java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_YEAR) }
     val accentColor = letterAccentPalette[(dayOfYear - 1) % letterAccentPalette.size]
@@ -577,7 +679,7 @@ private fun TodayLetterCard(letter: Char, onClick: () -> Unit) {
     ) {
         Box(
             modifier = Modifier
-                .size(AppDimens.Dimens40)
+                .size(AppDimens.Dimens32)
                 .background(accentColor.copy(alpha = 0.12f), CircleShape),
             contentAlignment = Alignment.Center
         ) {
@@ -585,7 +687,7 @@ private fun TodayLetterCard(letter: Char, onClick: () -> Unit) {
                 Image(
                     painter = painterResource(imgRes),
                     contentDescription = null,
-                    modifier = Modifier.size(AppDimens.Dimens32)
+                    modifier = Modifier.size(AppDimens.Dimens24)
                 )
             } else {
                 Text(

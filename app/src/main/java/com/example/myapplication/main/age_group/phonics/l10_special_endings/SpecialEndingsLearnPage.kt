@@ -48,6 +48,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l10_special_endings.view_model.SpecialEndingEntry
 import com.example.myapplication.main.age_group.phonics.l10_special_endings.view_model.SpecialEndingWord
 import com.example.myapplication.main.age_group.phonics.l10_special_endings.view_model.SpecialEndingsLearnViewModel
@@ -76,6 +78,9 @@ fun SpecialEndingsLearnPage(
     navController: NavController,
     viewModel: SpecialEndingsLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.specialEndings)
+
     val uiState = viewModel.uiState
     val allEntries = specialEndingsData
 

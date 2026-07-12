@@ -2,6 +2,9 @@ package com.example.myapplication.main.age_group.phonics.l13_vowel_teams
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -65,11 +68,18 @@ fun VowelTeamsIntroPage(navController: NavController) {
                 ) {
                     BackButtonWithText(title = "Level 13", onBackClick = { navController.popBackStack() })
 
-                    Spacer(modifier = Modifier.weight(1f))
-
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+
+                        modifier = Modifier
+
+                            .weight(1f)
+
+                            .verticalScroll(rememberScrollState())
+
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
+
                     ) {
                         Text(
                             text = "Vowel Teams",
@@ -79,7 +89,10 @@ fun VowelTeamsIntroPage(navController: NavController) {
                         )
 
                         // Team chips
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             listOf(
                                 "AI/AY" to Color(0xFFD32F2F),
                                 "EE/EA" to Color(0xFF00897B),
@@ -114,7 +127,10 @@ fun VowelTeamsIntroPage(navController: NavController) {
                         }
 
                         // Sample words
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             listOf(
                                 "rain" to Color(0xFFD32F2F),
                                 "feet" to Color(0xFF00897B),
@@ -135,8 +151,6 @@ fun VowelTeamsIntroPage(navController: NavController) {
                             }
                         }
                     }
-
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT panel ──────────────────────────────────────────────

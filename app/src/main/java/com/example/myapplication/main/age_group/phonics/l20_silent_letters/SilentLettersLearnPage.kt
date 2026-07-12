@@ -55,6 +55,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l20_silent_letters.view_model.SilentLettersGroup
 import com.example.myapplication.main.age_group.phonics.l20_silent_letters.view_model.SilentLettersLearnViewModel
 import com.example.myapplication.main.age_group.phonics.l20_silent_letters.view_model.SilentLettersWord
@@ -83,6 +85,9 @@ fun SilentLettersLearnPage(
     navController: NavController,
     viewModel: SilentLettersLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.silentLetters)
+
     val uiState = viewModel.uiState
     val selectedGroup = viewModel.selectedGroup
 

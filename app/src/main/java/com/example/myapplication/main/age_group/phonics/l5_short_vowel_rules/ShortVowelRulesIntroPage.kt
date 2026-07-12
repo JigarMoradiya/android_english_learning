@@ -19,6 +19,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowCircleRight
 import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Hearing
 import androidx.compose.material.icons.filled.Lightbulb
 import androidx.compose.material.icons.filled.RecordVoiceOver
@@ -165,8 +166,14 @@ fun ShortVowelRulesIntroPage(navController: NavController) {
                     learnButton = PhonicsIntroBtnConfig(
                         text = "Start Learning",
                         icon = Icons.Default.ArrowCircleRight,
-                        type = ButtonType.BLUE,
+                        type = ButtonType.GREEN,
                         onClick = { navController.navigate(RouteNavigation.ShortVowelRulesLearn.route) }
+                    ),
+                    practiceButton = PhonicsIntroBtnConfig(
+                        text = "Practice",
+                        icon = Icons.Default.CheckCircle,
+                        type = ButtonType.BLUE,
+                        onClick = { navController.navigate(RouteNavigation.ShortVowelRulesPractice.route) }
                     ),
                     listenButton = PhonicsIntroBtnConfig(
                         text = "Listen",

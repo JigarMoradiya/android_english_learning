@@ -31,6 +31,9 @@ class AppPreferencesHelper @Inject constructor(
         const val KEY_REVIEW_PREMIUM_PENDING  = "review_premium_pending"
         fun reviewStreakKey(days: Int)         = "review_milestone_streak_$days"
         fun reviewActivityKey(count: Int)     = "review_milestone_activity_$count"
+
+        // phonics listen — one progress index per level
+        fun phonicsListenIndexKey(level: String) = "phonics_listen_${level}_index"
     }
 
     private val mPrefs: SharedPreferences =

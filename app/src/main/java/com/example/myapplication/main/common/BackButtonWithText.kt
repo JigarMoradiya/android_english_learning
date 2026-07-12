@@ -23,13 +23,17 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.data.model.DeviceInfo
@@ -99,13 +103,22 @@ fun BackButtonWithText(
                     modifier = Modifier.fillMaxHeight(),
                     contentAlignment = Alignment.CenterStart
                 ) {
+                    // Auto-shrink so long titles never get cut in narrow panels
+                    val baseStyle = MaterialTheme.typography.titleSmall.scaled()
+                    var fontScale by remember(title) { mutableFloatStateOf(1f) }
                     Text(
                         text = title,
                         color = Color.White,
                         maxLines = 1,
                         softWrap = false,
-                        style = MaterialTheme.typography.titleSmall.scaled(),
-                        fontWeight = FontWeight.Black
+                        overflow = TextOverflow.Ellipsis,
+                        style = baseStyle.copy(fontSize = baseStyle.fontSize * fontScale),
+                        fontWeight = FontWeight.Black,
+                        onTextLayout = { result ->
+                            if (result.hasVisualOverflow && fontScale > 0.6f) {
+                                fontScale *= 0.92f
+                            }
+                        }
                     )
                 }
             }

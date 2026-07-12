@@ -30,17 +30,24 @@ import com.example.myapplication.main.age_group.from_3_to_5.alphabet_tracing.vie
 import com.example.myapplication.main.age_group.from_3_to_5.arrange_letter_sequence.ArrangeLetterInSequencePage
 import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.ColoringAlphabetsPage
 import com.example.myapplication.main.age_group.from_3_to_5.letter_phonics_sound.LetterPhonicsSoundPage
+import com.example.myapplication.main.age_group.from_3_to_5.letter_phonics_sound.LetterSoundsIntroPage
+import com.example.myapplication.main.age_group.from_3_to_5.letter_phonics_sound.LetterSoundsPracticePage
 import com.example.myapplication.main.age_group.from_3_to_5.phonics_reading.PhonicsReadingLevelsPage
 import com.example.myapplication.main.age_group.phonics.l2_short_vowels.ShortVowelsIntroPage
 import com.example.myapplication.main.age_group.phonics.l2_short_vowels.ShortVowelsLearnPage
+import com.example.myapplication.main.age_group.phonics.l2_short_vowels.ShortVowelsPracticePage
 import com.example.myapplication.main.age_group.phonics.l3_blending.BlendingIntroPage
 import com.example.myapplication.main.age_group.phonics.l3_blending.BlendingLearnPage
+import com.example.myapplication.main.age_group.phonics.l3_blending.BlendingPracticePage
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.CvcWordsIntroPage
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.CvcWordsLearnPage
+import com.example.myapplication.main.age_group.phonics.l4_cvc_words.CvcWordsPracticePage
 import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.ShortVowelRulesIntroPage
 import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.ShortVowelRulesLearnPage
+import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.ShortVowelRulesPracticePage
 import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesIntroPage
 import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesLearnPage
+import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesPracticePage
 import com.example.myapplication.main.age_group.phonics.listen.PhonicsListenPage
 import com.example.myapplication.main.age_group.phonics.l11_open_syllable.OpenSyllableIntroPage
 import com.example.myapplication.main.age_group.phonics.l11_open_syllable.OpenSyllableLearnPage
@@ -300,6 +307,12 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.LetterPhonicsSoundRoute.route) {
             LetterPhonicsSoundPage(navController)
         }
+        composable(RouteNavigation.LetterSoundsIntro.route) {
+            LetterSoundsIntroPage(navController)
+        }
+        composable(RouteNavigation.LetterSoundsPractice.route) {
+            LetterSoundsPracticePage(navController)
+        }
         composable(RouteNavigation.PhonicsReadingLevels.route) {
             PhonicsReadingLevelsPage(navController)
         }
@@ -309,11 +322,17 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.ShortVowelsLearn.route) {
             ShortVowelsLearnPage(navController)
         }
+        composable(RouteNavigation.ShortVowelsPractice.route) {
+            ShortVowelsPracticePage(navController)
+        }
         composable(RouteNavigation.BlendingIntro.route) {
             BlendingIntroPage(navController)
         }
         composable(RouteNavigation.BlendingLearn.route) {
             BlendingLearnPage(navController)
+        }
+        composable(RouteNavigation.BlendingPractice.route) {
+            BlendingPracticePage(navController)
         }
         composable(RouteNavigation.CvcWordsIntro.route) {
             CvcWordsIntroPage(navController)
@@ -321,17 +340,26 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.CvcWordsLearn.route) {
             CvcWordsLearnPage(navController)
         }
+        composable(RouteNavigation.CvcWordsPractice.route) {
+            CvcWordsPracticePage(navController)
+        }
         composable(RouteNavigation.WordFamiliesIntro.route) {
             WordFamiliesIntroPage(navController)
         }
         composable(RouteNavigation.WordFamiliesLearn.route) {
             WordFamiliesLearnPage(navController)
         }
+        composable(RouteNavigation.WordFamiliesPractice.route) {
+            WordFamiliesPracticePage(navController)
+        }
         composable(RouteNavigation.ShortVowelRulesIntro.route) {
             ShortVowelRulesIntroPage(navController)
         }
         composable(RouteNavigation.ShortVowelRulesLearn.route) {
             ShortVowelRulesLearnPage(navController)
+        }
+        composable(RouteNavigation.ShortVowelRulesPractice.route) {
+            ShortVowelRulesPracticePage(navController)
         }
 
         // ── Phonics: Listen screen ───────────────────────────────────────────

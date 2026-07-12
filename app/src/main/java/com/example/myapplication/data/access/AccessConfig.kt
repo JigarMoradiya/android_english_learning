@@ -20,9 +20,11 @@ object AccessConfig {
         ModuleID.LETTER_CONFUSION to ModuleAccess(moduleId = ModuleID.LETTER_CONFUSION, accessLevel = FREE),
         ModuleID.LETTER_SPEED_GAME to ModuleAccess(moduleId = ModuleID.LETTER_SPEED_GAME, accessLevel = FREE),
         ModuleID.LETTER_PHONICS to ModuleAccess(moduleId = ModuleID.LETTER_PHONICS, accessLevel = FREE),
-        ModuleID.LETTER_PHONICS_KZ to ModuleAccess(moduleId = ModuleID.LETTER_PHONICS_KZ, accessLevel = LOGIN_REQUIRED),
+        // Phonics Journey: map + intros free to browse; starting a level's
+        // Learn/Practice/Listen (L1–L3) checks the daily limit; L4–28 need a subscription.
+        ModuleID.PHONICS_READING to ModuleAccess(moduleId = ModuleID.PHONICS_READING, accessLevel = FREE),
+        ModuleID.PHONICS_READING_PREMIUM to ModuleAccess(moduleId = ModuleID.PHONICS_READING_PREMIUM, accessLevel = PREMIUM),
         ModuleID.ALPHABET_TRACING to ModuleAccess(moduleId = ModuleID.ALPHABET_TRACING, accessLevel = FREE),
-        ModuleID.ALPHABET_TRACING_NZ to ModuleAccess(moduleId = ModuleID.ALPHABET_TRACING_NZ, accessLevel = LOGIN_REQUIRED),
         ModuleID.COLORING_ALPHABETS to ModuleAccess(moduleId = ModuleID.COLORING_ALPHABETS, accessLevel = FREE_LIMITED),
         ModuleID.MATCH_UPPER_LOWER to ModuleAccess(moduleId = ModuleID.MATCH_UPPER_LOWER, accessLevel = FREE_LIMITED),
         ModuleID.MATCH_LETTER_WITH_IMAGE to ModuleAccess(moduleId = ModuleID.MATCH_LETTER_WITH_IMAGE, accessLevel = PREMIUM),

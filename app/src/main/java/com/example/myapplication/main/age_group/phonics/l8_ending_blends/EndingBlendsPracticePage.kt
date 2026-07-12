@@ -162,22 +162,17 @@ fun EndingBlendsPracticePage(
                             modifier = Modifier.weight(0.55f).fillMaxHeight().padding(vertical = Dimens20)
                         ) {
                             Spacer(modifier = Modifier.weight(1f))
-                            // Image
+                            // Word image only — no card background, and no word caption (it would reveal the answer)
                             Box(
                                 contentAlignment = Alignment.Center,
-                                modifier = Modifier.padding(horizontal = Dimens20).fillMaxWidth().height(screenH * 0.38f).kidsGlassCard(cornerRadius = Dimens20, strokeColor = Color(0xFF1A237E))
+                                modifier = Modifier.padding(horizontal = Dimens20).fillMaxWidth().height(screenH * 0.38f)
                             ) {
-                                Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Dimens8)) {
-                                    val ctx = androidx.compose.ui.platform.LocalContext.current
-                                    val imgId = ctx.resources.getIdentifier(question.imageName, "drawable", ctx.packageName)
-                                    if (imgId != 0) {
-                                        Image(painterResource(imgId), question.imageName, contentScale = ContentScale.Fit, modifier = Modifier.fillMaxWidth().weight(1f).padding(top = Dimens10))
-                                    } else {
-                                        Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth().weight(1f)) {
-                                            Text(question.word, style = MaterialTheme.typography.displayMedium.scaled(), fontWeight = FontWeight.Bold, color = Color(0xFF1A237E))
-                                        }
-                                    }
-                                    Text(question.word.replaceFirstChar { it.uppercase() }, style = MaterialTheme.typography.labelMedium.scaled(), color = Color(0xFF78909C), modifier = Modifier.padding(bottom = Dimens8))
+                                val ctx = androidx.compose.ui.platform.LocalContext.current
+                                val imgId = ctx.resources.getIdentifier(question.imageName, "drawable", ctx.packageName)
+                                if (imgId != 0) {
+                                    Image(painterResource(imgId), null, contentScale = ContentScale.Fit, modifier = Modifier.fillMaxSize())
+                                } else {
+                                    Text("🖼️", style = MaterialTheme.typography.displayMedium.scaled())
                                 }
                             }
                             // Options

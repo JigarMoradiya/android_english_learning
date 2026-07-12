@@ -3,6 +3,9 @@ package com.example.myapplication.main.age_group.phonics.l10_special_endings
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -65,10 +68,12 @@ fun SpecialEndingsIntroPage(navController: NavController) {
             Row(modifier = Modifier.fillMaxSize()) {
                 Column(modifier = Modifier.weight(0.54f).fillMaxHeight()) {
                     BackButtonWithText(title = "Level 10", onBackClick = { navController.popBackStack() })
-                    Spacer(modifier = Modifier.weight(1f))
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
                     ) {
                         Text(
                             text = "Special Endings",
@@ -76,7 +81,10 @@ fun SpecialEndingsIntroPage(navController: NavController) {
                             fontWeight = FontWeight.ExtraBold,
                             color = Color(0xFF33691E)
                         )
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             SpecialEndingGroup.entries.forEach { group ->
                                 L10GroupBadge(group = group, modifier = Modifier.weight(1f))
                             }
@@ -88,7 +96,6 @@ fun SpecialEndingsIntroPage(navController: NavController) {
                             L10BulletRow(icon = Icons.Default.CheckCircle,     color = Color(0xFF558B2F), text = "Practice quiz — pick the right special ending")
                         }
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 PhonicsIntroRightPanel(

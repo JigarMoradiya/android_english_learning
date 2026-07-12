@@ -321,53 +321,28 @@ private fun RightAnswerPanel(
     ) {
         Spacer(modifier = Modifier.weight(1f))
 
-        // Image card
+        // Word image only — no card background, and no word caption (it would reveal the answer)
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
                 .padding(horizontal = Dimens20)
                 .fillMaxWidth()
                 .height(screenH * 0.38f)
-                .kidsGlassCard(cornerRadius = Dimens20, strokeColor = Color(0xFF1A237E))
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(Dimens8)
-            ) {
-                val ctx = androidx.compose.ui.platform.LocalContext.current
-                val imgId = ctx.resources.getIdentifier(question.imageName, "drawable", ctx.packageName)
+            val ctx = androidx.compose.ui.platform.LocalContext.current
+            val imgId = ctx.resources.getIdentifier(question.imageName, "drawable", ctx.packageName)
 
-                if (imgId != 0) {
-                    Image(
-                        painter = painterResource(id = imgId),
-                        contentDescription = question.imageName,
-                        contentScale = ContentScale.Fit,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f)
-                            .padding(top = Dimens10)
-                    )
-                } else {
-                    Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f)
-                    ) {
-                        Text(
-                            text = question.word,
-                            style = MaterialTheme.typography.displayMedium.scaled(),
-                            fontWeight = FontWeight.Bold,
-                            color = Color(0xFF1A237E)
-                        )
-                    }
-                }
-
+            if (imgId != 0) {
+                Image(
+                    painter = painterResource(id = imgId),
+                    contentDescription = null,
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier.fillMaxSize()
+                )
+            } else {
                 Text(
-                    text = question.word.replaceFirstChar { it.uppercase() },
-                    style = MaterialTheme.typography.labelMedium.scaled(),
-                    color = Color(0xFF78909C),
-                    modifier = Modifier.padding(bottom = Dimens8)
+                    text = "🖼️",
+                    style = MaterialTheme.typography.displayMedium.scaled()
                 )
             }
         }

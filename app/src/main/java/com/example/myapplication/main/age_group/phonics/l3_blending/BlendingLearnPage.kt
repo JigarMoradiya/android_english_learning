@@ -62,6 +62,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l3_blending.view_model.BlendBoxPhase
 import com.example.myapplication.main.age_group.phonics.l3_blending.view_model.BlendPhonicsPhase
 import com.example.myapplication.main.age_group.phonics.l3_blending.view_model.BlendingViewModel
@@ -94,6 +96,9 @@ fun BlendingLearnPage(
     navController: NavController,
     viewModel: BlendingViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.blending)
+
     val uiState = viewModel.uiState
 
     DisposableEffect(Unit) {

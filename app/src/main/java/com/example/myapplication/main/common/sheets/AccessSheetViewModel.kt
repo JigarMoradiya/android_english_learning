@@ -43,6 +43,9 @@ class AccessSheetViewModel @Inject constructor(
     // ── User access state (observable by UI) ─────────────────────────
     val userState: StateFlow<UserAccessState> = accessManager.userState
 
+    /** Exposed so screens can hide lock badges while DEV_MODE bypasses gating. */
+    val isDevMode: Boolean get() = accessManager.isDevMode
+
     // ── Sheet visibility state ────────────────────────────────────────
 
     private val _sheetState = MutableStateFlow<AccessSheetState>(AccessSheetState.Hidden)

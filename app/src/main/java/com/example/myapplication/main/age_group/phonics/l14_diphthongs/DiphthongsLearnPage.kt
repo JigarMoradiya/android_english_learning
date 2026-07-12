@@ -50,6 +50,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l14_diphthongs.view_model.DiphthongGroup
 import com.example.myapplication.main.age_group.phonics.l14_diphthongs.view_model.DiphthongWord
 import com.example.myapplication.main.age_group.phonics.l14_diphthongs.view_model.DiphthongsLearnUiState
@@ -74,6 +76,9 @@ import com.example.myapplication.utils.extensions.scaled
 
 @Composable
 fun DiphthongsLearnPage(navController: NavController) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.diphthongs)
+
     val viewModel: DiphthongsLearnViewModel = hiltViewModel()
     val uiState = viewModel.uiState
 

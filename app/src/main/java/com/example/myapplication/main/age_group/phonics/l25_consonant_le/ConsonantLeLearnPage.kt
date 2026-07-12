@@ -32,6 +32,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l25_consonant_le.view_model.CLEGroup
 import com.example.myapplication.main.age_group.phonics.l25_consonant_le.view_model.CLEWord
 import com.example.myapplication.main.age_group.phonics.l25_consonant_le.view_model.ConsonantLeLearnViewModel
@@ -57,6 +59,9 @@ fun ConsonantLeLearnPage(
     navController: NavController,
     viewModel: ConsonantLeLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.consonantLe)
+
     val uiState       = viewModel.uiState
     val selectedGroup = viewModel.selectedGroup
 

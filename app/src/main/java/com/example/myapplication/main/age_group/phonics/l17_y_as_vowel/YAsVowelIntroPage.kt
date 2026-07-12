@@ -3,6 +3,8 @@ package com.example.myapplication.main.age_group.phonics.l17_y_as_vowel
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
@@ -51,10 +53,12 @@ fun YAsVowelIntroPage(navController: NavController) {
                 // ── LEFT ─────────────────────────────────────────────────────
                 Column(modifier = Modifier.weight(0.54f).fillMaxHeight()) {
                     BackButtonWithText(title = "Level 17", onBackClick = { navController.popBackStack() })
-                    Spacer(modifier = Modifier.weight(1f))
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
                     ) {
                         Text(
                             text = "Y as a Vowel",
@@ -68,7 +72,10 @@ fun YAsVowelIntroPage(navController: NavController) {
                             fontWeight = FontWeight.Bold,
                             color = yAccentColor
                         )
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             yAsVowelGroups.forEach { group -> YGroupChip(group) }
                         }
                         Column(verticalArrangement = Arrangement.spacedBy(Dimens10)) {
@@ -80,7 +87,6 @@ fun YAsVowelIntroPage(navController: NavController) {
                                 "Y in the middle says /ī/: gym, myth, lynx")
                         }
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT ────────────────────────────────────────────────────
@@ -118,27 +124,12 @@ fun YAsVowelIntroPage(navController: NavController) {
 
 @Composable
 private fun YGroupChip(group: YAsVowelGroup) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Dimens2),
-        modifier = Modifier
-            .background(group.accentColor.copy(alpha = 0.10f), RoundedCornerShape(8.dp))
-            .border(1.5.dp, group.accentColor.copy(alpha = 0.35f), RoundedCornerShape(8.dp))
-            .padding(horizontal = Dimens8, vertical = Dimens6)
-    ) {
-        Text(text = group.emoji, style = MaterialTheme.typography.bodyMedium.scaled())
-        Text(
-            text = group.label,
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            fontWeight = FontWeight.Bold,
-            color = group.accentColor
-        )
-        Text(
-            text = group.sound,
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            color = Color(0xFF546E7A)
-        )
-    }
+    PhonicsGroupChip(
+        emoji = group.emoji,
+        title = group.label,
+        subtitle = group.sound,
+        accentColor = group.accentColor
+    )
 }
 
 @Composable

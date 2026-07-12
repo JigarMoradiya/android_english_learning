@@ -3,6 +3,8 @@ package com.example.myapplication.main.age_group.phonics.l21_word_endings
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BarChart
@@ -60,10 +62,12 @@ fun WordEndingsIntroPage(navController: NavController) {
                         .fillMaxHeight()
                 ) {
                     BackButtonWithText(title = "Level 21", onBackClick = { navController.popBackStack() })
-                    Spacer(modifier = Modifier.weight(1f))
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
                     ) {
                         Text(
                             text       = "Word Endings",
@@ -77,8 +81,11 @@ fun WordEndingsIntroPage(navController: NavController) {
                             fontWeight = FontWeight.Bold,
                             color      = weGreenLight
                         )
-                        // Group chips: emoji + suffix
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        // Group chips: emoji + suffix — wraps when needed
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             wordEndingGroups.forEach { group -> WEGroupChip(group) }
                         }
                         // Bullet rows
@@ -89,7 +96,6 @@ fun WordEndingsIntroPage(navController: NavController) {
                             WEBulletRow(Icons.Default.EmojiEvents, Color(0xFF6A1B9A), "-est: tall → tallest — the most of all!")
                         }
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT 46% ─────────────────────────────────────────────────
@@ -127,22 +133,11 @@ fun WordEndingsIntroPage(navController: NavController) {
 
 @Composable
 private fun WEGroupChip(group: WordEndingGroup) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Dimens2),
-        modifier = Modifier
-            .background(group.accentColor.copy(alpha = 0.10f), RoundedCornerShape(8.dp))
-            .border(1.5.dp, group.accentColor.copy(alpha = 0.35f), RoundedCornerShape(8.dp))
-            .padding(horizontal = Dimens8, vertical = Dimens6)
-    ) {
-        Text(text = group.emoji, style = MaterialTheme.typography.bodyMedium.scaled())
-        Text(
-            text       = group.suffix,
-            style      = MaterialTheme.typography.labelSmall.scaled(),
-            fontWeight = FontWeight.Bold,
-            color      = group.accentColor
-        )
-    }
+    PhonicsGroupChip(
+        emoji = group.emoji,
+        title = group.suffix,
+        accentColor = group.accentColor
+    )
 }
 
 @Composable

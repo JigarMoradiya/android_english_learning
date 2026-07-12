@@ -6,9 +6,7 @@ object ModuleID {
     const val ABCD_WITH_IMAGES          = "abcd_with_images"
     const val LETTER_RECOGNITION        = "letter_recognition"
     const val LETTER_PHONICS            = "letter_phonics"
-    const val LETTER_PHONICS_KZ         = "letter_phonics_kz"    // letters K–Z, login-gated
     const val ALPHABET_TRACING          = "alphabet_tracing"
-    const val ALPHABET_TRACING_NZ       = "alphabet_tracing_nz"  // letters K–Z, login-gated
     const val COLORING_ALPHABETS        = "coloring_alphabets"
     const val MATCH_UPPER_LOWER         = "match_upper_lower"
     const val MATCH_LETTER_WITH_IMAGE   = "match_letter_with_image"
@@ -19,8 +17,11 @@ object ModuleID {
     const val LETTER_CONFUSION          = "letter_confusion"    // b/d, p/q, m/w, n/u mirror-letters activity
     const val LETTER_SPEED_GAME         = "letter_speed_game"   // timed "find the letter fast" game
 
+    // ── Phonics Journey (all ages) ────────────────────────────────────
+    const val PHONICS_READING           = "phonics_reading"          // entry + levels 1–3 (free)
+    const val PHONICS_READING_PREMIUM   = "phonics_reading_premium"  // levels 4–28, subscription-gated
+
     // ── Age 5–7: Word Adventure ───────────────────────────────────────
-    const val PHONICS_READING        = "phonics_reading"
     const val VOCABULARY_ANIMALS        = "vocabulary_animals"
     const val VOCABULARY_FRUITS         = "vocabulary_fruits"
     const val VOCABULARY_BIRDS          = "vocabulary_birds"

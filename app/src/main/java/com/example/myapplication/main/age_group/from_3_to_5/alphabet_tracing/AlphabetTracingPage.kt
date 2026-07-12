@@ -34,7 +34,6 @@ import kotlinx.coroutines.launch
 
 
 // Letters K–Z start at index 10 (A=0, B=1, … J=9, K=10, … Z=25)
-private const val LOCKED_FROM_INDEX = 10
 
 // Ignore next/previous taps within this window so a double-tap moves only one letter
 private const val NAV_CLICK_THROTTLE_MS = 400L
@@ -53,28 +52,13 @@ fun AlphabetTracingPage(
     val arrowImageRes = getImageResForLetterArrow("${displayString.lowercase()}_arrow")
 
     val lastNavClickMs = remember { longArrayOf(0L) }
-    val isAccessCheckInFlight = remember { booleanArrayOf(false) }
 
-    // Helper: navigate to [targetIndex] but first gate N–Z for guests.
-    // Throttled so rapid taps don't advance multiple letters at once.
+    // Throttled navigation so rapid taps don't advance multiple letters at once.
     fun navigateTo(targetIndex: Int, doNavigate: () -> Unit) {
         val now = System.currentTimeMillis()
-        if (now - lastNavClickMs[0] < NAV_CLICK_THROTTLE_MS || isAccessCheckInFlight[0]) return
+        if (now - lastNavClickMs[0] < NAV_CLICK_THROTTLE_MS) return
         lastNavClickMs[0] = now
-
-        if (targetIndex >= LOCKED_FROM_INDEX) {
-            isAccessCheckInFlight[0] = true
-            scope.launch {
-                try {
-                    val allowed = accessVM.checkAccess(ModuleID.ALPHABET_TRACING_NZ)
-                    if (allowed) doNavigate()
-                } finally {
-                    isAccessCheckInFlight[0] = false
-                }
-            }
-        } else {
-            doNavigate()
-        }
+        doNavigate()
     }
 
     Box(modifier = Modifier.fillMaxSize()) {

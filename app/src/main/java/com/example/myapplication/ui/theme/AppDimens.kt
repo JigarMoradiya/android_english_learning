@@ -32,6 +32,9 @@ object AppDimens {
     val Dimens32 = if(isLargeTablet) 64.dp else if (isTablet) 40.dp else 32.dp
     val Dimens40 = if(isLargeTablet) 80.dp else if (isTablet) 48.dp else 40.dp
     val Dimens50 = if(isLargeTablet) 100.dp else if (isTablet) 72.dp else 50.dp
+    val Dimens60 = if(isLargeTablet) 100.dp else if (isTablet) 80.dp else 60.dp
+    val Dimens80 = if(isLargeTablet) 120.dp else if (isTablet) 100.dp else 80.dp
+    val Dimens100 = if(isLargeTablet) 160.dp else if (isTablet) 120.dp else 90.dp
     val DimensColorCircles = if(isLargeTablet) 56.dp else if (isTablet) 48.dp else 36.dp
     val CommonPopupImageSize = if(isLargeTablet) 120.dp else if (isTablet) 96.dp else 72.dp
     val ABCDWithImagesSmallImageSize = if(isLargeTablet) 120.dp else if (isTablet) 100.dp else 80.dp

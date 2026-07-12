@@ -49,6 +49,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l9_digraphs.view_model.DigraphEntry
 import com.example.myapplication.main.age_group.phonics.l9_digraphs.view_model.DigraphLearnUiState
 import com.example.myapplication.main.age_group.phonics.l9_digraphs.view_model.DigraphWord
@@ -97,6 +99,9 @@ fun DigraphsLearnPage(
     navController: NavController,
     viewModel: DigraphsLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.digraphs)
+
     val uiState = viewModel.uiState
 
     DisposableEffect(Unit) { onDispose { viewModel.stop() } }

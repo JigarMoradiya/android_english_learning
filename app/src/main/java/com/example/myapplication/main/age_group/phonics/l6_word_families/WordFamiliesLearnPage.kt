@@ -56,6 +56,8 @@ import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l6_word_families.view_model.FamilyOnset
 import com.example.myapplication.main.age_group.phonics.l6_word_families.view_model.WordFamily
 import com.example.myapplication.main.age_group.phonics.l6_word_families.view_model.WordFamiliesUiState
@@ -84,6 +86,9 @@ fun WordFamiliesLearnPage(
     navController: NavController,
     viewModel: WordFamiliesViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.wordFamilies)
+
     val uiState = viewModel.uiState
 
     DisposableEffect(Unit) {

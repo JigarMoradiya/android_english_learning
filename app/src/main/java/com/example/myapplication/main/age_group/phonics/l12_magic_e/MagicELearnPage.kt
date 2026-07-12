@@ -49,6 +49,8 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l12_magic_e.view_model.MagicEGroup
 import com.example.myapplication.main.age_group.phonics.l12_magic_e.view_model.MagicELearnUiState
 import com.example.myapplication.main.age_group.phonics.l12_magic_e.view_model.MagicELearnViewModel
@@ -76,6 +78,9 @@ private val silentEColor    = Color(0xFFFFC107)
 
 @Composable
 fun MagicELearnPage(navController: NavController) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.magicE)
+
     val viewModel: MagicELearnViewModel = hiltViewModel()
     val uiState = viewModel.uiState
 

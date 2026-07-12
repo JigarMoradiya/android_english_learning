@@ -2,6 +2,9 @@ package com.example.myapplication.main.age_group.phonics.l16_igh_gh
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -67,11 +70,18 @@ fun IghGhIntroPage(navController: NavController) {
                 ) {
                     BackButtonWithText(title = "Level 16", onBackClick = { navController.popBackStack() })
 
-                    Spacer(modifier = Modifier.weight(1f))
-
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+
+                        modifier = Modifier
+
+                            .weight(1f)
+
+                            .verticalScroll(rememberScrollState())
+
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
+
                     ) {
                         Text(
                             text = "igh & gh Patterns",
@@ -86,7 +96,10 @@ fun IghGhIntroPage(navController: NavController) {
                             color = Color(0xFF5E35B1)
                         )
 
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             ighGhGroups.forEach { group ->
                                 Box(
                                     contentAlignment = Alignment.Center,
@@ -110,8 +123,6 @@ fun IghGhIntroPage(navController: NavController) {
                             IghGhIntroRow("🎺", "gh = /f/ — enough, laugh, cough")
                         }
                     }
-
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT ────────────────────────────────────────────────────

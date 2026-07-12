@@ -49,6 +49,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l11_open_syllable.view_model.OpenSyllableGroup
 import com.example.myapplication.main.age_group.phonics.l11_open_syllable.view_model.OpenSyllableLearnUiState
 import com.example.myapplication.main.age_group.phonics.l11_open_syllable.view_model.OpenSyllableLearnViewModel
@@ -77,6 +79,9 @@ fun OpenSyllableLearnPage(
     navController: NavController,
     viewModel: OpenSyllableLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.openSyllable)
+
     val uiState = viewModel.uiState
 
     DisposableEffect(Unit) { onDispose { viewModel.stop() } }

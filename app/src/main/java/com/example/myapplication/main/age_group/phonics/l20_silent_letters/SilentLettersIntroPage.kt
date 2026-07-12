@@ -3,6 +3,8 @@ package com.example.myapplication.main.age_group.phonics.l20_silent_letters
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
@@ -54,10 +56,12 @@ fun SilentLettersIntroPage(navController: NavController) {
                 // ── LEFT ─────────────────────────────────────────────────────
                 Column(modifier = Modifier.weight(0.54f).fillMaxHeight()) {
                     BackButtonWithText(title = "Level 20", onBackClick = { navController.popBackStack() })
-                    Spacer(modifier = Modifier.weight(1f))
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
                     ) {
                         Text(
                             text = "Silent Letters",
@@ -71,7 +75,10 @@ fun SilentLettersIntroPage(navController: NavController) {
                             fontWeight = FontWeight.Bold,
                             color = Color(0xFF607D8B)
                         )
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             silentLettersGroups.forEach { group -> SilentPatternChip(group) }
                         }
                         Column(verticalArrangement = Arrangement.spacedBy(Dimens10)) {
@@ -85,7 +92,6 @@ fun SilentLettersIntroPage(navController: NavController) {
                                 "gn: gnat, gnome, sign — G is silent!")
                         }
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT ────────────────────────────────────────────────────
@@ -124,27 +130,12 @@ fun SilentLettersIntroPage(navController: NavController) {
 @Composable
 private fun SilentPatternChip(group: SilentLettersGroup) {
     val ghostLetter = silentLetterMap[group.pattern] ?: group.pattern.first().toString()
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Dimens2),
-        modifier = Modifier
-            .background(group.accentColor.copy(alpha = 0.10f), RoundedCornerShape(8.dp))
-            .border(1.5.dp, group.accentColor.copy(alpha = 0.35f), RoundedCornerShape(8.dp))
-            .padding(horizontal = Dimens8, vertical = Dimens6)
-    ) {
-        Text(text = group.emoji, style = MaterialTheme.typography.bodyMedium.scaled())
-        Text(
-            text = group.pattern,
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            fontWeight = FontWeight.Bold,
-            color = group.accentColor
-        )
-        Text(
-            text = "silent $ghostLetter",
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            color = Color(0xFF546E7A)
-        )
-    }
+    PhonicsGroupChip(
+        emoji = group.emoji,
+        title = group.pattern,
+        subtitle = "silent $ghostLetter",
+        accentColor = group.accentColor
+    )
 }
 
 @Composable

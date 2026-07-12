@@ -3,6 +3,8 @@ package com.example.myapplication.main.age_group.phonics.l28_sight_words
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesome
@@ -57,10 +59,12 @@ fun StarWordsIntroPage(navController: NavController) {
                         .fillMaxHeight()
                 ) {
                     BackButtonWithText(title = "Level 28", onBackClick = { navController.popBackStack() })
-                    Spacer(modifier = Modifier.weight(1f))
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
                     ) {
                         Text(
                             text       = "Sight Words",
@@ -75,7 +79,10 @@ fun StarWordsIntroPage(navController: NavController) {
                             color      = swAccentLight
                         )
                         // Set chips
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             swSets.forEach { set -> SWSetChip(set) }
                         }
                         // Bullet rows
@@ -101,7 +108,6 @@ fun StarWordsIntroPage(navController: NavController) {
                             )
                         }
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT 46% ─────────────────────────────────────────────────
@@ -141,22 +147,11 @@ fun StarWordsIntroPage(navController: NavController) {
 
 @Composable
 private fun SWSetChip(set: SWSet) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Dimens2),
-        modifier = Modifier
-            .background(set.accentColor.copy(alpha = 0.10f), RoundedCornerShape(8.dp))
-            .border(1.5.dp, set.accentColor.copy(alpha = 0.35f), RoundedCornerShape(8.dp))
-            .padding(horizontal = Dimens8, vertical = Dimens6)
-    ) {
-        Text(text = set.emoji, style = MaterialTheme.typography.bodyMedium.scaled())
-        Text(
-            text       = set.name,
-            style      = MaterialTheme.typography.labelSmall.scaled(),
-            fontWeight = FontWeight.Bold,
-            color      = set.accentColor
-        )
-    }
+    PhonicsGroupChip(
+        emoji = set.emoji,
+        title = set.name,
+        accentColor = set.accentColor
+    )
 }
 
 @Composable

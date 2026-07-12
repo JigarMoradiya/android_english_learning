@@ -31,6 +31,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l28_sight_words.view_model.SWLearnViewModel
 import com.example.myapplication.main.age_group.phonics.l28_sight_words.view_model.SWSet
 import com.example.myapplication.main.age_group.phonics.l28_sight_words.view_model.SWWord
@@ -56,6 +58,9 @@ fun StarWordsLearnPage(
     navController: NavController,
     viewModel: SWLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.sightWords)
+
     val uiState     = viewModel.uiState
     val selectedSet = viewModel.selectedSet
 

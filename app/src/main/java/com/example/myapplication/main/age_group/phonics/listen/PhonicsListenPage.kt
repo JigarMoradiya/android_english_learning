@@ -2,14 +2,15 @@ package com.example.myapplication.main.age_group.phonics.listen
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.VisibilityThreshold
+import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.spring
-import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +22,7 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
@@ -31,6 +33,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.PauseCircle
 import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material.icons.filled.TouchApp
@@ -64,6 +67,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -77,6 +81,7 @@ import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.kidsGlassCapsule
 import com.example.myapplication.main.common.kidsGlassCard
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
@@ -116,6 +121,7 @@ fun PhonicsListenPage(
                 subtitle = viewModel.config.subtitle,
                 wordIndex = viewModel.wordIndex,
                 totalWords = viewModel.totalWords,
+                listenedCount = viewModel.listenedCount,
                 accent = accent,
                 onBack = { navController.popBackStack() }
             )
@@ -128,6 +134,7 @@ fun PhonicsListenPage(
                 accent     = accent,
                 wordIndex  = viewModel.wordIndex,
                 useFallback = viewModel.currentWordUsesFallback,
+                isWordListened = { viewModel.isWordListened(it) },
                 onSegmentTap = { idx -> if (!uiState.isAutoMode) viewModel.onSegmentTap(idx) },
                 onFallbackTap = { if (!uiState.isAutoMode) viewModel.onSegmentTap(0) }
             )
@@ -160,6 +167,7 @@ private fun ListenHeaderRow(
     subtitle: String,
     wordIndex: Int,
     totalWords: Int,
+    listenedCount: Int,
     accent: Color,
     onBack: () -> Unit
 ) {
@@ -181,7 +189,7 @@ private fun ListenHeaderRow(
                 color = Color(0xFF78909C)
             )
             Text(
-                text = "${wordIndex + 1} of $totalWords",
+                text = "${wordIndex + 1} of $totalWords · 🎧 $listenedCount",
                 style = MaterialTheme.typography.labelLarge.scaled(),
                 fontWeight = FontWeight.Bold,
                 color = accent,
@@ -202,6 +210,7 @@ private fun ListenWordCard(
     accent: Color,
     wordIndex: Int,
     useFallback: Boolean,
+    isWordListened: (ListenWord) -> Boolean,
     onSegmentTap: (Int) -> Unit,
     onFallbackTap: () -> Unit
 ) {
@@ -209,12 +218,19 @@ private fun ListenWordCard(
         targetState = wordIndex,
         modifier = Modifier.fillMaxWidth().clipToBounds(),
         transitionSpec = {
+            // iOS: .spring(response: 0.40, dampingFraction: 0.75) → stiffness = (2π/0.40)² ≈ 250
+            val slideSpec = spring(
+                dampingRatio = 0.75f,
+                stiffness = 250f,
+                visibilityThreshold = IntOffset.VisibilityThreshold
+            )
+            val fadeSpec = spring<Float>(dampingRatio = 0.75f, stiffness = 250f)
+            // iOS: outgoing card disappears immediately; only the incoming card animates
+            val exitNow = fadeOut(animationSpec = snap())
             if (targetState > initialState) {
-                (slideInHorizontally { it } + fadeIn(tween(300)))
-                    .togetherWith(slideOutHorizontally { -it } + fadeOut(tween(300)))
+                (slideInHorizontally(slideSpec) { it } + fadeIn(fadeSpec)).togetherWith(exitNow)
             } else {
-                (slideInHorizontally { -it } + fadeIn(tween(300)))
-                    .togetherWith(slideOutHorizontally { it } + fadeOut(tween(300)))
+                (slideInHorizontally(slideSpec) { -it } + fadeIn(fadeSpec)).togetherWith(exitNow)
             }
         },
         label = "wordCard"
@@ -230,13 +246,15 @@ private fun ListenWordCard(
         val charRight   = remember(currentWordIndex) { mutableStateMapOf<Int, Float>() }
         var canvasRootX by remember(currentWordIndex) { mutableFloatStateOf(0f) }
 
-        // Center the wrap-content card inside the full-width animation frame
+        // Center the wrap-content card inside the full-width animation frame.
+        // Top padding leaves room for the listened seal hanging off the card corner
+        // (AnimatedContent clips to bounds).
         Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            Box(modifier = Modifier.padding(top = Dimens8, start = Dimens32, end = Dimens32)) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(Dimens20),
                 modifier = Modifier
-                    .padding(horizontal = Dimens32)
                     .kidsGlassCard(cornerRadius = 20.dp, strokeColor = accent)
                     .padding(horizontal = Dimens32, vertical = Dimens24)
             ) {
@@ -319,6 +337,27 @@ private fun ListenWordCard(
                         }
                     }
                 }
+            }
+
+            // Green ✓ seal on the card corner once this word has been fully heard.
+            if (isWordListened(currentWord)) {
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .offset(x = Dimens8, y = -Dimens8)
+                        .size(Dimens24)
+                        .background(Color(0xFF1B5E20), CircleShape)
+                        .border(Dimens2, Color.White, CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Check,
+                        contentDescription = null,
+                        tint = Color.White,
+                        modifier = Modifier.size(Dimens14)
+                    )
+                }
+            }
             }
         }
     }

@@ -49,6 +49,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l17_y_as_vowel.view_model.YAsVowelGroup
 import com.example.myapplication.main.age_group.phonics.l17_y_as_vowel.view_model.YAsVowelLearnViewModel
 import com.example.myapplication.main.age_group.phonics.l17_y_as_vowel.view_model.YAsVowelWord
@@ -73,6 +75,9 @@ fun YAsVowelLearnPage(
     navController: NavController,
     viewModel: YAsVowelLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.yAsVowel)
+
     val uiState = viewModel.uiState
     val selectedGroup = viewModel.selectedGroup
 

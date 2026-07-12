@@ -48,6 +48,8 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l15_r_controlled.view_model.RControlledGroup
 import com.example.myapplication.main.age_group.phonics.l15_r_controlled.view_model.RControlledLearnUiState
 import com.example.myapplication.main.age_group.phonics.l15_r_controlled.view_model.RControlledLearnViewModel
@@ -74,6 +76,9 @@ private val bossyRColor = Color(0xFFC62828)
 
 @Composable
 fun RControlledLearnPage(navController: NavController) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.rControlled)
+
     val viewModel: RControlledLearnViewModel = hiltViewModel()
     val uiState = viewModel.uiState
 

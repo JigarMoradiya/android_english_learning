@@ -6,6 +6,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.progress.PhonicsLevelProgressRepository
+import com.example.myapplication.data.progress.PhonicsSessionRecorder
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.utilities.AudioPhonicsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -196,11 +199,18 @@ val diphthongsPracticeQuestions: List<DiphthongsPracticeQuestion> = listOf(
 
 @HiltViewModel
 class DiphthongsPracticeViewModel @Inject constructor(
-    private val audioManager: AudioPhonicsManager
+    private val audioManager: AudioPhonicsManager,
+    private val levelProgressRepo: PhonicsLevelProgressRepository,
+    private val phonicsSessions: PhonicsSessionRecorder
 ) : ViewModel() {
 
     private val questions = diphthongsPracticeQuestions.shuffled()
     var uiState by mutableStateOf(DiphthongsPracticeUiState()); private set
+
+    // Parent-report session tracking
+    private var sessionStartMs = System.currentTimeMillis()
+    private val wrongWords = mutableListOf<String>()
+    private val correctWords = mutableListOf<String>()
 
     val totalQuestions: Int get() = questions.size
     val currentQuestion: DiphthongsPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)
@@ -212,6 +222,7 @@ class DiphthongsPracticeViewModel @Inject constructor(
         if (uiState.selectedAnswer != null) return
         val correct = answer == q.correctDiphthong
         uiState = uiState.copy(selectedAnswer = answer, isCorrect = correct)
+        if (correct) correctWords.add(q.word) else wrongWords.add(q.word)
         if (correct) {
             uiState = uiState.copy(score = uiState.score + 1)
             audioManager.playPhonicsSound("phonics_word/${q.word}")
@@ -235,9 +246,11 @@ class DiphthongsPracticeViewModel @Inject constructor(
 
     private fun advance() {
         val next = uiState.currentIndex + 1
-        uiState = if (next >= questions.size)
+        uiState = if (next >= questions.size) {
+            levelProgressRepo.recordPractice(level = PhonicsListenLevelKey.diphthongs, score = uiState.score, total = questions.size)
+            phonicsSessions.recordPractice(PhonicsListenLevelKey.diphthongs, uiState.score, questions.size, ((System.currentTimeMillis() - sessionStartMs) / 1000).toInt(), wrongWords.toList(), correctWords.toList())
             uiState.copy(isFinished = true)
-        else
+        } else
             uiState.copy(currentIndex = next, selectedAnswer = null, isCorrect = null, shakeWrong = false)
     }
 }

@@ -53,6 +53,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l2_short_vowels.view_model.ShortVowelModel
 import com.example.myapplication.main.age_group.phonics.l2_short_vowels.view_model.ShortVowelPhase
 import com.example.myapplication.main.age_group.phonics.l2_short_vowels.view_model.ShortVowelsUiState
@@ -78,6 +80,9 @@ fun ShortVowelsLearnPage(
     navController: NavController,
     viewModel: ShortVowelsViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.shortVowels)
+
     val uiState = viewModel.uiState
 
     DisposableEffect(Unit) {

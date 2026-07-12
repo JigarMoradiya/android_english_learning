@@ -3,6 +3,9 @@ package com.example.myapplication.main.age_group.phonics.l8_ending_blends
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -73,11 +76,18 @@ fun EndingBlendsIntroPage(navController: NavController) {
                 ) {
                     BackButtonWithText(title = "Level 8", onBackClick = { navController.popBackStack() })
 
-                    Spacer(modifier = Modifier.weight(1f))
-
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20, vertical = Dimens12),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+
+                        modifier = Modifier
+
+                            .weight(1f)
+
+                            .verticalScroll(rememberScrollState())
+
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
+
                     ) {
                         Text(
                             text = "Ending Blends",
@@ -86,7 +96,10 @@ fun EndingBlendsIntroPage(navController: NavController) {
                             color = Color(0xFF1A237E)
                         )
 
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8)
+                        ) {
                             EndBlendGroup.entries.forEach { group ->
                                 L8GroupBadge(group = group, modifier = Modifier.weight(1f))
                             }
@@ -102,8 +115,6 @@ fun EndingBlendsIntroPage(navController: NavController) {
                             L8BulletRow(icon = Icons.Default.CheckCircle,      color = Color(0xFF00838F), text = "Practice quiz — pick the correct ending blend")
                         }
                     }
-
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT 46% ────────────────────────────────────────────────

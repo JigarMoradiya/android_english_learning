@@ -36,6 +36,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffect
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l23_suffixes.view_model.SuffixGroup
 import com.example.myapplication.main.age_group.phonics.l23_suffixes.view_model.SuffixRule
 import com.example.myapplication.main.age_group.phonics.l23_suffixes.view_model.SuffixWord
@@ -76,6 +78,9 @@ fun SuffixesLearnPage(
     navController: NavController,
     viewModel: SuffixesLearnViewModel = hiltViewModel()
 ) {
+    // Times this visit for the parent report (Phonics tab)
+    PhonicsLearnSessionEffect(PhonicsListenLevelKey.suffixes)
+
     val uiState = viewModel.uiState
     val selectedGroup = viewModel.selectedGroup
 

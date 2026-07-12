@@ -389,7 +389,7 @@ private fun StatCard(
 
 // ── Activity section ─────────────────────────────────────────────────────────
 
-private val ageFilters = listOf(/*"All",*/ "Age 3-5", "Age 5-7", "Age 6-8")
+private val ageFilters = listOf(/*"All",*/ "Age 3-5", "Age 5-7", "Age 6-8", "Phonics")
 
 @Composable
 private fun ActivitySection(vm: ParentProgressViewModel, navController: NavController) {
@@ -458,7 +458,9 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
         val scrollState = rememberScrollState()
         LaunchedEffect(vm.selectedAgeFilter) { scrollState.animateScrollTo(0) }
 
-        if (vm.filteredModuleRows.isEmpty()) {
+        val isPhonicsTab = vm.selectedAgeFilter == "Phonics"
+
+        if (vm.filteredModuleRows.isEmpty() && !isPhonicsTab) {
             EmptyState()
         } else {
             Column(
@@ -466,8 +468,22 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
                     .verticalScroll(scrollState),
                 verticalArrangement = Arrangement.spacedBy(Dimens8)
             ) {
+                if (isPhonicsTab) {
+                    PhonicsJourneySummaryCard(vm)
+                }
                 vm.filteredModuleRows.forEach { row ->
                     ModuleRowItem(row = row, navController = navController, viewModel = vm)
+                }
+                if (isPhonicsTab && vm.filteredModuleRows.isEmpty()) {
+                    Text(
+                        text = "No phonics activity this week yet — play a level to see it here!",
+                        style = MaterialTheme.typography.labelMedium.scaled(),
+                        color = Color.Gray,
+                        modifier = Modifier.padding(vertical = Dimens8)
+                    )
+                }
+                if (isPhonicsTab && vm.phonicsWeakWordsByLevel.isNotEmpty()) {
+                    PhonicsWeakWordsCard(vm.phonicsWeakWordsByLevel)
                 }
                 if (vm.filteredMasteredLetterRows.isNotEmpty() || vm.filteredMasteredSequenceRows.isNotEmpty()) {
                     MasteredCard(vm.filteredMasteredLetterRows, vm.filteredMasteredSequenceRows)
@@ -476,6 +492,129 @@ private fun ActivitySection(vm: ParentProgressViewModel, navController: NavContr
                     WeakLettersCard(vm.filteredWeakLetterRows, vm.filteredWeakArrangeRows)
                 }
                 Spacer(modifier = Modifier.height(Dimens8))
+            }
+        }
+    }
+}
+
+// ── Phonics tab cards ────────────────────────────────────────────────────────
+
+@Composable
+private fun PhonicsJourneySummaryCard(vm: ParentProgressViewModel) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(2.dp, RoundedCornerShape(Dimens8))
+            .background(Color.White, RoundedCornerShape(Dimens8))
+            .padding(Dimens12),
+        verticalArrangement = Arrangement.spacedBy(Dimens6)
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(text = "📖", style = MaterialTheme.typography.titleMedium)
+            Spacer(Modifier.width(Dimens6))
+            Text(
+                text = "Phonics Journey",
+                style = MaterialTheme.typography.bodyMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF5532D2)
+            )
+            Spacer(Modifier.weight(1f))
+            Text(
+                text = "⭐ ${vm.phonicsTotalStars}/84",
+                style = MaterialTheme.typography.labelMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFFE65100)
+            )
+        }
+
+        // All-time journey progress
+        Text(
+            text = "${vm.phonicsLevelsDone} of 28 levels complete",
+            style = MaterialTheme.typography.labelMedium.scaled(),
+            color = Color.Gray
+        )
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(Dimens6)
+                .clip(RoundedCornerShape(50))
+                .background(Color(0xFF5532D2).copy(alpha = 0.12f))
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth(vm.phonicsLevelsDone / 28f)
+                    .fillMaxHeight()
+                    .clip(RoundedCornerShape(50))
+                    .background(Color(0xFF5532D2))
+            )
+        }
+
+        // This week's phonics activity
+        Row(horizontalArrangement = Arrangement.spacedBy(Dimens12)) {
+            PhonicsMiniStat(label = "Sessions", value = "${vm.phonicsWeekSessions}")
+            PhonicsMiniStat(label = "Time", value = ParentProgressViewModel.formatDuration(vm.phonicsWeekDurationSeconds))
+            PhonicsMiniStat(label = "Accuracy", value = "${(vm.phonicsWeekAccuracy * 100).toInt()}%")
+        }
+    }
+}
+
+@Composable
+private fun PhonicsMiniStat(label: String, value: String) {
+    Column {
+        Text(
+            text = value,
+            style = MaterialTheme.typography.bodyMedium.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color.Black.copy(alpha = 0.8f)
+        )
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelSmall.scaled(),
+            color = Color.Gray
+        )
+    }
+}
+
+@Composable
+private fun PhonicsWeakWordsCard(wordsByLevel: List<Pair<String, List<String>>>) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(2.dp, RoundedCornerShape(Dimens8))
+            .background(Color.White, RoundedCornerShape(Dimens8))
+            .padding(Dimens12),
+        verticalArrangement = Arrangement.spacedBy(Dimens8)
+    ) {
+        Text(
+            text = "Needs Practice — tricky words",
+            style = MaterialTheme.typography.bodyMedium.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFFC62828)
+        )
+        wordsByLevel.forEach { (level, words) ->
+            Column(verticalArrangement = Arrangement.spacedBy(Dimens4)) {
+                Text(
+                    text = level,
+                    style = MaterialTheme.typography.labelMedium.scaled(),
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black.copy(alpha = 0.7f)
+                )
+                androidx.compose.foundation.layout.FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(Dimens6),
+                    verticalArrangement = Arrangement.spacedBy(Dimens6)
+                ) {
+                    words.forEach { word ->
+                        Text(
+                            text = word,
+                            style = MaterialTheme.typography.labelMedium.scaled(),
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFFC62828),
+                            modifier = Modifier
+                                .background(Color(0xFFC62828).copy(alpha = 0.10f), RoundedCornerShape(50))
+                                .padding(horizontal = Dimens8, vertical = Dimens4)
+                        )
+                    }
+                }
             }
         }
     }
@@ -1226,6 +1365,24 @@ private fun ChapterSessionRow(session: SessionEntry) {
                 ParentProgressViewModel.formatDuration(session.durationSeconds),
                 style = MaterialTheme.typography.labelSmall.scaled(),
                 color = Color.Gray
+            )
+        }
+
+        // Mode tag — so parents can tell Practice vs Learning vs Listen sessions apart
+        session.mode?.let { mode ->
+            val tagColor = when (mode) {
+                "Practice" -> Color(0xFF1565C0)
+                "Learning" -> Color(0xFF2E7D32)
+                else       -> Color(0xFF00897B)   // Listen
+            }
+            Text(
+                text = mode,
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = tagColor,
+                modifier = Modifier
+                    .background(tagColor.copy(alpha = 0.12f), RoundedCornerShape(50))
+                    .padding(horizontal = Dimens8, vertical = 2.dp)
             )
         }
 

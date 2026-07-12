@@ -3,6 +3,8 @@ package com.example.myapplication.main.age_group.phonics.l18_three_letter_blends
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Campaign
@@ -53,10 +55,12 @@ fun ThreeLetterBlendsIntroPage(navController: NavController) {
                 // ── LEFT ─────────────────────────────────────────────────────
                 Column(modifier = Modifier.weight(0.54f).fillMaxHeight()) {
                     BackButtonWithText(title = "Level 18", onBackClick = { navController.popBackStack() })
-                    Spacer(modifier = Modifier.weight(1f))
                     Column(
-                        modifier = Modifier.padding(horizontal = Dimens20),
-                        verticalArrangement = Arrangement.spacedBy(Dimens14)
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                            .padding(horizontal = Dimens20, vertical = Dimens10),
+                        verticalArrangement = Arrangement.spacedBy(Dimens14, Alignment.CenterVertically)
                     ) {
                         Text(
                             text = "3-Letter Blends",
@@ -70,7 +74,10 @@ fun ThreeLetterBlendsIntroPage(navController: NavController) {
                             fontWeight = FontWeight.Bold,
                             color = Color(0xFFF9A825)
                         )
-                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens6)) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens6),
+                            verticalArrangement = Arrangement.spacedBy(Dimens6)
+                        ) {
                             threeLetterBlendsGroups.forEach { group -> BlendGroupChip(group) }
                         }
                         Column(verticalArrangement = Arrangement.spacedBy(Dimens10)) {
@@ -86,7 +93,6 @@ fun ThreeLetterBlendsIntroPage(navController: NavController) {
                                 "scr — scream, scratch, screen")
                         }
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                 }
 
                 // ── RIGHT ────────────────────────────────────────────────────
@@ -124,27 +130,12 @@ fun ThreeLetterBlendsIntroPage(navController: NavController) {
 
 @Composable
 private fun BlendGroupChip(group: ThreeLetterBlendsGroup) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Dimens2),
-        modifier = Modifier
-            .background(group.accentColor.copy(alpha = 0.10f), RoundedCornerShape(8.dp))
-            .border(1.5.dp, group.accentColor.copy(alpha = 0.35f), RoundedCornerShape(8.dp))
-            .padding(horizontal = Dimens8, vertical = Dimens6)
-    ) {
-        Text(text = group.emoji, style = MaterialTheme.typography.bodyMedium.scaled())
-        Text(
-            text = group.blend,
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            fontWeight = FontWeight.ExtraBold,
-            color = group.accentColor
-        )
-        Text(
-            text = "${group.words.size} words",
-            style = MaterialTheme.typography.labelSmall.scaled(),
-            color = Color(0xFF546E7A)
-        )
-    }
+    PhonicsGroupChip(
+        emoji = group.emoji,
+        title = group.blend,
+        subtitle = "${group.words.size} words",
+        accentColor = group.accentColor
+    )
 }
 
 @Composable
