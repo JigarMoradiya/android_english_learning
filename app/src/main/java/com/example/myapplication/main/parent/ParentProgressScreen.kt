@@ -1313,6 +1313,7 @@ private fun SessionLearnedLettersRow(session: SessionEntry, selectedAgeFilter: S
         "Age 3-5" -> age35ModuleIds
         "Age 5-7" -> age57ModuleIds
         "Age 6-8" -> age68ModuleIds
+        "Phonics" -> setOf(ModuleID.PHONICS_READING)
         else -> age35ModuleIds + age57ModuleIds + age68ModuleIds
     }
     val correct = session.correctItems

@@ -256,6 +256,8 @@ class ParentProgressViewModel @Inject constructor(
             else -> ""
         }
         val practiceRoute = when (moduleId) {
+            // Phonics Journey — deep-link back to the journey map
+            ModuleID.PHONICS_READING -> RouteNavigation.PhonicsReadingLevels.route
             // 6-8
             ModuleID.GRAMMAR_NOUNS      -> RouteNavigation.GrammarBasicNounPractice.route
             ModuleID.GRAMMAR_VERBS      -> RouteNavigation.GrammarBasicVerbPractice.route
