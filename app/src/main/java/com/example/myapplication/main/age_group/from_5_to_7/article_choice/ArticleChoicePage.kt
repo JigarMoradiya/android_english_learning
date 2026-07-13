@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -180,6 +181,19 @@ fun ArticleChoicePage(
                 isAnswerCorrect = state.isAnswerCorrect,
                 correctAnswer = viewModel.articleFor()
             )
+
+            if (state.selectedAnswer != null && state.answerExplanation != null) {
+                Text(
+                    text = state.answerExplanation,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = if (state.isAnswerCorrect) PrimaryGreen else Color(0xFFB3261E),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = Dimens16, vertical = Dimens4)
+                )
+            }
         }
 
         if (state.showBatchPopup) {

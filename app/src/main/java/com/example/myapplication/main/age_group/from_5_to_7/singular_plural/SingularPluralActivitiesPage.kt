@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.SwapHorizontalCircle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -73,6 +74,15 @@ fun SingularPluralActivitiesPage(navController: NavController) {
                         accentColor = Color(0xFFD81B60)
                     ) {
                         navController.navigate(RouteNavigation.ChooseSingularPluralForm.route)
+                    }
+                    Spacer(Modifier.width(spacing))
+                    KidsActivityCard(
+                        size = size,
+                        title = stringResource(R.string.spot_wrong_plural),
+                        icon = Icons.Filled.Search,
+                        accentColor = Color(0xFF1E8449)
+                    ) {
+                        navController.navigate(RouteNavigation.SpotWrongPlural.route)
                     }
                     Spacer(Modifier.weight(1f))
                 }

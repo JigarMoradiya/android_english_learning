@@ -98,3 +98,57 @@ val singularPluralWords = listOf(
     SingularPluralPair("Yak", "Yaks"),
     SingularPluralPair("Zebra", "Zebras")
 )
+// Irregular plurals — the "tricky" set (practised in the match game; word-only, no images)
+val singularPluralIrregularWords = listOf(
+    SingularPluralPair("Child", "Children"),
+    SingularPluralPair("Man", "Men"),
+    SingularPluralPair("Woman", "Women"),
+    SingularPluralPair("Tooth", "Teeth"),
+    SingularPluralPair("Foot", "Feet"),
+    SingularPluralPair("Person", "People"),
+    SingularPluralPair("Goose", "Geese"),
+)
+
+// "Spot the wrong plural" — one fake plural hidden among real ones
+data class WrongPluralEntry(
+    val singular: String,
+    val correctPlural: String,
+    val wrongPlural: String,
+    val ruleHint: String,
+)
+
+val wrongPluralEntries = listOf(
+    WrongPluralEntry("Leaf", "Leaves", "Leafs", "Leaf ends in f → change f to ves: Leaves"),
+    WrongPluralEntry("Knife", "Knives", "Knifes", "Knife ends in fe → change fe to ves: Knives"),
+    WrongPluralEntry("Wolf", "Wolves", "Wolfs", "Wolf ends in f → change f to ves: Wolves"),
+    WrongPluralEntry("Mouse", "Mice", "Mouses", "Mouse is special → Mice"),
+    WrongPluralEntry("Child", "Children", "Childs", "Child is special → Children"),
+    WrongPluralEntry("Man", "Men", "Mans", "Man is special → Men"),
+    WrongPluralEntry("Woman", "Women", "Womans", "Woman is special → Women"),
+    WrongPluralEntry("Tooth", "Teeth", "Tooths", "Tooth is special → Teeth"),
+    WrongPluralEntry("Foot", "Feet", "Foots", "Foot is special → Feet"),
+    WrongPluralEntry("Goose", "Geese", "Gooses", "Goose is special → Geese"),
+    WrongPluralEntry("Box", "Boxes", "Boxs", "Box ends in x → add es: Boxes"),
+    WrongPluralEntry("Watch", "Watches", "Watchs", "Watch ends in ch → add es: Watches"),
+    WrongPluralEntry("Bus", "Buses", "Buss", "Bus ends in s → add es: Buses"),
+    WrongPluralEntry("Brush", "Brushes", "Brushs", "Brush ends in sh → add es: Brushes"),
+    WrongPluralEntry("Baby", "Babies", "Babys", "Baby ends in y → change y to ies: Babies"),
+    WrongPluralEntry("City", "Cities", "Citys", "City ends in y → change y to ies: Cities"),
+    WrongPluralEntry("Story", "Stories", "Storys", "Story ends in y → change y to ies: Stories"),
+    WrongPluralEntry("Sheep", "Sheep", "Sheeps", "Sheep never changes → Sheep"),
+    WrongPluralEntry("Deer", "Deer", "Deers", "Deer never changes → Deer"),
+    WrongPluralEntry("Tomato", "Tomatoes", "Tomatos", "Tomato ends in o → add es: Tomatoes"),
+)
+
+object WrongPluralQuestionFactory {
+    data class Question(val options: List<String>, val wrongOption: String, val entry: WrongPluralEntry)
+
+    fun make(entry: WrongPluralEntry, all: List<WrongPluralEntry>): Question {
+        val distractors = all
+            .filter { it != entry && it.correctPlural != entry.wrongPlural }
+            .shuffled()
+            .take(3)
+            .map { it.correctPlural }
+        return Question((distractors + entry.wrongPlural).shuffled(), entry.wrongPlural, entry)
+    }
+}

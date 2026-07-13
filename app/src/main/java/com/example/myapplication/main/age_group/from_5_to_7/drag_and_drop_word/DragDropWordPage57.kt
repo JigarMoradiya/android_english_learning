@@ -21,6 +21,7 @@ import com.example.myapplication.main.age_group.from_5_to_7.drag_and_drop_word.c
 import com.example.myapplication.main.age_group.from_5_to_7.drag_and_drop_word.view_model.DragDropWordViewModel57
 import com.example.myapplication.main.age_group.from_5_to_7.missing_letter.view_model.DifficultyLevel
 import com.example.myapplication.main.common.ActivityCompletePopup
+import com.example.myapplication.main.common.animations.ConfettiRainEffect
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.CountdownBadge
 import com.example.myapplication.main.common.FeedbackText
@@ -78,6 +79,11 @@ fun DragDropWordPage57(
                 )
             }
         }
+        // Per-word celebration — confetti bursts when the last letter lands
+        if (uiState.showSuccess && !uiState.showResult) {
+            ConfettiRainEffect()
+        }
+
         if (uiState.showResult) {
             ActivityCompletePopup(
                 stars = when {

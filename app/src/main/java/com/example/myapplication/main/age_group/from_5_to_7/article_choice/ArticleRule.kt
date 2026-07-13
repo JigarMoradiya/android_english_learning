@@ -22,4 +22,21 @@ object ArticleRule {
         if (consonantSoundPrefixes.any { w.startsWith(it) }) return false
         return "aeiou".contains(firstChar)
     }
+
+    fun explanation(word: String): String {
+        val w = word.trim().lowercase()
+        val display = word.trim()
+        return when {
+            silentHPrefixes.any { w.startsWith(it) } ->
+                "$display starts with a silent H — we hear a vowel sound, so we say \"an $display\"."
+            w.startsWith("one") || w.startsWith("once") ->
+                "$display sounds like \"wuh\" — a consonant sound, so we say \"a $display\"."
+            consonantSoundPrefixes.any { w.startsWith(it) } ->
+                "$display sounds like \"yoo\" — a consonant sound, so we say \"a $display\"."
+            needsAn(word) ->
+                "$display starts with a vowel sound, so we say \"an $display\"."
+            else ->
+                "$display starts with a consonant sound, so we say \"a $display\"."
+        }
+    }
 }

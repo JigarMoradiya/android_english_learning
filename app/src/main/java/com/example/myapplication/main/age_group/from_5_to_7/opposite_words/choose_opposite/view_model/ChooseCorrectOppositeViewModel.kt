@@ -12,6 +12,7 @@ import com.example.myapplication.data.progress.LearningSession
 import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
+import com.example.myapplication.data.generation.loader.OppositeAlternatives
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -93,7 +94,8 @@ class ChooseCorrectOppositeViewModel @Inject constructor(
         if (_uiState.value.selectedAnswer != null) return
 
         val state = _uiState.value
-        val isCorrect = answer == state.correctAnswer
+        val isCorrect = OppositeAlternatives.isCorrect(state.currentWord, answer, state.correctAnswer)
+        val isAlternative = OppositeAlternatives.isAlternative(state.currentWord, answer, state.correctAnswer)
 
         if (isCorrect) {
             AudioPlayerManager.playSoundCorrectAnswer()
@@ -103,8 +105,11 @@ class ChooseCorrectOppositeViewModel @Inject constructor(
             sessionWrong.add(state.currentWord)
         }
 
-        val feedbackText = if (isCorrect) context.getString(feedbackTitles.random())
-                           else wrongFeedback(state.correctAnswer)
+        val feedbackText = when {
+            isAlternative -> "Also correct! ${state.currentWord} has more than one opposite \uD83C\uDF89"
+            isCorrect -> context.getString(feedbackTitles.random())
+            else -> wrongFeedback(state.correctAnswer)
+        }
         val nextIndex = state.questionIndex + 1
         val isLast = nextIndex >= state.totalQuestions
 
@@ -137,7 +142,7 @@ class ChooseCorrectOppositeViewModel @Inject constructor(
         val selected = state.selectedAnswer ?: return ButtonType.OPTIONS
         return when (option) {
             state.correctAnswer -> ButtonType.GREEN
-            selected            -> ButtonType.RED
+            selected            -> if (state.isAnswerCorrect) ButtonType.GREEN else ButtonType.RED
             else                -> ButtonType.OPTIONS
         }
     }

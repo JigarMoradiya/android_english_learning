@@ -285,3 +285,39 @@ object OppositeWordsData {
         OppositeDifficulty.HARD   -> hardPairs
     }
 }
+
+// Many words have more than one valid opposite — the quiz celebrates all of them
+object OppositeAlternatives {
+
+    private val alternatives: Map<String, List<String>> = mapOf(
+        "brave" to listOf("Cowardly", "Fearful", "Timid", "Scared"),
+        "happy" to listOf("Sad", "Unhappy", "Gloomy", "Miserable"),
+        "big" to listOf("Small", "Little", "Tiny"),
+        "small" to listOf("Big", "Large", "Huge"),
+        "old" to listOf("New", "Young"),
+        "hot" to listOf("Cold", "Cool", "Chilly"),
+        "loud" to listOf("Quiet", "Silent", "Soft"),
+        "strong" to listOf("Weak", "Feeble"),
+        "beautiful" to listOf("Ugly", "Plain"),
+        "clean" to listOf("Dirty", "Filthy"),
+        "smart" to listOf("Stupid", "Foolish", "Dumb"),
+        "clever" to listOf("Stupid", "Foolish", "Dumb"),
+        "kind" to listOf("Cruel", "Mean", "Unkind"),
+        "rich" to listOf("Poor", "Needy"),
+        "fast" to listOf("Slow", "Sluggish"),
+        "hard" to listOf("Soft", "Easy"),
+        "cowardly" to listOf("Brave", "Bold", "Fearless", "Courageous"),
+        "sad" to listOf("Happy", "Cheerful", "Joyful", "Glad"),
+    )
+
+    fun isCorrect(question: String, chosen: String, expected: String): Boolean {
+        if (chosen.equals(expected, ignoreCase = true)) return true
+        return isAlternative(question, chosen, expected)
+    }
+
+    fun isAlternative(question: String, chosen: String, expected: String): Boolean {
+        if (chosen.equals(expected, ignoreCase = true)) return false
+        val alts = alternatives[question.trim().lowercase()] ?: return false
+        return alts.any { it.equals(chosen, ignoreCase = true) }
+    }
+}

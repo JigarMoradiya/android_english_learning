@@ -36,6 +36,16 @@ class WordMatchImageViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val batchSize = 5
+
+    // All words sorted easy→hard (by length), shuffled within each length
+    private val progressionPool: List<String> by lazy {
+        (LetterRepository.all.flatMap { listOf(it.mainWord) + it.altWords } + vocabularyCategoryAllForWordMatchImage)
+            .distinct()
+            .groupBy { it.length }
+            .toSortedMap()
+            .values
+            .flatMap { it.shuffled() }
+    }
     private val wrongTriesBeforeHint = 2
     private val matchChimeDelayMs = 400L
 
@@ -72,11 +82,9 @@ class WordMatchImageViewModel @Inject constructor(
     // -----------------------------
     fun loadNewBatch() {
 
-        val allWords = (LetterRepository.all.flatMap {
-            listOf(it.mainWord) + it.altWords
-        } + vocabularyCategoryAllForWordMatchImage).shuffled()
-
-        val uniqueWords = allWords.distinct().take(batchSize)
+        // Familiar short words first, longer vocabulary as rounds progress
+        val start = ((uiState.round - 1) * batchSize) % maxOf(progressionPool.size - batchSize + 1, 1)
+        val uniqueWords = progressionPool.subList(start, minOf(start + batchSize, progressionPool.size)).toList()
 
         val batch = uniqueWords.map { word ->
             word to word

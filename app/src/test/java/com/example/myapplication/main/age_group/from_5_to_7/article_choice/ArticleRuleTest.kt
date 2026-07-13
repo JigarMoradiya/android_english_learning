@@ -56,4 +56,24 @@ class ArticleRuleTest {
         assertFalse(ArticleRule.needsAn("uNICORN"))
         assertTrue(ArticleRule.needsAn("HOUR"))
     }
+
+    // Explanations — the "why", not just right or wrong
+    @Test
+    fun explanationsDescribeTheSoundRule() {
+        ArticleRule.explanation("Hour").let {
+            assertTrue("got: $it", it.contains("silent H") && it.contains("an Hour"))
+        }
+        ArticleRule.explanation("Unicorn").let {
+            assertTrue("got: $it", it.contains("yoo") && it.contains("a Unicorn"))
+        }
+        ArticleRule.explanation("One").let {
+            assertTrue("got: $it", it.contains("wuh") && it.contains("a One"))
+        }
+        ArticleRule.explanation("Apple").let {
+            assertTrue("got: $it", it.contains("vowel sound") && it.contains("an Apple"))
+        }
+        ArticleRule.explanation("Ball").let {
+            assertTrue("got: $it", it.contains("consonant sound") && it.contains("a Ball"))
+        }
+    }
 }

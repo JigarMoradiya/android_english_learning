@@ -204,6 +204,12 @@ fun colorFromWord(name: String): Color {
         "black" -> Color(0xFF000000)
         "white" -> Color(0xFFFFFFFF)
         "gray", "grey" -> Color(0xFF9E9E9E)
+        "navy" -> Color(0xFF001F6B)
+        "crimson" -> Color(0xFFDC143C)
+        "scarlet" -> Color(0xFFFF2400)
+        "turquoise" -> Color(0xFF40E0D0)
+        "violet" -> Color(0xFF9400D3)
+        "beige" -> Color(0xFFF5F5DC)
         else -> Color.Gray.copy(alpha = 0.5f)
     }
 }

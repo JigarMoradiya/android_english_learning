@@ -198,6 +198,7 @@ sealed class RouteNavigation(val route: String) {
     object SingularPluralActivities : RouteNavigation("SingularPluralActivities")
     object MatchSingularPlural : RouteNavigation("MatchSingularPlural")
     object ChooseSingularPluralForm : RouteNavigation("ChooseSingularPluralForm")
+    object SpotWrongPlural : RouteNavigation("SpotWrongPlural")
 
     object AgeGroup6to8 : RouteNavigation("AgeGroup6to8")
     object SentenceUnitList : RouteNavigation("SentenceUnitList/{screenType}") {

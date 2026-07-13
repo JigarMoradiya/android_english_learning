@@ -46,8 +46,6 @@ class ArticleChoiceViewModel @Inject constructor(
     fun loadNewBatch() {
         countdownJob?.cancel()
         batchWords = allWords.shuffled().take(uiState.totalQuestions)
-        // ⚠️ TEMP TEST ONLY — force U-words to verify the a/an sound-rule fix. REMOVE AFTER TESTING.
-        batchWords = listOf("Unicorn", "Uniform", "Utensil", "UFO", "Umbrella")
         batchIndex = 0
         wrongAttemptsInBatch.clear()
         correctAttemptsInBatch.clear()
@@ -67,6 +65,7 @@ class ArticleChoiceViewModel @Inject constructor(
             isAnswerCorrect = false,
             feedbackTextCorrect = null,
             feedbackTextWrong = null,
+            answerExplanation = null,
             countdown = 3,
             questionIndex = batchIndex
         )
@@ -90,7 +89,8 @@ class ArticleChoiceViewModel @Inject constructor(
             isAnswerCorrect = isCorrect,
             countdown = 3,
             feedbackTextCorrect = if (isCorrect) feedbackTitles.random() else null,
-            feedbackTextWrong = if (isCorrect) null else "Wrong! Correct answer : $correct"
+            feedbackTextWrong = if (isCorrect) null else "Wrong! Correct answer : $correct",
+            answerExplanation = ArticleRule.explanation(uiState.currentWord)
         )
 
         if (isCorrect) {

@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.R
 import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.generation.loader.singularPluralIrregularWords
 import com.example.myapplication.data.generation.loader.singularPluralWords
 import com.example.myapplication.data.progress.AgeGroup
 import com.example.myapplication.data.progress.LearningSession
@@ -53,7 +54,9 @@ class MatchSingularPluralViewModel @Inject constructor(
 
     fun loadPairs() {
         batchWrong.clear()
-        val pairs = singularPluralWords.shuffled().take(5)
+        // Every round mixes 2 tricky irregular pairs with 3 regular ones
+        val irregulars = singularPluralIrregularWords.shuffled().take(2)
+        val pairs = (irregulars + singularPluralWords.shuffled().take(5 - irregulars.size)).shuffled()
         _uiState.update {
             it.copy(
                 round = it.round + 1,

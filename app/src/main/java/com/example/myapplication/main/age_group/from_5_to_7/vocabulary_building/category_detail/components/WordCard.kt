@@ -82,7 +82,7 @@ fun WordCard(
                 style = if (isColorCategory) MaterialTheme.typography.headlineLarge.scaled() else MaterialTheme.typography.titleSmall.scaled(),
                 fontWeight = FontWeight.Bold,
                 color = when {
-                    isColorCategory && word.lowercase() == "white" -> Color.Black
+                    isColorCategory && word.lowercase() in listOf("white", "beige") -> Color.Black
                     isColorCategory -> Color.White
                     else -> Color.Black
                 },

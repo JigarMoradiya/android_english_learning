@@ -136,5 +136,25 @@ val sightWordsAgeGroup5_7 = listOf(
         UseCase("Used to give instructions/commands", "Be quiet."),
         UseCase("Used to show state", "You must be careful."),
         UseCase("Used in future tense", "I will be ready soon.")
+    )),
+
+    SightWord("Have", listOf(
+        UseCase("Shows that someone owns something", "I have a red bicycle."),
+        UseCase("Used with meals", "We have lunch at noon."),
+        UseCase("Used to talk about illness or feelings", "I have a cold."),
+        UseCase("Used with ‘to’ to show something is necessary", "I have to finish my homework.")
+    )),
+
+    SightWord("From", listOf(
+        UseCase("Shows where something starts", "The train comes from the city."),
+        UseCase("Shows who gave something", "This gift is from my grandmother."),
+        UseCase("Shows distance between places", "My school is far from home."),
+        UseCase("Shows when something begins", "The shop is open from nine o’clock.")
+    )),
+
+    SightWord("Their", listOf(
+        UseCase("Shows something belongs to more than one person", "The children put on their shoes."),
+        UseCase("Used for things a group owns", "The birds built their nest."),
+        UseCase("Talks about people already mentioned", "My friends love their new puppy.")
     ))
 )

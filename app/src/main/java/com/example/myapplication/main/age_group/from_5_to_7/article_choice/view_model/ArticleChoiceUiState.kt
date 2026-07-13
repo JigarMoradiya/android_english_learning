@@ -9,6 +9,7 @@ data class ArticleChoiceUiState(
     val isAnswerCorrect: Boolean = false,
     val feedbackTextCorrect: Int? = null,
     val feedbackTextWrong: String? = null,
+    val answerExplanation: String? = null,
     val countdown: Int = 3,
     val questionIndex: Int = 0,
     val totalQuestions: Int = 5,

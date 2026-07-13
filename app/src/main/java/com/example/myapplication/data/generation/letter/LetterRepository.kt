@@ -66,7 +66,7 @@ object LetterRepository {
 
     val vocabularyCategoryVegetables = listOf("Carrot","Potato","Tomato","Onion","Garlic","Cabbage","Brinjal","Capsicum","Ladyfinger","Cauliflower","Broccoli","Spinach","Lettuce","Peas","Cucumber","Pumpkin","Radish","Beetroot","Corn","Chili","Turnip","Celery","Zucchini")
 
-    val vocabularyCategoryColor = listOf("Red","Blue","Yellow","Green","Sky Blue","Purple","Orange","Pink","Brown","Gray","Black","White")
+    val vocabularyCategoryColor = listOf("Red","Blue","Yellow","Green","Sky Blue","Purple","Orange","Pink","Brown","Gray","Black","White","Navy","Crimson","Scarlet","Turquoise","Violet","Beige")
 
     val vocabularyCategoryShape = listOf("Circle","Square","Triangle","Rectangle","Star","Oval","Heart","Arrow","Cross","Trapezoid","Parallelogram","Crescent","Cube","Sphere","Cone","Cylinder","Diamond","Pentagon","Hexagon","Octagon")
 

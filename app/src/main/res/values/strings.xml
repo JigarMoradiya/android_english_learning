@@ -277,6 +277,9 @@
     <string name="match_singular_plural"><![CDATA[Match\nSingular & Plural]]></string>
     <string name="choose_correct_form">Choose\nCorrect Form</string>
     <string name="choose_correct_form_">Choose Correct Form</string>
+    <string name="spot_wrong_plural">Spot the\nWrong Plural</string>
+    <string name="spot_wrong_plural_">Spot the Wrong Plural</string>
+    <string name="spot_wrong_plural_prompt">One of these plurals is wrong. Tap the fake!</string>
     <string name="match_singular_plural_"><![CDATA[Match Singular & Plural]]></string>
     <string name="beginner_medium_advanced">Beginner · Medium · Advanced</string>
     <string name="grammar_challenge">Grammar Challenge</string>

@@ -172,6 +172,7 @@ import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.Sing
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.SingularPluralActivitiesPage
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.match_form.MatchSingularPluralPage
 import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.choose_form.ChooseSingularPluralFormPage
+import com.example.myapplication.main.age_group.from_5_to_7.singular_plural.spot_wrong.SpotWrongPluralPage
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.MixedGrammarChallengePage
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.beginner.MixedGrammarBeginnerMenuPage
 import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challenge.beginner.tap_the_word.TapTheWordPage
@@ -886,6 +887,9 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.ChooseSingularPluralForm.route) {
             ChooseSingularPluralFormPage(navController)
+        }
+        composable(RouteNavigation.SpotWrongPlural.route) {
+            SpotWrongPluralPage(navController)
         }
 
         // ── AgeGroup 6–8: Mixed Grammar Challenge ───────────────────────────

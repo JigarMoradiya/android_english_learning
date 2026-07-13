@@ -74,7 +74,13 @@ class DragDropWordViewModel57 @Inject constructor(
     private fun wordsForLevel() = if (difficulty.value == DifficultyLevel.EASY) allWordsEasy else allWordsMedium
 
     private fun pickBatch() {
-        batchWords = wordsForLevel().shuffled().take(uiState.totalRounds)
+        val batch = wordsForLevel().shuffled().take(uiState.totalRounds).toMutableList()
+        if (difficulty.value != DifficultyLevel.EASY && batch.isNotEmpty()) {
+            // Long challenge words with image assets — one is guaranteed per jigsaw game
+            batch[batch.lastIndex] = listOf("Elephant", "Dinosaur").random()
+        }
+        // Short words first, the big one last
+        batchWords = batch.sortedBy { it.length }
     }
 
     fun loadNextWord() {

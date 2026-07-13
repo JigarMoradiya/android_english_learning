@@ -58,38 +58,38 @@ data class SingularPluralUiState(
 
     val explanationText2: String = """
         <font color='#EE0000'><b>Plural Examples:</b></font><br>
-        many 🐱🐱 cats<br>
-        many 🍎🍎 apple<br>
-        many 🚗🚗 cars<br>
-        many ⭐⭐ stars
+        many 🐱🐱 cat<font color='#0B7A3B'><b>s</b></font><br>
+        many 🍎🍎 apple<font color='#0B7A3B'><b>s</b></font><br>
+        many 🚗🚗 car<font color='#0B7A3B'><b>s</b></font><br>
+        many ⭐⭐ star<font color='#0B7A3B'><b>s</b></font>
     """.trimIndent(),
 
     val explanationText3: String = """
         <font color='#EE0000'><b>How to make Plural? 💡</b></font><br>
 
-        <b>Rule 1:</b> Most words → add <b>-s</b><br>
-        cat → cats<br>
-        dog → dogs<br>
-        book → books<br>
-        car → cars<br><br>
+        <b>Rule 1:</b> Most words → add <font color='#0B7A3B'><b>-s</b></font><br>
+        cat → cat<font color='#0B7A3B'><b>s</b></font><br>
+        dog → dog<font color='#0B7A3B'><b>s</b></font><br>
+        book → book<font color='#0B7A3B'><b>s</b></font><br>
+        car → car<font color='#0B7A3B'><b>s</b></font><br><br>
 
-        <b>Rule 2:</b> Words ending in s, sh, ch, x → add <b>-es</b><br>
-        bus → buses<br>
-        box → boxes<br>
-        brush → brushes<br>
-        watch → watches<br><br>
+        <b>Rule 2:</b> Words ending in s, sh, ch, x → add <font color='#0B7A3B'><b>-es</b></font><br>
+        bus → bus<font color='#0B7A3B'><b>es</b></font><br>
+        box → box<font color='#0B7A3B'><b>es</b></font><br>
+        brush → brush<font color='#0B7A3B'><b>es</b></font><br>
+        watch → watch<font color='#0B7A3B'><b>es</b></font><br><br>
 
         <b>Rule 3:</b> Words ending in <b>y</b><br>
-        Change <b>y → ies</b><br>
-        baby → babies<br>
-        city → cities<br>
-        story → stories<br><br>
+        Change <b>y</b> → <font color='#0B7A3B'><b>ies</b></font><br>
+        baby → bab<font color='#0B7A3B'><b>ies</b></font><br>
+        city → cit<font color='#0B7A3B'><b>ies</b></font><br>
+        story → stor<font color='#0B7A3B'><b>ies</b></font><br><br>
 
         <b>Rule 4:</b> Some words ending in <b>f / fe</b><br>
-        Change to <b>ves</b><br>
-        leaf → leaves<br>
-        wolf → wolves<br>
-        knife → knives
+        Change to <font color='#0B7A3B'><b>ves</b></font><br>
+        leaf → lea<font color='#0B7A3B'><b>ves</b></font><br>
+        wolf → wol<font color='#0B7A3B'><b>ves</b></font><br>
+        knife → kni<font color='#0B7A3B'><b>ves</b></font>
     """.trimIndent(),
 
     val explanationText4: String = """
@@ -101,11 +101,11 @@ data class SingularPluralUiState(
         deer → deer<br><br>
 
         Some words change in a special way!<br>
-        child → children<br>
-        man → men<br>
-        woman → women<br>
-        tooth → teeth<br>
-        foot → feet
+        child → child<font color='#0B7A3B'><b>ren</b></font><br>
+        man → m<font color='#0B7A3B'><b>e</b></font>n<br>
+        woman → wom<font color='#0B7A3B'><b>e</b></font>n<br>
+        tooth → t<font color='#0B7A3B'><b>ee</b></font>th<br>
+        foot → f<font color='#0B7A3B'><b>ee</b></font>t
     """.trimIndent(),
 
     val examples: List<GrammarExampleModel> = emptyList()
