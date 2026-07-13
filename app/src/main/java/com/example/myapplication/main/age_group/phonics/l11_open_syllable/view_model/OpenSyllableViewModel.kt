@@ -10,6 +10,7 @@ import com.example.myapplication.data.progress.PhonicsLevelProgressRepository
 import com.example.myapplication.data.progress.PhonicsSessionRecorder
 import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.utilities.AudioPhonicsManager
+import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -186,6 +187,7 @@ class OpenSyllablePracticeViewModel @Inject constructor(
             uiState = uiState.copy(score = uiState.score + 1)
             audioManager.playPhonicsSound("phonics_word/${q.word}")
         } else {
+            AudioPlayerManager.playSoundWrongAnswer()
             uiState = uiState.copy(shakeWrong = true)
             shakeJob?.cancel()
             shakeJob = viewModelScope.launch {

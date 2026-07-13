@@ -10,6 +10,7 @@ import com.example.myapplication.data.progress.PhonicsLevelProgressRepository
 import com.example.myapplication.data.progress.PhonicsSessionRecorder
 import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.utilities.AudioPhonicsManager
+import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -243,6 +244,7 @@ class ThreeLetterBlendsPracticeViewModel @Inject constructor(
         if (correct) {
             audioManager.playPhonicsSound("phonics_word/${q.word}")
         } else {
+            AudioPlayerManager.playSoundWrongAnswer()
             viewModelScope.launch {
                 delay(600); uiState = uiState.copy(shakeWrong = false)
             }

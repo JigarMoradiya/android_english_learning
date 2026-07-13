@@ -22,7 +22,7 @@ class AudioPhonicsManager @Inject constructor(
 
     fun audioExists(fileName: String): Boolean {
         return try {
-            context.assets.open("${sanitized(fileName)}.mp3").close()
+            context.assets.open("${sanitized(fileName)}.opus").close()
             true
         } catch (_: Exception) {
             false
@@ -32,7 +32,7 @@ class AudioPhonicsManager @Inject constructor(
     fun playPhonicsSound(fileName: String) {
         try {
             stop()
-            val afd = context.assets.openFd("${sanitized(fileName)}.mp3")
+            val afd = context.assets.openFd("${sanitized(fileName)}.opus")
             player = MediaPlayer().apply {
                 setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
                 afd.close()
