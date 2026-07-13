@@ -143,7 +143,23 @@ fun ChooseSingularPluralFormPage(
                             },
                             label = "imageCount"
                         ) { count ->
-                            getImageResFromWord(uiState.currentImageName)?.let { imageRes ->
+                            val emoji = uiState.currentEmoji
+                            val emojiFontSize = with(density) { (outerColumnHeightPx * 0.16f).toSp() }
+                            if (emoji != null) {
+                                // Tricky-plural words have no image assets yet — render as emoji
+                                if (count == 1) {
+                                    Text(text = emoji, fontSize = emojiFontSize)
+                                } else {
+                                    Row(
+                                        horizontalArrangement = Arrangement.spacedBy(Dimens16),
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        repeat(count) {
+                                            Text(text = emoji, fontSize = emojiFontSize)
+                                        }
+                                    }
+                                }
+                            } else getImageResFromWord(uiState.currentImageName)?.let { imageRes ->
                                 if (count == 1) {
                                     if (imageRes != 0) {
                                         Image(

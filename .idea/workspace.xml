@@ -101,7 +101,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="mp3 to opus">
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="a and an article issue solve">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +118,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[LocalEmulator::path=/Users/jigarmoradiya/.android/avd/Pixel_Tablet_2.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=RZ8RC0C1F6B]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -485,14 +485,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00191" summary="mascot and background apply in age group menu pages">
-      <option name="closed" value="true" />
-      <created>1780055358963</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL-00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1780055358964</updated>
     </task>
     <task id="LOCAL-00192" summary="apply access to phonics letter page">
       <option name="closed" value="true" />
@@ -878,7 +870,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783917188264</updated>
     </task>
-    <option name="localTasksCounter" value="240" />
+    <task id="LOCAL-00240" summary="a and an article issue solve">
+      <option name="closed" value="true" />
+      <created>1783946149019</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1783946149020</updated>
+    </task>
+    <option name="localTasksCounter" value="241" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -893,7 +893,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="long vowel added" />
     <MESSAGE value="right panel ui make common" />
     <MESSAGE value="changes level flow" />
     <MESSAGE value="L14, L15 done" />
@@ -918,7 +917,8 @@
     <MESSAGE value="add missing phonics code" />
     <MESSAGE value="phonics entry point change, parent report for phonics" />
     <MESSAGE value="mp3 to opus" />
-    <option name="LAST_COMMIT_MESSAGE" value="mp3 to opus" />
+    <MESSAGE value="a and an article issue solve" />
+    <option name="LAST_COMMIT_MESSAGE" value="a and an article issue solve" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -20,7 +20,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
@@ -84,7 +86,7 @@ fun SpotWrongPluralPage(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = Dimens40),
+                    .padding(horizontal = Dimens16),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(Dimens16)
             ) {
@@ -96,21 +98,33 @@ fun SpotWrongPluralPage(
                     textAlign = TextAlign.Center
                 )
 
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(Dimens16, Alignment.CenterHorizontally)
-                ) {
-                    uiState.options.forEach { option ->
-                        KidsOptionButton(
-                            text = option,
-                            type = viewModel.optionButtonType(option),
-                            fontSize = (grammarBasicOptionsHeight.value * 0.35f).sp,
-                            enabled = uiState.selectedAnswer == null,
-                            onClick = { viewModel.checkAnswer(option) },
-                            modifier = Modifier
-                                .width(grammarBasicOptionsWidth)
-                                .height(grammarBasicOptionsHeight)
-                        )
+                // Half the available width per button, capped so tablets don't get comically wide
+                val screenWidth = LocalConfiguration.current.screenWidthDp.dp
+                val optionWidth = minOf(
+                    grammarBasicOptionsWidth * 1.6f,
+                    (screenWidth - Dimens16 * 3) / 2
+                )
+
+                // 2×2 grid — four buttons in one row overflow on phones
+                Column(verticalArrangement = Arrangement.spacedBy(Dimens16)) {
+                    uiState.options.chunked(2).forEach { rowOptions ->
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(Dimens16, Alignment.CenterHorizontally)
+                        ) {
+                            rowOptions.forEach { option ->
+                                KidsOptionButton(
+                                    text = option,
+                                    type = viewModel.optionButtonType(option),
+                                    fontSize = (grammarBasicOptionsHeight.value * 0.35f).sp,
+                                    enabled = uiState.selectedAnswer == null,
+                                    onClick = { viewModel.checkAnswer(option) },
+                                    modifier = Modifier
+                                        .width(grammarBasicOptionsWidth * 1.4f)
+                                        .height(grammarBasicOptionsHeight)
+                                )
+                            }
+                        }
                     }
                 }
             }

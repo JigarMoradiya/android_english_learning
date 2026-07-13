@@ -71,7 +71,9 @@ fun ColoredFeedbackView(
                             RegexOption.IGNORE_CASE
                         )
 
-                        val match = regex.find(feedback)
+                        // The answer word can also appear mid-sentence — highlight
+                        // the last occurrence (the one inside the spoken answer)
+                        val match = regex.findAll(feedback).lastOrNull()
                         if (match != null) {
 
                             val beforeText = feedback.substring(0, match.range.first)
@@ -88,6 +90,7 @@ fun ColoredFeedbackView(
                             ) {
                                 append(correctAnswer)
                             }
+                            if (afterText.startsWith(" ")) append(" ")
 
                             appendRainbowText(
                                 afterText,

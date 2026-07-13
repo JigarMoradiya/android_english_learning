@@ -62,7 +62,9 @@ class SightWordsViewModel @Inject constructor(
     }
 
     fun speak(text: String) {
-        ttsManager.speak(text)
+        // Lowercase before speaking: some TTS engines read an isolated capital
+        // letter as "capital I" instead of the word "I"
+        ttsManager.speak(text.lowercase())
     }
 
     override fun onCleared() {

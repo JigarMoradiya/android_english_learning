@@ -3,7 +3,9 @@ package com.example.myapplication.main.age_group.from_5_to_7.singular_plural.cho
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.generation.loader.singularPluralIrregularWords
 import com.example.myapplication.data.generation.loader.singularPluralWords
+import com.example.myapplication.data.generation.loader.trickyPluralEmoji
 import com.example.myapplication.data.progress.AgeGroup
 import com.example.myapplication.data.progress.LearningSession
 import com.example.myapplication.data.progress.SessionRepository
@@ -35,7 +37,11 @@ class ChooseSingularPluralFormViewModel @Inject constructor(
     init { startNewRound() }
 
     fun startNewRound() {
-        questionSet = singularPluralWords.shuffled().take(_uiState.value.totalQuestions)
+        // Every round includes 1 tricky irregular pair (shown with an emoji)
+        val trickies = singularPluralIrregularWords.filter { trickyPluralEmoji.containsKey(it.singular.lowercase()) }
+        val tricky = trickies.shuffled().take(1)
+        val regular = singularPluralWords.shuffled().take(_uiState.value.totalQuestions - tricky.size)
+        questionSet = (tricky + regular).shuffled()
         sessionCorrect.clear()
         sessionWrong.clear()
         startTimeMs = System.currentTimeMillis()
@@ -54,6 +60,7 @@ class ChooseSingularPluralFormViewModel @Inject constructor(
         _uiState.update {
             it.copy(
                 currentImageName = pair.singular.lowercase(),
+                currentEmoji = trickyPluralEmoji[pair.singular.lowercase()],
                 currentCount = count,
                 correctAnswer = if (showSingular) pair.singular else pair.plural,
                 options = listOf(pair.singular, pair.plural).shuffled(),

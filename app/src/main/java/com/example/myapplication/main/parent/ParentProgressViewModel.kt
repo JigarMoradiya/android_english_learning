@@ -771,9 +771,10 @@ class ParentProgressViewModel @Inject constructor(
     }
 
     private fun singularPluralSubLabel(config: String): String = when (config) {
-        "MATCH_FORM"  -> "Match"
-        "CHOOSE_FORM" -> "Choose Form"
-        else          -> config
+        "MATCH_FORM"        -> "Match"
+        "CHOOSE_FORM"       -> "Choose Form"
+        "SPOT_WRONG_PLURAL" -> "Spot the Fake"
+        else                -> config
     }
 
     private fun oppositeWordSubLabel(config: String): String = when (config) {

@@ -152,3 +152,14 @@ object WrongPluralQuestionFactory {
         return Question((distractors + entry.wrongPlural).shuffled(), entry.wrongPlural, entry)
     }
 }
+
+// Emoji stand-ins for tricky-plural words that have no image assets yet —
+// lets Choose Correct Form include them without new artwork
+val trickyPluralEmoji = mapOf(
+    "child" to "\uD83E\uDDD2",
+    "man" to "\uD83D\uDC68",
+    "woman" to "\uD83D\uDC69",
+    "tooth" to "\uD83E\uDDB7",
+    "foot" to "\uD83E\uDDB6",
+    "person" to "\uD83E\uDDCD",
+)

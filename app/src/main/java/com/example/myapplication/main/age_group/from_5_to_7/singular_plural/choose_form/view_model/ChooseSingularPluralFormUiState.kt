@@ -2,6 +2,7 @@ package com.example.myapplication.main.age_group.from_5_to_7.singular_plural.cho
 
 data class ChooseSingularPluralFormUiState(
     val currentImageName: String = "",
+    val currentEmoji: String? = null,
     val currentCount: Int = 1,
     val correctAnswer: String = "",
     val options: List<String> = emptyList(),
