@@ -28,6 +28,9 @@ val articleLearningGoalA = listOf(
     ArticleItem("Rat", "A"),
     ArticleItem("Star", "A"),
     ArticleItem("Train", "A"),
+    // Vowel letter but "yoo" (consonant) sound → "a"
+    ArticleItem("Uniform", "A"),
+    ArticleItem("Unicorn", "A"),
     ArticleItem("Van", "A"),
     ArticleItem("Watermelon", "A"),
     ArticleItem("Xmas-tree", "A"),
@@ -45,10 +48,8 @@ val articleLearningGoalAn = listOf(
     ArticleItem("Ear", "An"),
     ArticleItem("Insect", "An"),
     ArticleItem("Owl", "An"),
-    ArticleItem("Uniform", "An"),
     ArticleItem("Airplane", "An"),
     ArticleItem("Envelope", "An"),
     ArticleItem("Igloo", "An"),
-    ArticleItem("Octopus", "An"),
-    ArticleItem("Unicorn", "An")
+    ArticleItem("Octopus", "An")
 )

@@ -10,6 +10,7 @@ import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.data.progress.AgeGroup
 import com.example.myapplication.data.progress.LearningSession
 import com.example.myapplication.data.progress.SessionRepository
+import com.example.myapplication.main.age_group.from_5_to_7.article_choice.ArticleRule
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
@@ -45,6 +46,8 @@ class ArticleChoiceViewModel @Inject constructor(
     fun loadNewBatch() {
         countdownJob?.cancel()
         batchWords = allWords.shuffled().take(uiState.totalQuestions)
+        // ⚠️ TEMP TEST ONLY — force U-words to verify the a/an sound-rule fix. REMOVE AFTER TESTING.
+        batchWords = listOf("Unicorn", "Uniform", "Utensil", "UFO", "Umbrella")
         batchIndex = 0
         wrongAttemptsInBatch.clear()
         correctAttemptsInBatch.clear()
@@ -149,11 +152,6 @@ class ArticleChoiceViewModel @Inject constructor(
     }
 
     fun articleFor(): String {
-        return if (needsAn(uiState.currentWord)) "an" else "a"
-    }
-
-    private fun needsAn(word: String): Boolean {
-        val firstChar = word.lowercase().firstOrNull() ?: return false
-        return "aeiou".contains(firstChar)
+        return if (ArticleRule.needsAn(uiState.currentWord)) "an" else "a"
     }
 }

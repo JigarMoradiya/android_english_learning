@@ -64,6 +64,7 @@ import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.base.notification.OneSignalSubscriptionWatcher
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.model.DeviceInfo
+import com.example.myapplication.main.common.ComingSoonPopup
 import com.example.myapplication.main.common.HomePageBackground
 import com.example.myapplication.main.common.permission.NotificationPermissionHandler
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
@@ -165,6 +166,7 @@ fun MainLearningAgesCategoriesScreen(
     val phonicsDone by viewModel.phonicsDone.collectAsState()
     val context = LocalContext.current
     var showParentalGate by remember { mutableStateOf(false) }
+    var showPhonicsComingSoon by remember { mutableStateOf(false) }
     val accessVM = LocalAccessSheetViewModel.current
     val scope = rememberCoroutineScope()
 
@@ -291,10 +293,8 @@ fun MainLearningAgesCategoriesScreen(
                         PhonicsJourneyCard(
                             doneCount = phonicsDone,
                             onClick = {
-                                // Journey map + intros are free to browse; the daily-limit
-                                // check happens on each level's Learn/Practice/Listen buttons.
                                 AudioPlayerManager.playSoundMenuClick()
-                                navController.navigate(RouteNavigation.PhonicsReadingLevels.route)
+                                showPhonicsComingSoon = true
                             }
                         )
                     }
@@ -411,6 +411,14 @@ fun MainLearningAgesCategoriesScreen(
                     navController.navigate(RouteNavigation.ParentProgress.route)
                 },
                 onCancelled = { showParentalGate = false }
+            )
+        }
+
+        if (showPhonicsComingSoon) {
+            ComingSoonPopup(
+                title = "Coming Soon!",
+                message = "Phonics Journey is getting its finishing touches — check back soon for a brand-new adventure!",
+                onClose = { showPhonicsComingSoon = false }
             )
         }
     }
