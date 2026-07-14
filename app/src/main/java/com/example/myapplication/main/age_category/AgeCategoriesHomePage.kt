@@ -294,7 +294,8 @@ fun MainLearningAgesCategoriesScreen(
                             doneCount = phonicsDone,
                             onClick = {
                                 AudioPlayerManager.playSoundMenuClick()
-                                showPhonicsComingSoon = true
+//                                showPhonicsComingSoon = true
+                                navController.navigate(RouteNavigation.PhonicsReadingLevels.route)
                             }
                         )
                     }

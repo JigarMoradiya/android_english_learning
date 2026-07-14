@@ -17,6 +17,12 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.VolumeUp
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -94,7 +100,7 @@ fun ListenAndSelectWordPage(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 KidsActionButton(
-                    text = stringResource(R.string.listen_word),
+                    text = stringResource(if (uiState.isHomophone) R.string.play_sentence else R.string.listen_word),
                     icon = Icons.AutoMirrored.Rounded.VolumeUp,
                     type = ButtonType.PINK,
                     onClick = { viewModel.speakWord() }
@@ -126,7 +132,7 @@ fun ListenAndSelectWordPage(
                             rowItems.forEach { word ->
                                 KidsOptionButton(
                                     text = word.replaceFirstChar { it.uppercase() },
-                                    type = ButtonType.OPTIONS,
+                                    type = viewModel.optionType(word),
                                     fontSize = listenAndAnswerOptionsHeight.value.sp * 0.5,
                                     onClick = { viewModel.checkCorrectOrWrong(word) },
                                     enabled = !uiState.showSuccess,
@@ -141,6 +147,19 @@ fun ListenAndSelectWordPage(
                         }
                     }
                 }
+            }
+
+            if (uiState.isHomophone) {
+                Text(
+                    text = stringResource(R.string.homophone_hint),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.Gray,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = Dimens16, vertical = Dimens8)
+                )
             }
 
             Spacer(Modifier.weight(1f))

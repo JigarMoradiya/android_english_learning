@@ -8,6 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.letter.LetterRepository
 import com.example.myapplication.data.generation.letter.LetterRepository.vocabularyCategoryAllForListenAndSelect
+import com.example.myapplication.data.generation.loader.ListenQuestion
+import com.example.myapplication.data.generation.loader.ListenQuestionFactory
 import com.example.myapplication.data.progress.AgeGroup
 import com.example.myapplication.data.progress.LearningSession
 import com.example.myapplication.data.progress.SessionRepository
@@ -16,6 +18,7 @@ import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import com.example.myapplication.utils.FeedbackConstant.feedbackWrong
+import com.example.myapplication.ui.theme.ButtonType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -36,7 +39,7 @@ class ListenAndSelectWordViewModel @Inject constructor(
                 + vocabularyCategoryAllForListenAndSelect).distinct()
     }
 
-    private var batchWords: List<String> = emptyList()
+    private var batchQuestions: List<ListenQuestion> = emptyList()
     private var batchIndex: Int = 0
     private var wrongAttemptsInBatch = mutableSetOf<String>()
     private var correctAttemptsInBatch = mutableSetOf<String>()
@@ -49,7 +52,7 @@ class ListenAndSelectWordViewModel @Inject constructor(
 
     fun loadNewBatch() {
         countdownJob?.cancel()
-        batchWords = allWords.shuffled().take(uiState.totalQuestions)
+        batchQuestions = ListenQuestionFactory.buildBatch(allWords, uiState.totalQuestions)
         batchIndex = 0
         wrongAttemptsInBatch.clear()
         correctAttemptsInBatch.clear()
@@ -62,12 +65,14 @@ class ListenAndSelectWordViewModel @Inject constructor(
 
     private fun loadCurrentWord() {
         countdownJob?.cancel()
-        val word = batchWords[batchIndex]
-        val otherWords = allWords.filter { it != word }.shuffled().take(3)
-        val options = (listOf(word) + otherWords).shuffled()
+        val question = batchQuestions[batchIndex]
         uiState = uiState.copy(
-            currentWord = word,
-            optionsWord = options,
+            currentWord = question.answer,
+            optionsWord = question.options,
+            spokenText = question.spokenText,
+            isHomophone = question.isHomophone,
+            hintSentence = question.hintSentence,
+            selectedAnswer = null,
             showSuccess = false,
             showError = false,
             countdown = 3,
@@ -79,13 +84,20 @@ class ListenAndSelectWordViewModel @Inject constructor(
         }
     }
 
+    fun optionType(word: String): ButtonType {
+        if (uiState.selectedAnswer != word) return ButtonType.OPTIONS
+        return if (uiState.showSuccess) ButtonType.GREEN else ButtonType.RED
+    }
+
     fun speakWord() {
-        ttsManager.speak(uiState.currentWord)
+        // Homophone questions speak a whole sentence — the meaning picks the word
+        ttsManager.speak(uiState.spokenText)
     }
 
     fun checkCorrectOrWrong(word: String) {
         if (uiState.showSuccess) return
         val isCorrect = word.equals(uiState.currentWord, ignoreCase = true)
+        uiState = uiState.copy(selectedAnswer = word)
 
         if (isCorrect) {
             if (!wrongAttemptsInBatch.contains(uiState.currentWord)) {
@@ -113,11 +125,20 @@ class ListenAndSelectWordViewModel @Inject constructor(
             wrongAttemptsInBatch.add(uiState.currentWord)
             uiState = uiState.copy(
                 feedbackTextRes = feedbackWrong.random(),
-                feedbackSubTextError = "Oops! The word is not $word",
+                feedbackSubTextError = uiState.hintSentence?.let { "Listen again: \u201C$it\u201D" }
+                    ?: "Oops! The word is not $word",
                 showError = true,
                 showSuccess = false
             )
             AudioPlayerManager.playSoundWrongAnswer()
+
+            // Clear the red highlight after 2s so the child can retry cleanly
+            viewModelScope.launch {
+                delay(2000)
+                if (uiState.selectedAnswer == word && !uiState.showSuccess) {
+                    uiState = uiState.copy(selectedAnswer = null)
+                }
+            }
         }
     }
 

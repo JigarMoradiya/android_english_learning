@@ -23,6 +23,7 @@ import com.example.myapplication.utils.FeedbackConstant.feedbackMatchLetterSubti
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.collections.plus
@@ -65,6 +66,12 @@ class WordMatchImageViewModel @Inject constructor(
     private var batchStartMs = System.currentTimeMillis()
     private var totalDrag = Offset.Zero
 
+    // Timed mode (beat the clock)
+    private val batchDurationMs = 30_000L
+    private var remainingMs = 0L
+    private var timerJob: Job? = null
+    private var timedOut = false
+
     init {
         loadNewBatch()
     }
@@ -93,6 +100,8 @@ class WordMatchImageViewModel @Inject constructor(
         wrongAttemptsInBatch = mutableMapOf()
         correctAttemptsInBatch = mutableSetOf()
         batchStartMs = System.currentTimeMillis()
+        timedOut = false
+        startTimerIfNeeded()
         dragStart = null
         dragEnd = null
         uiState = uiState.copy(
@@ -200,8 +209,32 @@ class WordMatchImageViewModel @Inject constructor(
         }
     }
 
+    fun toggleTimedMode() {
+        uiState = uiState.copy(timedMode = !uiState.timedMode, round = 1)
+        loadNewBatch()
+    }
+
+    private fun startTimerIfNeeded() {
+        timerJob?.cancel()
+        uiState = uiState.copy(timerProgress = 1f)
+        if (!uiState.timedMode) return
+        remainingMs = batchDurationMs
+        timerJob = viewModelScope.launch {
+            while (remainingMs > 0) {
+                delay(100)
+                if (uiState.showPopup) return@launch
+                remainingMs -= 100
+                uiState = uiState.copy(timerProgress = (remainingMs.toFloat() / batchDurationMs).coerceAtLeast(0f))
+            }
+            timedOut = true
+            AudioPlayerManager.playSoundWrongAnswer()
+            showCompletionPopup()
+        }
+    }
+
     private fun showCompletionPopup() {
-        val score = batchSize - wrongAttemptsInBatch.size
+        timerJob?.cancel()
+        val score = if (timedOut) correctAttemptsInBatch.size else batchSize - wrongAttemptsInBatch.size
         val stars = computeStars(score, batchSize)
         recordSession(score)
         uiState = uiState.copy(
@@ -278,7 +311,8 @@ class WordMatchImageViewModel @Inject constructor(
                 score = score,
                 totalQuestions = batchSize,
                 wrongItems = wrongAttemptsInBatch.keys.sorted(),
-                correctItems = correctAttemptsInBatch.sorted()
+                correctItems = correctAttemptsInBatch.sorted(),
+                subConfig = if (uiState.timedMode) "TIMED" else null
             )
         )
 

@@ -5,6 +5,10 @@ import com.example.myapplication.R
 data class ListenAndSelectWordUiState(
     val currentWord: String = "",
     val optionsWord: List<String> = emptyList(),
+    val spokenText: String = "",
+    val isHomophone: Boolean = false,
+    val hintSentence: String? = null,
+    val selectedAnswer: String? = null,
 
     val showError: Boolean = false,
     val showSuccess: Boolean = false,

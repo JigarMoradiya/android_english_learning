@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.rounded.VolumeUp
@@ -28,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.myapplication.R
+import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_5_to_7.sight_words.components.UseCaseCard
 import com.example.myapplication.main.age_group.from_5_to_7.sight_words.view_model.SightWordsViewModel
@@ -85,11 +87,19 @@ fun SightWordsPage(
                             color = PrimaryBlue
                         )
 
-                        KidsIconButton(
-                            icon = Icons.AutoMirrored.Rounded.VolumeUp,
-                            onClick = { viewModel.speak(currentWord.word) },
-                            type = ButtonType.BLUE
-                        )
+                        Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
+                            KidsIconButton(
+                                icon = Icons.AutoMirrored.Rounded.VolumeUp,
+                                onClick = { viewModel.speak(currentWord.word) },
+                                type = ButtonType.BLUE
+                            )
+
+                            KidsIconButton(
+                                icon = Icons.Filled.Bolt,
+                                onClick = { navController.navigate(RouteNavigation.SightWordSpeed.route) },
+                                type = ButtonType.ORANGE
+                            )
+                        }
 
                     }
                     Spacer(Modifier.weight(1f))

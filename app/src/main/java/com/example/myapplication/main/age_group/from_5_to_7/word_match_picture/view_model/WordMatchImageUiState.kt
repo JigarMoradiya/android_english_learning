@@ -24,6 +24,8 @@ data class WordMatchImageUiState(
 
     val round: Int = 1,
     val showPopup: Boolean = false,
+    val timedMode: Boolean = false,
+    val timerProgress: Float = 1f,
     val feedbackTextRes: Int = R.string.feedbackPhrases_1,
     val feedbackSubTextRes: Int = R.string.feedbackMatchLetterSubtitle_1,
 

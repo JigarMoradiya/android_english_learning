@@ -235,6 +235,8 @@ class ParentProgressViewModel @Inject constructor(
                                 "PRACTICE" -> "Practice"
                                 "LEARN" -> "Learning"
                                 "LISTEN" -> "Listen"
+                                "SPEED_MODE" -> "Speed ⚡"
+                                "TIMED" -> "Timed ⏱"
                                 else -> null
                             }
                         )

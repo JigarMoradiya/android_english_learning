@@ -181,6 +181,7 @@ sealed class RouteNavigation(val route: String) {
     object ArticlesAAn : RouteNavigation("ArticlesAAn")
     object ArticlesAAnExample : RouteNavigation("ArticlesAAnExample")
     object SightWords : RouteNavigation("SightWords")
+    object SightWordSpeed : RouteNavigation("SightWordSpeed")
     object ArticleChoice : RouteNavigation("ArticleChoice")
     object SightWordChoice : RouteNavigation("SightWordChoice")
     // ── AgeGroup 5–7: Opposite Words ────────────────────────────────────────

@@ -310,4 +310,9 @@
     <string name="welcome_to_premium">Welcome to Premium!</string>
     <string name="you_re_amazing_mind_leaving_us_review">You\'re amazing! Mind leaving us\na quick review? It really helps 🌟</string>
 
+    <string name="speed_mode_title">Speed Reading</string>
+    <string name="speed_mode_prompt">Read the word out loud before it disappears!</string>
+    <string name="timed_mode_label">Beat the clock!</string>
+    <string name="play_sentence">Play Sentence</string>
+    <string name="homophone_hint">Tricky! Both words sound the same — the sentence tells you which one it is.</string>
 </resources>

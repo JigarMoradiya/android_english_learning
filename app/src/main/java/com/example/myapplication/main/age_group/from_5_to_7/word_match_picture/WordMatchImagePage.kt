@@ -21,7 +21,13 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.age_group.from_5_to_7.word_match_picture.view_model.WordMatchImageViewModel
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Timer
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.ui.graphics.Color
 import com.example.myapplication.main.common.BackButtonWithText
+import com.example.myapplication.main.common.GameTimerBar
 import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.InstructionBadge
 import com.example.myapplication.main.common.buttons.KidsLabel
@@ -67,8 +73,28 @@ fun WordMatchImagePage(
                         isSmall = true,
                         modifier = Modifier.padding(horizontal = Dimens12)
                     )
+
+                    // Beat-the-clock toggle
+                    IconButton(onClick = { viewModel.toggleTimedMode() }) {
+                        Icon(
+                            imageVector = Icons.Filled.Timer,
+                            contentDescription = "Timed mode",
+                            tint = if (uiState.timedMode) Color(0xFF2E7D32) else Color.Gray
+                        )
+                    }
+
                     KidsLabel("🎯 Round ${uiState.round}")
                 }
+            }
+
+            if (uiState.timedMode) {
+                GameTimerBar(
+                    progress = uiState.timerProgress,
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .fillMaxWidth(0.5f)
+                        .padding(top = Dimens12)
+                )
             }
 
             // CENTER CONTENT
