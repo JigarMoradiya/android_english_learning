@@ -248,6 +248,8 @@
     <string name="lessons_of">Lessons of %1$s</string>
     <string name="join_sentences">Join Sentences</string>
     <string name="split_sentences">Split Sentences</string>
+    <string name="your_turn_say_it">Your turn — say it!</string>
+    <string name="my_progress">My Progress</string>
     <string name="progress">Progress</string>
     <string name="lesson_completed">Lesson Completed</string>
     <string name="go_back_to_lesson">Go Back to Lesson</string>

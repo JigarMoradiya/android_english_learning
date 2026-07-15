@@ -225,7 +225,8 @@ data class TrueFalseQuestion(
     val id: String,
     val imageName: String,
     val statement: String,
-    val isTrue: String
+    val isTrue: String,
+    val explanation: String? = null
 )
 
 // ==============================

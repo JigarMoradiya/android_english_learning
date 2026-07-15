@@ -1,5 +1,6 @@
 package com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.find_the_correct_writing.view_model
 
+import com.example.myapplication.data.generation.loader.SentenceBuilderLogic
 import com.example.myapplication.data.model.GrammarQuestion
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
@@ -21,4 +22,10 @@ data class FindTheCorrectWritingUiState(
 
     val correctAnswer: String
         get() = currentQuestion?.correctSentence ?: ""
+
+    // Rule explanation shown after answering; shares the "The correct sentence is: …"
+    // prefix so the UI bolds + colours the sentence. Phase 4 authors per-rule text. (item 4.2)
+    val explanation: String?
+        get() = if (selectedAnswer == null) null
+                else "${SentenceBuilderLogic.CORRECT_SENTENCE_PREFIX}$correctAnswer"
 }

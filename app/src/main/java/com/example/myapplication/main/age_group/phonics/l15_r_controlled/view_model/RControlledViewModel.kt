@@ -99,6 +99,16 @@ val rControlledGroups: List<RControlledGroup> = listOf(
         RControlledWord(word = "score", rTeam = "ore"), RControlledWord(word = "shore", rTeam = "ore"),
         RControlledWord(word = "snore", rTeam = "ore"), RControlledWord(word = "chore", rTeam = "ore"),
     )),
+    // W is a trickster — it bends the vowel: war says /wor/, wor says /wer/
+    RControlledGroup(rTeam = "war", sound = "/wɔːr/", emoji = "🧙", accentColor = Color(0xFF455A64), shadowColor = Color(0xFF263238), words = listOf(
+        RControlledWord(word = "warm",   rTeam = "war"), RControlledWord(word = "wart",   rTeam = "war"),
+        RControlledWord(word = "swarm",  rTeam = "war"), RControlledWord(word = "reward", rTeam = "war"),
+    )),
+    RControlledGroup(rTeam = "wor", sound = "/wɜːr/", emoji = "🌍", accentColor = Color(0xFF00695C), shadowColor = Color(0xFF004D40), words = listOf(
+        RControlledWord(word = "word",  rTeam = "wor"), RControlledWord(word = "work",  rTeam = "wor"),
+        RControlledWord(word = "worm",  rTeam = "wor"), RControlledWord(word = "world", rTeam = "wor"),
+        RControlledWord(word = "worth", rTeam = "wor"),
+    )),
 )
 
 // ── Learn UI State ────────────────────────────────────────────────────────────
@@ -208,6 +218,8 @@ val rControlledPracticeQuestions: List<RControlledPracticeQuestion> = listOf(
     RControlledPracticeQuestion(word = "hair", rTeam = "air", options = listOf("air", "ear", "ore")),
     RControlledPracticeQuestion(word = "hear", rTeam = "ear", options = listOf("ear", "air", "ore")),
     RControlledPracticeQuestion(word = "more", rTeam = "ore", options = listOf("ore", "air", "ear")),
+    RControlledPracticeQuestion(word = "warm", rTeam = "war", options = listOf("war", "wor", "ore")),
+    RControlledPracticeQuestion(word = "word", rTeam = "wor", options = listOf("wor", "war", "ear")),
 )
 
 // ── Practice ViewModel ────────────────────────────────────────────────────────

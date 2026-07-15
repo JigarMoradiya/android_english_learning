@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.generation.loader.SentenceBuilderLogic
 import com.example.myapplication.data.model.ReadSentenceItemNew
 import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.data.model.displayTitle
@@ -15,6 +16,7 @@ import com.example.myapplication.utilities.TextToSpeechManager
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -216,6 +218,49 @@ class ReadAndListenViewModel @Inject constructor(
         }
     }
 
+    // Echo / read-listen-repeat: speak the whole sentence, then prompt the child
+    // to repeat it during a length-based silent gap. (item 1.3)
+    fun echo() {
+        val words = words
+        if (words.isEmpty()) return
+
+        stopSpeaking()
+
+        val sentence = words.joinToString(" ")
+        prepareWordRanges(sentence, words)
+
+        speakingJob = viewModelScope.launch {
+            _uiState.update {
+                it.copy(
+                    isSpeaking = true,
+                    echoPhase = EchoPhase.LISTENING,
+                    joinSentenceSpeakingIndex = 0
+                )
+            }
+
+            ttsManager.onWordSpoken = onWordSpoken@ { charIndex ->
+                if (!_uiState.value.isSpeaking) return@onWordSpoken
+                _uiState.update { it.copy(joinSentenceSpeakingIndex = getWordIndex(charIndex)) }
+            }
+
+            ttsManager.speak(text = sentence, utteranceId = "echo", isAddInQueue = true) {
+                viewModelScope.launch {
+                    _uiState.update {
+                        it.copy(
+                            isSpeaking = false,
+                            joinSentenceSpeakingIndex = null,
+                            echoPhase = EchoPhase.YOUR_TURN
+                        )
+                    }
+                    delay((SentenceBuilderLogic.echoGapSeconds(words.size) * 1000).toLong())
+                    if (_uiState.value.echoPhase == EchoPhase.YOUR_TURN) {
+                        _uiState.update { it.copy(echoPhase = EchoPhase.IDLE) }
+                    }
+                }
+            }
+        }
+    }
+
     private fun speakSplit(words: List<String>) {
 
         ttsManager.stop()
@@ -268,7 +313,8 @@ class ReadAndListenViewModel @Inject constructor(
             it.copy(
                 isSpeaking = false,
                 joinSentenceSpeakingIndex = null,
-                splitSentenceWordIndex = -1
+                splitSentenceWordIndex = -1,
+                echoPhase = EchoPhase.IDLE
             )
         }
     }

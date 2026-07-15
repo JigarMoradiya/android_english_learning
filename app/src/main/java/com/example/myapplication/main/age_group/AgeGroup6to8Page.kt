@@ -42,6 +42,14 @@ import com.example.myapplication.main.common.MascotPanel
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.BarChart
+import com.example.myapplication.main.base.nav.RouteNavigation
+import com.example.myapplication.main.common.buttons.KidsIconButton
+import com.example.myapplication.ui.theme.AppDimens.KidIconMedium
+import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.ToolbarIconSize
 import com.example.myapplication.utils.AudioPlayerManager
@@ -78,11 +86,26 @@ fun AgeGroup6to8Page(navController: NavController) {
                 .fillMaxSize()
                 .windowInsetsPadding(WindowInsets.safeDrawing)
         ) {
-            BackButtonWithText(
-                title = stringResource(R.string.level3_title),
-                onBackClick = { navController.popBackStack() },
-                modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing)
-            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .windowInsetsPadding(WindowInsets.safeDrawing),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                BackButtonWithText(
+                    title = stringResource(R.string.level3_title),
+                    onBackClick = { navController.popBackStack() },
+                    modifier = Modifier.weight(1f)
+                )
+                // My Progress entry (item 5.3)
+                KidsIconButton(
+                    icon = Icons.Rounded.BarChart,
+                    onClick = { navController.navigate(RouteNavigation.SentenceProgress.route) },
+                    type = ButtonType.PURPLE,
+                    size = KidIconMedium,
+                    modifier = Modifier.padding(end = Dimens16)
+                )
+            }
 
             Row(modifier = Modifier.fillMaxSize()) {
                 // ── Left mascot panel (22%) ───────────────────────────────────

@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.safeDrawing
@@ -201,21 +203,24 @@ private fun RControlledGroupContent(
     uiState: RControlledLearnUiState,
     onWordTap: (RControlledWord) -> Unit
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(Dimens14),
-        verticalArrangement = Arrangement.spacedBy(Dimens12)
-    ) {
-        RControlledRuleBanner(group = group)
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+                .heightIn(min = this@BoxWithConstraints.maxHeight)
+                .padding(Dimens14),
+            verticalArrangement = Arrangement.spacedBy(Dimens12, Alignment.CenterVertically)
+        ) {
+            RControlledRuleBanner(group = group)
 
-        if (uiState.showWords) {
-            RControlledWordGrid(
-                group = group,
-                highlightedWordId = uiState.highlightedWordId,
-                onWordTap = onWordTap
-            )
+            if (uiState.showWords) {
+                RControlledWordGrid(
+                    group = group,
+                    highlightedWordId = uiState.highlightedWordId,
+                    onWordTap = onWordTap
+                )
+            }
         }
     }
 }

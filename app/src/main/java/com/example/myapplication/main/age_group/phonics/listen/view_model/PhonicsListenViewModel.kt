@@ -291,7 +291,10 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("rug", listOf(s("r", listOf(0)), s("ug", listOf(1,2)))),
             w("bun", listOf(s("b", listOf(0)), s("un", listOf(1,2)))),
             w("fun", listOf(s("f", listOf(0)), s("un", listOf(1,2)))),
-            w("run", listOf(s("r", listOf(0)), s("un", listOf(1,2))))
+            w("run", listOf(s("r", listOf(0)), s("un", listOf(1,2)))),
+            // -all: a before ll says /aw/
+            w("ball", listOf(s("b", listOf(0)), s("all", listOf(1,2,3)))),
+            w("tall", listOf(s("t", listOf(0)), s("all", listOf(1,2,3))))
         )
     ),
 
@@ -359,7 +362,15 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("fruit", listOf(s("f", listOf(0)), s("r", listOf(1)), s("ui", listOf(2,3), audio = "ui"), s("t", listOf(4)))),
             // ea — short /ĕ/ (bread family → existing sound_e)
             w("bread", listOf(s("b", listOf(0)), s("r", listOf(1)), s("ea", listOf(2,3), audio = "sound_e"), s("d", listOf(4)))),
-            w("head",  listOf(s("h", listOf(0)), s("ea", listOf(1,2), audio = "sound_e"), s("d", listOf(3))))
+            w("head",  listOf(s("h", listOf(0)), s("ea", listOf(1,2), audio = "sound_e"), s("d", listOf(3)))),
+            // ey — /ē/ at word end (→ long_e)
+            w("key",    listOf(s("k", listOf(0)), s("ey", listOf(1,2), audio = "long_e"))),
+            w("monkey", listOf(s("m", listOf(0)), s("o", listOf(1)), s("n", listOf(2)), s("k", listOf(3)), s("ey", listOf(4,5), audio = "long_e"))),
+            // ie — /ī/ pie family (→ long_i) · /ē/ chief family (→ long_e)
+            w("pie",   listOf(s("p", listOf(0)), s("ie", listOf(1,2), audio = "long_i"))),
+            w("tie",   listOf(s("t", listOf(0)), s("ie", listOf(1,2), audio = "long_i"))),
+            w("chief", listOf(s("ch", listOf(0,1)), s("ie", listOf(2,3), audio = "long_e"), s("f", listOf(4)))),
+            w("field", listOf(s("f", listOf(0)), s("ie", listOf(1,2), audio = "long_e"), s("l", listOf(3)), s("d", listOf(4))))
         )
     ),
 
@@ -622,7 +633,11 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("burn",  listOf(s("b",  listOf(0)),    s("ur", listOf(1,2)), s("n",  listOf(3)))),
             w("turn",  listOf(s("t",  listOf(0)),    s("ur", listOf(1,2)), s("n",  listOf(3)))),
             w("curl",  listOf(s("c",  listOf(0)),    s("ur", listOf(1,2)), s("l",  listOf(3)))),
-            w("hurt",  listOf(s("h",  listOf(0)),    s("ur", listOf(1,2)), s("t",  listOf(3))))
+            w("hurt",  listOf(s("h",  listOf(0)),    s("ur", listOf(1,2)), s("t",  listOf(3)))),
+            // W bends the vowel: war ar=/or/ · wor or=/er/
+            w("warm",  listOf(s("w",  listOf(0)),    s("ar", listOf(1,2), audio = "or"), s("m", listOf(3)))),
+            w("word",  listOf(s("w",  listOf(0)),    s("or", listOf(1,2), audio = "er"), s("d", listOf(3)))),
+            w("work",  listOf(s("w",  listOf(0)),    s("or", listOf(1,2), audio = "er"), s("k", listOf(3))))
         )
     ),
 
@@ -651,6 +666,10 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             w("caught",  listOf(s("c",  listOf(0)),   s("au", listOf(1,2)),                s("gh", listOf(3,4), audio = ""), s("t", listOf(5)))),
             w("taught",  listOf(s("t",  listOf(0)),   s("au", listOf(1,2)),                s("gh", listOf(3,4), audio = ""), s("t", listOf(5)))),
             w("dough",   listOf(s("d",  listOf(0)),   s("ou", listOf(1,2), audio = "ou2"), s("gh", listOf(3,4), audio = ""))),
+            // eigh = /ā/ (→ long_a)
+            w("eight",  listOf(s("eigh", listOf(0,1,2,3), audio = "long_a"), s("t", listOf(4)))),
+            w("weigh",  listOf(s("w", listOf(0)), s("eigh", listOf(1,2,3,4), audio = "long_a"))),
+            w("weight", listOf(s("w", listOf(0)), s("eigh", listOf(1,2,3,4), audio = "long_a"), s("t", listOf(5)))),
             // gh = /f/ (reuse sound_f) — enough/rough/tough/cough "ou" vary; laugh's "au"=/æ/ ≠ caught's /ɔː/
             w("enough", listOf(s("e", listOf(0)), s("n", listOf(1)), s("ou", listOf(2,3), audio = "ou3"),      s("gh", listOf(4,5), audio = "sound_f"))),
             w("laugh",  listOf(s("l", listOf(0)), s("au", listOf(1,2), audio = "sound_a"),                     s("gh", listOf(3,4), audio = "sound_f"))),
@@ -838,6 +857,7 @@ val phonicsListenConfigs: Map<PhonicsListenLevelKey, PhonicsListenConfig> = mapO
             // -s / -es plurals
             w("cats",     listOf(s("cat",   listOf(0,1,2)),     s("s",   listOf(3)))),
             w("cups",     listOf(s("cup",   listOf(0,1,2)),     s("s",   listOf(3)))),
+            w("dogs",     listOf(s("dog",   listOf(0,1,2)),     s("s",   listOf(3), audio = "sound_z"))),
             w("boxes",    listOf(s("box",   listOf(0,1,2)),     s("es",  listOf(3,4)))),
             w("wishes",   listOf(s("w", listOf(0)), s("i", listOf(1)), s("sh", listOf(2,3)), s("es", listOf(4,5))))
         )

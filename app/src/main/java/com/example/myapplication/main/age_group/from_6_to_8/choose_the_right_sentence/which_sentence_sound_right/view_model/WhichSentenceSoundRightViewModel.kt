@@ -2,7 +2,9 @@ package com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_se
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.generation.loader.SentenceBuilderLogic
 import com.example.myapplication.data.generation.loader.SoundCorrectLoader
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
@@ -14,9 +16,12 @@ import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.AudioPlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -30,6 +35,11 @@ class WhichSentenceSoundRightViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow(WhichSentenceSoundRightUiState())
     val uiState: StateFlow<WhichSentenceSoundRightUiState> = _uiState
+
+    // Timed mode (item 4.3) — 30s per batch; timeout ends the round.
+    private val batchDurationMs = 30_000L
+    private var timerJob: Job? = null
+    private var hasRecorded = false
 
     fun setData(unit: SentenceUnit, level: SentenceLevel) {
         _uiState.update {
@@ -62,23 +72,81 @@ class WhichSentenceSoundRightViewModel @Inject constructor(
         }
 
         generateOptions()
+
+        hasRecorded = false
+        startTimerIfNeeded()
     }
 
-    // Generate options per question
+    // MARK: - Timed mode (item 4.3)
+    fun toggleTimedMode() {
+        val newVal = !_uiState.value.timedMode
+        _uiState.update { it.copy(timedMode = newVal) }
+        if (newVal) {
+            startTimerIfNeeded()
+        } else {
+            stopTimer()
+            _uiState.update { it.copy(timerProgress = 1f) }
+        }
+    }
+
+    private fun startTimerIfNeeded() {
+        stopTimer()
+        if (!_uiState.value.timedMode) return
+        startTimeMs = System.currentTimeMillis()
+        _uiState.update { it.copy(timerProgress = 1f) }
+        timerJob = viewModelScope.launch {
+            var remainingMs = batchDurationMs
+            while (remainingMs > 0) {
+                delay(100)
+                remainingMs -= 100
+                _uiState.update {
+                    it.copy(timerProgress = (remainingMs.toFloat() / batchDurationMs).coerceAtLeast(0f))
+                }
+            }
+            recordSessionIfNeeded()
+            _uiState.update { it.copy(showResult = true) }
+        }
+    }
+
+    private fun stopTimer() {
+        timerJob?.cancel()
+        timerJob = null
+    }
+
+    private fun recordSessionIfNeeded() {
+        if (hasRecorded) return
+        hasRecorded = true
+        val state = _uiState.value
+        val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
+        sessionRepository.record(
+            LearningSession(
+                moduleId = ModuleID.WHICH_SENTENCE_RIGHT,
+                ageGroup = AgeGroup.SIX_TO_EIGHT,
+                durationSeconds = durationSec,
+                score = state.score,
+                totalQuestions = state.questions.size,
+                correctItems = emptyList(),
+                wrongItems = emptyList(),
+                subConfig = if (state.timedMode) "TIMED" else "",
+                lessonTitle = null,
+                chapterTitle = state.unit.displayTitle
+            )
+        )
+    }
+
+    // Generate options per question — level-scaled count (easy 3 / medium 4). (item C.2)
     private fun generateOptions() {
         val state = _uiState.value
         val question = state.currentQuestion ?: return
 
-        val requiredCount = 4
-        val options = mutableListOf(question.correctSentence)
-        val wrongs = question.wrongOptions.shuffled()
-
-        for (wrong in wrongs) {
-            if (options.size >= requiredCount) break
-            options.add(wrong)
-        }
         _uiState.update {
-            it.copy(options = options.shuffled())
+            it.copy(
+                options = SentenceBuilderLogic.buildSoundOptions(
+                    correct = question.correctSentence,
+                    wrongOptions = question.wrongOptions,
+                    level = state.level
+                )
+            )
         }
     }
 
@@ -102,22 +170,8 @@ class WhichSentenceSoundRightViewModel @Inject constructor(
             )
         }
         if (_uiState.value.currentIndex == _uiState.value.questions.size - 1) {
-            val state = _uiState.value
-            val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
-            sessionRepository.record(
-                LearningSession(
-                    moduleId = ModuleID.WHICH_SENTENCE_RIGHT,
-                    ageGroup = AgeGroup.SIX_TO_EIGHT,
-                    durationSeconds = durationSec,
-                    score = state.score,
-                    totalQuestions = state.questions.size,
-                    correctItems = emptyList(),
-                    wrongItems = emptyList(),
-                    subConfig = "",
-                    lessonTitle = null,
-                    chapterTitle = state.unit.displayTitle
-                )
-            )
+            stopTimer()
+            recordSessionIfNeeded()
         }
     }
 

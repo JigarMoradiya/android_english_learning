@@ -55,7 +55,19 @@ enum class VowelTeamGroup(
     EA_SHORT("EA · bread", "🍞", Color(0xFF6D4C41), Color(0xFF4E342E),
         "A few EA words say short /e/ (like bread) — no rule, learn this little family by heart!",
         "bread head ready",
-        "ea 🍞")
+        "ea 🍞"),
+    EY_END("EY · monkey", "🐵", Color(0xFFC62828), Color(0xFFB71C1C),
+        "EY at the end of a word says /ē/ — like monkey!",
+        "monkey key honey",
+        "ey 🐵"),
+    IE_LONG("IE · pie", "🥧", Color(0xFFAD1457), Color(0xFF880E4F),
+        "IE at the end of a short word says /ī/ — like pie!",
+        "pie tie lie",
+        "ie 🥧"),
+    IE_LONG2("IE · chief", "🛡️", Color(0xFF283593), Color(0xFF1A237E),
+        "IE in the middle often says /ē/ — like chief! Learn this family by heart",
+        "chief field thief",
+        "ie 🛡️")
 }
 
 data class VowelTeamWord(
@@ -156,6 +168,27 @@ val vowelTeamWordData: Map<VowelTeamGroup, List<VowelTeamWord>> = mapOf(
         VowelTeamWord(word = "spread", teamStart = 3, teamLength = 2),
         VowelTeamWord(word = "ready",  teamStart = 1, teamLength = 2),
         VowelTeamWord(word = "heavy",  teamStart = 1, teamLength = 2),
+    ),
+    VowelTeamGroup.EY_END to listOf(
+        VowelTeamWord(word = "monkey", teamStart = 4, teamLength = 2),
+        VowelTeamWord(word = "key",    teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "donkey", teamStart = 4, teamLength = 2),
+        VowelTeamWord(word = "valley", teamStart = 4, teamLength = 2),
+        VowelTeamWord(word = "honey",  teamStart = 3, teamLength = 2),
+        VowelTeamWord(word = "turkey", teamStart = 4, teamLength = 2),
+    ),
+    VowelTeamGroup.IE_LONG to listOf(
+        VowelTeamWord(word = "pie",   teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "tie",   teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "lie",   teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "untie", teamStart = 3, teamLength = 2),
+    ),
+    VowelTeamGroup.IE_LONG2 to listOf(
+        VowelTeamWord(word = "chief",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "field",  teamStart = 1, teamLength = 2),
+        VowelTeamWord(word = "thief",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "brief",  teamStart = 2, teamLength = 2),
+        VowelTeamWord(word = "shield", teamStart = 2, teamLength = 2),
     )
 )
 
@@ -183,6 +216,10 @@ val vowelTeamPracticeQuestions: List<VowelTeamPracticeQuestion> = listOf(
     VowelTeamPracticeQuestion(word = "blue",  correctTeam = "ue", options = listOf("ue", "oo", "ea"), teamStart = 2, teamLength = 2),
     VowelTeamPracticeQuestion(word = "fruit", correctTeam = "ui", options = listOf("ui", "oo", "ee"), teamStart = 2, teamLength = 2),
     VowelTeamPracticeQuestion(word = "bread", correctTeam = "ea", options = listOf("ea", "ee", "oo"), teamStart = 2, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "monkey", correctTeam = "ey", options = listOf("ey", "ea", "ai"), teamStart = 4, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "key",    correctTeam = "ey", options = listOf("ey", "ee", "ay"), teamStart = 1, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "pie",    correctTeam = "ie", options = listOf("ie", "ee", "oo"), teamStart = 1, teamLength = 2),
+    VowelTeamPracticeQuestion(word = "chief",  correctTeam = "ie", options = listOf("ie", "ea", "ay"), teamStart = 2, teamLength = 2),
 )
 
 // ── UI States ─────────────────────────────────────────────────────────────────

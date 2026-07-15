@@ -88,6 +88,18 @@ val sdGroups: List<SDGroup> = listOf(
             SDWord("rob",  "in", "🐦"),
             SDWord("drag", "on", "🐉")
         )
+    ),
+    SDGroup(
+        name = "Schwa /ə/", rule = "Some syllables get lazy — the vowel just says \"uh\"!", emoji = "😴",
+        accentColor = Color(0xFF5D4037), shadowColor = Color(0xFF3E2723),
+        words = listOf(
+            SDWord("a",   "bout", "💬"),
+            SDWord("so",  "fa",   "🛋️"),
+            SDWord("piz", "za",   "🍕"),
+            SDWord("ze",  "bra",  "🦓"),
+            SDWord("pan", "da",   "🐼"),
+            SDWord("ex",  "tra",  "➕")
+        )
     )
 )
 
@@ -112,7 +124,11 @@ val sdPracticeQuestions: List<SDPracticeQuestion> = listOf(
     SDPracticeQuestion("seven",  "sev-en",   listOf("sev-en",  "se-ven",  "seve-n",  "s-even"),   "7️⃣"),
     SDPracticeQuestion("planet", "plan-et",  listOf("plan-et", "pla-net", "plane-t", "pl-anet"),  "🪐"),
     SDPracticeQuestion("dragon", "drag-on",  listOf("drag-on", "dra-gon", "drago-n", "dr-agon"),  "🐉"),
-    SDPracticeQuestion("river",  "riv-er",   listOf("riv-er",  "ri-ver",  "rive-r",  "r-iver"),   "🏞️")
+    SDPracticeQuestion("river",  "riv-er",   listOf("riv-er",  "ri-ver",  "rive-r",  "r-iver"),   "🏞️"),
+    // Schwa
+    SDPracticeQuestion("about",  "a-bout",   listOf("a-bout",  "ab-out",  "abo-ut",  "abou-t"),   "💬"),
+    SDPracticeQuestion("pizza",  "piz-za",   listOf("piz-za",  "pi-zza",  "pizz-a",  "p-izza"),   "🍕"),
+    SDPracticeQuestion("zebra",  "ze-bra",   listOf("ze-bra",  "zeb-ra",  "z-ebra",  "zebr-a"),   "🦓")
 )
 
 // ── Learn ViewModel ───────────────────────────────────────────────────────────

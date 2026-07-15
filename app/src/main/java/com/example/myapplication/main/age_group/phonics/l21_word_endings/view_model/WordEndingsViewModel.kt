@@ -170,7 +170,7 @@ val wordEndingGroups: List<WordEndingGroup> = listOf(
     ),
     WordEndingGroup(
         suffix = "-s", suffixLen = 1,
-        emoji = "🐾", meaning = "MORE than one!",
+        emoji = "🐾", meaning = "MORE than one! · says /s/ (cats) or /z/ (dogs)",
         accentColor = Color(0xFF00897B), shadowColor = Color(0xFF00695C),
         words = listOf(
             WordEndingWord(base = "cat",  derived = "cats",  rule = WordEndingRule.JUST_ADD),

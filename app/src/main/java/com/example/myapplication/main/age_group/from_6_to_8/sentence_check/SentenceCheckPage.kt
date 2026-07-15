@@ -1,6 +1,7 @@
 package com.example.myapplication.main.age_group.from_6_to_8.sentence_check
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,7 +33,11 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
+import com.example.myapplication.data.generation.loader.SentenceBuilderLogic
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -155,6 +160,34 @@ fun SentenceCheckPage(
                                         }
                                     }
                                 }
+
+                                // Explanation shown after answering. (item 3.2)
+                                currentQuestion.explanation
+                                    ?.takeIf { it.isNotEmpty() && uiState.selectedAnswer != null }
+                                    ?.let { explanation ->
+                                        // Bold + green the corrected sentence after the shared prefix. (item 3.2)
+                                        val prefix = SentenceBuilderLogic.CORRECT_SENTENCE_PREFIX
+                                        val styled = if (explanation.startsWith(prefix)) {
+                                            buildAnnotatedString {
+                                                append(prefix)
+                                                withStyle(SpanStyle(fontWeight = FontWeight.Bold, color = Color(0xFF2E7D32))) {
+                                                    append(explanation.removePrefix(prefix))
+                                                }
+                                            }
+                                        } else {
+                                            buildAnnotatedString { append(explanation) }
+                                        }
+                                        Text(
+                                            text = styled,
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .clip(RoundedCornerShape(Dimens16))
+                                                .background(Color.White.copy(alpha = 0.85f))
+                                                .padding(Dimens16),
+                                            style = MaterialTheme.typography.bodyLarge.scaled(),
+                                            color = Color.Black
+                                        )
+                                    }
 
                                 Row {
                                     Spacer(Modifier.weight(1f))

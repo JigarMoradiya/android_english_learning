@@ -1,6 +1,7 @@
 package com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sentence.find_the_correct_writing
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,12 +19,19 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
+import com.example.myapplication.data.generation.loader.SentenceBuilderLogic
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
@@ -138,6 +146,30 @@ fun FindTheCorrectWritingPage(
                                         .fillMaxWidth()
                                         .height(listenAndAnswerOptionsHeight),
                                     textAlign = TextAlign.Left
+                                )
+                            }
+
+                            // Explanation shown after answering (item 4.2)
+                            uiState.explanation?.let { explanation ->
+                                val prefix = SentenceBuilderLogic.CORRECT_SENTENCE_PREFIX
+                                val styled = if (explanation.startsWith(prefix)) {
+                                    buildAnnotatedString {
+                                        append(prefix)
+                                        withStyle(SpanStyle(fontWeight = FontWeight.Bold, color = Color(0xFF3265D3))) {
+                                            append(explanation.removePrefix(prefix))
+                                        }
+                                    }
+                                } else {
+                                    buildAnnotatedString { append(explanation) }
+                                }
+                                Text(
+                                    text = styled,
+                                    color = Color.Black,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clip(RoundedCornerShape(Dimens16))
+                                        .background(Color.White.copy(alpha = 0.85f))
+                                        .padding(Dimens16)
                                 )
                             }
 

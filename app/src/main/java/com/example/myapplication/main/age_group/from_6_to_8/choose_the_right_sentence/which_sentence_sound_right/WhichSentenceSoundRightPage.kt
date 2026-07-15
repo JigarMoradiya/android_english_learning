@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.material.icons.rounded.Timer
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -21,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -32,10 +34,14 @@ import com.example.myapplication.main.age_group.from_6_to_8.choose_the_right_sen
 import com.example.myapplication.main.common.ActivityCompletePopup
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.buttons.KidsActionButton
+import com.example.myapplication.main.common.buttons.KidsIconButton
 import com.example.myapplication.main.common.buttons.KidsLabel
 import com.example.myapplication.main.common.buttons.KidsOptionButton
+import com.example.myapplication.main.common.GameTimerBar
+import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
+import com.example.myapplication.ui.theme.AppDimens.KidIconMedium
 import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsHeight
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.main.common.KidsFloatingShape
@@ -70,7 +76,28 @@ fun WhichSentenceSoundRightPage(
                     onBackClick = { navController.popBackStack() }
                 )
 
+                // ⏱ Timed mode toggle (item 4.3)
+                KidsIconButton(
+                    icon = Icons.Rounded.Timer,
+                    onClick = { viewModel.toggleTimedMode() },
+                    type = if (uiState.timedMode) ButtonType.GREEN else ButtonType.DISABLE,
+                    size = KidIconMedium,
+                    modifier = Modifier.padding(end = Dimens8)
+                )
+
                 KidsLabel("Question ${uiState.currentIndex + 1} / ${uiState.questions.size}",)
+            }
+
+            // ⏱ Drain bar (item 4.3)
+            if (uiState.timedMode) {
+                GameTimerBar(
+                    progress = uiState.timerProgress,
+                    height = 10.dp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = Dimens16)
+                        .padding(top = Dimens12, bottom = Dimens8)
+                )
             }
 
             Spacer(Modifier.weight(1f))

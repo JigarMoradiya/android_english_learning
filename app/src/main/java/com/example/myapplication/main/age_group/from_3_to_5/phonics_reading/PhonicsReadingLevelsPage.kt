@@ -36,6 +36,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Star
@@ -458,6 +459,16 @@ fun PhonicsReadingLevelsPage(
                 )
 
                 Spacer(modifier = Modifier.weight(1f))
+
+                CompareStrip(
+                    onTap = {
+                        AudioPlayerManager.playSoundMenuClick()
+                        navController.navigate(RouteNavigation.PhonicsComparisons.route)
+                    },
+                    modifier = Modifier
+                        .padding(horizontal = Dimens16)
+                        .padding(bottom = Dimens12),
+                )
             }
 
             // ── RIGHT PANEL — journey map ───────────────────────────────────
@@ -1132,6 +1143,53 @@ private fun progressMessage(doneCount: Int): String = when (doneCount) {
     in 10..19 -> "Wow, halfway there!\nYou're a reading star!"
     in 20..27 -> "Almost at the finish line!\nYou can do it!"
     else -> "You finished the whole\nphonics journey! Amazing!"
+}
+
+// ── Compare & Choose entry strip ─────────────────────────────────────────────
+
+@Composable
+private fun CompareStrip(onTap: () -> Unit, modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .shadow(Dimens4, RoundedCornerShape(Dimens12), spotColor = Color(0xFF5532D2))
+            .background(
+                Brush.horizontalGradient(listOf(Color(0xFF7C4DFF), Color(0xFF536DFE))),
+                RoundedCornerShape(Dimens12),
+            )
+            .border(Dimens1, Color.White.copy(alpha = 0.22f), RoundedCornerShape(Dimens12))
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+                onClick = onTap,
+            )
+            .padding(horizontal = Dimens12, vertical = Dimens8),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Dimens8),
+    ) {
+        Text(text = "⚖️", style = MaterialTheme.typography.titleSmall.scaled())
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = "Compare & Choose 🕵️",
+                style = MaterialTheme.typography.labelMedium.scaled(),
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+                maxLines = 1,
+            )
+            Text(
+                text = "ai⚡ay · oo🌙⚡📖 · c⚡k⚡ck …",
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                color = Color.White.copy(alpha = 0.85f),
+                maxLines = 1,
+            )
+        }
+        Icon(
+            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+            contentDescription = null,
+            tint = Color.White.copy(alpha = 0.9f),
+            modifier = Modifier.size(Dimens16),
+        )
+    }
 }
 
 // ── Small Animated Pieces ───────────────────────────────────────────────────

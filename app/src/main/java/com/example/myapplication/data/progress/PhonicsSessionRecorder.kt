@@ -81,8 +81,38 @@ class PhonicsSessionRecorder @Inject constructor(
         )
     }
 
+    /** Scored practice run for bonus content with a custom title ("Compare: ai vs ay"). */
+    fun recordPractice(
+        title: String,
+        score: Int,
+        total: Int,
+        durationSeconds: Int,
+        wrongItems: List<String>,
+        correctItems: List<String>,
+    ) {
+        sessions.record(
+            LearningSession(
+                moduleId = ModuleID.PHONICS_READING,
+                ageGroup = AgeGroup.PHONICS,
+                durationSeconds = durationSeconds,
+                score = score,
+                totalQuestions = total,
+                wrongItems = wrongItems,
+                correctItems = correctItems,
+                subConfig = "PRACTICE",
+                lessonTitle = title,
+                chapterTitle = title,
+            )
+        )
+    }
+
     /** Learning-only time (Learn or Listen screens). Skips accidental opens (<3s). */
     fun recordLearning(level: PhonicsListenLevelKey, mode: String, durationSeconds: Int) {
+        recordLearning(PhonicsLevelTitles.title(level), mode, durationSeconds)
+    }
+
+    /** Learning-only time with a custom title ("Compare: ai vs ay"). */
+    fun recordLearning(title: String, mode: String, durationSeconds: Int) {
         if (durationSeconds < 3) return
         sessions.record(
             LearningSession(
@@ -92,8 +122,8 @@ class PhonicsSessionRecorder @Inject constructor(
                 score = 0,
                 totalQuestions = 0,
                 subConfig = mode,
-                lessonTitle = PhonicsLevelTitles.title(level),
-                chapterTitle = PhonicsLevelTitles.title(level),
+                lessonTitle = title,
+                chapterTitle = title,
             )
         )
     }

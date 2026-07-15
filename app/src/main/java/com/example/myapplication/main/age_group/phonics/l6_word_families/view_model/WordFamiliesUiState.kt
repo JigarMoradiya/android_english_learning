@@ -76,4 +76,10 @@ val wordFamiliesData = listOf(
         FamilyOnset("b","bug"), FamilyOnset("r","rug"), FamilyOnset("h","hug"),
         FamilyOnset("m","mug"), FamilyOnset("d","dug"), FamilyOnset("j","jug")
     )),
+    // -all: a before ll says /aw/ (ball) — not the usual short a
+    WordFamily("all", "all", Color(0xFF0277BD), Color(0xFF01579B), listOf(
+        FamilyOnset("b","ball"), FamilyOnset("t","tall"), FamilyOnset("w","wall"),
+        FamilyOnset("f","fall"), FamilyOnset("c","call"), FamilyOnset("h","hall"),
+        FamilyOnset("m","mall")
+    )),
 )

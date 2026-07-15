@@ -49,6 +49,8 @@ import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFam
 import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesLearnPage
 import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesPracticePage
 import com.example.myapplication.main.age_group.phonics.listen.PhonicsListenPage
+import com.example.myapplication.main.age_group.phonics.compare.ComparisonListPage
+import com.example.myapplication.main.age_group.phonics.compare.ComparisonDetailPage
 import com.example.myapplication.main.age_group.phonics.l11_open_syllable.OpenSyllableIntroPage
 import com.example.myapplication.main.age_group.phonics.l11_open_syllable.OpenSyllableLearnPage
 import com.example.myapplication.main.age_group.phonics.l11_open_syllable.OpenSyllablePracticePage
@@ -231,6 +233,9 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.ParentProgress.route) {
             com.example.myapplication.main.parent.ParentProgressScreen(navController)
         }
+        composable(RouteNavigation.SentenceProgress.route) {
+            com.example.myapplication.main.age_group.from_6_to_8.progress.SentenceProgressPage(navController)
+        }
         // Age Category 3 to 5
         composable(RouteNavigation.AgeGroup3to5.route) {
             AgeGroup3to5Page(navController)
@@ -317,6 +322,15 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.PhonicsReadingLevels.route) {
             PhonicsReadingLevelsPage(navController)
+        }
+        composable(RouteNavigation.PhonicsComparisons.route) {
+            ComparisonListPage(navController)
+        }
+        composable(
+            route = RouteNavigation.PhonicsComparison.route,
+            arguments = listOf(navArgument("comparisonId") { type = NavType.StringType })
+        ) {
+            ComparisonDetailPage(navController)
         }
         composable(RouteNavigation.ShortVowelsIntro.route) {
             ShortVowelsIntroPage(navController)

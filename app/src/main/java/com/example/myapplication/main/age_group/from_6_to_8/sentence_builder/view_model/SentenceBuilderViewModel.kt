@@ -3,8 +3,8 @@ package com.example.myapplication.main.age_group.from_6_to_8.sentence_builder.vi
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.access.ModuleID
-import com.example.myapplication.data.generation.loader.MatchPictureLoader
-import com.example.myapplication.data.model.SentenceBuilderQuestion
+import com.example.myapplication.data.generation.loader.LessonLoader
+import com.example.myapplication.data.generation.loader.SentenceBuilderLogic
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
 import com.example.myapplication.data.model.displayTitle
@@ -36,25 +36,17 @@ class SentenceBuilderViewModel @Inject constructor(
         loadQuestions()
     }
 
-    // Load Questions
+    // Load Questions — source from the Sentences pool so the builder honours the
+    // chosen level (short = easy, long = medium); match data is easy-only. (item 5.2)
     private fun loadQuestions() {
         val state = _uiState.value
 
-        val all = MatchPictureLoader.load(
+        val lessons = LessonLoader.load(
             context = context,
             unit = state.unit,
             level = state.level
         )
-        .shuffled()
-        .take(5)
-
-        val questions = all.map {
-            SentenceBuilderQuestion(
-                id = it.id,
-                imageName = it.imageName,
-                correctSentence = it.correctSentence
-            )
-        }
+        val questions = SentenceBuilderLogic.makeBuilderQuestions(lessons, limit = 5)
 
         _uiState.update {
             it.copy(

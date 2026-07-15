@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.MatchPictureLoader
+import com.example.myapplication.data.generation.loader.SentenceBuilderLogic
 import com.example.myapplication.data.model.SentenceLevel
 import com.example.myapplication.data.model.SentenceUnit
 import com.example.myapplication.data.model.TrueFalseQuestion
@@ -53,33 +54,9 @@ class SentenceCheckViewModel @Inject constructor(
         val questions = mutableListOf<TrueFalseQuestion>()
 
         selected.forEach { item ->
-
-            val useCorrect = listOf(true, false).random()
-
-            if (useCorrect) {
-                // TRUE
-                questions.add(
-                    TrueFalseQuestion(
-                        id = item.id + "_T",
-                        imageName = item.imageName,
-                        statement = item.correctSentence,
-                        isTrue = "true"
-                    )
-                )
-            } else {
-                // FALSE
-                val wrong = item.wrongOptions.randomOrNull()
-                if (wrong != null) {
-                    questions.add(
-                        TrueFalseQuestion(
-                            id = item.id + "_F",
-                            imageName = item.imageName,
-                            statement = wrong,
-                            isTrue = "false"
-                        )
-                    )
-                }
-            }
+            // 50% chance TRUE / FALSE; each item carries an explanation. (item 3.2)
+            val useCorrect = if (item.wrongOptions.isEmpty()) true else listOf(true, false).random()
+            questions.add(SentenceBuilderLogic.makeTrueFalse(item = item, useCorrect = useCorrect))
         }
 
         _uiState.update {

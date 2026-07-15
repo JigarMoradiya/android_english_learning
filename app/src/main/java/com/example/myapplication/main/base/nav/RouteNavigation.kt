@@ -5,6 +5,7 @@ sealed class RouteNavigation(val route: String) {
     object AgeCategories : RouteNavigation("AgeCategories")
     object Settings : RouteNavigation("Settings")
     object ParentProgress : RouteNavigation("ParentProgress")
+    object SentenceProgress : RouteNavigation("SentenceProgress")   // Age 6-8 progress (item 5.3)
     object AccessPlan : RouteNavigation("AccessPlan")
     object AgeGroup3to5 : RouteNavigation("AgeGroup3to5")
     object AlphabetTracing : RouteNavigation("AlphabetTracing")
@@ -36,6 +37,10 @@ sealed class RouteNavigation(val route: String) {
     object LetterSoundsIntro : RouteNavigation("LetterSoundsIntro")
     object LetterSoundsPractice : RouteNavigation("LetterSoundsPractice")
     object PhonicsReadingLevels : RouteNavigation("PhonicsReadingLevels")
+    object PhonicsComparisons : RouteNavigation("PhonicsComparisons")
+    object PhonicsComparison : RouteNavigation("PhonicsComparison/{comparisonId}") {
+        fun createRoute(comparisonId: String) = "PhonicsComparison/$comparisonId"
+    }
     object ShortVowelsIntro : RouteNavigation("ShortVowelsIntro")
     object ShortVowelsLearn : RouteNavigation("ShortVowelsLearn")
     object ShortVowelsPractice : RouteNavigation("ShortVowelsPractice")

@@ -1,6 +1,7 @@
 package com.example.myapplication.main.age_group.from_6_to_8.read_listen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,12 +20,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.rounded.VolumeUp
+import androidx.compose.material.icons.rounded.Mic
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
@@ -39,6 +43,7 @@ import com.example.myapplication.R
 import com.example.myapplication.data.model.ReadSentenceItemNew
 import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.main.age_group.from_6_to_8.read_listen.components.SentenceWordsView
+import com.example.myapplication.main.age_group.from_6_to_8.read_listen.view_model.EchoPhase
 import com.example.myapplication.main.age_group.from_6_to_8.read_listen.view_model.ReadAndListenViewModel
 import com.example.myapplication.main.common.BackButtonWithText
 import com.example.myapplication.main.common.buttons.KidsActionButton
@@ -99,6 +104,15 @@ fun ReadAndListenPage(
                         viewModel.speak()
                     },
                     type = ButtonType.PINK,
+                    size = KidIconMedium,
+                    modifier = Modifier.padding(end = Dimens8)
+                )
+
+                // 🎤 Echo — read, listen, repeat (item 1.3)
+                KidsIconButton(
+                    icon = Icons.Rounded.Mic,
+                    onClick = { viewModel.echo() },
+                    type = ButtonType.PURPLE,
                     size = KidIconMedium,
                     modifier = Modifier.padding(end = Dimens16)
                 )
@@ -188,6 +202,20 @@ fun ReadAndListenPage(
                     currentWordIndex = uiState.splitSentenceWordIndex
                 )
             }
+        }
+
+        // 🎤 Echo "your turn" banner (item 1.3)
+        if (uiState.echoPhase == EchoPhase.YOUR_TURN) {
+            Text(
+                text = stringResource(R.string.your_turn_say_it),
+                color = Color.White,
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = Dimens16)
+                    .clip(RoundedCornerShape(Dimens16))
+                    .background(Color(0xFF6A5AE0))
+                    .padding(Dimens16)
+            )
         }
     }
 }

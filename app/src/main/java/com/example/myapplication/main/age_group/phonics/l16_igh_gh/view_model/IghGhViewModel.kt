@@ -76,6 +76,17 @@ val ighGhGroups: List<IghGhGroup> = listOf(
             IghGhWord("tough",  "gh"),
         )
     ),
+    IghGhGroup(
+        pattern = "eigh", sound = "/ā/ long a",
+        rule    = "EIGH says /ā/ — like eight! The g and h hide again",
+        emoji   = "8️⃣",
+        accentColor = Color(0xFFEF6C00), shadowColor = Color(0xFFE65100),
+        words = listOf(
+            IghGhWord("eight",  "eigh"), IghGhWord("weigh",  "eigh"),
+            IghGhWord("weight", "eigh"), IghGhWord("sleigh", "eigh"),
+            IghGhWord("neigh",  "eigh"),
+        )
+    ),
 )
 
 // MARK: - Learn

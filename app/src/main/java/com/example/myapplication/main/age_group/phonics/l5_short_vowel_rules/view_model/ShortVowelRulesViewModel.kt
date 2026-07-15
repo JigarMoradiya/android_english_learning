@@ -244,6 +244,39 @@ val spellingRulesData: List<SpellingRule> = listOf(
                 RuleWordExample(prefix = "stu", suffix = "nk")
             ))
         )
+    ),
+
+    SpellingRule(
+        name = "X Rule",
+        pattern = "x = /ks/",
+        emoji = "❎",
+        color = Color(0xFF6A1B9A),
+        shadowColor = Color(0xFF4A148C),
+        ruleStatement = "**X** is one letter with **two sounds**: **/k/ + /s/** said super fast — box = /b/ /o/ **/k/ /s/**!",
+        whenToUse = listOf(
+            "Hear **/ks/** at the end of a word? → write **X** → box, fox, six",
+            "**X** almost always comes at the **end** after a **short vowel**",
+            "Never write 'cks' or 'ks' when one **X** does the job"
+        ),
+        whyItWorks = "X is the only letter that carries **two sounds by itself**.\n\n'**fox**' has **4 sounds**: /f/ /o/ **/k/** **/s/** — but only 3 letters!\n\nThat's X doing double work.",
+        watchOut = listOf(
+            "'**box**' is NOT spelled 'bocks' — the X already says /ks/",
+            "X at the **start** of a word usually says /z/ — **xylophone** (rare, don't worry!)"
+        ),
+        tip = "X is a **2-for-1 letter** — one shape, two sounds: /k/+/s/. Say 'si**x**' slowly and you'll hear both!",
+        comparisons = listOf(
+            RuleComparison(label = "X  →  /k/ + /s/", condition = "One letter, two sounds", color = Color(0xFF6A1B9A), words = listOf("box", "fox", "six", "mix", "wax", "fix", "tax", "ox"))
+        ),
+        exampleGroups = listOf(
+            RuleWordExampleGroup(label = null, examples = listOf(
+                RuleWordExample(prefix = "bo", suffix = "x"),
+                RuleWordExample(prefix = "fo", suffix = "x"),
+                RuleWordExample(prefix = "si", suffix = "x"),
+                RuleWordExample(prefix = "mi", suffix = "x"),
+                RuleWordExample(prefix = "wa", suffix = "x"),
+                RuleWordExample(prefix = "fi", suffix = "x")
+            ))
+        )
     )
 )
 

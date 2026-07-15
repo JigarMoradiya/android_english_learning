@@ -14,7 +14,11 @@ data class WhichSentenceSoundRightUiState(
     val score: Int = 0,
 
     val showResult: Boolean = false,
-    val options: List<String> = emptyList()
+    val options: List<String> = emptyList(),
+
+    // Timed mode (item 4.3)
+    val timedMode: Boolean = false,
+    val timerProgress: Float = 1f
 ) {
     val currentQuestion: WhichSentenceSoundsRight?
         get() = questions.getOrNull(currentIndex)
