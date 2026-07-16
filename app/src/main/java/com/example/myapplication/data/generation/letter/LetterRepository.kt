@@ -16,7 +16,7 @@ object LetterRepository {
         LetterData("J", "Joker",      listOf("Jug", "Jellyfish", "Jam", "Jet", "Jar"),                phonicsSound = "Juh Juh Juh",      highlightTimings = listOf(0.20, 0.75, 1.55, 1.95, 2.35, 3.45, 4.10, 4.45)),
         LetterData("K", "Kiwi",       listOf("King", "Kite", "Key", "Knife", "Kangaroo"),             phonicsSound = "Kuh Kuh Kuh",      highlightTimings = listOf(0.20, 0.75, 1.50, 1.95, 2.50, 3.45, 4.10, 4.35)),
         LetterData("L", "Lion",       listOf("Lamp", "Leaf", "Leg", "Ladder", "Lock"),                phonicsSound = "Luh Luh Luh",      highlightTimings = listOf(0.20, 0.75, 1.50, 2.00, 2.65, 3.85, 4.65, 4.95)),
-        LetterData("M", "Monkey",     listOf("Moon", "Mango", "Mushroom", "Mouse", "Mitten"),         phonicsSound = "Muh Muh Muh",      highlightTimings = listOf(0.20, 0.75, 1.60, 2.10, 2.70, 3.80, 4.45, 4.70)),
+        LetterData("M", "Monkey",     listOf("Moon", "Mango", "Mushroom", "Mouse", "Mitten"),         phonicsSound = "Mmm Mmm Mmm",      highlightTimings = listOf(0.20, 0.75, 1.50, 2.00, 2.55, 3.6, 4.20, 4.45)),
         LetterData("N", "Nest",       listOf("Nose", "Nurse", "Net", "Neck"),                         phonicsSound = "Nuh Nuh Nuh",      highlightTimings = listOf(0.20, 0.75, 1.60, 2.15, 2.70, 3.65, 4.25, 4.50)),
         LetterData("O", "Orange",     listOf("Owl", "Ox", "Octopus", "Onion", "Ostrich"),             phonicsSound = "Oh Oh Oh",         highlightTimings = listOf(0.25, 0.85, 1.40, 1.80, 2.35, 3.50, 4.00, 4.50)),
         LetterData("P", "Parrot",     listOf("Pig", "Pen", "Penguin", "Pot", "Pumpkin"),              phonicsSound = "Puh Puh Puh",      highlightTimings = listOf(0.20, 0.75, 1.40, 1.80, 2.20, 3.30, 3.85, 4.30)),

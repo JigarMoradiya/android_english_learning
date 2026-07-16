@@ -101,35 +101,28 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="add audio and changes">
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fair.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/fle.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/puz.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/siz.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ue2.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ui.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/waf.opus" afterDir="false" />
+    <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="making changes on age group 6-8 base on scripts">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ful.opus" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ful.opus" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/llp.opus" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/lp.opus" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_word/zul.opus" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/zle.opus" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/progress/PhonicsSessionRecorder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/progress/PhonicsSessionRecorder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l13_vowel_teams/VowelTeamsLearnPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l13_vowel_teams/VowelTeamsLearnPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l13_vowel_teams/view_model/VowelTeamsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l13_vowel_teams/view_model/VowelTeamsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l15_r_controlled/RControlledLearnPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l15_r_controlled/RControlledLearnPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l15_r_controlled/view_model/RControlledViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l15_r_controlled/view_model/RControlledViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l16_igh_gh/view_model/IghGhViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l16_igh_gh/view_model/IghGhViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l21_word_endings/view_model/WordEndingsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l21_word_endings/view_model/WordEndingsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l27_syllable_division/view_model/SyllableDivisionViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l27_syllable_division/view_model/SyllableDivisionViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l5_short_vowel_rules/view_model/ShortVowelRulesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l5_short_vowel_rules/view_model/ShortVowelRulesViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l6_word_families/view_model/WordFamiliesUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/l6_word_families/view_model/WordFamiliesUiState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/m_monkey_sound.opus" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_abcd/m_monkey_sound.opus" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_m.opus" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_m.opus" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/ModuleID.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/ModuleID.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/letter/LetterRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/letter/LetterRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/loader/SentenceBuilderLogic.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/loader/SentenceBuilderLogic.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/loader/SentenceProgress.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/generation/loader/SentenceProgress.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/choose_the_right_sentence/find_the_correct_writing/FindTheCorrectWritingPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/choose_the_right_sentence/find_the_correct_writing/FindTheCorrectWritingPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/choose_the_right_sentence/find_the_correct_writing/view_model/FindTheCorrectWritingUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/choose_the_right_sentence/find_the_correct_writing/view_model/FindTheCorrectWritingUiState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/progress/SentenceProgressPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/progress/SentenceProgressPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/sentence_check/SentenceCheckPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/sentence_check/SentenceCheckPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/sentence_check/view_model/SentenceCheckViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_6_to_8/sentence_check/view_model/SentenceCheckViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/presentation/model/LearningActivityModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/myapplication/data/generation/loader/SentenceBuilderLogicTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/myapplication/data/generation/loader/SentenceBuilderLogicTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/myapplication/data/generation/loader/SentenceProgressTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/myapplication/data/generation/loader/SentenceProgressTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +138,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[LocalEmulator::path=/Users/jigarmoradiya/.android/avd/Pixel_Tablet_2.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=RZ8RC0C1F6B]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -279,7 +272,7 @@
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;login__and__inapp&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jigarmoradiya/Documents/newProject/eng/android/app/src/main/assets/phonics_word&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jigarmoradiya/Documents/newProject/eng/android/app/src/main/assets/phonics_letter&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.android.studio.ml.bot.mainConfigurable&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -290,10 +283,10 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/assets/phonics_word" />
-      <recent name="$PROJECT_DIR$/app/src/main/assets" />
       <recent name="$PROJECT_DIR$/app/src/main/assets/phonics_letter" />
       <recent name="$PROJECT_DIR$/app/src/main/assets/phonics_abcd" />
+      <recent name="$PROJECT_DIR$/app/src/main/assets/phonics_word" />
+      <recent name="$PROJECT_DIR$/app/src/main/assets" />
       <recent name="$PROJECT_DIR$/app/src/main/assets/abcd" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -512,14 +505,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756021043875</updated>
-    </task>
-    <task id="LOCAL-00194" summary="access logic changed">
-      <option name="closed" value="true" />
-      <created>1780072962753</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1780072962753</updated>
     </task>
     <task id="LOCAL-00195" summary="INCREASE REVIEWS &amp; RATINGS STRATEGY">
       <option name="closed" value="true" />
@@ -905,7 +890,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784021598163</updated>
     </task>
-    <option name="localTasksCounter" value="243" />
+    <task id="LOCAL-00243" summary="making changes on age group 6-8 base on scripts">
+      <option name="closed" value="true" />
+      <created>1784116702076</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1784116702076</updated>
+    </task>
+    <option name="localTasksCounter" value="244" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -920,7 +913,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changes level flow" />
     <MESSAGE value="L14, L15 done" />
     <MESSAGE value="working on L16" />
     <MESSAGE value="L17,18,19,20 done" />
@@ -945,7 +937,8 @@
     <MESSAGE value="a and an article issue solve" />
     <MESSAGE value="changes" />
     <MESSAGE value="add audio and changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="add audio and changes" />
+    <MESSAGE value="making changes on age group 6-8 base on scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="making changes on age group 6-8 base on scripts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -973,12 +966,12 @@
         </entry>
         <entry key="com.vedaavi.english.learning">
           <value>
-            <CheckInfo lastCheckTimestamp="1784021309037" />
+            <CheckInfo lastCheckTimestamp="1784116718500" />
           </value>
         </entry>
         <entry key="com.vedaavi.english.learning.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1784021309043" />
+            <CheckInfo lastCheckTimestamp="1784116718500" />
           </value>
         </entry>
       </map>
