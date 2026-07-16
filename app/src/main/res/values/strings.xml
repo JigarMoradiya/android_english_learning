@@ -250,6 +250,8 @@
     <string name="split_sentences">Split Sentences</string>
     <string name="your_turn_say_it">Your turn — say it!</string>
     <string name="my_progress">My Progress</string>
+    <string name="he_she_it_drill">He, She, It</string>
+    <string name="has_have_drill">Has or Have</string>
     <string name="progress">Progress</string>
     <string name="lesson_completed">Lesson Completed</string>
     <string name="go_back_to_lesson">Go Back to Lesson</string>

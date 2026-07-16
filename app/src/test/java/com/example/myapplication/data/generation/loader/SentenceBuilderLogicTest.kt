@@ -106,6 +106,14 @@ class SentenceBuilderLogicTest {
         assertNotEquals(f.id, SentenceBuilderLogic.makeTrueFalse(item, useCorrect = true).id)
     }
 
+    // ---- 4.2 ----
+    @Test
+    fun wordDiff_findsSingleChangedWord() {
+        assertEquals("runs" to "run", SentenceBuilderLogic.wordDiff("The dog runs.", "The dog run."))
+        assertNull(SentenceBuilderLogic.wordDiff("a b c", "a x y"))
+        assertNull(SentenceBuilderLogic.wordDiff("a b", "a b c"))
+    }
+
     // ---- 1.3 ----
     @Test
     fun echoGapSeconds_scalesWithLengthWithFloor() {

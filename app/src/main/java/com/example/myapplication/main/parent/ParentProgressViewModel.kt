@@ -1251,6 +1251,8 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.WHICH_SENTENCE_RIGHT    to ("Which Sentence Sounds Right" to "6–8"),
             ModuleID.FIND_CORRECT_WRITING    to ("Find the Correct Writing" to "6–8"),
             ModuleID.SENTENCE_BUILDER        to ("Build the Sentence"       to "6–8"),
+            ModuleID.GRAMMAR_DRILL_AGREEMENT to ("He, She, It"              to "6–8"),
+            ModuleID.GRAMMAR_DRILL_HAS_HAVE  to ("Has or Have"              to "6–8"),
             ModuleID.GRAMMAR_NOUNS           to ("Grammar: Nouns"           to "6–8"),
             ModuleID.GRAMMAR_VERBS           to ("Grammar: Verbs"           to "6–8"),
             ModuleID.GRAMMAR_ADJECTIVES      to ("Grammar: Adjectives"      to "6–8"),
@@ -1281,6 +1283,8 @@ class ParentProgressViewModel @Inject constructor(
             ModuleID.MATCH_WORD_WITH_PICTURE to RouteNavigation.WordMatchImage.route,
             ModuleID.ARTICLES_CHOICE         to RouteNavigation.ArticleChoice.route,
             ModuleID.SIGHT_WORD_CHOICE       to RouteNavigation.SightWordChoice.route,
+            ModuleID.GRAMMAR_DRILL_AGREEMENT to RouteNavigation.GrammarDrillAgreement.route,
+            ModuleID.GRAMMAR_DRILL_HAS_HAVE  to RouteNavigation.GrammarDrillHasHave.route,
         )
     }
 }

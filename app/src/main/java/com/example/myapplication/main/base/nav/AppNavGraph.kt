@@ -236,6 +236,14 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.SentenceProgress.route) {
             com.example.myapplication.main.age_group.from_6_to_8.progress.SentenceProgressPage(navController)
         }
+        composable(RouteNavigation.GrammarDrillAgreement.route) {
+            com.example.myapplication.main.age_group.from_6_to_8.grammar_drill.GrammarDrillPage(
+                com.example.myapplication.data.generation.loader.GrammarDrillType.SUBJECT_VERB_AGREEMENT, navController)
+        }
+        composable(RouteNavigation.GrammarDrillHasHave.route) {
+            com.example.myapplication.main.age_group.from_6_to_8.grammar_drill.GrammarDrillPage(
+                com.example.myapplication.data.generation.loader.GrammarDrillType.HAS_HAVE, navController)
+        }
         // Age Category 3 to 5
         composable(RouteNavigation.AgeGroup3to5.route) {
             AgeGroup3to5Page(navController)

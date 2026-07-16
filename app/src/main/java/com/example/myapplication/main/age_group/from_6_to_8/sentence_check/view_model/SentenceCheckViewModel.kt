@@ -3,6 +3,7 @@ package com.example.myapplication.main.age_group.from_6_to_8.sentence_check.view
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.access.ModuleID
+import com.example.myapplication.data.generation.loader.FunFactBank
 import com.example.myapplication.data.generation.loader.MatchPictureLoader
 import com.example.myapplication.data.generation.loader.SentenceBuilderLogic
 import com.example.myapplication.data.model.SentenceLevel
@@ -47,9 +48,10 @@ class SentenceCheckViewModel @Inject constructor(
             level = state.level
         )
 
+        // 3 grammar True/False from the sentence data...
         val selected = allQuestions
             .shuffled()
-            .take(5)
+            .take(3)
 
         val questions = mutableListOf<TrueFalseQuestion>()
 
@@ -58,6 +60,10 @@ class SentenceCheckViewModel @Inject constructor(
             val useCorrect = if (item.wrongOptions.isEmpty()) true else listOf(true, false).random()
             questions.add(SentenceBuilderLogic.makeTrueFalse(item = item, useCorrect = useCorrect))
         }
+
+        // ...mixed with 2 fun-fact knowledge questions. (items 3.1 / 3.2)
+        questions.addAll(FunFactBank.questions(2))
+        questions.shuffle()
 
         _uiState.update {
             it.copy(

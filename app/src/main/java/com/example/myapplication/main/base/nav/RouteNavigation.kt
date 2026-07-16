@@ -6,6 +6,8 @@ sealed class RouteNavigation(val route: String) {
     object Settings : RouteNavigation("Settings")
     object ParentProgress : RouteNavigation("ParentProgress")
     object SentenceProgress : RouteNavigation("SentenceProgress")   // Age 6-8 progress (item 5.3)
+    object GrammarDrillAgreement : RouteNavigation("GrammarDrillAgreement")   // 2.2a
+    object GrammarDrillHasHave : RouteNavigation("GrammarDrillHasHave")       // 4.1a
     object AccessPlan : RouteNavigation("AccessPlan")
     object AgeGroup3to5 : RouteNavigation("AgeGroup3to5")
     object AlphabetTracing : RouteNavigation("AlphabetTracing")

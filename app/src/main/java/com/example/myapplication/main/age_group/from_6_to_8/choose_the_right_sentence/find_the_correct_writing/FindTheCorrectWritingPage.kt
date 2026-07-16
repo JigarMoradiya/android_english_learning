@@ -149,28 +149,46 @@ fun FindTheCorrectWritingPage(
                                 )
                             }
 
-                            // Explanation shown after answering (item 4.2)
-                            uiState.explanation?.let { explanation ->
-                                val prefix = SentenceBuilderLogic.CORRECT_SENTENCE_PREFIX
-                                val styled = if (explanation.startsWith(prefix)) {
+                            // Explanation shown after answering — names the exact word fix (item 4.2)
+                            if (uiState.selectedAnswer != null) {
+                                val correction = uiState.correction
+                                val styled = if (correction != null) {
                                     buildAnnotatedString {
-                                        append(prefix)
-                                        withStyle(SpanStyle(fontWeight = FontWeight.Bold, color = Color(0xFF3265D3))) {
-                                            append(explanation.removePrefix(prefix))
-                                        }
+                                        withStyle(SpanStyle(color = Color.Black)) { append("It is ") }
+                                        withStyle(SpanStyle(fontWeight = FontWeight.Bold, color = Color(0xFF2E7D32))) { append(correction.first) }
+                                        withStyle(SpanStyle(color = Color.Black)) { append(", not ") }
+                                        withStyle(SpanStyle(fontWeight = FontWeight.Bold, color = Color(0xFFD32F2F))) { append(correction.second) }
+                                        withStyle(SpanStyle(color = Color.Black)) { append(".") }
                                     }
                                 } else {
-                                    buildAnnotatedString { append(explanation) }
+                                    val prefix = SentenceBuilderLogic.CORRECT_SENTENCE_PREFIX
+                                    val ex = uiState.explanation ?: ""
+                                    if (ex.startsWith(prefix)) buildAnnotatedString {
+                                        withStyle(SpanStyle(color = Color.Black)) { append(prefix) }
+                                        withStyle(SpanStyle(fontWeight = FontWeight.Bold, color = Color(0xFF3265D3))) { append(ex.removePrefix(prefix)) }
+                                    } else buildAnnotatedString { withStyle(SpanStyle(color = Color.Black)) { append(ex) } }
                                 }
-                                Text(
-                                    text = styled,
-                                    color = Color.Black,
+                                val isCorrect = uiState.selectedAnswer == uiState.correctAnswer
+                                Column(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .clip(RoundedCornerShape(Dimens16))
                                         .background(Color.White.copy(alpha = 0.85f))
-                                        .padding(Dimens16)
-                                )
+                                        .padding(Dimens16),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.spacedBy(Dimens12)
+                                ) {
+                                    Text(
+                                        text = if (isCorrect) "🎉 Correct!" else "🤔 Not quite.",
+                                        color = if (isCorrect) Color(0xFF2E7D32) else Color(0xFFD32F2F),
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 18.sp
+                                    )
+                                    Text(
+                                        text = styled,
+                                        textAlign = TextAlign.Center
+                                    )
+                                }
                             }
 
                             // Next Button Row

@@ -24,8 +24,20 @@ data class FindTheCorrectWritingUiState(
         get() = currentQuestion?.correctSentence ?: ""
 
     // Rule explanation shown after answering; shares the "The correct sentence is: …"
-    // prefix so the UI bolds + colours the sentence. Phase 4 authors per-rule text. (item 4.2)
+    // prefix so the UI bolds + colours the sentence. Fallback when no one-word fix. (item 4.2)
     val explanation: String?
         get() = if (selectedAnswer == null) null
                 else "${SentenceBuilderLogic.CORRECT_SENTENCE_PREFIX}$correctAnswer"
+
+    // The exact one-word fix (right vs wrong), so the card can name it. (item 4.2)
+    val correction: Pair<String, String>?
+        get() {
+            if (selectedAnswer == null) return null
+            for (opt in options) {
+                if (opt != correctAnswer) {
+                    SentenceBuilderLogic.wordDiff(correctAnswer, opt)?.let { return it }
+                }
+            }
+            return null
+        }
 }

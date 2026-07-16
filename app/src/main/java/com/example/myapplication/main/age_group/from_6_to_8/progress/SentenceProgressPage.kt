@@ -87,15 +87,20 @@ fun SentenceProgressPage(
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(Dimens16))
                         .background(accent.copy(alpha = 0.15f))
-                        .padding(Dimens16),
+                        .padding(horizontal = Dimens16, vertical = Dimens8),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text("🏅", fontSize = 40.sp)
+                    Text("🏅", fontSize = 34.sp)
                     Spacer(Modifier.width(Dimens12))
                     Column {
-                        Text("${summary.totalActivities}", color = accent,
-                            fontSize = 40.sp, fontWeight = FontWeight.Bold)
-                        Text("activities completed", color = Color.Black)
+                        Text(
+                            "${summary.totalActivities}",
+                            color = accent,
+                            fontSize = 32.sp,
+                            fontWeight = FontWeight.Bold,
+                            lineHeight = 32.sp
+                        )
+                        Text("activities completed", color = Color.Gray, fontSize = 14.sp, lineHeight = 16.sp)
                     }
                 }
 
@@ -105,7 +110,7 @@ fun SentenceProgressPage(
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(Dimens16))
                         .background(cardBg)
-                        .padding(Dimens16),
+                        .padding(horizontal = Dimens16, vertical = Dimens8),
                     verticalArrangement = Arrangement.spacedBy(Dimens8)
                 ) {
                     Text("Last 7 days", color = Color.Black, fontWeight = FontWeight.SemiBold)
@@ -153,7 +158,7 @@ fun SentenceProgressPage(
                             .fillMaxWidth()
                             .clip(RoundedCornerShape(Dimens16))
                             .background(cardBg)
-                            .padding(Dimens16),
+                            .padding(horizontal = Dimens16, vertical = Dimens8),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Box(
@@ -172,10 +177,20 @@ fun SentenceProgressPage(
                         Box(
                             modifier = Modifier
                                 .clip(RoundedCornerShape(50))
+                                .background(accent.copy(alpha = 0.15f))
+                                .padding(horizontal = Dimens12, vertical = Dimens8)
+                        ) {
+                            Text("Last ${(m.lastAccuracy * 100).toInt()}%", color = accent,
+                                fontWeight = FontWeight.SemiBold, fontSize = 12.sp)
+                        }
+                        Spacer(Modifier.width(Dimens8))
+                        Box(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(50))
                                 .background(pillColor.copy(alpha = 0.15f))
                                 .padding(horizontal = Dimens12, vertical = Dimens8)
                         ) {
-                            Text("best $pct%", color = pillColor,
+                            Text("Best $pct%", color = pillColor,
                                 fontWeight = FontWeight.SemiBold, fontSize = 12.sp)
                         }
                     }

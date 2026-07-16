@@ -32,6 +32,19 @@ class SentenceProgressTest {
     }
 
     @Test
+    fun lastAccuracy_isMostRecentSession() {
+        val now = System.currentTimeMillis()
+        val dayMs = 24L * 60 * 60 * 1000
+        val sessions = listOf(
+            session(ModuleID.SENTENCE_BUILDER, 5, 5, now - 2 * dayMs),  // older → 100%
+            session(ModuleID.SENTENCE_BUILDER, 2, 5, now)               // latest → 40%
+        )
+        val m = SentenceProgress.summary(sessions, now).perModule.first { it.moduleId == ModuleID.SENTENCE_BUILDER }
+        assertEquals(1.0, m.bestAccuracy, 0.0001)   // best stays 100%
+        assertEquals(0.4, m.lastAccuracy, 0.0001)   // last = most recent (40%)
+    }
+
+    @Test
     fun last7DayCounts_bucketsByDay() {
         val now = System.currentTimeMillis()
         val dayMs = 24L * 60 * 60 * 1000

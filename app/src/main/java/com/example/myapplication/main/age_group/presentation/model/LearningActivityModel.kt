@@ -99,6 +99,8 @@ val activities_age_6_8 = if (DeviceInfo.isTablet){
         LearningActivityModel(R.string.chooseTheRightSentence,R.drawable.age_6_8_choose_the_right_sentence,RouteNavigation.ChooseTheRightSentence.route,Color(0xFF3265D3), moduleId = ""),  // FREE entry; inner pages gate themselves
         LearningActivityModel(R.string.sentenceBuilder,       R.drawable.age_6_8_build_the_sentence,       RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.BUILD_THE_SENTENCE.name),       Color(0xFF237227), moduleId = ModuleID.SENTENCE_BUILDER),
         LearningActivityModel(R.string.grammarBasics,         R.drawable.age_6_8_grammer_basics,           RouteNavigation.GrammarBasic.route,  Color(0xFF7315B7), moduleId = ModuleID.GRAMMAR_NOUNS),
+        LearningActivityModel(R.string.he_she_it_drill,       R.drawable.age_6_8_grammer_basics,           RouteNavigation.GrammarDrillAgreement.route, Color(0xFF0EA5A5), moduleId = ModuleID.GRAMMAR_DRILL_AGREEMENT),
+        LearningActivityModel(R.string.has_have_drill,        R.drawable.age_6_8_grammer_basics,           RouteNavigation.GrammarDrillHasHave.route,   Color(0xFF2563EB), moduleId = ModuleID.GRAMMAR_DRILL_HAS_HAVE),
         LearningActivityModel(R.string.grammar_challenge,         R.drawable.age_6_8_grammar_challenge,           RouteNavigation.MixedGrammarChallenge.route,Color(0xFFD5074E), moduleId = ModuleID.GRAMMAR_NOUNS),
     )
 }else{
@@ -109,6 +111,8 @@ val activities_age_6_8 = if (DeviceInfo.isTablet){
         LearningActivityModel(R.string.sentenceBuilder,       R.drawable.age_6_8_build_the_sentence,       RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.BUILD_THE_SENTENCE.name),       Color(0xFF237227), moduleId = ModuleID.SENTENCE_BUILDER),
         LearningActivityModel(R.string.fillTheMissingWord,    R.drawable.age_6_8_fill_the_missing_word,    RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.FILL_THE_MISSING_WORD.name),    Color(0xFF85479D), moduleId = ModuleID.FILL_MISSING_WORD),
         LearningActivityModel(R.string.grammarBasics,         R.drawable.age_6_8_grammer_basics,           RouteNavigation.GrammarBasic.route,  Color(0xFF7315B7), moduleId = ModuleID.GRAMMAR_NOUNS),
+        LearningActivityModel(R.string.he_she_it_drill,       R.drawable.age_6_8_grammer_basics,           RouteNavigation.GrammarDrillAgreement.route, Color(0xFF0EA5A5), moduleId = ModuleID.GRAMMAR_DRILL_AGREEMENT),
+        LearningActivityModel(R.string.has_have_drill,        R.drawable.age_6_8_grammer_basics,           RouteNavigation.GrammarDrillHasHave.route,   Color(0xFF2563EB), moduleId = ModuleID.GRAMMAR_DRILL_HAS_HAVE),
         LearningActivityModel(R.string.sentenceCheck,         R.drawable.age_6_8_sentence_check,           RouteNavigation.SentenceUnitList.sentenceUnitList(UnitSelectionScreen.SENTENCE_CHECK.name),           Color(0xFFBC6900), moduleId = ModuleID.SENTENCE_CHECK),
         LearningActivityModel(R.string.grammar_challenge,         R.drawable.age_6_8_grammar_challenge,           RouteNavigation.MixedGrammarChallenge.route,Color(0xFFD5074E), moduleId = ModuleID.GRAMMAR_NOUNS),
     )

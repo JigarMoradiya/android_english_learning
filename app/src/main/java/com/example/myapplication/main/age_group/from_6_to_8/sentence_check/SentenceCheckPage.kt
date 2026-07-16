@@ -54,7 +54,9 @@ import com.example.myapplication.main.common.buttons.KidsOptionButton
 import com.example.myapplication.main.common.getImageResForSentence
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens2
+import androidx.compose.ui.text.style.TextAlign
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
+import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.isTablet
 import com.example.myapplication.ui.theme.AppDimens.listenAndAnswerOptionsHeight
 import com.example.myapplication.ui.theme.ButtonType
@@ -169,24 +171,36 @@ fun SentenceCheckPage(
                                         val prefix = SentenceBuilderLogic.CORRECT_SENTENCE_PREFIX
                                         val styled = if (explanation.startsWith(prefix)) {
                                             buildAnnotatedString {
-                                                append(prefix)
+                                                withStyle(SpanStyle(color = Color.Black)) { append(prefix) }
                                                 withStyle(SpanStyle(fontWeight = FontWeight.Bold, color = Color(0xFF2E7D32))) {
                                                     append(explanation.removePrefix(prefix))
                                                 }
                                             }
                                         } else {
-                                            buildAnnotatedString { append(explanation) }
+                                            buildAnnotatedString { withStyle(SpanStyle(color = Color.Black)) { append(explanation) } }
                                         }
-                                        Text(
-                                            text = styled,
+                                        val isCorrect = uiState.selectedAnswer.equals(uiState.correctAnswer, ignoreCase = true)
+                                        Column(
                                             modifier = Modifier
                                                 .fillMaxWidth()
                                                 .clip(RoundedCornerShape(Dimens16))
                                                 .background(Color.White.copy(alpha = 0.85f))
                                                 .padding(Dimens16),
-                                            style = MaterialTheme.typography.bodyLarge.scaled(),
-                                            color = Color.Black
-                                        )
+                                            horizontalAlignment = Alignment.CenterHorizontally,
+                                            verticalArrangement = Arrangement.spacedBy(Dimens12)
+                                        ) {
+                                            Text(
+                                                text = if (isCorrect) "🎉 Correct!" else "🤔 Not quite.",
+                                                style = MaterialTheme.typography.titleMedium.scaled(),
+                                                color = if (isCorrect) Color(0xFF2E7D32) else Color(0xFFD32F2F),
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                            Text(
+                                                text = styled,
+                                                style = MaterialTheme.typography.bodyLarge.scaled(),
+                                                textAlign = TextAlign.Center
+                                            )
+                                        }
                                     }
 
                                 Row {

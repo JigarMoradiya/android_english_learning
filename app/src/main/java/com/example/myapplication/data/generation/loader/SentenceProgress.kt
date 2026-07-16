@@ -8,7 +8,8 @@ data class SentenceModuleProgress(
     val moduleId: String,
     val title: String,
     val sessions: Int,
-    val bestAccuracy: Double
+    val bestAccuracy: Double,
+    val lastAccuracy: Double
 )
 
 data class SentenceProgressSummary(
@@ -31,7 +32,9 @@ object SentenceProgress {
         ModuleID.WHICH_SENTENCE_RIGHT to "Which Sounds Right",
         ModuleID.FIND_CORRECT_WRITING to "Find the Correct Writing",
         ModuleID.SENTENCE_BUILDER to "Build the Sentence",
-        ModuleID.ONE_WORD_ANSWER to "One Word Answer"
+        ModuleID.ONE_WORD_ANSWER to "One Word Answer",
+        ModuleID.GRAMMAR_DRILL_AGREEMENT to "He, She, It",
+        ModuleID.GRAMMAR_DRILL_HAS_HAVE to "Has or Have"
     )
 
     fun summary(
@@ -48,7 +51,8 @@ object SentenceProgress {
                 moduleId = id,
                 title = title,
                 sessions = s.size,
-                bestAccuracy = s.maxOf { accuracy(it) }
+                bestAccuracy = s.maxOf { accuracy(it) },
+                lastAccuracy = s.maxByOrNull { it.timestampMs }?.let { accuracy(it) } ?: 0.0
             )
         }.sortedByDescending { it.sessions }
 

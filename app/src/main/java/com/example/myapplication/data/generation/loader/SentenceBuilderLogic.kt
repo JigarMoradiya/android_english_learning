@@ -81,6 +81,22 @@ object SentenceBuilderLogic {
         }
     }
 
+    // 4.2 — Find the Correct Writing: the single word that changed (right vs wrong)
+    // between two same-length sentences, so the explanation can name the exact fix.
+    fun wordDiff(correct: String, wrong: String): Pair<String, String>? {
+        val punct = charArrayOf('.', ',', '!', '?', ';', ':', '"', '\'')
+        fun norm(s: String) = s.lowercase().trim(*punct)
+        val c = correct.split(" ")
+        val w = wrong.split(" ")
+        if (c.size != w.size) return null
+        val diffs = mutableListOf<Pair<String, String>>()
+        for (i in c.indices) {
+            if (norm(c[i]) != norm(w[i])) diffs.add(c[i] to w[i])
+        }
+        if (diffs.size != 1) return null
+        return diffs[0].first.trim(*punct) to diffs[0].second.trim(*punct)
+    }
+
     // 1.3 — Echo reading "your turn" repeat gap (seconds), scales with sentence
     // length, never shorter than 2s.
     fun echoGapSeconds(wordCount: Int): Double {

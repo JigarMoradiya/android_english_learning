@@ -56,6 +56,8 @@ object ModuleID {
     const val WHICH_SENTENCE_RIGHT      = "which_sentence_sounds_right"
     const val FIND_CORRECT_WRITING      = "find_correct_writing"
     const val SENTENCE_BUILDER          = "sentence_builder"
+    const val GRAMMAR_DRILL_AGREEMENT   = "grammar_drill_agreement"   // 2.2a He/She/It
+    const val GRAMMAR_DRILL_HAS_HAVE    = "grammar_drill_has_have"    // 4.1a has/have
     const val GRAMMAR_CHALLENGE_BEGINNER = "grammar_challenge_beginner"
     const val GRAMMAR_CHALLENGE_MEDIUM  = "grammar_challenge_medium"
     const val GRAMMAR_CHALLENGE_ADVANCED = "grammar_challenge_advanced"
