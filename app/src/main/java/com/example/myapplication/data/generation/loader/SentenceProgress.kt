@@ -34,7 +34,10 @@ object SentenceProgress {
         ModuleID.SENTENCE_BUILDER to "Build the Sentence",
         ModuleID.ONE_WORD_ANSWER to "One Word Answer",
         ModuleID.GRAMMAR_DRILL_AGREEMENT to "He, She, It",
-        ModuleID.GRAMMAR_DRILL_HAS_HAVE to "Has or Have"
+        ModuleID.GRAMMAR_DRILL_HAS_HAVE to "Has or Have",
+        ModuleID.GRAMMAR_CHALLENGE_BEGINNER to "Grammar — Beginner",
+        ModuleID.GRAMMAR_CHALLENGE_MEDIUM to "Grammar — Medium",
+        ModuleID.GRAMMAR_CHALLENGE_ADVANCED to "Grammar — Advanced"
     )
 
     fun summary(

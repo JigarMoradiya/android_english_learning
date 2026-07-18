@@ -12,7 +12,7 @@ data class FixTheSentenceUiState(
     val isAnswerSubmitted: Boolean = false,
     val isAnswerCorrect: Boolean = false,
     val feedbackTitleRes: Int? = null,
-    val feedbackSubTitleRes: Int? = null,
+    val feedbackSubTitle: String? = null,   // dynamic per-fix rule explanation
     val score: Int = 0,
     val isCompleted: Boolean = false
 ) {

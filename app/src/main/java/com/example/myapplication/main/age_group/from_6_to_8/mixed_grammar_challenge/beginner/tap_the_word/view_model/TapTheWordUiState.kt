@@ -7,10 +7,14 @@ data class TapTheWordUiState(
     val questionsAll: List<MixedBeginnerQuestion> = emptyList(),
     val questions: List<MixedBeginnerQuestion> = emptyList(),
     val currentIndex: Int = 0,
-    val selectedWord: String? = null,   // lowercased tapped word
+    val selectedWord: String? = null,   // lowercased tapped word (unused in tap-all, kept for parity)
+    val foundWords: Set<String> = emptySet(),   // correct taps (lowercased)
+    val wrongWords: Set<String> = emptySet(),   // incorrect taps (lowercased)
+    val hadWrongTap: Boolean = false,           // any wrong tap → question scored incorrect
     val isAnswerCorrect: Boolean = false,
     val feedbackTitleRes: Int? = null,
-    val feedbackSubTitle: Int? = null,
+    val feedbackSubTitle: Int? = null,          // success subline (string res)
+    val feedbackSubTitleText: String? = null,   // failure message (dynamic, tap-all)
     val showNext: Boolean = false,
     val score: Int = 0,
     val isCompleted: Boolean = false

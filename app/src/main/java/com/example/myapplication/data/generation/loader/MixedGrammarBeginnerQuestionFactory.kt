@@ -32,11 +32,26 @@ object MixedGrammarBeginnerQuestionFactory {
 
                 if (sentence.blankableWords.isEmpty()) continue
 
+                // Tokens the child can actually tap (lowercased, punctuation stripped).
+                // In tapWord mode every target word must be tappable, else the question
+                // can never be completed.
+                val tappable = sentence.text
+                    .replace(".", "").replace("!", "").replace("?", "").replace(",", "")
+                    .split(" ").filter { it.isNotEmpty() }
+                    .map { it.lowercase() }
+                    .toSet()
+
                 val wordsByType: Map<WordType, List<BlankableWord>> =
                     sentence.blankableWords.groupBy { it.type }
 
                 val eligibleTypes: List<WordType> = if (activityType == BeginnerActivityType.TAP_WORD) {
-                    wordsByType.filter { it.value.size == 1 }.keys.toList()
+                    // "Tap all" mode: only types whose every word is tappable; prefer
+                    // types with 2+ words so the child truly finds all of them.
+                    val tappableTypes = wordsByType.filter { (_, ws) ->
+                        ws.all { tappable.contains(it.word.lowercase()) }
+                    }
+                    val multi = tappableTypes.filter { it.value.size >= 2 }.keys.toList()
+                    multi.ifEmpty { tappableTypes.keys.toList() }
                 } else {
                     wordsByType.keys.toList()
                 }

@@ -304,7 +304,7 @@ fun FixTheSentencePage(
                         // ── Feedback ──────────────────────────────────────────
                         FeedbackText(
                             title = uiState.feedbackTitleRes?.let { stringResource(it) }?:"",
-                            subtitle = uiState.feedbackTitleRes?.let { stringResource(it) }?:"",
+                            subtitle = uiState.feedbackSubTitle ?: "",
                             isSuccess = uiState.isAnswerCorrect,
                             isVisible = uiState.isAnswerSubmitted,
                             modifier = Modifier.align(Alignment.CenterHorizontally)

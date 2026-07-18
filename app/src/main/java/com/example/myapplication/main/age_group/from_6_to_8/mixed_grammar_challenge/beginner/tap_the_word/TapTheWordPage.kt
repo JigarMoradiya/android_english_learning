@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -180,12 +181,41 @@ fun TapTheWordPage(
                                     modifier = Modifier.padding(horizontal = Dimens12)
                                 )
 
-                                // Instruction badge: "Tap the [VERB] in the sentence"
+                                // Instruction badge: "Tap all the [NOUN]s in the sentence"
                                 TapInstructionBadge(
                                     icon = viewModel.tapBadgeIcon(),
                                     typeLabel = typeLabel,
-                                    typeColor = typeColor
+                                    typeColor = typeColor,
+                                    isPlural = q.allCorrectWords.size > 1
                                 )
+
+                                // Live progress — only when 2+ words must be found
+                                if (q.allCorrectWords.size > 1 && !uiState.showNext) {
+                                    val progressColor = Color(0xFF5C6BC0)  // neutral indigo — a hint, not correct/wrong
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(Dimens6),
+                                        modifier = Modifier
+                                            .background(progressColor.copy(alpha = 0.12f), RoundedCornerShape(50.dp))
+                                            .border(1.dp, progressColor.copy(alpha = 0.3f), RoundedCornerShape(50.dp))
+                                            .padding(horizontal = Dimens12, vertical = Dimens6)
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Filled.Search,
+                                            contentDescription = null,
+                                            tint = progressColor,
+                                            modifier = Modifier.size(16.dp)
+                                        )
+                                        val remaining = q.allCorrectWords.size - uiState.foundWords.size
+                                        Text(
+                                            text = "Found ${uiState.foundWords.size} of ${q.allCorrectWords.size}" +
+                                                   if (remaining > 0) " — keep going!" else "",
+                                            style = MaterialTheme.typography.bodySmall.scaled(),
+                                            fontWeight = FontWeight.Bold,
+                                            color = progressColor
+                                        )
+                                    }
+                                }
 
                                 // Word chips — FlowRow so they wrap naturally
                                 FlowRow(
@@ -215,7 +245,7 @@ fun TapTheWordPage(
                                     if (uiState.isAnswerCorrect){
                                         uiState.feedbackSubTitle?.let { stringResource(it) }?:""
                                     }else{
-                                        stringResource(R.string.the_was_font_color_2e7d32_b_b_font, typeLabel.lowercase(), q.correctWord)
+                                        uiState.feedbackSubTitleText ?: ""
                                     }
                                 }else{
                                     ""
@@ -266,7 +296,8 @@ fun TapTheWordPage(
 private fun TapInstructionBadge(
     icon: ImageVector,
     typeLabel: String,
-    typeColor: Color
+    typeColor: Color,
+    isPlural: Boolean
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -284,13 +315,13 @@ private fun TapInstructionBadge(
         )
 
         Text(
-            text = "Tap the",
+            text = if (isPlural) "Tap all the" else "Tap the",
             style = MaterialTheme.typography.bodyMedium.scaled(),
             color = Color.Black.copy(alpha = 0.7f)
         )
 
         Text(
-            text = typeLabel,
+            text = if (isPlural) "${typeLabel}s" else typeLabel,
             style = MaterialTheme.typography.bodyMedium.scaled(),
             fontWeight = FontWeight.Bold,
             color = Color.White,

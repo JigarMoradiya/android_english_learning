@@ -18,6 +18,7 @@ import kotlinx.coroutines.withContext
 import com.example.myapplication.R
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.BeginnerActivityType
+import com.example.myapplication.data.generation.loader.MixedBeginnerQuestion
 import com.example.myapplication.data.generation.loader.MixedGrammarBeginnerQuestionFactory
 import com.example.myapplication.data.model.WordType
 import com.example.myapplication.data.progress.AgeGroup
@@ -72,30 +73,48 @@ class TapTheWordViewModel @Inject constructor(
         )
     }
 
+    /** tapWord — child must find EVERY word of the target type in the sentence. */
     fun selectAnswer(word: String) {
         val state = _uiState.value
-        if (state.selectedWord != null) return
+        if (state.showNext) return
         val q = state.currentQuestion ?: return
 
-        val tapped = word.lowercase()
-        // Accept any word of the correct type (mirrors iOS allCorrectWords check)
-        val isCorrect = q.allCorrectWords.contains(tapped)
+        val w = word.lowercase()
+        val correctSet = q.allCorrectWords.toSet()
 
-        if (isCorrect) AudioPlayerManager.playSoundCorrectAnswer()
-        else AudioPlayerManager.playSoundWrongAnswer()
+        if (correctSet.contains(w)) {
+            if (state.foundWords.contains(w)) return
+            AudioPlayerManager.playSoundCorrectAnswer()
+            val newFound = state.foundWords + w
+            _uiState.update { it.copy(foundWords = newFound) }
+            if (correctSet.all { newFound.contains(it) }) {
+                completeTapAll(q)
+            }
+        } else {
+            if (state.wrongWords.contains(w)) return
+            AudioPlayerManager.playSoundWrongAnswer()
+            _uiState.update { it.copy(wrongWords = it.wrongWords + w, hadWrongTap = true) }
+        }
+    }
 
+    private fun completeTapAll(q: MixedBeginnerQuestion) {
+        val success = !_uiState.value.hadWrongTap
         _uiState.update {
             it.copy(
-                selectedWord = tapped,
-                isAnswerCorrect = isCorrect,
-                feedbackTitleRes = if (isCorrect) feedbackTitles.random() else feedbackWrong.random(),
-                feedbackSubTitle = if (isCorrect) feedbackGiveAnswerSubTitleCorrect.random() else null,
+                isAnswerCorrect = success,
                 showNext = true,
-                score = if (isCorrect) it.score + 1 else it.score
+                feedbackTitleRes = if (success) feedbackTitles.random() else feedbackWrong.random(),
+                feedbackSubTitle = if (success) feedbackGiveAnswerSubTitleCorrect.random() else null,
+                feedbackSubTitleText = if (success) null else pluralGreenMessage(q),
+                score = if (success) it.score + 1 else it.score
             )
         }
-        if (_uiState.value.currentIndex == _uiState.value.questions.size - 1) {
-            val state = _uiState.value
+        recordIfLast()
+    }
+
+    private fun recordIfLast() {
+        val state = _uiState.value
+        if (state.currentIndex == state.questions.size - 1) {
             val durationSec = ((System.currentTimeMillis() - startTimeMs) / 1000).toInt()
             sessionRepository.record(
                 LearningSession(
@@ -112,6 +131,13 @@ class TapTheWordViewModel @Inject constructor(
         }
     }
 
+    /** e.g. "The nouns are shown in green." / "The noun is shown in green." */
+    private fun pluralGreenMessage(q: MixedBeginnerQuestion): String {
+        val label = typeLabel(q.targetType).lowercase()
+        val subject = if (q.allCorrectWords.size > 1) "${label}s are" else "$label is"
+        return "The $subject shown in green."
+    }
+
     fun moveToNextQuestion() {
         val state = _uiState.value
         if (state.currentIndex < state.questions.size - 1) {
@@ -119,8 +145,12 @@ class TapTheWordViewModel @Inject constructor(
                 it.copy(
                     currentIndex = it.currentIndex + 1,
                     selectedWord = null,
+                    foundWords = emptySet(),
+                    wrongWords = emptySet(),
+                    hadWrongTap = false,
                     isAnswerCorrect = false,
                     feedbackTitleRes = null,
+                    feedbackSubTitleText = null,
                     showNext = false
                 )
             }
@@ -131,14 +161,13 @@ class TapTheWordViewModel @Inject constructor(
 
     // ── Button type helpers ──────────────────────────────────────────────────
 
-    /** Style for inline word chips (green = correct type, red = wrong tap) */
+    /** Style for inline word chips (green = found target word, red = wrong tap) */
     fun wordChipType(word: String): ButtonType {
         val state = _uiState.value
-        val selected = state.selectedWord ?: return ButtonType.OPTIONS
         val w = word.lowercase()
         return when {
-            state.currentQuestion?.allCorrectWords?.contains(w) == true -> ButtonType.GREEN
-            w == selected -> ButtonType.RED
+            state.foundWords.contains(w) -> ButtonType.GREEN
+            state.wrongWords.contains(w) -> ButtonType.RED
             else -> ButtonType.OPTIONS
         }
     }

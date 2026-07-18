@@ -17,12 +17,12 @@ import kotlinx.coroutines.withContext
 import com.example.myapplication.R
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.generation.loader.FixSentenceFactory
+import com.example.myapplication.data.generation.loader.FixSentenceQuestion
 import com.example.myapplication.data.model.WordType
 import com.example.myapplication.data.progress.AgeGroup
 import com.example.myapplication.data.progress.LearningSession
 import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.utils.AudioPlayerManager
-import com.example.myapplication.utils.FeedbackConstant.feedbackGiveAnswerSubTitleCorrect
 import com.example.myapplication.utils.FeedbackConstant.feedbackTitles
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -75,7 +75,8 @@ class FixTheSentenceViewModel @Inject constructor(
                 isAnswerSubmitted = true,
                 isAnswerCorrect   = correct,
                 feedbackTitleRes  = if (correct) feedbackTitles.random() else R.string.its_wrong,
-                feedbackSubTitleRes  = if (correct) feedbackGiveAnswerSubTitleCorrect.random() else null,
+                // A clear reason for every fix (reel claim). Shown whether right or wrong.
+                feedbackSubTitle  = ruleExplanation(q),
                 score             = if (correct) it.score + 1 else it.score
             )
         }
@@ -108,7 +109,8 @@ class FixTheSentenceViewModel @Inject constructor(
                     selectedOption    = null,
                     isAnswerSubmitted  = false,
                     isAnswerCorrect   = false,
-                    feedbackTitleRes  = null
+                    feedbackTitleRes  = null,
+                    feedbackSubTitle  = null
                 )
             }
         }
@@ -129,6 +131,17 @@ class FixTheSentenceViewModel @Inject constructor(
             option.equals(q.correctWord, ignoreCase = true) -> FixOptionState.CORRECT
             option == state.selectedOption                  -> FixOptionState.WRONG
             else                                            -> FixOptionState.NORMAL
+        }
+    }
+
+    // A short, kid-friendly reason naming the correct word + its type rule.
+    private fun ruleExplanation(q: FixSentenceQuestion): String {
+        val word = q.correctWord.lowercase()
+        return when (q.targetType) {
+            WordType.NOUN      -> "‘$word’ is a noun — it names a person, animal, place or thing."
+            WordType.VERB      -> "‘$word’ is a verb — a doing word."
+            WordType.ADJECTIVE -> "‘$word’ is an adjective — a describing word."
+            WordType.PRONOUN   -> "‘$word’ is a pronoun — it takes the place of a name."
         }
     }
 
