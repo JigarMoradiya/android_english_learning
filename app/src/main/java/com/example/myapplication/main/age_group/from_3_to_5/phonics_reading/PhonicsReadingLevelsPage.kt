@@ -32,6 +32,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
+import com.example.myapplication.ui.theme.AppDimens.isTablet
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -445,20 +446,29 @@ fun PhonicsReadingLevelsPage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                Spacer(modifier = Modifier.weight(1f))
+                // Weighted scroll-safe slot: the hub can never push the strip off-screen
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState()),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                ) {
+                    Spacer(modifier = Modifier.height(Dimens8))
 
-                ProgressHub(
-                    doneCount = doneCount,
-                    totalLevels = totalLevels,
-                    totalStars = totalStars,
-                    nextUp = nextUpLevel,
-                    celebrate = celebrate,
-                    ringStart = ringStart,
-                    onContinue = { nextUpLevel?.let(openLevel) },
-                    modifier = Modifier.padding(horizontal = Dimens16),
-                )
+                    ProgressHub(
+                        doneCount = doneCount,
+                        totalLevels = totalLevels,
+                        totalStars = totalStars,
+                        nextUp = nextUpLevel,
+                        celebrate = celebrate,
+                        ringStart = ringStart,
+                        onContinue = { nextUpLevel?.let(openLevel) },
+                        modifier = Modifier.padding(horizontal = Dimens16),
+                    )
 
-                Spacer(modifier = Modifier.weight(1f))
+                    Spacer(modifier = Modifier.height(Dimens8))
+                }
 
                 CompareStrip(
                     onTap = {
@@ -998,21 +1008,25 @@ private fun ProgressHub(
     onContinue: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    // Phones in landscape have very little height — tighten the hub so the
+    // Compare strip below always stays fully on screen.
+    val compact = !isTablet
+
     Box(modifier = modifier) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .shadow(Dimens8, RoundedCornerShape(Dimens24))
                 .background(Color.White.copy(alpha = 0.9f), RoundedCornerShape(Dimens24))
-                .padding(vertical = Dimens20, horizontal = Dimens16),
+                .padding(vertical = if (compact) Dimens12 else Dimens20, horizontal = Dimens16),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(Dimens10),
+            verticalArrangement = Arrangement.spacedBy(if (compact) Dimens6 else Dimens10),
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(Dimens16),
             ) {
-                BobbingTeddy(height = Dimens80 + Dimens16)
+                BobbingTeddy(height = if (compact) Dimens80 else Dimens80 + Dimens16)
                 ProgressRing(doneCount = doneCount, totalLevels = totalLevels, startFraction = ringStart)
             }
 
