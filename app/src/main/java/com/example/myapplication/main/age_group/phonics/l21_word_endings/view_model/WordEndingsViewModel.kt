@@ -183,7 +183,7 @@ val wordEndingGroups: List<WordEndingGroup> = listOf(
     ),
     WordEndingGroup(
         suffix = "-es", suffixLen = 2,
-        emoji = "📦", meaning = "MORE than one — after s · x · ch · sh!",
+        emoji = "📦", meaning = "MORE than one — after s · x · ch · sh · and y → i (babies)!",
         accentColor = Color(0xFF5D4037), shadowColor = Color(0xFF3E2723),
         words = listOf(
             WordEndingWord(base = "box",   derived = "boxes",   rule = WordEndingRule.JUST_ADD),
@@ -192,6 +192,10 @@ val wordEndingGroups: List<WordEndingGroup> = listOf(
             WordEndingWord(base = "wish",  derived = "wishes",  rule = WordEndingRule.JUST_ADD),
             WordEndingWord(base = "dish",  derived = "dishes",  rule = WordEndingRule.JUST_ADD),
             WordEndingWord(base = "class", derived = "classes", rule = WordEndingRule.JUST_ADD),
+            // y → i — consonant + y: change y to i, then add -es
+            WordEndingWord(base = "baby",  derived = "babies",  rule = WordEndingRule.DROP_Y),
+            WordEndingWord(base = "puppy", derived = "puppies", rule = WordEndingRule.DROP_Y),
+            WordEndingWord(base = "fly",   derived = "flies",   rule = WordEndingRule.DROP_Y),
         )
     ),
 )
@@ -292,6 +296,9 @@ val wordEndingsPracticeQuestions: List<WordEndingsPracticeQuestion> = listOf(
     WordEndingsPracticeQuestion("brave", "-est", "bravest",  listOf("bravest","braveest","bravvest","braver").shuffled()),
     WordEndingsPracticeQuestion("wide",  "-est", "widest",   listOf("widest","wideest","widdest","wider").shuffled()),
     WordEndingsPracticeQuestion("late",  "-est", "latest",   listOf("latest","lateest","lattest","later").shuffled()),
+    // y → i plurals (tricky!)
+    WordEndingsPracticeQuestion("baby",  "-es",  "babies",   listOf("babies","babys","babyes","babis").shuffled()),
+    WordEndingsPracticeQuestion("fly",   "-es",  "flies",    listOf("flies","flys","flyes","flise").shuffled()),
     // -s / -es plurals
     WordEndingsPracticeQuestion("cat",   "-s",  "cats",     listOf("cats","cates","catss","cat").shuffled()),
     WordEndingsPracticeQuestion("dog",   "-s",  "dogs",     listOf("dogs","doges","dogss","dogz").shuffled()),

@@ -45,7 +45,10 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -285,8 +288,44 @@ private fun DigraphDetailView(
             }
         }
 
+        if (entry.whenRule.isNotEmpty()) {
+            WhenRuleCard(entry = entry, accent = accent)
+        }
+
         if (uiState.showWords) {
             DigraphWordsSection(entry = entry, accent = accent, shadow = shadow, uiState = uiState, onWordTap = onWordTap)
+        }
+    }
+}
+
+// ── When-Which-Sound Card (th) ────────────────────────────────────────────────
+
+@Composable
+private fun WhenRuleCard(entry: DigraphEntry, accent: Color) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(Dimens8),
+        modifier = Modifier.fillMaxWidth().kidsGlassCard(cornerRadius = Dimens12, strokeColor = accent).padding(Dimens12)
+    ) {
+        Text(
+            "❓ When which sound?",
+            style = MaterialTheme.typography.titleSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = accent
+        )
+        entry.whenRule.forEach { line ->
+            // **marked** words rendered bold + tinted in the digraph's color
+            Text(
+                buildAnnotatedString {
+                    line.split("**").forEachIndexed { index, part ->
+                        if (index % 2 == 1) {
+                            withStyle(SpanStyle(color = accent, fontWeight = FontWeight.Bold)) { append(part) }
+                        } else {
+                            withStyle(SpanStyle(color = Color(0xFF37474F))) { append(part) }
+                        }
+                    }
+                },
+                style = MaterialTheme.typography.labelMedium.scaled()
+            )
         }
     }
 }

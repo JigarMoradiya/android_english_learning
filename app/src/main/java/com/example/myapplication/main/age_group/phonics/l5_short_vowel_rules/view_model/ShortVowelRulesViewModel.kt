@@ -277,6 +277,38 @@ val spellingRulesData: List<SpellingRule> = listOf(
                 RuleWordExample(prefix = "fi", suffix = "x")
             ))
         )
+    ),
+
+    SpellingRule(
+        name = "W Rule",
+        pattern = "wa = /wo/",
+        emoji = "🌊",
+        color = Color(0xFF00838F),
+        shadowColor = Color(0xFF006064),
+        ruleStatement = "**W** is a trickster — after **w**, the letter **a** forgets /a/ and says **/o/** — **want** sounds like 'wont'!",
+        whenToUse = listOf(
+            "See **wa** at the start? → the a says **/o/** → want, wash, watch",
+            "Works after **sw** too → **swan** sounds like 'swon'",
+            "Only the **sound** changes — the spelling stays **wa**"
+        ),
+        whyItWorks = "Your lips make a little **circle** to say /w/ — and that round shape pulls the **a** into a round **/o/** sound.\n\nSay '**want**' slowly — can you hear 'w-o-nt'?",
+        watchOut = listOf(
+            "'**want**' is NOT spelled 'wont' — keep the **a**!",
+            "**wax** and **wag** are rebels — they keep the true /a/ sound!"
+        ),
+        tip = "W bends letters! It bends **a** here (want) — and it bends **ar**→/or/ (warm) and **or**→/er/ (word) in Level 15!",
+        comparisons = listOf(
+            RuleComparison(label = "wa  →  /wo/", condition = "a after w says /o/", color = Color(0xFF00838F), words = listOf("want", "wash", "watch", "swan", "wand", "swap")),
+            RuleComparison(label = "wa  →  /wa/", condition = "the rebels keep /a/", color = Color(0xFFE65100), words = listOf("wax", "wag"))
+        ),
+        exampleGroups = listOf(
+            RuleWordExampleGroup(label = null, examples = listOf(
+                RuleWordExample(prefix = "wa",  suffix = "nt",  highlightPrefix = true),
+                RuleWordExample(prefix = "wa",  suffix = "sh",  highlightPrefix = true),
+                RuleWordExample(prefix = "wa",  suffix = "tch", highlightPrefix = true),
+                RuleWordExample(prefix = "swa", suffix = "n",   highlightPrefix = true)
+            ))
+        )
     )
 )
 

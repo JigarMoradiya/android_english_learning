@@ -80,6 +80,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens28
 import com.example.myapplication.utils.extensions.scaled
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.SpanStyle
 
 @Composable
 fun WordFamiliesLearnPage(
@@ -299,9 +302,14 @@ private fun FamilyHeader(family: WordFamily, tileH: Dp, isRimeHighlighted: Boole
                 color = family.color
             )
             Text(
-                text = "All these words end in \"${family.rime}\"",
-                style = MaterialTheme.typography.labelSmall.scaled(),
-                color = Color.Gray
+                text = buildAnnotatedString {
+                    withStyle(SpanStyle(color = Color.Gray)) { append("All these words end in ") }
+                    withStyle(SpanStyle(color = family.color, fontWeight = FontWeight.Bold)) { append("-${family.rime}") }
+                    withStyle(SpanStyle(color = Color.Gray)) { append(" — same ending, same sound: they all ") }
+                    withStyle(SpanStyle(color = family.color, fontWeight = FontWeight.Bold)) { append("RHYME") }
+                    withStyle(SpanStyle(color = Color.Gray)) { append("!") }
+                },
+                style = MaterialTheme.typography.labelSmall.scaled()
             )
         }
     }

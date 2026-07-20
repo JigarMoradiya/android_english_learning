@@ -43,7 +43,9 @@ data class DigraphEntry(
     val phonetic: String,
     val soundHint: String,
     val group: DigraphGroup,
-    val words: List<DigraphWord>
+    val words: List<DigraphWord>,
+    // Extra "when do I use which sound?" box — only for digraphs with two sounds (th)
+    val whenRule: List<String> = emptyList()
 )
 
 data class DigraphPracticeQuestion(
@@ -96,14 +98,21 @@ val digraphsData: List<DigraphEntry> = listOf(
         DigraphWord(word="shine",  note="→ Magic E · L12"),
         DigraphWord(word="shark",  note="→ R-Controlled · L15"))),
     // ── TH + WH ──
-    DigraphEntry("", "th", "/θ/", "Tongue to teeth — /θ/ in 'thin', /ð/ in 'that'",
+    DigraphEntry("", "th", "/θ/", "Tongue to teeth — but TH has TWO sounds: 👄 soft /θ/ · 🐝 buzzy /ð/",
                  DigraphGroup.TH_WH, listOf(
-        DigraphWord(word="thin"),  DigraphWord(word="that"),
-        DigraphWord(word="them"),  DigraphWord(word="this"),
-        DigraphWord(word="thick"), DigraphWord(word="thumb"),
-        DigraphWord(word="think"),
-        DigraphWord(word="three",  note="→ Vowel Team · L13"),
-        DigraphWord(word="throne", note="→ Magic E · L12"))),
+        DigraphWord(word="thin",   note="👄 soft air"),
+        DigraphWord(word="that",   note="🐝 buzzy"),
+        DigraphWord(word="them",   note="🐝 buzzy"),
+        DigraphWord(word="this",   note="🐝 buzzy"),
+        DigraphWord(word="thick",  note="👄 soft air"),
+        DigraphWord(word="thumb",  note="👄 soft air"),
+        DigraphWord(word="think",  note="👄 soft air"),
+        DigraphWord(word="three",  note="👄 soft · ee → Vowel Team L13"),
+        DigraphWord(word="throne", note="👄 soft · o_e → Magic E L12")),
+                 whenRule = listOf(
+        "🐝 **Buzzy** — little **helper words**: the, this, that, they, them, then, there — and **family words**: mother, father, brother",
+        "👄 **Soft air** — most **thing words**: think, three, thumb, thick — and th at the **end**: bath, math, teeth",
+        "Not sure? If it's **not a helper word**, try **soft air** first!")),
     DigraphEntry("", "wh", "/w/", "Sounds just like /w/ — like 'when' and 'which'",
                  DigraphGroup.TH_WH, listOf(
         DigraphWord(word="whip"),  DigraphWord(word="when"),

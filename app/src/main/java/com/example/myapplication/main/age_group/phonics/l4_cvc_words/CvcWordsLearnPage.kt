@@ -86,6 +86,10 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.ui.theme.AppDimens.Dimens10
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.SpanStyle
 
 @Composable
 fun CvcWordsLearnPage(
@@ -429,6 +433,25 @@ private fun CvcAnimationPanel(
             modifier = Modifier.fillMaxSize().padding(Dimens24)
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
+
+                // Rule line — what C·V·C means
+                Text(
+                    text = buildAnnotatedString {
+                        withStyle(SpanStyle(color = Color(0xFF1565C0), fontWeight = FontWeight.Bold)) { append("C") }
+                        withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("onsonant · ") }
+                        withStyle(SpanStyle(color = Color(0xFFC62828), fontWeight = FontWeight.Bold)) { append("V") }
+                        withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("owel · ") }
+                        withStyle(SpanStyle(color = Color(0xFF1565C0), fontWeight = FontWeight.Bold)) { append("C") }
+                        withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("onsonant — sound out each letter, then ") }
+                        withStyle(SpanStyle(color = Color(0xFF6A1B9A), fontWeight = FontWeight.Bold)) { append("blend") }
+                        withStyle(SpanStyle(color = Color(0xFF546E7A))) { append(" them into a word!") }
+                    },
+                    style = MaterialTheme.typography.labelMedium.scaled(),
+                    modifier = Modifier
+                        .background(Color(0xFF6A1B9A).copy(alpha = 0.08f), RoundedCornerShape(Dimens12))
+                        .padding(horizontal = Dimens10, vertical = Dimens4)
+                )
+                Spacer(modifier = Modifier.height(Dimens12))
 
                 // V/C labels aligned above each box at ±spreadXDp
                 Box(

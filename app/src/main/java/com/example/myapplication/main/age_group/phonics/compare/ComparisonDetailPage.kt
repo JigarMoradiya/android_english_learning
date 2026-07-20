@@ -125,8 +125,8 @@ class ComparisonDetailViewModel @Inject constructor(
     val totalQuestions: Int get() = quizItems.size
 
     fun playWord(audio: String) {
-        // Letter sounds (letter_c, letter_k) live in their own folder; the rest are words/blends.
-        val folder = if (audio.startsWith("letter_")) "phonics_letter" else "phonics_word"
+        // Letter sounds (sound_c, letter_k) live in their own folder; the rest are words/blends.
+        val folder = if (audio.startsWith("letter_") || audio.startsWith("sound_")) "phonics_letter" else "phonics_word"
         audioManager.playPhonicsSound("$folder/$audio")
     }
 

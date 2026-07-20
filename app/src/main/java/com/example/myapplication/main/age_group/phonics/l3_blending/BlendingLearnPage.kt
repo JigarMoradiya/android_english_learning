@@ -87,6 +87,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 import kotlinx.coroutines.launch
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.SpanStyle
 
 private val vowelColor = Color(0xFFC62828)
 private val consColor  = Color(0xFF1565C0)
@@ -360,6 +363,21 @@ private fun AnimationPanel(
         modifier = Modifier.fillMaxSize()
     ) {
         Spacer(modifier = Modifier.weight(1f))
+        // Rule line — the whole point of blending
+        Text(
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("Say both sounds, then slide them together ") }
+                withStyle(SpanStyle(color = Color(0xFF1565C0), fontWeight = FontWeight.Bold)) { append("FAST") }
+                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append(" — they melt into ") }
+                withStyle(SpanStyle(color = Color(0xFFC62828), fontWeight = FontWeight.Bold)) { append("ONE") }
+                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("! 🐢→🐇") }
+            },
+            style = MaterialTheme.typography.labelMedium.scaled(),
+            modifier = Modifier
+                .background(Color(0xFF1565C0).copy(alpha = 0.08f), RoundedCornerShape(Dimens12))
+                .padding(horizontal = Dimens10, vertical = Dimens4)
+        )
+        Spacer(modifier = Modifier.height(Dimens12))
         // Pattern label: "Vowel + Consonant" etc.
         val color0 = if (seg0.isVowel) vowelColor else consColor
         val color1 = if (seg1.isVowel) vowelColor else consColor

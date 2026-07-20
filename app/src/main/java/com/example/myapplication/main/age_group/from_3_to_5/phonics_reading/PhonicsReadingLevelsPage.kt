@@ -454,7 +454,6 @@ fun PhonicsReadingLevelsPage(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,
                 ) {
-                    Spacer(modifier = Modifier.height(Dimens8))
 
                     ProgressHub(
                         doneCount = doneCount,

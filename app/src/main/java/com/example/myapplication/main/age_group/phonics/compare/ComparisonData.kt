@@ -302,8 +302,8 @@ val phonicsComparisons: List<PhonicsComparison> = listOf(
         linkedRoute = RouteNavigation.ShortVowelRulesIntro.route,
         gradient = KidsGradient.aquaGreen, shape = KidsFloatingShape.bubbles,
         teams = listOf(
-            ComparisonTeam("c", 0xFF2E7D32, "🐱", "+ a, o, u", markerAudio = "letter_c"),
-            ComparisonTeam("k", 0xFF1565C0, "🪁", "+ e, i", markerAudio = "letter_k"),
+            ComparisonTeam("c", 0xFF2E7D32, "🐱", "+ a, o, u", markerAudio = "sound_c"),
+            ComparisonTeam("k", 0xFF1565C0, "🪁", "+ e, i", markerAudio = "sound_k"),
             ComparisonTeam("ck", 0xFF7B1FA2, "🦆", "ends the word", markerAudio = "ck"),
         ),
         quiz = listOf(
@@ -479,8 +479,8 @@ val phonicsComparisons: List<PhonicsComparison> = listOf(
         linkedRoute = RouteNavigation.VowelTeamsIntro.route,
         gradient = KidsGradient.indigoPurple, shape = KidsFloatingShape.musicNotes,
         teams = listOf(
-            ComparisonTeam("oo", 0xFF5E35B1, "🌙", "long “oooo”"),
-            ComparisonTeam("oo", 0xFFE65100, "📖", "quick “u”"),
+            ComparisonTeam("oo", 0xFF5E35B1, "🌙", "long “oooo”", markerAudio = "oo"),
+            ComparisonTeam("oo", 0xFFE65100, "📖", "quick “u”", markerAudio = "oo2"),
         ),
         quiz = listOf(
             ComparisonQuizItem("moon", "moon", 0),
@@ -523,8 +523,8 @@ val phonicsComparisons: List<PhonicsComparison> = listOf(
         linkedRoute = RouteNavigation.VowelTeamsIntro.route,
         gradient = KidsGradient.meadowGreen, shape = KidsFloatingShape.leaves,
         teams = listOf(
-            ComparisonTeam("ea", 0xFF00897B, "🌿", "long /ē/"),
-            ComparisonTeam("ea", 0xFF6D4C41, "🍞", "short /e/"),
+            ComparisonTeam("ea", 0xFF00897B, "🌿", "long /ē/", markerAudio = "ea"),
+            ComparisonTeam("ea", 0xFF6D4C41, "🍞", "short /e/", markerAudio = "sound_e"),
         ),
         quiz = listOf(
             ComparisonQuizItem("read", "read", 0),
@@ -564,8 +564,8 @@ val phonicsComparisons: List<PhonicsComparison> = listOf(
         linkedRoute = RouteNavigation.VowelTeamsIntro.route,
         gradient = KidsGradient.softBlue, shape = KidsFloatingShape.sparkles,
         teams = listOf(
-            ComparisonTeam("ow", 0xFF0277BD, "❄️", "long /ō/"),
-            ComparisonTeam("ow", 0xFFBF360C, "🐮", "loud /ow!/"),
+            ComparisonTeam("ow", 0xFF0277BD, "❄️", "long /ō/", markerAudio = "ow"),
+            ComparisonTeam("ow", 0xFFBF360C, "🐮", "loud /ow!/", markerAudio = "ow2"),
         ),
         quiz = listOf(
             ComparisonQuizItem("snow", "snow", 0),
@@ -599,15 +599,15 @@ val phonicsComparisons: List<PhonicsComparison> = listOf(
 
     PhonicsComparison(
         id = "th_two", cardTitle = "th 👄⚡🐝", shortTitle = "th — thin or that?",
-        rule = "Soft air for THIN… buzzy voice for THAT!",
-        explanation = "Put your **hand on your throat**!\n• In thin, three and thumb the th is just **soft air** — no buzz.\n• In that, this and they your throat **buzzes like a bee**.\nSame letters, two sounds — feel the difference!",
+        rule = "Helper words BUZZ 🐝 — thing words blow soft air 👄!",
+        explanation = "Put your **hand on your throat** — here's WHEN each th shows up:\n• **Buzzy 🐝** — little **helper words**: the, this, that, they, them, then, there… and **family words**: mother, father, brother.\n• **Soft air 👄** — most **thing words**: think, three, thumb, thick… and th at the **end**: bath, math, teeth.\nNot a helper word? Try **soft air** first!",
         example = "thin · that", group = ComparisonGroup.sound,
         linkedLevelNumber = 9, linkedLevelLabel = "Level 9 · Digraphs",
         linkedRoute = RouteNavigation.DigraphsIntro.route,
         gradient = KidsGradient.tealCyan, shape = KidsFloatingShape.speechBubbles,
         teams = listOf(
-            ComparisonTeam("th", 0xFF00897B, "👄", "soft air"),
-            ComparisonTeam("th", 0xFFF9A825, "🐝", "buzzy voice"),
+            ComparisonTeam("th", 0xFF00897B, "👄", "thing words + ends", markerAudio = "th"),
+            ComparisonTeam("th", 0xFFF9A825, "🐝", "helper + family words", markerAudio = "th2"),
         ),
         quiz = listOf(
             ComparisonQuizItem("thin", "thin", 0),
@@ -646,9 +646,9 @@ val phonicsComparisons: List<PhonicsComparison> = listOf(
         linkedRoute = RouteNavigation.WordEndingsIntro.route,
         gradient = KidsGradient.peachCoral, shape = KidsFloatingShape.stars,
         teams = listOf(
-            ComparisonTeam("/t/", 0xFF455A64, "🥾", "whisper", highlight = "ed"),
-            ComparisonTeam("/d/", 0xFF1565C0, "🔔", "voiced", highlight = "ed"),
-            ComparisonTeam("/id/", 0xFF2E7D32, "🌱", "extra beat", highlight = "ed"),
+            ComparisonTeam("/t/", 0xFF455A64, "🥾", "whisper", markerAudio = "sound_t", highlight = "ed"),
+            ComparisonTeam("/d/", 0xFF1565C0, "🔔", "voiced", markerAudio = "sound_d", highlight = "ed"),
+            ComparisonTeam("/id/", 0xFF2E7D32, "🌱", "extra beat", markerAudio = "id", highlight = "ed"),
         ),
         quiz = listOf(
             ComparisonQuizItem("jumped", "jumped", 0),
@@ -704,8 +704,8 @@ val phonicsComparisons: List<PhonicsComparison> = listOf(
         linkedRoute = RouteNavigation.SoftCSoftGIntro.route,
         gradient = KidsGradient.rosePink, shape = KidsFloatingShape.hearts,
         teams = listOf(
-            ComparisonTeam("c", 0xFF2E7D32, "🐱", "hard /k/"),
-            ComparisonTeam("c", 0xFF0277BD, "🏙️", "soft /s/ + e,i,y"),
+            ComparisonTeam("c", 0xFF2E7D32, "🐱", "hard /k/", markerAudio = "sound_c"),
+            ComparisonTeam("c", 0xFF0277BD, "🏙️", "soft /s/ + e,i,y", markerAudio = "sound_s"),
         ),
         quiz = listOf(
             ComparisonQuizItem("cat", "cat", 0),
@@ -745,8 +745,8 @@ val phonicsComparisons: List<PhonicsComparison> = listOf(
         linkedRoute = RouteNavigation.SoftCSoftGIntro.route,
         gradient = KidsGradient.purpleBlue, shape = KidsFloatingShape.diamonds,
         teams = listOf(
-            ComparisonTeam("g", 0xFF6D4C41, "🐐", "hard /g/"),
-            ComparisonTeam("g", 0xFF7B1FA2, "💎", "soft /j/ + e,i,y"),
+            ComparisonTeam("g", 0xFF6D4C41, "🐐", "hard /g/", markerAudio = "sound_g"),
+            ComparisonTeam("g", 0xFF7B1FA2, "💎", "soft /j/ + e,i,y", markerAudio = "sound_j"),
         ),
         quiz = listOf(
             ComparisonQuizItem("goat", "goat", 0),

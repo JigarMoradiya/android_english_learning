@@ -81,6 +81,11 @@ import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.ui.theme.AppDimens.FillBlankLetterBoxSize
 import kotlinx.coroutines.launch
+import com.example.myapplication.ui.theme.AppDimens.Dimens4
+import com.example.myapplication.ui.theme.AppDimens.Dimens10
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.SpanStyle
 
 @Composable
 fun LetterPhonicsSoundPage(
@@ -197,12 +202,27 @@ fun LetterPhonicsSoundPage(
                         onAnimationEnd = { viewModel.setAnimateObjectImage(true) },
                     )
                 } else {
-                    Text(
-                        text = stringResource(R.string.tap_a_letter),
-                        style = MaterialTheme.typography.headlineLarge.scaled(),
-                        fontWeight = FontWeight.Medium,
-                        color = Color.DarkGray
-                    )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(Dimens8)
+                    ) {
+                        Text(
+                            text = stringResource(R.string.tap_a_letter),
+                            style = MaterialTheme.typography.headlineLarge.scaled(),
+                            fontWeight = FontWeight.Medium,
+                            color = Color.DarkGray
+                        )
+                        Text(
+                            text = buildAnnotatedString {
+                                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("Every letter has its own ") }
+                                withStyle(SpanStyle(color = Color(0xFF1565C0), fontWeight = FontWeight.Bold)) { append("SOUND") }
+                                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append(" — its name and its sound are ") }
+                                withStyle(SpanStyle(color = Color(0xFFC62828), fontWeight = FontWeight.Bold)) { append("different") }
+                                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("!") }
+                            },
+                            style = MaterialTheme.typography.labelMedium.scaled()
+                        )
+                    }
                 }
             }
         }

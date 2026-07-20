@@ -77,6 +77,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens28
 import com.example.myapplication.ui.theme.AppDimens.Dimens32
 import com.example.myapplication.utils.extensions.scaled
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.SpanStyle
 
 @Composable
 fun BeginningBlendsLearnPage(
@@ -553,6 +556,17 @@ private fun ExampleWordsSection(
                 color = blend.group.color
             )
         }
+
+        Text(
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("👀 Focus on the ") }
+                withStyle(SpanStyle(color = blend.group.color, fontWeight = FontWeight.Bold)) { append("first letters") }
+                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append(" — that's the blend! Some endings use ") }
+                withStyle(SpanStyle(color = Color(0xFFC62828), fontWeight = FontWeight.Bold)) { append("later-level sounds") }
+                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append(" — just listen and repeat!") }
+            },
+            style = MaterialTheme.typography.labelMedium.scaled()
+        )
 
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(Dimens8),

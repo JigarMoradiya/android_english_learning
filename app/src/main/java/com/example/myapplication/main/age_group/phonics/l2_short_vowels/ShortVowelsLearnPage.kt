@@ -74,6 +74,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens40
 import com.example.myapplication.utils.extensions.scaled
 import kotlinx.coroutines.delay
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.SpanStyle
 
 @Composable
 fun ShortVowelsLearnPage(
@@ -329,6 +332,19 @@ private fun VowelDetailPanel(
                     style = MaterialTheme.typography.titleMedium.scaled(),
                     fontWeight = FontWeight.Medium,
                     color = Color.Gray
+                )
+                Text(
+                    text = buildAnnotatedString {
+                        withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("⚡ Short vowels say a ") }
+                        withStyle(SpanStyle(color = color, fontWeight = FontWeight.Bold)) { append("QUICK sound") }
+                        withStyle(SpanStyle(color = Color(0xFF546E7A))) { append(" — not the letter's ") }
+                        withStyle(SpanStyle(color = Color(0xFFC62828), fontWeight = FontWeight.Bold)) { append("name") }
+                        withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("!") }
+                    },
+                    style = MaterialTheme.typography.labelMedium.scaled(),
+                    modifier = Modifier
+                        .background(color.copy(alpha = 0.10f), RoundedCornerShape(Dimens12))
+                        .padding(horizontal = Dimens10, vertical = Dimens4)
                 )
             }
         }
