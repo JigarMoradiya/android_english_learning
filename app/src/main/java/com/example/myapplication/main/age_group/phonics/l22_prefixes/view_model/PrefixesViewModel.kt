@@ -243,7 +243,7 @@ class PrefixesPracticeViewModel @Inject constructor(
     private var sessionStartMs = System.currentTimeMillis()
     private val wrongWords = mutableListOf<String>()
     private val correctWords = mutableListOf<String>()
-    private val questions = prefixesPracticeQuestions.shuffled().map { it.copy(options = it.options.shuffled()) }
+    private val questions = prefixesPracticeQuestions.shuffled().take(10).map { it.copy(options = it.options.shuffled()) }
 
     val totalQuestions: Int get() = questions.size
     val currentQuestion: PrefixesPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)

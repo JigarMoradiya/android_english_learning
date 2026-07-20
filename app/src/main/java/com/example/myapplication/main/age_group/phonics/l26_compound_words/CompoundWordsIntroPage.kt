@@ -152,7 +152,8 @@ private fun CWGroupChip(group: CWGroup) {
     PhonicsGroupChip(
         emoji = group.emoji,
         title = group.name,
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.full
     )
 }
 

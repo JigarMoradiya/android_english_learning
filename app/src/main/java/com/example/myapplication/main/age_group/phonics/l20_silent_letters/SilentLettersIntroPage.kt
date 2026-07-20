@@ -90,6 +90,8 @@ fun SilentLettersIntroPage(navController: NavController) {
                                 "mb: lamb, climb, thumb — B is silent!")
                             IntroRow(Icons.Default.VisibilityOff,   Color(0xFF607D8B),
                                 "gn: gnat, gnome, sign — G is silent!")
+                            IntroRow(Icons.Default.VisibilityOff,   Color(0xFF546E7A),
+                                "h · l · t hide too — hour, walk, castle!")
                         }
                     }
                 }
@@ -134,7 +136,8 @@ private fun SilentPatternChip(group: SilentLettersGroup) {
         emoji = group.emoji,
         title = group.pattern,
         subtitle = "silent $ghostLetter",
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.word
     )
 }
 

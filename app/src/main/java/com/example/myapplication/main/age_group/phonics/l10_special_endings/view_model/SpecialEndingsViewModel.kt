@@ -213,7 +213,7 @@ class SpecialEndingsPracticeViewModel @Inject constructor(
     private val phonicsSessions: PhonicsSessionRecorder
 ) : ViewModel() {
 
-    private val questions = specialEndingsPracticeQuestions.shuffled()
+    private val questions = specialEndingsPracticeQuestions.shuffled().take(10)
     var uiState by mutableStateOf(SpecialEndingPracticeUiState()); private set
 
     // Parent-report session tracking

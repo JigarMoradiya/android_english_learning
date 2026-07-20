@@ -197,7 +197,7 @@ class ContractionsPracticeViewModel @Inject constructor(
     private var sessionStartMs = System.currentTimeMillis()
     private val wrongWords = mutableListOf<String>()
     private val correctWords = mutableListOf<String>()
-    private val questions = contractionsPracticeQuestions.shuffled().map { it.copy(options = it.options.shuffled()) }
+    private val questions = contractionsPracticeQuestions.shuffled().take(10).map { it.copy(options = it.options.shuffled()) }
 
     val totalQuestions: Int get() = questions.size
     val currentQuestion: ContractionsPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)

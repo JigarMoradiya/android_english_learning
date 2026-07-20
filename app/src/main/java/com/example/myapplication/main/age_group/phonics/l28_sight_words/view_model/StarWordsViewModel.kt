@@ -166,7 +166,7 @@ class SWPracticeViewModel @Inject constructor(
     private var sessionStartMs = System.currentTimeMillis()
     private val wrongWords = mutableListOf<String>()
     private val correctWords = mutableListOf<String>()
-    private val questions = swPracticeQuestions.shuffled()
+    private val questions = swPracticeQuestions.shuffled().take(10)
         .map { it.copy(options = it.options.shuffled()) }
 
     val totalQuestions: Int get() = questions.size

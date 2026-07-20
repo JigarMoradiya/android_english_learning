@@ -196,23 +196,23 @@ data class MagicEPracticeUiState(
 // ── Practice Data ─────────────────────────────────────────────────────────────
 
 val magicEPracticeQuestions: List<MagicEPracticeQuestion> = listOf(
-    MagicEPracticeQuestion(baseWord = "cap",  correctMagic = "cape",  options = listOf("cape", "hope", "bite")),
-    MagicEPracticeQuestion(baseWord = "hat",  correctMagic = "hate",  options = listOf("hate", "note", "fine")),
-    MagicEPracticeQuestion(baseWord = "mad",  correctMagic = "made",  options = listOf("made", "dude", "cone")),
-    MagicEPracticeQuestion(baseWord = "tap",  correctMagic = "tape",  options = listOf("tape", "pine", "robe")),
-    MagicEPracticeQuestion(baseWord = "man",  correctMagic = "mane",  options = listOf("mane", "tune", "hide")),
-    MagicEPracticeQuestion(baseWord = "bit",  correctMagic = "bite",  options = listOf("bite", "cape", "note")),
-    MagicEPracticeQuestion(baseWord = "hid",  correctMagic = "hide",  options = listOf("hide", "cane", "cube")),
-    MagicEPracticeQuestion(baseWord = "dim",  correctMagic = "dime",  options = listOf("dime", "hope", "tape")),
-    MagicEPracticeQuestion(baseWord = "pin",  correctMagic = "pine",  options = listOf("pine", "cape", "dude")),
-    MagicEPracticeQuestion(baseWord = "hop",  correctMagic = "hope",  options = listOf("hope", "bite", "cane")),
-    MagicEPracticeQuestion(baseWord = "not",  correctMagic = "note",  options = listOf("note", "pine", "made")),
-    MagicEPracticeQuestion(baseWord = "rod",  correctMagic = "rode",  options = listOf("rode", "dime", "tape")),
-    MagicEPracticeQuestion(baseWord = "cub",  correctMagic = "cube",  options = listOf("cube", "hope", "bite")),
-    MagicEPracticeQuestion(baseWord = "cut",  correctMagic = "cute",  options = listOf("cute", "cape", "ride")),
-    MagicEPracticeQuestion(baseWord = "tub",  correctMagic = "tube",  options = listOf("tube", "pine", "made")),
-    MagicEPracticeQuestion(baseWord = "pet",  correctMagic = "Pete",  options = listOf("Pete", "tape", "bite")),
-    MagicEPracticeQuestion(baseWord = "them", correctMagic = "theme", options = listOf("theme", "tune", "note")),
+    MagicEPracticeQuestion(baseWord = "cap", correctMagic = "cape", options = listOf("cape", "cappe", "capee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "hat", correctMagic = "hate", options = listOf("hate", "hatte", "hatee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "mad", correctMagic = "made", options = listOf("made", "madde", "madee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "tap", correctMagic = "tape", options = listOf("tape", "tappe", "tapee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "man", correctMagic = "mane", options = listOf("mane", "manne", "manee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "bit", correctMagic = "bite", options = listOf("bite", "bitte", "bitee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "hid", correctMagic = "hide", options = listOf("hide", "hidde", "hidee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "dim", correctMagic = "dime", options = listOf("dime", "dimme", "dimee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "pin", correctMagic = "pine", options = listOf("pine", "pinne", "pinee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "hop", correctMagic = "hope", options = listOf("hope", "hoppe", "hopee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "not", correctMagic = "note", options = listOf("note", "notte", "notee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "rod", correctMagic = "rode", options = listOf("rode", "rodde", "rodee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "cub", correctMagic = "cube", options = listOf("cube", "cubbe", "cubee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "cut", correctMagic = "cute", options = listOf("cute", "cutte", "cutee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "tub", correctMagic = "tube", options = listOf("tube", "tubbe", "tubee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "pet", correctMagic = "Pete", options = listOf("Pete", "pette", "petee").shuffled()),
+    MagicEPracticeQuestion(baseWord = "them", correctMagic = "theme", options = listOf("theme", "themme", "themee").shuffled()),
 )
 
 // ── Practice ViewModel ────────────────────────────────────────────────────────
@@ -224,7 +224,7 @@ class MagicEPracticeViewModel @Inject constructor(
     private val phonicsSessions: PhonicsSessionRecorder
 ) : ViewModel() {
 
-    private val questions = magicEPracticeQuestions.shuffled()
+    private val questions = magicEPracticeQuestions.shuffled().take(10)
     var uiState by mutableStateOf(MagicEPracticeUiState()); private set
 
     // Parent-report session tracking

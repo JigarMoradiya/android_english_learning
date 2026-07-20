@@ -44,6 +44,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens6
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.foundation.clickable
 
 private val accentColor = Color(0xFFEF6C00)
 
@@ -96,7 +99,11 @@ fun VowelTeamsIntroPage(navController: NavController) {
                             listOf(
                                 "AI/AY" to Color(0xFFD32F2F),
                                 "EE/EA" to Color(0xFF00897B),
-                                "OA/OW" to Color(0xFF1565C0)
+                                "OA/OW" to Color(0xFF1565C0),
+                                "OO" to Color(0xFF5E35B1),
+                                "EW/UE/UI" to Color(0xFF0277BD),
+                                "EY" to Color(0xFFC62828),
+                                "IE" to Color(0xFFAD1457)
                             ).forEach { (label, color) ->
                                 Box(
                                     contentAlignment = Alignment.Center,
@@ -122,11 +129,16 @@ fun VowelTeamsIntroPage(navController: NavController) {
                                 "EE/EA — feet, tree, read, team → long /ē/")
                             bulletRow("🤝", Color(0xFF1565C0),
                                 "OA/OW — boat, coat, snow, grow → long /ō/")
+                            bulletRow("🌙", Color(0xFF5E35B1),
+                                "OO — moon 🌙 or book 📖 · EW/UE/UI — new, blue, fruit")
+                            bulletRow("✨", Color(0xFFC62828),
+                                "EA — bread · EY — monkey · IE — pie or chief")
                             bulletRow("👆", accentColor,
                                 "Tap any word to hear the vowel team sound")
                         }
 
                         // Sample words
+                        val introAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
                         FlowRow(
                             horizontalArrangement = Arrangement.spacedBy(Dimens8),
                             verticalArrangement = Arrangement.spacedBy(Dimens8)
@@ -139,6 +151,7 @@ fun VowelTeamsIntroPage(navController: NavController) {
                                 Box(
                                     modifier = Modifier
                                         .background(color.copy(alpha = 0.12f), RoundedCornerShape(Dimens8))
+                                        .clickable { introAudioVm.play(word) }
                                         .padding(horizontal = Dimens10, vertical = Dimens8)
                                 ) {
                                     Text(

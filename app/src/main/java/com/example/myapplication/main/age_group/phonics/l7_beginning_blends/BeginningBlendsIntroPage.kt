@@ -113,7 +113,7 @@ fun BeginningBlendsIntroPage(navController: NavController) {
                             BulletRow(
                                 icon = Icons.Default.LibraryMusic,
                                 color = Color(0xFF00897B),
-                                text = "16 blends across 3 groups — L, R and S blends"
+                                text = "21 blends across 4 groups — L, R, S and W blends"
                             )
                             BulletRow(
                                 icon = Icons.Default.Spellcheck,

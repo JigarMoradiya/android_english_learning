@@ -102,8 +102,9 @@ fun RControlledIntroPage(navController: NavController) {
                                     emoji = group.emoji,
                                     title = group.rTeam,
                                     subtitle = "${group.words.size} words",
-                                    accentColor = group.accentColor
-                                )
+                                    accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.word
+    )
                             }
                         }
 
@@ -111,7 +112,7 @@ fun RControlledIntroPage(navController: NavController) {
                         Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
                             RControlledIntroRow("👑", "R is bossy — it changes the vowel sound!")
                             RControlledIntroRow("🔊", "ar = /ɑːr/ · or = /ɔːr/ · er/ir/ur = /ɜːr/")
-                            RControlledIntroRow("🎯", "Eight r-teams: ar, or, er, ir, ur, air, ear, ore")
+                            RControlledIntroRow("🎯", "Ten r-teams: ar, or, er, ir, ur, air, ear, ore + war/wor")
                         }
                     }
                 }

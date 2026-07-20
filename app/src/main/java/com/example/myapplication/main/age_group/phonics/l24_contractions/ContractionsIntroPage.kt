@@ -158,7 +158,8 @@ private fun CTGroupChip(group: ContractionGroup) {
     PhonicsGroupChip(
         emoji = group.emoji,
         title = group.type,
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.contraction
     )
 }
 

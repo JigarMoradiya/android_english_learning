@@ -39,6 +39,8 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import androidx.compose.material.icons.filled.Air
+import androidx.compose.material.icons.filled.Extension
 
 private val sfBlue      = Color(0xFF3949AB)
 private val sfBlueLight = Color(0xFF5C6BC0)
@@ -97,6 +99,8 @@ fun SuffixesIntroPage(navController: NavController) {
                             SFBulletRow(Icons.Default.RemoveCircle,Color(0xFF283593), "-less = without → careless, hopeless, fearless")
                             SFBulletRow(Icons.Default.AutoAwesome, sfOrange,          "-ness = quality of → kindness, happiness ★")
                             SFBulletRow(Icons.Default.FlashOn,     Color(0xFF6A1B9A), "-tion = act of → action, direction, connection")
+                            SFBulletRow(Icons.Default.Extension,   Color(0xFFC62828), "-sion = act of → vision, mission, tension")
+                            SFBulletRow(Icons.Default.Air,         Color(0xFF00897B), "-ly · -er · -y → quickly, teacher, rainy")
                         }
                         // Note row: ★ happy + ness → happiness
                         Row(
@@ -155,7 +159,8 @@ private fun SFGroupChip(group: SuffixGroup) {
     PhonicsGroupChip(
         emoji = group.emoji,
         title = group.suffix,
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.full
     )
 }
 

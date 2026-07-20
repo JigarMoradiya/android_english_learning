@@ -307,7 +307,7 @@ private fun WhenRuleCard(entry: DigraphEntry, accent: Color) {
         modifier = Modifier.fillMaxWidth().kidsGlassCard(cornerRadius = Dimens12, strokeColor = accent).padding(Dimens12)
     ) {
         Text(
-            "❓ When which sound?",
+            entry.whenRuleTitle,
             style = MaterialTheme.typography.titleSmall.scaled(),
             fontWeight = FontWeight.Bold,
             color = accent

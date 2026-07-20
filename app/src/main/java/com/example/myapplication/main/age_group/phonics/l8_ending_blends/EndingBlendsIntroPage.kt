@@ -109,7 +109,7 @@ fun EndingBlendsIntroPage(navController: NavController) {
                             verticalArrangement = Arrangement.spacedBy(Dimens10),
                             modifier = Modifier.padding(top = Dimens4)
                         ) {
-                            L8BulletRow(icon = Icons.Default.LibraryMusic,     color = Color(0xFF3949AB), text = "8 ending blends across 3 groups — N, M and S endings")
+                            L8BulletRow(icon = Icons.Default.LibraryMusic,     color = Color(0xFF3949AB), text = "10 ending blends — nd, nt, mp, ld, lp, lk, lt, sk, ft, st")
                             L8BulletRow(icon = Icons.Default.Spellcheck,       color = Color(0xFF1565C0), text = "Two consonants blended together at the end of the word")
                             L8BulletRow(icon = Icons.Default.RecordVoiceOver,  color = Color(0xFFC2185B), text = "Tap any word to hear the ending blend clearly")
                             L8BulletRow(icon = Icons.Default.CheckCircle,      color = Color(0xFF00838F), text = "Practice quiz — pick the correct ending blend")

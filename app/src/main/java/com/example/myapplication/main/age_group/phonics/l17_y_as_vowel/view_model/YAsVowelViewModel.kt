@@ -163,7 +163,7 @@ class YAsVowelPracticeViewModel @Inject constructor(
     private var sessionStartMs = System.currentTimeMillis()
     private val wrongWords = mutableListOf<String>()
     private val correctWords = mutableListOf<String>()
-    private val questions = yAsVowelPracticeQuestions.shuffled()
+    private val questions = yAsVowelPracticeQuestions.shuffled().take(10)
 
     val totalQuestions: Int get() = questions.size
     val currentQuestion: YAsVowelPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)

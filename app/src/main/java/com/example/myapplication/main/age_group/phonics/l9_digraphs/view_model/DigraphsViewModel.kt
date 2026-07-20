@@ -44,7 +44,8 @@ data class DigraphEntry(
     val soundHint: String,
     val group: DigraphGroup,
     val words: List<DigraphWord>,
-    // Extra "when do I use which sound?" box — only for digraphs with two sounds (th)
+    // Extra rule box on the learn page (th: when which sound · qu: the Q&U partnership)
+    val whenRuleTitle: String = "❓ When which sound?",
     val whenRule: List<String> = emptyList()
 )
 
@@ -129,14 +130,20 @@ val digraphsData: List<DigraphEntry> = listOf(
         DigraphWord(word="photo",   note="→ Open Syllable · L11"),
         DigraphWord(word="phew",    note="→ Vowel Team · L13"),
         DigraphWord(word="phonics", note="→ Open Syllable · L11"))),
-    DigraphEntry("", "qu", "/kw/", "Always /kw/ together — like 'quiz' or 'quick'",
+    DigraphEntry("", "qu", "/kw/", "Q is super shy 🙈 — it NEVER goes out without its best friend U!",
                  DigraphGroup.PH_QU, listOf(
         DigraphWord(word="quiz"),  DigraphWord(word="quilt"),
         DigraphWord(word="quick"), DigraphWord(word="quest"),
         DigraphWord(word="quack"),
         DigraphWord(word="queen",  note="→ Vowel Team · L13"),
         DigraphWord(word="quote",  note="→ Magic E · L12"),
-        DigraphWord(word="quite",  note="→ Magic E · L12")))
+        DigraphWord(word="quite",  note="→ Magic E · L12")),
+                 whenRuleTitle = "💞 Q & U — best friends forever!",
+                 whenRule = listOf(
+        "🙈 **Q is super shy** — it never goes ANYWHERE without holding **U's hand**!",
+        "👀 Look: **qu**een 👑 · **qu**ick 🏃 · **qu**ack 🦆 — **U is always right there**!",
+        "🔊 Together they shout **/kw/** — say /k/ + /w/ super fast!",
+        "🕵️ Detective mission: find a word where **Q is all alone**… you won't find one!"))
 )
 
 val digraphsPracticeQuestions: List<DigraphPracticeQuestion> = listOf(

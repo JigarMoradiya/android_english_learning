@@ -183,7 +183,7 @@ class IghGhPracticeViewModel @Inject constructor(
     private var sessionStartMs = System.currentTimeMillis()
     private val wrongWords = mutableListOf<String>()
     private val correctWords = mutableListOf<String>()
-    private val questions = ighGhPracticeQuestions.shuffled()
+    private val questions = ighGhPracticeQuestions.shuffled().take(10)
 
     val totalQuestions: Int get() = questions.size
     val currentQuestion: IghGhPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)

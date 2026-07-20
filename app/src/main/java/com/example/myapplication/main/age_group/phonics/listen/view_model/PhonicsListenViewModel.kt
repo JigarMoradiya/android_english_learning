@@ -1134,7 +1134,8 @@ class PhonicsListenViewModel @Inject constructor(
                 viewModelScope.launch {
                     delay(100)
                     if (uiState.segmentIndex == idx) {
-                        playFullWord()
+                        // Whole-word segments (sight words) already played the word — replaying would say it twice.
+                        if (!currentWord.segmentIsWholeWord) playFullWord()
                         // Clear last-segment highlight; whole word glows instead.
                         uiState = uiState.copy(wordDone = true, segmentIndex = -1)
                         markWordListened(currentWord)
@@ -1143,6 +1144,11 @@ class PhonicsListenViewModel @Inject constructor(
             }
         }
     }
+
+    /// Sight words are one whole-word segment — replaying the full word after it would say the word twice.
+    private val ListenWord.segmentIsWholeWord: Boolean
+        get() = segments.filter { !it.isSilent }
+            .let { it.size == 1 && it[0].audioFileName == "phonics_word/${word}" }
 
     fun startAutoPlay() {
         if (uiState.isPlaying) return
@@ -1181,10 +1187,13 @@ class PhonicsListenViewModel @Inject constructor(
             }
             uiState = uiState.copy(wordDone = true, segmentIndex = -1)
             markWordListened(word)
-            suspendCancellableCoroutine { cont ->
-                audioManager.playPhonicsSound("phonics_word/${word.word}")
-                audioManager.onAudioCompleted = { if (cont.isActive) cont.resume(Unit) }
-                cont.invokeOnCancellation { audioManager.stop() }
+            // Whole-word segments (sight words) already played the word — replaying would say it twice.
+            if (!word.segmentIsWholeWord) {
+                suspendCancellableCoroutine { cont ->
+                    audioManager.playPhonicsSound("phonics_word/${word.word}")
+                    audioManager.onAudioCompleted = { if (cont.isActive) cont.resume(Unit) }
+                    cont.invokeOnCancellation { audioManager.stop() }
+                }
             }
             uiState = uiState.copy(isPlaying = false)
         }

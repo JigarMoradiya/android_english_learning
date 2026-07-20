@@ -205,7 +205,7 @@ class DiphthongsPracticeViewModel @Inject constructor(
     private val phonicsSessions: PhonicsSessionRecorder
 ) : ViewModel() {
 
-    private val questions = diphthongsPracticeQuestions.shuffled()
+    private val questions = diphthongsPracticeQuestions.shuffled().take(10)
     var uiState by mutableStateOf(DiphthongsPracticeUiState()); private set
 
     // Parent-report session tracking

@@ -34,6 +34,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import androidx.compose.material.icons.filled.Stars
 
 private val swAccent      = Color(0xFFD81B60)
 private val swAccentLight = Color(0xFF880E4F)
@@ -89,6 +90,7 @@ fun StarWordsIntroPage(navController: NavController) {
                         Column(verticalArrangement = Arrangement.spacedBy(Dimens10)) {
                             SWBulletRow(Icons.Default.Star,        Color(0xFFD81B60), "Set 1 · the, was, said, they, because")
                             SWBulletRow(Icons.Default.AutoAwesome, Color(0xFF6A1B9A), "Set 2 · what, where, come, one, people")
+                            SWBulletRow(Icons.Default.Stars,       Color(0xFF00838F), "Set 3 · there, here, want, very…")
                             SWBulletRow(Icons.Default.Favorite,    Color(0xFFC62828), "Too tricky to sound out — know them by heart!")
                         }
                         // Star note
@@ -150,7 +152,8 @@ private fun SWSetChip(set: SWSet) {
     PhonicsGroupChip(
         emoji = set.emoji,
         title = set.name,
-        accentColor = set.accentColor
+        accentColor = set.accentColor,
+        tapAudio = set.words.firstOrNull()?.word
     )
 }
 

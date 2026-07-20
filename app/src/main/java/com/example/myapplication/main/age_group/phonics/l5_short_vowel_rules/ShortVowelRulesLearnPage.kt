@@ -107,29 +107,28 @@ fun ShortVowelRulesLearnPage(
     Box(modifier = Modifier.fillMaxSize()) {
         KidsGradientBackground(gradient = KidsGradient.oceanBlue, shape = KidsFloatingShape.waves)
 
-        Column(
+        Row(
             modifier = Modifier
                 .windowInsetsPadding(WindowInsets.safeDrawing)
                 .fillMaxSize()
         ) {
-            // ── HEADER: BackButton (left 30%) + 4 rule tabs (right 70%) ──────
-            // BackButtonWithText has fillMaxWidth() hardcoded inside, so we
-            // constrain it to 30% by wrapping it in a weight(0.30f) Box.
-            Row(modifier = Modifier.fillMaxWidth()) {
-                Box(modifier = Modifier.weight(0.30f)) {
-                    BackButtonWithText(
-                        title = "Spelling Rules",
-                        onBackClick = { navController.popBackStack() }
-                    )
-                }
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(Dimens8),
-                    verticalAlignment = Alignment.CenterVertically,
+            // ── LEFT: rule list (side-by-side, like L13/L15 — header tabs cut the cards) ──
+            Column(
+                modifier = Modifier
+                    .weight(0.25f)
+                    .fillMaxHeight()
+            ) {
+                BackButtonWithText(
+                    title = "Spelling Rules",
+                    onBackClick = { navController.popBackStack() }
+                )
+                Column(
                     modifier = Modifier
-                        .weight(0.70f)
-                        .padding(top = DeviceInfo.screenTopPadding(), end = Dimens16)
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = Dimens10, vertical = Dimens8),
+                    verticalArrangement = Arrangement.spacedBy(Dimens6)
                 ) {
-                    Spacer(modifier = Modifier.weight(1f))
                     spellingRulesData.forEach { rule ->
                         RuleTab(
                             rule = rule,
@@ -137,11 +136,11 @@ fun ShortVowelRulesLearnPage(
                             onClick = { viewModel.onRuleTap(rule) }
                         )
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                 }
             }
 
-            // ── CONTENT: key(rule.id) resets scroll when rule changes, appears instantly ──
+            // ── RIGHT: content — key(rule.id) resets scroll when rule changes ──
+            Box(modifier = Modifier.weight(0.75f).fillMaxHeight().padding(start = Dimens12)) {
             uiState.selectedRule?.let { rule ->
                 key(rule.id) {
                 Column(
@@ -298,6 +297,7 @@ fun ShortVowelRulesLearnPage(
                 }
                 } // key
             } // let
+            } // right Box
         }
     }
 }
@@ -323,6 +323,7 @@ private fun RuleTab(rule: SpellingRule, isSelected: Boolean, onClick: () -> Unit
         horizontalArrangement = Arrangement.spacedBy(Dimens8),
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
+            .fillMaxWidth()
             .kidsGlassCard(
                 cornerRadius = Dimens14,
                 strokeColor = if (isSelected) rule.color else rule.color.copy(alpha = 0.40f),

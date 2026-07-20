@@ -230,7 +230,7 @@ class ThreeLetterBlendsPracticeViewModel @Inject constructor(
     private var sessionStartMs = System.currentTimeMillis()
     private val wrongWords = mutableListOf<String>()
     private val correctWords = mutableListOf<String>()
-    private val questions = threeLetterBlendsPracticeQuestions.shuffled()
+    private val questions = threeLetterBlendsPracticeQuestions.shuffled().take(10)
 
     val totalQuestions: Int get() = questions.size
     val currentQuestion: ThreeLetterBlendsPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)

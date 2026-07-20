@@ -43,6 +43,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.foundation.clickable
 
 private val accentColor = Color(0xFF6A1B9A)
 
@@ -128,10 +131,12 @@ fun OpenSyllableIntroPage(navController: NavController) {
                             verticalArrangement = Arrangement.spacedBy(Dimens8)
                         ) {
                             val samples = listOf("me" to Color(0xFF00897B), "go" to Color(0xFFE65100), "fly" to Color(0xFF6A1B9A))
+                            val introAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
                             samples.forEach { (word, color) ->
                                 Box(
                                     modifier = Modifier
                                         .background(color.copy(alpha = 0.12f), RoundedCornerShape(Dimens8))
+                                        .clickable { introAudioVm.play(word) }
                                         .padding(horizontal = Dimens10, vertical = Dimens8)
                                 ) {
                                     Text(

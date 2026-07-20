@@ -126,6 +126,26 @@ fun ShortVowelRulesIntroPage(navController: NavController) {
                             )
                         }
 
+                        // Rule badges row 3 — X Rule + W Rule
+                        if (spellingRulesData.size > 5) {
+                            Row(horizontalArrangement = Arrangement.spacedBy(Dimens8)) {
+                                val rule4 = spellingRulesData[4]
+                                val rule5 = spellingRulesData[5]
+                                RuleBadge(
+                                    emoji = rule4.emoji,
+                                    label = "${rule4.name}\n${rule4.pattern}",
+                                    color = rule4.color,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                RuleBadge(
+                                    emoji = rule5.emoji,
+                                    label = "${rule5.name}\n${rule5.pattern}",
+                                    color = rule5.color,
+                                    modifier = Modifier.weight(1f)
+                                )
+                            }
+                        }
+
                         // Description bullets
                         Column(
                             modifier = Modifier.padding(top = Dimens4),
@@ -134,7 +154,7 @@ fun ShortVowelRulesIntroPage(navController: NavController) {
                             BulletRow(
                                 icon = Icons.Default.Book,
                                 color = Color(0xFF00897B),
-                                text = "4 essential spelling rules for short vowel words"
+                                text = "${spellingRulesData.size} essential spelling rules for short vowel words"
                             )
                             BulletRow(
                                 icon = Icons.Default.RecordVoiceOver,

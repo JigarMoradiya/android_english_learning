@@ -128,7 +128,8 @@ private fun YGroupChip(group: YAsVowelGroup) {
         emoji = group.emoji,
         title = group.label,
         subtitle = group.sound,
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.word
     )
 }
 

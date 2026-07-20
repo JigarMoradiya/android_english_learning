@@ -288,7 +288,7 @@ class VowelTeamsPracticeViewModel @Inject constructor(
     private val wrongWords = mutableListOf<String>()
     private val correctWords = mutableListOf<String>()
 
-    private val questions = vowelTeamPracticeQuestions.shuffled()
+    private val questions = vowelTeamPracticeQuestions.shuffled().take(10)
     val totalQuestions: Int get() = questions.size
     val currentQuestion: VowelTeamPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)
 

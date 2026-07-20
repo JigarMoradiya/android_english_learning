@@ -215,7 +215,7 @@ class ConsonantLePracticeViewModel @Inject constructor(
     private var sessionStartMs = System.currentTimeMillis()
     private val wrongWords = mutableListOf<String>()
     private val correctWords = mutableListOf<String>()
-    private val questions = clePracticeQuestions.shuffled().map { it.copy(options = it.options.shuffled()) }
+    private val questions = clePracticeQuestions.shuffled().take(10).map { it.copy(options = it.options.shuffled()) }
 
     val totalQuestions: Int get() = questions.size
     val currentQuestion: CLEPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)

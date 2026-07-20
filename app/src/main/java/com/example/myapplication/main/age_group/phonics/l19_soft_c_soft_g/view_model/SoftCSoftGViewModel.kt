@@ -193,7 +193,7 @@ class SoftCSoftGPracticeViewModel @Inject constructor(
     private var sessionStartMs = System.currentTimeMillis()
     private val wrongWords = mutableListOf<String>()
     private val correctWords = mutableListOf<String>()
-    private val questions = softCSoftGPracticeQuestions.shuffled()
+    private val questions = softCSoftGPracticeQuestions.shuffled().take(10)
 
     val totalQuestions: Int get() = questions.size
     val currentQuestion: SoftCSoftGPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)

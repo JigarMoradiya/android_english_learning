@@ -36,6 +36,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import androidx.compose.material.icons.filled.Extension
 
 private val cleAccent      = Color(0xFFAD1457)
 private val cleAccentLight = Color(0xFFC2185B)
@@ -93,6 +94,7 @@ fun ConsonantLeIntroPage(navController: NavController) {
                             CLEBulletRow(Icons.Default.Spa,                 Color(0xFF0277BD), "-tle · lit·tle, tur·tle, bot·tle")
                             CLEBulletRow(Icons.Default.Nature,              Color(0xFF2E7D32), "-ple · ap·ple, sim·ple, pur·ple")
                             CLEBulletRow(Icons.Default.LocalFireDepartment, Color(0xFFE65100), "-dle/-gle · can·dle, jun·gle, ea·gle")
+                            CLEBulletRow(Icons.Default.Extension, Color(0xFF5E35B1), "-kle/-fle/-zle · an·kle, waf·fle, puz·zle")
                         }
                         // Silent-e note row
                         Row(
@@ -154,7 +156,8 @@ private fun CLEGroupChip(group: CLEGroup) {
     PhonicsGroupChip(
         emoji = group.emoji,
         title = group.ending,
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.full
     )
 }
 

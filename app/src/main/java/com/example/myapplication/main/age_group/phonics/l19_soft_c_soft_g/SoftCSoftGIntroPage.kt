@@ -131,7 +131,8 @@ private fun SoftCGGroupChip(group: SoftCSoftGGroup) {
         emoji = group.emoji,
         title = group.title,
         subtitle = group.sound,
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.word
     )
 }
 

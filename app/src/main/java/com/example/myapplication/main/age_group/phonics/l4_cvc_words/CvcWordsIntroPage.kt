@@ -45,6 +45,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.foundation.clickable
 
 @Composable
 fun CvcWordsIntroPage(navController: NavController) {
@@ -116,6 +119,7 @@ fun CvcWordsIntroPage(navController: NavController) {
                             horizontalArrangement = Arrangement.spacedBy(Dimens8),
                             verticalArrangement = Arrangement.spacedBy(Dimens8)
                         ) {
+                            val introAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
                             listOf("cat", "hen", "pig", "dog", "sun").forEachIndexed { i, word ->
                                 Box(
                                     modifier = Modifier
@@ -123,6 +127,7 @@ fun CvcWordsIntroPage(navController: NavController) {
                                             cvcGroups[i].color.copy(alpha = 0.12f),
                                             RoundedCornerShape(Dimens8)
                                         )
+                                        .clickable { introAudioVm.play(word) }
                                         .padding(horizontal = Dimens10, vertical = Dimens6)
                                 ) {
                                     Text(

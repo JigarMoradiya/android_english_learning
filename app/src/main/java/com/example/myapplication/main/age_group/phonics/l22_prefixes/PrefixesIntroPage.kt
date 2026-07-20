@@ -39,6 +39,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import androidx.compose.material.icons.filled.AddCircle
 
 private val pfBlue      = Color(0xFF283593)
 private val pfBlueLight = Color(0xFF3949AB)
@@ -97,6 +98,7 @@ fun PrefixesIntroPage(navController: NavController) {
                             PFBulletRow(Icons.Default.FirstPage,     Color(0xFFE65100), "pre- = BEFORE → preview, preheat, pretest")
                             PFBulletRow(Icons.Default.CompareArrows, Color(0xFF6A1B9A), "dis- = OPPOSITE → dislike, disagree, distrust")
                             PFBulletRow(Icons.Default.Cancel,        Color(0xFFC62828), "mis- = WRONGLY → mistake, misread, misspell")
+                            PFBulletRow(Icons.Default.AddCircle,     Color(0xFF00838F), "over-/under-/non- → oversleep, underwater, nonstop")
                         }
                     }
                 }
@@ -139,7 +141,8 @@ private fun PFGroupChip(group: PrefixGroup) {
     PhonicsGroupChip(
         emoji = group.emoji,
         title = group.displayPrefix,
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.full
     )
 }
 

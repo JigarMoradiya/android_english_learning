@@ -136,7 +136,8 @@ private fun WEGroupChip(group: WordEndingGroup) {
     PhonicsGroupChip(
         emoji = group.emoji,
         title = group.suffix,
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.derived
     )
 }
 

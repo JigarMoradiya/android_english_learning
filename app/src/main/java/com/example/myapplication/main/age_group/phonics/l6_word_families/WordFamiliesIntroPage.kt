@@ -45,6 +45,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.foundation.clickable
 
 @Composable
 fun WordFamiliesIntroPage(navController: NavController) {
@@ -82,16 +85,18 @@ fun WordFamiliesIntroPage(navController: NavController) {
                             color = Color(0xFF1B5E20)
                         )
 
-                        // Family rime chips — first 4
+                        // Family rime chips — all families (FlowRow wraps)
                         FlowRow(
                             horizontalArrangement = Arrangement.spacedBy(Dimens8),
                             verticalArrangement = Arrangement.spacedBy(Dimens8)
                         ) {
-                            wordFamiliesData.take(4).forEach { family ->
+                            val introAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
+                            wordFamiliesData.forEach { family ->
                                 Box(
                                     contentAlignment = Alignment.Center,
                                     modifier = Modifier
                                         .background(family.color, RoundedCornerShape(Dimens8))
+                                        .clickable { introAudioVm.play(family.rimeAudio) }
                                         .padding(horizontal = Dimens12, vertical = Dimens6)
                                 ) {
                                     Text(
@@ -116,6 +121,7 @@ fun WordFamiliesIntroPage(navController: NavController) {
                             horizontalArrangement = Arrangement.spacedBy(Dimens8),
                             verticalArrangement = Arrangement.spacedBy(Dimens8)
                         ) {
+                            val introAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
                             listOf("cat", "man", "dog", "hen").forEachIndexed { i, word ->
                                 Box(
                                     modifier = Modifier
@@ -123,6 +129,7 @@ fun WordFamiliesIntroPage(navController: NavController) {
                                             wordFamiliesData[i].color.copy(alpha = 0.12f),
                                             RoundedCornerShape(Dimens8)
                                         )
+                                        .clickable { introAudioVm.play(word) }
                                         .padding(horizontal = Dimens10, vertical = Dimens6)
                                 ) {
                                     Text(

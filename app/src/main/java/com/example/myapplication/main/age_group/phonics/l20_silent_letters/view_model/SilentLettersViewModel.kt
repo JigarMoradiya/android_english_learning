@@ -237,7 +237,7 @@ class SilentLettersPracticeViewModel @Inject constructor(
     private var sessionStartMs = System.currentTimeMillis()
     private val wrongWords = mutableListOf<String>()
     private val correctWords = mutableListOf<String>()
-    private val questions = silentLettersPracticeQuestions.shuffled()
+    private val questions = silentLettersPracticeQuestions.shuffled().take(10)
 
     val totalQuestions: Int get() = questions.size
     val currentQuestion: SilentLettersPracticeQuestion? get() = questions.getOrNull(uiState.currentIndex)

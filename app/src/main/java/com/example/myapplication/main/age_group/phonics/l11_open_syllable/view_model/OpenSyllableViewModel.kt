@@ -163,7 +163,7 @@ class OpenSyllablePracticeViewModel @Inject constructor(
     private val phonicsSessions: PhonicsSessionRecorder
 ) : ViewModel() {
 
-    private val questions = openSyllablePracticeQuestions.shuffled()
+    private val questions = openSyllablePracticeQuestions.shuffled().take(10)
     var uiState by mutableStateOf(OpenSyllablePracticeUiState()); private set
 
     // Parent-report session tracking

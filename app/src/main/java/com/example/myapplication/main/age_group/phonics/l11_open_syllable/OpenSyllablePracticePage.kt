@@ -74,6 +74,9 @@ import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 import kotlin.math.roundToInt
 import kotlin.math.sin
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.SpanStyle
 
 private val accentColor = Color(0xFF6A1B9A)
 
@@ -301,18 +304,21 @@ private fun RightPanel(
             modifier = Modifier
                 .padding(horizontal = Dimens20)
                 .fillMaxWidth()
-                .height(screenH * 0.38f)
+                .height(screenH * 0.30f)
                 .kidsGlassCard(cornerRadius = Dimens20, strokeColor = accentColor)
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(Dimens12)
             ) {
+                // Blanked stem — never show the answer vowel!
                 Text(
-                    text = question.word,
+                    text = buildAnnotatedString {
+                        withStyle(SpanStyle(color = Color(0xFF263238))) { append(question.word.dropLast(1)) }
+                        withStyle(SpanStyle(color = accentColor)) { append("_") }
+                    },
                     style = MaterialTheme.typography.displayLarge.scaled(),
-                    fontWeight = FontWeight.ExtraBold,
-                    color = accentColor
+                    fontWeight = FontWeight.ExtraBold
                 )
                 Box(
                     contentAlignment = Alignment.Center,
@@ -322,7 +328,8 @@ private fun RightPanel(
                 ) {
                     Text(
                         text = "Which vowel is at the end?",
-                        style = MaterialTheme.typography.labelMedium.scaled(),
+                        style = MaterialTheme.typography.titleSmall.scaled(),
+                        fontWeight = FontWeight.Bold,
                         color = accentColor
                     )
                 }

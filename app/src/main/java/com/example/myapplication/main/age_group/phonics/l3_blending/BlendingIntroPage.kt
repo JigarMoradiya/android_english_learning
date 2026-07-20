@@ -51,6 +51,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
 import kotlinx.coroutines.launch
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.foundation.clickable
 
 private val blueDeep = Color(0xFF1565C0)
 private val blueLight = Color(0xFFE3F2FD)
@@ -120,10 +123,12 @@ fun BlendingIntroPage(navController: NavController) {
                             horizontalArrangement = Arrangement.spacedBy(Dimens8),
                             verticalArrangement = Arrangement.spacedBy(Dimens8)
                         ) {
+                            val introAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
                             listOf("at", "in", "ba", "go", "us").forEach { word ->
                                 Box(
                                     modifier = Modifier
                                         .background(blueLight, RoundedCornerShape(Dimens8))
+                                        .clickable { introAudioVm.play(word) }
                                         .padding(horizontal = Dimens10, vertical = Dimens6)
                                 ) {
                                     Text(

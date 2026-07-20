@@ -34,6 +34,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import androidx.compose.material.icons.filled.Bedtime
 
 private val sdAccent      = Color(0xFF00897B)
 private val sdAccentLight = Color(0xFF00695C)
@@ -90,6 +91,7 @@ fun SyllableDivisionIntroPage(navController: NavController) {
                             SDBulletRow(Icons.Default.ContentCut,            Color(0xFF2E7D32), "VC/CV · two consonants? chop between: rab-bit")
                             SDBulletRow(Icons.AutoMirrored.Filled.VolumeUp,  Color(0xFF1565C0), "V/CV · first vowel says its name: ti-ger")
                             SDBulletRow(Icons.Default.Bolt,                  Color(0xFF7B1FA2), "VC/V · first vowel is short: cam-el")
+                            SDBulletRow(Icons.Default.Bedtime,               Color(0xFF5D4037), "Schwa /ə/ · lazy \"uh\" sound: a-bout, so-fa")
                         }
                         // Syllable note
                         Row(
@@ -150,7 +152,8 @@ private fun SDGroupChip(group: SDGroup) {
     PhonicsGroupChip(
         emoji = group.emoji,
         title = group.name,
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.full
     )
 }
 

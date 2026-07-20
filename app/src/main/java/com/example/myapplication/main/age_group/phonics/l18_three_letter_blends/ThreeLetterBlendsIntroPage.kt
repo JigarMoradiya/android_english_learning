@@ -38,6 +38,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import androidx.compose.material.icons.filled.Water
 
 private val blendAccentColor = Color(0xFFE65100)
 
@@ -91,6 +92,8 @@ fun ThreeLetterBlendsIntroPage(navController: NavController) {
                                 "thr — three, throw, thread")
                             IntroRow(Icons.Default.Campaign,    Color(0xFFBF360C),
                                 "scr — scream, scratch, screen")
+                            IntroRow(Icons.Default.Water,       Color(0xFF00838F),
+                                "squ — squid, square · shr — shrimp, shrub")
                         }
                     }
                 }
@@ -134,7 +137,8 @@ private fun BlendGroupChip(group: ThreeLetterBlendsGroup) {
         emoji = group.emoji,
         title = group.blend,
         subtitle = "${group.words.size} words",
-        accentColor = group.accentColor
+        accentColor = group.accentColor,
+        tapAudio = group.words.firstOrNull()?.word
     )
 }
 

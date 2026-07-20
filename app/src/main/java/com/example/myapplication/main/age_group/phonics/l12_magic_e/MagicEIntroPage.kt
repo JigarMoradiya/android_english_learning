@@ -49,6 +49,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.foundation.clickable
 
 private val magicEAccentColor = Color(0xFF880E4F)
 
@@ -105,11 +108,13 @@ fun MagicEIntroPage(navController: NavController) {
                                 Triple("hop",  "hope",  Color(0xFF00ACC1)),
                                 Triple("cub",  "cube",  Color(0xFF66BB6A)),
                             ).forEach { (base, magic, color) ->
+                                val introAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
                                 Column(
                                     horizontalAlignment = Alignment.CenterHorizontally,
                                     verticalArrangement = Arrangement.spacedBy(Dimens2),
                                     modifier = Modifier
                                         .background(color.copy(alpha = 0.10f), RoundedCornerShape(Dimens8))
+                                        .clickable { introAudioVm.play(magic) }
                                         .padding(horizontal = Dimens8, vertical = Dimens6)
                                 ) {
                                     Text(

@@ -231,7 +231,7 @@ class RControlledPracticeViewModel @Inject constructor(
     private val phonicsSessions: PhonicsSessionRecorder
 ) : ViewModel() {
 
-    private val questions = rControlledPracticeQuestions.shuffled()
+    private val questions = rControlledPracticeQuestions.shuffled().take(10)
     var uiState by mutableStateOf(RControlledPracticeUiState()); private set
 
     // Parent-report session tracking

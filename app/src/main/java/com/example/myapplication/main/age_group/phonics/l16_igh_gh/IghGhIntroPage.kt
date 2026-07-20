@@ -45,6 +45,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.foundation.clickable
 
 private val ighAccentColor = Color(0xFF311B92)
 
@@ -100,11 +103,13 @@ fun IghGhIntroPage(navController: NavController) {
                             horizontalArrangement = Arrangement.spacedBy(Dimens8),
                             verticalArrangement = Arrangement.spacedBy(Dimens8)
                         ) {
+                            val introAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
                             ighGhGroups.forEach { group ->
                                 Box(
                                     contentAlignment = Alignment.Center,
                                     modifier = Modifier
                                         .background(group.accentColor.copy(alpha = 0.12f), RoundedCornerShape(50))
+                                        .clickable { group.words.firstOrNull()?.let { introAudioVm.play(it.word) } }
                                         .padding(horizontal = Dimens10, vertical = Dimens6)
                                 ) {
                                     Text(
@@ -121,6 +126,7 @@ fun IghGhIntroPage(navController: NavController) {
                             IghGhIntroRow("🌙", "igh = /aɪ/ — night, light, high")
                             IghGhIntroRow("👻", "Silent gh — though, thought, dough")
                             IghGhIntroRow("🎺", "gh = /f/ — enough, laugh, cough")
+                            IghGhIntroRow("8️⃣", "eigh = /ā/ — eight, weigh, sleigh")
                         }
                     }
                 }
