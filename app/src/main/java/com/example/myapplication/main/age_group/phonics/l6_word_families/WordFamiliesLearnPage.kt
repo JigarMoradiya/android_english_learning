@@ -83,6 +83,8 @@ import com.example.myapplication.utils.extensions.scaled
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.SpanStyle
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.compose.ui.draw.clip
 
 @Composable
 fun WordFamiliesLearnPage(
@@ -295,11 +297,15 @@ private fun FamilyHeader(family: WordFamily, tileH: Dp, isRimeHighlighted: Boole
                 style = MaterialTheme.typography.bodyMedium.scaled(),
                 color = family.color.copy(alpha = 0.65f)
             )
+            val wfAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
             Text(
                 text = "-${family.rime} words",
                 style = MaterialTheme.typography.headlineMedium.scaled(),
                 fontWeight = FontWeight.Bold,
-                color = family.color
+                color = family.color,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(Dimens8))
+                    .clickable { wfAudioVm.play(family.rimeAudio) }
             )
             Text(
                 text = buildAnnotatedString {
@@ -324,6 +330,7 @@ private fun RimeTile(rime: String, color: Color, shadow: Color, height: Dp, isHi
         label = "rimeTileScale"
     )
     val cornerShape = RoundedCornerShape(height * 0.22f)
+    val rimeAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -335,6 +342,8 @@ private fun RimeTile(rime: String, color: Color, shadow: Color, height: Dp, isHi
                 clip = false
             )
             .background(Brush.linearGradient(listOf(color, shadow)), cornerShape)
+            .clip(cornerShape)
+            .clickable { rimeAudioVm.play(rime) }
     ) {
         Text(
             text = "-$rime",

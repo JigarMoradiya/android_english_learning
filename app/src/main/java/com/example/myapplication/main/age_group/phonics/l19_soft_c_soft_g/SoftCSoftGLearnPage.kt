@@ -71,6 +71,15 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsWrongReadingCard
+import com.example.myapplication.main.common.WrongReadingExample
+import com.example.myapplication.main.common.PhonicsRuleBreakerCard
+import com.example.myapplication.main.common.RuleBreakerEntry
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.compose.ui.draw.clip
 
 @Composable
 fun SoftCSoftGLearnPage(
@@ -150,12 +159,18 @@ fun SoftCSoftGLearnPage(
                 ) {
                     SoftCGRuleBanner(group = group)
 
+                    SoftCGWhenCard(group = group)
+
                     if (uiState.showWords) {
                         SoftCGWordGrid(
                             group           = group,
                             highlightedWord = uiState.highlightedWord,
                             onWordTap       = { viewModel.onWordTap(it) }
                         )
+
+                        PhonicsWrongReadingCard(accentColor = Color(0xFF0277BD), examples = scgWrongReading(group))
+
+                        scgRuleBreakers(group)?.let { PhonicsRuleBreakerCard(entries = it) }
                     }
                 }
             }
@@ -232,12 +247,24 @@ private fun SoftCGRuleBanner(group: SoftCSoftGGroup) {
             .kidsGlassCard(cornerRadius = 12.dp, strokeColor = group.accentColor)
             .padding(Dimens14)
     ) {
+        val bannerAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
         Box(
             modifier = Modifier
                 .background(
                     Brush.linearGradient(listOf(group.accentColor, group.shadowColor)),
                     RoundedCornerShape(12.dp)
                 )
+                .clip(RoundedCornerShape(12.dp))
+                .clickable {
+                    bannerAudioVm.play(
+                        when (group.title) {
+                            "Soft C" -> "sound_s"
+                            "Hard C" -> "sound_c"
+                            "Soft G" -> "sound_j"
+                            else     -> "sound_g"
+                        }
+                    )
+                }
                 .padding(horizontal = Dimens16, vertical = Dimens10),
             contentAlignment = Alignment.Center
         ) {
@@ -423,3 +450,71 @@ private fun SoftCGWordCard(
         }
     }
 }
+
+// Per-group wrong-reading — follows the left-panel selection.
+private fun scgWrongReading(group: SoftCSoftGGroup): List<WrongReadingExample> = when (group.title) {
+    "Soft C" -> listOf(WrongReadingExample("/k/-ity (hard c)", "/s/-ity — e, i, y melt the c soft!", "city"))
+    "Hard C" -> listOf(WrongReadingExample("/s/-at (soft c)", "/k/-at — a, o, u keep C tough!", "cat"))
+    "Soft G" -> listOf(WrongReadingExample("/g/-em (hard g)", "/j/-em — e makes g gentle!", "gem"))
+    else     -> listOf(WrongReadingExample("/j/-oat (soft g)", "/g/-oat — a, o, u keep G hard!", "goat"))
+}
+
+// ── When soft, when hard? (follows the left-panel selection) ─────────────────
+
+@Composable
+private fun SoftCGWhenCard(group: SoftCSoftGGroup) {
+    val accent = Color(0xFF0277BD)
+    val (lines, reminder) = when (group.title) {
+        "Soft C" -> listOf(
+            "🕵️ Why is this c SOFT? Look at the letter right AFTER it!",
+            "❄️ **e, i, y** melt it → **/s/** like a snake: c**e**nt · c**i**ty · c**y**cle"
+        ) to "Spot a softener (**e, i, y**) after the c → it ALWAYS goes soft!"
+        "Hard C" -> listOf(
+            "🕵️ Why is this c HARD? Look at the letter right AFTER it!",
+            "💪 **a, o, u** (or nothing after) keep it tough → **/k/**: c**a**t · c**o**ld · c**u**p"
+        ) to "No softener (**e, i, y**) in sight → c stays **tough /k/**!"
+        "Soft G" -> listOf(
+            "🕵️ Why is this g GENTLE? Look at the letter right AFTER it!",
+            "💎 **e, i, y** make it gentle → **/j/** like a jar: g**e**m · g**i**raffe · g**y**m"
+        ) to "Spot a softener (**e, i, y**) after the g → it turns gentle!"
+        else -> listOf(
+            "🕵️ Why is this g HARD? Look at the letter right AFTER it!",
+            "💪 **a, o, u** (or nothing after) keep it strong → **/g/**: g**a**te · g**o**at · g**u**m"
+        ) to "No softener (**e, i, y**) in sight → g stays **strong /g/**!"
+    }
+
+    Column(
+        verticalArrangement = Arrangement.spacedBy(Dimens8),
+        modifier = Modifier
+            .fillMaxWidth()
+            .kidsGlassCard(cornerRadius = Dimens12, strokeColor = accent)
+            .padding(Dimens12)
+    ) {
+        Text(
+            text = "❓ When soft, when hard?",
+            style = MaterialTheme.typography.titleSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = accent
+        )
+        (lines + reminder).forEachIndexed { idx, line ->
+            val bold = if (idx == lines.size) Color(0xFFC62828) else accent
+            Text(
+                text = buildAnnotatedString {
+                    line.split("**").forEachIndexed { i, part ->
+                        if (i % 2 == 1) withStyle(SpanStyle(color = bold, fontWeight = FontWeight.Bold)) { append(part) }
+                        else withStyle(SpanStyle(color = Color(0xFF37474F))) { append(part) }
+                    }
+                },
+                style = MaterialTheme.typography.labelMedium.scaled()
+            )
+        }
+    }
+}
+
+private fun scgRuleBreakers(group: SoftCSoftGGroup): List<RuleBreakerEntry>? =
+    if (group.title == "Soft G") listOf(
+        RuleBreakerEntry("get", "hard /g/ before e — a rebel!"),
+        RuleBreakerEntry("girl", "hard /g/ before i — catch it!"),
+        RuleBreakerEntry("give", "the i doesn't soften this one!"),
+        RuleBreakerEntry("gift", "hard /g/ before i — another rebel!")
+    ) else null

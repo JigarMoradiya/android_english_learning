@@ -29,15 +29,15 @@ enum class VowelTeamGroup(
     val teams: String
 ) {
     AI_AY("AI / AY", "🌧️", Color(0xFFD32F2F), Color(0xFFB71C1C),
-        "AI and AY together say /ā/ (long A)",
+        "AI and AY together say /ā/ (long A) · 👄 smile and say āāā! 😁",
         "rain tail day play",
         "ai · ay"),
     EE_EA("EE / EA", "🌿", Color(0xFF00897B), Color(0xFF00695C),
-        "EE and EA together say /ē/ (long E)",
+        "EE and EA together say /ē/ (long E) · 👄 stretch a BIG smile — eee! 😁",
         "feet tree read team",
         "ee · ea"),
     OA_OW("OA / OW", "🌊", Color(0xFF1565C0), Color(0xFF0D47A1),
-        "OA and OW together say /ō/ (long O)",
+        "OA and OW together say /ō/ (long O) · 👄 make a round O mouth! ⭕",
         "boat coat snow grow",
         "oa · ow"),
     OO_LONG("OO · moon", "🌙", Color(0xFF5E35B1), Color(0xFF4527A0),
@@ -49,7 +49,7 @@ enum class VowelTeamGroup(
         "book look good foot",
         "oo 📖"),
     EW_UE_UI("EW / UE / UI", "💧", Color(0xFF0277BD), Color(0xFF01579B),
-        "EW, UE and UI all say /oo/ — just like the moon sound!",
+        "EW, UE and UI all say /oo/ — just like the moon sound! · 👄 kiss-shape lips! 💋",
         "new blue glue fruit",
         "ew · ue · ui"),
     EA_SHORT("EA · bread", "🍞", Color(0xFF6D4C41), Color(0xFF4E342E),
@@ -81,13 +81,21 @@ data class VowelTeamWord(
     val suffix: String get() = word.drop(teamStart + teamLength)
 }
 
+enum class VTQuestionKind {
+    FILL_BLANK,   // classic: r__n → pick the team
+    ODD_ONE_OUT,  // 🕵️ 4 words, one is NOT in the team — options are words, correctTeam = the stranger
+    EARS_FIRST    // 👂 word is HIDDEN, audio plays — pick the team by ear alone
+}
+
 data class VowelTeamPracticeQuestion(
     val id: String = UUID.randomUUID().toString(),
     val word: String,
     val correctTeam: String,
     val options: List<String>,
     val teamStart: Int,
-    val teamLength: Int
+    val teamLength: Int,
+    val kind: VTQuestionKind = VTQuestionKind.FILL_BLANK,
+    val prompt: String = ""
 )
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -220,6 +228,26 @@ val vowelTeamPracticeQuestions: List<VowelTeamPracticeQuestion> = listOf(
     VowelTeamPracticeQuestion(word = "key",    correctTeam = "ey", options = listOf("ey", "ee", "ay"), teamStart = 1, teamLength = 2),
     VowelTeamPracticeQuestion(word = "pie",    correctTeam = "ie", options = listOf("ie", "ee", "oo"), teamStart = 1, teamLength = 2),
     VowelTeamPracticeQuestion(word = "chief",  correctTeam = "ie", options = listOf("ie", "ea", "ay"), teamStart = 2, teamLength = 2),
+
+    // 🕵️ Odd one out — options are WORDS, correctTeam = the stranger
+    VowelTeamPracticeQuestion(word = "tree", correctTeam = "tree", options = listOf("rain", "day", "tree", "play"),  teamStart = 0, teamLength = 0,
+        kind = VTQuestionKind.ODD_ONE_OUT, prompt = "Which word is NOT in the ai/ay team? 🕵️"),
+    VowelTeamPracticeQuestion(word = "boat", correctTeam = "boat", options = listOf("feet", "read", "boat", "team"), teamStart = 0, teamLength = 0,
+        kind = VTQuestionKind.ODD_ONE_OUT, prompt = "Which word is NOT in the ee/ea team? 🕵️"),
+    VowelTeamPracticeQuestion(word = "moon", correctTeam = "moon", options = listOf("snow", "grow", "coat", "moon"), teamStart = 0, teamLength = 0,
+        kind = VTQuestionKind.ODD_ONE_OUT, prompt = "Which word is NOT in the oa/ow team? 🕵️"),
+    VowelTeamPracticeQuestion(word = "rain", correctTeam = "rain", options = listOf("moon", "food", "rain", "zoo"),  teamStart = 0, teamLength = 0,
+        kind = VTQuestionKind.ODD_ONE_OUT, prompt = "Which word is NOT in the oo team? 🕵️"),
+
+    // 👂 Ears first — the word is hidden, kid picks the team by SOUND alone
+    VowelTeamPracticeQuestion(word = "tail",  correctTeam = "ai", options = listOf("ai", "ee", "oo"), teamStart = 1, teamLength = 2,
+        kind = VTQuestionKind.EARS_FIRST, prompt = "Listen! 👂 Which team do you hear?"),
+    VowelTeamPracticeQuestion(word = "sleep", correctTeam = "ee", options = listOf("ee", "ay", "oa"), teamStart = 2, teamLength = 2,
+        kind = VTQuestionKind.EARS_FIRST, prompt = "Listen! 👂 Which team do you hear?"),
+    VowelTeamPracticeQuestion(word = "snow",  correctTeam = "ow", options = listOf("ow", "ea", "ue"), teamStart = 2, teamLength = 2,
+        kind = VTQuestionKind.EARS_FIRST, prompt = "Listen! 👂 Which team do you hear?"),
+    VowelTeamPracticeQuestion(word = "zoo",   correctTeam = "oo", options = listOf("oo", "ai", "ie"), teamStart = 1, teamLength = 2,
+        kind = VTQuestionKind.EARS_FIRST, prompt = "Listen! 👂 Which team do you hear?"),
 )
 
 // ── UI States ─────────────────────────────────────────────────────────────────
@@ -282,6 +310,14 @@ class VowelTeamsPracticeViewModel @Inject constructor(
 
     var uiState by mutableStateOf(VowelTeamPracticeUiState())
         private set
+
+    /** Ears-first questions: play the hidden word (auto on appear + speaker tap). */
+    fun playQuestionWord() {
+        currentQuestion?.let {
+            audioManager.stop()
+            audioManager.playPhonicsSound("phonics_word/${it.word}")
+        }
+    }
 
     // Parent-report session tracking
     private var sessionStartMs = System.currentTimeMillis()

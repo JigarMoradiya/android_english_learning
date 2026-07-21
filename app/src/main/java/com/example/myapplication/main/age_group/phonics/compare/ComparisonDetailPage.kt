@@ -80,6 +80,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.math.roundToInt
 import kotlin.math.sin
+import androidx.compose.ui.draw.clip
 
 // ComparisonDetailPage.kt
 // Reusable "Compare & Choose" detail — detective rule card + level link,
@@ -318,6 +319,7 @@ private fun RuleCard(
             Row(
                 modifier = Modifier
                     .background(Color(0xFF5532D2).copy(alpha = 0.12f), RoundedCornerShape(50))
+                    .clip(RoundedCornerShape(50))
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null,
@@ -511,6 +513,7 @@ private fun ComparisonWordCapsule(
             .graphicsLayer { scaleX = scale; scaleY = scale }
             .background(Color.White.copy(alpha = 0.92f), RoundedCornerShape(50))
             .border(Dimens1, teamColor.copy(alpha = 0.4f), RoundedCornerShape(50))
+            .clip(RoundedCornerShape(50))
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null,
@@ -655,6 +658,7 @@ private fun TeamAnswerButton(
         modifier = Modifier
             .graphicsLayer { scaleX = scale; scaleY = scale }
             .background(background, RoundedCornerShape(50))
+            .clip(RoundedCornerShape(50))
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null,

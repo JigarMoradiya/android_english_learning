@@ -47,6 +47,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.utils.extensions.scaled
+import androidx.compose.ui.draw.clip
 
 private val practiceAccentColor = Color(0xFF880E4F)
 private val silentEGold         = Color(0xFFFFC107)
@@ -410,6 +411,7 @@ private fun PracticeFinishedView(score: Int, total: Int, onRestart: () -> Unit) 
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .background(practiceAccentColor, RoundedCornerShape(50))
+                    .clip(RoundedCornerShape(50))
                     .clickable { onRestart() }
                     .padding(horizontal = Dimens24, vertical = Dimens12)
             ) {

@@ -51,6 +51,10 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsWrongReadingCard
+import com.example.myapplication.main.common.WrongReadingExample
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.compose.ui.draw.clip
 
 private val cleAccent = Color(0xFFAD1457)
 
@@ -119,6 +123,8 @@ fun ConsonantLeLearnPage(
                             tappedWord   = uiState.tappedWordFull,
                             onWordTap    = { viewModel.onWordTap(it) }
                         )
+
+                        PhonicsWrongReadingCard(accentColor = Color(0xFFAD1457), examples = cleWrongReading(group))
                     }
                 }
             }
@@ -219,11 +225,17 @@ private fun CLELGroupHeader(group: CLEGroup) {
                 .padding(horizontal = Dimens14, vertical = Dimens10),
             contentAlignment = Alignment.Center
         ) {
+            val bannerAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
             Text(
                 text       = group.ending,
                 style      = MaterialTheme.typography.headlineLarge.scaled(),
                 fontWeight = FontWeight.ExtraBold,
-                color      = Color.White
+                color      = Color.White,
+                modifier   = Modifier
+                    .clip(RoundedCornerShape(Dimens8))
+                    .clickable {
+                        bannerAudioVm.play(group.ending.replace("-", "").split(" / ").first())
+                    }
             )
         }
         Text(text = group.emoji, style = MaterialTheme.typography.headlineMedium.scaled())
@@ -381,4 +393,13 @@ private fun CLELWordCard(
             }
         }
     }
+}
+
+// Per-ending wrong-reading — follows the left-panel selection.
+private fun cleWrongReading(group: CLEGroup): List<WrongReadingExample> = when (group.ending) {
+    "-ble" -> listOf(WrongReadingExample("bub·blee (saying the e)", "bub·bl — -le says a tiny /əl/!", "bubble"))
+    "-tle" -> listOf(WrongReadingExample("lit·lee (saying the e)", "lit·tl — the e stays silent!", "little"))
+    "-ple" -> listOf(WrongReadingExample("app·lee (saying the e)", "ap·pl — -le says a tiny /əl/!", "apple"))
+    "-dle / -gle" -> listOf(WrongReadingExample("can·dlee (saying the e)", "can·dl — tiny /əl/ at the end!", "candle"))
+    else   -> listOf(WrongReadingExample("an·klee (saying the e)", "an·kl — tiny /əl/ at the end!", "ankle"))
 }

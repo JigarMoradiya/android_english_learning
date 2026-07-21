@@ -42,7 +42,7 @@ val yAsVowelGroups: List<YAsVowelGroup> = listOf(
     YAsVowelGroup(
         label = "Y = /ī/",
         sound = "/ī/ — long I",
-        rule = "Y at end of a 1-syllable word says its long name: I",
+        rule = "Y the chameleon 🦎 — end of a SHORT word: it turns into /ī/ (fly!)",
         emoji = "🌙",
         accentColor = Color(0xFF0097A7),
         shadowColor = Color(0xFF006064),
@@ -56,7 +56,7 @@ val yAsVowelGroups: List<YAsVowelGroup> = listOf(
     YAsVowelGroup(
         label = "Y = /ē/",
         sound = "/ē/ — long E",
-        rule = "Y at end of a 2+ syllable word says E",
+        rule = "Y the chameleon 🦎 — end of a LONG word: it turns into /ē/ (happy!)",
         emoji = "😊",
         accentColor = Color(0xFF00838F),
         shadowColor = Color(0xFF005B6A),
@@ -70,7 +70,7 @@ val yAsVowelGroups: List<YAsVowelGroup> = listOf(
     YAsVowelGroup(
         label = "Y in middle",
         sound = "/ī/ in middle",
-        rule = "Y in the middle of a word usually says I",
+        rule = "Y the chameleon 🦎 — hiding in the middle: it acts like /i/ (gym!)",
         emoji = "💪",
         accentColor = Color(0xFF006064),
         shadowColor = Color(0xFF004D40),

@@ -42,7 +42,7 @@ data class SilentLettersGroup(
 val silentLettersGroups: List<SilentLettersGroup> = listOf(
     SilentLettersGroup(
         pattern = "kn",
-        rule = "K is silent when followed by N — only N sounds",
+        rule = "K is a ninja 🥷 — before N it hides in silence, only N sounds!",
         emoji = "🔕",
         accentColor = Color(0xFF455A64),
         shadowColor = Color(0xFF263238),
@@ -60,7 +60,7 @@ val silentLettersGroups: List<SilentLettersGroup> = listOf(
     ),
     SilentLettersGroup(
         pattern = "wr",
-        rule = "W is silent when followed by R — only R sounds",
+        rule = "W is a ninja 🥷 — before R it vanishes, only R sounds!",
         emoji = "✍️",
         accentColor = Color(0xFF37474F),
         shadowColor = Color(0xFF263238),
@@ -78,7 +78,7 @@ val silentLettersGroups: List<SilentLettersGroup> = listOf(
     ),
     SilentLettersGroup(
         pattern = "mb",
-        rule = "B is silent when it follows M at the end of a word",
+        rule = "B is a ninja 🥷 — after M at the end it disappears without a sound!",
         emoji = "🐑",
         accentColor = Color(0xFF546E7A),
         shadowColor = Color(0xFF37474F),
@@ -96,7 +96,7 @@ val silentLettersGroups: List<SilentLettersGroup> = listOf(
     ),
     SilentLettersGroup(
         pattern = "gn",
-        rule = "G is silent when followed by N or at word's end before N",
+        rule = "G is a ninja 🥷 — next to N it slips away silently!",
         emoji = "🤫",
         accentColor = Color(0xFF607D8B),
         shadowColor = Color(0xFF455A64),
@@ -112,7 +112,7 @@ val silentLettersGroups: List<SilentLettersGroup> = listOf(
     ),
     SilentLettersGroup(
         pattern = "h",
-        rule = "Sometimes H hides completely — you don't hear it at all",
+        rule = "H is the sneakiest ninja 🥷 — sometimes it hides completely!",
         emoji = "🤐",
         accentColor = Color(0xFF00695C),
         shadowColor = Color(0xFF004D40),
@@ -124,7 +124,7 @@ val silentLettersGroups: List<SilentLettersGroup> = listOf(
     ),
     SilentLettersGroup(
         pattern = "l",
-        rule = "L can be silent after A — like in walk and calm",
+        rule = "L turns ninja 🥷 after A — walk and calm lose their L sound!",
         emoji = "🚶",
         accentColor = Color(0xFF8E24AA),
         shadowColor = Color(0xFF6A1B9A),
@@ -137,7 +137,7 @@ val silentLettersGroups: List<SilentLettersGroup> = listOf(
     ),
     SilentLettersGroup(
         pattern = "t",
-        rule = "T can hide in the middle — like in listen and castle",
+        rule = "T sneaks away in the middle 🥷 — listen and castle hide their T!",
         emoji = "🏰",
         accentColor = Color(0xFFEF6C00),
         shadowColor = Color(0xFFE65100),

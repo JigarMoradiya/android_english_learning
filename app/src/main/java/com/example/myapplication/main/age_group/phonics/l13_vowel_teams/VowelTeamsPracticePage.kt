@@ -59,6 +59,10 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens32
 import com.example.myapplication.ui.theme.AppDimens.Dimens40
 import com.example.myapplication.ui.theme.ButtonType
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.age_group.phonics.l13_vowel_teams.view_model.VTQuestionKind
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.draw.clip
 
 private val accentColor = Color(0xFFEF6C00)
 
@@ -258,23 +262,54 @@ private fun rightPanel(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(Dimens8)
             ) {
-                Text(
-                    text = buildAnnotatedString {
-                        append(question.word.take(question.teamStart))
-                        withStyle(SpanStyle(color = accentColor, fontWeight = FontWeight.ExtraBold)) {
-                            append("___")
-                        }
-                        append(question.word.drop(question.teamStart + question.teamLength))
-                    },
-                    style = MaterialTheme.typography.displaySmall.scaled(),
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF263238)
-                )
-                Text(
-                    text = "What vowel team fits here?",
-                    style = MaterialTheme.typography.labelLarge.scaled(),
-                    color = Color(0xFF78909C)
-                )
+                when (question.kind) {
+                    VTQuestionKind.FILL_BLANK -> {
+                        Text(
+                            text = buildAnnotatedString {
+                                append(question.word.take(question.teamStart))
+                                withStyle(SpanStyle(color = accentColor, fontWeight = FontWeight.ExtraBold)) {
+                                    append("___")
+                                }
+                                append(question.word.drop(question.teamStart + question.teamLength))
+                            },
+                            style = MaterialTheme.typography.displaySmall.scaled(),
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF263238)
+                        )
+                        Text(
+                            text = "What vowel team fits here?",
+                            style = MaterialTheme.typography.labelLarge.scaled(),
+                            color = Color(0xFF78909C)
+                        )
+                    }
+                    VTQuestionKind.ODD_ONE_OUT -> {
+                        Text(text = "🕵️", style = MaterialTheme.typography.displaySmall.scaled())
+                        Text(
+                            text = question.prompt,
+                            style = MaterialTheme.typography.titleSmall.scaled(),
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF37474F)
+                        )
+                    }
+                    VTQuestionKind.EARS_FIRST -> {
+                        LaunchedEffect(question.id) { viewModel.playQuestionWord() }
+                        Text(
+                            text = "🔊",
+                            style = MaterialTheme.typography.displaySmall.scaled(),
+                            modifier = Modifier
+                                .background(accentColor, CircleShape)
+                                .clip(CircleShape)
+                                .clickable { viewModel.playQuestionWord() }
+                                .padding(Dimens14)
+                        )
+                        Text(
+                            text = question.prompt,
+                            style = MaterialTheme.typography.titleSmall.scaled(),
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF37474F)
+                        )
+                    }
+                }
             }
         }
 
@@ -339,7 +374,7 @@ private fun optionButton(
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Dimens4)) {
             Text(
-                text = option.uppercase(),
+                text = if (question.kind == VTQuestionKind.ODD_ONE_OUT) option else option.uppercase(),
                 style = MaterialTheme.typography.headlineSmall.scaled(),
                 fontWeight = FontWeight.ExtraBold,
                 color = textColor

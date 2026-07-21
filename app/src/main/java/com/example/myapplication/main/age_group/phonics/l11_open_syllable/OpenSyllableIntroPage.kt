@@ -46,6 +46,7 @@ import com.example.myapplication.utils.extensions.scaled
 import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.draw.clip
 
 private val accentColor = Color(0xFF6A1B9A)
 
@@ -136,6 +137,7 @@ fun OpenSyllableIntroPage(navController: NavController) {
                                 Box(
                                     modifier = Modifier
                                         .background(color.copy(alpha = 0.12f), RoundedCornerShape(Dimens8))
+                                        .clip(RoundedCornerShape(Dimens8))
                                         .clickable { introAudioVm.play(word) }
                                         .padding(horizontal = Dimens10, vertical = Dimens8)
                                 ) {

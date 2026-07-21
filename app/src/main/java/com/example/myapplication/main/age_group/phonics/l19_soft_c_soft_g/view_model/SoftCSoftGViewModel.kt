@@ -43,7 +43,7 @@ val softCSoftGGroups: List<SoftCSoftGGroup> = listOf(
     SoftCSoftGGroup(
         title = "Soft C",
         sound = "/s/ sound",
-        rule = "C before e, i, or y → says /s/ like snake",
+        rule = "e, i, y MELT the tough C ❄️ → it goes soft /s/ like snake 🐍",
         emoji = "🐍",
         isSoft = true,
         letter = "c",
@@ -78,7 +78,7 @@ val softCSoftGGroups: List<SoftCSoftGGroup> = listOf(
     SoftCSoftGGroup(
         title = "Soft G",
         sound = "/j/ sound",
-        rule = "G before e, i, or y → says /j/ like jar",
+        rule = "e, i, y make G gentle 💎 → it says /j/ like jar 🫙",
         emoji = "🫙",
         isSoft = true,
         letter = "g",
@@ -140,8 +140,15 @@ class SoftCSoftGLearnViewModel @Inject constructor(
     }
 
     fun onWordTap(word: SoftCSoftGWord) {
+        audioManager.stop()
         uiState = uiState.copy(highlightedWord = word.word)
         audioManager.playPhonicsSound("phonics_word/${word.word}")
+        // Clear the highlight once the word finishes sounding (matches iOS).
+        audioManager.onAudioCompleted = {
+            if (uiState.highlightedWord == word.word) {
+                uiState = uiState.copy(highlightedWord = null)
+            }
+        }
     }
 }
 

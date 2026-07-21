@@ -81,7 +81,7 @@ data class DigraphPracticeUiState(
 
 val digraphsData: List<DigraphEntry> = listOf(
     // ── CH + SH ──
-    DigraphEntry("", "ch", "/tʃ/", "Not /k/+/h/ — a brand-new /tʃ/ sound, like 'cheese'",
+    DigraphEntry("", "ch", "/tʃ/", "Not /k/+/h/ — a brand-new /tʃ/ sound, like 'cheese' · 🎬 chugga-chugga like a train! 🚂",
                  DigraphGroup.CH_SH, listOf(
         DigraphWord(word="chip"),  DigraphWord(word="chop"),
         DigraphWord(word="chat"),  DigraphWord(word="chin"),
@@ -90,7 +90,7 @@ val digraphsData: List<DigraphEntry> = listOf(
         DigraphWord(word="chain",  note="→ Vowel Team · L13"),
         DigraphWord(word="chase",  note="→ Magic E · L12"),
         DigraphWord(word="cheese", note="→ Vowel Team · L13"))),
-    DigraphEntry("", "sh", "/ʃ/", "Not /s/+/h/ — a brand-new /ʃ/ sound, like 'shh!'",
+    DigraphEntry("", "sh", "/ʃ/", "Not /s/+/h/ — a brand-new /ʃ/ sound, like 'shh!' · 🎬 finger on lips — shhh! 🤫",
                  DigraphGroup.CH_SH, listOf(
         DigraphWord(word="ship"),  DigraphWord(word="shop"),
         DigraphWord(word="shed"),  DigraphWord(word="shell"),
@@ -99,7 +99,7 @@ val digraphsData: List<DigraphEntry> = listOf(
         DigraphWord(word="shine",  note="→ Magic E · L12"),
         DigraphWord(word="shark",  note="→ R-Controlled · L15"))),
     // ── TH + WH ──
-    DigraphEntry("", "th", "/θ/", "Tongue to teeth — but TH has TWO sounds: 👄 soft /θ/ · 🐝 buzzy /ð/",
+    DigraphEntry("", "th", "/θ/", "Tongue to teeth — but TH has TWO sounds: 👄 soft /θ/ · 🐝 buzzy /ð/ · 🎬 let your tongue peek out! 😛",
                  DigraphGroup.TH_WH, listOf(
         DigraphWord(word="thin",   note="👄 soft air"),
         DigraphWord(word="that",   note="🐝 buzzy"),
@@ -114,7 +114,7 @@ val digraphsData: List<DigraphEntry> = listOf(
         "🐝 **Buzzy** — little **helper words**: the, this, that, they, them, then, there — and **family words**: mother, father, brother",
         "👄 **Soft air** — most **thing words**: think, three, thumb, thick — and th at the **end**: bath, math, teeth",
         "Not sure? If it's **not a helper word**, try **soft air** first!")),
-    DigraphEntry("", "wh", "/w/", "Sounds just like /w/ — like 'when' and 'which'",
+    DigraphEntry("", "wh", "/w/", "Sounds just like /w/ — like 'when' and 'which' · 🎬 blow air like the wind! 🌬️",
                  DigraphGroup.TH_WH, listOf(
         DigraphWord(word="whip"),  DigraphWord(word="when"),
         DigraphWord(word="what"),  DigraphWord(word="which"),
@@ -123,14 +123,14 @@ val digraphsData: List<DigraphEntry> = listOf(
         DigraphWord(word="wheel",  note="→ Vowel Team · L13"),
         DigraphWord(word="wheat",  note="→ Vowel Team · L13"))),
     // ── PH + QU ──
-    DigraphEntry("", "ph", "/f/", "Looks like P+H but says /f/ — same sound as the letter F",
+    DigraphEntry("", "ph", "/f/", "Looks like P+H but says /f/ — same sound as the letter F · 🎬 pretend to snap a photo! 📸",
                  DigraphGroup.PH_QU, listOf(
         DigraphWord(word="phantom"),
         DigraphWord(word="phone",   note="→ Magic E · L12"),
         DigraphWord(word="photo",   note="→ Open Syllable · L11"),
         DigraphWord(word="phew",    note="→ Vowel Team · L13"),
         DigraphWord(word="phonics", note="→ Open Syllable · L11"))),
-    DigraphEntry("", "qu", "/kw/", "Q is super shy 🙈 — it NEVER goes out without its best friend U!",
+    DigraphEntry("", "qu", "/kw/", "Q is super shy 🙈 — it NEVER goes out without its best friend U! · 🎬 quack it like a duck! 🦆",
                  DigraphGroup.PH_QU, listOf(
         DigraphWord(word="quiz"),  DigraphWord(word="quilt"),
         DigraphWord(word="quick"), DigraphWord(word="quest"),

@@ -55,7 +55,7 @@ val ighGhGroups: List<IghGhGroup> = listOf(
     ),
     IghGhGroup(
         pattern = "gh", sound = "silent",
-        rule    = "After vowel teams like -ough and -augh, the gh is completely silent",
+        rule    = "g and h are two ghosts 👻👻 — after -ough and -augh they float by in total silence!",
         emoji   = "👻",
         accentColor = Color(0xFF00695C), shadowColor = Color(0xFF004D40),
         words = listOf(
@@ -67,7 +67,7 @@ val ighGhGroups: List<IghGhGroup> = listOf(
     ),
     IghGhGroup(
         pattern = "gh", sound = "/f/ sound",
-        rule    = "Sometimes gh makes the /f/ sound — just like the f in fun!",
+        rule    = "Sometimes the gh ghosts 👻 moan out loud — they say /f/ like in fun!",
         emoji   = "🎺",
         accentColor = Color(0xFFBF360C), shadowColor = Color(0xFF7F0000),
         words = listOf(

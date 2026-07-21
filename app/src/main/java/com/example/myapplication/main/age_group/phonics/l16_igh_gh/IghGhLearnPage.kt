@@ -71,6 +71,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
+import com.example.myapplication.main.common.PhonicsWrongReadingCard
+import com.example.myapplication.main.common.WrongReadingExample
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 
 @Composable
 fun IghGhLearnPage(
@@ -138,6 +141,8 @@ fun IghGhLearnPage(
                             highlightedWord = uiState.highlightedWord,
                             onWordTap       = { viewModel.onWordTap(it) }
                         )
+
+                        PhonicsWrongReadingCard(accentColor = group.accentColor, examples = ighWrongReading(group))
                     }
                 }
             }
@@ -192,7 +197,8 @@ private fun RuleBanner(group: IghGhGroup) {
             .kidsGlassCard(cornerRadius = 12.dp, strokeColor = group.accentColor)
             .padding(Dimens14)
     ) {
-        // Glowing pattern badge
+        // Glowing pattern badge — tap plays the sound
+        val bannerAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
         androidx.compose.foundation.layout.Box(contentAlignment = Alignment.Center) {
             Text(
                 text  = group.pattern,
@@ -204,6 +210,8 @@ private fun RuleBanner(group: IghGhGroup) {
                         Brush.linearGradient(listOf(group.accentColor, group.shadowColor)),
                         RoundedCornerShape(12.dp)
                     )
+                    .clip(RoundedCornerShape(12.dp))
+                    .clickable { bannerAudioVm.play(ighGroupSound(group)) }
                     .padding(horizontal = Dimens16, vertical = Dimens10)
             )
         }
@@ -364,4 +372,19 @@ private fun WordCard(
             }
         }
     }
+}
+
+// Per-group wrong-reading — follows the left-panel selection.
+private fun ighWrongReading(group: IghGhGroup): List<WrongReadingExample> = when (group.emoji) {
+    "🌙" -> listOf(WrongReadingExample("nig·h·t (sounding g and h)", "/nīt/ — igh is ONE sound /ī/!", "night"))
+    "👻" -> listOf(WrongReadingExample("thou·g·h (sounding the ghosts)", "/thō/ — the gh ghosts are silent!", "though"))
+    "🎺" -> listOf(WrongReadingExample("lau·g·h (silent gh?)", "/laf/ — this gh moans /f/!", "laugh"))
+    else -> listOf(WrongReadingExample("e·igh·t (sounding igh)", "/āt/ — eigh says /ā/!", "eight"))
+}
+// Tap the big pattern badge to hear its sound (silent gh plays a whole word instead).
+private fun ighGroupSound(group: IghGhGroup): String = when (group.emoji) {
+    "🌙" -> "igh"
+    "👻" -> group.words.firstOrNull()?.word ?: "though"
+    "🎺" -> "sound_f"
+    else -> "long_a"
 }

@@ -73,6 +73,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 
 @Composable
 fun DiphthongsLearnPage(navController: NavController) {
@@ -302,7 +303,7 @@ private fun DiphthongRuleBanner(group: DiphthongGroup) {
                 color = group.accentColor
             )
             Text(
-                text = "Both spellings make the same ${group.sound} sound",
+                text = "Both spellings make the same ${group.sound} sound — feel your mouth SLIDE while you say it! 🎢👄",
                 style = MaterialTheme.typography.labelMedium.scaled(),
                 color = Color(0xFF455A64)
             )
@@ -356,10 +357,13 @@ private fun DiphthongSpellingColumn(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(Dimens6)
         ) {
+            val spellingAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .background(group.accentColor, RoundedCornerShape(50))
+                    .clip(RoundedCornerShape(50))
+                    .clickable { spellingAudioVm.play(if (spelling == "ow") "ow2" else spelling) }
                     .padding(horizontal = Dimens8, vertical = Dimens4)
             ) {
                 Text(

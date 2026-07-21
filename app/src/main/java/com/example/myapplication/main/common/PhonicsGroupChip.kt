@@ -32,7 +32,8 @@ class PhonicsIntroAudioViewModel @Inject constructor(
 ) : ViewModel() {
     fun play(file: String) {
         audioManager.stop()
-        audioManager.playPhonicsSound("phonics_word/$file")
+        val folder = if (file.startsWith("sound_") || file.startsWith("letter_")) "phonics_letter" else "phonics_word"
+        audioManager.playPhonicsSound("$folder/$file")
     }
 
     override fun onCleared() {

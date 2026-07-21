@@ -483,6 +483,7 @@ private fun BigBlendCard(
                         modifier = Modifier
                             .size(Dimens32)
                             .background(blend.group.color, CircleShape)
+                            .clip(CircleShape)
                             .clickable { onLetterSoundTap(char.toString()) }
                     ) {
                         Text(

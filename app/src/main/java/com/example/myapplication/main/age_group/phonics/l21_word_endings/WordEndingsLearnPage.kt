@@ -50,6 +50,8 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.compose.ui.draw.clip
 
 private val WordEndingRule.icon: ImageVector
     get() = when (this) {
@@ -235,11 +237,15 @@ private fun WELGroupHeader(group: WordEndingGroup) {
                 .padding(horizontal = Dimens16, vertical = Dimens10),
             contentAlignment = Alignment.Center
         ) {
+            val weAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
             Text(
                 text       = group.suffix,
                 style      = MaterialTheme.typography.headlineLarge.scaled(),
                 fontWeight = FontWeight.Bold,
-                color      = Color.White
+                color      = Color.White,
+                modifier   = Modifier
+                    .clip(RoundedCornerShape(Dimens8))
+                    .clickable { weAudioVm.play(if (group.suffix == "-s") "sound_s" else group.suffix.removePrefix("-")) }
             )
         }
         Text(text = group.emoji, style = MaterialTheme.typography.headlineMedium.scaled())

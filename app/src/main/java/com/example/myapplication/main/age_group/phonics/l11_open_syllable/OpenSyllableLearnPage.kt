@@ -73,6 +73,10 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens32
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsWrongReadingCard
+import com.example.myapplication.main.common.WrongReadingExample
+import com.example.myapplication.main.common.PhonicsRuleBreakerCard
+import com.example.myapplication.main.common.RuleBreakerEntry
 
 @Composable
 fun OpenSyllableLearnPage(
@@ -333,6 +337,7 @@ private fun GroupDetailView(
                     modifier = Modifier
                         .size(Dimens32 + Dimens20)
                         .background(group.color, CircleShape)
+                        .clip(CircleShape)
                         .clickable { onVowelTap(group.hint.take(1).lowercase()) }
                 ) {
                     Text(
@@ -444,6 +449,10 @@ private fun GroupDetailView(
                 }
             }
         }
+
+        PhonicsWrongReadingCard(accentColor = group.color, examples = osWrongReading(group))
+
+        osRuleBreakers(group)?.let { PhonicsRuleBreakerCard(entries = it) }
     }
 }
 
@@ -495,3 +504,13 @@ private fun WordChip(
         }
     }
 }
+
+// Per-group wrong-reading + rebels — follow the left-panel selection.
+private fun osWrongReading(group: OpenSyllableGroup): List<WrongReadingExample> = when (group) {
+    OpenSyllableGroup.E_WORDS -> listOf(WrongReadingExample("/meh/ (short e)", "/mē/ — an open vowel says its NAME!", "me"))
+    OpenSyllableGroup.O_WORDS -> listOf(WrongReadingExample("/goh/ (short o)", "/gō/ — nothing closes the o!", "go"))
+    else -> listOf(WrongReadingExample("/flih/ (short i)", "/flī/ — the open y says /ī/!", "fly"))
+}
+
+private fun osRuleBreakers(group: OpenSyllableGroup): List<RuleBreakerEntry>? =
+    if (group == OpenSyllableGroup.O_WORDS) listOf(RuleBreakerEntry("do", "the o says /oo/, not its name!")) else null

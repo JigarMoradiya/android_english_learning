@@ -54,6 +54,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
@@ -628,6 +629,7 @@ private fun AutoPlayButton(isPlaying: Boolean, accent: Color, shadow: Color, onC
                 Brush.linearGradient(listOf(accent, shadow)),
                 RoundedCornerShape(50)
             )
+            .clip(RoundedCornerShape(50))
             .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null) { onClick() }
             .padding(horizontal = Dimens20, vertical = Dimens10)
     ) {

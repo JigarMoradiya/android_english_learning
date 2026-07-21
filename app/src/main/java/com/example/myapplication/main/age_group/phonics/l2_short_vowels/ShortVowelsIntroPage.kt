@@ -53,6 +53,7 @@ import kotlinx.coroutines.launch
 import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.draw.clip
 
 @Composable
 fun ShortVowelsIntroPage(navController: NavController) {
@@ -140,6 +141,7 @@ fun ShortVowelsIntroPage(navController: NavController) {
                                 Box(
                                     modifier = Modifier
                                         .background(Color(0xFFFFEBEE), RoundedCornerShape(Dimens8))
+                                        .clip(RoundedCornerShape(Dimens8))
                                         .clickable { introAudioVm.play(word) }
                                         .padding(horizontal = Dimens10, vertical = Dimens6)
                                 ) {

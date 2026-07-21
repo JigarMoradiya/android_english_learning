@@ -71,6 +71,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens32
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -205,11 +206,15 @@ private fun L10BigEndingCard(
                 .background(accent.copy(0.08f), RoundedCornerShape(Dimens12))
                 .padding(vertical = Dimens10)
         ) {
+            val bannerAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
             Text(
                 entry.displayEnding.uppercase(),
                 style = MaterialTheme.typography.displaySmall.scaled(),
                 fontWeight = FontWeight.Bold,
-                color = accent
+                color = accent,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(Dimens8))
+                    .clickable { bannerAudioVm.play(entry.displayEnding.replace("-", "")) }
             )
             Box(
                 contentAlignment = Alignment.Center,
@@ -265,6 +270,7 @@ private fun L10BigEndingCard(
                     Box(
                         contentAlignment = Alignment.Center,
                         modifier = Modifier.size(Dimens32).background(accent, CircleShape)
+                            .clip(CircleShape)
                             .clickable { onLetterSoundTap(char.toString()) }
                     ) {
                         Text(char.uppercaseChar().toString(), style = MaterialTheme.typography.labelLarge.scaled(), fontWeight = FontWeight.Bold, color = Color.White)

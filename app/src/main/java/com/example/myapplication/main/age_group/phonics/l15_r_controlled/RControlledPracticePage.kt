@@ -61,6 +61,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.utils.extensions.scaled
+import androidx.compose.ui.draw.clip
 
 private val practiceAccentColor = Color(0xFF2E7D32)
 private val bossyRColor = Color(0xFFC62828)
@@ -405,6 +406,7 @@ private fun RControlledPracticeFinishedView(score: Int, total: Int, onRestart: (
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .background(practiceAccentColor, RoundedCornerShape(50))
+                    .clip(RoundedCornerShape(50))
                     .clickable { onRestart() }
                     .padding(horizontal = Dimens24, vertical = Dimens12)
             ) {

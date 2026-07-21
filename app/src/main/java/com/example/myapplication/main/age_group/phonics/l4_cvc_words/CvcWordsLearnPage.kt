@@ -173,46 +173,6 @@ fun CvcWordsLearnPage(
                     .weight(0.62f)
                     .fillMaxHeight()
             ) {
-                // Replay button row (top right, visible only when word selected)
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(end = Dimens16, top = Dimens8),
-                    horizontalArrangement = Arrangement.End
-                ) {
-                    AnimatedVisibility(
-                        visible = uiState.selectedWord != null,
-                        enter = scaleIn(initialScale = 0.85f, animationSpec = tween(200)),
-                        exit = scaleOut(targetScale = 0.85f, animationSpec = tween(200))
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(Dimens4),
-                            modifier = Modifier
-                                .background(Color(0xD9FFFFFF), RoundedCornerShape(50))
-                                .border(Dimens2, Color(0x4D3949AB), RoundedCornerShape(50))
-                                .clickable(
-                                    interactionSource = remember { MutableInteractionSource() },
-                                    indication = null
-                                ) { viewModel.replayAnimation() }
-                                .padding(horizontal = Dimens12, vertical = Dimens6)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Replay,
-                                contentDescription = null,
-                                tint = Color(0xFF3949AB),
-                                modifier = Modifier.size(Dimens16)
-                            )
-                            Text(
-                                text = "Replay",
-                                style = MaterialTheme.typography.labelLarge.scaled(),
-                                fontWeight = FontWeight.Bold,
-                                color = Color(0xFF3949AB)
-                            )
-                        }
-                    }
-                }
-
                 // Content: empty state or animation panel
                 Box(
                     contentAlignment = Alignment.Center,
@@ -583,13 +543,13 @@ private fun CvcAnimationPanel(
                             interactionSource = remember { MutableInteractionSource() },
                             indication = null
                         ) { viewModel.playWordAudio() }
-                        .padding(horizontal = Dimens20, vertical = Dimens12)
+                        .padding(horizontal = Dimens12, vertical = Dimens6)
                 ) {
                     Icon(
                         imageVector = Icons.Default.VolumeUp,
                         contentDescription = null,
                         tint = Color(0xFF7B1FA2),
-                        modifier = Modifier.size(Dimens20)
+                        modifier = Modifier.size(Dimens16)
                     )
                     Text(
                         text = displayedWord.word,

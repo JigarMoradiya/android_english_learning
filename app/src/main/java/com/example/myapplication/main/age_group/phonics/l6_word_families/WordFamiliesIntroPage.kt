@@ -48,6 +48,7 @@ import com.example.myapplication.utils.extensions.scaled
 import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.draw.clip
 
 @Composable
 fun WordFamiliesIntroPage(navController: NavController) {
@@ -96,6 +97,7 @@ fun WordFamiliesIntroPage(navController: NavController) {
                                     contentAlignment = Alignment.Center,
                                     modifier = Modifier
                                         .background(family.color, RoundedCornerShape(Dimens8))
+                                        .clip(RoundedCornerShape(Dimens8))
                                         .clickable { introAudioVm.play(family.rimeAudio) }
                                         .padding(horizontal = Dimens12, vertical = Dimens6)
                                 ) {
@@ -129,6 +131,7 @@ fun WordFamiliesIntroPage(navController: NavController) {
                                             wordFamiliesData[i].color.copy(alpha = 0.12f),
                                             RoundedCornerShape(Dimens8)
                                         )
+                                        .clip(RoundedCornerShape(Dimens8))
                                         .clickable { introAudioVm.play(word) }
                                         .padding(horizontal = Dimens10, vertical = Dimens6)
                                 ) {

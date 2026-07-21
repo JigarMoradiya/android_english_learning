@@ -320,6 +320,7 @@ private fun CLEOptionTile(
                 spotColor    = if (highlighted) strokeColor else Color.Transparent)
             .background(bgColor, RoundedCornerShape(16.dp))
             .border(if (isSelected || (isCorrect && answered)) 2.5.dp else 1.5.dp, strokeColor, RoundedCornerShape(16.dp))
+            .clip(RoundedCornerShape(16.dp))
             .clickable(enabled = !answered, interactionSource = interactionSource, indication = null) { onClick() }
             .padding(Dimens14)
     ) {

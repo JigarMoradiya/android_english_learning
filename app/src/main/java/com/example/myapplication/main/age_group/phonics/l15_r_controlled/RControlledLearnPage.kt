@@ -73,6 +73,9 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsWrongReadingCard
+import com.example.myapplication.main.common.WrongReadingExample
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 
 private val bossyRColor = Color(0xFFC62828)
 
@@ -221,6 +224,8 @@ private fun RControlledGroupContent(
                     onWordTap = onWordTap
                 )
             }
+
+            PhonicsWrongReadingCard(accentColor = group.accentColor, examples = rcWrongReading(group))
         }
     }
 }
@@ -242,10 +247,13 @@ private fun RControlledRuleBanner(group: RControlledGroup) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(Dimens6)
         ) {
+            val bannerAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .background(group.accentColor, RoundedCornerShape(Dimens8))
+                    .clip(RoundedCornerShape(Dimens8))
+                    .clickable { bannerAudioVm.play(if (group.rTeam == "ore") "more" else group.rTeam) }
                     .padding(horizontal = Dimens12, vertical = Dimens6)
             ) {
                 Text(
@@ -402,6 +410,7 @@ private fun RControlledWordCard(
             .scale(if (isHighlighted) 1.03f else 1.0f)
             .shadow(if (isHighlighted) 8.dp else 2.dp, RoundedCornerShape(Dimens10))
             .background(bg, RoundedCornerShape(Dimens10))
+            .clip(RoundedCornerShape(Dimens10))
             .clickable { onTap() }
             .padding(horizontal = Dimens8, vertical = Dimens10),
         contentAlignment = Alignment.Center
@@ -432,4 +441,18 @@ private fun RControlledWordCard(
             )
         }
     }
+}
+
+// Per-team wrong-reading — follows the left-panel selection.
+private fun rcWrongReading(group: RControlledGroup): List<WrongReadingExample> = when (group.rTeam) {
+    "ar"  -> listOf(WrongReadingExample("c·a·r (short a + r)", "/car/ — Bossy R changes the a!", "car"))
+    "or"  -> listOf(WrongReadingExample("f·o·rk (short o + r)", "/fork/ — or is ONE sound!", "fork"))
+    "er"  -> listOf(WrongReadingExample("h·e·r (short e + r)", "/her/ — er says /ər/ in one go!", "her"))
+    "ir"  -> listOf(WrongReadingExample("b·i·r·d (four sounds)", "/bird/ — ir is ONE sound /er/!", "bird"))
+    "ur"  -> listOf(WrongReadingExample("b·u·rn (short u + r)", "/burn/ — ur says /er/ too!", "burn"))
+    "air" -> listOf(WrongReadingExample("h·a·i·r (letter by letter)", "/hair/ — air is one chunk!", "hair"))
+    "ear" -> listOf(WrongReadingExample("e·a·r (letter by letter)", "/ear/ — ear is one chunk!", "ear"))
+    "ore" -> listOf(WrongReadingExample("mor·e (saying the e)", "/mor/ — ore is one chunk, e silent!", "more"))
+    "war" -> listOf(WrongReadingExample("/warm/ with normal ar", "/worm/ — W bends ar to /or/!", "warm"))
+    else  -> listOf(WrongReadingExample("/word/ with normal or", "/werd/ — W bends or to /er/!", "word"))
 }

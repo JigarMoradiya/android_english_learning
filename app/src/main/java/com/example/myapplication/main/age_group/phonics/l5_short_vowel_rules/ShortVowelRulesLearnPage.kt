@@ -84,6 +84,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.utils.extensions.scaled
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import androidx.compose.ui.draw.clip
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -330,6 +331,7 @@ private fun RuleTab(rule: SpellingRule, isSelected: Boolean, onClick: () -> Unit
                 elevation = if (isSelected) 6.dp else 2.dp
             )
             .background(bgColor, RoundedCornerShape(Dimens14))
+            .clip(RoundedCornerShape(Dimens14))
             .clickable(
                 indication = null,
                 interactionSource = remember { MutableInteractionSource() }

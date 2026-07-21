@@ -76,6 +76,8 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsWrongReadingCard
+import com.example.myapplication.main.common.WrongReadingExample
 
 private val silentLetterMap = mapOf("kn" to "k", "wr" to "w", "mb" to "b", "gn" to "g")
 private val soundedLetterMap = mapOf("kn" to "n", "wr" to "r", "mb" to "m", "gn" to "n")
@@ -146,6 +148,8 @@ fun SilentLettersLearnPage(
                             highlightedWord = uiState.highlightedWord,
                             onWordTap       = { viewModel.onWordTap(it) }
                         )
+
+                        PhonicsWrongReadingCard(accentColor = Color(0xFF455A64), examples = slWrongReading(group))
                     }
                 }
             }
@@ -427,4 +431,15 @@ private fun SilentWordCard(
             }
         }
     }
+}
+
+// Per-pattern wrong-reading — follows the left-panel selection.
+private fun slWrongReading(group: SilentLettersGroup): List<WrongReadingExample> = when (group.pattern) {
+    "kn" -> listOf(WrongReadingExample("k·nife (saying the k)", "/nīf/ — the K ninja makes no sound!", "knife"))
+    "wr" -> listOf(WrongReadingExample("w·rite (saying the w)", "/rīt/ — the W ninja hides!", "write"))
+    "mb" -> listOf(WrongReadingExample("lam·b (saying the b)", "/lam/ — the B hides after M!", "lamb"))
+    "gn" -> listOf(WrongReadingExample("sig·n (saying the g)", "/sīn/ — the G slips away!", "sign"))
+    "h"  -> listOf(WrongReadingExample("h·our (saying the h)", "/our/ — the H hides completely!", "hour"))
+    "l"  -> listOf(WrongReadingExample("wa·l·k (saying the l)", "/wok/ — the L turns ninja after A!", "walk"))
+    else -> listOf(WrongReadingExample("lis·t·en (saying the t)", "/lissen/ — the T sneaks away!", "listen"))
 }

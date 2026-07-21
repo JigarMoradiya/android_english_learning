@@ -76,6 +76,10 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.ui.theme.AppDimens.Dimens32
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsWrongReadingCard
+import com.example.myapplication.main.common.WrongReadingExample
+import com.example.myapplication.main.common.PhonicsRuleBreakerCard
+import com.example.myapplication.main.common.RuleBreakerEntry
 
 private fun digraphColor(digraph: String): Color = when (digraph) {
     "ch" -> Color(0xFFFF7043)
@@ -295,6 +299,10 @@ private fun DigraphDetailView(
         if (uiState.showWords) {
             DigraphWordsSection(entry = entry, accent = accent, shadow = shadow, uiState = uiState, onWordTap = onWordTap)
         }
+
+        PhonicsWrongReadingCard(accentColor = accent, examples = digraphWrongReading(entry))
+
+        digraphRuleBreakers(entry)?.let { PhonicsRuleBreakerCard(entries = it) }
     }
 }
 
@@ -387,3 +395,16 @@ private fun DigraphWordsSection(
         }
     }
 }
+
+// Per-digraph wrong-reading + rebels — follow the left-panel selection.
+private fun digraphWrongReading(entry: DigraphEntry): List<WrongReadingExample> = when (entry.digraph) {
+    "ch" -> listOf(WrongReadingExample("c·h·ip (two sounds)", "/ch/-ip — c+h team up!", "chip"))
+    "sh" -> listOf(WrongReadingExample("s·h·ip (two sounds)", "/sh/-ip — sh is ONE new sound!", "ship"))
+    "th" -> listOf(WrongReadingExample("t·h·in (two sounds)", "/th/-in — tongue peeks out!", "thin"))
+    "wh" -> listOf(WrongReadingExample("w·h·ip (two sounds)", "/w/-ip — wh just says /w/!", "whip"))
+    "ph" -> listOf(WrongReadingExample("p·h·one (p + h)", "/f/-ōn — ph says /f/!", "phone"))
+    else -> listOf(WrongReadingExample("q·u·iz (q alone)", "/kw/-iz — q + u shout together!", "quiz"))
+}
+
+private fun digraphRuleBreakers(entry: DigraphEntry): List<RuleBreakerEntry>? =
+    if (entry.digraph == "ch") listOf(RuleBreakerEntry("school", "ch says /k/ here — sneaky!")) else null

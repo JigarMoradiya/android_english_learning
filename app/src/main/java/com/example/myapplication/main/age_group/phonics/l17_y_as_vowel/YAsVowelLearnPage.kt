@@ -69,6 +69,8 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.compose.ui.draw.clip
 
 @Composable
 fun YAsVowelLearnPage(
@@ -207,11 +209,15 @@ private fun YRuleBanner(group: YAsVowelGroup) {
                 fontWeight = FontWeight.ExtraBold,
                 color = group.accentColor.copy(alpha = 0.25f)
             )
+            val yAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
             Text(
                 text  = "Y",
                 style = MaterialTheme.typography.headlineLarge.scaled(),
                 fontWeight = FontWeight.ExtraBold,
-                color = Color.White
+                color = Color.White,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(Dimens8))
+                    .clickable { yAudioVm.play(if (group.label == "Y = /ē/") "long_e" else "long_i") }
             )
         }
 

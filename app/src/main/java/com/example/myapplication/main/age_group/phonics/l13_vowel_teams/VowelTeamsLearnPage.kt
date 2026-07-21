@@ -65,6 +65,12 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsWrongReadingCard
+import com.example.myapplication.main.common.WrongReadingExample
+import com.example.myapplication.main.common.PhonicsRuleBreakerCard
+import com.example.myapplication.main.common.RuleBreakerEntry
+import com.example.myapplication.main.common.PhonicsSayItButton
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -158,6 +164,12 @@ fun VowelTeamsLearnPage(
                                 }
                             }
                         }
+
+                        PhonicsWrongReadingCard(accentColor = g.color, examples = vtWrongReading(g))
+
+                        vtRuleBreakers(g)?.let { PhonicsRuleBreakerCard(entries = it) }
+
+                        PhonicsSayItButton(accentColor = g.color)
                     }
                     }
                 }
@@ -242,11 +254,30 @@ private fun ruleCard(group: VowelTeamGroup) {
             verticalArrangement = Arrangement.spacedBy(Dimens6)
         ) {
             Text(text = group.emoji, style = MaterialTheme.typography.displaySmall.scaled())
+            val teamAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
             Text(
                 text = group.teams,
                 style = MaterialTheme.typography.headlineMedium.scaled(),
                 fontWeight = FontWeight.ExtraBold,
-                color = group.color
+                color = group.color,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(Dimens8))
+                    .clickable {
+                        teamAudioVm.play(
+                            when (group) {
+                                VowelTeamGroup.AI_AY    -> "ai"
+                                VowelTeamGroup.EE_EA    -> "ee"
+                                VowelTeamGroup.OA_OW    -> "oa"
+                                VowelTeamGroup.OO_LONG  -> "oo"
+                                VowelTeamGroup.OO_SHORT -> "oo2"
+                                VowelTeamGroup.EW_UE_UI -> "ew"
+                                VowelTeamGroup.EA_SHORT -> "sound_e"
+                                VowelTeamGroup.EY_END   -> "long_e"
+                                VowelTeamGroup.IE_LONG  -> "long_i"
+                                VowelTeamGroup.IE_LONG2 -> "long_e"
+                            }
+                        )
+                    }
             )
             Box(
                 modifier = Modifier
@@ -314,6 +345,7 @@ private fun wordDetailTile(word: VowelTeamWord, group: VowelTeamGroup, viewModel
                 if (isHighlighted) group.color else Color.White,
                 RoundedCornerShape(Dimens8)
             )
+            .clip(RoundedCornerShape(Dimens8))
             .clickable { viewModel.onWordTap(word) }
             .padding(horizontal = Dimens10, vertical = Dimens6)
     ) {
@@ -335,4 +367,24 @@ private fun wordDetailTile(word: VowelTeamWord, group: VowelTeamGroup, viewModel
             style = MaterialTheme.typography.bodyLarge.scaled()
         )
     }
+}
+
+// Per-team wrong-reading + rebels — follow the left-panel selection.
+private fun vtWrongReading(group: VowelTeamGroup): List<WrongReadingExample> = when (group) {
+    VowelTeamGroup.AI_AY    -> listOf(WrongReadingExample("ra·in (two vowel sounds)", "/rān/ — two vowels, ONE sound: the first one talks!", "rain"))
+    VowelTeamGroup.EE_EA    -> listOf(WrongReadingExample("fe·et (two sounds)", "/fēt/ — ee is ONE long /ē/!", "feet"))
+    VowelTeamGroup.OA_OW    -> listOf(WrongReadingExample("bo·at (two sounds)", "/bōt/ — oa says /ō/ together!", "boat"))
+    VowelTeamGroup.OO_LONG  -> listOf(WrongReadingExample("mo·on (two sounds)", "/moon/ — one looong oooo! 👻", "moon"))
+    VowelTeamGroup.OO_SHORT -> listOf(WrongReadingExample("boook (long oo)", "/bʊk/ — this family says a QUICK u!", "book"))
+    VowelTeamGroup.EW_UE_UI -> listOf(WrongReadingExample("blu·e (saying the e)", "/bloo/ — ue says /oo/ together!", "blue"))
+    VowelTeamGroup.EA_SHORT -> listOf(WrongReadingExample("/brēd/ (long ea)", "/bred/ — this ea family says short /e/!", "bread"))
+    VowelTeamGroup.EY_END   -> listOf(WrongReadingExample("mon·k·ay (saying ay)", "/mun-kē/ — ey at the end says /ē/!", "monkey"))
+    VowelTeamGroup.IE_LONG  -> listOf(WrongReadingExample("p·i·e (three sounds)", "/pī/ — ie says /ī/ together!", "pie"))
+    VowelTeamGroup.IE_LONG2 -> listOf(WrongReadingExample("/chīf/ (long i)", "/chēf/ — this ie family says /ē/!", "chief"))
+}
+
+private fun vtRuleBreakers(group: VowelTeamGroup): List<RuleBreakerEntry>? = when (group) {
+    VowelTeamGroup.AI_AY -> listOf(RuleBreakerEntry("said", "ai says /e/ here — total rebel!"))
+    VowelTeamGroup.EE_EA -> listOf(RuleBreakerEntry("been", "ee says a quick /i/ here — rebel!"))
+    else -> null
 }

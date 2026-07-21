@@ -318,6 +318,7 @@ private fun CTOptionTile(
             .shadow(if (textOnColor) 6.dp else 2.dp, RoundedCornerShape(16.dp), ambientColor = bgColor, spotColor = bgColor)
             .background(bgColor, RoundedCornerShape(16.dp))
             .border(1.5.dp, strokeColor, RoundedCornerShape(16.dp))
+            .clip(RoundedCornerShape(16.dp))
             .clickable(enabled = !answered, interactionSource = interactionSource, indication = null) { onClick() }
             .padding(Dimens14)
     ) {

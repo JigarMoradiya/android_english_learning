@@ -72,6 +72,10 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.ui.theme.AppDimens.Dimens24
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsWrongReadingCard
+import com.example.myapplication.main.common.WrongReadingExample
+import com.example.myapplication.main.common.PhonicsRuleBreakerCard
+import com.example.myapplication.main.common.RuleBreakerEntry
 
 private val shortVowelColor = Color(0xFFFF7043)
 private val silentEColor    = Color(0xFFFFC107)
@@ -275,6 +279,10 @@ private fun MagicEGroupContent(
                 highlightedWordId = uiState.highlightedWordId,
                 onWordTap = onWordTap
             )
+
+            PhonicsWrongReadingCard(accentColor = Color(0xFF880E4F), examples = magicEWrongReading(group))
+
+            magicERuleBreakers(group)?.let { PhonicsRuleBreakerCard(entries = it) }
         }
     }
 }
@@ -332,7 +340,7 @@ private fun MagicERuleBanner(group: MagicEGroup) {
                 color = group.accentColor
             )
             Text(
-                text = "Add silent E to the end — the vowel says its LONG name!",
+                text = "Magic E the wizard 🪄 waves from the END — the vowel shouts its NAME, and E stays silent!",
                 style = MaterialTheme.typography.labelMedium.scaled(),
                 color = Color(0xFF455A64)
             )
@@ -489,6 +497,7 @@ private fun MagicEWordPairCard(
                 .fillMaxWidth()
                 .shadow(if (isHighlighted) 8.dp else 2.dp, RoundedCornerShape(Dimens10))
                 .background(bg, RoundedCornerShape(Dimens10))
+                .clip(RoundedCornerShape(Dimens10))
                 .clickable { onTap() }
                 .padding(horizontal = Dimens10, vertical = Dimens8),
             horizontalArrangement = Arrangement.Center,
@@ -542,4 +551,23 @@ private fun MagicEWordPairCard(
             )
         }
     }
+}
+
+// Per-vowel wrong-reading + rebels — follow the left-panel selection.
+private fun magicEWrongReading(group: MagicEGroup): List<WrongReadingExample> = when (group.vowel) {
+    'a' -> listOf(WrongReadingExample("cap·e (saying the e)", "/kāp/ — the e is SILENT, it just makes a say /ā/!", "cape"))
+    'i' -> listOf(WrongReadingExample("bit·e (saying the e)", "/bīt/ — silent e, long i!", "bite"))
+    'o' -> listOf(WrongReadingExample("hop·e (saying the e)", "/hōp/ — silent e, long o!", "hope"))
+    'u' -> listOf(WrongReadingExample("cub·e (saying the e)", "/kūb/ — silent e, long u!", "cube"))
+    else -> listOf(WrongReadingExample("pet·e (saying the end e)", "/pēt/ — the first e goes long!", "pete"))
+}
+
+private fun magicERuleBreakers(group: MagicEGroup): List<RuleBreakerEntry>? = when (group.vowel) {
+    'a' -> listOf(RuleBreakerEntry("have", "e is silent but the a stays SHORT!"))
+    'i' -> listOf(RuleBreakerEntry("give", "the i refuses to go long!"))
+    'o' -> listOf(
+        RuleBreakerEntry("love", "the o stays short too!"),
+        RuleBreakerEntry("come", "says /kum/ — the e changes nothing!"),
+        RuleBreakerEntry("done", "says /dun/ — total rebel!"))
+    else -> null
 }

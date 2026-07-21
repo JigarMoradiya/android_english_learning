@@ -50,6 +50,8 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsWrongReadingCard
+import com.example.myapplication.main.common.WrongReadingExample
 
 private val swAccent = Color(0xFFD81B60)
 
@@ -145,6 +147,11 @@ fun StarWordsLearnPage(
                             )
                         }
                     }
+
+                    PhonicsWrongReadingCard(accentColor = Color(0xFFD81B60), examples = listOf(
+                        WrongReadingExample("sa·id (sounding it out)", "/sed/ — sight words: know them by heart!", "said"),
+                        WrongReadingExample("w·a·s", "/woz/ — a rule-breaker, just remember it!", "was"),
+                    ))
                 }
             }
         }

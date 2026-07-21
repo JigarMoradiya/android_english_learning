@@ -69,6 +69,8 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.ui.theme.AppDimens.Dimens20
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.compose.ui.draw.clip
 
 @Composable
 fun ThreeLetterBlendsLearnPage(
@@ -202,11 +204,15 @@ private fun BlendRuleBanner(group: ThreeLetterBlendsGroup) {
                 .padding(horizontal = Dimens20, vertical = Dimens12),
             contentAlignment = Alignment.Center
         ) {
+            val tlbAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
             Text(
                 text  = group.blend,
                 style = MaterialTheme.typography.displayMedium.scaled(),
                 fontWeight = FontWeight.ExtraBold,
-                color = group.accentColor.copy(alpha = 0.20f)
+                color = group.accentColor.copy(alpha = 0.20f),
+                modifier = Modifier
+                    .clip(RoundedCornerShape(Dimens8))
+                    .clickable { tlbAudioVm.play(group.blend) }
             )
             Text(
                 text  = group.blend,

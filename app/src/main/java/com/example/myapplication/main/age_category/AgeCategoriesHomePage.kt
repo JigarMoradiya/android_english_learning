@@ -81,6 +81,7 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens16
 import com.example.myapplication.utils.AudioPlayerManager
 import com.example.myapplication.utils.extensions.scaled
 import kotlin.math.min
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 
 // ── Pill shape ────────────────────────────────────────────────────────────────
 
@@ -655,19 +656,142 @@ private fun PhonicsJourneyCard(doneCount: Int, onClick: () -> Unit) {
     }
 }
 
+// ── Word of the Day (was: Today's Letter) ────────────────────────────────────
+
+private data class HomeWordOfDay(val word: String, val rule: String)
+
+private val homeWordsOfDay = listOf(
+    HomeWordOfDay("the", "Sight Words"),
+    HomeWordOfDay("cube", "Magic E"),
+    HomeWordOfDay("egg", "Short e"),
+    HomeWordOfDay("ant", "Short a"),
+    HomeWordOfDay("queen", "Q & U"),
+    HomeWordOfDay("because", "Sight Words"),
+    HomeWordOfDay("her", "Bossy R"),
+    HomeWordOfDay("write", "Silent W"),
+    HomeWordOfDay("car", "Bossy R"),
+    HomeWordOfDay("gem", "Soft G"),
+    HomeWordOfDay("tiger", "V/CV Split"),
+    HomeWordOfDay("bell", "Floss Rule"),
+    HomeWordOfDay("night", "igh Pattern"),
+    HomeWordOfDay("hair", "air Chunk"),
+    HomeWordOfDay("ship", "Digraphs"),
+    HomeWordOfDay("don't", "Contractions"),
+    HomeWordOfDay("want", "W Rule"),
+    HomeWordOfDay("quickly", "-ly Suffix"),
+    HomeWordOfDay("puzzle", "-zle Ending"),
+    HomeWordOfDay("hen", "-en Family"),
+    HomeWordOfDay("was", "Sight Words"),
+    HomeWordOfDay("lamb", "Silent B"),
+    HomeWordOfDay("catch", "-tch Rule"),
+    HomeWordOfDay("said", "Sight Words"),
+    HomeWordOfDay("cheese", "Digraphs"),
+    HomeWordOfDay("sunflower", "Compound Words"),
+    HomeWordOfDay("thin", "Digraphs"),
+    HomeWordOfDay("pig", "-ig Family"),
+    HomeWordOfDay("eight", "eigh Pattern"),
+    HomeWordOfDay("hope", "Magic E"),
+    HomeWordOfDay("rabbit", "VC/CV Split"),
+    HomeWordOfDay("walk", "Silent L"),
+    HomeWordOfDay("cape", "Magic E"),
+    HomeWordOfDay("king", "NG Sound"),
+    HomeWordOfDay("tree", "Vowel Teams"),
+    HomeWordOfDay("ball", "-all Family"),
+    HomeWordOfDay("ink", "Short i"),
+    HomeWordOfDay("feet", "Vowel Teams"),
+    HomeWordOfDay("saw", "aw Sound"),
+    HomeWordOfDay("splash", "3-Letter Blends"),
+    HomeWordOfDay("wash", "W Rule"),
+    HomeWordOfDay("happy", "Y says ē"),
+    HomeWordOfDay("six", "X Rule"),
+    HomeWordOfDay("little", "Consonant -le"),
+    HomeWordOfDay("giraffe", "Soft G"),
+    HomeWordOfDay("duck", "CK Rule"),
+    HomeWordOfDay("running", "Double Rule"),
+    HomeWordOfDay("bite", "Magic E"),
+    HomeWordOfDay("gym", "Y says i"),
+    HomeWordOfDay("boy", "oy Sound"),
+    HomeWordOfDay("rain", "Vowel Teams"),
+    HomeWordOfDay("phone", "PH Sound"),
+    HomeWordOfDay("more", "ore Chunk"),
+    HomeWordOfDay("hour", "Silent H"),
+    HomeWordOfDay("sun", "CVC Words"),
+    HomeWordOfDay("apple", "Consonant -le"),
+    HomeWordOfDay("helpful", "-ful Suffix"),
+    HomeWordOfDay("cats", "-s Ending"),
+    HomeWordOfDay("up", "Short u"),
+    HomeWordOfDay("unhappy", "un- Prefix"),
+    HomeWordOfDay("sign", "Silent G"),
+    HomeWordOfDay("chief", "ie Chief"),
+    HomeWordOfDay("pizza", "Schwa"),
+    HomeWordOfDay("light", "igh Pattern"),
+    HomeWordOfDay("bird", "Bossy R"),
+    HomeWordOfDay("cloud", "ou Sound"),
+    HomeWordOfDay("moon", "oo Moon"),
+    HomeWordOfDay("snow", "Vowel Teams"),
+    HomeWordOfDay("bridge", "-dge Rule"),
+    HomeWordOfDay("ox", "Short o"),
+    HomeWordOfDay("ear", "ear Chunk"),
+    HomeWordOfDay("cried", "y → i Rule"),
+    HomeWordOfDay("rainbow", "Compound Words"),
+    HomeWordOfDay("word", "wor Rule"),
+    HomeWordOfDay("boat", "Vowel Teams"),
+    HomeWordOfDay("milk", "Ending Blends"),
+    HomeWordOfDay("boxes", "-es Ending"),
+    HomeWordOfDay("castle", "Silent T"),
+    HomeWordOfDay("coin", "oi Sound"),
+    HomeWordOfDay("about", "Schwa"),
+    HomeWordOfDay("flag", "Beginning Blends"),
+    HomeWordOfDay("ring", "NG Sound"),
+    HomeWordOfDay("frog", "Beginning Blends"),
+    HomeWordOfDay("sink", "NK Sound"),
+    HomeWordOfDay("can't", "Contractions"),
+    HomeWordOfDay("vision", "-sion Suffix"),
+    HomeWordOfDay("warm", "war Rule"),
+    HomeWordOfDay("dog", "CVC Words"),
+    HomeWordOfDay("burn", "Bossy R"),
+    HomeWordOfDay("me", "Open Syllable"),
+    HomeWordOfDay("book", "oo Book"),
+    HomeWordOfDay("fly", "Y says ī"),
+    HomeWordOfDay("three", "thr Blend"),
+    HomeWordOfDay("fox", "X Rule"),
+    HomeWordOfDay("city", "Soft C"),
+    HomeWordOfDay("bread", "ea Bread"),
+    HomeWordOfDay("quiz", "Q & U"),
+    HomeWordOfDay("hand", "Ending Blends"),
+    HomeWordOfDay("action", "-tion Suffix"),
+    HomeWordOfDay("knife", "Silent K"),
+    HomeWordOfDay("bat", "-at Family"),
+    HomeWordOfDay("spring", "3-Letter Blends"),
+    HomeWordOfDay("cow", "ow Sound"),
+    HomeWordOfDay("replay", "re- Prefix"),
+    HomeWordOfDay("purple", "Consonant -le"),
+    HomeWordOfDay("chip", "Digraphs"),
+    HomeWordOfDay("cat", "CVC Words"),
+    HomeWordOfDay("fork", "Bossy R"),
+    HomeWordOfDay("go", "Open Syllable"),
+    HomeWordOfDay("pie", "ie Pie"),
+    HomeWordOfDay("monkey", "ey Team"),
+    HomeWordOfDay("teacher", "-er Suffix"),
+    HomeWordOfDay("babies", "y → i Rule"),
+    HomeWordOfDay("blue", "ue Team"),
+    HomeWordOfDay("tent", "Ending Blends"),
+    HomeWordOfDay("ice", "Soft C"),
+)
+
 @Composable
 private fun TodayLetterCard(letter: Char, onClick: () -> Unit) {
-    val dayOfYear = remember { java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_YEAR) }
-    val accentColor = letterAccentPalette[(dayOfYear - 1) % letterAccentPalette.size]
-    val imgRes = remember(letter) {
-        ImageAlphabetMapper.get("${letter.lowercaseChar()}_outline_c")
+    // Rotates daily through words with verified audio; tap says the word out loud.
+    val audioVm: PhonicsIntroAudioViewModel = hiltViewModel()
+    val wotd = remember {
+        homeWordsOfDay[java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_YEAR) % homeWordsOfDay.size]
     }
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
     val scale by animateFloatAsState(
         targetValue = if (isPressed) 0.94f else 1f,
         animationSpec = spring(dampingRatio = 0.5f, stiffness = Spring.StiffnessMedium),
-        label = "letterCardScale"
+        label = "wotdCardScale"
     )
 
     Row(
@@ -676,12 +800,17 @@ private fun TodayLetterCard(letter: Char, onClick: () -> Unit) {
             .shadow(
                 elevation = 4.dp,
                 shape = PillShape,
-                ambientColor = Color.Black.copy(alpha = 0.09f),
-                spotColor = Color.Black.copy(alpha = 0.09f)
+                ambientColor = Color(0xFFE65100).copy(alpha = 0.35f),
+                spotColor = Color(0xFFE65100).copy(alpha = 0.35f)
             )
-            .background(Color.White.copy(alpha = 0.88f), PillShape)
-            .border(1.5.dp, accentColor.copy(alpha = 0.4f), PillShape)
-            .clickable(interactionSource = interactionSource, indication = null, onClick = onClick)
+            .background(
+                Brush.horizontalGradient(listOf(Color(0xFFFFB300), Color(0xFFF4511E))),
+                PillShape
+            )
+            .border(1.5.dp, Color.White.copy(alpha = 0.35f), PillShape)
+            .clickable(interactionSource = interactionSource, indication = null) {
+                audioVm.play(wotd.word)
+            }
             .padding(horizontal = Dimens14, vertical = Dimens8),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Dimens8)
@@ -689,46 +818,34 @@ private fun TodayLetterCard(letter: Char, onClick: () -> Unit) {
         Box(
             modifier = Modifier
                 .size(AppDimens.Dimens32)
-                .background(accentColor.copy(alpha = 0.12f), CircleShape),
+                .background(Color.White.copy(alpha = 0.25f), CircleShape),
             contentAlignment = Alignment.Center
         ) {
-            if (imgRes != null) {
-                Image(
-                    painter = painterResource(imgRes),
-                    contentDescription = null,
-                    modifier = Modifier.size(AppDimens.Dimens24)
-                )
-            } else {
-                Text(
-                    text = letter.toString(),
-                    style = MaterialTheme.typography.titleMedium.scaled(),
-                    fontWeight = FontWeight.Bold,
-                    color = accentColor
-                )
-            }
+            Text(text = "⭐", style = MaterialTheme.typography.titleMedium.scaled())
         }
         Column {
             Text(
-                text = "Today's Letter",
+                text = "Word of the Day ✨",
                 style = MaterialTheme.typography.labelSmall.scaled(),
                 fontWeight = FontWeight.Medium,
-                color = Color.Gray
+                color = Color.White.copy(alpha = 0.9f)
             )
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(3.dp)
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 Text(
-                    text = "Let's practice '$letter' today!",
-                    style = MaterialTheme.typography.labelSmall.scaled(),
+                    text = wotd.word,
+                    style = MaterialTheme.typography.titleSmall.scaled(),
                     fontWeight = FontWeight.Bold,
-                    color = Color.Black.copy(alpha = 0.7f)
+                    color = Color.White
                 )
-                Icon(
-                    painter = painterResource(R.drawable.ic_sparkles),
-                    contentDescription = null,
-                    tint = Color(0xFFF59E0B),
-                    modifier = Modifier.size(11.dp.scaled())
+                Text(text = "🔊", style = MaterialTheme.typography.labelSmall.scaled())
+                Text(
+                    text = "· ${wotd.rule}",
+                    style = MaterialTheme.typography.labelSmall.scaled(),
+                    color = Color.White.copy(alpha = 0.85f),
+                    maxLines = 1
                 )
             }
         }

@@ -48,6 +48,7 @@ import com.example.myapplication.utils.extensions.scaled
 import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.draw.clip
 
 private val ighAccentColor = Color(0xFF311B92)
 
@@ -109,6 +110,7 @@ fun IghGhIntroPage(navController: NavController) {
                                     contentAlignment = Alignment.Center,
                                     modifier = Modifier
                                         .background(group.accentColor.copy(alpha = 0.12f), RoundedCornerShape(50))
+                                        .clip(RoundedCornerShape(50))
                                         .clickable { group.words.firstOrNull()?.let { introAudioVm.play(it.word) } }
                                         .padding(horizontal = Dimens10, vertical = Dimens6)
                                 ) {

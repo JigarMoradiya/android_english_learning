@@ -77,6 +77,8 @@ import kotlinx.coroutines.delay
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.draw.clip
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 
 @Composable
 fun ShortVowelsLearnPage(
@@ -321,12 +323,16 @@ private fun VowelDetailPanel(
                 verticalArrangement = Arrangement.spacedBy(Dimens2),
                 modifier = Modifier.graphicsLayer { alpha = letterAlpha }
             ) {
+                val svAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
                 Text(
                     text = "\"${vowel.soundWord}\"",
                     style = MaterialTheme.typography.headlineMedium.scaled(),
                     fontWeight = FontWeight.Bold,
-                    color = color
-                )
+                    color = color,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(Dimens8))
+                    .clickable { svAudioVm.play("sound_" + vowel.vowel.lowercase()) }
+            )
                 Text(
                     text = vowel.label,
                     style = MaterialTheme.typography.titleMedium.scaled(),
@@ -434,6 +440,7 @@ private fun ExampleChip(word: String, vowelChar: Char, color: Color, onClick: ()
             .graphicsLayer { scaleX = scale; scaleY = scale }
             .background(color.copy(alpha = 0.10f), RoundedCornerShape(Dimens12))
             .border(Dimens2, color.copy(alpha = 0.35f), RoundedCornerShape(Dimens12))
+            .clip(RoundedCornerShape(Dimens12))
             .clickable(interactionSource = interactionSource, indication = null) { onClick() }
             .padding(horizontal = Dimens16, vertical = Dimens8)
     ) {

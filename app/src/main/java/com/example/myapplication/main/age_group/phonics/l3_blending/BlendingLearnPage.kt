@@ -90,6 +90,7 @@ import kotlinx.coroutines.launch
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.draw.clip
 
 private val vowelColor = Color(0xFFC62828)
 private val consColor  = Color(0xFF1565C0)
@@ -169,28 +170,6 @@ fun BlendingLearnPage(
                     .weight(0.62f)
                     .fillMaxHeight()
             ) {
-                // Replay button row
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(end = Dimens16, top = Dimens8),
-                    horizontalArrangement = Arrangement.End
-                ) {
-                    AnimatedVisibility(
-                        visible = uiState.selectedWord != null,
-                        enter = fadeIn() + scaleIn(initialScale = 0.85f),
-                        exit = fadeOut()
-                    ) {
-                        KidsActionButton(
-                            text = "Replay",
-                            icon = Icons.Default.Refresh,
-                            type = ButtonType.BLUE,
-                            isSmall = true,
-                            onClick = { viewModel.replayAnimation() }
-                        )
-                    }
-                }
-
                 Box(
                     contentAlignment = Alignment.Center,
                     modifier = Modifier
@@ -232,6 +211,7 @@ private fun TabSwitcher(isVC: Boolean, onTabChange: (Boolean) -> Unit, modifier:
             modifier = Modifier
                 .weight(1f)
                 .background(if (isVC) consColor else Color.Transparent, RoundedCornerShape(Dimens12))
+                .clip(RoundedCornerShape(Dimens12))
                 .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null) { onTabChange(true) }
                 .padding(vertical = Dimens6)
         ) {
@@ -245,6 +225,7 @@ private fun TabSwitcher(isVC: Boolean, onTabChange: (Boolean) -> Unit, modifier:
             modifier = Modifier
                 .weight(1f)
                 .background(if (!isVC) consColor else Color.Transparent, RoundedCornerShape(Dimens12))
+                .clip(RoundedCornerShape(Dimens12))
                 .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null) { onTabChange(false) }
                 .padding(vertical = Dimens6)
         ) {
@@ -536,9 +517,9 @@ private fun AnimationPanel(
                 modifier = Modifier
                     .shadow(elevation = Dimens8, shape = RoundedCornerShape(Dimens16), clip = false)
                     .background(Color.White.copy(alpha = 0.88f), RoundedCornerShape(Dimens16))
-                    .padding(horizontal = Dimens20, vertical = Dimens12)
+                    .padding(horizontal = Dimens12, vertical = Dimens6)
             ) {
-                Icon(Icons.Default.CheckCircle, contentDescription = null, tint = Color(0xFF2E7D32), modifier = Modifier.size(30.dp))
+                Icon(Icons.Default.CheckCircle, contentDescription = null, tint = Color(0xFF2E7D32), modifier = Modifier.size(Dimens16))
                 Text(
                     text = word.word,
                     style = MaterialTheme.typography.displaySmall.scaled(),

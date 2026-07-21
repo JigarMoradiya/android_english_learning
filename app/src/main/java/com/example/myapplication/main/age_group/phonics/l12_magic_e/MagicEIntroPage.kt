@@ -52,6 +52,7 @@ import com.example.myapplication.utils.extensions.scaled
 import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.draw.clip
 
 private val magicEAccentColor = Color(0xFF880E4F)
 
@@ -114,6 +115,7 @@ fun MagicEIntroPage(navController: NavController) {
                                     verticalArrangement = Arrangement.spacedBy(Dimens2),
                                     modifier = Modifier
                                         .background(color.copy(alpha = 0.10f), RoundedCornerShape(Dimens8))
+                                        .clip(RoundedCornerShape(Dimens8))
                                         .clickable { introAudioVm.play(magic) }
                                         .padding(horizontal = Dimens8, vertical = Dimens6)
                                 ) {
