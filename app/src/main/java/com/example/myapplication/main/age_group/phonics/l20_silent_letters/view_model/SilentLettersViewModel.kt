@@ -111,6 +111,17 @@ val silentLettersGroups: List<SilentLettersGroup> = listOf(
         )
     ),
     SilentLettersGroup(
+        pattern = "bt",
+        rule = "B hides before T too 🥷 — debt and doubt lose their B!",
+        emoji = "🤐",
+        accentColor = Color(0xFF6D4C41),
+        shadowColor = Color(0xFF4E342E),
+        words = listOf(
+            SilentLettersWord("debt",  2),
+            SilentLettersWord("doubt", 3)
+        )
+    ),
+    SilentLettersGroup(
         pattern = "h",
         rule = "H is the sneakiest ninja 🥷 — sometimes it hides completely!",
         emoji = "🤐",

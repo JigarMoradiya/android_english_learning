@@ -470,8 +470,16 @@ fun PhonicsReadingLevelsPage(
                     Spacer(modifier = Modifier.height(Dimens8))
                 }
 
-                CompareStrip(
-                    onTap = {
+                ExtrasRow(
+                    onLadderTap = {
+                        AudioPlayerManager.playSoundMenuClick()
+                        navController.navigate(RouteNavigation.ReadingLadder.route)
+                    },
+                    onSuperQuizTap = {
+                        AudioPlayerManager.playSoundMenuClick()
+                        navController.navigate(RouteNavigation.SuperQuiz.route)
+                    },
+                    onCompareTap = {
                         AudioPlayerManager.playSoundMenuClick()
                         navController.navigate(RouteNavigation.PhonicsComparisons.route)
                     },
@@ -1159,49 +1167,73 @@ private fun progressMessage(doneCount: Int): String = when (doneCount) {
     else -> "You finished the whole\nphonics journey! Amazing!"
 }
 
-// ── Compare & Choose entry strip ─────────────────────────────────────────────
+// ── Extras row — Ladder · Super Quiz · Compare in ONE compact card ───────────
 
 @Composable
-private fun CompareStrip(onTap: () -> Unit, modifier: Modifier = Modifier) {
+private fun ExtrasRow(
+    onLadderTap: () -> Unit,
+    onSuperQuizTap: () -> Unit,
+    onCompareTap: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     Row(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(Dimens8),
+    ) {
+        ExtraButton(
+            emoji = "🪜", title = "Ladder",
+            colors = listOf(Color(0xFF43A047), Color(0xFF00897B)),
+            spotColor = Color(0xFF00695C),
+            onTap = onLadderTap,
+            modifier = Modifier.weight(1f),
+        )
+        ExtraButton(
+            emoji = "🏆", title = "Super Quiz",
+            colors = listOf(Color(0xFFFB8C00), Color(0xFFEF6C00)),
+            spotColor = Color(0xFFE65100),
+            onTap = onSuperQuizTap,
+            modifier = Modifier.weight(1f),
+        )
+        ExtraButton(
+            emoji = "⚖️", title = "Compare",
+            colors = listOf(Color(0xFF7C4DFF), Color(0xFF536DFE)),
+            spotColor = Color(0xFF5532D2),
+            onTap = onCompareTap,
+            modifier = Modifier.weight(1f),
+        )
+    }
+}
+
+@Composable
+private fun ExtraButton(
+    emoji: String,
+    title: String,
+    colors: List<Color>,
+    spotColor: Color,
+    onTap: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(Dimens2),
         modifier = modifier
-            .fillMaxWidth()
-            .shadow(Dimens4, RoundedCornerShape(Dimens12), spotColor = Color(0xFF5532D2))
-            .background(
-                Brush.horizontalGradient(listOf(Color(0xFF7C4DFF), Color(0xFF536DFE))),
-                RoundedCornerShape(Dimens12),
-            )
+            .shadow(Dimens3, RoundedCornerShape(Dimens12), spotColor = spotColor)
+            .background(Brush.linearGradient(colors), RoundedCornerShape(Dimens12))
             .border(Dimens1, Color.White.copy(alpha = 0.22f), RoundedCornerShape(Dimens12))
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null,
                 onClick = onTap,
             )
-            .padding(horizontal = Dimens12, vertical = Dimens8),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(Dimens8),
+            .padding(vertical = Dimens6),
     ) {
-        Text(text = "⚖️", style = MaterialTheme.typography.titleSmall.scaled())
-        Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = "Compare & Choose 🕵️",
-                style = MaterialTheme.typography.labelMedium.scaled(),
-                fontWeight = FontWeight.Bold,
-                color = Color.White,
-                maxLines = 1,
-            )
-            Text(
-                text = "ai⚡ay · oo🌙⚡📖 · c⚡k⚡ck …",
-                style = MaterialTheme.typography.labelSmall.scaled(),
-                color = Color.White.copy(alpha = 0.85f),
-                maxLines = 1,
-            )
-        }
-        Icon(
-            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
-            contentDescription = null,
-            tint = Color.White.copy(alpha = 0.9f),
-            modifier = Modifier.size(Dimens16),
+        Text(text = emoji, style = MaterialTheme.typography.titleSmall.scaled())
+        Text(
+            text = title,
+            style = MaterialTheme.typography.labelSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            maxLines = 1,
         )
     }
 }

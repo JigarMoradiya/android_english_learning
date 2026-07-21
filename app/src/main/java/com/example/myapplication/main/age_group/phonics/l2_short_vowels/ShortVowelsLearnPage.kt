@@ -79,6 +79,8 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.draw.clip
 import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 
 @Composable
 fun ShortVowelsLearnPage(
@@ -113,10 +115,11 @@ fun ShortVowelsLearnPage(
                     onBackClick = { navController.popBackStack() }
                 )
 
-                Spacer(modifier = Modifier.weight(1f))
-
                 Column(
-                    modifier = Modifier.padding(horizontal = Dimens16),
+                    modifier = Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = Dimens16, vertical = Dimens8),
                     verticalArrangement = Arrangement.spacedBy(Dimens12)
                 ) {
                     shortVowelData.forEach { vowel ->
@@ -127,8 +130,6 @@ fun ShortVowelsLearnPage(
                         )
                     }
                 }
-
-                Spacer(modifier = Modifier.weight(1f))
             }
 
             // ── RIGHT: detail panel ──────────────────────────────────────────

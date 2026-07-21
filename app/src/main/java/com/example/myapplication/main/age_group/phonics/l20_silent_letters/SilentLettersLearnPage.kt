@@ -79,8 +79,8 @@ import com.example.myapplication.utils.extensions.scaled
 import com.example.myapplication.main.common.PhonicsWrongReadingCard
 import com.example.myapplication.main.common.WrongReadingExample
 
-private val silentLetterMap = mapOf("kn" to "k", "wr" to "w", "mb" to "b", "gn" to "g")
-private val soundedLetterMap = mapOf("kn" to "n", "wr" to "r", "mb" to "m", "gn" to "n")
+private val silentLetterMap = mapOf("kn" to "k", "wr" to "w", "mb" to "b", "gn" to "g", "bt" to "b")
+private val soundedLetterMap = mapOf("kn" to "n", "wr" to "r", "mb" to "m", "gn" to "n", "bt" to "t")
 
 @Composable
 fun SilentLettersLearnPage(
@@ -111,8 +111,12 @@ fun SilentLettersLearnPage(
             ) {
                 BackButtonWithText(title = "Silent Letters", onBackClick = { navController.popBackStack() })
 
+                // 7 detective groups don't fit on phones — the list must scroll.
                 Column(
-                    modifier = Modifier.padding(horizontal = Dimens10, vertical = Dimens8),
+                    modifier = Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = Dimens10, vertical = Dimens8),
                     verticalArrangement = Arrangement.spacedBy(Dimens8)
                 ) {
                     silentLettersGroups.forEachIndexed { index, group ->
@@ -123,7 +127,6 @@ fun SilentLettersLearnPage(
                         )
                     }
                 }
-                Spacer(modifier = Modifier.weight(1f))
             }
 
             // ── RIGHT (case file + word grid) ───────────────────────────────
@@ -439,6 +442,7 @@ private fun slWrongReading(group: SilentLettersGroup): List<WrongReadingExample>
     "wr" -> listOf(WrongReadingExample("w·rite (saying the w)", "/rīt/ — the W ninja hides!", "write"))
     "mb" -> listOf(WrongReadingExample("lam·b (saying the b)", "/lam/ — the B hides after M!", "lamb"))
     "gn" -> listOf(WrongReadingExample("sig·n (saying the g)", "/sīn/ — the G slips away!", "sign"))
+    "bt" -> listOf(WrongReadingExample("deb·t (saying the b)", "/det/ — the B hides before T!", "debt"))
     "h"  -> listOf(WrongReadingExample("h·our (saying the h)", "/our/ — the H hides completely!", "hour"))
     "l"  -> listOf(WrongReadingExample("wa·l·k (saying the l)", "/wok/ — the L turns ninja after A!", "walk"))
     else -> listOf(WrongReadingExample("lis·t·en (saying the t)", "/lissen/ — the T sneaks away!", "listen"))

@@ -50,6 +50,9 @@ import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFam
 import com.example.myapplication.main.age_group.phonics.l6_word_families.WordFamiliesPracticePage
 import com.example.myapplication.main.age_group.phonics.listen.PhonicsListenPage
 import com.example.myapplication.main.age_group.phonics.compare.ComparisonListPage
+import com.example.myapplication.main.age_group.phonics.reading_ladder.ReadingLadderPage
+import com.example.myapplication.main.age_group.phonics.reading_ladder.WordDetectivePage
+import com.example.myapplication.main.age_group.phonics.super_quiz.SuperQuizPage
 import com.example.myapplication.main.age_group.phonics.compare.ComparisonDetailPage
 import com.example.myapplication.main.age_group.phonics.l11_open_syllable.OpenSyllableIntroPage
 import com.example.myapplication.main.age_group.phonics.l11_open_syllable.OpenSyllableLearnPage
@@ -333,6 +336,15 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.PhonicsComparisons.route) {
             ComparisonListPage(navController)
+        }
+        composable(RouteNavigation.ReadingLadder.route) {
+            ReadingLadderPage(navController)
+        }
+        composable(RouteNavigation.WordDetective.route) {
+            WordDetectivePage(navController)
+        }
+        composable(RouteNavigation.SuperQuiz.route) {
+            SuperQuizPage(navController)
         }
         composable(
             route = RouteNavigation.PhonicsComparison.route,

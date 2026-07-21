@@ -4,6 +4,9 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,9 +15,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
@@ -38,8 +44,11 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.main.common.animations.ConfettiRainEffect
@@ -81,6 +90,12 @@ fun ActivityCompletePopup(
     onClose = onClose
 )
 
+/**
+ * One "remember the rule" line for a word the kid missed — shown on the
+ * completion popup. `rule` uses **markers** for bold + tinted keywords.
+ */
+data class ActivityRecapItem(val word: String, val rule: String)
+
 @Composable
 fun ActivityCompletePopup(
     stars: Int,
@@ -93,6 +108,8 @@ fun ActivityCompletePopup(
     nextLabel: String = "Continue",
     dismissLabel: String = "Close",
     dismissType: ButtonType = ButtonType.RED,
+    recapItems: List<ActivityRecapItem> = emptyList(),
+    onRecapWordTap: ((String) -> Unit)? = null,
     onClose: () -> Unit
 ) {
     val cardWidth = LocalConfiguration.current.screenWidthDp * 0.5f
@@ -267,6 +284,11 @@ fun ActivityCompletePopup(
                     )
                 }
 
+                // Rule recap for missed words
+                if (recapItems.isNotEmpty()) {
+                    RecapSection(items = recapItems, onWordTap = onRecapWordTap)
+                }
+
                 // Buttons
                 Spacer(modifier = Modifier.height(Dimens2))
                 Row(horizontalArrangement = Arrangement.spacedBy(Dimens16)) {
@@ -292,6 +314,76 @@ fun ActivityCompletePopup(
         }
 
         if (!isPreview && isGoodResult) ConfettiRainEffect()
+    }
+}
+
+// ── Rule recap (missed words) ─────────────────────────────────────────────────
+
+@Composable
+private fun RecapSection(items: List<ActivityRecapItem>, onWordTap: ((String) -> Unit)?) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(Dimens6),
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color(0xFF5532D2).copy(alpha = 0.07f), RoundedCornerShape(Dimens12))
+            .padding(Dimens8)
+    ) {
+        Text(
+            text = "📝 Remember:",
+            style = MaterialTheme.typography.labelMedium.scaled(),
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF5532D2)
+        )
+        Column(
+            verticalArrangement = Arrangement.spacedBy(Dimens6),
+            modifier = Modifier
+                .heightIn(max = 92.dp)
+                .verticalScroll(rememberScrollState())
+        ) {
+            items.forEach { item ->
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(Dimens6)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .background(Color.White, RoundedCornerShape(50))
+                            .border(1.dp, Color(0xFF5532D2).copy(alpha = 0.35f), RoundedCornerShape(50))
+                            .clickable(
+                                interactionSource = remember { MutableInteractionSource() },
+                                indication = null,
+                                enabled = onWordTap != null
+                            ) { onWordTap?.invoke(item.word) }
+                            .padding(horizontal = Dimens8, vertical = Dimens2)
+                    ) {
+                        Text(
+                            text = item.word,
+                            style = MaterialTheme.typography.labelSmall.scaled(),
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF5532D2)
+                        )
+                        Text(text = " 🔊", style = MaterialTheme.typography.labelSmall.scaled())
+                    }
+                    Text(
+                        text = buildAnnotatedString {
+                            item.rule.split("**").forEachIndexed { index, part ->
+                                if (index % 2 == 1) {
+                                    withStyle(SpanStyle(color = Color(0xFF5532D2), fontWeight = FontWeight.Bold)) {
+                                        append(part)
+                                    }
+                                } else {
+                                    append(part)
+                                }
+                            }
+                        },
+                        style = MaterialTheme.typography.labelSmall.scaled(),
+                        color = Color(0xFF546E7A),
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+            }
+        }
     }
 }
 

@@ -102,7 +102,10 @@ fun YAsVowelLearnPage(
                 BackButtonWithText(title = "Y as a Vowel", onBackClick = { navController.popBackStack() })
 
                 Column(
-                    modifier = Modifier.padding(horizontal = Dimens10, vertical = Dimens8),
+                    modifier = Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = Dimens10, vertical = Dimens8),
                     verticalArrangement = Arrangement.spacedBy(Dimens8)
                 ) {
                     yAsVowelGroups.forEachIndexed { index, group ->

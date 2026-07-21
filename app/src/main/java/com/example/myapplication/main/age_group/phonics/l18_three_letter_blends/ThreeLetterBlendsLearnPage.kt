@@ -102,7 +102,10 @@ fun ThreeLetterBlendsLearnPage(
                 BackButtonWithText(title = "3-Letter Blends", onBackClick = { navController.popBackStack() })
 
                 Column(
-                    modifier = Modifier.padding(horizontal = Dimens10, vertical = Dimens8),
+                    modifier = Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = Dimens10, vertical = Dimens8),
                     verticalArrangement = Arrangement.spacedBy(Dimens8)
                 ) {
                     threeLetterBlendsGroups.forEachIndexed { index, group ->

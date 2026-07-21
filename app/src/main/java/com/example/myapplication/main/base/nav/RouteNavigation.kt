@@ -40,6 +40,9 @@ sealed class RouteNavigation(val route: String) {
     object LetterSoundsPractice : RouteNavigation("LetterSoundsPractice")
     object PhonicsReadingLevels : RouteNavigation("PhonicsReadingLevels")
     object PhonicsComparisons : RouteNavigation("PhonicsComparisons")
+    object ReadingLadder : RouteNavigation("ReadingLadder")
+    object WordDetective : RouteNavigation("WordDetective")
+    object SuperQuiz : RouteNavigation("SuperQuiz")
     object PhonicsComparison : RouteNavigation("PhonicsComparison/{comparisonId}") {
         fun createRoute(comparisonId: String) = "PhonicsComparison/$comparisonId"
     }

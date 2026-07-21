@@ -35,6 +35,10 @@ import com.example.myapplication.main.age_group.phonics.PhonicsLearnSessionEffec
 import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.main.age_group.phonics.l28_sight_words.view_model.SWLearnViewModel
 import com.example.myapplication.main.age_group.phonics.l28_sight_words.view_model.SWSet
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
+import com.example.myapplication.main.age_group.phonics.l28_sight_words.view_model.SWPart
 import com.example.myapplication.main.age_group.phonics.l28_sight_words.view_model.SWWord
 import com.example.myapplication.main.age_group.phonics.l28_sight_words.view_model.swSets
 import com.example.myapplication.main.common.BackButtonWithText
@@ -109,7 +113,7 @@ fun StarWordsLearnPage(
                     ) {
                         Text(text = "💡", style = MaterialTheme.typography.labelSmall.scaled())
                         Text(
-                            text  = "You can't sound these out — know them by heart!",
+                            text  = "✓ parts you can sound out · ❤️ tricky part — learn it by heart!",
                             style = MaterialTheme.typography.labelSmall.scaled(),
                             color = Color(0xFF90A4AE)
                         )
@@ -278,12 +282,61 @@ private fun SWStarCard(
             style    = MaterialTheme.typography.bodyMedium.scaled(),
             modifier = Modifier.alpha(if (isActive) 1f else 0.4f)
         )
+        // Word with the heart (tricky) parts tinted
         Text(
-            text       = word.word,
+            text = buildAnnotatedString {
+                word.parts.forEach { part ->
+                    val color = when {
+                        part.isHeart && isActive -> Color(0xFFFFE082)
+                        part.isHeart             -> Color(0xFFE53935)
+                        isActive                 -> Color.White
+                        else                     -> accent
+                    }
+                    withStyle(SpanStyle(color = color)) { append(part.text) }
+                }
+            },
             style      = MaterialTheme.typography.titleSmall.scaled(),
             fontWeight = FontWeight.ExtraBold,
-            color      = if (isActive) Color.White else accent,
             maxLines   = 1
+        )
+        // Heart-word breakdown: ✓ = sound it out · ❤️ = learn by heart
+        if (word.parts.any { it.isHeart }) {
+            Row(horizontalArrangement = Arrangement.spacedBy(Dimens4)) {
+                word.parts.forEach { part -> SWPartChip(part = part, isActive = isActive) }
+            }
+        } else {
+            Text(
+                text  = "💪 Sound it out!",
+                style = MaterialTheme.typography.labelSmall.scaled(),
+                color = if (isActive) Color.White.copy(alpha = 0.85f) else Color(0xFF2E7D32)
+            )
+        }
+    }
+}
+
+@Composable
+private fun SWPartChip(part: SWPart, isActive: Boolean) {
+    val tint = if (part.isHeart) Color(0xFFE53935) else Color(0xFF2E7D32)
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .background(
+                Color.White.copy(alpha = if (isActive) 0.85f else 0.6f),
+                RoundedCornerShape(50)
+            )
+            .border(1.dp, tint.copy(alpha = 0.35f), RoundedCornerShape(50))
+            .padding(horizontal = Dimens4)
+    ) {
+        Text(
+            text       = part.text,
+            style      = MaterialTheme.typography.labelSmall.scaled(),
+            fontWeight = FontWeight.Bold,
+            color      = tint
+        )
+        Text(
+            text  = if (part.isHeart) "❤️" else "✓",
+            style = MaterialTheme.typography.labelSmall.scaled(),
+            color = Color(0xFF2E7D32)
         )
     }
 }
