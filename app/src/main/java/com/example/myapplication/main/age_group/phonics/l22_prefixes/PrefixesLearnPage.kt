@@ -50,6 +50,8 @@ import com.example.myapplication.ui.theme.AppDimens.Dimens10
 import com.example.myapplication.ui.theme.AppDimens.Dimens12
 import com.example.myapplication.ui.theme.AppDimens.Dimens14
 import com.example.myapplication.utils.extensions.scaled
+import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
+import androidx.compose.ui.draw.clip
 
 @Composable
 fun PrefixesLearnPage(
@@ -205,9 +207,12 @@ private fun PFLGroupHeader(group: PrefixGroup) {
             .kidsGlassCard(cornerRadius = 12.dp, strokeColor = group.accentColor)
             .padding(Dimens14)
     ) {
+        val badgeAudioVm: PhonicsIntroAudioViewModel = hiltViewModel()
         Box(
             modifier = Modifier
                 .background(Brush.linearGradient(listOf(group.accentColor, group.shadowColor)), RoundedCornerShape(12.dp))
+                .clip(RoundedCornerShape(12.dp))
+                .clickable { badgeAudioVm.play(group.prefix) }
                 .padding(horizontal = Dimens14, vertical = Dimens10),
             contentAlignment = Alignment.Center
         ) {
