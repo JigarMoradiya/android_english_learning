@@ -477,7 +477,12 @@ fun PhonicsReadingLevelsPage(
                     },
                     onSuperQuizTap = {
                         AudioPlayerManager.playSoundMenuClick()
-                        navController.navigate(RouteNavigation.SuperQuiz.route)
+                        // Super Quiz is a game — gated by the daily-activity limit.
+                        scope.launch {
+                            if (accessVM.checkAccess(ModuleID.PHONICS_READING)) {
+                                navController.navigate(RouteNavigation.SuperQuiz.route)
+                            }
+                        }
                     },
                     onCompareTap = {
                         AudioPlayerManager.playSoundMenuClick()

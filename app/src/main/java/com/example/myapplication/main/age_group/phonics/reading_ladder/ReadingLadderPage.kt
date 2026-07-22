@@ -185,7 +185,12 @@ fun ReadingLadderPage(
             PlayDetectiveButton(
                 onTap = {
                     AudioPlayerManager.playSoundMenuClick()
-                    navController.navigate(RouteNavigation.WordDetective.route)
+                    // Word Detective is a game — gated by the daily-activity limit (like Super Quiz).
+                    scope.launch {
+                        if (accessVM.checkAccess(ModuleID.PHONICS_READING)) {
+                            navController.navigate(RouteNavigation.WordDetective.route)
+                        }
+                    }
                 },
                 modifier = Modifier
                     .padding(horizontal = Dimens16)

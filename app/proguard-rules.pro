@@ -21,6 +21,15 @@
 -keep class dagger.hilt.** { *; }
 -keep class javax.inject.** { *; }
 
+# 🔥 R8 full-mode fix (CRITICAL): Dagger keys its @HiltViewModel lookup map
+# (dagger.internal.LazyClassKeyMap) by CLASS NAME. Under R8 full mode the class
+# names get merged/rewritten so aggressively that two ViewModels collapse to the
+# same key, crashing on launch with:
+#   IllegalArgumentException: Multiple entries with same key ... getViewModelKeys()
+# Keeping the @HiltViewModel classes (names may still shrink/obfuscate, but they
+# stay distinct and un-merged) keeps every map key unique.
+-keep,allowobfuscation,allowshrinking @dagger.hilt.android.lifecycle.HiltViewModel class *
+
 ##############################################
 # 🔹 RETROFIT
 ##############################################

@@ -67,9 +67,10 @@ fun ComparisonListPage(navController: NavController) {
 
     val openComparison: (PhonicsComparison) -> Unit = { comparison ->
         AudioPlayerManager.playSoundMenuClick()
-        // Free bonus content — same daily-limit rule as the free levels.
+        // Compare & Choose is fully premium — the grid is browsable by everyone,
+        // but opening ANY comparison requires premium.
         scope.launch {
-            val allowed = accessVM.checkAccess(ModuleID.PHONICS_READING)
+            val allowed = accessVM.checkAccess(ModuleID.PHONICS_READING_PREMIUM)
             if (allowed) {
                 navController.navigate(RouteNavigation.PhonicsComparison.createRoute(comparison.id))
             }
