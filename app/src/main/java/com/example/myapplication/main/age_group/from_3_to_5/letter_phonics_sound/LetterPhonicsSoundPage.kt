@@ -307,7 +307,7 @@ private fun PhonicsDetailPanel(
 
         Spacer(Modifier.height(Dimens8))
 
-        // "Aah Aah Aah"
+        // "Aaa Aaa Aaa"
         Row(
             horizontalArrangement = Arrangement.spacedBy(Dimens8),
             verticalAlignment = Alignment.CenterVertically,

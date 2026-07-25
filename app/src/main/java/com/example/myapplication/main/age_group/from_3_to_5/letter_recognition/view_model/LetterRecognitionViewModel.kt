@@ -13,7 +13,7 @@ import com.example.myapplication.utilities.AudioPhonicsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-// Drives which word is highlighted on the right panel: the letter, "says", or the sound (e.g. "Aah")
+// Drives which word is highlighted on the right panel: the letter, "says", or the sound (e.g. "Aaa")
 enum class LetterRecognitionSegment { NONE, LETTER, SAYS, SOUND }
 
 @HiltViewModel
@@ -25,7 +25,7 @@ class LetterRecognitionViewModel @Inject constructor(
     var uiState by mutableStateOf(LetterRecognitionUiState())
         private set
 
-    // (letter, word, sound) — sound is the first word of phonicsSound, e.g. "Aah"
+    // (letter, word, sound) — sound is the first word of phonicsSound, e.g. "Aaa"
     val lettersData: List<Triple<String, String, String>> =
         LetterRepository.all.map { data ->
             Triple(data.letter, data.mainWord, data.phonicsSound.substringBefore(" "))
@@ -50,7 +50,7 @@ class LetterRecognitionViewModel @Inject constructor(
         playStep(0, letterKey = letter.lowercase(), token = token)
     }
 
-    // "A" → "says" → "Aah": the bare letter, then the shared "says" clip, then the
+    // "A" → "says" → "Aaa": the bare letter, then the shared "says" clip, then the
     // letter's pure phonics sound. Each step flips which word is highlighted.
     private fun playStep(step: Int, letterKey: String, token: Long) {
         if (speakToken != token) return

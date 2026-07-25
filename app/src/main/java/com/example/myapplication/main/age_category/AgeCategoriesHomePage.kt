@@ -140,20 +140,6 @@ private fun rememberSpeechBubbleShape(
     }
 }
 
-// ── Letter accent palette ─────────────────────────────────────────────────────
-
-private val letterAccentPalette = listOf(
-    Color(0xFFE53935), Color(0xFFF57C00), Color(0xFFF9A825),
-    Color(0xFF00ACC1), Color(0xFF00897B), Color(0xFF7B1FA2),
-    Color(0xFFC2185B), Color(0xFF5E35B1), Color(0xFF00695C),
-    Color(0xFFE64A19), Color(0xFF1565C0), Color(0xFF2E7D32),
-    Color(0xFFE84393), Color(0xFF0984E3), Color(0xFF546E7A),
-    Color(0xFFB71C1C), Color(0xFFE65100), Color(0xFF006064),
-    Color(0xFF558B2F), Color(0xFFF57F17), Color(0xFF37474F),
-    Color(0xFF880E4F), Color(0xFF0D47A1), Color(0xFF4A148C),
-    Color(0xFF1B5E20), Color(0xFFBF360C)
-)
-
 // ── Main Screen ───────────────────────────────────────────────────────────────
 
 @Composable

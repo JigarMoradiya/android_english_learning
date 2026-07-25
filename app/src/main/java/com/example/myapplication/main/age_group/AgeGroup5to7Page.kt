@@ -111,6 +111,7 @@ fun AgeGroup5to7Page(navController: NavController) {
                             columns = GridCells.Fixed(3),
                             contentPadding = PaddingValues(start = hPad, end = hPad, top = Dimens8, bottom = Dimens16),
                             horizontalArrangement = Arrangement.spacedBy(Dimens12),
+                            verticalArrangement = Arrangement.spacedBy(Dimens12),
                             modifier = Modifier
                                 .fillMaxSize()
                                 .nestedScroll(mascotScrollConnection)

@@ -151,6 +151,7 @@ fun AgeGroup3to5Page(
                                 bottom = Dimens16
                             ),
                             horizontalArrangement = Arrangement.spacedBy(Dimens12),
+                            verticalArrangement = Arrangement.spacedBy(Dimens12),
                             modifier = Modifier
                                 .fillMaxSize()
                                 .nestedScroll(mascotScrollConnection)

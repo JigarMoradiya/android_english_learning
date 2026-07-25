@@ -16,7 +16,7 @@ data class ShortVowelModel(
 
 val shortVowelData = listOf(
     ShortVowelModel(
-        vowel = "A", label = "/a/ as in... · 🎬 open wide like a doctor visit! 😮", soundWord = "aah",
+        vowel = "A", label = "/a/ as in... · 🎬 open wide like a doctor visit! 😮", soundWord = "aaa",
         anchorWord = "ant", anchorEmoji = "🐜", colorHex = 0xFFE53935L,
         soundFile = "phonics_letter/sound_a", anchorAudioFile = "phonics_word/ant",
         examples = listOf(ShortVowelExample("cat"), ShortVowelExample("bat"), ShortVowelExample("hat"), ShortVowelExample("man"))

@@ -4,7 +4,7 @@ import com.example.myapplication.main.age_group.from_3_to_5.coloring_alphabets.v
 
 object LetterRepository {
     val all: List<LetterData> = listOf(
-        LetterData("A", "Ant",        listOf("Apple", "Airplane", "Axe", "Alligator", "Arrow"),       phonicsSound = "Aah Aah Aah",      highlightTimings = listOf(0.20, 0.75, 1.35, 1.90, 2.40, 3.40, 3.95, 4.20)),
+        LetterData("A", "Ant",        listOf("Apple", "Airplane", "Axe", "Alligator", "Arrow"),       phonicsSound = "Aaa Aaa Aaa",      highlightTimings = listOf(0.20, 0.75, 1.35, 1.90, 2.40, 3.40, 3.95, 4.20)),
         LetterData("B", "Bat",        listOf("Bee", "Ball", "Butterfly", "Boy", "Banana", "Balloon"), phonicsSound = "Buh Buh Buh",      highlightTimings = listOf(0.20, 0.65, 1.15, 1.60, 2.00, 3.05, 3.70, 3.95)),
         LetterData("C", "Cat",        listOf("Car", "Cake", "Candle", "Cow", "Carrot"),               phonicsSound = "Kuh Kuh Kuh",      highlightTimings = listOf(0.15, 0.70, 1.35, 1.80, 2.10, 3.25, 3.75, 4.00)),
         LetterData("D", "Drum",       listOf("Dog", "Duck", "Door", "Deer", "Doll"),                  phonicsSound = "Duh Duh Duh",      highlightTimings = listOf(0.20, 0.70, 1.25, 1.65, 2.05, 3.20, 3.85, 4.10)),
