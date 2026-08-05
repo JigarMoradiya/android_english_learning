@@ -1319,9 +1319,13 @@ private fun SessionLearnedLettersRow(session: SessionEntry, selectedAgeFilter: S
     val correct = session.correctItems
     val wrong = session.wrongItems.map { it.substringBefore(":") }
     if (session.moduleId !in moduleIds || (correct.isEmpty() && wrong.isEmpty())) return
+    // SCROLLS. These chips were sized for single letters — "a", "b" — and the row was a
+    // plain fillMaxWidth Row. Read Your First Sentences files whole SENTENCES as its items,
+    // so ten of them ran straight off the edge of the popup with no way to reach them.
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .horizontalScroll(rememberScrollState())
             .padding(start = Dimens12, end = Dimens12, bottom = Dimens8),
         horizontalArrangement = Arrangement.spacedBy(Dimens4)
     ) {

@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -20,7 +19,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material3.Icon
@@ -36,7 +35,6 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -91,24 +89,19 @@ fun FirstSentencesBuildPage(navController: NavController) {
                 onSelect = { viewModel.selectGroup(it) }
             )
 
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(Dimens16),
+            SentenceStrip(
+                sentences = viewModel.group.sentences,
+                selected = uiState.sentenceIndex,
+                onSelect = { viewModel.selectSentence(it) }
+            )
+
+            Stage(
+                viewModel = viewModel,
                 modifier = Modifier
                     .weight(1f)
                     .padding(horizontal = Dimens20)
                     .padding(top = Dimens4, bottom = Dimens20)
-            ) {
-                SentenceList(
-                    sentences = viewModel.group.sentences,
-                    selected = uiState.sentenceIndex,
-                    onSelect = { viewModel.selectSentence(it) },
-                    modifier = Modifier.weight(0.34f).fillMaxHeight()
-                )
-                Stage(
-                    viewModel = viewModel,
-                    modifier = Modifier.weight(0.66f).fillMaxHeight()
-                )
-            }
+            )
         }
     }
 }
@@ -158,18 +151,25 @@ private fun GroupRow(selected: Int, onSelect: (Int) -> Unit) {
 
 // ── Sentence list ─────────────────────────────────────────────────────────────
 
+/**
+ * The seven lines of this vowel, ACROSS the frame rather than down a narrow column.
+ * A third of the width could not hold a six-word sentence without wrapping it to two lines
+ * and shrinking it, and a wrapped sentence stops looking like a sentence.
+ */
 @Composable
-private fun SentenceList(
+private fun SentenceStrip(
     sentences: List<FirstSentence>,
     selected: Int,
     onSelect: (Int) -> Unit,
-    modifier: Modifier,
 ) {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(Dimens10),
-        modifier = modifier
-            .verticalScroll(rememberScrollState())
-            .padding(vertical = Dimens4)
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(Dimens10),
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState())
+            .padding(horizontal = Dimens20)
+            .padding(bottom = Dimens10)
     ) {
         sentences.forEachIndexed { index, item ->
             val on = index == selected
@@ -178,17 +178,16 @@ private fun SentenceList(
                 style = MaterialTheme.typography.labelMedium.scaled(),
                 fontWeight = FontWeight.Bold,
                 color = if (on) Color.White else Color(0xFF37474F),
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
+                softWrap = false,
                 modifier = Modifier
-                    .fillMaxWidth()
                     .background(
                         if (on) buildAccent else Color.White.copy(alpha = 0.92f),
                         RoundedCornerShape(Dimens12)
                     )
                     .clip(RoundedCornerShape(Dimens12))
                     .clickable { onSelect(index) }
-                    .padding(horizontal = Dimens12, vertical = Dimens10)
+                    .padding(horizontal = Dimens14, vertical = Dimens10)
             )
         }
     }

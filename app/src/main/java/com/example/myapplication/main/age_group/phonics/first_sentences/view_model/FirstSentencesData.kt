@@ -174,21 +174,36 @@ suspend fun playFirstSentence(
     val words = sentence.words
 
     if (audioManager.audioExists(phonicsWordPath(sentence.audioKey))) {
-        // one take of the whole line — the highlight just walks it
+        // ONE take of the whole line, so the highlight is spread across the RECORDING's own
+        // length rather than a fixed step. A flat 380ms per word ran the highlight off the
+        // end of a short line and stranded it on the last word of a long one.
+        val total = audioManager.durationMs(phonicsWordPath(sentence.audioKey))
+            ?: (words.size * 380L)
         audioManager.playPhonicsSound(phonicsWordPath(sentence.audioKey))
+
+        // Each step is seated against the CLOCK, not against the previous delay — delay()
+        // only guarantees a minimum, so accumulating it drifts late over a six-word line
+        // even when every individual step is right.
+        val startedAt = System.currentTimeMillis()
         for (i in words.indices) {
             onWord(i)
-            delay(380)
+            val nextAt = total * (i + 1) / words.size
+            val wait = nextAt - (System.currentTimeMillis() - startedAt)
+            if (wait > 0) delay(wait)
         }
     } else {
-        // word by word, in order — the same line, assembled from what we have
+        // Word by word, in order — each word held for as long as ITS recording runs.
         for (i in words.indices) {
             onWord(i)
             val key = FirstSentence.key(words[i])
-            if (audioManager.audioExists(phonicsWordPath(key))) {
-                audioManager.playPhonicsSound(phonicsWordPath(key))
+            val path = phonicsWordPath(key)
+            if (audioManager.audioExists(path)) {
+                audioManager.playPhonicsSound(path)
+                delay((audioManager.durationMs(path) ?: 420L) + 120L)
+            } else {
+                // no recording for this word — still give the eye time to read it
+                delay(260)
             }
-            delay(520)
         }
     }
     onWord(null)

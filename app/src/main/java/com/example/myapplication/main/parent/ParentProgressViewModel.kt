@@ -6,6 +6,8 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.data.progress.PhonicsLevelTitles
+import com.example.myapplication.main.age_group.phonics.listen.view_model.PhonicsListenLevelKey
 import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.data.model.UnitSelectionScreen
@@ -258,8 +260,13 @@ class ParentProgressViewModel @Inject constructor(
             else -> ""
         }
         val practiceRoute = when (moduleId) {
-            // Phonics Journey — deep-link back to the journey map
-            ModuleID.PHONICS_READING -> RouteNavigation.PhonicsReadingLevels.route
+            // Phonics Journey — deep-link back to the journey map. The MILESTONE is not on
+            // that map as a numbered stop, so its row opens its own menu instead; landing on
+            // the journey left the parent to hunt for a card that looks like nothing else.
+            ModuleID.PHONICS_READING ->
+                if (chapterTitle == PhonicsLevelTitles.title(PhonicsListenLevelKey.firstSentences))
+                    RouteNavigation.FirstSentencesMenu.route
+                else RouteNavigation.PhonicsReadingLevels.route
             // 6-8
             ModuleID.GRAMMAR_NOUNS      -> RouteNavigation.GrammarBasicNounPractice.route
             ModuleID.GRAMMAR_VERBS      -> RouteNavigation.GrammarBasicVerbPractice.route

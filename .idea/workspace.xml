@@ -102,100 +102,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d01de33-34fe-4502-aab5-6ead3a247efa" name="Changes" comment="release 1.0.4 (14)">
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/a.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/a_big_fin_is_in_the_bin.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/a_big_pig_can_dig.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/a_bug_is_on_the_rug.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/a_fat_cat_has_a_hat.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/a_hot_pot_is_on_top.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/a_log_is_on_the_top.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/a_man_has_a_red_cap.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/a_nut_is_in_the_jug.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/a_wet_pet_is_in_the_net.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/and.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/antelope.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/arrow.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dad.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/dad_can_nap_in_the_van.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/doll.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/eye.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/flamingo.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/get_the_red_bed.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/guava.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gus.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/gus_can_run_up.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/has.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/heart.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/horse.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kangaroo.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kim.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/kim_has_a_big_lip.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ladder.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mitten.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/mushroom.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/octagon.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/peacock.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/pup.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/questionmark.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/sam_sat_on_a_mat.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ted.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ted_has_a_red_pen.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/ten_men_can_get_the_jet.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_bus_is_in_the_mud.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_cat_sat_on_a_mat.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_cod_is_in_the_pot.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_cub_can_hug_and_tug.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_dog_can_run_and_hop.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_fig_is_in_the_tin.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_fox_has_a_box.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_hen_is_in_a_pen.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_hog_can_hop_and_jog.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_kid_can_zip_the_bag.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_map_is_in_the_bag.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_pet_has_a_wet_leg.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_pin_is_in_the_tin.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_pup_is_in_the_tub.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_rat_ran_and_ran.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_sun_is_hot.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/the_vet_is_in_the_den.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tim.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tim_can_sit_and_win.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tom.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/tom_got_a_mop.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/umpire.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/unicycle.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/vacuum.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/vest.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/volleyball.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/xenops.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/xmas_tree.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/yogurt.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/yolk.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/zigzag.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_word/zinnia.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/elbow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/notebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/umpire.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/unicycle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/vacuum.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/vest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/volleyball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/yogurt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/yolk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/zinnia.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_f.opus" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/phonics_letter/sound_f.opus" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/AccessManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/access/AccessManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/progress/PhonicsSessionRecorder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/progress/PhonicsSessionRecorder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/from_3_to_5/phonics_reading/PhonicsReadingLevelsPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/listen/view_model/PhonicsListenViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/super_quiz/SuperQuizPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/super_quiz/SuperQuizPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/AppNavGraph.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/base/nav/RouteNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/first_sentences/FirstSentencesBuildPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/first_sentences/FirstSentencesBuildPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/first_sentences/view_model/FirstSentencesData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/age_group/phonics/first_sentences/view_model/FirstSentencesData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/main/parent/ParentProgressViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utilities/AudioPhonicsManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utilities/AudioPhonicsManager.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
