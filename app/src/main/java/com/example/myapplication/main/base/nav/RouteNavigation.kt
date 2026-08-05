@@ -55,6 +55,15 @@ sealed class RouteNavigation(val route: String) {
     object CvcWordsIntro : RouteNavigation("CvcWordsIntro")
     object CvcWordsLearn : RouteNavigation("CvcWordsLearn")
     object CvcWordsPractice : RouteNavigation("CvcWordsPractice")
+
+    // MILESTONE · Read Your First Sentences — sits between Level 4 and Level 5
+    object FirstSentencesIntro : RouteNavigation("FirstSentencesIntro")
+    object FirstSentencesMenu : RouteNavigation("FirstSentencesMenu")
+    object FirstSentencesHelpers : RouteNavigation("FirstSentencesHelpers")
+    object FirstSentencesBuild : RouteNavigation("FirstSentencesBuild")
+    object FirstSentencesRead : RouteNavigation("FirstSentencesRead")
+    object FirstSentencesPicture : RouteNavigation("FirstSentencesPicture")
+    object FirstSentencesMissing : RouteNavigation("FirstSentencesMissing")
     object WordFamiliesIntro : RouteNavigation("WordFamiliesIntro")
     object WordFamiliesLearn : RouteNavigation("WordFamiliesLearn")
     object WordFamiliesPractice : RouteNavigation("WordFamiliesPractice")

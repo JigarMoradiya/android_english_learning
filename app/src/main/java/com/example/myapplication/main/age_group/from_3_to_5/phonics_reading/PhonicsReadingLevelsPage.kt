@@ -114,6 +114,35 @@ import com.example.myapplication.main.common.PhonicsIntroAudioViewModel
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 
+/**
+ * A MILESTONE sits BETWEEN two levels — it teaches no new letter pattern, so it must not
+ * be numbered and must not sit on the road as a node.
+ */
+data class PhonicsMilestoneItem(
+    /** the level number it comes AFTER */
+    val afterLevel: Int,
+    val badge: String,
+    val title: String,
+    val subtitle: String,
+    val emoji: String,
+    val color: Color,
+    val levelKey: PhonicsListenLevelKey,
+    val route: String,
+)
+
+val phonicsMilestoneItems = listOf(
+    PhonicsMilestoneItem(
+        afterLevel = 4,
+        badge = "MILESTONE",
+        title = "Read Your First Sentences",
+        subtitle = "\"The cat sat on a mat.\"",
+        emoji = "\u2B50",
+        color = Color(0xFFF9A825),
+        levelKey = PhonicsListenLevelKey.firstSentences,
+        route = RouteNavigation.FirstSentencesIntro.route,
+    ),
+)
+
 /** Levels 1..N are free; everything after needs a subscription. */
 const val FREE_PHONICS_LEVELS = 3
 
@@ -308,6 +337,12 @@ private sealed interface JourneyRow {
         override val topY: Dp,
         override val height: Dp,
     ) : JourneyRow
+
+    data class Milestone(
+        val stone: PhonicsMilestoneItem,
+        override val topY: Dp,
+        override val height: Dp,
+    ) : JourneyRow
 }
 
 private data class JourneyLayout(
@@ -321,6 +356,7 @@ private fun badgeXFrac(nodeIndex: Int): Float = if (nodeIndex % 2 == 0) 0.10f el
 private fun buildJourneyLayout(
     nodeRowHeight: Dp,
     bannerRowHeight: Dp,
+    milestoneRowHeight: Dp,
     topPadding: Dp,
     bottomPadding: Dp,
 ): JourneyLayout {
@@ -344,6 +380,13 @@ private fun buildJourneyLayout(
             points += badgeXFrac(nodeIndex) to row.centerY
             y += nodeRowHeight
             nodeIndex++
+
+            // A milestone is a banner ACROSS the road, not a stop on it — so it takes a
+            // row but contributes NO nodePoint. The road keeps running level-to-level.
+            phonicsMilestoneItems.filter { it.afterLevel == number }.forEach { stone ->
+                rows += JourneyRow.Milestone(stone, topY = y, height = milestoneRowHeight)
+                y += milestoneRowHeight
+            }
         }
     }
     return JourneyLayout(rows, points, totalHeight = y + bottomPadding)
@@ -414,6 +457,23 @@ fun PhonicsReadingLevelsPage(
             AudioPlayerManager.playSoundMenuClick()
             viewModel.markVisited(level.levelKey)
             navController.navigate(level.route)
+        }
+    }
+
+    val openMilestone: (PhonicsMilestoneItem) -> Unit = { stone ->
+        if (stone.afterLevel > FREE_PHONICS_LEVELS) {
+            scope.launch {
+                val allowed = accessVM.checkAccess(ModuleID.PHONICS_READING_PREMIUM)
+                if (allowed) {
+                    AudioPlayerManager.playSoundMenuClick()
+                    viewModel.markVisited(stone.levelKey)
+                    navController.navigate(stone.route)
+                }
+            }
+        } else {
+            AudioPlayerManager.playSoundMenuClick()
+            viewModel.markVisited(stone.levelKey)
+            navController.navigate(stone.route)
         }
     }
 
@@ -501,6 +561,8 @@ fun PhonicsReadingLevelsPage(
                 playIntro = playIntro,
                 showLocks = showLocks,
                 onOpen = openLevel,
+                onOpenMilestone = openMilestone,
+                milestoneDone = { repo.isDone(it.levelKey) },
                 modifier = Modifier
                     .weight(0.65f)
                     .fillMaxHeight(),
@@ -518,14 +580,18 @@ private fun JourneyMap(
     playIntro: Boolean,
     showLocks: Boolean,
     onOpen: (PhonicsLevelItem) -> Unit,
+    onOpenMilestone: (PhonicsMilestoneItem) -> Unit,
+    milestoneDone: (PhonicsMilestoneItem) -> Boolean,
     modifier: Modifier = Modifier,
 ) {
     val nodeRowHeight = Dimens80 + Dimens28
     val bannerRowHeight = Dimens40 + Dimens20
-    val layout = remember(nodeRowHeight, bannerRowHeight) {
+    val milestoneRowHeight = Dimens80 + Dimens12
+    val layout = remember(nodeRowHeight, bannerRowHeight, milestoneRowHeight) {
         buildJourneyLayout(
             nodeRowHeight = nodeRowHeight,
             bannerRowHeight = bannerRowHeight,
+            milestoneRowHeight = milestoneRowHeight,
             topPadding = Dimens16,
             bottomPadding = Dimens40 + Dimens8,
         )
@@ -635,6 +701,23 @@ private fun JourneyMap(
                                 isNextUp = row.level.number == nextUpNumber,
                                 isLocked = showLocks && row.level.number > FREE_PHONICS_LEVELS,
                                 onTap = { onOpen(row.level) },
+                            )
+                        }
+                    }
+
+                    is JourneyRow.Milestone -> {
+                        Box(
+                            modifier = Modifier
+                                .offset(y = row.topY)
+                                .fillMaxWidth()
+                                .height(row.height),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            MilestoneCard(
+                                stone = row.stone,
+                                isDone = milestoneDone(row.stone),
+                                isLocked = showLocks && row.stone.afterLevel > FREE_PHONICS_LEVELS,
+                                onTap = { onOpenMilestone(row.stone) },
                             )
                         }
                     }

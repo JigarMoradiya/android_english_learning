@@ -87,6 +87,7 @@ fun phonicsRuleLine(level: PhonicsListenLevelKey): String = when (level) {
     PhonicsListenLevelKey.shortVowels       -> "Short vowels **a e i o u** say /ă ĕ ĭ ŏ ŭ/!"
     PhonicsListenLevelKey.blending          -> "**Blend** the two sounds together!"
     PhonicsListenLevelKey.cvcWords          -> "Say each sound, then **blend fast**!"
+    PhonicsListenLevelKey.firstSentences    -> "Words in a **row** make a **sentence**!"
     PhonicsListenLevelKey.shortVowelRules   -> "Short vowel endings **double up**: ff ll ss zz · ck ng nk!"
     PhonicsListenLevelKey.wordFamilies      -> "Word families **rhyme** — same ending team!"
     PhonicsListenLevelKey.openSyllable      -> "**Open** syllable — the vowel at the end says its **name**!"

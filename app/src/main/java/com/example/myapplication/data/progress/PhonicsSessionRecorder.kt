@@ -16,6 +16,8 @@ object PhonicsLevelTitles {
         PhonicsListenLevelKey.shortVowels to "L2 Short Vowels",
         PhonicsListenLevelKey.blending to "L3 2-Sound Blending",
         PhonicsListenLevelKey.cvcWords to "L4 CVC Words",
+        // a MILESTONE, not a level — the parent report must not call it "L5"
+        PhonicsListenLevelKey.firstSentences to "Read Your First Sentences",
         PhonicsListenLevelKey.shortVowelRules to "L5 Spelling Rules",
         PhonicsListenLevelKey.wordFamilies to "L6 Word Families",
         PhonicsListenLevelKey.beginningBlends to "L7 Beginning Blends",

@@ -42,6 +42,13 @@ import com.example.myapplication.main.age_group.phonics.l3_blending.BlendingPrac
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.CvcWordsIntroPage
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.CvcWordsLearnPage
 import com.example.myapplication.main.age_group.phonics.l4_cvc_words.CvcWordsPracticePage
+import com.example.myapplication.main.age_group.phonics.first_sentences.FirstSentencesBuildPage
+import com.example.myapplication.main.age_group.phonics.first_sentences.FirstSentencesHelpersPage
+import com.example.myapplication.main.age_group.phonics.first_sentences.FirstSentencesIntroPage
+import com.example.myapplication.main.age_group.phonics.first_sentences.FirstSentencesMenuPage
+import com.example.myapplication.main.age_group.phonics.first_sentences.FirstSentencesMissingPage
+import com.example.myapplication.main.age_group.phonics.first_sentences.FirstSentencesPicturePage
+import com.example.myapplication.main.age_group.phonics.first_sentences.FirstSentencesReadPage
 import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.ShortVowelRulesIntroPage
 import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.ShortVowelRulesLearnPage
 import com.example.myapplication.main.age_group.phonics.l5_short_vowel_rules.ShortVowelRulesPracticePage
@@ -378,6 +385,29 @@ fun AppNavGraph(navController: NavHostController) {
         }
         composable(RouteNavigation.CvcWordsPractice.route) {
             CvcWordsPracticePage(navController)
+        }
+
+        // MILESTONE · Read Your First Sentences
+        composable(RouteNavigation.FirstSentencesIntro.route) {
+            FirstSentencesIntroPage(navController)
+        }
+        composable(RouteNavigation.FirstSentencesMenu.route) {
+            FirstSentencesMenuPage(navController)
+        }
+        composable(RouteNavigation.FirstSentencesHelpers.route) {
+            FirstSentencesHelpersPage(navController)
+        }
+        composable(RouteNavigation.FirstSentencesBuild.route) {
+            FirstSentencesBuildPage(navController)
+        }
+        composable(RouteNavigation.FirstSentencesRead.route) {
+            FirstSentencesReadPage(navController)
+        }
+        composable(RouteNavigation.FirstSentencesPicture.route) {
+            FirstSentencesPicturePage(navController)
+        }
+        composable(RouteNavigation.FirstSentencesMissing.route) {
+            FirstSentencesMissingPage(navController)
         }
         composable(RouteNavigation.WordFamiliesIntro.route) {
             WordFamiliesIntroPage(navController)

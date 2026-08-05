@@ -25,7 +25,9 @@ import kotlin.coroutines.resume
 // ── Level Key ─────────────────────────────────────────────────────────────────
 
 enum class PhonicsListenLevelKey {
-    letterSounds, shortVowels, blending, cvcWords, shortVowelRules,
+    letterSounds, shortVowels, blending, cvcWords,
+    firstSentences,   // MILESTONE, between 4 and 5
+    shortVowelRules,
     wordFamilies, openSyllable, vowelTeams, beginningBlends, endingBlends, digraphs, specialEndings, magicE,
     diphthongs, rControlled, ighGh,
     yAsVowel, threeLetterBlends, softCSoftG, silentLetters,
