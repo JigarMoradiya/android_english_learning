@@ -45,6 +45,7 @@ import com.example.myapplication.main.common.KidsGradient
 import com.example.myapplication.main.common.KidsGradientBackground
 import com.example.myapplication.main.common.PhonicsIntroBtnConfig
 import com.example.myapplication.main.common.PhonicsIntroRightPanel
+import com.example.myapplication.ui.theme.AppDimens.Dimens2
 import com.example.myapplication.ui.theme.AppDimens.Dimens4
 import com.example.myapplication.ui.theme.AppDimens.Dimens8
 import com.example.myapplication.ui.theme.AppDimens.Dimens10
@@ -98,7 +99,7 @@ fun EndingBlendsIntroPage(navController: NavController) {
 
                         // Explicit 3-then-2 grid (not an auto-wrap FlowRow) so the 5 groups
                         // always land 3 on top, 2 below, regardless of panel width.
-                        Column(verticalArrangement = Arrangement.spacedBy(Dimens4)) {
+                        Column(verticalArrangement = Arrangement.spacedBy(Dimens2)) {
                             for (row in 0 until 2) {
                                 Row(
                                     horizontalArrangement = Arrangement.spacedBy(Dimens8),
