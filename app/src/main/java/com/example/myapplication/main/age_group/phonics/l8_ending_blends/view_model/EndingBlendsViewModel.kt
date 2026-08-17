@@ -20,12 +20,18 @@ import javax.inject.Inject
 
 // ── Models ────────────────────────────────────────────────────────────────────
 
+// Grouped by the blend's REAL first letter — the old 3-way split named "M-Endings" for
+// mp/lk/lt/ld/lp (only mp is actually M; lk/lt/ld/lp are all L) and "S-Endings" for
+// sk/ft/st (ft is F, not S). Every group below only contains blends that truly start with
+// its letter.
 enum class EndBlendGroup(val label: String, val emoji: String,
                          val color: Color, val shadowColor: Color,
                          val hint: String) {
     ND_NT("N-Endings", "🎵", Color(0xFF3949AB), Color(0xFF1A237E), "nd  nt"),
-    MP_LK("M-Endings", "💧", Color(0xFFC2185B), Color(0xFF880E4F), "mp  lk  lt"),
-    SK_FT("S-Endings", "⚡", Color(0xFF00838F), Color(0xFF006064), "sk  ft  st")
+    LK_LT_LD_LP("L-Endings", "🍀", Color(0xFF2E7D32), Color(0xFF1B5E20), "lk  lt  ld  lp"),
+    MP("M-Endings", "💧", Color(0xFFC2185B), Color(0xFF880E4F), "mp"),
+    SK_ST("S-Endings", "⚡", Color(0xFF00838F), Color(0xFF006064), "sk  st"),
+    FT("F-Endings", "🔥", Color(0xFFE64A19), Color(0xFFBF360C), "ft")
 }
 
 data class EndBlendWord(
@@ -92,52 +98,57 @@ val endingBlendsData: List<EndBlendEntry> = listOf(
         EndBlendWord(word="mint", blendLength=2), EndBlendWord(word="hunt", blendLength=2),
         EndBlendWord(word="rent", blendLength=2), EndBlendWord(word="pant", blendLength=2),
         EndBlendWord(word="bent", blendLength=2), EndBlendWord(word="hint", blendLength=2))),
-    // ── M/L-Endings ──
+    // ── M-Endings ──
     EndBlendEntry("", "mp", "/mp/", "Finish with /m/ then /p/ — like 'jump' or 'lamp'",
-                  EndBlendGroup.MP_LK, listOf(
+                  EndBlendGroup.MP, listOf(
         EndBlendWord(word="lamp", blendLength=2), EndBlendWord(word="camp", blendLength=2),
         EndBlendWord(word="damp", blendLength=2), EndBlendWord(word="ramp", blendLength=2),
         EndBlendWord(word="jump", blendLength=2), EndBlendWord(word="bump", blendLength=2),
         EndBlendWord(word="pump", blendLength=2), EndBlendWord(word="dump", blendLength=2))),
+
+    // ── L-Endings ──
     EndBlendEntry("", "lk", "/lk/", "Finish with /l/ then /k/ — like 'milk' or 'bulk'",
-                  EndBlendGroup.MP_LK, listOf(
+                  EndBlendGroup.LK_LT_LD_LP, listOf(
         EndBlendWord(word="milk", blendLength=2), EndBlendWord(word="silk", blendLength=2),
         EndBlendWord(word="bulk", blendLength=2), EndBlendWord(word="hulk", blendLength=2),
         EndBlendWord(word="sulk", blendLength=2))),
     EndBlendEntry("", "lt", "/lt/", "Finish with /l/ then /t/ — like 'belt' or 'bolt'",
-                  EndBlendGroup.MP_LK, listOf(
+                  EndBlendGroup.LK_LT_LD_LP, listOf(
         EndBlendWord(word="belt", blendLength=2), EndBlendWord(word="melt", blendLength=2),
         EndBlendWord(word="salt", blendLength=2), EndBlendWord(word="bolt", blendLength=2),
         EndBlendWord(word="felt", blendLength=2), EndBlendWord(word="jolt", blendLength=2),
         EndBlendWord(word="wilt", blendLength=2), EndBlendWord(word="tilt", blendLength=2))),
-    // ── S/F-Endings ──
-    EndBlendEntry("", "sk", "/sk/", "Finish with /s/ then /k/ — like 'desk' or 'mask'",
-                  EndBlendGroup.SK_FT, listOf(
-        EndBlendWord(word="desk",  blendLength=2), EndBlendWord(word="disk",  blendLength=2),
-        EndBlendWord(word="task",  blendLength=2), EndBlendWord(word="dusk",  blendLength=2),
-        EndBlendWord(word="risk",  blendLength=2), EndBlendWord(word="mask",  blendLength=2),
-        EndBlendWord(word="tusk",  blendLength=2), EndBlendWord(word="brisk", blendLength=2))),
-    EndBlendEntry("", "ft", "/ft/", "Finish with /f/ then /t/ — like 'left' or 'gift'",
-                  EndBlendGroup.SK_FT, listOf(
-        EndBlendWord(word="left",  blendLength=2), EndBlendWord(word="soft",  blendLength=2),
-        EndBlendWord(word="gift",  blendLength=2), EndBlendWord(word="loft",  blendLength=2),
-        EndBlendWord(word="lift",  blendLength=2), EndBlendWord(word="raft",  blendLength=2),
-        EndBlendWord(word="drift", blendLength=2), EndBlendWord(word="shift", blendLength=2))),
-    EndBlendEntry("", "st", "/st/", "Finish with /s/ then /t/ — like 'nest' or 'fast'",
-                  EndBlendGroup.SK_FT, listOf(
-        EndBlendWord(word="best", blendLength=2), EndBlendWord(word="nest", blendLength=2),
-        EndBlendWord(word="fast", blendLength=2), EndBlendWord(word="list", blendLength=2),
-        EndBlendWord(word="dust", blendLength=2), EndBlendWord(word="rest", blendLength=2),
-        EndBlendWord(word="just", blendLength=2), EndBlendWord(word="last", blendLength=2))),
     EndBlendEntry("", "ld", "/ld/", "Finish with /l/ then /d/ — like 'cold' or 'old'",
-                  EndBlendGroup.MP_LK, listOf(
+                  EndBlendGroup.LK_LT_LD_LP, listOf(
         EndBlendWord(word="cold", blendLength=2), EndBlendWord(word="old",  blendLength=2),
         EndBlendWord(word="gold", blendLength=2), EndBlendWord(word="held", blendLength=2),
         EndBlendWord(word="bold", blendLength=2), EndBlendWord(word="wild", blendLength=2))),
     EndBlendEntry("", "lp", "/lp/", "Finish with /l/ then /p/ — like 'help' or 'gulp'",
-                  EndBlendGroup.MP_LK, listOf(
+                  EndBlendGroup.LK_LT_LD_LP, listOf(
         EndBlendWord(word="help", blendLength=2), EndBlendWord(word="gulp", blendLength=2),
-        EndBlendWord(word="yelp", blendLength=2), EndBlendWord(word="pulp", blendLength=2)))
+        EndBlendWord(word="yelp", blendLength=2), EndBlendWord(word="pulp", blendLength=2))),
+
+    // ── S-Endings ──
+    EndBlendEntry("", "sk", "/sk/", "Finish with /s/ then /k/ — like 'desk' or 'mask'",
+                  EndBlendGroup.SK_ST, listOf(
+        EndBlendWord(word="desk",  blendLength=2), EndBlendWord(word="disk",  blendLength=2),
+        EndBlendWord(word="task",  blendLength=2), EndBlendWord(word="dusk",  blendLength=2),
+        EndBlendWord(word="risk",  blendLength=2), EndBlendWord(word="mask",  blendLength=2),
+        EndBlendWord(word="tusk",  blendLength=2), EndBlendWord(word="brisk", blendLength=2))),
+    EndBlendEntry("", "st", "/st/", "Finish with /s/ then /t/ — like 'nest' or 'fast'",
+                  EndBlendGroup.SK_ST, listOf(
+        EndBlendWord(word="best", blendLength=2), EndBlendWord(word="nest", blendLength=2),
+        EndBlendWord(word="fast", blendLength=2), EndBlendWord(word="list", blendLength=2),
+        EndBlendWord(word="dust", blendLength=2), EndBlendWord(word="rest", blendLength=2),
+        EndBlendWord(word="just", blendLength=2), EndBlendWord(word="last", blendLength=2))),
+
+    // ── F-Endings ──
+    EndBlendEntry("", "ft", "/ft/", "Finish with /f/ then /t/ — like 'left' or 'gift'",
+                  EndBlendGroup.FT, listOf(
+        EndBlendWord(word="left",  blendLength=2), EndBlendWord(word="soft",  blendLength=2),
+        EndBlendWord(word="gift",  blendLength=2), EndBlendWord(word="loft",  blendLength=2),
+        EndBlendWord(word="lift",  blendLength=2), EndBlendWord(word="raft",  blendLength=2),
+        EndBlendWord(word="drift", blendLength=2), EndBlendWord(word="shift", blendLength=2)))
 )
 
 val endingBlendsPracticeQuestions: List<EndBlendPracticeQuestion> = listOf(

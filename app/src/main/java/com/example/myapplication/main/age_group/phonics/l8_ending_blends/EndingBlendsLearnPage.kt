@@ -8,6 +8,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -104,19 +105,24 @@ fun EndingBlendsLearnPage(
                 .windowInsetsPadding(WindowInsets.safeDrawing)
                 .fillMaxSize()
         ) {
-            // Header with group tabs
-            Row(verticalAlignment = Alignment.Top, modifier = Modifier.fillMaxWidth()) {
+            // Header — now the BLEND list for the selected group, scrolling horizontally
+            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
                 BackButtonWithText(title = "Ending Blends", expandWidth = false, onBackClick = { navController.popBackStack() })
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(Dimens8, Alignment.CenterHorizontally),
+                    horizontalArrangement = Arrangement.spacedBy(Dimens8),
                     verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.weight(1f).padding(vertical = Dimens8).padding(end = Dimens16)
+                    modifier = Modifier
+                        .weight(1f)
+                        .horizontalScroll(rememberScrollState())
+                        .padding(vertical = Dimens8)
+                        .padding(horizontal = Dimens16)
                 ) {
-                    EndBlendGroup.entries.forEach { group ->
-                        EndBlendGroupTab(
-                            group = group,
-                            isSelected = uiState.selectedGroup == group,
-                            onTap = { viewModel.onGroupTap(group) }
+                    val blendsInSelectedGroup = endingBlendsData.filter { it.group == uiState.selectedGroup }
+                    blendsInSelectedGroup.forEach { blend ->
+                        EndBlendHeaderTile(
+                            blend = blend,
+                            isSelected = uiState.selectedBlend?.blend == blend.blend,
+                            onTap = { viewModel.onBlendTap(blend) }
                         )
                     }
                 }
@@ -125,13 +131,13 @@ fun EndingBlendsLearnPage(
             BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
                 val totalW = maxWidth
                 Row(modifier = Modifier.fillMaxSize()) {
-                    // Left 28%
-                    EndBlendList(
+                    // Left 26% — now the CATEGORY picker, N/L/M/S/F-Endings, stacked vertically
+                    EndBlendGroupList(
                         uiState = uiState,
-                        modifier = Modifier.width(totalW * 0.28f).fillMaxHeight(),
-                        onBlendTap = { viewModel.onBlendTap(it) }
+                        modifier = Modifier.width(totalW * 0.26f).fillMaxHeight(),
+                        onGroupTap = { viewModel.onGroupTap(it) }
                     )
-                    // Right 72%
+                    // Right 74%
                     Box(modifier = Modifier.fillMaxSize()) {
                         val blend = uiState.selectedBlend
                         if (blend != null) {
@@ -157,17 +163,39 @@ fun EndingBlendsLearnPage(
     }
 }
 
+// The CATEGORY picker — N/L/M/S/F-Endings — now stacked vertically on the left.
+@Composable
+private fun EndBlendGroupList(
+    uiState: EndBlendLearnUiState,
+    modifier: Modifier,
+    onGroupTap: (EndBlendGroup) -> Unit
+) {
+    Column(
+        modifier = modifier.verticalScroll(rememberScrollState()).padding(horizontal = Dimens10, vertical = Dimens12),
+        verticalArrangement = Arrangement.spacedBy(Dimens8)
+    ) {
+        EndBlendGroup.entries.forEach { group ->
+            EndBlendGroupTab(
+                group = group,
+                isSelected = uiState.selectedGroup == group,
+                onTap = { onGroupTap(group) }
+            )
+        }
+    }
+}
+
 @Composable
 private fun EndBlendGroupTab(group: EndBlendGroup, isSelected: Boolean, onTap: () -> Unit) {
     Box(
         modifier = Modifier
+            .fillMaxWidth()
             .then(if (isSelected) Modifier.shadow(6.dp, RoundedCornerShape(Dimens14), clip = false, ambientColor = group.color.copy(0.42f), spotColor = group.color.copy(0.42f)) else Modifier)
             .kidsGlassCard(cornerRadius = Dimens14, strokeColor = if (isSelected) Color.Transparent else group.color.copy(0.4f))
             .then(if (isSelected) Modifier.background(Brush.linearGradient(listOf(group.color, group.shadowColor)), RoundedCornerShape(Dimens14)) else Modifier)
             .clickable { onTap() }
-            .padding(horizontal = Dimens12, vertical = Dimens6)
+            .padding(horizontal = Dimens10, vertical = Dimens8)
     ) {
-        Row(horizontalArrangement = Arrangement.spacedBy(Dimens6), verticalAlignment = Alignment.CenterVertically) {
+        Row(horizontalArrangement = Arrangement.spacedBy(Dimens8), verticalAlignment = Alignment.CenterVertically) {
             Text(text = group.emoji, style = MaterialTheme.typography.titleMedium)
             Column(verticalArrangement = Arrangement.spacedBy(Dimens2)) {
                 Text(
@@ -186,40 +214,26 @@ private fun EndBlendGroupTab(group: EndBlendGroup, isSelected: Boolean, onTap: (
     }
 }
 
+// A single BLEND tile — now sits in the horizontally-scrolling header, sized to its own
+// content rather than stretched (that stretch belonged to the old vertical list).
 @Composable
-private fun EndBlendList(
-    uiState: EndBlendLearnUiState,
-    modifier: Modifier,
-    onBlendTap: (EndBlendEntry) -> Unit
-) {
-    val blends = endingBlendsData.filter { it.group == uiState.selectedGroup }
-    val scrollState = rememberScrollState()
-    LaunchedEffect(uiState.selectedGroup) { scrollState.scrollTo(0) }
-
-    Column(
-        modifier = modifier.verticalScroll(scrollState).padding(horizontal = Dimens10, vertical = Dimens12),
-        verticalArrangement = Arrangement.spacedBy(Dimens8)
-    ) {
-        blends.forEach { blend ->
-            val isSelected = uiState.selectedBlend?.blend == blend.blend
-            Box(modifier = Modifier.fillMaxWidth().clickable { onBlendTap(blend) }) {
-                Box(modifier = Modifier.fillMaxWidth().background(blend.group.shadowColor, RoundedCornerShape(Dimens8)).offset(y = 3.dp).height(Dimens32 + Dimens16))
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(Dimens8),
-                    modifier = Modifier.fillMaxWidth()
-                        .then(if (isSelected) Modifier.shadow(6.dp, RoundedCornerShape(Dimens8), clip = false, ambientColor = blend.group.color.copy(0.35f), spotColor = blend.group.color.copy(0.35f)) else Modifier.shadow(2.dp, RoundedCornerShape(Dimens8), clip = false, ambientColor = blend.group.color.copy(0.08f), spotColor = blend.group.color.copy(0.08f)))
-                        .clip(RoundedCornerShape(Dimens8))
-                        .background(if (isSelected) Brush.linearGradient(listOf(blend.group.color, blend.group.shadowColor)) else Brush.linearGradient(listOf(Color.White, Color.White)))
-                        .padding(horizontal = Dimens10, vertical = Dimens8)
-                ) {
-                    Text(text = blend.blend.uppercase(), style = MaterialTheme.typography.titleLarge.scaled(), fontWeight = FontWeight.Bold, color = if (isSelected) Color.White else blend.group.color, modifier = Modifier.width(Dimens32 + Dimens8))
-                    Box(modifier = Modifier.width(1.dp).height(Dimens28).background(if (isSelected) Color.White.copy(0.35f) else Color(0xFFCFD8DC)))
-                    Column(verticalArrangement = Arrangement.spacedBy(Dimens2)) {
-                        Text(text = blend.phonetic, style = MaterialTheme.typography.labelMedium.scaled(), color = if (isSelected) Color.White.copy(0.90f) else Color(0xFF546E7A))
-                        Text(text = "${blend.words.size} words", style = MaterialTheme.typography.labelSmall.scaled(), color = if (isSelected) Color.White.copy(0.65f) else Color(0xFF90A4AE))
-                    }
-                }
+private fun EndBlendHeaderTile(blend: EndBlendEntry, isSelected: Boolean, onTap: () -> Unit) {
+    Box(modifier = Modifier.clickable { onTap() }) {
+        Box(modifier = Modifier.matchParentSize().background(blend.group.shadowColor, RoundedCornerShape(Dimens8)).offset(y = 3.dp))
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+            modifier = Modifier
+                .then(if (isSelected) Modifier.shadow(6.dp, RoundedCornerShape(Dimens8), clip = false, ambientColor = blend.group.color.copy(0.35f), spotColor = blend.group.color.copy(0.35f)) else Modifier.shadow(2.dp, RoundedCornerShape(Dimens8), clip = false, ambientColor = blend.group.color.copy(0.08f), spotColor = blend.group.color.copy(0.08f)))
+                .clip(RoundedCornerShape(Dimens8))
+                .background(if (isSelected) Brush.linearGradient(listOf(blend.group.color, blend.group.shadowColor)) else Brush.linearGradient(listOf(Color.White, Color.White)))
+                .padding(horizontal = Dimens10, vertical = Dimens8)
+        ) {
+            Text(text = blend.blend.uppercase(), style = MaterialTheme.typography.titleLarge.scaled(), fontWeight = FontWeight.Bold, color = if (isSelected) Color.White else blend.group.color, modifier = Modifier.width(Dimens32 + Dimens8))
+            Box(modifier = Modifier.width(1.dp).height(Dimens28).background(if (isSelected) Color.White.copy(0.35f) else Color(0xFFCFD8DC)))
+            Column(verticalArrangement = Arrangement.spacedBy(Dimens2)) {
+                Text(text = blend.phonetic, style = MaterialTheme.typography.labelMedium.scaled(), color = if (isSelected) Color.White.copy(0.90f) else Color(0xFF546E7A))
+                Text(text = "${blend.words.size} words", style = MaterialTheme.typography.labelSmall.scaled(), color = if (isSelected) Color.White.copy(0.65f) else Color(0xFF90A4AE))
             }
         }
     }
