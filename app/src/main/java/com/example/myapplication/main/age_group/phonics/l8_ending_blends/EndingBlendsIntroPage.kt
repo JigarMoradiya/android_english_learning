@@ -3,7 +3,6 @@ package com.example.myapplication.main.age_group.phonics.l8_ending_blends
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Box
@@ -14,6 +13,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.width
@@ -96,12 +96,23 @@ fun EndingBlendsIntroPage(navController: NavController) {
                             color = Color(0xFF1A237E)
                         )
 
-                        FlowRow(
-                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
-                            verticalArrangement = Arrangement.spacedBy(Dimens8)
-                        ) {
-                            EndBlendGroup.entries.forEach { group ->
-                                L8GroupBadge(group = group, modifier = Modifier.weight(1f))
+                        // Explicit 3-then-2 grid (not an auto-wrap FlowRow) so the 5 groups
+                        // always land 3 on top, 2 below, regardless of panel width.
+                        Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
+                            for (row in 0 until 2) {
+                                Row(
+                                    horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    for (col in 0 until 3) {
+                                        val idx = row * 3 + col
+                                        if (idx < EndBlendGroup.entries.size) {
+                                            L8GroupBadge(group = EndBlendGroup.entries[idx], modifier = Modifier.weight(1f))
+                                        } else {
+                                            Spacer(modifier = Modifier.weight(1f))
+                                        }
+                                    }
+                                }
                             }
                         }
 

@@ -27,6 +27,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -105,25 +106,32 @@ fun EndingBlendsLearnPage(
                 .windowInsetsPadding(WindowInsets.safeDrawing)
                 .fillMaxSize()
         ) {
-            // Header — now the BLEND list for the selected group, scrolling horizontally
+            // Header — now the BLEND list for the selected group, scrolling horizontally.
+            // A group with only 1-2 blends must not pin them to the left with dead space
+            // trailing — centre when the tiles fit, and fall back to scrolling once a
+            // bigger group (like L-Endings' 4 tiles) actually overflows.
             Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
                 BackButtonWithText(title = "Ending Blends", expandWidth = false, onBackClick = { navController.popBackStack() })
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(Dimens8),
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier
-                        .weight(1f)
-                        .horizontalScroll(rememberScrollState())
-                        .padding(vertical = Dimens8)
-                        .padding(horizontal = Dimens16)
-                ) {
-                    val blendsInSelectedGroup = endingBlendsData.filter { it.group == uiState.selectedGroup }
-                    blendsInSelectedGroup.forEach { blend ->
-                        EndBlendHeaderTile(
-                            blend = blend,
-                            isSelected = uiState.selectedBlend?.blend == blend.blend,
-                            onTap = { viewModel.onBlendTap(blend) }
-                        )
+                BoxWithConstraints(modifier = Modifier.weight(1f)) {
+                    val availableWidth = maxWidth
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(Dimens8, Alignment.CenterHorizontally),
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .widthIn(min = availableWidth)
+                            .horizontalScroll(rememberScrollState())
+                            .padding(vertical = Dimens8)
+                            .padding(horizontal = Dimens16)
+                    ) {
+                        val blendsInSelectedGroup = endingBlendsData.filter { it.group == uiState.selectedGroup }
+                        blendsInSelectedGroup.forEach { blend ->
+                            EndBlendHeaderTile(
+                                blend = blend,
+                                isSelected = uiState.selectedBlend?.blend == blend.blend,
+                                onTap = { viewModel.onBlendTap(blend) }
+                            )
+                        }
                     }
                 }
             }
