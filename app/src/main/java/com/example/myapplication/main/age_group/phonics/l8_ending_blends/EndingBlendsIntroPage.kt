@@ -99,7 +99,7 @@ fun EndingBlendsIntroPage(navController: NavController) {
 
                         // Explicit 3-then-2 grid (not an auto-wrap FlowRow) so the 5 groups
                         // always land 3 on top, 2 below, regardless of panel width.
-                        Column(verticalArrangement = Arrangement.spacedBy(Dimens2)) {
+                        Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
                             for (row in 0 until 2) {
                                 Row(
                                     horizontalArrangement = Arrangement.spacedBy(Dimens8),
@@ -118,7 +118,7 @@ fun EndingBlendsIntroPage(navController: NavController) {
                         }
 
                         Column(
-                            verticalArrangement = Arrangement.spacedBy(Dimens10),
+                            verticalArrangement = Arrangement.spacedBy(Dimens8),
                             modifier = Modifier.padding(top = Dimens4)
                         ) {
                             L8BulletRow(icon = Icons.Default.LibraryMusic,     color = Color(0xFF3949AB), text = "10 ending blends — nd, nt, mp, ld, lp, lk, lt, sk, ft, st")
@@ -166,11 +166,11 @@ fun EndingBlendsIntroPage(navController: NavController) {
 private fun L8GroupBadge(group: EndBlendGroup, modifier: Modifier = Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Dimens4),
+        verticalArrangement = Arrangement.spacedBy(Dimens2),
         modifier = modifier
             .background(color = group.color.copy(alpha = 0.10f), shape = RoundedCornerShape(Dimens12))
             .border(width = Dp(1.5f), color = group.color.copy(alpha = 0.30f), shape = RoundedCornerShape(Dimens12))
-            .padding(horizontal = Dimens10, vertical = Dimens8)
+            .padding(horizontal = Dimens10, vertical = Dimens4)
     ) {
         Text(text = group.emoji, style = MaterialTheme.typography.headlineSmall)
         Text(

@@ -50,7 +50,10 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -329,6 +332,16 @@ private fun EndBlendWordsSection(blend: EndBlendEntry, uiState: EndBlendLearnUiS
             Icon(Icons.Default.TouchApp, null, tint = blend.group.color, modifier = Modifier.size(Dimens16))
             Text("Tap a word to hear it", style = MaterialTheme.typography.labelLarge.scaled(), fontWeight = FontWeight.Bold, color = blend.group.color)
         }
+        Text(
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append("👀 Focus on the ") }
+                withStyle(SpanStyle(color = blend.group.color, fontWeight = FontWeight.Bold)) { append("last letters") }
+                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append(" — that's the ending blend! Some words use ") }
+                withStyle(SpanStyle(color = Color(0xFFC62828), fontWeight = FontWeight.Bold)) { append("later-level sounds") }
+                withStyle(SpanStyle(color = Color(0xFF546E7A))) { append(" — just listen and repeat!") }
+            },
+            style = MaterialTheme.typography.labelMedium.scaled()
+        )
         FlowRow(horizontalArrangement = Arrangement.spacedBy(Dimens8), verticalArrangement = Arrangement.spacedBy(Dimens8)) {
             blend.words.forEach { word ->
                 val isHighlighted = uiState.highlightedWordId == word.id
