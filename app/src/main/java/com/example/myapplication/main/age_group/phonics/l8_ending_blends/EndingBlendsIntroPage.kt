@@ -98,7 +98,7 @@ fun EndingBlendsIntroPage(navController: NavController) {
 
                         // Explicit 3-then-2 grid (not an auto-wrap FlowRow) so the 5 groups
                         // always land 3 on top, 2 below, regardless of panel width.
-                        Column(verticalArrangement = Arrangement.spacedBy(Dimens8)) {
+                        Column(verticalArrangement = Arrangement.spacedBy(Dimens4)) {
                             for (row in 0 until 2) {
                                 Row(
                                     horizontalArrangement = Arrangement.spacedBy(Dimens8),
