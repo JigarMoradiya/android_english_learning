@@ -16,7 +16,6 @@ import com.example.myapplication.data.purchase.RevenueCatManager
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.google.gson.Gson
 import com.revenuecat.purchases.Package
-import kotlinx.coroutines.delay
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -305,15 +304,18 @@ class AccessSheetViewModel @Inject constructor(
         val moduleId = when (currentState) {
             is AccessSheetState.Login      -> currentState.moduleId
             is AccessSheetState.DailyLimit -> currentState.moduleId
-            else -> { dismissOrShowTrialAfterFirstLogin(); return }
+            else -> { dismiss(); return }
         }
         when (accessManager.checkAccess(moduleId)) {
-            is AccessResult.Allowed          -> dismissOrShowTrialAfterFirstLogin()
+            is AccessResult.Allowed          -> dismiss()
+            // The user deliberately opened a premium module and already cleared the
+            // parental gate on the way to login, so continuing to the paywall here is
+            // user-initiated and gated — not a proactive offer.
             is AccessResult.SubscribeRequired -> {
                 _sheetState.value = AccessSheetState.Paywall(moduleId)
                 loadOfferings()
             }
-            else -> dismissOrShowTrialAfterFirstLogin()
+            else -> dismiss()
         }
     }
 
@@ -325,28 +327,13 @@ class AccessSheetViewModel @Inject constructor(
         }
     }
 
-    // ── Trial offer proactive triggers ────────────────────────────────
-
-    fun showTrialOfferIfNeededOnFirstLaunch() {
-        if (!_isTrialEligible.value) return
-        if (accessManager.userState.value !is UserAccessState.Guest) return
-        if (appPrefs.isTrialOfferShownOnFirstLaunch()) return
-        appPrefs.setTrialOfferShownOnFirstLaunch(true)
-        viewModelScope.launch {
-            delay(500)
-            requestState(AccessSheetState.Paywall("first_launch"))
-        }
-    }
-
-    private fun dismissOrShowTrialAfterFirstLogin() {
-        if (accessManager.userState.value.isPremium ||
-            appPrefs.isTrialOfferShownAfterFirstLogin() ||
-            !_isTrialEligible.value) {
-            dismiss()
-            return
-        }
-        appPrefs.setTrialOfferShownAfterFirstLogin(true)
-        _sheetState.value = AccessSheetState.Paywall("after_first_login")
-        loadOfferings()
-    }
+    // ── Proactive trial-offer paywalls removed for Google Families policy ──
+    //
+    // Families "Ad Format Requirements" treat purchase offers that are pushed to
+    // children — unprompted, inside the content flow — as offers not clearly
+    // distinguished from the app. The old first-launch and after-first-login trial
+    // paywalls did exactly that (the after-login one even bypassed the parental
+    // gate). The paywall now appears ONLY when the user deliberately chooses to
+    // upgrade (a premium module, the Daily-Limit "Unlock", or Settings), and every
+    // such path goes through the parental gate via [requestState].
 }

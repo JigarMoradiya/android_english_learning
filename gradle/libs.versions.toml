@@ -25,7 +25,11 @@ onesignal = "5.4.0"
 datastore = "1.1.1"
 credentials = "1.5.0"
 googleid = "1.1.1"
-revenuecat = "8.+"
+revenuecat = "10.30.1" # bundles Play Billing Library 8.3.0 (Play Console requires 8.0.0+).
+# Latest overall is 11.x, but it's built with Kotlin 2.2.21 and its kapt output needs a
+# newer kotlinx-metadata-jvm than this project's Kotlin 2.0.0 supports — kaptDev1ReleaseKotlin
+# fails with "Provided Metadata instance has version 2.2.0, while maximum supported is 2.1.0."
+# Bump this past 10.x only after upgrading the project's Kotlin version.
 play-review = "2.0.1"
 
 
