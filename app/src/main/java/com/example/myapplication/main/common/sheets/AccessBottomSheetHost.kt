@@ -83,11 +83,6 @@ fun AccessBottomSheetHost(
             val state = sheetState as? AccessSheetState.DailyLimit
             if (state != null) {
                 DailyLimitSheet(
-                    canUnlockWithLogin = state.canUnlockWithLogin,
-                    onLoginClick = {
-                        // Show login sheet for the same module via parental gate
-                        viewModel.requestState(AccessSheetState.Login(state.moduleId))
-                    },
                     onPremiumClick = {
                         // Show paywall for the same module via parental gate
                         viewModel.requestState(AccessSheetState.Paywall(state.moduleId))
@@ -138,11 +133,11 @@ fun AccessBottomSheetHost(
             wrapContent = true
         ) {
             PremiumCelebrationSheet(
-                onRateNow = {
+                onLoveIt = {
                     val act = activity ?: return@PremiumCelebrationSheet
                     scope.launch { viewModel.rateNowAndDismiss(act) }
                 },
-                onLater = { viewModel.dismiss() }
+                onNotReally = { viewModel.openFeedbackAndDismiss(context) }
             )
         }
 

@@ -127,6 +127,10 @@ class SettingsViewModel @Inject constructor(
         reviewManager.requestNativeReview(activity)
     }
 
+    fun openFeedbackEmail(context: android.content.Context) {
+        reviewManager.openFeedbackEmail(context)
+    }
+
     // ── Parental gate ─────────────────────────────────────────────────────────
 
     enum class ParentalAction { Logout, Restore, ParentProgress }

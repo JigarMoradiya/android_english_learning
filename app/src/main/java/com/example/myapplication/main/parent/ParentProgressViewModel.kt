@@ -151,6 +151,10 @@ class ParentProgressViewModel @Inject constructor(
         reviewManager.requestNativeReview(activity)
     }
 
+    fun openFeedbackEmail(context: android.content.Context) {
+        reviewManager.openFeedbackEmail(context)
+    }
+
     // Chapter detail sheet
     var chapterDetail by mutableStateOf<ChapterDetailData?>(null)
         private set

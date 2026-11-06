@@ -5,8 +5,8 @@ import android.content.pm.PackageManager
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.access.AppRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
-import com.google.firebase.remoteconfig.remoteConfigSettings
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -25,16 +25,10 @@ class ForceUpdateViewModel @Inject constructor(
     private val _uiState = MutableStateFlow<ForceUpdateUiState>(ForceUpdateUiState.Idle)
     val uiState: StateFlow<ForceUpdateUiState> = _uiState.asStateFlow()
 
-    private val remoteConfig: FirebaseRemoteConfig by lazy {
-        FirebaseRemoteConfig.getInstance().apply {
-            setConfigSettingsAsync(
-                remoteConfigSettings {
-                    minimumFetchIntervalInSeconds = MIN_FETCH_INTERVAL_SECONDS
-                }
-            )
-            setDefaultsAsync(mapOf(KEY_ANDROID_VERSION to 0L))
-        }
-    }
+    // Defaults + settings are registered once, centrally, in AppRemoteConfig —
+    // see its doc comment for why a second setDefaultsAsync call here would be unsafe.
+    private val remoteConfig: FirebaseRemoteConfig
+        get() = FirebaseRemoteConfig.getInstance()
 
     fun dismiss() {
         _uiState.value = ForceUpdateUiState.UpToDate
@@ -44,7 +38,7 @@ class ForceUpdateViewModel @Inject constructor(
         viewModelScope.launch {
             runCatching {
                 fetchAndActivate()
-                val requiredVersion = remoteConfig.getLong(KEY_ANDROID_VERSION).toInt()
+                val requiredVersion = remoteConfig.getLong(AppRemoteConfig.KEY_ANDROID_VERSION).toInt()
                 val installedVersion = currentVersionCode()
                 Log.d(TAG, "installed=$installedVersion required=$requiredVersion")
 
@@ -84,8 +78,5 @@ class ForceUpdateViewModel @Inject constructor(
 
     companion object {
         private const val TAG = "ForceUpdate"
-        private const val KEY_ANDROID_VERSION = "android_version"
-//        private const val MIN_FETCH_INTERVAL_SECONDS = 3600L
-        private const val MIN_FETCH_INTERVAL_SECONDS = 0L
     }
 }

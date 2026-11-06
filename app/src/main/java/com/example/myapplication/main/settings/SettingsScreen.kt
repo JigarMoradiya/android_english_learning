@@ -22,6 +22,7 @@ import androidx.compose.material3.*
 import androidx.compose.material3.HorizontalDivider
 import android.app.Activity
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -150,11 +151,7 @@ fun SettingsScreen(
                     isLoggedIn = userState.isLoggedIn,
                     onRestore = {
                         if (!isRestoring) {
-                            if (!userState.isLoggedIn) {
-                                sheetViewModel.requestLoginForRestore()
-                            } else {
-                                viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Restore)
-                            }
+                            viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Restore)
                         }
                     },
                     onLogout = {
@@ -193,7 +190,7 @@ fun SettingsScreen(
                 },
                 onNotReally = {
                     showRateSheet = false
-                    openFeedbackEmail(context)
+                    viewModel.openFeedbackEmail(context)
                 }
             )
         }
@@ -233,7 +230,7 @@ private fun UserStatusHeroCard(
     val (icon, name, type, desc) = when {
         state.isPremium  -> Quad(Icons.Filled.Star,          "Premium ✨",   ButtonType.ORANGE,   "Full access to all activities")
         state.isLoggedIn -> Quad(Icons.Filled.Person,        "Free Account", ButtonType.BLUE,     "3 activities/day")
-        else             -> Quad(Icons.Filled.AccountCircle, "Guest",        ButtonType.NEGATIVE, "Sign in to track your progress")
+        else             -> Quad(Icons.Filled.AccountCircle, "Guest",        ButtonType.NEGATIVE, "3 activities/day")
     }
     val colors = getButtonColors(type)
 
@@ -336,7 +333,7 @@ private fun UserStatusHeroCard(
                         .background(Color.White)
                         .clickable {
                             AudioPlayerManager.playSoundMenuClick()
-                            if (state.isLoggedIn) onUpgrade() else onSignIn()
+                            onUpgrade()
                         }
                         .padding(vertical = Dimens10),
                     contentAlignment = Alignment.Center
@@ -346,18 +343,36 @@ private fun UserStatusHeroCard(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Icon(
-                            imageVector = if (state.isLoggedIn) Icons.Filled.Star else Icons.Filled.Person,
+                            imageVector = Icons.Filled.Star,
                             contentDescription = null,
                             tint = colors.base,
                             modifier = Modifier.size(Dimens16)
                         )
                         Text(
-                            text = if (state.isLoggedIn) "Upgrade to Premium" else "Sign In",
+                            text = "Upgrade to Premium",
                             style = MaterialTheme.typography.titleSmall.scaled(),
                             fontWeight = FontWeight.Bold,
                             color = colors.base
                         )
                     }
+                }
+
+                // Sign-in is fully optional now (no feature depends on it) — kept
+                // as a small secondary link under the main CTA, not a requirement.
+                if (!state.isLoggedIn) {
+                    Spacer(Modifier.height(Dimens6))
+                    Text(
+                        text = "Sign In",
+                        style = MaterialTheme.typography.labelSmall.scaled(),
+                        color = Color.White.copy(alpha = 0.85f),
+                        textDecoration = TextDecoration.Underline,
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .clickable {
+                                AudioPlayerManager.playSoundMenuClick()
+                                onSignIn()
+                            }
+                    )
                 }
             }
         }
@@ -720,25 +735,6 @@ private fun RateAppSheetContent(
                 onClick = onNotReally
             )
         }
-    }
-}
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
-private fun openFeedbackEmail(context: android.content.Context) {
-    val intent = android.content.Intent(android.content.Intent.ACTION_SENDTO).apply {
-        data = android.net.Uri.parse("mailto:vedaavilearning@gmail.com")
-        putExtra(android.content.Intent.EXTRA_SUBJECT, "App Feedback - Kids English Learning")
-        setPackage("com.google.android.gm")
-    }
-    try {
-        context.startActivity(intent)
-    } catch (_: Exception) {
-        val fallback = android.content.Intent(android.content.Intent.ACTION_SENDTO).apply {
-            data = android.net.Uri.parse("mailto:vedaavilearning@gmail.com")
-            putExtra(android.content.Intent.EXTRA_SUBJECT, "App Feedback - Kids English Learning")
-        }
-        try { context.startActivity(fallback) } catch (_: Exception) { }
     }
 }
 

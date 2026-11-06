@@ -8,9 +8,12 @@ package com.example.myapplication.data.progress
 //   diff == 1  → played yesterday, streak + 1
 //   diff >= 2  → missed at least one day, reset to 1
 
+import android.content.Context
 import com.example.myapplication.data.access.ReviewManager
+import com.example.myapplication.data.notifications.StreakReminderScheduler
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.google.gson.Gson
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -22,7 +25,9 @@ import javax.inject.Singleton
 @Singleton
 class StreakRepository @Inject constructor(
     private val prefs: AppPreferencesHelper,
-    private val reviewManager: ReviewManager
+    private val reviewManager: ReviewManager,
+    private val streakReminderScheduler: StreakReminderScheduler,
+    @ApplicationContext private val context: Context
 ) {
 
     private val gson = Gson()
@@ -64,6 +69,7 @@ class StreakRepository @Inject constructor(
         save(s)
 
         reviewManager.onStreakUpdated(s.currentStreak)
+        streakReminderScheduler.scheduleDaily(context)
     }
 
     // Dev only — sets streak to 6 days with yesterday as last activity date

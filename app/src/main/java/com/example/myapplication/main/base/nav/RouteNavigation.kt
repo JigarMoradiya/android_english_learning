@@ -76,6 +76,15 @@ sealed class RouteNavigation(val route: String) {
         fun createRoute(levelKey: String) = "PhonicsListen/$levelKey"
     }
 
+    // ── Phonics: Worksheets (printable/viewable practice sheets per level) ─────
+    object LevelWorksheets : RouteNavigation("LevelWorksheets/{levelKey}") {
+        fun createRoute(levelKey: String) = "LevelWorksheets/$levelKey"
+    }
+    object WorksheetViewer : RouteNavigation("WorksheetViewer/{levelKey}/{worksheetId}") {
+        fun createRoute(levelKey: String, worksheetId: String) =
+            "WorksheetViewer/$levelKey/$worksheetId"
+    }
+
     // ── Phonics L7: Open Syllable ────────────────────────────────────────────
     object OpenSyllableIntro : RouteNavigation("OpenSyllableIntro")
     object OpenSyllableLearn : RouteNavigation("OpenSyllableLearn")

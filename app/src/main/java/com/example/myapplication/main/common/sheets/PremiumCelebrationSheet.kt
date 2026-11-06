@@ -16,8 +16,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -53,15 +51,15 @@ private fun PremiumCelebrationSheetPreview() {
                 .wrapContentHeight()
                 .background(Color.White, RoundedCornerShape(topStart = Dimens24, topEnd = Dimens24))
         ) {
-            PremiumCelebrationSheet(onRateNow = {}, onLater = {})
+            PremiumCelebrationSheet(onLoveIt = {}, onNotReally = {})
         }
     }
 }
 
 @Composable
 fun PremiumCelebrationSheet(
-    onRateNow: () -> Unit,
-    onLater: () -> Unit
+    onLoveIt: () -> Unit,
+    onNotReally: () -> Unit
 ) {
     val infiniteTransition = rememberInfiniteTransition(label = "confetti")
     val emojiScale by infiniteTransition.animateFloat(
@@ -122,15 +120,14 @@ fun PremiumCelebrationSheet(
             verticalAlignment = Alignment.CenterVertically
         ) {
             KidsActionButton(
-                text = stringResource(R.string.rate_now),
-                icon = Icons.Filled.Star,
+                text = stringResource(R.string.love_it),
                 type = ButtonType.ORANGE,
-                onClick = onRateNow
+                onClick = onLoveIt
             )
             KidsActionButton(
-                text = stringResource(R.string.maybe_later),
+                text = stringResource(R.string.not_really),
                 type = ButtonType.NEGATIVE,
-                onClick = onLater
+                onClick = onNotReally
             )
         }
     }

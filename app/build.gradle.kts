@@ -56,8 +56,8 @@ android {
             resValue("string","app_name", "English Learning")
             dimension = "variant"
             applicationId = "com.vedaavi.english.learning"
-            versionCode = 14
-            versionName = "1.0.4"
+            versionCode = 15
+            versionName = "1.0.5"
         }
     }
 
@@ -131,4 +131,9 @@ dependencies {
 
     // Google Play In-App Review
     implementation(libs.play.review)
+
+    // WorkManager — local daily streak-reminder scheduling
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.hilt.work)
+    kapt(libs.androidx.hilt.compiler)
 }

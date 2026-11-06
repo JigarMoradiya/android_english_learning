@@ -989,5 +989,29 @@ fun AppNavGraph(navController: NavHostController) {
         composable(RouteNavigation.GrammarFillTheBlanks.route) {
             GrammarFillTheBlanksPage(navController)
         }
+
+        // ── Phonics Worksheets ────────────────────────────────────────────────
+        composable(
+            route = RouteNavigation.LevelWorksheets.route,
+            arguments = listOf(navArgument("levelKey") { type = NavType.StringType })
+        ) { back ->
+            val levelKey = back.arguments?.getString("levelKey") ?: "letterSounds"
+            com.example.myapplication.main.age_group.phonics.worksheets.LevelWorksheetsPage(
+                levelRaw = levelKey, navController = navController
+            )
+        }
+        composable(
+            route = RouteNavigation.WorksheetViewer.route,
+            arguments = listOf(
+                navArgument("levelKey") { type = NavType.StringType },
+                navArgument("worksheetId") { type = NavType.StringType }
+            )
+        ) { back ->
+            val levelKey = back.arguments?.getString("levelKey") ?: "letterSounds"
+            val worksheetId = back.arguments?.getString("worksheetId") ?: ""
+            com.example.myapplication.main.age_group.phonics.worksheets.WorksheetViewerPage(
+                levelRaw = levelKey, startId = worksheetId, navController = navController
+            )
+        }
     }
 }

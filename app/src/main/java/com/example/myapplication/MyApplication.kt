@@ -9,8 +9,12 @@ import com.example.myapplication.data.model.NotificationData
 import com.example.myapplication.main.base.notification.NotificationCommand
 import com.example.myapplication.main.base.notification.NotificationRouteMapper
 import com.example.myapplication.main.base.notification.PendingNotificationRoute
+import com.example.myapplication.data.access.AppRemoteConfig
+import com.example.myapplication.data.notifications.StreakReminderScheduler
 import com.example.myapplication.data.purchase.RevenueCatManager
 import com.example.myapplication.utils.AppConstants
+import androidx.hilt.work.HiltWorkerFactory
+import androidx.work.Configuration
 import com.google.firebase.crashlytics.internal.common.CommonUtils
 import com.google.gson.Gson
 import com.onesignal.OneSignal
@@ -37,14 +41,23 @@ import javax.inject.Inject
 import kotlin.jvm.java
 
 @HiltAndroidApp
-class MyApplication : Application(){
+class MyApplication : Application(), Configuration.Provider {
 
     @Inject lateinit var revenueCatManager: RevenueCatManager
+    @Inject lateinit var hiltWorkerFactory: HiltWorkerFactory
+    @Inject lateinit var streakReminderScheduler: StreakReminderScheduler
+
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder()
+            .setWorkerFactory(hiltWorkerFactory)
+            .build()
 
     override fun onCreate() {
         super.onCreate()
+        AppRemoteConfig.registerDefaults()
         revenueCatManager.initialize()
         oneSignal()
+        streakReminderScheduler.scheduleDaily(this)
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
             override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
                 activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE

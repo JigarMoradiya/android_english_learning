@@ -22,10 +22,9 @@ private val Context.dailyLimitDataStore: DataStore<Preferences>
  * Storage key (date-scoped, auto-reset each new day):
  *   "global_count_<yyyy-MM-dd>" → Int — total FREE_LIMITED plays today
  *
- * Limits:
- *   Guest      → 1 activity/day
- *   Free login → 3 activities/day
- *   Same activity CAN be replayed (each replay costs 1 slot).
+ * Limit: same for every user, guest or signed-in — sourced from Firebase Remote
+ * Config (see AppRemoteConfig, default 3) so it can be tuned without a release.
+ * Same activity CAN be replayed (each replay costs 1 slot).
  */
 
 private const val TAG = "DailyLimitManager"
@@ -35,23 +34,19 @@ class DailyLimitManager @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
 
-    private val guestLimit = 1
-    private val freeLimit  = 3
-
     // ── Public API ────────────────────────────────────────────────────
 
     /** Returns true if the user still has activity slots remaining today. */
-    suspend fun hasAttemptsLeft(isLoggedIn: Boolean): Boolean {
-        val limit = if (isLoggedIn) freeLimit else guestLimit
+    suspend fun hasAttemptsLeft(): Boolean {
+        val limit = AppRemoteConfig.dailyActivityLimit
         Log.d(TAG, "hasAttemptsLeft → limit = $limit")
         Log.d(TAG, "hasAttemptsLeft → globalCount = ${globalCount()}")
         return globalCount() < limit
     }
 
     /** Returns how many activity slots are left today (minimum 0). */
-    suspend fun remainingAttempts(isLoggedIn: Boolean): Int {
-        val limit = if (isLoggedIn) freeLimit else guestLimit
-        return maxOf(0, limit - globalCount())
+    suspend fun remainingAttempts(): Int {
+        return maxOf(0, AppRemoteConfig.dailyActivityLimit - globalCount())
     }
 
     /** Clears today's count. For testing only. */

@@ -15,7 +15,7 @@ private const val TAG = "AccessManager"
  * Every module behaves as if the user has an active premium subscription.
  * MUST be false before releasing to production.
  */
-private const val DEV_MODE = true
+private const val DEV_MODE = false
 
 /**
  * The single source of truth for access control.
@@ -28,7 +28,6 @@ private const val DEV_MODE = true
  *   when (result) {
  *       is AccessResult.Allowed           -> launch activity
  *       is AccessResult.DailyLimitReached -> show "come back tomorrow" dialog
- *       is AccessResult.LoginRequired     -> show login prompt
  *       is AccessResult.SubscribeRequired -> show paywall
  *   }
  */
@@ -83,23 +82,17 @@ class AccessManager @Inject constructor(
         val result = when (config.accessLevel) {
 
             AccessLevel.FREE -> {
-                // Apply daily limit: 1/day for guests, 3/day for logged-in free users
-                if (!dailyLimitManager.hasAttemptsLeft(state.isLoggedIn)) {
-                    return AccessResult.DailyLimitReached(remaining = 0, canUnlockWithLogin = !state.isLoggedIn)
+                if (!dailyLimitManager.hasAttemptsLeft()) {
+                    return AccessResult.DailyLimitReached(remaining = 0)
                 }
                 AccessResult.Allowed
             }
 
             AccessLevel.FREE_LIMITED -> {
-                if (!dailyLimitManager.hasAttemptsLeft(state.isLoggedIn)) {
-                    return AccessResult.DailyLimitReached(remaining = 0, canUnlockWithLogin = !state.isLoggedIn)
+                if (!dailyLimitManager.hasAttemptsLeft()) {
+                    return AccessResult.DailyLimitReached(remaining = 0)
                 }
                 AccessResult.Allowed
-            }
-
-            AccessLevel.LOGIN_REQUIRED -> {
-                if (state.isLoggedIn) AccessResult.Allowed
-                else AccessResult.LoginRequired
             }
 
             AccessLevel.PREMIUM -> AccessResult.SubscribeRequired
@@ -121,7 +114,6 @@ class AccessManager @Inject constructor(
         }
         when (config.accessLevel) {
             AccessLevel.FREE, AccessLevel.FREE_LIMITED -> {
-                // All non-premium users count: guest 1/day, logged-in free 3/day
                 dailyLimitManager.recordModulePlayed(moduleId)
             }
             else -> Unit
@@ -135,7 +127,7 @@ class AccessManager @Inject constructor(
         if (config.accessLevel != AccessLevel.FREE_LIMITED) return Int.MAX_VALUE
         val state = _userState.value
         if (state.isPremium) return Int.MAX_VALUE
-        return dailyLimitManager.remainingAttempts(state.isLoggedIn)
+        return dailyLimitManager.remainingAttempts()
     }
 }
 
@@ -149,16 +141,11 @@ sealed class AccessResult {
     /**
      * User has hit their daily free limit.
      *
-     * @param remaining          Always 0 — for future use.
-     * @param canUnlockWithLogin If true, logging in gives a higher daily limit.
+     * @param remaining Always 0 — for future use.
      */
     data class DailyLimitReached(
-        val remaining: Int,
-        val canUnlockWithLogin: Boolean
+        val remaining: Int
     ) : AccessResult()
-
-    /** Module requires login. Show sign-in prompt. */
-    object LoginRequired : AccessResult()
 
     /** Module requires an active subscription. Show paywall. */
     object SubscribeRequired : AccessResult()

@@ -110,20 +110,6 @@ class AccessSheetViewModel @Inject constructor(
         }
     }
 
-    // ── Pending purchase (set when guest taps Subscribe) ──────────────
-
-    private var pendingPurchasePackage: Package? = null
-    private var pendingPurchaseModuleId: String = ""
-
-    // ── Pending restore (set when guest taps Restore) ─────────────────
-
-    private var pendingRestoreAfterLogin = false
-
-    fun requestLoginForRestore() {
-        pendingRestoreAfterLogin = true
-        requestState(AccessSheetState.Login("restore_from_settings"))
-    }
-
     // ── Access check entry point ──────────────────────────────────────
 
     /**
@@ -139,11 +125,8 @@ class AccessSheetViewModel @Inject constructor(
         if (moduleId.isEmpty()) {
             val state = accessManager.userState.value
             if (!state.isPremium) {
-                if (!dailyLimitManager.hasAttemptsLeft(isLoggedIn = state.isLoggedIn)) {
-                    _sheetState.value = AccessSheetState.DailyLimit(
-                        moduleId = moduleId,
-                        canUnlockWithLogin = !state.isLoggedIn
-                    )
+                if (!dailyLimitManager.hasAttemptsLeft()) {
+                    _sheetState.value = AccessSheetState.DailyLimit(moduleId = moduleId)
                     return false
                 }
                 dailyLimitManager.recordModulePlayed(moduleId)
@@ -156,14 +139,7 @@ class AccessSheetViewModel @Inject constructor(
         return when (hasAccessResult) {
             is AccessResult.Allowed -> true
             is AccessResult.DailyLimitReached -> {
-                _sheetState.value = AccessSheetState.DailyLimit(
-                    moduleId = moduleId,
-                    canUnlockWithLogin = hasAccessResult.canUnlockWithLogin
-                )
-                false
-            }
-            is AccessResult.LoginRequired -> {
-                requestState(AccessSheetState.Login(moduleId))
+                _sheetState.value = AccessSheetState.DailyLimit(moduleId = moduleId)
                 false
             }
             is AccessResult.SubscribeRequired -> {
@@ -175,8 +151,6 @@ class AccessSheetViewModel @Inject constructor(
 
     fun dismiss() {
         _sheetState.value = AccessSheetState.Hidden
-        pendingPurchasePackage = null
-        pendingRestoreAfterLogin = false
     }
 
     // ── Google Sign-In ────────────────────────────────────────────────
@@ -185,7 +159,7 @@ class AccessSheetViewModel @Inject constructor(
         viewModelScope.launch {
             _isLoading.value = true
             when (val result = authManager.signInWithGoogle(activity)) {
-                is AuthResult.Success  -> onSignInSuccess(activity)
+                is AuthResult.Success  -> onSignInSuccess()
                 is AuthResult.Cancelled -> Unit
                 is AuthResult.Error    -> _message.emit(result.message)
                 is AuthResult.NeedsAccountLinking ->
@@ -201,7 +175,7 @@ class AccessSheetViewModel @Inject constructor(
         viewModelScope.launch {
             _isLoading.value = true
             when (val result = authManager.signInWithApple(activity)) {
-                is AuthResult.Success  -> onSignInSuccess(activity)
+                is AuthResult.Success  -> onSignInSuccess()
                 is AuthResult.Cancelled -> Unit
                 is AuthResult.Error    -> _message.emit(result.message)
                 is AuthResult.NeedsAccountLinking ->
@@ -213,20 +187,7 @@ class AccessSheetViewModel @Inject constructor(
 
     // ── Purchase ──────────────────────────────────────────────────────
 
-    /**
-     * If the user is a guest, save the package and show Login first.
-     * After login succeeds [onSignInSuccess] will transition to the paywall.
-     * If already logged in, proceed with purchase directly.
-     */
     fun purchase(activity: Activity, packageToPurchase: Package) {
-        if (accessManager.userState.value is UserAccessState.Guest) {
-            Log.d(TAG, "purchase → guest detected, requiring login first")
-            pendingPurchasePackage = packageToPurchase
-            val moduleId = (_sheetState.value as? AccessSheetState.Paywall)?.moduleId ?: pendingPurchaseModuleId
-            pendingPurchaseModuleId = moduleId
-            requestState(AccessSheetState.Login(moduleId))
-            return
-        }
         doPurchase(activity, packageToPurchase)
     }
 
@@ -251,14 +212,15 @@ class AccessSheetViewModel @Inject constructor(
         reviewManager.requestNativeReview(activity)
     }
 
+    fun openFeedbackAndDismiss(context: android.content.Context) {
+        reviewManager.markBannerShown()
+        dismiss()
+        reviewManager.openFeedbackEmail(context)
+    }
+
     // ── Restore purchases ─────────────────────────────────────────────
 
     fun restorePurchases() {
-        if (accessManager.userState.value is UserAccessState.Guest) {
-            pendingRestoreAfterLogin = true
-            requestState(AccessSheetState.Login("restore_from_paywall"))
-            return
-        }
         viewModelScope.launch {
             _isLoading.value = true
             val restored = purchaseManager.restorePurchases()
@@ -269,38 +231,8 @@ class AccessSheetViewModel @Inject constructor(
 
     // ── Private helpers ───────────────────────────────────────────────
 
-    /**
-     * After sign-in succeeds:
-     * - If there is a pending purchase → go back to paywall (user taps Subscribe again).
-     * - Otherwise re-check the original module.
-     */
-    private suspend fun onSignInSuccess(activity: Activity) {
-        // Pending purchase flow: auto-trigger purchase (user already tapped Subscribe before login)
-        val pending = pendingPurchasePackage
-        if (pending != null) {
-            pendingPurchasePackage = null
-            _sheetState.value = AccessSheetState.Paywall(pendingPurchaseModuleId)
-            loadOfferings()
-            // Sync RevenueCat after login — detects existing subscriptions before purchase
-            purchaseManager.restorePurchases()
-            if (accessManager.userState.value is UserAccessState.PremiumUser) {
-                dismiss()
-                return
-            }
-            doPurchase(activity, pending)
-            return
-        }
-
-        // Pending restore flow: run restore now that user is logged in
-        if (pendingRestoreAfterLogin) {
-            pendingRestoreAfterLogin = false
-            _isLoading.value = true
-            val restored = purchaseManager.restorePurchases()
-            _isLoading.value = false
-            if (restored) dismiss() else _message.emit("No previous purchases found.")
-            return
-        }
-
+    /** After sign-in succeeds, re-check the original module (if any). */
+    private suspend fun onSignInSuccess() {
         val currentState = _sheetState.value
         val moduleId = when (currentState) {
             is AccessSheetState.Login      -> currentState.moduleId

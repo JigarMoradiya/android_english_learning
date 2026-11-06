@@ -149,7 +149,7 @@ fun ParentProgressScreen(
                         },
                         onNotReally = {
                             viewModel.onBannerShown()
-                            openFeedbackEmail(context)
+                            viewModel.openFeedbackEmail(context)
                         }
                     )
                 }
@@ -1417,20 +1417,3 @@ private fun formatSessionTime(timestampMs: Long): String {
     return fmt.format(Date(timestampMs))
 }
 
-private fun openFeedbackEmail(context: android.content.Context) {
-    val intent = android.content.Intent(android.content.Intent.ACTION_SENDTO).apply {
-        data = android.net.Uri.parse("mailto:vedaavilearning@gmail.com")
-        putExtra(android.content.Intent.EXTRA_SUBJECT, "App Feedback - Kids English Learning")
-        setPackage("com.google.android.gm") // open Gmail directly, no chooser
-    }
-    try {
-        context.startActivity(intent)
-    } catch (_: Exception) {
-        // Gmail not installed — fall back to system email chooser
-        val fallback = android.content.Intent(android.content.Intent.ACTION_SENDTO).apply {
-            data = android.net.Uri.parse("mailto:vedaavilearning@gmail.com")
-            putExtra(android.content.Intent.EXTRA_SUBJECT, "App Feedback - Kids English Learning")
-        }
-        try { context.startActivity(fallback) } catch (_: Exception) { }
-    }
-}

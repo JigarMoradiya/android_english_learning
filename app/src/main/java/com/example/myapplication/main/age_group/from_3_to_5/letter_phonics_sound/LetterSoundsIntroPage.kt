@@ -1,6 +1,8 @@
 package com.example.myapplication.main.age_group.from_3_to_5.letter_phonics_sound
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -132,6 +134,29 @@ fun LetterSoundsIntroPage(navController: NavController) {
                             IntroDescRow(icon = "🔤", text = "26 letters, each with its own sound")
                             IntroDescRow(icon = "👂", text = "Tap a letter to hear its sound")
                             IntroDescRow(icon = "✨", text = "Sounds join together to make words")
+                        }
+
+                        // Printable worksheets for this level.
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(Dimens8),
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(Dimens10))
+                                .background(Color(0xFFE65100).copy(alpha = 0.12f))
+                                .clickable {
+                                    navController.navigate(
+                                        RouteNavigation.LevelWorksheets.createRoute("letterSounds")
+                                    )
+                                }
+                                .padding(horizontal = Dimens20, vertical = Dimens10)
+                        ) {
+                            Text(text = "🖨️", style = MaterialTheme.typography.bodyLarge)
+                            Text(
+                                text = "Printable Worksheets",
+                                style = MaterialTheme.typography.titleSmall.scaled(),
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFFBF360C)
+                            )
                         }
                     }
 

@@ -203,6 +203,30 @@ class ReviewManager @Inject constructor(
         }
     }
 
+    // ── Call when parent taps "Not really" / 😕 ───────────────────────
+
+    /** Shared by every dislike path (streak/activity banner, premium celebration,
+     *  Settings "Rate us") so the target address only lives in one place. */
+    fun openFeedbackEmail(context: android.content.Context) {
+        val intent = android.content.Intent(android.content.Intent.ACTION_SENDTO).apply {
+            data = android.net.Uri.parse("mailto:vedaavienglish@gmail.com")
+            putExtra(android.content.Intent.EXTRA_SUBJECT, "App Feedback - Kids English Learning")
+            setPackage("com.google.android.gm") // open Gmail directly, no chooser
+        }
+        try {
+            context.startActivity(intent)
+        } catch (_: Exception) {
+            // Gmail not installed — fall back to system email chooser
+            val fallback = android.content.Intent(android.content.Intent.ACTION_SENDTO).apply {
+                data = android.net.Uri.parse("mailto:vedaavienglish@gmail.com")
+                putExtra(android.content.Intent.EXTRA_SUBJECT, "App Feedback - Kids English Learning")
+            }
+            try { context.startActivity(fallback) } catch (e: Exception) {
+                Log.e(TAG, "openFeedbackEmail failed: ${e.message}")
+            }
+        }
+    }
+
     // ── Private ───────────────────────────────────────────────────────
 
     private fun queueTrigger(key: String) {

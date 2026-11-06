@@ -8,17 +8,12 @@ sealed class AccessSheetState {
     /** No sheet visible */
     object Hidden : AccessSheetState()
 
-    /**
-     * User hit their daily attempt limit for [moduleId].
-     * [canUnlockWithLogin] = true  → they're a Guest; logging in gives more attempts.
-     * [canUnlockWithLogin] = false → they're a FreeUser; only premium removes the limit.
-     */
+    /** User hit their daily attempt limit for [moduleId]. Only premium removes it. */
     data class DailyLimit(
-        val moduleId: String,
-        val canUnlockWithLogin: Boolean
+        val moduleId: String
     ) : AccessSheetState()
 
-    /** Content requires a login (FreeUser tier). */
+    /** Optional sign-in, reached only from Settings — nothing requires it. */
     data class Login(val moduleId: String) : AccessSheetState()
 
     /** Content requires a premium subscription. */

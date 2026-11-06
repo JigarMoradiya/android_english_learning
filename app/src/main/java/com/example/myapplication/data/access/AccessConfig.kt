@@ -8,9 +8,7 @@ import com.example.myapplication.data.access.AccessLevel.*
  * To change what is free or premium, edit ONLY this file.
  * No other file needs to know about access levels.
  *
- * Daily limits:
- *   guestDailyLimit  = attempts allowed per day without login
- *   loginDailyLimit  = attempts allowed per day when logged in (free user)
+ * Daily limit is the same for every user (see AppRemoteConfig.dailyActivityLimit).
  */
 object AccessConfig {
 
@@ -34,7 +32,7 @@ object AccessConfig {
         ModuleID.DRAG_DROP_LETTERS to ModuleAccess(moduleId = ModuleID.DRAG_DROP_LETTERS, accessLevel = PREMIUM),
 
         ModuleID.VOCABULARY_SHAPES to ModuleAccess(moduleId = ModuleID.VOCABULARY_SHAPES, accessLevel = FREE),
-        ModuleID.VOCABULARY_COLORS to ModuleAccess(moduleId = ModuleID.VOCABULARY_COLORS, accessLevel = LOGIN_REQUIRED),
+        ModuleID.VOCABULARY_COLORS to ModuleAccess(moduleId = ModuleID.VOCABULARY_COLORS, accessLevel = FREE_LIMITED),
         ModuleID.VOCABULARY_ANIMALS to ModuleAccess(moduleId = ModuleID.VOCABULARY_ANIMALS, accessLevel = PREMIUM),
         ModuleID.VOCABULARY_FRUITS to ModuleAccess(moduleId = ModuleID.VOCABULARY_FRUITS, accessLevel = PREMIUM),
         ModuleID.VOCABULARY_BIRDS to ModuleAccess(moduleId = ModuleID.VOCABULARY_BIRDS, accessLevel = PREMIUM),
