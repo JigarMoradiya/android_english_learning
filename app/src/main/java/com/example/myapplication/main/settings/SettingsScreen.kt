@@ -114,9 +114,6 @@ fun SettingsScreen(
                 UserStatusHeroCard(
                     state = userState,
                     subscriptionInfo = subscriptionInfo,
-                    onSignIn = {
-                        sheetViewModel.requestState(AccessSheetState.Login(moduleId = "signin_from_settings"))
-                    },
                     onUpgrade = {
                         sheetViewModel.requestState(AccessSheetState.Paywall(moduleId = "upgrade_from_settings"))
                     }
@@ -224,13 +221,12 @@ private fun SectionHeader(emoji: String, title: String) {
 private fun UserStatusHeroCard(
     state: UserAccessState,
     subscriptionInfo: SubscriptionInfo?,
-    onSignIn: () -> Unit,
     onUpgrade: () -> Unit
 ) {
     val (icon, name, type, desc) = when {
         state.isPremium  -> Quad(Icons.Filled.Star,          "Premium ✨",   ButtonType.ORANGE,   "Full access to all activities")
-        state.isLoggedIn -> Quad(Icons.Filled.Person,        "Free Account", ButtonType.BLUE,     "3 activities/day")
-        else             -> Quad(Icons.Filled.AccountCircle, "Guest",        ButtonType.NEGATIVE, "3 activities/day")
+        // No sign-in in the app: guests and (older) signed-in free users get identical access.
+        else             -> Quad(Icons.Filled.Person,        "Free",         ButtonType.BLUE,     "3 activities/day")
     }
     val colors = getButtonColors(type)
 
@@ -357,23 +353,6 @@ private fun UserStatusHeroCard(
                     }
                 }
 
-                // Sign-in is fully optional now (no feature depends on it) — kept
-                // as a small secondary link under the main CTA, not a requirement.
-                if (!state.isLoggedIn) {
-                    Spacer(Modifier.height(Dimens6))
-                    Text(
-                        text = "Sign In",
-                        style = MaterialTheme.typography.labelSmall.scaled(),
-                        color = Color.White.copy(alpha = 0.85f),
-                        textDecoration = TextDecoration.Underline,
-                        modifier = Modifier
-                            .align(Alignment.CenterHorizontally)
-                            .clickable {
-                                AudioPlayerManager.playSoundMenuClick()
-                                onSignIn()
-                            }
-                    )
-                }
             }
         }
     }
