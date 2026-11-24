@@ -25,6 +25,9 @@ private const val NOTIFICATION_ID = 4821
  * Runs roughly once a day (scheduled by [StreakReminderScheduler]). Posts a local
  * reminder only if the user hasn't completed an activity yet today — never fires
  * for an already-active user.
+ *
+ * The message rotates across activity types each day (see [ReminderMessages]) so the
+ * single daily nudge stays fresh and encourages trying something new.
  */
 @HiltWorker
 class StreakReminderWorker @AssistedInject constructor(
@@ -37,11 +40,12 @@ class StreakReminderWorker @AssistedInject constructor(
         val streak = streakRepository.streak.value
         if (streak.hasCompletedToday) return Result.success()
 
-        postReminder(streak.currentStreak)
+        val dayOfYear = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_YEAR)
+        postReminder(streak.currentStreak, dayOfYear)
         return Result.success()
     }
 
-    private fun postReminder(currentStreak: Int) {
+    private fun postReminder(currentStreak: Int, dayOfYear: Int) {
         val context = applicationContext
         createChannelIfNeeded(context)
 
@@ -51,11 +55,7 @@ class StreakReminderWorker @AssistedInject constructor(
             return
         }
 
-        val (title, body) = if (currentStreak > 0) {
-            "🔥 Don't lose your $currentStreak-day streak!" to "Just one quick activity today keeps it going."
-        } else {
-            "Come back and start your streak today!" to "A few minutes of practice is all it takes."
-        }
+        val (title, body) = ReminderMessages.forToday(currentStreak, dayOfYear)
 
         val launchIntent = context.packageManager.getLaunchIntentForPackage(context.packageName)
             ?: android.content.Intent(context, AgeCategoryActivity::class.java)
@@ -81,8 +81,8 @@ class StreakReminderWorker @AssistedInject constructor(
         val manager = context.getSystemService(NotificationManager::class.java) ?: return
         if (manager.getNotificationChannel(CHANNEL_ID) != null) return
         manager.createNotificationChannel(
-            NotificationChannel(CHANNEL_ID, "Streak Reminders", NotificationManager.IMPORTANCE_DEFAULT).apply {
-                description = "Daily reminder to keep your learning streak going"
+            NotificationChannel(CHANNEL_ID, "Daily Learning Reminders", NotificationManager.IMPORTANCE_DEFAULT).apply {
+                description = "A friendly daily nudge to keep learning and grow your streak"
             }
         )
     }
