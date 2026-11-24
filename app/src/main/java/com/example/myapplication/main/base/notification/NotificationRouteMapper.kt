@@ -1,5 +1,6 @@
 package com.example.myapplication.main.base.notification
 
+import com.example.myapplication.data.access.ModuleID
 import com.example.myapplication.data.model.UnitSelectionScreen
 import com.example.myapplication.main.base.nav.RouteNavigation
 
@@ -48,5 +49,44 @@ object NotificationRouteMapper {
         "chooseTheRightSentence" -> RouteNavigation.ChooseTheRightSentence.route
 
         else -> null
+    }
+
+    /**
+     * The access-gate module for a notification type — the same id its home tile
+     * checks, so a notification tap can't skip the paywall or the daily limit.
+     * Empty = free entry (age groups and lists whose inner pages gate themselves).
+     */
+    fun moduleIdFromType(type: String): String = when (type) {
+        "letterTracing" -> ModuleID.ALPHABET_TRACING
+        "letterRecognition" -> ModuleID.LETTER_RECOGNITION
+        "abcdWithImages" -> ModuleID.ABCD_WITH_IMAGES
+        "coloringAlphabets" -> ModuleID.COLORING_ALPHABETS
+        "letterMatching" -> ModuleID.MATCH_UPPER_LOWER
+        "letterMatchingWithImage" -> ModuleID.MATCH_LETTER_WITH_IMAGE
+        "missingLetter3_5" -> ModuleID.MISSING_LETTER
+        "dragAndDropWord" -> ModuleID.DRAG_DROP_LETTERS
+        "fillTheBlankLetter" -> ModuleID.FILL_THE_BLANK_LETTER
+        "arrangeLetterInSequence" -> ModuleID.ARRANGE_LETTER_SEQUENCE
+
+        "coloringWord" -> ModuleID.COLORING_WORDS
+        "wordMatchImage" -> ModuleID.MATCH_WORD_WITH_PICTURE
+        "listenAndSelectWord" -> ModuleID.LISTEN_AND_SELECT
+        "wordJigsaw" -> ModuleID.WORD_JIGSAW
+        "articlesA_An", "articlesA_AnExample" -> ModuleID.ARTICLES_A_AN
+        "sightWords" -> ModuleID.SIGHT_WORDS
+        "articleChoice" -> ModuleID.ARTICLES_CHOICE
+        "sightWordChoice" -> ModuleID.SIGHT_WORD_CHOICE
+        "missingLetter5_7" -> ModuleID.MISSING_LETTER_57
+
+        "readAndListenSentence" -> ModuleID.READ_LISTEN
+        "oneWordAnswer" -> ModuleID.ONE_WORD_ANSWER
+        "fillTheMissingWord" -> ModuleID.FILL_MISSING_WORD
+        "matchThePicture" -> ModuleID.MATCH_THE_PICTURE
+        "whichSentenceSoundsRight" -> ModuleID.WHICH_SENTENCE_RIGHT
+        "findTheCorrectWriting" -> ModuleID.FIND_CORRECT_WRITING
+        "sentenceCheck" -> ModuleID.SENTENCE_CHECK
+        "buildTheSentence" -> ModuleID.SENTENCE_BUILDER
+
+        else -> ""
     }
 }

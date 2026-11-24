@@ -21,6 +21,7 @@ import com.example.myapplication.main.age_category.MainLearningAgesCategoriesScr
 import com.example.myapplication.main.onboarding.OnboardingScreen
 import com.example.myapplication.main.base.notification.NotificationCommand
 import com.example.myapplication.main.base.notification.PendingNotificationRoute
+import com.example.myapplication.main.common.sheets.LocalAccessSheetViewModel
 import com.example.myapplication.main.age_group.AgeGroup3to5Page
 import com.example.myapplication.main.age_group.AgeGroup5to7Page
 import com.example.myapplication.main.age_group.AgeGroup6to8Page
@@ -205,16 +206,22 @@ fun AppNavGraph(
     onOnboardingSeen: () -> Unit = {}
 ) {
     val context = LocalContext.current
+    val accessVM = LocalAccessSheetViewModel.current
 
     LaunchedEffect(Unit) {
         PendingNotificationRoute.commands.collect { command ->
             when (command) {
                 is NotificationCommand.Navigate -> {
-                    navController.navigate(command.route) {
-                        popUpTo(RouteNavigation.AgeCategories.route) { inclusive = false }
-                        launchSingleTop = true
-                    }
                     PendingNotificationRoute.clear()
+                    // Same gate as the home tiles: paywall for premium modules,
+                    // daily limit for free ones. Blocked → the sheet shows instead.
+                    val allowed = command.moduleId.isEmpty() || accessVM.checkAccess(command.moduleId)
+                    if (allowed) {
+                        navController.navigate(command.route) {
+                            popUpTo(RouteNavigation.AgeCategories.route) { inclusive = false }
+                            launchSingleTop = true
+                        }
+                    }
                 }
                 is NotificationCommand.OpenLink -> {
                     runCatching {

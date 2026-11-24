@@ -6,7 +6,8 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 
 sealed interface NotificationCommand {
-    data class Navigate(val route: String) : NotificationCommand
+    /** [moduleId] is checked against the paywall / daily limit before navigating (empty = free entry). */
+    data class Navigate(val route: String, val moduleId: String = "") : NotificationCommand
     data class OpenLink(val url: String) : NotificationCommand
 }
 

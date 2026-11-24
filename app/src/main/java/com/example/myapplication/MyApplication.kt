@@ -110,7 +110,9 @@ class MyApplication : Application(), Configuration.Provider {
                     }
                     notification.type.isNotEmpty() -> {
                         NotificationRouteMapper.routeFromType(notification.type)?.let { route ->
-                            PendingNotificationRoute.emit(NotificationCommand.Navigate(route))
+                            PendingNotificationRoute.emit(
+                                NotificationCommand.Navigate(route, NotificationRouteMapper.moduleIdFromType(notification.type))
+                            )
                         }
                     }
                 }
