@@ -18,6 +18,7 @@ import com.example.myapplication.data.model.getSentenceLevel
 import com.example.myapplication.data.model.getSentenceUnit
 import com.example.myapplication.data.model.getUnitSelectionScreen
 import com.example.myapplication.main.age_category.MainLearningAgesCategoriesScreen
+import com.example.myapplication.main.onboarding.OnboardingScreen
 import com.example.myapplication.main.base.notification.NotificationCommand
 import com.example.myapplication.main.base.notification.PendingNotificationRoute
 import com.example.myapplication.main.age_group.AgeGroup3to5Page
@@ -198,7 +199,11 @@ import com.example.myapplication.main.age_group.from_6_to_8.mixed_grammar_challe
 import com.google.gson.Gson
 
 @Composable
-fun AppNavGraph(navController: NavHostController) {
+fun AppNavGraph(
+    navController: NavHostController,
+    startDestination: String = RouteNavigation.AgeCategories.route,
+    onOnboardingSeen: () -> Unit = {}
+) {
     val context = LocalContext.current
 
     LaunchedEffect(Unit) {
@@ -227,8 +232,18 @@ fun AppNavGraph(navController: NavHostController) {
 
     NavHost(
         navController = navController,
-        startDestination = RouteNavigation.AgeCategories.route
+        startDestination = startDestination
     ) {
+        // First-launch tutorial (pure onboarding — no auto-paywall, per Families policy)
+        composable(RouteNavigation.Onboarding.route) {
+            OnboardingScreen(onFinish = {
+                onOnboardingSeen()
+                navController.navigate(RouteNavigation.AgeCategories.route) {
+                    popUpTo(RouteNavigation.Onboarding.route) { inclusive = true }
+                    launchSingleTop = true
+                }
+            })
+        }
         // Home
         composable(RouteNavigation.AgeCategories.route) {
             MainLearningAgesCategoriesScreen(navController)

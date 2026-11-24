@@ -2,6 +2,7 @@ package com.example.myapplication.main.base.nav
 
 sealed class RouteNavigation(val route: String) {
 
+    object Onboarding : RouteNavigation("Onboarding")   // first-launch tutorial
     object AgeCategories : RouteNavigation("AgeCategories")
     object Settings : RouteNavigation("Settings")
     object ParentProgress : RouteNavigation("ParentProgress")

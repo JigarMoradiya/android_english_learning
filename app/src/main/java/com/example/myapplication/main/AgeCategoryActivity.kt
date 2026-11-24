@@ -15,12 +15,14 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.data.model.DeviceInfo
 import com.example.myapplication.main.base.nav.AppNavGraph
+import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.base.BaseActivity
 import com.example.myapplication.main.common.sheets.AccessBottomSheetHost
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.data.auth.AuthManager
 import com.example.myapplication.utilities.BGMusicManager
 import com.example.myapplication.utilities.TextToSpeechManager
+import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.example.myapplication.utils.AudioPlayerManager
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,6 +38,9 @@ class AgeCategoryActivity : BaseActivity() {
 
     @Inject
     lateinit var authManager: AuthManager
+
+    @Inject
+    lateinit var prefs: AppPreferencesHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,6 +75,23 @@ class AgeCategoryActivity : BaseActivity() {
             // initialize audio player
             AudioPlayerManager.init(this)
 
+            // Review only (debuggable builds): `--ei onb_start N [--ez onb_done true]` opens the
+            // onboarding at page N, optionally already solved, without replaying the flow.
+            val debuggable = (applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
+            val onbStart = intent.getIntExtra("onb_start", -1)
+            if (debuggable && onbStart >= 0) {
+                com.example.myapplication.main.onboarding.OnboardingDebug.force = true
+                com.example.myapplication.main.onboarding.OnboardingDebug.startPage = onbStart
+                com.example.myapplication.main.onboarding.OnboardingDebug.forceDone = intent.getBooleanExtra("onb_done", false)
+            }
+
+            // Show the first-launch tutorial only until the user has seen it once.
+            val startDestination = if (prefs.isOnboardingSeen() && !com.example.myapplication.main.onboarding.OnboardingDebug.force) {
+                RouteNavigation.AgeCategories.route
+            } else {
+                RouteNavigation.Onboarding.route
+            }
+
             setContent {
                 val navController = rememberNavController()
                 MyApplicationTheme {
@@ -78,7 +100,11 @@ class AgeCategoryActivity : BaseActivity() {
                         color = MaterialTheme.colorScheme.background
                     ) {
                         AccessBottomSheetHost {
-                            AppNavGraph(navController = navController)
+                            AppNavGraph(
+                                navController = navController,
+                                startDestination = startDestination,
+                                onOnboardingSeen = { prefs.setOnboardingSeen(true) }
+                            )
                         }
                     }
                 }

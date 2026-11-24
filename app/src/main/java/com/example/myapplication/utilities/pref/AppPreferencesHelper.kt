@@ -21,6 +21,9 @@ class AppPreferencesHelper @Inject constructor(
         const val KEY_BG_MUSIC_VOLUME = "KEY_BG_MUSIC_VOLUME"
         const val KEY_SIGHT_WORD_INDEX = "sight_word_index"
 
+        // first-launch onboarding tutorial
+        const val KEY_ONBOARDING_SEEN = "onboarding_seen"
+
         // trial offer tracking
         const val KEY_TRIAL_OFFER_SHOWN_FIRST_LAUNCH  = "trial_offer_shown_first_launch"
         const val KEY_TRIAL_OFFER_SHOWN_AFTER_LOGIN    = "trial_offer_shown_after_first_login"
@@ -68,6 +71,9 @@ class AppPreferencesHelper @Inject constructor(
         putFloat(paramName, paramValue)
     }
 
+
+    fun isOnboardingSeen(): Boolean = getCustomParamBoolean(KEY_ONBOARDING_SEEN, false)
+    fun setOnboardingSeen(seen: Boolean) = setCustomParamBoolean(KEY_ONBOARDING_SEEN, seen)
 
     fun isTrialOfferShownOnFirstLaunch(): Boolean = getCustomParamBoolean(KEY_TRIAL_OFFER_SHOWN_FIRST_LAUNCH, false)
     fun setTrialOfferShownOnFirstLaunch(shown: Boolean) = setCustomParamBoolean(KEY_TRIAL_OFFER_SHOWN_FIRST_LAUNCH, shown)
