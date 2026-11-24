@@ -46,6 +46,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Density
@@ -364,7 +369,7 @@ fun MainLearningAgesCategoriesScreen(
                         }
                     }
 
-                    // Footer — today's letter bottom-left, abacus promo bottom-right
+                    // Footer — today's letter bottom-left, MindMingle promo bottom-right
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -385,7 +390,7 @@ fun MainLearningAgesCategoriesScreen(
                             }
                         )
                         Spacer(modifier = Modifier.weight(1f))
-                        AbacusBanner(onClick = { showPromoGate = true })
+                        MindMingleBanner(onClick = { showPromoGate = true })
                     }
                 }
             }
@@ -409,7 +414,7 @@ fun MainLearningAgesCategoriesScreen(
                     showPromoGate = false
                     runCatching {
                         val intent = Intent(Intent.ACTION_VIEW).apply {
-                            data = "https://play.google.com/store/apps/details?id=com.abacus.puzzle&hl=en".toUri()
+                            data = "https://play.google.com/store/apps/details?id=com.vedaavi.mindmingle".toUri()
                             addCategory(Intent.CATEGORY_BROWSABLE)
                         }
                         context.startActivity(intent)
@@ -855,10 +860,23 @@ private fun TodayLetterCard(letter: Char, onClick: () -> Unit) {
     }
 }
 
-// ── Abacus Banner ─────────────────────────────────────────────────────────────
+// ── MindMingle Banner ─────────────────────────────────────────────────────────
+
+// MindMingle's own game font (Baloo 2, OFL) — only for its cross-promo card.
+private val MindMingleTitleStyle = TextStyle(
+    fontFamily = FontFamily(Font(R.font.baloo2_extrabold)),
+    fontSize = 13.sp,
+    lineHeight = 16.sp
+)
+private val MindMingleTaglineStyle = TextStyle(
+    fontFamily = FontFamily(Font(R.font.baloo2_bold)),
+    fontSize = 13.sp,
+    lineHeight = 16.sp,
+    shadow = Shadow(color = Color.Black.copy(alpha = 0.25f), offset = Offset(0f, 2f), blurRadius = 0f)
+)
 
 @Composable
-private fun AbacusBanner(onClick: () -> Unit) {
+private fun MindMingleBanner(onClick: () -> Unit) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
     val scale by animateFloatAsState(
@@ -877,14 +895,14 @@ private fun AbacusBanner(onClick: () -> Unit) {
                 elevation = Dimens4,
                 shape = RoundedCornerShape(Dimens12),
                 clip = false,
-                ambientColor = Color(0xFF3D52D5).copy(alpha = 0.35f),
-                spotColor = Color(0xFF3D52D5).copy(alpha = 0.35f)
+                ambientColor = Color(0xFF6A3FC0).copy(alpha = 0.35f),
+                spotColor = Color(0xFF6A3FC0).copy(alpha = 0.35f)
             )
             .background(
                 brush = Brush.horizontalGradient(
                     listOf(
-                        Color(0xFF3949AB),
-                        Color(0xFF5568D8)
+                        Color(0xFF6A3FC0),
+                        Color(0xFF9368E0)
                     )
                 ),
                 shape = RoundedCornerShape(Dimens12)
@@ -906,22 +924,20 @@ private fun AbacusBanner(onClick: () -> Unit) {
         horizontalArrangement = Arrangement.spacedBy(Dimens6)
     ) {
         Image(
-            painter = painterResource(R.drawable._abacus_logo),
+            painter = painterResource(R.drawable._mindmingle_logo),
             contentDescription = null,
             modifier = Modifier.size(24.dp.scaled())
         )
-        Column(verticalArrangement = Arrangement.spacedBy(1.dp)) {
+        Column(verticalArrangement = Arrangement.spacedBy((-2).dp)) {
             Text(
-                text = "Also try: Abacus Math! 🧮",
+                text = "Also try: MindMingle! 🧠",
                 color = Color.White,
-                style = MaterialTheme.typography.labelSmall.scaled(),
-                fontWeight = FontWeight.Bold
+                style = MindMingleTitleStyle.scaled()
             )
             Text(
-                text = "Fun counting for kids",
-                color = Color.White.copy(alpha = 0.82f),
-                style = MaterialTheme.typography.labelSmall.scaled(),
-                fontWeight = FontWeight.Medium
+                text = "Train your brain with math",
+                color = Color(0xFFFFE27A),
+                style = MindMingleTaglineStyle.scaled()
             )
         }
         Icon(
