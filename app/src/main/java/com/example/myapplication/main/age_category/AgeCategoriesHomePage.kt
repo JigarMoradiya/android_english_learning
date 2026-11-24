@@ -356,7 +356,6 @@ fun MainLearningAgesCategoriesScreen(
                                         indication = null
                                     ) {
                                         AudioPlayerManager.playSoundMenuClick()
-                                        accessVM.showTrialOfferIfNeededOnFirstLaunch()
                                         navController.navigate(category.destination)
                                     }
                             )
