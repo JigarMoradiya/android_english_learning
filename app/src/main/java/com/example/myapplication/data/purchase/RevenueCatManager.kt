@@ -61,7 +61,8 @@ class RevenueCatManager @Inject constructor(
      * entitlements change (purchase, restore, renewal, expiry).
      */
     fun initialize() {
-        Purchases.logLevel = LogLevel.DEBUG  // set to LogLevel.ERROR in production
+        val debuggable = (context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
+        Purchases.logLevel = if (debuggable) LogLevel.DEBUG else LogLevel.ERROR
         Purchases.configure(
             PurchasesConfiguration.Builder(context, REVENUECAT_API_KEY).build()
         )

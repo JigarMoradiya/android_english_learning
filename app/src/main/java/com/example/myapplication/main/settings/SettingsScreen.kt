@@ -81,6 +81,8 @@ fun SettingsScreen(
     rememberCoroutineScope()
     val context = LocalContext.current
     var showRateSheet by remember { mutableStateOf(false) }
+    // Links that leave the app run only after the parental gate (Families / Kids rules).
+    var pendingOutbound by remember { mutableStateOf<(() -> Unit)?>(null) }
 
     LaunchedEffect(navigateToParentProgress) {
         if (navigateToParentProgress) {
@@ -132,10 +134,12 @@ fun SettingsScreen(
                         viewModel.requestParentalGate(SettingsViewModel.ParentalAction.ParentProgress)
                     },
                     onAccessPlan = { navController.navigate(RouteNavigation.AccessPlan.route) },
-                    onRateApp = { showRateSheet = true },
+                    onRateApp = { pendingOutbound = { showRateSheet = true } },
                     onPrivacyPolicy = {
-                        val uri = "https://docs.google.com/document/d/1dfclCk6Hklv-RbiYi5EYbdx5i65g0YPv/".toUri()
-                        context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, uri))
+                        pendingOutbound = {
+                            val uri = "https://docs.google.com/document/d/1dfclCk6Hklv-RbiYi5EYbdx5i65g0YPv/".toUri()
+                            context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, uri))
+                        }
                     }
                 )
 
@@ -159,6 +163,13 @@ fun SettingsScreen(
             ParentalGateDialog(
                 onPassed    = { viewModel.executeAction() },
                 onCancelled = { viewModel.dismissParentalGate() }
+            )
+        }
+
+        pendingOutbound?.let { action ->
+            ParentalGateDialog(
+                onPassed    = { pendingOutbound = null; action() },
+                onCancelled = { pendingOutbound = null }
             )
         }
 

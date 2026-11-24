@@ -153,6 +153,8 @@ fun MainLearningAgesCategoriesScreen(
     val phonicsDone by viewModel.phonicsDone.collectAsState()
     val context = LocalContext.current
     var showParentalGate by remember { mutableStateOf(false) }
+    // Links that leave the app go behind the parental gate (Families / Kids rules).
+    var showPromoGate by remember { mutableStateOf(false) }
     var showPhonicsComingSoon by remember { mutableStateOf(false) }
     val accessVM = LocalAccessSheetViewModel.current
     val scope = rememberCoroutineScope()
@@ -383,7 +385,7 @@ fun MainLearningAgesCategoriesScreen(
                             }
                         )
                         Spacer(modifier = Modifier.weight(1f))
-                        AbacusBanner(context = context)
+                        AbacusBanner(onClick = { showPromoGate = true })
                     }
                 }
             }
@@ -398,6 +400,22 @@ fun MainLearningAgesCategoriesScreen(
                     navController.navigate(RouteNavigation.ParentProgress.route)
                 },
                 onCancelled = { showParentalGate = false }
+            )
+        }
+
+        if (showPromoGate) {
+            ParentalGateDialog(
+                onPassed = {
+                    showPromoGate = false
+                    runCatching {
+                        val intent = Intent(Intent.ACTION_VIEW).apply {
+                            data = "https://play.google.com/store/apps/details?id=com.abacus.puzzle&hl=en".toUri()
+                            addCategory(Intent.CATEGORY_BROWSABLE)
+                        }
+                        context.startActivity(intent)
+                    }
+                },
+                onCancelled = { showPromoGate = false }
             )
         }
 
@@ -840,7 +858,7 @@ private fun TodayLetterCard(letter: Char, onClick: () -> Unit) {
 // ── Abacus Banner ─────────────────────────────────────────────────────────────
 
 @Composable
-private fun AbacusBanner(context: Context) {
+private fun AbacusBanner(onClick: () -> Unit) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
     val scale by animateFloatAsState(
@@ -880,13 +898,8 @@ private fun AbacusBanner(context: Context) {
                 )
             }
             .clickable(interactionSource = interactionSource, indication = null) {
-                runCatching {
-                    val intent = Intent(Intent.ACTION_VIEW).apply {
-                        data = "https://play.google.com/store/apps/details?id=com.abacus.puzzle&hl=en".toUri()
-                        addCategory(Intent.CATEGORY_BROWSABLE)
-                    }
-                    context.startActivity(intent)
-                }
+                AudioPlayerManager.playSoundMenuClick()
+                onClick()
             }
             .padding(horizontal = Dimens10, vertical = Dimens6),
         verticalAlignment = Alignment.CenterVertically,
