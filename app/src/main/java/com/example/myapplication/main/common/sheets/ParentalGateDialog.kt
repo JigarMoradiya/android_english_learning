@@ -48,7 +48,7 @@ import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 /**
- * Parental gate overlay — shown before login or purchase screens.
+ * Parental gate overlay — shown before purchase screens.
  * Required by Apple Kids category guidelines.
  *
  * Presents a simple addition question. Wrong answer → shake + regenerate.

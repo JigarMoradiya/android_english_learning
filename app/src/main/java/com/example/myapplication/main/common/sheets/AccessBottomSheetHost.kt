@@ -20,7 +20,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.myapplication.ui.theme.AppDimens.PaywallSheetHeightFraction
-import com.example.myapplication.utils.extensions.findActivity
 
 /**
  * CompositionLocal that gives any screen access to [AccessSheetViewModel].
@@ -44,8 +43,8 @@ val LocalAccessSheetViewModel = compositionLocalOf<AccessSheetViewModel> {
 /**
  * Wraps the entire NavGraph.
  * - Provides [LocalAccessSheetViewModel] to all children.
- * - Renders Daily Limit / Login / Paywall sheets.
- * - Overlays the Parental Gate before Login or Paywall.
+ * - Renders Daily Limit / Paywall / Premium Celebration sheets.
+ * - Overlays the Parental Gate before the Paywall.
  */
 @Composable
 fun AccessBottomSheetHost(
@@ -90,24 +89,6 @@ fun AccessBottomSheetHost(
                     onDismiss = { viewModel.dismiss() }
                 )
             }
-        }
-
-        // ── Login Sheet ───────────────────────────────────────────────
-        KidsBottomSheet(
-            visible = sheetState is AccessSheetState.Login,
-            onDismiss = { viewModel.dismiss() }
-        ) {
-            LoginSheet(
-                isLoading = isLoading,
-                onGoogleSignIn = { activity?.let { viewModel.signInWithGoogle(it) } },
-//                onAppleSignIn  = { activity?.let { viewModel.signInWithApple(it) } },
-                onAppleSignIn = {
-                    context.findActivity()?.let {
-                        viewModel.signInWithApple(it)
-                    }
-                },
-                onDismiss = { viewModel.dismiss() }
-            )
         }
 
         // ── Paywall Sheet — slightly taller to fit plan rows + restore link ──

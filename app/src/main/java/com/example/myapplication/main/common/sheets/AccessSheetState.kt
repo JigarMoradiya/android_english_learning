@@ -13,9 +13,6 @@ sealed class AccessSheetState {
         val moduleId: String
     ) : AccessSheetState()
 
-    /** Optional sign-in, reached only from Settings — nothing requires it. */
-    data class Login(val moduleId: String) : AccessSheetState()
-
     /** Content requires a premium subscription. */
     data class Paywall(val moduleId: String) : AccessSheetState()
 

@@ -1,14 +1,15 @@
 package com.example.myapplication.data.purchase
 
 import android.content.Context
+import com.example.myapplication.data.access.AccessManager
+import com.example.myapplication.data.access.UserAccessState
 import com.revenuecat.purchases.CustomerInfo
 import com.revenuecat.purchases.LogLevel
 import com.revenuecat.purchases.Purchases
 import com.revenuecat.purchases.PurchasesConfiguration
+import com.revenuecat.purchases.interfaces.UpdatedCustomerInfoListener
 import com.revenuecat.purchases.getCustomerInfoWith
 import com.revenuecat.purchases.getOfferingsWith
-import com.revenuecat.purchases.logInWith
-import com.revenuecat.purchases.logOutWith
 import com.revenuecat.purchases.restorePurchasesWith
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -20,9 +21,8 @@ import kotlin.coroutines.resume
  * Wraps the RevenueCat SDK.
  *
  * Responsibilities:
- *  - Initialize SDK on app start
- *  - Identify user (link Firebase UID to RevenueCat)
- *  - Check premium entitlement status
+ *  - Initialize SDK on app start (anonymous RevenueCat ID — there is no sign-in)
+ *  - Keep [AccessManager] in sync with the premium entitlement
  *  - Restore purchases
  *
  * ── SETUP REQUIRED ──────────────────────────────────────────────────
@@ -36,7 +36,8 @@ import kotlin.coroutines.resume
  */
 @Singleton
 class RevenueCatManager @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val accessManager: AccessManager
 ) {
 
     companion object {
@@ -55,43 +56,29 @@ class RevenueCatManager @Inject constructor(
 
     /**
      * Call once from MyApplication.onCreate().
-     * Sets up the RevenueCat SDK before any other usage.
+     * Sets up the RevenueCat SDK, then keeps the app's Premium state in sync:
+     * the listener fires with cached info on launch and again whenever
+     * entitlements change (purchase, restore, renewal, expiry).
      */
     fun initialize() {
         Purchases.logLevel = LogLevel.DEBUG  // set to LogLevel.ERROR in production
         Purchases.configure(
             PurchasesConfiguration.Builder(context, REVENUECAT_API_KEY).build()
         )
+        Purchases.sharedInstance.updatedCustomerInfoListener =
+            UpdatedCustomerInfoListener { info -> applyCustomerInfo(info) }
+        Purchases.sharedInstance.getCustomerInfoWith(
+            onError   = { },
+            onSuccess = { info -> applyCustomerInfo(info) }
+        )
     }
 
-    // ── User identity ─────────────────────────────────────────────────
-
-    /**
-     * Links the Firebase UID to RevenueCat so purchases sync across
-     * devices and platforms. Call after every successful sign-in.
-     * Returns fresh CustomerInfo from the logIn response — use it directly
-     * to avoid a second network round-trip.
-     */
-    suspend fun identify(userId: String): CustomerInfo? =
-        suspendCancellableCoroutine { cont ->
-            Purchases.sharedInstance.logInWith(
-                appUserID = userId,
-                onError   = { cont.resume(null) },
-                onSuccess = { customerInfo, _ -> cont.resume(customerInfo) }
-            )
-        }
-
-    /**
-     * Resets the RevenueCat identity on sign-out.
-     * Creates an anonymous user so the app still works without login.
-     */
-    suspend fun reset(): Boolean =
-        suspendCancellableCoroutine { cont ->
-            Purchases.sharedInstance.logOutWith(
-                onError   = { cont.resume(false) },
-                onSuccess = { cont.resume(true) }
-            )
-        }
+    /** Pushes the entitlement in [info] into [AccessManager]. */
+    fun applyCustomerInfo(info: CustomerInfo) {
+        accessManager.updateUserState(
+            if (info.isPremiumActive()) UserAccessState.Premium else UserAccessState.Free
+        )
+    }
 
     // ── Entitlement check ─────────────────────────────────────────────
 
@@ -143,15 +130,18 @@ class RevenueCatManager @Inject constructor(
     // ── Restore purchases ─────────────────────────────────────────────
 
     /**
-     * Restores purchases for the current user (e.g. after reinstall or
-     * switching to a new device with the same account).
+     * Restores purchases tied to the device's Play account (e.g. after a
+     * reinstall or on a new device) and updates [AccessManager].
      * Returns true if any entitlement was restored.
      */
     suspend fun restorePurchases(): Boolean =
         suspendCancellableCoroutine { cont ->
             Purchases.sharedInstance.restorePurchasesWith(
                 onError   = { cont.resume(false) },
-                onSuccess = { info -> cont.resume(info.isPremiumActive()) }
+                onSuccess = { info ->
+                    applyCustomerInfo(info)
+                    cont.resume(info.isPremiumActive())
+                }
             )
         }
 

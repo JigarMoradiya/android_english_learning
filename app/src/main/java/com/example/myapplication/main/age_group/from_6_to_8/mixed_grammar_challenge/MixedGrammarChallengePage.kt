@@ -78,7 +78,7 @@ fun MixedGrammarChallengePage(navController: NavController) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Spacer(Modifier.weight(1f))
-                    // Beginner: FREE_LIMITED — 3/day guest, 5/day login, unlimited premium
+                    // Beginner: FREE_LIMITED — daily limit for free users, unlimited premium
                     KidsActivityCard(
                         size = size,
                         title = "Beginner",

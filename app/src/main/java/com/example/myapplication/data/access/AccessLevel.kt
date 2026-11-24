@@ -3,7 +3,7 @@ package com.example.myapplication.data.access
 /**
  * Defines who can access a module and how.
  *
- * FREE            → always accessible, no login, no limit
+ * FREE            → always accessible, no limit
  * FREE_LIMITED    → accessible to all; counts toward the global daily activity limit
  *                   (same limit for every user, sourced from Remote Config).
  * PREMIUM         → active subscription required

@@ -117,14 +117,6 @@ dependencies {
     // DataStore — for daily limit tracking
     implementation(libs.datastore.preferences)
 
-    // Firebase Auth
-    implementation(libs.firebase.auth)
-
-    // Credential Manager (modern Google Sign-In — replaces deprecated GoogleSignInClient)
-    implementation(libs.credentials)
-    implementation(libs.credentials.play.services.auth)
-    implementation(libs.googleid)
-
     // RevenueCat — subscription management
     implementation(libs.revenuecat)
     implementation(libs.revenuecat.ui)

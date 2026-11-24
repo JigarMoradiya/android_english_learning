@@ -9,8 +9,6 @@ import com.example.myapplication.data.access.AccessResult
 import com.example.myapplication.data.access.DailyLimitManager
 import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.data.access.UserAccessState
-import com.example.myapplication.data.auth.AuthManager
-import com.example.myapplication.data.auth.AuthResult
 import com.example.myapplication.data.purchase.PurchaseManager
 import com.example.myapplication.data.purchase.RevenueCatManager
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
@@ -31,7 +29,6 @@ private const val TAG = "AccessSheetVM"
 @HiltViewModel
 class AccessSheetViewModel @Inject constructor(
     private val accessManager: AccessManager,
-    private val authManager: AuthManager,
     private val purchaseManager: PurchaseManager,
     private val reviewManager: ReviewManager,
     private val revenueCatManager: RevenueCatManager,
@@ -59,13 +56,13 @@ class AccessSheetViewModel @Inject constructor(
     private var pendingStateAfterGate: AccessSheetState = AccessSheetState.Hidden
 
     /**
-     * Use this instead of setting _sheetState directly for Login and Paywall.
+     * Use this instead of setting _sheetState directly for the Paywall.
      * Intercepts with the parental gate; other states set directly.
      */
     fun requestState(newState: AccessSheetState) {
         if (accessManager.isDevMode) return
         when (newState) {
-            is AccessSheetState.Login, is AccessSheetState.Paywall -> {
+            is AccessSheetState.Paywall -> {
                 pendingStateAfterGate = newState
                 _showParentalGate.value = true
             }
@@ -85,7 +82,7 @@ class AccessSheetViewModel @Inject constructor(
         pendingStateAfterGate = AccessSheetState.Hidden
     }
 
-    // ── Loading (purchase / sign-in in progress) ──────────────────────
+    // ── Loading (purchase / restore in progress) ──────────────────────
 
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
@@ -152,38 +149,6 @@ class AccessSheetViewModel @Inject constructor(
         _sheetState.value = AccessSheetState.Hidden
     }
 
-    // ── Google Sign-In ────────────────────────────────────────────────
-
-    fun signInWithGoogle(activity: Activity) {
-        viewModelScope.launch {
-            _isLoading.value = true
-            when (val result = authManager.signInWithGoogle(activity)) {
-                is AuthResult.Success  -> onSignInSuccess()
-                is AuthResult.Cancelled -> Unit
-                is AuthResult.Error    -> _message.emit(result.message)
-                is AuthResult.NeedsAccountLinking ->
-                    _message.emit("Account already exists with ${result.existingProvider}. Please use that to sign in.")
-            }
-            _isLoading.value = false
-        }
-    }
-
-    // ── Apple Sign-In ─────────────────────────────────────────────────
-
-    fun signInWithApple(activity: Activity) {
-        viewModelScope.launch {
-            _isLoading.value = true
-            when (val result = authManager.signInWithApple(activity)) {
-                is AuthResult.Success  -> onSignInSuccess()
-                is AuthResult.Cancelled -> Unit
-                is AuthResult.Error    -> _message.emit(result.message)
-                is AuthResult.NeedsAccountLinking ->
-                    _message.emit("Account already exists with ${result.existingProvider}. Please use that to sign in.")
-            }
-            _isLoading.value = false
-        }
-    }
-
     // ── Purchase ──────────────────────────────────────────────────────
 
     fun purchase(activity: Activity, packageToPurchase: Package) {
@@ -230,24 +195,6 @@ class AccessSheetViewModel @Inject constructor(
 
     // ── Private helpers ───────────────────────────────────────────────
 
-    /** After sign-in succeeds, re-check the original module (if any). */
-    private suspend fun onSignInSuccess() {
-        val currentState = _sheetState.value
-        val moduleId = when (currentState) {
-            is AccessSheetState.Login      -> currentState.moduleId
-            is AccessSheetState.DailyLimit -> currentState.moduleId
-            else -> { dismiss(); return }
-        }
-        when (accessManager.checkAccess(moduleId)) {
-            is AccessResult.Allowed          -> dismiss()
-            is AccessResult.SubscribeRequired -> {
-                _sheetState.value = AccessSheetState.Paywall(moduleId)
-                loadOfferings()
-            }
-            else -> dismiss()
-        }
-    }
-
     private fun loadOfferings() {
         viewModelScope.launch {
             val offerings = purchaseManager.getOfferings()
@@ -261,8 +208,7 @@ class AccessSheetViewModel @Inject constructor(
     // Families "Ad Format Requirements" treat purchase offers that are pushed to
     // children — unprompted, inside the content flow — as offers not clearly
     // distinguished from the app. The old first-launch and after-first-login trial
-    // paywalls did exactly that (the after-login one even bypassed the parental
-    // gate). The paywall now appears ONLY when the user deliberately chooses to
+    // paywalls did exactly that. The paywall now appears ONLY when the user deliberately chooses to
     // upgrade (a premium module, the Daily-Limit "Unlock", or Settings), and every
     // such path goes through the parental gate via [requestState].
 }

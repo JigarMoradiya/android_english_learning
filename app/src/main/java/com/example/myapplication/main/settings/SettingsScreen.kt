@@ -8,7 +8,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.filled.VolumeOff
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
@@ -19,7 +18,6 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.material3.*
-import androidx.compose.material3.HorizontalDivider
 import android.app.Activity
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
@@ -38,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.launch
+import com.example.myapplication.data.access.AppRemoteConfig
 import com.example.myapplication.data.access.UserAccessState
 import com.example.myapplication.main.base.nav.RouteNavigation
 import com.example.myapplication.main.common.BackButtonWithText
@@ -145,14 +144,10 @@ fun SettingsScreen(
                 AccountCard(
                     isRestoring = isRestoring,
                     restoreMessage = restoreMessage,
-                    isLoggedIn = userState.isLoggedIn,
                     onRestore = {
                         if (!isRestoring) {
                             viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Restore)
                         }
-                    },
-                    onLogout = {
-                        viewModel.requestParentalGate(SettingsViewModel.ParentalAction.Logout)
                     }
                 )
 
@@ -224,9 +219,8 @@ private fun UserStatusHeroCard(
     onUpgrade: () -> Unit
 ) {
     val (icon, name, type, desc) = when {
-        state.isPremium  -> Quad(Icons.Filled.Star,          "Premium ✨",   ButtonType.ORANGE,   "Full access to all activities")
-        // No sign-in in the app: guests and (older) signed-in free users get identical access.
-        else             -> Quad(Icons.Filled.Person,        "Free",         ButtonType.BLUE,     "3 activities/day")
+        state.isPremium  -> Quad(Icons.Filled.Star,          "Premium Plan ✨", ButtonType.ORANGE, "Full access to all activities")
+        else             -> Quad(Icons.Filled.Person,        "Free Plan",       ButtonType.BLUE,   "${AppRemoteConfig.dailyActivityLimit} free activities every day")
     }
     val colors = getButtonColors(type)
 
@@ -313,46 +307,46 @@ private fun UserStatusHeroCard(
                     } else {
                         Text(
                             text = desc,
-                            style = MaterialTheme.typography.bodyLarge.scaled(),
-                            color = Color.White.copy(alpha = 0.85f)
+                            style = MaterialTheme.typography.titleMedium.scaled(),
+                            fontWeight = FontWeight.Medium,
+                            color = Color.White.copy(alpha = 0.90f)
                         )
                     }
                 }
-            }
 
-            if (!state.isPremium) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .shadow(Dimens4, RoundedCornerShape(Dimens12))
-                        .clip(RoundedCornerShape(Dimens12))
-                        .background(Color.White)
-                        .clickable {
-                            AudioPlayerManager.playSoundMenuClick()
-                            onUpgrade()
-                        }
-                        .padding(vertical = Dimens10),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(Dimens6),
-                        verticalAlignment = Alignment.CenterVertically
+                // Compact upgrade pill, right side of the card
+                if (!state.isPremium) {
+                    Box(
+                        modifier = Modifier
+                            .shadow(Dimens4, RoundedCornerShape(Dimens12))
+                            .clip(RoundedCornerShape(Dimens12))
+                            .background(Color.White)
+                            .clickable {
+                                AudioPlayerManager.playSoundMenuClick()
+                                onUpgrade()
+                            }
+                            .padding(horizontal = Dimens16, vertical = Dimens10),
+                        contentAlignment = Alignment.Center
                     ) {
-                        Icon(
-                            imageVector = Icons.Filled.Star,
-                            contentDescription = null,
-                            tint = colors.base,
-                            modifier = Modifier.size(Dimens16)
-                        )
-                        Text(
-                            text = "Upgrade to Premium",
-                            style = MaterialTheme.typography.titleSmall.scaled(),
-                            fontWeight = FontWeight.Bold,
-                            color = colors.base
-                        )
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(Dimens6),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                imageVector = Icons.Filled.Star,
+                                contentDescription = null,
+                                tint = colors.base,
+                                modifier = Modifier.size(Dimens16)
+                            )
+                            Text(
+                                text = "Upgrade to Premium",
+                                style = MaterialTheme.typography.titleSmall.scaled(),
+                                fontWeight = FontWeight.Bold,
+                                color = colors.base
+                            )
+                        }
                     }
                 }
-
             }
         }
     }
@@ -556,9 +550,7 @@ private fun QuickActionCard(
 private fun AccountCard(
     isRestoring: Boolean,
     restoreMessage: String?,
-    isLoggedIn: Boolean,
-    onRestore: () -> Unit,
-    onLogout: () -> Unit
+    onRestore: () -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -575,20 +567,6 @@ private fun AccountCard(
                 iconColor = if (restoreMessage == "No active subscription found.") Color(0xFFE53935) else Color(0xFF43A047),
                 onClick = onRestore
             )
-            if (isLoggedIn) {
-                HorizontalDivider(
-                    modifier = Modifier.padding(horizontal = Dimens16),
-                    thickness = AppDimens.Dimens1,
-                    color = Color.Gray.copy(alpha = 0.2f)
-                )
-                AccountRow(
-                    icon = Icons.AutoMirrored.Filled.ExitToApp,
-                    title = "Log Out",
-                    subtitle = "Sign out of your account",
-                    iconColor = Color(0xFFE53935),
-                    onClick = onLogout
-                )
-            }
         }
     }
 }

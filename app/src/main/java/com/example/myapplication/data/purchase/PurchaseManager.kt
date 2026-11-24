@@ -1,10 +1,7 @@
 package com.example.myapplication.data.purchase
 
 import android.app.Activity
-import com.example.myapplication.data.access.AccessManager
 import com.example.myapplication.data.access.ReviewManager
-import com.example.myapplication.data.access.UserAccessState
-import com.google.firebase.auth.FirebaseAuth
 import com.revenuecat.purchases.Purchases
 import com.revenuecat.purchases.getCustomerInfoWith
 import com.revenuecat.purchases.getOfferingsWith
@@ -23,12 +20,11 @@ import kotlin.coroutines.resume
  *  - Load available subscription packages from RevenueCat offerings
  *  - Trigger a purchase flow for monthly or yearly plan
  *  - Restore previous purchases
- *  - Update AccessManager after any successful purchase
+ *  - Update AccessManager (via RevenueCatManager) after any successful purchase
  */
 @Singleton
 class PurchaseManager @Inject constructor(
     private val revenueCatManager: RevenueCatManager,
-    private val accessManager: AccessManager,
     private val reviewManager: ReviewManager
 ) {
 
@@ -81,11 +77,8 @@ class PurchaseManager @Inject constructor(
                 Purchases.sharedInstance.getCustomerInfoWith(
                     onError = { cont.resume(PurchaseResult.Success) },
                     onSuccess = { freshInfo ->
-                        // Prefer uid from local state, fall back to Firebase Auth
-                        val uid = accessManager.userState.value.userId
-                            ?: FirebaseAuth.getInstance().currentUser?.uid
-                        if (freshInfo.entitlements[RevenueCatManager.ENTITLEMENT_ID]?.isActive == true && uid != null) {
-                            accessManager.updateUserState(UserAccessState.PremiumUser(uid))
+                        revenueCatManager.applyCustomerInfo(freshInfo)
+                        if (freshInfo.entitlements[RevenueCatManager.ENTITLEMENT_ID]?.isActive == true) {
                             reviewManager.onPremiumPurchased()
                         }
                         cont.resume(PurchaseResult.Success)
@@ -98,43 +91,9 @@ class PurchaseManager @Inject constructor(
     // ── Restore ───────────────────────────────────────────────────────
 
     /**
-     * Restores previous purchases. Updates AccessManager if premium is found.
+     * Restores previous purchases from the device's store account.
+     * AccessManager is updated by RevenueCatManager.
      * Returns true if premium entitlement was restored.
-     *
-     * Two-step approach:
-     * 1. Standard RevenueCat restore (posts Google Play tokens to RC server).
-     * 2. Fallback: re-identify with Firebase UID so RC syncs the correct user's
-     *    entitlements — handles the case where the RC session drifted to anonymous
-     *    (e.g., after sign-out/reset or a failed identify call at login time).
      */
-    suspend fun restorePurchases(): Boolean {
-        // Step 1: standard Google Play restore
-        val restored = revenueCatManager.restorePurchases()
-        if (restored) {
-            grantPremiumToCurrentUser()
-            return true
-        }
-
-        // Step 2: re-identify with Firebase UID and check entitlements directly.
-        // Covers cross-platform subscriptions (iOS purchase) and anonymous→identified
-        // user mismatches where the Play token was already attributed to another RC alias.
-        val uid = FirebaseAuth.getInstance().currentUser?.uid
-            ?: accessManager.userState.value.userId
-        if (uid != null) {
-            val customerInfo = revenueCatManager.identify(uid)
-            if (customerInfo?.entitlements?.get(RevenueCatManager.ENTITLEMENT_ID)?.isActive == true) {
-                accessManager.updateUserState(UserAccessState.PremiumUser(uid))
-                return true
-            }
-        }
-        return false
-    }
-
-    private fun grantPremiumToCurrentUser() {
-        val uid = accessManager.userState.value.userId
-            ?: FirebaseAuth.getInstance().currentUser?.uid
-        if (uid != null) {
-            accessManager.updateUserState(UserAccessState.PremiumUser(uid))
-        }
-    }
+    suspend fun restorePurchases(): Boolean = revenueCatManager.restorePurchases()
 }

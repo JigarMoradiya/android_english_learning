@@ -13,7 +13,6 @@ import com.example.myapplication.data.access.DailyLimitManager
 import com.example.myapplication.data.access.ReviewManager
 import com.example.myapplication.utilities.pref.AppPreferencesHelper
 import com.example.myapplication.data.access.UserAccessState
-import com.example.myapplication.data.auth.AuthManager
 import com.example.myapplication.data.progress.SessionRepository
 import com.example.myapplication.data.purchase.PurchaseManager
 import com.example.myapplication.data.purchase.RevenueCatManager
@@ -37,7 +36,6 @@ data class SubscriptionInfo(
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
-    private val authManager: AuthManager,
     private val purchaseManager: PurchaseManager,
     private val accessManager: AccessManager,
     private val revenueCatManager: RevenueCatManager,
@@ -133,7 +131,7 @@ class SettingsViewModel @Inject constructor(
 
     // ── Parental gate ─────────────────────────────────────────────────────────
 
-    enum class ParentalAction { Logout, Restore, ParentProgress }
+    enum class ParentalAction { Restore, ParentProgress }
 
     private val _showParentalGate = MutableStateFlow(false)
     val showParentalGate: StateFlow<Boolean> = _showParentalGate.asStateFlow()
@@ -143,7 +141,7 @@ class SettingsViewModel @Inject constructor(
 
     fun consumeParentProgressNavigation() { _navigateToParentProgress.value = false }
 
-    private var pendingAction: ParentalAction = ParentalAction.Logout
+    private var pendingAction: ParentalAction = ParentalAction.Restore
 
     fun requestParentalGate(action: ParentalAction) {
         pendingAction = action
@@ -166,7 +164,6 @@ class SettingsViewModel @Inject constructor(
         _showParentalGate.value = false
         when (pendingAction) {
             ParentalAction.ParentProgress -> _navigateToParentProgress.value = true
-            ParentalAction.Logout -> authManager.signOut()
             ParentalAction.Restore -> viewModelScope.launch {
                 _isRestoring.value = true
                 _restoreMessage.value = null

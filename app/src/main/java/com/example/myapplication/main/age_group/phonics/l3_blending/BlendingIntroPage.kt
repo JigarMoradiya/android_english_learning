@@ -62,7 +62,7 @@ private val blueLight = Color(0xFFE3F2FD)
 @Composable
 fun BlendingIntroPage(navController: NavController) {
     // L1–L3 are free but count against the daily limit — check on every
-    // Learn/Practice/Listen start (login/limit sheets shown automatically).
+    // Learn/Practice/Listen start (limit/paywall sheets shown automatically).
     val accessVM = LocalAccessSheetViewModel.current
     val scope = rememberCoroutineScope()
     fun gated(action: () -> Unit) {

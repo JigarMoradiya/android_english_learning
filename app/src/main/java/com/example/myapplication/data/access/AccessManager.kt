@@ -38,12 +38,12 @@ class AccessManager @Inject constructor(
 
     // ── User state ────────────────────────────────────────────────────
 
-    private val _userState = MutableStateFlow<UserAccessState>(UserAccessState.Guest)
+    private val _userState = MutableStateFlow<UserAccessState>(UserAccessState.Free)
     val userState: StateFlow<UserAccessState> = _userState.asStateFlow()
 
     val isDevMode: Boolean get() = DEV_MODE
 
-    /** Called by AuthManager after login/logout/subscription change. */
+    /** Called by RevenueCatManager whenever the customer's entitlements change. */
     fun updateUserState(state: UserAccessState) {
         Log.d(TAG, "updateUserState → $state")
         _userState.value = state
