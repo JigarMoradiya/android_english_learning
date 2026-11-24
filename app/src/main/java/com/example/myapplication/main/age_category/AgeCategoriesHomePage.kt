@@ -46,6 +46,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -865,13 +866,13 @@ private fun TodayLetterCard(letter: Char, onClick: () -> Unit) {
 // MindMingle's own game font (Baloo 2, OFL) — only for its cross-promo card.
 private val MindMingleTitleStyle = TextStyle(
     fontFamily = FontFamily(Font(R.font.baloo2_extrabold)),
-    fontSize = 13.sp,
-    lineHeight = 16.sp
+    fontSize = 11.sp,
+    lineHeight = 14.sp
 )
 private val MindMingleTaglineStyle = TextStyle(
-    fontFamily = FontFamily(Font(R.font.baloo2_bold)),
-    fontSize = 13.sp,
-    lineHeight = 16.sp,
+    fontFamily = FontFamily(Font(R.font.baloo2_medium)),
+    fontSize = 11.sp,
+    lineHeight = 14.sp,
     shadow = Shadow(color = Color.Black.copy(alpha = 0.25f), offset = Offset(0f, 2f), blurRadius = 0f)
 )
 
@@ -926,7 +927,9 @@ private fun MindMingleBanner(onClick: () -> Unit) {
         Image(
             painter = painterResource(R.drawable._mindmingle_logo),
             contentDescription = null,
-            modifier = Modifier.size(24.dp.scaled())
+            modifier = Modifier
+                .size(24.dp.scaled())
+                .clip(RoundedCornerShape(6.dp))
         )
         Column(verticalArrangement = Arrangement.spacedBy((-2).dp)) {
             Text(
